@@ -8,11 +8,13 @@ import com.intellij.ml.llm.template.models.GPTExtractFunctionRequestProvider
 import com.intellij.ml.llm.template.models.LLMBaseResponse
 import com.intellij.ml.llm.template.models.LLMRequestProvider
 import com.intellij.ml.llm.template.models.sendChatRequest
+import com.intellij.ml.llm.template.prompts.ExtractMethodPrompt
 import com.intellij.ml.llm.template.prompts.fewShotExtractSuggestion
 import com.intellij.ml.llm.template.showEFNotification
 import com.intellij.ml.llm.template.telemetry.*
 import com.intellij.ml.llm.template.ui.ExtractFunctionPanel
 import com.intellij.ml.llm.template.utils.*
+import com.intellij.ml.llm.template.prompts.MethodPromptBase
 import com.intellij.notification.NotificationType
 import com.intellij.openapi.application.invokeLater
 import com.intellij.openapi.diagnostic.Logger
@@ -42,6 +44,8 @@ abstract class ApplyExtractFunctionTransformationIntention(
     private val codeTransformer = CodeTransformer()
     private val telemetryDataManager = EFTelemetryDataManager()
     private var llmResponseTime = 0L
+
+    var prompter: MethodPromptBase = ExtractMethodPrompt();
 
     init {
         codeTransformer.addObserver(EFLoggerObserver(logger))
@@ -82,7 +86,7 @@ abstract class ApplyExtractFunctionTransformationIntention(
 
     private fun invokeLlm(text: String, project: Project, editor: Editor, file: PsiFile) {
         logger.info("Invoking LLM with text: $text")
-        val messageList = fewShotExtractSuggestion(text)
+        val messageList = prompter.getPrompt(text)
 
         val task = object : Task.Backgroundable(
             project, LLMBundle.message("intentions.request.extract.function.background.process.title")

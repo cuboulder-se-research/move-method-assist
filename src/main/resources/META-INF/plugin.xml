@@ -34,6 +34,12 @@
             <bundleName>messages.LLMBundle</bundleName>
             <categoryKey>intention.category.extract.function</categoryKey>
         </intentionAction>
+        <intentionAction>
+            <className>com.intellij.ml.llm.template.intentions.ApplySuggestRefactoringIntention</className>
+            <bundleName>messages.LLMBundle</bundleName>
+            <categoryKey>intention.category.extract.function</categoryKey>
+            <!--            whats this-->
+        </intentionAction>
 
         <registryKey defaultValue="false"
                      description="If enabled, emulates requests instead of using OpenAI API. Used for debug purposes."

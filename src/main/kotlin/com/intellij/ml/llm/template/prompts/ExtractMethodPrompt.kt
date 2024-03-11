@@ -2,6 +2,12 @@ package com.intellij.ml.llm.template.prompts
 
 import com.intellij.ml.llm.template.models.openai.OpenAiChatMessage
 
+class ExtractMethodPrompt: MethodPromptBase() {
+    override fun getPrompt(methodCode: String): MutableList<OpenAiChatMessage> {
+        return fewShotExtractSuggestion(methodCode);
+    }
+
+}
 fun fewShotExtractSuggestion(methodCode: String) = mutableListOf(
     OpenAiChatMessage(
         "system",

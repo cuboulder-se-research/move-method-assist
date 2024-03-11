@@ -1,11 +1,13 @@
 package com.intellij.ml.llm.template.utils
 
+import com.google.gson.Gson
 import com.intellij.lang.Language
 import com.intellij.lang.java.JavaLanguage
 import com.intellij.ml.llm.template.LLMBundle
 import com.intellij.ml.llm.template.extractfunction.EFCandidate
 import com.intellij.ml.llm.template.extractfunction.EFSuggestion
 import com.intellij.ml.llm.template.extractfunction.EFSuggestionList
+import com.intellij.ml.llm.template.suggestrefactoring.RefactoringSuggestion
 import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.util.TextRange
@@ -72,15 +74,20 @@ fun replaceGithubUrlLineRange(githubUrl: String, lineStart: Int, lineEnd: Int): 
  *
  */
 fun identifyExtractFunctionSuggestions(input: String): EFSuggestionList {
-    val regex = """\{"function_name":\s*"([^"]+)",\s*"line_start":\s*(\d+),\s*"line_end":\s*(\d+)\}""".toRegex()
-    val matches = regex.findAll(input)
+    var refactoringSuggestion: RefactoringSuggestion;
+    try {
+        refactoringSuggestion= Gson().fromJson(input, RefactoringSuggestion::class.java)
+    } catch (e: Exception){
+        refactoringSuggestion = Gson().fromJson("{$input}", RefactoringSuggestion::class.java)
+    }
+
     val efSuggestions = mutableListOf<EFSuggestion>()
-    for (match in matches) {
+    for (suggestion in refactoringSuggestion.improvements) {
         efSuggestions.add(
             EFSuggestion(
-                functionName = match.groupValues[1],
-                lineStart = match.groupValues[2].toInt(),
-                lineEnd = match.groupValues[3].toInt(),
+                functionName = "newMethod",
+                lineStart = suggestion.start,
+                lineEnd = suggestion.end,
             )
         )
     }
