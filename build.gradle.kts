@@ -8,6 +8,11 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
     testImplementation("org.mongodb:mongodb-driver-sync:4.9.0") // added this line for MongoDB driver
     implementation(kotlin("stdlib-jdk8"))
+//    2.162
+    implementation("ai.grazie.api:api-gateway-client-jvm:0.2.161")
+    // https://packages.jetbrains.team/maven/p/grazi/grazie-platform-public/ai/grazie/client/client-ktor-jvm/
+    implementation("ai.grazie.client:client-ktor:0.2.161")
+    testImplementation(kotlin("test"))
 }
 
 plugins {
@@ -22,6 +27,9 @@ version = properties("pluginVersion")
 
 repositories {
     mavenCentral()
+    maven {
+        url = uri("https://packages.jetbrains.team/maven/p/grazi/grazie-platform-public")
+    }
 }
 
 kotlin {
@@ -75,5 +83,8 @@ tasks {
                 )
             }
         })
+    }
+    test{
+
     }
 }
