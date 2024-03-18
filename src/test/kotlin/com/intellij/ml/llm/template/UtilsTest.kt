@@ -1,6 +1,6 @@
 package com.intellij.ml.llm.template
 
-import com.intellij.ml.llm.template.extractfunction.EFSuggestion
+import com.intellij.ml.llm.template.refactoringobjects.extractfunction.EFSuggestion
 import com.intellij.ml.llm.template.models.ExtractFunctionLLMRequestProvider
 import com.intellij.ml.llm.template.models.LLMRequestProvider
 import com.intellij.ml.llm.template.models.sendChatRequest

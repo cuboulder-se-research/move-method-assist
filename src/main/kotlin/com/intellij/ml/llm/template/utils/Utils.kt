@@ -4,9 +4,9 @@ import com.google.gson.Gson
 import com.intellij.lang.Language
 import com.intellij.lang.java.JavaLanguage
 import com.intellij.ml.llm.template.LLMBundle
-import com.intellij.ml.llm.template.extractfunction.EFCandidate
-import com.intellij.ml.llm.template.extractfunction.EFSuggestion
-import com.intellij.ml.llm.template.extractfunction.EFSuggestionList
+import com.intellij.ml.llm.template.refactoringobjects.extractfunction.EFCandidate
+import com.intellij.ml.llm.template.refactoringobjects.extractfunction.EFSuggestion
+import com.intellij.ml.llm.template.refactoringobjects.extractfunction.EFSuggestionList
 import com.intellij.ml.llm.template.suggestrefactoring.RefactoringSuggestion
 import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.editor.Editor

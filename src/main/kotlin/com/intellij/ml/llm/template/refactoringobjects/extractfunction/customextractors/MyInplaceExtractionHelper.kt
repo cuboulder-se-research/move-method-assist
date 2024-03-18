@@ -1,4 +1,4 @@
-package com.intellij.ml.llm.template.customextractors
+package com.intellij.ml.llm.template.refactoringobjects.extractfunction.customextractors
 
 import com.intellij.codeInsight.template.impl.TemplateManagerImpl
 import com.intellij.java.refactoring.JavaRefactoringBundle

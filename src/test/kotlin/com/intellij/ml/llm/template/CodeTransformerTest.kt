@@ -1,6 +1,6 @@
 package com.intellij.ml.llm.template
 
-import com.intellij.ml.llm.template.extractfunction.EFSuggestion
+import com.intellij.ml.llm.template.refactoringobjects.extractfunction.EFSuggestion
 import com.intellij.ml.llm.template.utils.CodeTransformer
 import com.intellij.ml.llm.template.utils.EFApplicationResult
 import com.intellij.ml.llm.template.utils.EFCandidateFactory

@@ -1,8 +1,8 @@
 package com.intellij.ml.llm.template.telemetry
 
 import com.google.gson.annotations.SerializedName
-import com.intellij.ml.llm.template.extractfunction.EFCandidate
-import com.intellij.ml.llm.template.extractfunction.EfCandidateType
+import com.intellij.ml.llm.template.refactoringobjects.extractfunction.EFCandidate
+import com.intellij.ml.llm.template.refactoringobjects.extractfunction.EfCandidateType
 import com.intellij.ml.llm.template.utils.EFApplicationResult
 import com.intellij.ml.llm.template.utils.EFCandidateApplicationPayload
 import com.intellij.openapi.util.TextRange

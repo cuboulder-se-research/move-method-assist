@@ -1,9 +1,9 @@
 package com.intellij.ml.llm.template.utils
 
 import com.intellij.lang.Language
-import com.intellij.ml.llm.template.extractfunction.EFCandidate
-import com.intellij.ml.llm.template.extractfunction.EFSuggestion
-import com.intellij.ml.llm.template.extractfunction.EfCandidateType
+import com.intellij.ml.llm.template.refactoringobjects.extractfunction.EFCandidate
+import com.intellij.ml.llm.template.refactoringobjects.extractfunction.EFSuggestion
+import com.intellij.ml.llm.template.refactoringobjects.extractfunction.EfCandidateType
 import com.intellij.openapi.editor.Editor
 import com.intellij.psi.*
 import com.intellij.psi.util.PsiTreeUtil

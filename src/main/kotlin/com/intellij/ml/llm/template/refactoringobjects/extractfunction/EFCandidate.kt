@@ -1,4 +1,4 @@
-package com.intellij.ml.llm.template.extractfunction
+package com.intellij.ml.llm.template.refactoringobjects.extractfunction
 
 import com.google.gson.annotations.SerializedName
 

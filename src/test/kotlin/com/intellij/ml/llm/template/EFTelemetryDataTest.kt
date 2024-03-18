@@ -1,7 +1,7 @@
 package com.intellij.ml.llm.template
 
-import com.intellij.ml.llm.template.extractfunction.EFCandidate
-import com.intellij.ml.llm.template.extractfunction.EfCandidateType
+import com.intellij.ml.llm.template.refactoringobjects.extractfunction.EFCandidate
+import com.intellij.ml.llm.template.refactoringobjects.extractfunction.EfCandidateType
 import com.intellij.ml.llm.template.telemetry.*
 import com.intellij.ml.llm.template.utils.EFApplicationResult
 import com.intellij.ml.llm.template.utils.EFCandidateApplicationPayload

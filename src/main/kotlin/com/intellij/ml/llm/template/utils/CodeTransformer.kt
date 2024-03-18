@@ -1,8 +1,8 @@
 package com.intellij.ml.llm.template.utils
 
 import com.intellij.lang.java.JavaLanguage
-import com.intellij.ml.llm.template.customextractors.MyInplaceExtractionHelper
-import com.intellij.ml.llm.template.extractfunction.EFCandidate
+import com.intellij.ml.llm.template.refactoringobjects.extractfunction.customextractors.MyInplaceExtractionHelper
+import com.intellij.ml.llm.template.refactoringobjects.extractfunction.EFCandidate
 import com.intellij.ml.llm.template.models.FunctionNameProvider
 import com.intellij.ml.llm.template.models.MyMethodExtractor
 import com.intellij.openapi.diagnostic.Logger

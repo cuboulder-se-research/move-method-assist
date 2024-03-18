@@ -3,7 +3,7 @@ package com.intellij.ml.llm.template.ui
 import com.intellij.codeInsight.unwrap.ScopeHighlighter
 import com.intellij.lang.java.JavaLanguage
 import com.intellij.ml.llm.template.LLMBundle
-import com.intellij.ml.llm.template.extractfunction.EFCandidate
+import com.intellij.ml.llm.template.refactoringobjects.extractfunction.EFCandidate
 import com.intellij.ml.llm.template.models.FunctionNameProvider
 import com.intellij.ml.llm.template.models.MyMethodExtractor
 import com.intellij.ml.llm.template.telemetry.EFTelemetryDataElapsedTimeNotificationPayload

@@ -1,8 +1,8 @@
 package com.intellij.ml.llm.template
 
-import com.intellij.ml.llm.template.extractfunction.EFCandidate
-import com.intellij.ml.llm.template.extractfunction.EFSuggestion
-import com.intellij.ml.llm.template.extractfunction.EfCandidateType
+import com.intellij.ml.llm.template.refactoringobjects.extractfunction.EFCandidate
+import com.intellij.ml.llm.template.refactoringobjects.extractfunction.EFSuggestion
+import com.intellij.ml.llm.template.refactoringobjects.extractfunction.EfCandidateType
 import com.intellij.ml.llm.template.utils.*
 import com.intellij.testFramework.LightPlatformCodeInsightTestCase
 import junit.framework.TestCase

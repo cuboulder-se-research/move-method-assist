@@ -1,7 +1,7 @@
 package com.intellij.ml.llm.template.utils
 
-import com.intellij.ml.llm.template.extractfunction.EFCandidate
-import com.intellij.ml.llm.template.extractfunction.EFSuggestion
+import com.intellij.ml.llm.template.refactoringobjects.extractfunction.EFCandidate
+import com.intellij.ml.llm.template.refactoringobjects.extractfunction.EFSuggestion
 import com.intellij.openapi.diagnostic.Logger
 import org.jetbrains.kotlin.utils.addIfNotNull
 
