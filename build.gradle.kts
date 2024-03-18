@@ -9,9 +9,13 @@ dependencies {
     testImplementation("org.mongodb:mongodb-driver-sync:4.9.0") // added this line for MongoDB driver
     implementation(kotlin("stdlib-jdk8"))
 //    2.162
-    implementation("ai.grazie.api:api-gateway-client-jvm:0.2.161")
+    implementation("ai.grazie.api:api-gateway-client-jvm:0.3.57"){
+        exclude("org.slf4j", "slf4j-api")
+    }
     // https://packages.jetbrains.team/maven/p/grazi/grazie-platform-public/ai/grazie/client/client-ktor-jvm/
-    implementation("ai.grazie.client:client-ktor:0.2.161")
+    implementation("ai.grazie.client:client-ktor:0.3.57"){
+        exclude("org.slf4j", "slf4j-api")
+    }
     testImplementation(kotlin("test"))
 }
 
