@@ -362,5 +362,26 @@ class PsiUtils {
             }
             return false
         }
+
+        fun getVariableFromPsi(psiElement: PsiElement?, variableName: String): PsiElement?{
+
+            var foundVariable: PsiLocalVariable? = null
+            class VariableFinder: JavaElementVisitor() {
+                init {}
+                override fun visitLocalVariable(variable: PsiLocalVariable) {
+                    super.visitLocalVariable(variable)
+                    print("found :"+variable.name)
+                    if (variable.name.equals(variableName))
+                        foundVariable = variable
+                }
+            }
+            if (psiElement != null) {
+                psiElement.accept(VariableFinder())
+            }
+            if (foundVariable!=null && psiElement!=null) {
+                return psiElement.findElementAt(foundVariable!!.startOffset)
+            }
+            return null
+        }
     }
 }

@@ -7,14 +7,16 @@ import com.intellij.ml.llm.template.refactoringobjects.extractfunction.EFCandida
 import com.intellij.ml.llm.template.models.GPTExtractFunctionRequestProvider
 import com.intellij.ml.llm.template.models.LLMBaseResponse
 import com.intellij.ml.llm.template.models.LLMRequestProvider
+import com.intellij.ml.llm.template.models.openai.OpenAiChatMessage
 import com.intellij.ml.llm.template.models.sendChatRequest
 import com.intellij.ml.llm.template.prompts.ExtractMethodPrompt
-import com.intellij.ml.llm.template.prompts.fewShotExtractSuggestion
 import com.intellij.ml.llm.template.showEFNotification
 import com.intellij.ml.llm.template.telemetry.*
 import com.intellij.ml.llm.template.ui.ExtractFunctionPanel
 import com.intellij.ml.llm.template.utils.*
 import com.intellij.ml.llm.template.prompts.MethodPromptBase
+import com.intellij.ml.llm.template.refactoringobjects.RenameVariable
+import com.intellij.ml.llm.template.suggestrefactoring.SimpleRefactoringValidator
 import com.intellij.notification.NotificationType
 import com.intellij.openapi.application.invokeLater
 import com.intellij.openapi.diagnostic.Logger
@@ -27,6 +29,7 @@ import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.popup.JBPopupFactory
 import com.intellij.openapi.ui.popup.JBPopupListener
 import com.intellij.openapi.ui.popup.LightweightWindowEvent
+import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
 import com.intellij.ui.awt.RelativePoint
 import org.jetbrains.kotlin.util.capitalizeDecapitalize.toLowerCaseAsciiOnly
@@ -44,6 +47,8 @@ abstract class ApplyExtractFunctionTransformationIntention(
     private val codeTransformer = CodeTransformer()
     private val telemetryDataManager = EFTelemetryDataManager()
     private var llmResponseTime = 0L
+    private var functionSrc = ""
+    private lateinit var functionPsiElement: PsiElement
 
     var prompter: MethodPromptBase = ExtractMethodPrompt();
 
@@ -63,6 +68,7 @@ abstract class ApplyExtractFunctionTransformationIntention(
         val selectionModel = editor.selectionModel
         val namedElement = PsiUtils.getParentFunctionOrNull(editor, file.language)
         if (namedElement != null) {
+
             telemetryDataManager.newSession()
             val codeSnippet = namedElement.text
 
@@ -70,6 +76,8 @@ abstract class ApplyExtractFunctionTransformationIntention(
             selectionModel.setSelection(textRange.startOffset, textRange.endOffset)
             val startLineNumber = editor.document.getLineNumber(selectionModel.selectionStart) + 1
             val withLineNumbers = addLineNumbersToCodeSnippet(codeSnippet, startLineNumber)
+            functionSrc = withLineNumbers
+            functionPsiElement = namedElement
 
             telemetryDataManager.addHostFunctionTelemetryData(
                 EFTelemetryDataUtils.buildHostFunctionTelemetryData(
@@ -134,7 +142,18 @@ abstract class ApplyExtractFunctionTransformationIntention(
         val now = System.nanoTime()
 
         val llmResponse = response.getSuggestions()[0]
-        val efSuggestionList = identifyExtractFunctionSuggestions(llmResponse.text)
+        val validator = SimpleRefactoringValidator(efLLMRequestProvider,
+            project,
+            functionSrc,
+            functionPsiElement
+            )
+        val efSuggestionList = validator.getExtractMethodSuggestions(llmResponse.text)
+//        val renameSuggestions = validator.getRenamveVariableSuggestions(llmResponse.text)
+
+
+        // TODO: use these suggestions to further call the LLM
+        //  and figure out the parameters necessary to call IDE APIs.
+
         val candidates = EFCandidateFactory().buildCandidates(efSuggestionList.suggestionList, editor, file).toList()
         if (candidates.isEmpty()) {
             showEFNotification(
@@ -165,7 +184,9 @@ abstract class ApplyExtractFunctionTransformationIntention(
                 )
                 sendTelemetryData()
             } else {
-                showExtractFunctionPopup(project, editor, file, filteredCandidates, codeTransformer)
+                showExtractFunctionPopup(project, editor, file, filteredCandidates, codeTransformer,
+                    mutableListOf()
+                )
             }
         }
     }
@@ -175,7 +196,8 @@ abstract class ApplyExtractFunctionTransformationIntention(
         editor: Editor,
         file: PsiFile,
         candidates: List<EFCandidate>,
-        codeTransformer: CodeTransformer
+        codeTransformer: CodeTransformer,
+        renameSuggestions: List<RenameVariable>
     ) {
         val highlighter = AtomicReference(ScopeHighlighter(editor))
         val efPanel = ExtractFunctionPanel(

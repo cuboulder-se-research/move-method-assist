@@ -31,28 +31,28 @@ import com.google.gson.annotations.SerializedName
 //}
 
 data class RefactoringSuggestion(
-    @SerializedName("Improvements")
+    @SerializedName("improvements")
     val improvements:List<AtomicSuggestion>,
 
-    @SerializedName("Final Code")
+    @SerializedName("finalCode")
     val finalCode: String
 ) {
 }
 
 data class AtomicSuggestion(
-    @SerializedName("Improvement")
-    val improvements: String,
+    @SerializedName("shortDescription")
+    val shortDescription: String,
 
-    @SerializedName("Change_Diff")
+    @SerializedName("changeDiff")
     val changeDiff: String,
 
-    @SerializedName("Description")
-    val description: String,
+    @SerializedName("longDescription")
+    val longDescription: String,
 
-    @SerializedName("Start")
+    @SerializedName("start")
     val start: Int,
 
-    @SerializedName("End")
+    @SerializedName("end")
     val end: Int
 
     ){}

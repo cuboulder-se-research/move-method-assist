@@ -8,9 +8,11 @@ class SuggestRefactoringPrompt: MethodPromptBase() {
             OpenAiChatMessage("system", "You are an expert programmer."),
             OpenAiChatMessage("user", """
                     Please provide suggestions to improve the following Java method. 
+                    Only provide suggestions that are: 1. extract method. 
                     
-                    Ensure that your recommendations are specific to this method, Your response should be formatted as a JSON object comprising two main fields. The first field, named 'Improvements', should be a list of JSON objects, each with the following attributes: 'Improvement' providing a brief summary of the improvement, 'Description' offering a detailed explanation of the improvement, 'Start', indicating the starting line number where the improvement should be applied, 'End', indicating the ending line number where the improvement should be applied, 'Change_Diff', differences in the git diff style representing the intended changes for this improvement.
-                    The second field, named 'Final code', should contain the code with all the suggested improvements applied. Please include only the JSON structure specified in your response.
+                    Ensure that your recommendations are specific to this method, Your response should be formatted as a JSON object comprising two main fields. 
+                    The first field, named 'improvements', should be a list of JSON objects, each with the following attributes: 'shortDescription' providing a brief summary of the improvement, 'longDescription' offering a detailed explanation of the improvement, 'start', indicating the starting line number where the improvement should be applied, 'end', indicating the ending line number where the improvement should be applied, 'changeDiff', differences in the git diff style representing the intended changes for this improvement.
+                    The second field, named 'finalCode', should contain the code with all the suggested improvements applied. Please include only the JSON structure specified in your response.
                     
                      1.    public static int calculateSum(int[] arr) {
                      2.        int sum = 0;
@@ -22,16 +24,16 @@ class SuggestRefactoringPrompt: MethodPromptBase() {
                      """.trimIndent()),
             OpenAiChatMessage("assistant", """
 {
-    "Improvements": [
+    "improvements": [
         {
-            "Improvement": "Use enhanced for loop instead of traditional for loop",
-            "Change_Diff": "- for (int i = 0; i < arr.length; i++) {\n+ for (int num : arr) {",
-            "Description": "Instead of using a traditional for loop to iterate over `arr`, use an enhanced for loop.",
-            "Start": 3,
-            "End": 3
+            "shortDescription": "Use enhanced for loop instead of traditional for loop",
+            "changeDiff": "- for (int i = 0; i < arr.length; i++) {\n+ for (int num : arr) {",
+            "longDescription": "Instead of using a traditional for loop to iterate over `arr`, use an enhanced for loop.",
+            "start": 3,
+            "end": 3
         }
     ],
-    "Final code": "    public static int calculateSum(int[] arr) {\n        int sum = 0;\n        for (int num : arr) {\n            sum += num; // Add each element to the sum\n        }\n\n        return sum;\n    }"
+    "finalCode": "    public static int calculateSum(int[] arr) {\n        int sum = 0;\n        for (int num : arr) {\n            sum += num; // Add each element to the sum\n        }\n\n        return sum;\n    }"
 }
 """
             ),

@@ -52,7 +52,7 @@ class GrazieBaseRequest(body: OpenAiChatRequestBody) : LLMBaseRequest<OpenAiChat
         return when(body.model.uppercase()){
             "GPT-4"-> OpenAIProfileIDs.Chat.GPT4
             "GPT-3.5-TURBO"-> OpenAIProfileIDs.Chat.ChatGPT
-            else -> OpenAIProfileIDs.Chat.ChatGPT
+            else -> OpenAIProfileIDs.Chat.GPT4
         }
     }
 
