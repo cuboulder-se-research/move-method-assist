@@ -4,12 +4,11 @@ import com.google.gson.Gson
 import com.intellij.ml.llm.template.models.LLMRequestProvider
 import com.intellij.ml.llm.template.models.openai.OpenAiChatMessage
 import com.intellij.ml.llm.template.models.sendChatRequest
-import com.intellij.ml.llm.template.prompts.GetExtractMethodParametersPrompt
-import com.intellij.ml.llm.template.prompts.GetRenameVariableParametersPrompt
+import com.intellij.ml.llm.template.prompts.GetRefactoringObjParametersPrompt
 import com.intellij.ml.llm.template.prompts.SuggestRefactoringPrompt
+import com.intellij.ml.llm.template.refactoringobjects.AbstractRefactoring
+import com.intellij.ml.llm.template.refactoringobjects.MyRefactoringFactory
 import com.intellij.ml.llm.template.refactoringobjects.RenameVariable
-import com.intellij.ml.llm.template.refactoringobjects.extractfunction.EFSuggestion
-import com.intellij.ml.llm.template.refactoringobjects.extractfunction.EFSuggestionList
 import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiElement
 
@@ -21,49 +20,57 @@ abstract class AbstractRefactoringValidator(
 ) {
 
     abstract fun isExtractMethod(atomicSuggestion: AtomicSuggestion): Boolean;
-    abstract fun getExtractMethodSuggestions(llmText: String): EFSuggestionList;
 
-    fun getExtractMethodParameters(atomicSuggestion: AtomicSuggestion,
-                                   finalCode: String): EFSuggestion{
-
-        // TODO: generate chat messages.
-        // TODO: Give LLM documentation for extract method API.
-        // TODO: send to LLM.
-        // TODO: package response in EFSuggestion.
-        var messageList:MutableList<OpenAiChatMessage> = mutableListOf()
-        val basePrompt = SuggestRefactoringPrompt().getPrompt(functionSrc)
-        messageList.addAll(basePrompt)
-        messageList.add(
-            OpenAiChatMessage("assistant",
-            Gson().toJson(RefactoringSuggestion(mutableListOf(atomicSuggestion), finalCode)).toString()
-            )
-        )
-
-        messageList.addAll(
-            GetExtractMethodParametersPrompt().getPrompt(atomicSuggestion.shortDescription, "extract_method")
-        )
+    fun getParamsAndCreateObject(
+        atomicSuggestion: AtomicSuggestion,
+        finalCode: String,
+        refactoringFactory: MyRefactoringFactory
+    ): AbstractRefactoring? {
+        val messageList: MutableList<OpenAiChatMessage> =
+            setupOpenAiChatMessages(atomicSuggestion, finalCode, refactoringFactory)
 
         val response = sendChatRequest(
             project, messageList, efLLMRequestProvider.chatModel, efLLMRequestProvider
         )
-        var new_name = "newMethod"
+//        var new_name = "newMethod"
         if (response != null) {
-            val funcCall:String = response.getSuggestions()[0].text
+            val funcCall: String = response.getSuggestions()[0].text
             println(funcCall)
-            if(funcCall.startsWith("extract_method"))
-                print("Looks like a extract_method call!")
-            new_name = funcCall.split(',')[2].removeSuffix(")")
-                .replace("\"", "").replace(" ", "")
-            if (new_name.contains("=")){
-                new_name = new_name.split("=")[1].replace(" " ,"")
+            if (funcCall.startsWith(refactoringFactory.apiFunctionName)) {
+                print("Looks like a ${refactoringFactory.apiFunctionName} call!")
+                return refactoringFactory.createObjectFromFuncCall(funcCall)
             }
-            print("new name:$new_name")
         }
-        return EFSuggestion(
-                    functionName = new_name,
-                    lineStart = atomicSuggestion.start,
-                    lineEnd = atomicSuggestion.end,
-                )
+        return null
+//        return EFSuggestion(
+//            functionName = new_name,
+//            lineStart = atomicSuggestion.start,
+//            lineEnd = atomicSuggestion.end,
+//        )
+    }
+
+    private fun setupOpenAiChatMessages(
+        atomicSuggestion: AtomicSuggestion,
+        finalCode: String,
+        refactoringFactory: MyRefactoringFactory
+    ): MutableList<OpenAiChatMessage> {
+        var messageList: MutableList<OpenAiChatMessage> = mutableListOf()
+        val basePrompt = SuggestRefactoringPrompt().getPrompt(functionSrc)
+        messageList.addAll(basePrompt)
+        messageList.add(
+            OpenAiChatMessage(
+                "assistant",
+                Gson().toJson(RefactoringSuggestion(mutableListOf(atomicSuggestion), finalCode)).toString()
+            )
+        )
+
+        messageList.addAll(
+            GetRefactoringObjParametersPrompt.get(
+                atomicSuggestion.shortDescription,
+                refactoringFactory.logicalName,
+                refactoringFactory.APIDocumentation)
+        )
+        return messageList
     }
 
 
@@ -80,9 +87,9 @@ abstract class AbstractRefactoringValidator(
             )
         )
 
-        messageList.addAll(
-            GetRenameVariableParametersPrompt().getPrompt(atomicSuggestion.shortDescription, "rename_variable")
-        )
+//        messageList.addAll(
+////            GetRenameVariableParametersPrompt().getPrompt(atomicSuggestion.shortDescription, "rename_variable")
+//        )
 
         val response = sendChatRequest(
             project, messageList, efLLMRequestProvider.chatModel, efLLMRequestProvider
@@ -126,4 +133,5 @@ abstract class AbstractRefactoringValidator(
 
     abstract fun getRenamveVariableSuggestions(llmText: String): MutableList<RenameVariable>
     abstract fun isRenameVariable(atomicSuggestion: AtomicSuggestion): Boolean
+    abstract fun getRefactoringSuggestions(llmResponseText: String): List<AbstractRefactoring>
 }

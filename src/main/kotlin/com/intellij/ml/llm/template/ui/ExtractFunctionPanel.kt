@@ -6,6 +6,7 @@ import com.intellij.ml.llm.template.LLMBundle
 import com.intellij.ml.llm.template.refactoringobjects.extractfunction.EFCandidate
 import com.intellij.ml.llm.template.models.FunctionNameProvider
 import com.intellij.ml.llm.template.models.MyMethodExtractor
+import com.intellij.ml.llm.template.refactoringobjects.AbstractRefactoring
 import com.intellij.ml.llm.template.telemetry.EFTelemetryDataElapsedTimeNotificationPayload
 import com.intellij.ml.llm.template.telemetry.EFTelemetryDataManager
 import com.intellij.ml.llm.template.telemetry.EFTelemetryDataUtils
@@ -32,7 +33,6 @@ import com.intellij.ui.components.JBScrollPane
 import com.intellij.ui.dsl.builder.AlignX
 import com.intellij.ui.dsl.builder.panel
 import com.intellij.ui.table.JBTable
-import com.intellij.util.ui.JBDimension
 import com.intellij.util.ui.JBUI
 import org.jetbrains.annotations.Nls
 import org.jetbrains.kotlin.idea.KotlinLanguage
@@ -54,7 +54,7 @@ class ExtractFunctionPanel(
     project: Project,
     editor: Editor,
     file: PsiFile,
-    candidates: List<EFCandidate>,
+    candidates: List<AbstractRefactoring>,
     codeTransformer: CodeTransformer,
     highlighter: AtomicReference<ScopeHighlighter>,
     efTelemetryDataManager: EFTelemetryDataManager? = null
@@ -62,7 +62,7 @@ class ExtractFunctionPanel(
     val myExtractFunctionsCandidateTable: JBTable
     private val myExtractFunctionsScrollPane: JBScrollPane
     private val myProject: Project = project
-    private val myMethodSignaturePreview: MethodSignatureComponent
+//    private val myMethodSignaturePreview: MethodSignatureComponent
     private val myCandidates = candidates
     private val myEditor = editor
     private var myPopup: JBPopup? = null
@@ -75,9 +75,10 @@ class ExtractFunctionPanel(
 
     init {
         val tableModel = buildTableModel(myCandidates)
-        val candidateSignatureMap = buildCandidateSignatureMap(myCandidates)
-        myMethodSignaturePreview = buildMethodSignaturePreview()
-        myExtractFunctionsCandidateTable = buildExtractFunctionCandidateTable(tableModel, candidateSignatureMap)
+//        val candidateSignatureMap = buildCandidateSignatureMap(myCandidates)
+//        myMethodSignaturePreview = buildMethodSignaturePreview()
+        // TODO: Think about how to preview any refactoring.
+        myExtractFunctionsCandidateTable = buildRefactoringCandidatesTable(tableModel, candidateSignatureMap)
         myExtractFunctionsScrollPane = buildExtractFunctionScrollPane()
     }
 
@@ -91,16 +92,16 @@ class ExtractFunctionPanel(
         return candidateSignatureMap
     }
 
-    private fun buildExtractFunctionCandidateTable(
+    private fun buildRefactoringCandidatesTable(
         tableModel: DefaultTableModel,
-        candidateSignatureMap: Map<EFCandidate, String>
+//        candidateSignatureMap: Map<EFCandidate, String>
     ): JBTable {
         val extractFunctionCandidateTable = object : JBTable(tableModel) {
             override fun processKeyBinding(ks: KeyStroke, e: KeyEvent, condition: Int, pressed: Boolean): Boolean {
                 if (e.keyCode == KeyEvent.VK_ENTER) {
                     if (e.id == KeyEvent.KEY_PRESSED) {
                         if (!isEditing && e.modifiersEx == 0) {
-                            doExtractMethod(selectedRow)
+                            doRefactoring(selectedRow)
                         }
                     }
                     e.consume()
@@ -116,7 +117,7 @@ class ExtractFunctionPanel(
 
             override fun processMouseEvent(e: MouseEvent?) {
                 if (e != null && e.clickCount == 2) {
-                    doExtractMethod(selectedRow)
+                    doRefactoring(selectedRow)
                 }
                 super.processMouseEvent(e)
             }
@@ -127,14 +128,14 @@ class ExtractFunctionPanel(
         extractFunctionCandidateTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION)
         extractFunctionCandidateTable.selectionModel.addListSelectionListener {
             val candidate = myCandidates[extractFunctionCandidateTable.selectedRow]
-            myEditor.selectionModel.setSelection(candidate.offsetStart, candidate.offsetEnd)
+            myEditor.selectionModel.setSelection(candidate.startOffset, candidate.endOffset)
 
-            myMethodSignaturePreview.setSignature(candidateSignatureMap[candidate])
+//            myMethodSignaturePreview.setSignature(candidateSignatureMap[candidate])
             val scopeHighlighter: ScopeHighlighter = myHighlighter.get()
             scopeHighlighter.dropHighlight()
-            val range = TextRange(candidate.offsetStart, candidate.offsetEnd)
+            val range = TextRange(candidate.startOffset, candidate.endOffset)
             scopeHighlighter.highlight(com.intellij.openapi.util.Pair(range, listOf(range)))
-            myEditor.scrollingModel.scrollTo(LogicalPosition(candidate.lineStart, 0), ScrollType.CENTER)
+            myEditor.scrollingModel.scrollTo(LogicalPosition(candidate.startLoc, 0), ScrollType.CENTER)
 
             // compute elapsed time
             notifyObservers(EFNotification(EFTelemetryDataElapsedTimeNotificationPayload(TelemetryDataAction.STOP, prevSelectedCandidateIndex)))
@@ -160,7 +161,7 @@ class ExtractFunctionPanel(
         return extractFunctionsScrollPane
     }
 
-    private fun buildTableModel(candidates: List<EFCandidate>): DefaultTableModel {
+    private fun buildTableModel(candidates: List<AbstractRefactoring>): DefaultTableModel {
         val columnNames = arrayOf("Function Length", "Function Name")
         val model = object : DefaultTableModel() {
             override fun getColumnClass(column: Int): Class<*> {
@@ -174,10 +175,10 @@ class ExtractFunctionPanel(
             }
         }
         model.setColumnIdentifiers(columnNames)
-        candidates.forEach { efCandidate ->
-            val functionLength = efCandidate.lineEnd - efCandidate.lineStart + 1
-            val functionName = String.format("${efCandidate.functionName}()")
-            model.addRow(arrayOf(functionLength, functionName))
+        candidates.forEach { refCandidate ->
+            val refactoringSize = refCandidate.sizeLoc()
+            val refName = refCandidate.getRefactoringName()
+            model.addRow(arrayOf(refactoringSize, refName))
         }
         return model
     }
@@ -199,15 +200,15 @@ class ExtractFunctionPanel(
                 cell(myExtractFunctionsScrollPane).align(AlignX.FILL)
             }
 
-            row {
-                cell(myMethodSignaturePreview)
-                    .align(AlignX.FILL)
-                    .applyToComponent { minimumSize = JBDimension(100, 100) }
-            }
+//            row {
+//                cell(myMethodSignaturePreview)
+//                    .align(AlignX.FILL)
+//                    .applyToComponent { minimumSize = JBDimension(100, 100) }
+//            }
 
             row {
                 button(LLMBundle.message("ef.candidates.popup.extract.function.button.title"), actionListener = {
-                    doExtractMethod(myExtractFunctionsCandidateTable.selectedRow)
+                    doRefactoring(myExtractFunctionsCandidateTable.selectedRow)
                 }).comment(
                     LLMBundle.message(
                         "ef.candidates.popup.invoke.extract.function",
@@ -316,7 +317,7 @@ class ExtractFunctionPanel(
         return signature
     }
 
-    private fun doExtractMethod(index: Int) {
+    private fun doRefactoring(index: Int) {
         notifyObservers(EFNotification(EFTelemetryDataElapsedTimeNotificationPayload(TelemetryDataAction.STOP, prevSelectedCandidateIndex)))
         addSelectionToTelemetryData(index)
         val efCandidate = myCandidates[index]

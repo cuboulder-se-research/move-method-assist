@@ -1,5 +1,6 @@
 package com.intellij.ml.llm.template.utils
 
+import com.intellij.ml.llm.template.refactoringobjects.AbstractRefactoring
 import com.intellij.ml.llm.template.refactoringobjects.extractfunction.EFCandidate
 import com.intellij.ml.llm.template.refactoringobjects.extractfunction.EFSuggestion
 import com.intellij.openapi.diagnostic.Logger
@@ -16,7 +17,7 @@ data class EFNotification(
 
 data class EFCandidateApplicationPayload(
     var result: EFApplicationResult,
-    var candidate: EFCandidate,
+    var candidate: AbstractRefactoring,
     var reason: String
 )
 

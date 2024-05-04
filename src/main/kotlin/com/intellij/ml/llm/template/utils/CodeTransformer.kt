@@ -5,6 +5,7 @@ import com.intellij.ml.llm.template.refactoringobjects.extractfunction.customext
 import com.intellij.ml.llm.template.refactoringobjects.extractfunction.EFCandidate
 import com.intellij.ml.llm.template.models.FunctionNameProvider
 import com.intellij.ml.llm.template.models.MyMethodExtractor
+import com.intellij.ml.llm.template.refactoringobjects.AbstractRefactoring
 import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.editor.ex.EditorEx
@@ -18,17 +19,19 @@ import org.jetbrains.kotlin.idea.refactoring.introduce.extractFunction.ExtractKo
 class CodeTransformer : Observable() {
     private val logger = Logger.getInstance("#com.intellij.ml.llm")
 
-    fun applyCandidate(efCandidate: EFCandidate, project: Project, editor: Editor, file: PsiFile): Boolean {
+    fun applyCandidate(refCandidate: AbstractRefactoring, project: Project, editor: Editor, file: PsiFile): Boolean {
         var applicationResult = EFApplicationResult.OK
         var reason = ""
 
-        if (!isCandidateValid(efCandidate)) {
+//        if (!isCandidateValid(efCandidate)) {
+         if (!refCandidate.isValid()){
             applicationResult = EFApplicationResult.FAIL
             reason = "invalid extract function candidate"
         } else {
-            editor.selectionModel.setSelection(efCandidate.offsetStart, efCandidate.offsetEnd)
+            editor.selectionModel.setSelection(refCandidate.startOffset, refCandidate.endOffset)
             try {
-                invokeExtractFunction(efCandidate.functionName, project, editor, file)
+//                invokeExtractFunction(refCandidate.functionName, project, editor, file)
+                refCandidate.performRefactoring()
             } catch (e: Exception) {
                 applicationResult = EFApplicationResult.FAIL
                 reason = e.message ?: ""
@@ -43,7 +46,7 @@ class CodeTransformer : Observable() {
                 EFCandidateApplicationPayload(
                     result = applicationResult,
                     reason = reason,
-                    candidate = efCandidate
+                    candidate = refCandidate
                 )
             )
         )

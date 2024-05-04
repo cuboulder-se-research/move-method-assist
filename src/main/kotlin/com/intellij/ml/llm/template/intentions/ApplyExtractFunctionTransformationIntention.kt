@@ -7,7 +7,6 @@ import com.intellij.ml.llm.template.refactoringobjects.extractfunction.EFCandida
 import com.intellij.ml.llm.template.models.GPTExtractFunctionRequestProvider
 import com.intellij.ml.llm.template.models.LLMBaseResponse
 import com.intellij.ml.llm.template.models.LLMRequestProvider
-import com.intellij.ml.llm.template.models.openai.OpenAiChatMessage
 import com.intellij.ml.llm.template.models.sendChatRequest
 import com.intellij.ml.llm.template.prompts.ExtractMethodPrompt
 import com.intellij.ml.llm.template.showEFNotification
@@ -15,6 +14,7 @@ import com.intellij.ml.llm.template.telemetry.*
 import com.intellij.ml.llm.template.ui.ExtractFunctionPanel
 import com.intellij.ml.llm.template.utils.*
 import com.intellij.ml.llm.template.prompts.MethodPromptBase
+import com.intellij.ml.llm.template.refactoringobjects.AbstractRefactoring
 import com.intellij.ml.llm.template.refactoringobjects.RenameVariable
 import com.intellij.ml.llm.template.suggestrefactoring.SimpleRefactoringValidator
 import com.intellij.notification.NotificationType
@@ -123,6 +123,10 @@ abstract class ApplyExtractFunctionTransformationIntention(
         ProgressManager.getInstance().runProcessWithProgressAsynchronously(task, BackgroundableProcessIndicator(task))
     }
 
+    /*
+    this function filters for valid extract methods candidates.
+    Removes whole body, one-liners, invalid selections
+     */
     private fun filterCandidates(
         candidates: List<EFCandidate>,
         candidatesApplicationTelemetryObserver: EFCandidatesApplicationTelemetryObserver,
@@ -147,15 +151,18 @@ abstract class ApplyExtractFunctionTransformationIntention(
             functionSrc,
             functionPsiElement
             )
-        val efSuggestionList = validator.getExtractMethodSuggestions(llmResponse.text)
+//        val efSuggestionList = validator.getExtractMethodSuggestions(llmResponse.text)
 //        val renameSuggestions = validator.getRenamveVariableSuggestions(llmResponse.text)
+        val refactoringCandidates: List<AbstractRefactoring> =
+            validator.getRefactoringSuggestions(llmResponse.text)
+
 
 
         // TODO: use these suggestions to further call the LLM
         //  and figure out the parameters necessary to call IDE APIs.
 
-        val candidates = EFCandidateFactory().buildCandidates(efSuggestionList.suggestionList, editor, file).toList()
-        if (candidates.isEmpty()) {
+//        val candidates = EFCandidateFactory().buildCandidates(efSuggestionList.suggestionList, editor, file).toList()
+        if (refactoringCandidates.isEmpty()) {
             showEFNotification(
                 project,
                 LLMBundle.message("notification.extract.function.with.llm.no.suggestions.message"),
@@ -166,17 +173,21 @@ abstract class ApplyExtractFunctionTransformationIntention(
             sendTelemetryData()
         } else {
             val candidatesApplicationTelemetryObserver = EFCandidatesApplicationTelemetryObserver()
-            val filteredCandidates = filterCandidates(candidates, candidatesApplicationTelemetryObserver, editor, file)
+            // TODO: move below method call to extract method refactoring object.
+//            val filteredCandidates = filterCandidates(candidates, candidatesApplicationTelemetryObserver, editor, file)
+            val validRefactoringCandidates = refactoringCandidates.filter {
+                it.isValid()
+            }
 
             telemetryDataManager.addCandidatesTelemetryData(
                 buildCandidatesTelemetryData(
-                    efSuggestionList.suggestionList.size,
+                    refactoringCandidates.size,
                     candidatesApplicationTelemetryObserver.getData()
                 )
             )
             buildProcessingTimeTelemetryData(llmResponseTime, System.nanoTime() - now)
 
-            if (filteredCandidates.isEmpty()) {
+            if (validRefactoringCandidates.isEmpty()) {
                 showEFNotification(
                     project,
                     LLMBundle.message("notification.extract.function.with.llm.no.extractable.candidates.message"),
@@ -184,20 +195,19 @@ abstract class ApplyExtractFunctionTransformationIntention(
                 )
                 sendTelemetryData()
             } else {
-                showExtractFunctionPopup(project, editor, file, filteredCandidates, codeTransformer,
-                    mutableListOf()
+                showRefactoringOptionsPopup(
+                    project, editor, file, validRefactoringCandidates, codeTransformer,
                 )
             }
         }
     }
 
-    private fun showExtractFunctionPopup(
+    private fun showRefactoringOptionsPopup(
         project: Project,
         editor: Editor,
         file: PsiFile,
-        candidates: List<EFCandidate>,
-        codeTransformer: CodeTransformer,
-        renameSuggestions: List<RenameVariable>
+        candidates: List<AbstractRefactoring>,
+        codeTransformer: CodeTransformer
     ) {
         val highlighter = AtomicReference(ScopeHighlighter(editor))
         val efPanel = ExtractFunctionPanel(

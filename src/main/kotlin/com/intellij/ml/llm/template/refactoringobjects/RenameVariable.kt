@@ -7,10 +7,14 @@ import com.intellij.psi.PsiNamedElement
 import com.intellij.refactoring.RefactoringFactory
 import com.intellij.refactoring.rename.inplace.VariableInplaceRenameHandler
 import com.intellij.refactoring.rename.inplace.VariableInplaceRenamer;
-class RenameVariable(val project: Project, val psiElement: PsiElement, val newName: String) {
+class RenameVariable(
+                     override val startLoc: Int,
+                     override val endLoc: Int,
+                     val oldName: String,
+                     val newName: String
+): AbstractRefactoring {
 
     companion object{
-
         fun fromOldNewName(project: Project, functionPsiElement: PsiElement, oldName:String, newName: String): RenameVariable?{
             val varPsi = PsiUtils.getVariableFromPsi(functionPsiElement, oldName)
             if (varPsi!=null)
@@ -32,5 +36,18 @@ class RenameVariable(val project: Project, val psiElement: PsiElement, val newNa
 //        val renamer = VariableInplaceRenamer(psiElement,
 //            editor,project,"myString","newMyString")
 //        renamer.performInplaceRename()
+    }
+
+    override fun performRefactoring() {
+        TODO("Not yet implemented")
+        doRename()
+    }
+
+    override fun isValid(): Boolean {
+        TODO("Not yet implemented")
+    }
+
+    override fun getRefactoringName(): String {
+        return RenameVariableFactory.logicalName
     }
 }
