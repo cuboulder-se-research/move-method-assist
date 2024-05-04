@@ -131,7 +131,8 @@ abstract class AbstractRefactoringValidator(
         }
     }
 
-    abstract fun getRenamveVariableSuggestions(llmText: String): MutableList<RenameVariable>
     abstract fun isRenameVariable(atomicSuggestion: AtomicSuggestion): Boolean
+
+    // Return a list of refactoring objects from an llm suggestion.
     abstract fun getRefactoringSuggestions(llmResponseText: String): List<AbstractRefactoring>
 }

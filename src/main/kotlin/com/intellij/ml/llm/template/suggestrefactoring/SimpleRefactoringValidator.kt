@@ -58,26 +58,4 @@ class SimpleRefactoringValidator(
 //                && atomicSuggestion.shortDescription.lowercase().contains("variable")
     }
 
-
-
-    override fun getRenamveVariableSuggestions(llmText: String): MutableList<RenameVariable>{
-        val refactoringSuggestion = getRawSuggestions(llmText)
-
-        val renameSuggestions = mutableListOf<RenameVariable>()
-        for (suggestion in refactoringSuggestion.improvements) {
-            if (isRenameVariable(suggestion)) {
-                // TODO: get parameters
-                val renameVariableSuggestion = getRenameVariableParameters(
-                    suggestion,
-                    refactoringSuggestion.finalCode,
-                    functionPsiElement)
-                if (renameVariableSuggestion!=null)
-                    renameSuggestions.add(
-                        renameVariableSuggestion
-                    )
-            }
-        }
-
-        return renameSuggestions
-    }
 }
