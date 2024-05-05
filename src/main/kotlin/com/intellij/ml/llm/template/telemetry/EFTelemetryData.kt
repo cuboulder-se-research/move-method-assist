@@ -197,9 +197,10 @@ class EFTelemetryDataUtils {
         private fun buildCandidateTelemetryData(candidateApplicationPayload: EFCandidateApplicationPayload): EFCandidateTelemetryData {
             val candidate = candidateApplicationPayload.candidate
             return EFCandidateTelemetryData(
-                lineStart = candidate.lineStart,
-                lineEnd = candidate.lineEnd,
-                candidateType = candidate.type,
+                lineStart = candidate.startLoc,
+                lineEnd = candidate.endLoc,
+//                candidateType = candidate.getRefactoringName(),
+                candidateType = EfCandidateType.AS_IS,
                 applicationResult = candidateApplicationPayload.result,
                 reason = candidateApplicationPayload.reason
             )

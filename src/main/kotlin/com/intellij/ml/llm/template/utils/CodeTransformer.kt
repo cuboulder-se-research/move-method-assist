@@ -28,10 +28,10 @@ class CodeTransformer : Observable() {
             applicationResult = EFApplicationResult.FAIL
             reason = "invalid extract function candidate"
         } else {
-            editor.selectionModel.setSelection(refCandidate.startOffset, refCandidate.endOffset)
+            editor.selectionModel.setSelection(refCandidate.getStartOffset(), refCandidate.getEndOffset())
             try {
 //                invokeExtractFunction(refCandidate.functionName, project, editor, file)
-                refCandidate.performRefactoring()
+                refCandidate.performRefactoring(project, editor, file)
             } catch (e: Exception) {
                 applicationResult = EFApplicationResult.FAIL
                 reason = e.message ?: ""
@@ -54,49 +54,9 @@ class CodeTransformer : Observable() {
         return applicationResult == EFApplicationResult.OK
     }
 
-    private fun invokeExtractFunction(newFunctionName: String, project: Project, editor: Editor?, file: PsiFile?) {
-        val functionNameProvider = FunctionNameProvider(newFunctionName)
-        when (file?.language) {
-            JavaLanguage.INSTANCE -> {
-                MyMethodExtractor.invokeOnElements(
-                    project, editor, file, findSelectedPsiElements(editor, file), FunctionNameProvider(newFunctionName)
-                )
-            }
 
-            KotlinLanguage.INSTANCE -> {
-                val dataContext = (editor as EditorEx).dataContext
-                val allContainersEnabled = false
-                val inplaceExtractionHelper = MyInplaceExtractionHelper(allContainersEnabled, functionNameProvider)
-                ExtractKotlinFunctionHandler(allContainersEnabled, inplaceExtractionHelper).invoke(
-                    project, editor, file, dataContext
-                )
-            }
-        }
-    }
 
-    private fun findSelectedPsiElements(editor: Editor?, file: PsiFile?): Array<PsiElement> {
-        if (editor == null) {
-            return emptyArray()
-        }
-        val selectionModel = editor.selectionModel
-        val startOffset = selectionModel.selectionStart
-        val endOffset = selectionModel.selectionEnd
 
-        val startElement = file?.findElementAt(startOffset)
-        val endElement = file?.findElementAt(if (endOffset > 0) endOffset - 1 else endOffset)
-
-        if (startElement == null || endElement == null) {
-            return emptyArray()
-        }
-
-        val commonParent = PsiTreeUtil.findCommonParent(startElement, endElement) ?: return emptyArray()
-
-        val selectedElements = PsiTreeUtil.findChildrenOfType(commonParent, PsiElement::class.java)
-        val result = selectedElements.filter {
-            it.textRange.startOffset >= startOffset && it.textRange.endOffset <= endOffset
-        }.toTypedArray()
-        return result
-    }
 
     private fun isCandidateValid(efCandidate: EFCandidate): Boolean {
         return efCandidate.offsetStart >= 0 && efCandidate.offsetEnd >= 0

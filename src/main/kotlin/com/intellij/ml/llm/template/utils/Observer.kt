@@ -48,8 +48,9 @@ class EFObserver : Observer {
     override fun update(notification: EFNotification) {
         if (notification.payload is EFCandidateApplicationPayload) {
             val payload = notification.payload
-            notifications.putIfAbsent(payload.candidate.efSuggestion, ArrayList())
-            notifications[payload.candidate.efSuggestion]!!.add(notification)
+            TODO("Add notification data.")
+//            notifications.putIfAbsent(payload.candidate.getRefactoringName(), ArrayList())
+//            notifications[payload.candidate.efSuggestion]!!.add(notification)
         }
     }
 

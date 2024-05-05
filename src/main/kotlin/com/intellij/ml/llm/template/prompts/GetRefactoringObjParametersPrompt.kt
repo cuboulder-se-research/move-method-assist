@@ -9,9 +9,6 @@ asks the llm to fill out the parameters and make a valid API call.
 class GetRefactoringObjParametersPrompt {
 
     companion object{
-        fun getExtractMethodParameters():String{
-            return
-        }
 
         fun get(improvementDescription: String,
                 refactoringType: String,

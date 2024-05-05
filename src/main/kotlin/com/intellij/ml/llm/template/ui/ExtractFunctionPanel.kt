@@ -62,7 +62,7 @@ class ExtractFunctionPanel(
     val myExtractFunctionsCandidateTable: JBTable
     private val myExtractFunctionsScrollPane: JBScrollPane
     private val myProject: Project = project
-//    private val myMethodSignaturePreview: MethodSignatureComponent
+    private val myMethodSignaturePreview: MethodSignatureComponent
     private val myCandidates = candidates
     private val myEditor = editor
     private var myPopup: JBPopup? = null
@@ -75,18 +75,18 @@ class ExtractFunctionPanel(
 
     init {
         val tableModel = buildTableModel(myCandidates)
-//        val candidateSignatureMap = buildCandidateSignatureMap(myCandidates)
-//        myMethodSignaturePreview = buildMethodSignaturePreview()
+        val candidateSignatureMap = buildCandidateSignatureMap(myCandidates)
+        myMethodSignaturePreview = buildMethodSignaturePreview()
         // TODO: Think about how to preview any refactoring.
         myExtractFunctionsCandidateTable = buildRefactoringCandidatesTable(tableModel, candidateSignatureMap)
         myExtractFunctionsScrollPane = buildExtractFunctionScrollPane()
     }
 
-    private fun buildCandidateSignatureMap(candidates: List<EFCandidate>): Map<EFCandidate, String> {
-        val candidateSignatureMap: MutableMap<EFCandidate, String> = mutableMapOf()
+    private fun buildCandidateSignatureMap(candidates: List<AbstractRefactoring>): Map<AbstractRefactoring, String> {
+        val candidateSignatureMap: MutableMap<AbstractRefactoring, String> = mutableMapOf()
 
         candidates.forEach { candidate ->
-            candidateSignatureMap[candidate] = generateFunctionSignature(candidate)
+            candidateSignatureMap[candidate] = candidate.getRefactoringName()
         }
 
         return candidateSignatureMap
@@ -94,7 +94,7 @@ class ExtractFunctionPanel(
 
     private fun buildRefactoringCandidatesTable(
         tableModel: DefaultTableModel,
-//        candidateSignatureMap: Map<EFCandidate, String>
+        candidateSignatureMap: Map<AbstractRefactoring, String>
     ): JBTable {
         val extractFunctionCandidateTable = object : JBTable(tableModel) {
             override fun processKeyBinding(ks: KeyStroke, e: KeyEvent, condition: Int, pressed: Boolean): Boolean {
@@ -128,12 +128,12 @@ class ExtractFunctionPanel(
         extractFunctionCandidateTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION)
         extractFunctionCandidateTable.selectionModel.addListSelectionListener {
             val candidate = myCandidates[extractFunctionCandidateTable.selectedRow]
-            myEditor.selectionModel.setSelection(candidate.startOffset, candidate.endOffset)
+            myEditor.selectionModel.setSelection(candidate.getStartOffset(), candidate.getStartOffset())
 
-//            myMethodSignaturePreview.setSignature(candidateSignatureMap[candidate])
+            myMethodSignaturePreview.setSignature(candidateSignatureMap[candidate])
             val scopeHighlighter: ScopeHighlighter = myHighlighter.get()
             scopeHighlighter.dropHighlight()
-            val range = TextRange(candidate.startOffset, candidate.endOffset)
+            val range = TextRange(candidate.getStartOffset(), candidate.getEndOffset())
             scopeHighlighter.highlight(com.intellij.openapi.util.Pair(range, listOf(range)))
             myEditor.scrollingModel.scrollTo(LogicalPosition(candidate.startLoc, 0), ScrollType.CENTER)
 
@@ -331,13 +331,14 @@ class ExtractFunctionPanel(
     private fun addSelectionToTelemetryData(index: Int) {
         val efCandidate = myCandidates[index]
         val hostFunctionTelemetryData = myEFTelemetryDataManager?.getData()?.hostFunctionTelemetryData
-        myEFTelemetryDataManager?.addUserSelectionTelemetryData(
-            EFTelemetryDataUtils.buildUserSelectionTelemetryData(
-                efCandidate,
-                index,
-                hostFunctionTelemetryData,
-                myFile
-            )
-        )
+        TODO("Fix telemetry data. See commented code below.")
+//        myEFTelemetryDataManager?.addUserSelectionTelemetryData(
+//            EFTelemetryDataUtils.buildUserSelectionTelemetryData(
+//                efCandidate,
+//                index,
+//                hostFunctionTelemetryData,
+//                myFile
+//            )
+//        )
     }
 }

@@ -234,15 +234,16 @@ private fun buildEFNotificationAndNotifyObservers(
     observers: List<Observer>
 ) {
     observers.forEach {
-        it.update(
-            EFNotification(
-                EFCandidateApplicationPayload(
-                    result = result,
-                    candidate = efCandidate,
-                    reason = reason
-                )
-            )
-        )
+        TODO("Update logic")
+//        it.update(
+//            EFNotification(
+//                EFCandidateApplicationPayload(
+//                    result = result,
+//                    candidate = efCandidate,
+//                    reason = reason
+//                )
+//            )
+//        )
     }
 }
 

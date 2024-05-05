@@ -3,10 +3,8 @@ import com.intellij.ml.llm.template.utils.PsiUtils
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiElement
-import com.intellij.psi.PsiNamedElement
-import com.intellij.refactoring.RefactoringFactory
-import com.intellij.refactoring.rename.inplace.VariableInplaceRenameHandler
-import com.intellij.refactoring.rename.inplace.VariableInplaceRenamer;
+import com.intellij.psi.PsiFile
+
 class RenameVariable(
                      override val startLoc: Int,
                      override val endLoc: Int,
@@ -18,15 +16,15 @@ class RenameVariable(
         fun fromOldNewName(project: Project, functionPsiElement: PsiElement, oldName:String, newName: String): RenameVariable?{
             val varPsi = PsiUtils.getVariableFromPsi(functionPsiElement, oldName)
             if (varPsi!=null)
-                return RenameVariable(project, varPsi, newName)
+                return RenameVariable(1, 1, oldName, newName)
             return null
         }
     }
 
     fun doRename(){
 
-        val refactoringFactory=RefactoringFactory.getInstance(project)
-        val result = refactoringFactory.createRename(psiElement, newName)
+//        val refactoringFactory=RefactoringFactory.getInstance(project)
+//        val result = refactoringFactory.createRename(psiElement, newName)
 
 //        val psiElement: PsiNamedElement? = null
 //        val editor: Editor? = null
@@ -38,9 +36,9 @@ class RenameVariable(
 //        renamer.performInplaceRename()
     }
 
-    override fun performRefactoring() {
+    override fun performRefactoring(project: Project, editor: Editor, file: PsiFile) {
         TODO("Not yet implemented")
-        doRename()
+//        doRename()
     }
 
     override fun isValid(): Boolean {
