@@ -4,6 +4,7 @@ import com.intellij.ml.llm.template.refactoringobjects.extractfunction.EFSuggest
 import com.intellij.ml.llm.template.models.ExtractFunctionLLMRequestProvider
 import com.intellij.ml.llm.template.models.LLMRequestProvider
 import com.intellij.ml.llm.template.models.sendChatRequest
+import com.intellij.ml.llm.template.refactoringobjects.extractfunction.EFCandidateFactory
 import com.intellij.ml.llm.template.utils.*
 import com.intellij.psi.PsiMethod
 import com.intellij.psi.util.PsiUtilBase

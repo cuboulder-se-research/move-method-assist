@@ -9,12 +9,16 @@ import com.intellij.ml.llm.template.prompts.SuggestRefactoringPrompt
 import com.intellij.ml.llm.template.refactoringobjects.AbstractRefactoring
 import com.intellij.ml.llm.template.refactoringobjects.MyRefactoringFactory
 import com.intellij.ml.llm.template.refactoringobjects.RenameVariable
+import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiElement
+import com.intellij.psi.PsiFile
 
 abstract class AbstractRefactoringValidator(
     private val efLLMRequestProvider: LLMRequestProvider,
     private val project: Project,
+    private val editor: Editor,
+    private val file: PsiFile,
     private val functionSrc: String
 
 ) {
@@ -32,21 +36,20 @@ abstract class AbstractRefactoringValidator(
         val response = sendChatRequest(
             project, messageList, efLLMRequestProvider.chatModel, efLLMRequestProvider
         )
-//        var new_name = "newMethod"
         if (response != null) {
             val funcCall: String = response.getSuggestions()[0].text
             println(funcCall)
             if (funcCall.startsWith(refactoringFactory.apiFunctionName)) {
                 print("Looks like a ${refactoringFactory.apiFunctionName} call!")
-                return refactoringFactory.createObjectFromFuncCall(funcCall)
+                return refactoringFactory.createObjectFromFuncCall(
+                    funcCall,
+                    project,
+                    editor,
+                    file
+                    )
             }
         }
         return null
-//        return EFSuggestion(
-//            functionName = new_name,
-//            lineStart = atomicSuggestion.start,
-//            lineEnd = atomicSuggestion.end,
-//        )
     }
 
     private fun setupOpenAiChatMessages(

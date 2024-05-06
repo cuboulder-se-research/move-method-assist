@@ -2,10 +2,34 @@ package com.intellij.ml.llm.template.refactoringobjects.extractfunction
 
 import com.intellij.ml.llm.template.refactoringobjects.AbstractRefactoring
 import com.intellij.ml.llm.template.refactoringobjects.MyRefactoringFactory
+import com.intellij.openapi.editor.Editor
+import com.intellij.openapi.project.Project
+import com.intellij.psi.PsiElement
+import com.intellij.psi.PsiFile
 
 class ExtractMethodFactory {
     companion object: MyRefactoringFactory{
-        override fun createObjectFromFuncCall(funcCall: String): AbstractRefactoring {
+
+        fun get_param_value_from_string(param: String): String{
+            var value = param.removeSuffix(")")
+                .replace("\"", "").replace(" ", "")
+            if (value.contains("(")) {
+                value = value.split("(")[1].replace(" ", "")
+            }
+
+            if (value.contains("=")) {
+                value = value.split("=")[1].replace(" ", "")
+            }
+
+            return value
+        }
+
+        override fun createObjectFromFuncCall(
+            funcCall: String,
+            project: Project,
+            editor: Editor,
+            file: PsiFile
+        ): AbstractRefactoring {
             val func_parts = funcCall.split(',')
             var new_name = func_parts[2].removeSuffix(")")
                 .replace("\"", "").replace(" ", "")
@@ -13,10 +37,17 @@ class ExtractMethodFactory {
                 new_name = new_name.split("=")[1].replace(" ", "")
             }
 
-            val lineStart = func_parts[0].removePrefix("(").toInt()
-            val lineEnd = func_parts[1].toInt()
+            val lineStart = get_param_value_from_string(func_parts[0]).toInt()
+            val lineEnd = get_param_value_from_string(func_parts[1]).toInt()
+            val suggestion = EFSuggestion(new_name, lineStart, lineEnd)
 
-            return ExtractMethod(lineStart, lineEnd, new_name)
+            val candidate = EFCandidateFactory().buildCandidates(
+                    suggestion, editor, file
+                )
+
+            return ExtractMethod.fromEFCandidate(
+                candidate.toList()[0] // TODO: Change to include all elements.
+            )
         }
 
         override val logicalName: String

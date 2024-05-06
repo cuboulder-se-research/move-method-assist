@@ -329,16 +329,15 @@ class ExtractFunctionPanel(
     }
 
     private fun addSelectionToTelemetryData(index: Int) {
-        val efCandidate = myCandidates[index]
+        val refCandidate = myCandidates[index]
         val hostFunctionTelemetryData = myEFTelemetryDataManager?.getData()?.hostFunctionTelemetryData
-        TODO("Fix telemetry data. See commented code below.")
-//        myEFTelemetryDataManager?.addUserSelectionTelemetryData(
-//            EFTelemetryDataUtils.buildUserSelectionTelemetryData(
-//                efCandidate,
-//                index,
-//                hostFunctionTelemetryData,
-//                myFile
-//            )
-//        )
+        myEFTelemetryDataManager?.addUserSelectionTelemetryData(
+            EFTelemetryDataUtils.buildUserSelectionTelemetryData(
+                refCandidate,
+                index,
+                hostFunctionTelemetryData,
+                myFile
+            )
+        )
     }
 }

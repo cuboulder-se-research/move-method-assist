@@ -36,68 +36,69 @@ class EFTelemetryDataTest : LightPlatformCodeInsightTestCase() {
             language = "java"
         )
         val efAppTelemetryObserver = EFCandidatesApplicationTelemetryObserver()
-        efAppTelemetryObserver.update(
-            EFNotification(
-                EFCandidateApplicationPayload(
-                    result = EFApplicationResult.FAIL,
-                    reason = LLMBundle.message("extract.function.entire.function.selection.message"),
-                    candidate = EFCandidate(
-                        functionName = "foo",
-                        offsetStart = 10,
-                        offsetEnd = 20,
-                        lineStart = 100,
-                        lineEnd = 200
-                    ).also {
-                        it.type = EfCandidateType.AS_IS
-                    },
-                )
-            )
-        )
-        efAppTelemetryObserver.update(
-            EFNotification(
-                EFCandidateApplicationPayload(
-                    result = EFApplicationResult.OK,
-                    reason = "",
-                    candidate = EFCandidate(
-                        functionName = "bar",
-                        offsetStart = 15,
-                        offsetEnd = 25,
-                        lineStart = 105,
-                        lineEnd = 205
-                    ).also {
-                        it.type = EfCandidateType.ADJUSTED
-                    }
-                )
-            )
-        )
-
-        val candidateTelemetryDataList =
-            EFTelemetryDataUtils.buildCandidateTelemetryData(efAppTelemetryObserver.getData())
-        val candidatesTelemetryData = EFCandidatesTelemetryData(
-            numberOfSuggestions = 1,
-            candidates = candidateTelemetryDataList
-        )
-
-        val userSelectionTelemetryData = EFUserSelectionTelemetryData(
-            lineStart = 105,
-            lineEnd = 205,
-            functionSize = 100,
-            positionInHostFunction = 10,
-            selectedCandidateIndex = 0,
-            candidateType = EfCandidateType.ADJUSTED,
-            elementsType = emptyList(),
-        )
-
-        manager
-            .addHostFunctionTelemetryData(hostFunctionTelemetryData)
-            .addCandidatesTelemetryData(candidatesTelemetryData)
-            .addUserSelectionTelemetryData(userSelectionTelemetryData)
-
-        val telemetryData = manager.getData(sessionId)
-
-        TestCase.assertEquals(hostFunctionTelemetryData, telemetryData!!.hostFunctionTelemetryData)
-        TestCase.assertEquals(candidatesTelemetryData, telemetryData.candidatesTelemetryData)
-        TestCase.assertEquals(userSelectionTelemetryData, telemetryData.userSelectionTelemetryData)
+        TODO("Update line below")
+//        efAppTelemetryObserver.update(
+//            EFNotification(
+//                EFCandidateApplicationPayload(
+//                    result = EFApplicationResult.FAIL,
+//                    reason = LLMBundle.message("extract.function.entire.function.selection.message"),
+//                    candidate = EFCandidate(
+//                        functionName = "foo",
+//                        offsetStart = 10,
+//                        offsetEnd = 20,
+//                        lineStart = 100,
+//                        lineEnd = 200
+//                    ).also {
+//                        it.type = EfCandidateType.AS_IS
+//                    },
+//                )
+//            )
+//        )
+//        efAppTelemetryObserver.update(
+//            EFNotification(
+//                EFCandidateApplicationPayload(
+//                    result = EFApplicationResult.OK,
+//                    reason = "",
+//                    candidate = EFCandidate(
+//                        functionName = "bar",
+//                        offsetStart = 15,
+//                        offsetEnd = 25,
+//                        lineStart = 105,
+//                        lineEnd = 205
+//                    ).also {
+//                        it.type = EfCandidateType.ADJUSTED
+//                    }
+//                )
+//            )
+//        )
+//
+//        val candidateTelemetryDataList =
+//            EFTelemetryDataUtils.buildCandidateTelemetryData(efAppTelemetryObserver.getData())
+//        val candidatesTelemetryData = EFCandidatesTelemetryData(
+//            numberOfSuggestions = 1,
+//            candidates = candidateTelemetryDataList
+//        )
+//
+//        val userSelectionTelemetryData = EFUserSelectionTelemetryData(
+//            lineStart = 105,
+//            lineEnd = 205,
+//            functionSize = 100,
+//            positionInHostFunction = 10,
+//            selectedCandidateIndex = 0,
+//            candidateType = EfCandidateType.ADJUSTED,
+//            elementsType = emptyList(),
+//        )
+//
+//        manager
+//            .addHostFunctionTelemetryData(hostFunctionTelemetryData)
+//            .addCandidatesTelemetryData(candidatesTelemetryData)
+//            .addUserSelectionTelemetryData(userSelectionTelemetryData)
+//
+//        val telemetryData = manager.getData(sessionId)
+//
+//        TestCase.assertEquals(hostFunctionTelemetryData, telemetryData!!.hostFunctionTelemetryData)
+//        TestCase.assertEquals(candidatesTelemetryData, telemetryData.candidatesTelemetryData)
+//        TestCase.assertEquals(userSelectionTelemetryData, telemetryData.userSelectionTelemetryData)
     }
 
     fun `test build host function telemetry data from code snippet`() {

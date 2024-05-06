@@ -1,0 +1,52 @@
+{
+    "improvements": [
+        {
+            "shortDescription": "Extract line comment handling logic into separate method",
+            "longDescription": "The logic for handling line comments within the 'filterComments' method can be extracted into its own separate method for better code readability and maintainability.",
+            "start": 162,
+            "end": 166,
+            "changeDiff": "- if (nextChar == '/') { ... } else if (nextChar == '*') { ... } ... \n + handleLineComment();"
+        },
+        {
+            "shortDescription": "Extract block comment handling logic into separate method",
+            "longDescription": "The logic for handling block comments within the 'filterComments' method can be extracted into its own separate method for better code readability and maintainability. ",
+            "start": 173,
+            "end": 184,
+            "changeDiff": "- if (comment) { ... do { ... } while (comment && charClass != CharClass.ENDOFLINE); }\n + handleBlockComment();"
+        }
+    ],
+    "finalCode": "    /* Filter out comments before running lex(). If getChar (or this function) sets charClass to ENDOFLINE, this function will pass it on to lex(). */
+    void filterComments() {
+        getNonBlank();
+        handleLineComment();
+
+        handleBlockComment();
+    }
+
+    void handleLineComment() {
+        if (nextChar == '/' && !comment) {
+            getChar();
+            if (nextChar == '/') { // Line comment
+                charClass = CharClass.ENDOFLINE; // After setting this, the rest of the line will be skipped
+            } else if (nextChar == '*') { // Block comment
+                comment = true;
+                getChar();
+            }
+        }
+    }
+
+    void handleBlockComment() {
+        if (comment) {
+            do {
+                if (nextChar == '*') {
+                    getChar();
+                    if (nextChar == '/') {
+                        comment = false;
+                    }
+                }
+                getChar();
+            } while (comment && charClass != CharClass.ENDOFLINE);
+        }
+    }
+"
+}

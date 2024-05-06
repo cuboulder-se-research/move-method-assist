@@ -1,6 +1,7 @@
 package com.intellij.ml.llm.template.telemetry
 
 import com.google.gson.annotations.SerializedName
+import com.intellij.ml.llm.template.refactoringobjects.AbstractRefactoring
 import com.intellij.ml.llm.template.refactoringobjects.extractfunction.EFCandidate
 import com.intellij.ml.llm.template.refactoringobjects.extractfunction.EfCandidateType
 import com.intellij.ml.llm.template.utils.EFApplicationResult
@@ -215,31 +216,31 @@ class EFTelemetryDataUtils {
         }
 
         fun buildUserSelectionTelemetryData(
-            efCandidate: EFCandidate,
+            efCandidate: AbstractRefactoring,
             candidateIndex: Int,
             hostFunctionTelemetryData: EFHostFunctionTelemetryData?,
             file: PsiFile
         ): EFUserSelectionTelemetryData {
             var positionInHostFunction = -1
             if (hostFunctionTelemetryData != null) {
-                positionInHostFunction = efCandidate.lineStart - hostFunctionTelemetryData.bodyLineStart
+                positionInHostFunction = efCandidate.startLoc - hostFunctionTelemetryData.bodyLineStart
             }
             return EFUserSelectionTelemetryData(
-                lineStart = efCandidate.lineStart,
-                lineEnd = efCandidate.lineEnd,
-                functionSize = efCandidate.lineEnd - efCandidate.lineStart + 1,
+                lineStart = efCandidate.startLoc,
+                lineEnd = efCandidate.endLoc,
+                functionSize = efCandidate.endLoc - efCandidate.startLoc + 1,
                 positionInHostFunction = positionInHostFunction,
                 selectedCandidateIndex = candidateIndex,
-                candidateType = efCandidate.type,
-                elementsType = EFTelemetryDataUtils.buildElementsTypeTelemetryData(efCandidate, file),
+                candidateType = EfCandidateType.AS_IS,
+                elementsType = buildElementsTypeTelemetryData(efCandidate, file),
             )
         }
 
         fun buildElementsTypeTelemetryData(
-            efCandidate: EFCandidate,
+            efCandidate: AbstractRefactoring,
             file: PsiFile
         ): List<EFPsiElementsTypesTelemetryData> {
-            val psiElements = file.elementsInRange(TextRange(efCandidate.offsetStart, efCandidate.offsetEnd))
+            val psiElements = file.elementsInRange(TextRange(efCandidate.getStartOffset(), efCandidate.getEndOffset()))
             val namesList = psiElements.filter { it !is PsiWhiteSpace }.map { it.elementType.toString() }
             val namesQuantityMap = namesList.groupingBy { it }.eachCount()
             val result = namesQuantityMap.entries.map {

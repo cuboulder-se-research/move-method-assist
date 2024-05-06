@@ -15,7 +15,6 @@ import com.intellij.ml.llm.template.ui.ExtractFunctionPanel
 import com.intellij.ml.llm.template.utils.*
 import com.intellij.ml.llm.template.prompts.MethodPromptBase
 import com.intellij.ml.llm.template.refactoringobjects.AbstractRefactoring
-import com.intellij.ml.llm.template.refactoringobjects.RenameVariable
 import com.intellij.ml.llm.template.suggestrefactoring.SimpleRefactoringValidator
 import com.intellij.notification.NotificationType
 import com.intellij.openapi.application.invokeLater
@@ -148,9 +147,10 @@ abstract class ApplyExtractFunctionTransformationIntention(
         val llmResponse = response.getSuggestions()[0]
         val validator = SimpleRefactoringValidator(efLLMRequestProvider,
             project,
-            functionSrc,
-            functionPsiElement
-            )
+            editor,
+            file,
+            functionSrc
+        )
 //        val efSuggestionList = validator.getExtractMethodSuggestions(llmResponse.text)
 //        val renameSuggestions = validator.getRenamveVariableSuggestions(llmResponse.text)
         val refactoringCandidates: List<AbstractRefactoring> =

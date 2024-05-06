@@ -1,0 +1,35 @@
+    /* Filter out comments before running lex(). If getChar (or this function)
+     * sets charClass to ENDOFLINE, this function will pass it
+     * on to lex().
+     */
+    void filterComments() {
+
+        getNonBlank();
+
+        // Search for comments by first detecting the '/' character
+        if (nextChar == '/' && !comment) {
+            getChar();
+            if (nextChar == '/') {		// Line comment
+                charClass = CharClass.ENDOFLINE;  // After setting this, the rest of the line will be skipped
+            } else if (nextChar == '*') {			// Block comment
+                comment = true;
+                getChar();
+            }
+        }
+
+        // If we are inside a block comment
+        if (comment) {
+
+            do {
+                if (nextChar == '*') {
+                    getChar();
+                    if (nextChar == '/') {
+                        comment = false;
+                    }
+                }
+                getChar();
+            } while (comment && charClass != CharClass.ENDOFLINE);
+
+        }
+
+    }

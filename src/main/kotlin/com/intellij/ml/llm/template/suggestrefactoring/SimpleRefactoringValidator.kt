@@ -3,20 +3,19 @@ package com.intellij.ml.llm.template.suggestrefactoring
 import com.intellij.ml.llm.template.models.LLMRequestProvider
 import com.intellij.ml.llm.template.refactoringobjects.AbstractRefactoring
 import com.intellij.ml.llm.template.refactoringobjects.MyRefactoringFactory
-import com.intellij.ml.llm.template.refactoringobjects.RenameVariable
 import com.intellij.ml.llm.template.refactoringobjects.RenameVariableFactory
-import com.intellij.ml.llm.template.refactoringobjects.extractfunction.EFSuggestion
-import com.intellij.ml.llm.template.refactoringobjects.extractfunction.EFSuggestionList
 import com.intellij.ml.llm.template.refactoringobjects.extractfunction.ExtractMethodFactory
+import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
-import com.intellij.psi.PsiElement
+import com.intellij.psi.PsiFile
 
 class SimpleRefactoringValidator(
     private val efLLMRequestProvider: LLMRequestProvider,
     private val project: Project,
-    private val functionSrc: String,
-    private val functionPsiElement: PsiElement
-) : AbstractRefactoringValidator(efLLMRequestProvider, project, functionSrc) {
+    private val editor: Editor,
+    private val file: PsiFile,
+    private val functionSrc: String
+) : AbstractRefactoringValidator(efLLMRequestProvider, project, editor, file, functionSrc) {
 
 
 

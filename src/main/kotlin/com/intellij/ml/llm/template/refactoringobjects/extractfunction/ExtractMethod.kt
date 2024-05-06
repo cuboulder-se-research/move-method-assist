@@ -17,22 +17,38 @@ import org.jetbrains.kotlin.idea.refactoring.introduce.extractFunction.ExtractKo
 class ExtractMethod(
     override val startLoc: Int,
     override val endLoc: Int,
-    val newFuncName: String
+    val newFuncName: String,
 ) : AbstractRefactoring {
 
+    var efCandidate: EFCandidate? =null
 
     companion object{
         const val REFACTORING_NAME = "Extract Method"
 
+        fun fromEFCandidate(candidate: EFCandidate): ExtractMethod{
+            val em = ExtractMethod(candidate.lineStart, candidate.lineEnd, candidate.functionName)
+            em.efCandidate = candidate
+            return em
+        }
+
     }
 
     override fun performRefactoring(project: Project, editor: Editor, file: PsiFile) {
+        editor.selectionModel.setSelection(this.getStartOffset(), this.getEndOffset())
         invokeExtractFunction(newFuncName, project, editor, file)
+    }
+
+    override fun getStartOffset(): Int {
+        return efCandidate!!.offsetStart
+    }
+
+    override fun getEndOffset(): Int {
+        return efCandidate!!.offsetEnd
     }
 
 
     override fun isValid(): Boolean {
-        TODO("Not yet implemented")
+        return true
     }
 
     override fun getRefactoringName(): String {
