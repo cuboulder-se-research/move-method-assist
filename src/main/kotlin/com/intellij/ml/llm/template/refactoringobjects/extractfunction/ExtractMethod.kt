@@ -5,6 +5,8 @@ import com.intellij.ml.llm.template.models.FunctionNameProvider
 import com.intellij.ml.llm.template.models.MyMethodExtractor
 import com.intellij.ml.llm.template.refactoringobjects.AbstractRefactoring
 import com.intellij.ml.llm.template.refactoringobjects.extractfunction.customextractors.MyInplaceExtractionHelper
+import com.intellij.ml.llm.template.utils.EFLoggerObserver
+import com.intellij.ml.llm.template.utils.isCandidateExtractable
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.editor.ex.EditorEx
 import com.intellij.openapi.project.Project
@@ -47,8 +49,13 @@ class ExtractMethod(
     }
 
 
-    override fun isValid(): Boolean {
-        return true
+    override fun isValid(project: Project, editor: Editor, file: PsiFile): Boolean {
+        return this.efCandidate?.let {
+            isCandidateExtractable(
+                it, editor, file
+            )
+        }?: false
+
     }
 
     override fun getRefactoringName(): String {

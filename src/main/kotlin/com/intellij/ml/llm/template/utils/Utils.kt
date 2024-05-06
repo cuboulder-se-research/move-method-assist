@@ -233,8 +233,7 @@ private fun buildEFNotificationAndNotifyObservers(
     reason: String,
     observers: List<Observer>
 ) {
-    observers.forEach {
-        TODO("Update logic")
+//    observers.forEach {
 //        it.update(
 //            EFNotification(
 //                EFCandidateApplicationPayload(
@@ -244,7 +243,8 @@ private fun buildEFNotificationAndNotifyObservers(
 //                )
 //            )
 //        )
-    }
+//    }
+    // TODO: Add logic to update observers
 }
 
 private fun logException(e: Exception) {

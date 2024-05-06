@@ -6,12 +6,12 @@ import com.intellij.psi.PsiFile
 
 class RenameVariableFactory {
     companion object: MyRefactoringFactory{
-        override fun createObjectFromFuncCall(
+        override fun createObjectsFromFuncCall(
             funcCall: String,
             project: Project,
             editor: Editor,
             file: PsiFile
-        ): AbstractRefactoring {
+        ): List<AbstractRefactoring> {
             val newName = funcCall.split(',')[1]
                 .removeSuffix(")")
                 .replace("\"", "")
@@ -24,7 +24,7 @@ class RenameVariableFactory {
                 .replace(" ", "")
             println("old_name:$oldName")
 
-            return RenameVariable(1, 1, oldName, newName)
+            return listOf(RenameVariable(1, 1, oldName, newName))
         }
 
         override val logicalName: String

@@ -4,7 +4,6 @@ import com.intellij.ml.llm.template.refactoringobjects.AbstractRefactoring
 import com.intellij.ml.llm.template.refactoringobjects.MyRefactoringFactory
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
-import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
 
 class ExtractMethodFactory {
@@ -24,12 +23,12 @@ class ExtractMethodFactory {
             return value
         }
 
-        override fun createObjectFromFuncCall(
+        override fun createObjectsFromFuncCall(
             funcCall: String,
             project: Project,
             editor: Editor,
             file: PsiFile
-        ): AbstractRefactoring {
+        ): List<AbstractRefactoring> {
             val func_parts = funcCall.split(',')
             var new_name = func_parts[2].removeSuffix(")")
                 .replace("\"", "").replace(" ", "")
@@ -41,13 +40,13 @@ class ExtractMethodFactory {
             val lineEnd = get_param_value_from_string(func_parts[1]).toInt()
             val suggestion = EFSuggestion(new_name, lineStart, lineEnd)
 
-            val candidate = EFCandidateFactory().buildCandidates(
+            val candidates = EFCandidateFactory().buildCandidates(
                     suggestion, editor, file
                 )
 
-            return ExtractMethod.fromEFCandidate(
-                candidate.toList()[0] // TODO: Change to include all elements.
-            )
+            return candidates.toList()
+                .map { ExtractMethod.fromEFCandidate(it) }
+                .toList()
         }
 
         override val logicalName: String

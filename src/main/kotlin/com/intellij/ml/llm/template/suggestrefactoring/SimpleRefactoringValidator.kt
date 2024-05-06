@@ -35,7 +35,7 @@ class SimpleRefactoringValidator(
                 ExtractMethodFactory //default
             }
             getParamsAndCreateObject(suggestion, refactoringSuggestion.finalCode, refFactory)?.let {
-                refactoringObjects.add(
+                refactoringObjects.addAll(
                     it
                 )
             }

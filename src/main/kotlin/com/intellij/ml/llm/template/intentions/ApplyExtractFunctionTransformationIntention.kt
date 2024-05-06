@@ -157,10 +157,6 @@ abstract class ApplyExtractFunctionTransformationIntention(
             validator.getRefactoringSuggestions(llmResponse.text)
 
 
-
-        // TODO: use these suggestions to further call the LLM
-        //  and figure out the parameters necessary to call IDE APIs.
-
 //        val candidates = EFCandidateFactory().buildCandidates(efSuggestionList.suggestionList, editor, file).toList()
         if (refactoringCandidates.isEmpty()) {
             showEFNotification(
@@ -176,7 +172,7 @@ abstract class ApplyExtractFunctionTransformationIntention(
             // TODO: move below method call to extract method refactoring object.
 //            val filteredCandidates = filterCandidates(candidates, candidatesApplicationTelemetryObserver, editor, file)
             val validRefactoringCandidates = refactoringCandidates.filter {
-                it.isValid()
+                it.isValid(project, editor, file)
             }
 
             telemetryDataManager.addCandidatesTelemetryData(

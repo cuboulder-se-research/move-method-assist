@@ -29,14 +29,15 @@ class CodeTransformerTest : LightPlatformCodeInsightTestCase() {
         val efCandidates = EFCandidateFactory().buildCandidates(efs, editor, file)
 
         val funcCall = "extract_method(113, 119, \"createPartitionMetadata\")"
-        val emObj = ExtractMethodFactory.createObjectFromFuncCall(
+        val emObj = ExtractMethodFactory.createObjectsFromFuncCall(
             funcCall, project, editor, file
         )
 
-        emObj.performRefactoring(
-            project, editor, file
-        )
-
+        for (obj in emObj){
+            if (obj.isValid(project, editor, file)) {
+                obj.performRefactoring(project, editor, file)
+            }
+        }
 
 //        efCandidates.forEach { candidate ->
 //            configureByFile("/testdata/KafkaAdminClientTest.java")

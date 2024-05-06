@@ -21,7 +21,7 @@ interface AbstractRefactoring{
     /*
     Return true if the refactoring object can be applied to the code.
      */
-    fun isValid(): Boolean
+    fun isValid(project: Project, editor: Editor, file: PsiFile): Boolean
 
     /*
     Return the total lines of code covered by the refactoring object

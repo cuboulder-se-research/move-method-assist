@@ -29,7 +29,7 @@ abstract class AbstractRefactoringValidator(
         atomicSuggestion: AtomicSuggestion,
         finalCode: String,
         refactoringFactory: MyRefactoringFactory
-    ): AbstractRefactoring? {
+    ): List<AbstractRefactoring>? {
         val messageList: MutableList<OpenAiChatMessage> =
             setupOpenAiChatMessages(atomicSuggestion, finalCode, refactoringFactory)
 
@@ -41,7 +41,7 @@ abstract class AbstractRefactoringValidator(
             println(funcCall)
             if (funcCall.startsWith(refactoringFactory.apiFunctionName)) {
                 print("Looks like a ${refactoringFactory.apiFunctionName} call!")
-                return refactoringFactory.createObjectFromFuncCall(
+                return refactoringFactory.createObjectsFromFuncCall(
                     funcCall,
                     project,
                     editor,

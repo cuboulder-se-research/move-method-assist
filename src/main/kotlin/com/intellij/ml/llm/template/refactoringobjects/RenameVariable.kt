@@ -41,7 +41,7 @@ class RenameVariable(
 //        doRename()
     }
 
-    override fun isValid(): Boolean {
+    override fun isValid(project: Project, editor: Editor, file: PsiFile): Boolean {
         TODO("Not yet implemented")
     }
 

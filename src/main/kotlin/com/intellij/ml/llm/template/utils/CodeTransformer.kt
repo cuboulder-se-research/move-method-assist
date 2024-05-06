@@ -24,7 +24,7 @@ class CodeTransformer : Observable() {
         var reason = ""
 
 //        if (!isCandidateValid(efCandidate)) {
-         if (!refCandidate.isValid()){
+         if (!refCandidate.isValid(project, editor, file)){
             applicationResult = EFApplicationResult.FAIL
             reason = "invalid extract function candidate"
         } else {

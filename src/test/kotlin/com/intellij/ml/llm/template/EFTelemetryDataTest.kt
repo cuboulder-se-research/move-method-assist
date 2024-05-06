@@ -2,6 +2,8 @@ package com.intellij.ml.llm.template
 
 import com.intellij.ml.llm.template.refactoringobjects.extractfunction.EFCandidate
 import com.intellij.ml.llm.template.refactoringobjects.extractfunction.EfCandidateType
+import com.intellij.ml.llm.template.refactoringobjects.extractfunction.ExtractMethod
+import com.intellij.ml.llm.template.refactoringobjects.extractfunction.ExtractMethodFactory
 import com.intellij.ml.llm.template.telemetry.*
 import com.intellij.ml.llm.template.utils.EFApplicationResult
 import com.intellij.ml.llm.template.utils.EFCandidateApplicationPayload
@@ -141,7 +143,10 @@ class EFTelemetryDataTest : LightPlatformCodeInsightTestCase() {
             lineEnd = 17
         )
 
-        val psiElementsTelemetryData = EFTelemetryDataUtils.buildElementsTypeTelemetryData(efCandidate, file)
+
+
+        val psiElementsTelemetryData = EFTelemetryDataUtils.buildElementsTypeTelemetryData(
+            ExtractMethod.fromEFCandidate(efCandidate), file)
 
         TestCase.assertEquals(2, psiElementsTelemetryData.size)
         TestCase.assertTrue(psiElementsTelemetryData.contains(EFPsiElementsTypesTelemetryData("BINARY_EXPRESSION", 1)))
