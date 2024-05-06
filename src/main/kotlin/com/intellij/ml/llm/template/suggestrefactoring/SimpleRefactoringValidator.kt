@@ -3,7 +3,7 @@ package com.intellij.ml.llm.template.suggestrefactoring
 import com.intellij.ml.llm.template.models.LLMRequestProvider
 import com.intellij.ml.llm.template.refactoringobjects.AbstractRefactoring
 import com.intellij.ml.llm.template.refactoringobjects.MyRefactoringFactory
-import com.intellij.ml.llm.template.refactoringobjects.RenameVariableFactory
+import com.intellij.ml.llm.template.refactoringobjects.renamevariable.RenameVariableFactory
 import com.intellij.ml.llm.template.refactoringobjects.extractfunction.ExtractMethodFactory
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project

@@ -1,4 +1,6 @@
-package com.intellij.ml.llm.template.refactoringobjects
+package com.intellij.ml.llm.template.refactoringobjects.renamevariable
+
+import com.intellij.ml.llm.template.refactoringobjects.AbstractRefactoring
 import com.intellij.ml.llm.template.utils.PsiUtils
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project

@@ -1,11 +1,13 @@
-package com.intellij.ml.llm.template.refactoringobjects
+package com.intellij.ml.llm.template.refactoringobjects.renamevariable
 
+import com.intellij.ml.llm.template.refactoringobjects.AbstractRefactoring
+import com.intellij.ml.llm.template.refactoringobjects.MyRefactoringFactory
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiFile
 
 class RenameVariableFactory {
-    companion object: MyRefactoringFactory{
+    companion object: MyRefactoringFactory {
         override fun createObjectsFromFuncCall(
             funcCall: String,
             project: Project,

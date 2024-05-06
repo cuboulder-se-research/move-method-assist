@@ -8,7 +8,7 @@ import com.intellij.ml.llm.template.prompts.GetRefactoringObjParametersPrompt
 import com.intellij.ml.llm.template.prompts.SuggestRefactoringPrompt
 import com.intellij.ml.llm.template.refactoringobjects.AbstractRefactoring
 import com.intellij.ml.llm.template.refactoringobjects.MyRefactoringFactory
-import com.intellij.ml.llm.template.refactoringobjects.RenameVariable
+import com.intellij.ml.llm.template.refactoringobjects.renamevariable.RenameVariable
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiElement
