@@ -8,73 +8,59 @@ import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
 import com.intellij.psi.PsiMethod
 import com.intellij.refactoring.RefactoringFactory
+import org.jetbrains.kotlin.idea.editor.fixers.startLine
+import org.jetbrains.kotlin.psi.psiUtil.endOffset
 import org.jetbrains.kotlin.psi.psiUtil.getChildrenOfType
+import org.jetbrains.kotlin.psi.psiUtil.startOffset
 
 class RenameVariable(
                      override val startLoc: Int,
                      override val endLoc: Int,
                      val oldName: String,
-                     val newName: String
+                     val newName: String,
+                     val oldVarPsi: PsiElement
+
 ): AbstractRefactoring() {
 
     companion object{
-        fun fromOldNewName(project: Project, functionPsiElement: PsiElement, oldName:String, newName: String): RenameVariable?{
+        fun fromOldNewName(project: Project,
+                           functionPsiElement: PsiElement?,
+                           oldName:String,
+                           newName: String): AbstractRefactoring?{
             val varPsi = PsiUtils.getVariableFromPsi(functionPsiElement, oldName)
             if (varPsi!=null)
-                return RenameVariable(1, 1, oldName, newName)
+                return RenameVariable(1, 1, oldName, newName, varPsi)
             return null
         }
     }
 
-    fun doRename(){
+    override fun performRefactoring(project: Project, editor: Editor, file: PsiFile) {
+//        val varPsi = PsiUtils.getVariableFromPsi(file, oldName)
+        val refactoringFactory = RefactoringFactory.getInstance(project)
+        val rename = refactoringFactory.createRename(oldVarPsi, newName)
+        val usages = rename?.findUsages()
+        rename?.doRefactoring(usages)
 
-//        val refactoringFactory=RefactoringFactory.getInstance(project)
-//        val result = refactoringFactory.createRename(psiElement, newName)
-
-//        val psiElement: PsiNamedElement? = null
-//        val editor: Editor? = null
-//        val project: Project? = null
-
-//        VariableInplaceRenameHandler
 //        val renamer = VariableInplaceRenamer(psiElement,
 //            editor,project,"myString","newMyString")
 //        renamer.performInplaceRename()
     }
 
-    override fun performRefactoring(project: Project, editor: Editor, file: PsiFile) {
-        val varPsi = PsiUtils.getVariableFromPsi(file, oldName)
-        val variables = file.getChildrenOfType<PsiMethod>()
-
-        for (v in variables){
-            println("name: ${v.name}")
-        }
-
-
-        val refactoringFactory=RefactoringFactory.getInstance(project)
-        val rename = varPsi?.let { refactoringFactory.createRename(it, newName) }
-//        result?.run()
-        val usages = rename?.findUsages()
-//        RenameMethodStatistics.applyCount(selectedValue.second)
-        rename?.doRefactoring(usages)
-
-        print("Done??")
-
-
-//        val renamer = VariableInplaceRenamer(varPsi,
-//            editor,project,"myString","newMyString")
-//        renamer.performInplaceRename()
-
-
-
-//        TODO("Not yet implemented");
-//        doRename()
-    }
-
     override fun isValid(project: Project, editor: Editor, file: PsiFile): Boolean {
-        TODO("Not yet implemented")
+        // Valid if oldName exists and newName doesn't
+        return PsiUtils.getVariableFromPsi(file, oldName)!=null
+                && PsiUtils.getVariableFromPsi(file, newName)==null
     }
 
     override fun getRefactoringName(): String {
         return RenameVariableFactory.logicalName
+    }
+
+    override fun getStartOffset(): Int {
+        return oldVarPsi.startOffset
+    }
+
+    override fun getEndOffset(): Int {
+        return oldVarPsi.endOffset
     }
 }

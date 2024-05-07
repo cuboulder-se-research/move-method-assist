@@ -77,48 +77,48 @@ abstract class AbstractRefactoringValidator(
     }
 
 
-    fun getRenameVariableParameters(atomicSuggestion: AtomicSuggestion,
-                                   finalCode: String, functionPsiElement: PsiElement):
-            RenameVariable?{
-
-        var messageList:MutableList<OpenAiChatMessage> = mutableListOf()
-        val basePrompt = SuggestRefactoringPrompt().getPrompt(functionSrc)
-        messageList.addAll(basePrompt)
-        messageList.add(
-            OpenAiChatMessage("assistant",
-                Gson().toJson(RefactoringSuggestion(mutableListOf(atomicSuggestion), finalCode)).toString()
-            )
-        )
-
-//        messageList.addAll(
-////            GetRenameVariableParametersPrompt().getPrompt(atomicSuggestion.shortDescription, "rename_variable")
+//    fun getRenameVariableParameters(atomicSuggestion: AtomicSuggestion,
+//                                   finalCode: String, functionPsiElement: PsiElement):
+//            RenameVariable?{
+//
+//        var messageList:MutableList<OpenAiChatMessage> = mutableListOf()
+//        val basePrompt = SuggestRefactoringPrompt().getPrompt(functionSrc)
+//        messageList.addAll(basePrompt)
+//        messageList.add(
+//            OpenAiChatMessage("assistant",
+//                Gson().toJson(RefactoringSuggestion(mutableListOf(atomicSuggestion), finalCode)).toString()
+//            )
 //        )
-
-        val response = sendChatRequest(
-            project, messageList, efLLMRequestProvider.chatModel, efLLMRequestProvider
-        )
-        var new_name = "newVariableName"
-        var old_name = "oldVariableName"
-        if (response != null) {
-            val funcCall:String = response.getSuggestions()[0].text
-            println(funcCall)
-            if(funcCall.startsWith("rename_variable"))
-                print("Looks like a rename_variable call!")
-            new_name = funcCall.split(',')[1]
-                .removeSuffix(")")
-                .replace("\"", "")
-                .replace(" ", "")
-            print("new name:$new_name")
-
-            old_name = funcCall.split(',')[0]
-                .removeSuffix(")")
-                .replace("\"", "")
-                .replace(" ", "")
-            println("old_name:$old_name")
-        }
-        return RenameVariable.fromOldNewName(project, functionPsiElement,
-            "old_name", "new_name")
-    }
+//
+////        messageList.addAll(
+//////            GetRenameVariableParametersPrompt().getPrompt(atomicSuggestion.shortDescription, "rename_variable")
+////        )
+//
+//        val response = sendChatRequest(
+//            project, messageList, efLLMRequestProvider.chatModel, efLLMRequestProvider
+//        )
+//        var new_name = "newVariableName"
+//        var old_name = "oldVariableName"
+//        if (response != null) {
+//            val funcCall:String = response.getSuggestions()[0].text
+//            println(funcCall)
+//            if(funcCall.startsWith("rename_variable"))
+//                print("Looks like a rename_variable call!")
+//            new_name = funcCall.split(',')[1]
+//                .removeSuffix(")")
+//                .replace("\"", "")
+//                .replace(" ", "")
+//            print("new name:$new_name")
+//
+//            old_name = funcCall.split(',')[0]
+//                .removeSuffix(")")
+//                .replace("\"", "")
+//                .replace(" ", "")
+//            println("old_name:$old_name")
+//        }
+//        return RenameVariable.fromOldNewName(project, functionPsiElement,
+//            "old_name", "new_name")
+//    }
 
 
 

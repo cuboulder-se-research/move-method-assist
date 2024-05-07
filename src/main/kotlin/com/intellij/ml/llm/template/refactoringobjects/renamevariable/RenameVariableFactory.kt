@@ -1,10 +1,14 @@
 package com.intellij.ml.llm.template.refactoringobjects.renamevariable
 
+import com.intellij.lang.Language
 import com.intellij.ml.llm.template.refactoringobjects.AbstractRefactoring
 import com.intellij.ml.llm.template.refactoringobjects.MyRefactoringFactory
+import com.intellij.ml.llm.template.utils.PsiUtils
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
+import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
+import org.jetbrains.eval4j.checkNull
 
 class RenameVariableFactory {
     companion object: MyRefactoringFactory {
@@ -26,7 +30,10 @@ class RenameVariableFactory {
                 .replace(" ", "")
             println("old_name:$oldName")
 
-            return listOf(RenameVariable(1, 1, oldName, newName))
+            val functionPsi: PsiElement? = PsiUtils.Companion.getParentFunctionOrNull(editor, language = file.language)
+            return listOf(
+                RenameVariable.fromOldNewName(project, functionPsi, oldName, newName)!!
+            )
         }
 
         override val logicalName: String
