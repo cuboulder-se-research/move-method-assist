@@ -14,14 +14,20 @@ import com.intellij.psi.PsiFile
 //}
 
 
-interface AbstractRefactoring{
+abstract class AbstractRefactoring{
 
-    fun performRefactoring(project: Project, editor: Editor, file: PsiFile)
+
+//    companion object{
+//        internal fun f(): Int{
+//            return 1
+//        }
+//    }
+    abstract fun performRefactoring(project: Project, editor: Editor, file: PsiFile)
 
     /*
     Return true if the refactoring object can be applied to the code.
      */
-    fun isValid(project: Project, editor: Editor, file: PsiFile): Boolean
+    abstract fun isValid(project: Project, editor: Editor, file: PsiFile): Boolean
 
     /*
     Return the total lines of code covered by the refactoring object
@@ -33,8 +39,8 @@ interface AbstractRefactoring{
     /*
     Line numbers where refactoring is to be applied
      */
-    val startLoc: Int
-    val endLoc: Int
+    abstract val startLoc: Int
+    abstract val endLoc: Int
 
     /*
     Offsets where refactoring is to be applied(based on character index)
@@ -45,15 +51,15 @@ interface AbstractRefactoring{
     /*
     A logical name for the refactoring
      */
-    fun getRefactoringName(): String
+    abstract fun getRefactoringName(): String
 
 
-    fun getStartOffset(): Int{
+    open fun getStartOffset(): Int {
         TODO("Implement logic.")
         return 1
     }
 
-    fun getEndOffset(): Int{
+    open fun getEndOffset(): Int {
         TODO("Implement logic.")
         return 1
     }

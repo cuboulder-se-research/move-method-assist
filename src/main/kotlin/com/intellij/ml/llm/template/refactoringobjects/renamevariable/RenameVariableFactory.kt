@@ -33,6 +33,7 @@ class RenameVariableFactory {
             get() = "Rename Variable"
         override val apiFunctionName: String
             get() = "rename_variable"
+        // rename_variable("x", "count")
         override val APIDocumentation: String
             get() = """def rename_variable(old_variable_name, new_variable_name):
     ""${'"'}

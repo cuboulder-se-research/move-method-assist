@@ -10,6 +10,8 @@ interface MyRefactoringFactory {
     // Return refactoring objects from a function call.
     // May return more than 1 object after enhancing data ensure a well-formed object
     // Ex: extract method enhancements to ensure line numbers are a valid block.
+    // extract_method(10, 20, "newMethodName")
+    // rename_variable("x", "count")
     fun createObjectsFromFuncCall(
         funcCall: String,
         project: Project,

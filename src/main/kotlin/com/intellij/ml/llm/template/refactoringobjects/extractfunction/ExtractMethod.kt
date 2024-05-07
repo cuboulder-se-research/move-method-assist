@@ -5,7 +5,6 @@ import com.intellij.ml.llm.template.models.FunctionNameProvider
 import com.intellij.ml.llm.template.models.MyMethodExtractor
 import com.intellij.ml.llm.template.refactoringobjects.AbstractRefactoring
 import com.intellij.ml.llm.template.refactoringobjects.extractfunction.customextractors.MyInplaceExtractionHelper
-import com.intellij.ml.llm.template.utils.EFLoggerObserver
 import com.intellij.ml.llm.template.utils.isCandidateExtractable
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.editor.ex.EditorEx
@@ -20,7 +19,7 @@ class ExtractMethod(
     override val startLoc: Int,
     override val endLoc: Int,
     val newFuncName: String,
-) : AbstractRefactoring {
+) : AbstractRefactoring() {
 
     var efCandidate: EFCandidate? =null
 

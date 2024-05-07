@@ -1,20 +1,11 @@
 package com.intellij.ml.llm.template.utils
 
-import com.intellij.lang.java.JavaLanguage
-import com.intellij.ml.llm.template.refactoringobjects.extractfunction.customextractors.MyInplaceExtractionHelper
 import com.intellij.ml.llm.template.refactoringobjects.extractfunction.EFCandidate
-import com.intellij.ml.llm.template.models.FunctionNameProvider
-import com.intellij.ml.llm.template.models.MyMethodExtractor
 import com.intellij.ml.llm.template.refactoringobjects.AbstractRefactoring
 import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.editor.Editor
-import com.intellij.openapi.editor.ex.EditorEx
 import com.intellij.openapi.project.Project
-import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
-import com.intellij.psi.util.PsiTreeUtil
-import org.jetbrains.kotlin.idea.KotlinLanguage
-import org.jetbrains.kotlin.idea.refactoring.introduce.extractFunction.ExtractKotlinFunctionHandler
 
 class CodeTransformer : Observable() {
     private val logger = Logger.getInstance("#com.intellij.ml.llm")
