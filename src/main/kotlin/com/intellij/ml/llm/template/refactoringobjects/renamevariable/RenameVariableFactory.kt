@@ -18,22 +18,15 @@ class RenameVariableFactory {
             editor: Editor,
             file: PsiFile
         ): List<AbstractRefactoring> {
-            val newName = funcCall.split(',')[1]
-                .removeSuffix(")")
-                .replace("\"", "")
-                .replace(" ", "")
-            print("new name:$newName")
-
-            val oldName = funcCall.split(',')[0]
-                .removeSuffix(")")
-                .replace("\"", "")
-                .replace(" ", "")
-            println("old_name:$oldName")
+            val funcParts = funcCall.split(',')
+            val newName = getParamValueFromString(funcParts[1])
+            val oldName = getParamValueFromString(funcParts[0])
 
             val functionPsi: PsiElement? = PsiUtils.Companion.getParentFunctionOrNull(editor, language = file.language)
-            return listOf(
-                RenameVariable.fromOldNewName(project, functionPsi, oldName, newName)!!
-            )
+            val renameObj = RenameVariable.fromOldNewName(project, functionPsi, oldName, newName)
+            if (renameObj!=null)
+                return listOf(renameObj)
+            return listOf()
         }
 
         override val logicalName: String

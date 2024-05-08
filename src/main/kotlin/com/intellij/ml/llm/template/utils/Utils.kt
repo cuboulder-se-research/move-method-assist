@@ -366,7 +366,7 @@ class PsiUtils {
 
         fun getVariableFromPsi(psiElement: PsiElement?, variableName: String): PsiElement?{
 
-            var foundVariable: PsiLocalVariable? = null
+            var foundVariable: PsiElement? = null
             class VariableFinder: JavaRecursiveElementVisitor() {
 
                 override fun visitClass(aClass: PsiClass) {
@@ -388,6 +388,19 @@ class PsiUtils {
                     if (variable.name == variableName)
                         foundVariable = variable
                 }
+
+                override fun visitReferenceExpression(expression: PsiReferenceExpression) {
+                    super.visitReferenceExpression(expression)
+                    if (expression.referenceName==variableName)
+                        foundVariable = expression.reference?.resolve()
+                }
+//                override fun visitIdentifier(identifier: PsiIdentifier) {
+//                    super.visitIdentifier(identifier)
+//                    print("found :"+identifier.text)
+//                    if (identifier.text == variableName)
+//                        foundVariable = identifier
+//                }
+
             }
             if (psiElement != null) {
                 psiElement.accept(VariableFinder())

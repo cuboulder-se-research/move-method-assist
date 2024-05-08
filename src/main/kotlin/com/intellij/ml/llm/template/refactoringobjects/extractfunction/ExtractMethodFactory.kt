@@ -9,19 +9,7 @@ import com.intellij.psi.PsiFile
 class ExtractMethodFactory {
     companion object: MyRefactoringFactory{
 
-        fun get_param_value_from_string(param: String): String{
-            var value = param.removeSuffix(")")
-                .replace("\"", "").replace(" ", "")
-            if (value.contains("(")) {
-                value = value.split("(")[1].replace(" ", "")
-            }
 
-            if (value.contains("=")) {
-                value = value.split("=")[1].replace(" ", "")
-            }
-
-            return value
-        }
 
         override fun createObjectsFromFuncCall(
             funcCall: String,
@@ -36,8 +24,8 @@ class ExtractMethodFactory {
                 new_name = new_name.split("=")[1].replace(" ", "")
             }
 
-            val lineStart = get_param_value_from_string(func_parts[0]).toInt()
-            val lineEnd = get_param_value_from_string(func_parts[1]).toInt()
+            val lineStart = getParamValueFromString(func_parts[0]).toInt()
+            val lineEnd = getParamValueFromString(func_parts[1]).toInt()
             val suggestion = EFSuggestion(new_name, lineStart, lineEnd)
 
             val candidates = EFCandidateFactory().buildCandidates(

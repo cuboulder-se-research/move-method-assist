@@ -1,3 +1,5 @@
+package com.intellij.ml.llm.template.testdata;
+
 class HelloWorld{
     public static void main(String[] args){
         int x =1;

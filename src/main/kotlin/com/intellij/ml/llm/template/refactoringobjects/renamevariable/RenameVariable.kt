@@ -8,6 +8,7 @@ import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
 import com.intellij.psi.PsiMethod
 import com.intellij.refactoring.RefactoringFactory
+import org.jetbrains.kotlin.idea.base.psi.getLineNumber
 import org.jetbrains.kotlin.idea.editor.fixers.startLine
 import org.jetbrains.kotlin.psi.psiUtil.endOffset
 import org.jetbrains.kotlin.psi.psiUtil.getChildrenOfType
@@ -29,7 +30,8 @@ class RenameVariable(
                            newName: String): AbstractRefactoring?{
             val varPsi = PsiUtils.getVariableFromPsi(functionPsiElement, oldName)
             if (varPsi!=null)
-                return RenameVariable(1, 1, oldName, newName, varPsi)
+                return RenameVariable(varPsi.getLineNumber(),
+                    varPsi.getLineNumber(), oldName, newName, varPsi)
             return null
         }
     }
