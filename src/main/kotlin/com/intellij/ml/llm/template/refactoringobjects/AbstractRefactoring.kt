@@ -51,16 +51,10 @@ abstract class AbstractRefactoring{
     /*
     A logical name for the refactoring
      */
-    abstract fun getRefactoringName(): String
+    abstract fun getRefactoringPreview(): String
 
 
-    open fun getStartOffset(): Int {
-        TODO("Implement logic.")
-        return 1
-    }
+    abstract fun getStartOffset(): Int
 
-    open fun getEndOffset(): Int {
-        TODO("Implement logic.")
-        return 1
-    }
+    abstract fun getEndOffset(): Int
 }

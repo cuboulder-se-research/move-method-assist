@@ -54,8 +54,8 @@ class RenameVariable(
                 && PsiUtils.getVariableFromPsi(file, newName)==null
     }
 
-    override fun getRefactoringName(): String {
-        return RenameVariableFactory.logicalName
+    override fun getRefactoringPreview(): String {
+        return "${RenameVariableFactory.logicalName} $oldName -> $newName"
     }
 
     override fun getStartOffset(): Int {

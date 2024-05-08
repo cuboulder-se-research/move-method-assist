@@ -33,6 +33,7 @@ import com.intellij.ui.components.JBScrollPane
 import com.intellij.ui.dsl.builder.AlignX
 import com.intellij.ui.dsl.builder.panel
 import com.intellij.ui.table.JBTable
+import com.intellij.util.ui.JBDimension
 import com.intellij.util.ui.JBUI
 import org.jetbrains.annotations.Nls
 import org.jetbrains.kotlin.idea.KotlinLanguage
@@ -77,7 +78,6 @@ class ExtractFunctionPanel(
         val tableModel = buildTableModel(myCandidates)
         val candidateSignatureMap = buildCandidateSignatureMap(myCandidates)
         myMethodSignaturePreview = buildMethodSignaturePreview()
-        // TODO: Think about how to preview any refactoring.
         myExtractFunctionsCandidateTable = buildRefactoringCandidatesTable(tableModel, candidateSignatureMap)
         myExtractFunctionsScrollPane = buildExtractFunctionScrollPane()
     }
@@ -86,7 +86,7 @@ class ExtractFunctionPanel(
         val candidateSignatureMap: MutableMap<AbstractRefactoring, String> = mutableMapOf()
 
         candidates.forEach { candidate ->
-            candidateSignatureMap[candidate] = candidate.getRefactoringName()
+            candidateSignatureMap[candidate] = candidate.getRefactoringPreview()
         }
 
         return candidateSignatureMap
@@ -177,7 +177,7 @@ class ExtractFunctionPanel(
         model.setColumnIdentifiers(columnNames)
         candidates.forEach { refCandidate ->
             val refactoringSize = refCandidate.sizeLoc()
-            val refName = refCandidate.getRefactoringName()
+            val refName = refCandidate.getRefactoringPreview()
             model.addRow(arrayOf(refactoringSize, refName))
         }
         return model
@@ -200,11 +200,13 @@ class ExtractFunctionPanel(
                 cell(myExtractFunctionsScrollPane).align(AlignX.FILL)
             }
 
-//            row {
-//                cell(myMethodSignaturePreview)
-//                    .align(AlignX.FILL)
-//                    .applyToComponent { minimumSize = JBDimension(100, 100) }
-//            }
+            // TODO: Use the below if you would like to implement a nicer preview
+            //  of the refactoring, in a box
+            row {
+                cell(myMethodSignaturePreview)
+                    .align(AlignX.FILL)
+                    .applyToComponent { minimumSize = JBDimension(100, 100) }
+            }
 
             row {
                 button(LLMBundle.message("ef.candidates.popup.extract.function.button.title"), actionListener = {

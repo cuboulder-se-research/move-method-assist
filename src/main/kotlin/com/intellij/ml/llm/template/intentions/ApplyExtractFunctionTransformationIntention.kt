@@ -169,7 +169,6 @@ abstract class ApplyExtractFunctionTransformationIntention(
             sendTelemetryData()
         } else {
             val candidatesApplicationTelemetryObserver = EFCandidatesApplicationTelemetryObserver()
-            // TODO: move below method call to extract method refactoring object.
 //            val filteredCandidates = filterCandidates(candidates, candidatesApplicationTelemetryObserver, editor, file)
             val validRefactoringCandidates = refactoringCandidates.filter {
                 it.isValid(project, editor, file)

@@ -57,8 +57,8 @@ class ExtractMethod(
 
     }
 
-    override fun getRefactoringName(): String {
-        return REFACTORING_NAME
+    override fun getRefactoringPreview(): String {
+        return "${REFACTORING_NAME}: $newFuncName"
     }
 
 
