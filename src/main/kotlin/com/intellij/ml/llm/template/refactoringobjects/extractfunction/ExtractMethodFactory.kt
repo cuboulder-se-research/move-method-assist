@@ -17,16 +17,11 @@ class ExtractMethodFactory {
             editor: Editor,
             file: PsiFile
         ): List<AbstractRefactoring> {
-            val func_parts = funcCall.split(',')
-            var new_name = func_parts[2].removeSuffix(")")
-                .replace("\"", "").replace(" ", "")
-            if (new_name.contains("=")) {
-                new_name = new_name.split("=")[1].replace(" ", "")
-            }
-
-            val lineStart = getParamValueFromString(func_parts[0]).toInt()
-            val lineEnd = getParamValueFromString(func_parts[1]).toInt()
-            val suggestion = EFSuggestion(new_name, lineStart, lineEnd)
+            val params = getParamsFromFuncCall(funcCall)
+            val newName = getStringFromParam(params[2])
+            val lineStart = params[0].toInt()
+            val lineEnd = params[1].toInt()
+            val suggestion = EFSuggestion(newName, lineStart, lineEnd)
 
             val candidates = EFCandidateFactory().buildCandidates(
                     suggestion, editor, file
@@ -36,6 +31,7 @@ class ExtractMethodFactory {
                 .map { ExtractMethod.fromEFCandidate(it) }
                 .toList()
         }
+
 
         override val logicalName: String
             get() = "Extract Method"

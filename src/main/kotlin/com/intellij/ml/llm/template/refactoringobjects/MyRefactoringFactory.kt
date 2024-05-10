@@ -32,21 +32,31 @@ interface MyRefactoringFactory {
     // API Documentation for passed to the LLM, while asking it to create params.
     val APIDocumentation: String
 
-    fun getParamValueFromString(param: String): String{
-        var value = param.removeSuffix(")")
-            .replace("\"", "")
-            .replace("\'", "")
-            .replace(" ", "")
-        if (value.contains("(")) {
-            value = value.split("(")[1].replace(" ", "")
+    fun getParamsFromFuncCall(funcCall: String): List<String>{
+        val removedWhite = funcCall.replace(" ", "")
+        val parenthesisRegex = Regex("\\(.*\\)")
+        val matchResult = parenthesisRegex.find(removedWhite)?.value
+        if (matchResult!=null){
+            val withoutParen = matchResult.slice(IntRange(1, matchResult.length-2))
+            val params = withoutParen.split(",")
+            val processedParams: MutableList<String> = mutableListOf()
+            for(p in params){
+                processedParams.add(processParam(p))
+            }
+            return processedParams
         }
-
-        if (value.contains("=")) {
-            value = value.split("=")[1].replace(" ", "")
-        }
-
-        return value
+        return listOf()
     }
 
+     fun processParam(p: String): String {
+         if (p.contains("=")){
+             return p.split("=")[1]
+         }
+         return p
+     }
+
+    fun getStringFromParam(param: String) = param
+        .replace("\"", "")
+        .replace("\'", "")
 
 }

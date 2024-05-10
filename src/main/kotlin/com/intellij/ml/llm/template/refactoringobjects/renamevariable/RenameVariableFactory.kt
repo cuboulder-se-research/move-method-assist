@@ -18,11 +18,12 @@ class RenameVariableFactory {
             editor: Editor,
             file: PsiFile
         ): List<AbstractRefactoring> {
-            val funcParts = funcCall.split(',')
-            val newName = getParamValueFromString(funcParts[1])
-            val oldName = getParamValueFromString(funcParts[0])
 
-            val functionPsi: PsiElement? = PsiUtils.Companion.getParentFunctionOrNull(editor, language = file.language)
+            val params = getParamsFromFuncCall(funcCall)
+            val newName = getStringFromParam(params[1])
+            val oldName = getStringFromParam(params[0])
+            val functionPsi: PsiElement? = PsiUtils.getParentFunctionOrNull(editor, language = file.language)
+
             val renameObj = RenameVariable.fromOldNewName(project, functionPsi, oldName, newName)
             if (renameObj!=null)
                 return listOf(renameObj)

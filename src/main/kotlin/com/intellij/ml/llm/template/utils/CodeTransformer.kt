@@ -19,7 +19,7 @@ class CodeTransformer : Observable() {
             applicationResult = EFApplicationResult.FAIL
             reason = "invalid extract function candidate"
         } else {
-            editor.selectionModel.setSelection(refCandidate.getStartOffset(), refCandidate.getEndOffset())
+//            editor.selectionModel.setSelection(refCandidate.getStartOffset(), refCandidate.getEndOffset())
             try {
 //                invokeExtractFunction(refCandidate.functionName, project, editor, file)
                 refCandidate.performRefactoring(project, editor, file)
