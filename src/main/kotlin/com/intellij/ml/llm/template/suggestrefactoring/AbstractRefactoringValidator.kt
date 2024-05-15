@@ -138,4 +138,6 @@ abstract class AbstractRefactoringValidator(
 
     // Return a list of refactoring objects from an llm suggestion.
     abstract fun getRefactoringSuggestions(llmResponseText: String): List<AbstractRefactoring>
+
+    abstract fun isEnhacedForRefactoring(atomicSuggestion: AtomicSuggestion): Boolean
 }

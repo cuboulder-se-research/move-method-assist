@@ -1,4 +1,4 @@
-package com.intellij.ml.llm.template.refactoringobjects
+package com.intellij.ml.llm.template.refactoringobjects.renamevariable
 
 import com.intellij.ml.llm.template.refactoringobjects.renamevariable.RenameVariable
 import com.intellij.ml.llm.template.utils.CodeTransformer

@@ -3,6 +3,7 @@ package com.intellij.ml.llm.template.suggestrefactoring
 import com.intellij.ml.llm.template.models.LLMRequestProvider
 import com.intellij.ml.llm.template.refactoringobjects.AbstractRefactoring
 import com.intellij.ml.llm.template.refactoringobjects.MyRefactoringFactory
+import com.intellij.ml.llm.template.refactoringobjects.enhancedfor.EnhancedForFactory
 import com.intellij.ml.llm.template.refactoringobjects.renamevariable.RenameVariableFactory
 import com.intellij.ml.llm.template.refactoringobjects.extractfunction.ExtractMethodFactory
 import com.intellij.openapi.editor.Editor
@@ -31,6 +32,8 @@ class SimpleRefactoringValidator(
                 ExtractMethodFactory
             } else if (isRenameVariable(suggestion)){
                 RenameVariableFactory
+            } else if(isEnhacedForRefactoring(suggestion)){
+              EnhancedForFactory
             } else{
                 ExtractMethodFactory //default
             }
@@ -43,6 +46,11 @@ class SimpleRefactoringValidator(
 
         return refactoringObjects;
 
+    }
+
+    override fun isEnhacedForRefactoring(atomicSuggestion: AtomicSuggestion): Boolean {
+        return atomicSuggestion.shortDescription.lowercase().contains("enhanced")
+                && atomicSuggestion.shortDescription.lowercase().contains("for")
     }
 
 
