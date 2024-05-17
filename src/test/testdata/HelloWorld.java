@@ -48,5 +48,21 @@ class HelloWorld{
         return num >= 0 ? num - 10 : num + 10;
     }
 
+    public static void prettyPrintArray(List<Integer> array){
+        String result = "Array: ";
+
+        for(int i = 0; i < array.size(); i++) {
+            result += "Element: "+(i+1);
+            result += array.get(i).toString();
+            result += "\n";
+        }
+        System.out.println(result);
+    }
+
+    public static void constructString(Integer a, Boolean b){
+        String s = "String: " + "s" + a + b;
+        System.out.println(s);
+    }
+
 
 }
