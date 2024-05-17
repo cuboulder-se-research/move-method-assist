@@ -4,6 +4,7 @@ import com.intellij.ml.llm.template.models.LLMRequestProvider
 import com.intellij.ml.llm.template.refactoringobjects.AbstractRefactoring
 import com.intellij.ml.llm.template.refactoringobjects.MyRefactoringFactory
 import com.intellij.ml.llm.template.refactoringobjects.enhancedfor.EnhancedForFactory
+import com.intellij.ml.llm.template.refactoringobjects.enhancedswitch.switchFactory
 import com.intellij.ml.llm.template.refactoringobjects.renamevariable.RenameVariableFactory
 import com.intellij.ml.llm.template.refactoringobjects.extractfunction.ExtractMethodFactory
 import com.intellij.openapi.editor.Editor
@@ -34,6 +35,8 @@ class SimpleRefactoringValidator(
                 RenameVariableFactory
             } else if(isEnhacedForRefactoring(suggestion)){
               EnhancedForFactory
+            } else if (isEnhancedSwitchRefactoring(suggestion)){
+                switchFactory
             } else{
                 ExtractMethodFactory //default
             }
@@ -51,6 +54,11 @@ class SimpleRefactoringValidator(
     override fun isEnhacedForRefactoring(atomicSuggestion: AtomicSuggestion): Boolean {
         return atomicSuggestion.shortDescription.lowercase().contains("enhanced")
                 && atomicSuggestion.shortDescription.lowercase().contains("for")
+    }
+
+    override fun isEnhancedSwitchRefactoring(suggestion: AtomicSuggestion): Boolean {
+        return suggestion.shortDescription.lowercase().contains("enhanced")
+                && suggestion.shortDescription.lowercase().contains("switch")
     }
 
 

@@ -1,76 +1,38 @@
 package com.intellij.ml.llm.template.refactoringobjects.enhancedswitch
 
+import com.intellij.codeInspection.AbstractBaseJavaLocalInspectionTool
 import com.intellij.codeInspection.EnhancedSwitchMigrationInspection
-import com.intellij.codeInspection.InspectionManager
-import com.intellij.codeInspection.ProblemsHolder
-import com.intellij.ml.llm.template.refactoringobjects.AbstractRefactoring
-import com.intellij.ml.llm.template.utils.PsiUtils
-import com.intellij.openapi.command.WriteCommandAction
-import com.intellij.openapi.editor.Editor
-import com.intellij.openapi.project.Project
+import com.intellij.ml.llm.template.refactoringobjects.CodeInspectionFactory
 import com.intellij.psi.PsiElement
-import com.intellij.psi.PsiFile
 import com.intellij.psi.PsiSwitchStatement
-import com.intellij.psi.util.PsiTreeUtil
-import com.intellij.psi.util.PsiUtilBase
 
-class EnhancedSwitch(
-    override val startLoc: Int,
-    override val endLoc: Int,
-    val theSwitchStatement: PsiSwitchStatement,
-    val problemsHolder: ProblemsHolder
-) : AbstractRefactoring() {
-
-
-    companion object{
-        fun fromStartLoc(startLoc: Int,
-                         project: Project, editor: Editor, file: PsiFile): EnhancedSwitch?{
-
-            val element =
-                PsiUtilBase.getElementAtOffset(
-                    file, editor.document.getLineStartOffset(startLoc))
-            val switchStatement = PsiTreeUtil.getParentOfType(element, PsiSwitchStatement::class.java)
-            if (switchStatement!=null){
-
-                val switchMigrationInspection = EnhancedSwitchMigrationInspection()
-                val problemsHolder = ProblemsHolder(InspectionManager.getInstance(project), file, false)
-                val visitor = switchMigrationInspection.buildVisitor(problemsHolder, false)
-                switchStatement.accept(visitor)
-                if (problemsHolder.hasResults())
-                    return EnhancedSwitch(startLoc, startLoc, switchStatement, problemsHolder)
-                else
-                    return null // cannot be transformed to enhanced switch.
-            }
-            return null
-        }
-    }
-
-    override fun performRefactoring(project: Project, editor: Editor, file: PsiFile) {
-        val p0 = problemsHolder.results[0]!!
-//        p0.fixes?.get(0)?.startInWriteAction()
-//        p0.fixes?.get(0)?.applyFix(project, p0)
-//        Runnable r = ()-> EditorModificationUtil.insertStringAtCaret(editor, string);
-//        val r: Runnable =  p0.fixes?.get(0)?.applyFix(project, p0)
-//        Runnable {  }
-        WriteCommandAction.runWriteCommandAction(project,
-            Runnable {  p0.fixes?.get(0)?.applyFix(project, p0)})
-//        WriteCommandAction.runWriteCommandAction(project, r);
-    }
-
-
-    override fun isValid(project: Project, editor: Editor, file: PsiFile): Boolean {
-        TODO("Not yet implemented")
-    }
-
-    override fun getRefactoringPreview(): String {
-        TODO("Not yet implemented")
-    }
-
-    override fun getStartOffset(): Int {
-        TODO("Not yet implemented")
-    }
-
-    override fun getEndOffset(): Int {
-        TODO("Not yet implemented")
-    }
+val preview = fun(switchStatement: PsiElement): String{
+    return "Use Enhanced Switch"
 }
+
+val settingsModifier = fun(_: AbstractBaseJavaLocalInspectionTool): Boolean{
+    return true
+}
+
+val switchFactory = CodeInspectionFactory(
+    "Use Enhanced Switch",
+    "use_enhanced_switch",
+    """def use_enhanced_switch(line_start):
+    ""${'"'}
+    Converts a conventional switch-case statement to an enhanced switch expression where applicable.
+
+    This function refactors code by replacing conventional switch-case statements with enhanced switch expressions 
+    starting from the specified line number `line_start`. It assumes that 
+    the necessary updates to the source code are handled externally.
+
+    Parameters:
+    - line_start (int): The line number from in which the switch-case statements to convert are present. Must be a positive integer.
+    ""${'"'}
+    """.trimIndent(),
+    PsiSwitchStatement::class.java,
+    EnhancedSwitchMigrationInspection(),
+    preview,
+    settingsModifier,
+    false
+)
+

@@ -140,4 +140,5 @@ abstract class AbstractRefactoringValidator(
     abstract fun getRefactoringSuggestions(llmResponseText: String): List<AbstractRefactoring>
 
     abstract fun isEnhacedForRefactoring(atomicSuggestion: AtomicSuggestion): Boolean
+    abstract fun isEnhancedSwitchRefactoring(suggestion: AtomicSuggestion): Boolean
 }
