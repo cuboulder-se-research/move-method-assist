@@ -25,5 +25,28 @@ class HelloWorld{
             default: System.out.println(num);
         }
     }
+    public void prettyPrintIntegerIfImpl(Integer num){
+        if (num==1){
+            System.out.println("ONE!!");
+        } else if (num==2) {
+            System.out.println("TWO!!");
+        } else if (num==5) {
+            System.out.println("FIVE!!");
+        } else {
+            System.out.println(num);
+        }
+    }
+
+    public Integer numMinus10(Integer num){
+        if (num>=0)
+            return num-10;
+        else
+            return num+10;
+    }
+
+    public Integer numMinus10Ternary(Integer num){
+        return num >= 0 ? num - 10 : num + 10;
+    }
+
 
 }
