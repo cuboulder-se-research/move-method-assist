@@ -67,30 +67,11 @@ class EnhancedForTest: LightPlatformCodeInsightTestCase() {
     fun testFor2While(){
         configureByFile("/testdata/HelloWorld.java")
         editor.moveCaret(305)
-        val functionPsi: PsiElement? = PsiUtils.getParentFunctionOrNull(editor, language = file.language)
-        val for2whileInspection = ForLoopReplaceableByWhileInspection()
-        val problemsHolder = ProblemsHolder(
-            InspectionManager.getInstance(project), file, true)
-        val visitor = for2whileInspection.buildVisitor(problemsHolder, true)
-
-
-        val startLoc = 14
-        val element =
-            PsiUtilBase.getElementAtOffset(
-                file, editor.document.getLineStartOffset(startLoc-1))
-        val startOffset = editor.document.getLineStartOffset(startLoc-1)
-        val endOffset = editor.document.getLineStartOffset(startLoc)
-        val forStatement = PsiTreeUtil.findChildrenOfType(element.parent, PsiForStatement::class.java)
-            .filter { it.startOffset in startOffset..endOffset }[0]
-        assert(forStatement!=null)
-
-        forStatement.accept(visitor)
-        assert(problemsHolder.hasResults())
-        val problem = problemsHolder.results[0]!!
-        val fix = problem.fixes!![0]
-
-        WriteCommandAction.runWriteCommandAction(project,
-            Runnable { fix.applyFix(project, problem) })
+        val refObjs = For2While.factory.createObjectsFromFuncCall(
+            "convert_for2while(14)", project, editor, file
+        )
+        assert(refObjs.isNotEmpty())
+        refObjs[0].performRefactoring(project, editor, file)
         println(file.text)
         assert(file.text.contains(
             "    public void linearSearch(List<Integer> array, int value){\n" +
@@ -108,32 +89,11 @@ class EnhancedForTest: LightPlatformCodeInsightTestCase() {
     fun testFor2Stream(){
         configureByFile("/testdata/HelloWorld.java")
 
-        val startLoc = 14
-        val element =
-            PsiUtilBase.getElementAtOffset(
-                file, editor.document.getLineStartOffset(startLoc-1))
-//        val forStatement = PsiTreeUtil.getParentOfType(element, PsiForStatement::class.java)
-        val startOffset = editor.document.getLineStartOffset(startLoc-1)
-        val endOffset = editor.document.getLineStartOffset(startLoc)
-        val forStatement = PsiTreeUtil.findChildrenOfType(element.parent, PsiForStatement::class.java)
-            .filter { it.startOffset in startOffset..endOffset }[0]
-        assert(forStatement!=null)
-        val for2Stream = StreamApiMigrationInspection()
-        for2Stream.SUGGEST_FOREACH = true
-        for2Stream.REPLACE_TRIVIAL_FOREACH = true
-
-
-        val problemsHolder = ProblemsHolder(
-            InspectionManager.getInstance(project), file, true)
-        val visitor = for2Stream.buildVisitor(problemsHolder, true)
-        forStatement?.accept(visitor)
-
-        assert(problemsHolder.hasResults())
-        val problem = problemsHolder.results[0]!!
-        val fix = problem.fixes!![0]
-
-        WriteCommandAction.runWriteCommandAction(project,
-            Runnable { fix.applyFix(project, problem) })
+        val refObjs = For2Stream.factory.createObjectsFromFuncCall(
+            "convert_for2stream(14)", project, editor, file
+        )
+        assert(refObjs.isNotEmpty())
+        refObjs[0].performRefactoring(project, editor, file)
         println(file.text)
         assert(file.text.contains(
             "    public void linearSearch(List<Integer> array, int value){\n" +
