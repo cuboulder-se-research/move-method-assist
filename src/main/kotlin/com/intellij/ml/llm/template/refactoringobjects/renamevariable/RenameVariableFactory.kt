@@ -9,6 +9,7 @@ import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
 import org.jetbrains.eval4j.checkNull
+import org.jetbrains.kotlin.idea.base.psi.getLineNumber
 
 class RenameVariableFactory {
     companion object: MyRefactoringFactory {
@@ -24,7 +25,7 @@ class RenameVariableFactory {
             val oldName = getStringFromParam(params[0])
             val functionPsi: PsiElement? = PsiUtils.getParentFunctionOrNull(editor, language = file.language)
 
-            val renameObj = RenameVariable.fromOldNewName(project, functionPsi, oldName, newName)
+            val renameObj = RenameVariableFactory.fromOldNewName(project, functionPsi, oldName, newName)
             if (renameObj!=null)
                 return listOf(renameObj)
             return listOf()
@@ -49,5 +50,18 @@ class RenameVariableFactory {
     ""${'"'}
                     """.trimIndent()
 
+        private fun fromOldNewName(project: Project,
+                                   functionPsiElement: PsiElement?,
+                                   oldName:String,
+                                   newName: String): AbstractRefactoring?{
+            val varPsi = PsiUtils.getVariableFromPsi(functionPsiElement, oldName)
+            if (varPsi!=null)
+                return RenameVariable(varPsi.getLineNumber(),
+                    varPsi.getLineNumber(), oldName, newName, varPsi)
+            return null
+        }
+
     }
+
+
 }

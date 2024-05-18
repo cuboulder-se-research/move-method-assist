@@ -23,18 +23,6 @@ class RenameVariable(
 
 ): AbstractRefactoring() {
 
-    companion object{
-        fun fromOldNewName(project: Project,
-                           functionPsiElement: PsiElement?,
-                           oldName:String,
-                           newName: String): AbstractRefactoring?{
-            val varPsi = PsiUtils.getVariableFromPsi(functionPsiElement, oldName)
-            if (varPsi!=null)
-                return RenameVariable(varPsi.getLineNumber(),
-                    varPsi.getLineNumber(), oldName, newName, varPsi)
-            return null
-        }
-    }
 
     override fun performRefactoring(project: Project, editor: Editor, file: PsiFile) {
 //        val varPsi = PsiUtils.getVariableFromPsi(file, oldName)
