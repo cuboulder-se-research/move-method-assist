@@ -1,39 +1,20 @@
 package com.intellij.ml.llm.template.refactoringobjects.enhancedfor
 
-import com.intellij.codeInspection.InspectionManager
-import com.intellij.codeInspection.ProblemDescriptor
-import com.intellij.codeInspection.ProblemsHolder
-import com.intellij.ml.llm.template.refactoringobjects.AbstractRefactoring
-import com.intellij.ml.llm.template.refactoringobjects.MyRefactoringFactory
-import com.intellij.openapi.editor.Editor
-import com.intellij.openapi.project.Project
-import com.intellij.psi.PsiFile
-import com.intellij.psi.PsiMethod
+import com.intellij.ml.llm.template.refactoringobjects.CodeInspectionFactory
+import com.intellij.psi.*
 import com.siyeh.ig.migration.ForCanBeForeachInspection
 
 class EnhancedForFactory {
-    companion object: MyRefactoringFactory{
-        override fun createObjectsFromFuncCall(
-            funcCall: String,
-            project: Project,
-            editor: Editor,
-            file: PsiFile
-        ): List<AbstractRefactoring> {
-            val params = getParamsFromFuncCall(funcCall)
-            val startLine = params[0].toInt()
+    companion object{
 
-            val refObj: EnhancedFor? = EnhancedFor.fromStartLoc(startLine, project, editor, file)
-            if (refObj!=null)
-                return listOf(refObj)
-            return listOf()
+        val preview = fun(forStatement: PsiElement): String{
+            return "Use Enhanced For Loop" //TODO: include line number
         }
 
-        override val logicalName: String
-            get() = "Use Enhanced For Loop"
-        override val apiFunctionName: String
-            get() = "use_enhanced_forloop"
-        override val APIDocumentation: String
-            get() = """def use_enhanced_forloop(line_start):
+        val factory = CodeInspectionFactory(
+            "Use Enhanced For Loop",
+            "use_enhanced_forloop",
+            """def use_enhanced_forloop(line_start):
     ""${'"'}
     Converts a conventional for-loop to an enhanced for-loop where applicable.
 
@@ -43,7 +24,13 @@ class EnhancedForFactory {
 
     Parameters:
     - line_start (int): The line number from which to start searching for conventional for-loops to convert. Must be a positive integer.
-    ""${'"'}""".trimIndent()
+    ""${'"'}""".trimIndent(),
+            PsiForStatement::class.java,
+            ForCanBeForeachInspection(),
+            preview,
+            false
+        )
 
     }
 }
+

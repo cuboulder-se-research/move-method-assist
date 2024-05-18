@@ -1,20 +1,20 @@
 package com.intellij.ml.llm.template.refactoringobjects.enhancedswitch
 
-import com.intellij.codeInspection.AbstractBaseJavaLocalInspectionTool
 import com.intellij.codeInspection.EnhancedSwitchMigrationInspection
 import com.intellij.ml.llm.template.refactoringobjects.CodeInspectionFactory
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiSwitchStatement
+class EnhancedSwitchFactory {
+    companion object{
+        val preview = fun(switchStatement: PsiElement): String{
+            return "Use Enhanced Switch"
+        }
 
-val preview = fun(switchStatement: PsiElement): String{
-    return "Use Enhanced Switch"
-}
 
-
-val useEnhancedSwitchFactory = CodeInspectionFactory(
-    "Use Enhanced Switch",
-    "use_enhanced_switch",
-    """def use_enhanced_switch(line_start):
+        val factory = CodeInspectionFactory(
+            "Use Enhanced Switch",
+            "use_enhanced_switch",
+            """def use_enhanced_switch(line_start):
     ""${'"'}
     Converts a conventional switch-case statement to an enhanced switch expression where applicable.
 
@@ -26,9 +26,12 @@ val useEnhancedSwitchFactory = CodeInspectionFactory(
     - line_start (int): The line number from in which the switch-case statements to convert are present. Must be a positive integer.
     ""${'"'}
     """.trimIndent(),
-    PsiSwitchStatement::class.java,
-    EnhancedSwitchMigrationInspection(),
-    preview,
-    false
-)
+            PsiSwitchStatement::class.java,
+            EnhancedSwitchMigrationInspection(),
+            preview,
+            false
+        )
+    }
+}
+
 
