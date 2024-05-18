@@ -3,6 +3,7 @@ package com.intellij.ml.llm.template.refactoringobjects.ifandswitch
 import com.intellij.codeInsight.daemon.impl.quickfix.ConvertSwitchToIfIntention
 import com.intellij.codeInspection.InspectionManager
 import com.intellij.codeInspection.ProblemsHolder
+import com.intellij.ml.llm.template.refactoringobjects.conditionals.If2Switch
 import com.intellij.openapi.command.WriteCommandAction
 import com.intellij.psi.PsiConditionalExpression
 import com.intellij.psi.PsiIfStatement
@@ -60,23 +61,10 @@ class If2SwitchFactoryTest: LightPlatformCodeInsightTestCase(){
 
         configureByFile("/testdata/HelloWorld.java")
 
-        val startLoc = 29
-        val element =
-            PsiUtilBase.getElementAtOffset(
-                file, editor.document.getLineStartOffset(startLoc))
-        val ifStatement = PsiTreeUtil.getParentOfType(element, PsiIfStatement::class.java)
-
-        val ifCanBeSwitchInspection = IfCanBeSwitchInspection()
-        ifCanBeSwitchInspection.minimumBranches = 1
-        val problemsHolder = ProblemsHolder(InspectionManager.getInstance(project), file, false)
-        val visitor = ifCanBeSwitchInspection.buildVisitor(problemsHolder, false)
-        ifStatement?.accept(visitor)
-
-        assert(problemsHolder.hasResults())
-        val r = problemsHolder.results[0]!!
-        val fix = r.fixes?.get(0)
-        fix?.applyFix(project, r)
-
+        val refObjs = If2Switch.factory.createObjectsFromFuncCall(
+            "convert_if2switch(29)", project, editor, file)
+        assert(refObjs.isNotEmpty())
+        refObjs[0].performRefactoring(project, editor, file)
 
     }
 
