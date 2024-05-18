@@ -4,7 +4,7 @@ import com.intellij.ml.llm.template.models.LLMRequestProvider
 import com.intellij.ml.llm.template.refactoringobjects.AbstractRefactoring
 import com.intellij.ml.llm.template.refactoringobjects.MyRefactoringFactory
 import com.intellij.ml.llm.template.refactoringobjects.enhancedfor.EnhancedForFactory
-import com.intellij.ml.llm.template.refactoringobjects.enhancedswitch.switchFactory
+import com.intellij.ml.llm.template.refactoringobjects.enhancedswitch.useEnhancedSwitchFactory
 import com.intellij.ml.llm.template.refactoringobjects.renamevariable.RenameVariableFactory
 import com.intellij.ml.llm.template.refactoringobjects.extractfunction.ExtractMethodFactory
 import com.intellij.openapi.editor.Editor
@@ -36,7 +36,7 @@ class SimpleRefactoringValidator(
             } else if(isEnhacedForRefactoring(suggestion)){
               EnhancedForFactory
             } else if (isEnhancedSwitchRefactoring(suggestion)){
-                switchFactory
+                useEnhancedSwitchFactory
             } else{
                 ExtractMethodFactory //default
             }

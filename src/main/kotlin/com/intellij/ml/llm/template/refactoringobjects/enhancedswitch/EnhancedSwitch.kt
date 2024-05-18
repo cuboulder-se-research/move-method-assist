@@ -10,11 +10,8 @@ val preview = fun(switchStatement: PsiElement): String{
     return "Use Enhanced Switch"
 }
 
-val settingsModifier = fun(_: AbstractBaseJavaLocalInspectionTool): Boolean{
-    return true
-}
 
-val switchFactory = CodeInspectionFactory(
+val useEnhancedSwitchFactory = CodeInspectionFactory(
     "Use Enhanced Switch",
     "use_enhanced_switch",
     """def use_enhanced_switch(line_start):
@@ -32,7 +29,6 @@ val switchFactory = CodeInspectionFactory(
     PsiSwitchStatement::class.java,
     EnhancedSwitchMigrationInspection(),
     preview,
-    settingsModifier,
     false
 )
 

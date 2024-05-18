@@ -18,9 +18,8 @@ class CodeInspectionFactory<T: PsiElement>(
     override val apiFunctionName: String,
     override val APIDocumentation: String, // first param to API call is the start line of element
     val psiClass: Class<out T>,
-    val inspection: AbstractBaseJavaLocalInspectionTool,
+    val inspection: AbstractBaseJavaLocalInspectionTool, // inspection object, with the right options triggered.
     val refactoringPreview: (PsiElement) -> String,
-    val settingsModifier: (AbstractBaseJavaLocalInspectionTool)-> Boolean,
     val isOnTheFly: Boolean = false
 ) : MyRefactoringFactory {
     override fun createObjectsFromFuncCall(
@@ -57,7 +56,6 @@ class CodeInspectionFactory<T: PsiElement>(
         if (foundElements[0]!=null){
             val problemsHolder = ProblemsHolder(
                 InspectionManager.getInstance(project), file, isOnTheFly)
-            settingsModifier(inspection)
             val visitor = inspection.buildVisitor(problemsHolder, isOnTheFly)
             foundElements[0].accept(visitor)
             if (problemsHolder.hasResults())

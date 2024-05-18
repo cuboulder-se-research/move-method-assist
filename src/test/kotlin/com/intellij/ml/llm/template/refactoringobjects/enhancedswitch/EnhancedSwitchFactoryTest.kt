@@ -1,20 +1,9 @@
 package com.intellij.ml.llm.template.refactoringobjects.enhancedswitch
 
-import com.intellij.codeInspection.EnhancedSwitchMigrationInspection
-import com.intellij.codeInspection.InspectionManager
-import com.intellij.codeInspection.ProblemsHolder
 import com.intellij.ml.llm.template.utils.CodeTransformer
 import com.intellij.ml.llm.template.utils.EFObserver
-import com.intellij.ml.llm.template.utils.PsiUtils
-import com.intellij.psi.PsiElement
-import com.intellij.psi.PsiSwitchStatement
-import com.intellij.psi.util.PsiTreeUtil
-import com.intellij.psi.util.PsiUtilBase
 import com.intellij.testFramework.LightPlatformCodeInsightTestCase
-import org.jetbrains.kotlin.idea.base.psi.getLineNumber
 import org.jetbrains.kotlin.idea.core.moveCaret
-import org.junit.Test
-import org.junit.jupiter.api.Assertions.*
 
 class EnhancedSwitchFactoryTest: LightPlatformCodeInsightTestCase() {
     private var projectPath = "src/test"
@@ -28,7 +17,7 @@ class EnhancedSwitchFactoryTest: LightPlatformCodeInsightTestCase() {
         codeTransformer.addObserver(efObserver)
         configureByFile("/testdata/HelloWorld.java")
         editor.moveCaret(503)
-        val refObjs = switchFactory.createObjectsFromFuncCall(
+        val refObjs = useEnhancedSwitchFactory.createObjectsFromFuncCall(
             "use_enhanced_switch(21)",
             project, editor, file)
         assert(refObjs.isNotEmpty())
