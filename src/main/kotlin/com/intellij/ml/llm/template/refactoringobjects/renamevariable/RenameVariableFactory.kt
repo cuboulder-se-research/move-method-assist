@@ -50,7 +50,7 @@ class RenameVariableFactory {
     ""${'"'}
                     """.trimIndent()
 
-        private fun fromOldNewName(project: Project,
+        fun fromOldNewName(project: Project,
                                    functionPsiElement: PsiElement?,
                                    oldName:String,
                                    newName: String): AbstractRefactoring?{

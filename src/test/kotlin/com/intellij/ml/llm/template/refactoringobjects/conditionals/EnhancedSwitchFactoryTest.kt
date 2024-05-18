@@ -17,7 +17,7 @@ class EnhancedSwitchFactoryTest: LightPlatformCodeInsightTestCase() {
         codeTransformer.addObserver(efObserver)
         configureByFile("/testdata/HelloWorld.java")
         editor.moveCaret(503)
-        val refObjs = useEnhancedSwitchFactory.createObjectsFromFuncCall(
+        val refObjs = EnhancedSwitchFactory.factory.createObjectsFromFuncCall(
             "use_enhanced_switch(21)",
             project, editor, file)
         assert(refObjs.isNotEmpty())
