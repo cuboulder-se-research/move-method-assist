@@ -1,4 +1,4 @@
-package com.intellij.ml.llm.template.refactoringobjects.enhancedswitch
+package com.intellij.ml.llm.template.refactoringobjects.conditionals
 
 import com.intellij.codeInspection.EnhancedSwitchMigrationInspection
 import com.intellij.ml.llm.template.refactoringobjects.CodeInspectionFactory

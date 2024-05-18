@@ -3,8 +3,8 @@ package com.intellij.ml.llm.template.suggestrefactoring
 import com.intellij.ml.llm.template.models.LLMRequestProvider
 import com.intellij.ml.llm.template.refactoringobjects.AbstractRefactoring
 import com.intellij.ml.llm.template.refactoringobjects.MyRefactoringFactory
-import com.intellij.ml.llm.template.refactoringobjects.enhancedfor.EnhancedForFactory
-import com.intellij.ml.llm.template.refactoringobjects.enhancedswitch.EnhancedSwitchFactory
+import com.intellij.ml.llm.template.refactoringobjects.looping.EnhancedForFactory
+import com.intellij.ml.llm.template.refactoringobjects.conditionals.EnhancedSwitchFactory
 import com.intellij.ml.llm.template.refactoringobjects.renamevariable.RenameVariableFactory
 import com.intellij.ml.llm.template.refactoringobjects.extractfunction.ExtractMethodFactory
 import com.intellij.openapi.editor.Editor

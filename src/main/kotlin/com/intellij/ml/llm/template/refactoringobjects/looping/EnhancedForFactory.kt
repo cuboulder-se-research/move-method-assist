@@ -1,4 +1,4 @@
-package com.intellij.ml.llm.template.refactoringobjects.enhancedfor
+package com.intellij.ml.llm.template.refactoringobjects.looping
 
 import com.intellij.ml.llm.template.refactoringobjects.CodeInspectionFactory
 import com.intellij.psi.*
