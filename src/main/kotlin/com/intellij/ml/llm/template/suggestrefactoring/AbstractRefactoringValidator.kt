@@ -141,4 +141,10 @@ abstract class AbstractRefactoringValidator(
 
     abstract fun isEnhacedForRefactoring(atomicSuggestion: AtomicSuggestion): Boolean
     abstract fun isEnhancedSwitchRefactoring(suggestion: AtomicSuggestion): Boolean
+    abstract fun isFor2While(suggestion: AtomicSuggestion): Boolean
+    abstract fun isFor2Streams(suggestion: AtomicSuggestion): Boolean
+    abstract fun isIf2Switch(suggestion: AtomicSuggestion): Boolean
+    abstract fun isSwitch2If(suggestion: AtomicSuggestion): Boolean
+    abstract fun isIf2Ternary(suggestion: AtomicSuggestion): Boolean
+    abstract fun isTernary2If(suggestion: AtomicSuggestion): Boolean
 }

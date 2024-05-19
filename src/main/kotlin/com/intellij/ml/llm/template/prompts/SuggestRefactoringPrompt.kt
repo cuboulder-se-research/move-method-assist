@@ -12,7 +12,11 @@ class SuggestRefactoringPrompt: MethodPromptBase() {
                     1. Extract Method. 
                     2. Rename Variable 
                     3. Use Enhanced For Loop
-                    4. Use Enhanced Switch Statement
+                    4. Convert For Loop to While Loop
+                    5. Convert For loop to use Java Streams 
+                    6. Use Enhanced Switch Statement
+                    7. Convert If Statement to Switch Statement (and vice versa)
+                    8. Convert If Statement to Ternary Operator (and vice versa)
                     
                     Ensure that your recommendations are specific to this method, Your response should be formatted as a JSON object comprising two main fields. 
                     The first field, named 'improvements', should be a list of JSON objects, each with the following attributes: 'shortDescription' providing a brief summary of the improvement, 'longDescription' offering a detailed explanation of the improvement, 'start', indicating the starting line number where the improvement should be applied, 'end', indicating the ending line number where the improvement should be applied, 'changeDiff', differences in the git diff style representing the intended changes for this improvement.
