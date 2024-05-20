@@ -34,6 +34,9 @@ class If2Switch {
         private fun getInspectionObj(): IfCanBeSwitchInspection {
             val inspection = IfCanBeSwitchInspection()
             inspection.minimumBranches = 1
+            inspection.suggestIntSwitches = true;
+            inspection.suggestEnumSwitches = true;
+            inspection.onlySuggestNullSafe = false;
             return inspection
         }
     }
