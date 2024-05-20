@@ -19,8 +19,7 @@ class SuggestRefactoringPrompt: MethodPromptBase() {
                     8. Convert If Statement to Ternary Operator (and vice versa)
                     
                     Ensure that your recommendations are specific to this method, Your response should be formatted as a JSON object comprising two main fields. 
-                    The first field, named 'improvements', should be a list of JSON objects, each with the following attributes: 'shortDescription' providing a brief summary of the improvement, 'longDescription' offering a detailed explanation of the improvement, 'start', indicating the starting line number where the improvement should be applied, 'end', indicating the ending line number where the improvement should be applied, 'changeDiff', differences in the git diff style representing the intended changes for this improvement.
-                    The second field, named 'finalCode', should contain the code with all the suggested improvements applied. Please include only the JSON structure specified in your response.
+                    The first field, named 'improvements', should be a list of JSON objects, each with the following attributes: 'shortDescription' providing a brief summary of the improvement, 'longDescription' offering a detailed explanation of the improvement, 'start', indicating the starting line number where the improvement should be applied, 'end', indicating the ending line number where the improvement should be applied.
                     
                      1.    public static int calculateSum(int[] arr) {
                      2.        int sum = 0;
@@ -34,14 +33,18 @@ class SuggestRefactoringPrompt: MethodPromptBase() {
 {
     "improvements": [
         {
-            "shortDescription": "Use enhanced for loop instead of traditional for loop",
-            "changeDiff": "- for (int i = 0; i < arr.length; i++) {\n+ for (int num : arr) {",
+            "shortDescription": "Use Enhanced For Loop",
             "longDescription": "Instead of using a traditional for loop to iterate over `arr`, use an enhanced for loop.",
             "start": 3,
             "end": 3
+        },
+        {
+            "shortDescription": "Rename Variable",
+            "longDescription": "Rename `arr` to `numbers` to indicate that the array contains numeric values.",
+            "start": 1,
+            "end": 4
         }
-    ],
-    "finalCode": "    public static int calculateSum(int[] arr) {\n        int sum = 0;\n        for (int num : arr) {\n            sum += num; // Add each element to the sum\n        }\n\n        return sum;\n    }"
+    ]
 }
 """
             ),
