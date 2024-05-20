@@ -8,7 +8,7 @@ import com.siyeh.ig.migration.IfCanBeSwitchInspection
 class If2Switch {
     companion object{
         val preview = fun(element: PsiElement): String{
-            return ""
+            return "Convert If to Switch"
         }
 
         val factory = CodeInspectionFactory(

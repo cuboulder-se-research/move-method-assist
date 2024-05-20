@@ -2,6 +2,7 @@ package com.intellij.ml.llm.template.refactoringobjects.extractfunction
 
 import com.intellij.ml.llm.template.refactoringobjects.AbstractRefactoring
 import com.intellij.ml.llm.template.refactoringobjects.MyRefactoringFactory
+import com.intellij.openapi.application.runReadAction
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiFile
@@ -23,9 +24,11 @@ class ExtractMethodFactory {
             val lineEnd = params[1].toInt()
             val suggestion = EFSuggestion(newName, lineStart, lineEnd)
 
-            val candidates = EFCandidateFactory().buildCandidates(
+            val candidates = runReadAction {
+                EFCandidateFactory().buildCandidates(
                     suggestion, editor, file
                 )
+            }
 
             return candidates.toList()
                 .map { ExtractMethod.fromEFCandidate(it) }

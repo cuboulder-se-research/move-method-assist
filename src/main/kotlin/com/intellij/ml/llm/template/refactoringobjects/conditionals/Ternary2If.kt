@@ -8,7 +8,7 @@ import com.siyeh.ig.controlflow.ConditionalExpressionInspection
 class Ternary2If {
     companion object{
         val preview = fun(element: PsiElement): String{
-            return ""
+            return "Convert Ternary Operator to If Statements"
         }
         val factory = CodeInspectionFactory(
             "Convert Ternary Operator to If Statements",

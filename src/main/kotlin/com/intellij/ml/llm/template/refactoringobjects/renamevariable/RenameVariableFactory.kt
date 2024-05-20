@@ -4,6 +4,7 @@ import com.intellij.lang.Language
 import com.intellij.ml.llm.template.refactoringobjects.AbstractRefactoring
 import com.intellij.ml.llm.template.refactoringobjects.MyRefactoringFactory
 import com.intellij.ml.llm.template.utils.PsiUtils
+import com.intellij.openapi.application.runReadAction
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiElement
@@ -23,7 +24,8 @@ class RenameVariableFactory {
             val params = getParamsFromFuncCall(funcCall)
             val newName = getStringFromParam(params[1])
             val oldName = getStringFromParam(params[0])
-            val functionPsi: PsiElement? = PsiUtils.getParentFunctionOrNull(editor, language = file.language)
+            val functionPsi: PsiElement? =
+                runReadAction { PsiUtils.getParentFunctionOrNull(editor, language = file.language) }
 
             val renameObj = RenameVariableFactory.fromOldNewName(project, functionPsi, oldName, newName)
             if (renameObj!=null)
@@ -54,7 +56,7 @@ class RenameVariableFactory {
                                    functionPsiElement: PsiElement?,
                                    oldName:String,
                                    newName: String): AbstractRefactoring?{
-            val varPsi = PsiUtils.getVariableFromPsi(functionPsiElement, oldName)
+            val varPsi = runReadAction { PsiUtils.getVariableFromPsi(functionPsiElement, oldName) }
             if (varPsi!=null)
                 return RenameVariable(varPsi.getLineNumber(),
                     varPsi.getLineNumber(), oldName, newName, varPsi)

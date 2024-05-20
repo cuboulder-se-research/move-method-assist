@@ -3,6 +3,7 @@ package com.intellij.ml.llm.template.refactoringobjects.conditionals
 import com.intellij.codeInsight.daemon.impl.quickfix.ConvertSwitchToIfIntention
 import com.intellij.ml.llm.template.refactoringobjects.AbstractRefactoring
 import com.intellij.ml.llm.template.refactoringobjects.MyRefactoringFactory
+import com.intellij.openapi.application.runReadAction
 import com.intellij.openapi.command.WriteCommandAction
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
@@ -35,21 +36,24 @@ class Switch2IfFactory {
         }
 
         private fun fromStartLoc(startLine: Int, project: Project, editor: Editor, file: PsiFile): AbstractRefactoring? {
-            val elementAtStartLine =
-                PsiUtilBase.getElementAtOffset(
-                    file, editor.document.getLineStartOffset(startLine-1))
+            return runReadAction {
+                val elementAtStartLine =
+                    PsiUtilBase.getElementAtOffset(
+                        file, editor.document.getLineStartOffset(startLine - 1)
+                    )
 
-            val startOffset = editor.document.getLineStartOffset(startLine-1)
-            val endOffset = editor.document.getLineStartOffset(startLine)
-            val foundElements = PsiTreeUtil
-                .findChildrenOfType(elementAtStartLine.parent, PsiSwitchStatement::class.java)
-                .filter { it.startOffset in (startOffset..endOffset) }
-            if (foundElements.isEmpty())
-                return null
-            if (foundElements[0]!=null){
-                return Switch2IfRefactoring(startLine, startLine, foundElements[0])
+                val startOffset = editor.document.getLineStartOffset(startLine - 1)
+                val endOffset = editor.document.getLineStartOffset(startLine)
+                val foundElements = PsiTreeUtil
+                    .findChildrenOfType(elementAtStartLine.parent, PsiSwitchStatement::class.java)
+                    .filter { it.startOffset in (startOffset..endOffset) }
+                if (foundElements.isEmpty())
+                    return@runReadAction null
+                if (foundElements[0] != null) {
+                    return@runReadAction Switch2IfRefactoring(startLine, startLine, foundElements[0])
+                }
+                return@runReadAction null
             }
-            return null
         }
 
         override val logicalName: String

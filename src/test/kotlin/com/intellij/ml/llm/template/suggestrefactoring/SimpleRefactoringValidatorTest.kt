@@ -2,6 +2,8 @@ package com.intellij.ml.llm.template.suggestrefactoring
 
 import com.intellij.ml.llm.template.models.GPTExtractFunctionRequestProvider
 import com.intellij.testFramework.LightPlatformCodeInsightTestCase
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.runBlocking
 
 class SimpleRefactoringValidatorTest :LightPlatformCodeInsightTestCase(){
 //    private var projectPath = "src/test"
@@ -19,18 +21,19 @@ class SimpleRefactoringValidatorTest :LightPlatformCodeInsightTestCase(){
         val funcSrc = SimpleRefactoringValidatorTest::class.java.getResource("/func_src.txt")?.readText()
         val llmResponse = SimpleRefactoringValidatorTest::class.java.getResource("/llm_output.txt")?.readText()
 
+        runBlocking {
+            val suggestions = SimpleRefactoringValidator(
+                GPTExtractFunctionRequestProvider,
+                project,
+                editor,
+                file,
+                funcSrc!!
+            ).getRefactoringSuggestions(llmResponse!!)
 
-        val suggestions = SimpleRefactoringValidator(
-            GPTExtractFunctionRequestProvider,
-            project,
-            editor,
-            file,
-            funcSrc!!
-        ).getRefactoringSuggestions(llmResponse!!)
+            println(suggestions)
 
-        println(suggestions)
-
-        assert(suggestions.size==2)
+            assert(suggestions.size == 2)
+        }
 
     }
 

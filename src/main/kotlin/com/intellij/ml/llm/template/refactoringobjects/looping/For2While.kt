@@ -9,7 +9,7 @@ class For2While {
     companion object{
 
         val preview = fun(element: PsiElement): String{
-            return ""
+            return "Convert For loop to While loop"
         }
 
         val factory = CodeInspectionFactory(
