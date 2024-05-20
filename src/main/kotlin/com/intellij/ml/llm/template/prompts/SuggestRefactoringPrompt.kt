@@ -33,13 +33,13 @@ class SuggestRefactoringPrompt: MethodPromptBase() {
 {
     "improvements": [
         {
-            "shortDescription": "Use Enhanced For Loop",
+            "shortDescription": "Convert For Loop to Use Enhanced For Loop",
             "longDescription": "Instead of using a traditional for loop to iterate over `arr`, use an enhanced for loop.",
             "start": 3,
             "end": 3
         },
         {
-            "shortDescription": "Rename Variable",
+            "shortDescription": "Rename Variable `arr` to `numbers`",
             "longDescription": "Rename `arr` to `numbers` to indicate that the array contains numeric values.",
             "start": 1,
             "end": 4

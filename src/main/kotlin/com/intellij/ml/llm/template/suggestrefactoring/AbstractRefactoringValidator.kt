@@ -67,7 +67,8 @@ abstract class AbstractRefactoringValidator(
 
         messageList.addAll(
             GetRefactoringObjParametersPrompt.get(
-                atomicSuggestion.shortDescription,
+                atomicSuggestion.shortDescription +
+                        "Line: ${atomicSuggestion.start} to ${atomicSuggestion.end}",
                 refactoringFactory.logicalName,
                 refactoringFactory.APIDocumentation)
         )
