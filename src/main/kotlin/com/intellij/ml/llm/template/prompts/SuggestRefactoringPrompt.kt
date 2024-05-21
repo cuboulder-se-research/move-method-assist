@@ -7,7 +7,7 @@ class SuggestRefactoringPrompt: MethodPromptBase() {
         return mutableListOf(
             OpenAiChatMessage("system", "You are an expert programmer."),
             OpenAiChatMessage("user", """
-                    Please provide suggestions to improve the following Java method. 
+                    Please provide suggestions to improve the following Java method/class. 
                     Only provide suggestions that are: 
                     1. Extract Method. 
                     2. Rename Variable 

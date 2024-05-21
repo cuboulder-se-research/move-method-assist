@@ -13,6 +13,18 @@ import org.jetbrains.kotlin.psi.*
 
 class PsiUtils {
     companion object {
+        fun getParentClassOrNull(editor: Editor, language: Language?): PsiElement? {
+            val psiElement = PsiUtilBase.getElementAtCaret(editor)
+            when (language) {
+                JavaLanguage.INSTANCE -> return PsiTreeUtil.getParentOfType(psiElement, PsiClass::class.java)
+            }
+            return null
+        }
+
+        fun getClassBodyStartLine(psiClass: PsiClass): Int{
+            return psiClass.getLineNumber(true)+1
+        }
+
         fun getParentFunctionOrNull(psiElement: PsiElement?, language: Language?): PsiElement? {
             when (language) {
                 JavaLanguage.INSTANCE -> return PsiTreeUtil.getParentOfType(psiElement, PsiMethod::class.java)
@@ -41,6 +53,9 @@ class PsiUtils {
         fun getFunctionBodyStartLine(psiElement: PsiElement?): Int {
             val block = getFunctionBlockOrNull(psiElement)
             var startLine = -1
+//            when(psiElement){
+//                is PsiClass -> 1
+//            }
             if (block != null) {
                 startLine = block.firstChild.getLineNumber(false) + 1
             }

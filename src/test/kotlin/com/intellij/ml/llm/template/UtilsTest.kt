@@ -6,6 +6,7 @@ import com.intellij.ml.llm.template.models.LLMRequestProvider
 import com.intellij.ml.llm.template.models.sendChatRequest
 import com.intellij.ml.llm.template.refactoringobjects.extractfunction.EFCandidateFactory
 import com.intellij.ml.llm.template.utils.*
+import com.intellij.psi.PsiClass
 import com.intellij.psi.PsiMethod
 import com.intellij.psi.util.PsiUtilBase
 import com.intellij.testFramework.LightPlatformCodeInsightTestCase
@@ -164,6 +165,16 @@ class UtilsTest : LightPlatformCodeInsightTestCase() {
 
         TestCase.assertEquals(expectedLine, actualLine)
     }
+
+    fun `test class block start line in Java code`() {
+        configureByFile("/testdata/KafkaAdminClientTest.java")
+        editor.moveCaret(71)
+        val expectedLine = 3
+        val actualLine = PsiUtils.getClassBodyStartLine(PsiUtils.getParentClassOrNull(editor, file.language) as PsiClass)
+
+        TestCase.assertEquals(expectedLine, actualLine)
+    }
+
 
     fun `test function block start line in Kotlin code`() {
         configureByFile("/testdata/RodCuttingProblem.kt")

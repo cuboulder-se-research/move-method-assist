@@ -1,21 +1,22 @@
 package com.intellij.ml.llm.template.intentions
 
+import com.google.gson.JsonSyntaxException
 import com.intellij.codeInsight.intention.IntentionAction
 import com.intellij.codeInsight.unwrap.ScopeHighlighter
 import com.intellij.ml.llm.template.LLMBundle
-import com.intellij.ml.llm.template.refactoringobjects.extractfunction.EFCandidate
 import com.intellij.ml.llm.template.models.GPTExtractFunctionRequestProvider
 import com.intellij.ml.llm.template.models.LLMBaseResponse
 import com.intellij.ml.llm.template.models.LLMRequestProvider
 import com.intellij.ml.llm.template.models.sendChatRequest
 import com.intellij.ml.llm.template.prompts.ExtractMethodPrompt
+import com.intellij.ml.llm.template.prompts.MethodPromptBase
+import com.intellij.ml.llm.template.refactoringobjects.AbstractRefactoring
+import com.intellij.ml.llm.template.refactoringobjects.extractfunction.EFCandidate
 import com.intellij.ml.llm.template.showEFNotification
+import com.intellij.ml.llm.template.suggestrefactoring.SimpleRefactoringValidator
 import com.intellij.ml.llm.template.telemetry.*
 import com.intellij.ml.llm.template.ui.ExtractFunctionPanel
 import com.intellij.ml.llm.template.utils.*
-import com.intellij.ml.llm.template.prompts.MethodPromptBase
-import com.intellij.ml.llm.template.refactoringobjects.AbstractRefactoring
-import com.intellij.ml.llm.template.suggestrefactoring.SimpleRefactoringValidator
 import com.intellij.notification.NotificationType
 import com.intellij.openapi.application.invokeLater
 import com.intellij.openapi.diagnostic.Logger
@@ -28,8 +29,10 @@ import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.popup.JBPopupFactory
 import com.intellij.openapi.ui.popup.JBPopupListener
 import com.intellij.openapi.ui.popup.LightweightWindowEvent
+import com.intellij.psi.PsiClass
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
+import com.intellij.psi.PsiMethod
 import com.intellij.ui.awt.RelativePoint
 import org.jetbrains.kotlin.util.capitalizeDecapitalize.toLowerCaseAsciiOnly
 import java.awt.Point
@@ -65,7 +68,9 @@ abstract class ApplyExtractFunctionTransformationIntention(
     override fun invoke(project: Project, editor: Editor?, file: PsiFile?) {
         if (editor == null || file == null) return
         val selectionModel = editor.selectionModel
-        val namedElement = PsiUtils.getParentFunctionOrNull(editor, file.language)
+        val namedElement =
+            PsiUtils.getParentFunctionOrNull(editor, file.language)
+            ?: PsiUtils.getParentClassOrNull(editor, file.language)
         if (namedElement != null) {
 
             telemetryDataManager.newSession()
@@ -78,11 +83,15 @@ abstract class ApplyExtractFunctionTransformationIntention(
             functionSrc = withLineNumbers
             functionPsiElement = namedElement
 
+            val bodyLineStart = when(namedElement){
+                is PsiClass -> PsiUtils.getClassBodyStartLine(namedElement)
+                else -> PsiUtils.getFunctionBodyStartLine(namedElement)
+            }
             telemetryDataManager.addHostFunctionTelemetryData(
                 EFTelemetryDataUtils.buildHostFunctionTelemetryData(
                     codeSnippet = codeSnippet,
                     lineStart = startLineNumber,
-                    bodyLineStart = PsiUtils.getFunctionBodyStartLine(namedElement),
+                    bodyLineStart = bodyLineStart,
                     language = file.language.id.toLowerCaseAsciiOnly()
                 )
             )
