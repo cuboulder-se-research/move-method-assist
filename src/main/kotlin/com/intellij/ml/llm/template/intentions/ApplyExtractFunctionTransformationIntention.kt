@@ -52,6 +52,8 @@ abstract class ApplyExtractFunctionTransformationIntention(
     private var llmResponseTime = 0L
     private var functionSrc = ""
     private lateinit var functionPsiElement: PsiElement
+    private var llmResponseCache = mutableMapOf<String, LLMBaseResponse>()
+    private var apiResponseCache = mutableMapOf<String, MutableMap<String, LLMBaseResponse>>()
 
     var prompter: MethodPromptBase = ExtractMethodPrompt();
 
@@ -110,10 +112,12 @@ abstract class ApplyExtractFunctionTransformationIntention(
         ) {
             override fun run(indicator: ProgressIndicator) {
                 val now = System.nanoTime()
-                val response = sendChatRequest(
-                    project, messageList, efLLMRequestProvider.chatModel, efLLMRequestProvider
-                )
+
+                val response = llmResponseCache.get(functionSrc)?: sendChatRequest(
+                        project, messageList, efLLMRequestProvider.chatModel, efLLMRequestProvider
+                    )
                 if (response != null) {
+                    llmResponseCache.get(functionSrc)?:llmResponseCache.put(functionSrc, response)
                     invokeLater {
                         llmResponseTime = System.nanoTime() - now
                         if (response.getSuggestions().isEmpty()) {
@@ -159,13 +163,18 @@ abstract class ApplyExtractFunctionTransformationIntention(
             project,
             editor,
             file,
-            functionSrc
+            functionSrc,
+            apiResponseCache
         )
 //        val efSuggestionList = validator.getExtractMethodSuggestions(llmResponse.text)
 //        val renameSuggestions = validator.getRenamveVariableSuggestions(llmResponse.text)
-        val refactoringCandidates: List<AbstractRefactoring> = runBlocking {
+        val refactoringCandidates: List<AbstractRefactoring> =
+            runBlocking {
                 validator.getRefactoringSuggestions(llmResponse.text)
-        }
+            }
+//        val refactoringCandidates: List<AbstractRefactoring> = runBlocking {
+//                validator.getRefactoringSuggestions(llmResponse.text)
+//        }
 
 //        val candidates = EFCandidateFactory().buildCandidates(efSuggestionList.suggestionList, editor, file).toList()
         if (refactoringCandidates.isEmpty()) {
@@ -200,6 +209,7 @@ abstract class ApplyExtractFunctionTransformationIntention(
                 )
                 sendTelemetryData()
             } else {
+//                refactoringObjectsCache.get(functionSrc)?:refactoringObjectsCache.put(functionSrc, validRefactoringCandidates)
                 showRefactoringOptionsPopup(
                     project, editor, file, validRefactoringCandidates, codeTransformer,
                 )

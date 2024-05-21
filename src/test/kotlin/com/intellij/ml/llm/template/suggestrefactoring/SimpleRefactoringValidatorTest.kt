@@ -27,7 +27,8 @@ class SimpleRefactoringValidatorTest :LightPlatformCodeInsightTestCase(){
                 project,
                 editor,
                 file,
-                funcSrc!!
+                funcSrc!!,
+                mutableMapOf()
             ).getRefactoringSuggestions(llmResponse!!)
 
             println(suggestions)

@@ -1,5 +1,6 @@
 package com.intellij.ml.llm.template.suggestrefactoring
 
+import com.intellij.ml.llm.template.models.LLMBaseResponse
 import com.intellij.ml.llm.template.models.LLMRequestProvider
 import com.intellij.ml.llm.template.refactoringobjects.AbstractRefactoring
 import com.intellij.ml.llm.template.refactoringobjects.MyRefactoringFactory
@@ -20,9 +21,9 @@ class SimpleRefactoringValidator(
     private val project: Project,
     private val editor: Editor,
     private val file: PsiFile,
-    private val functionSrc: String
-) : AbstractRefactoringValidator(efLLMRequestProvider, project, editor, file, functionSrc) {
-
+    private val functionSrc: String,
+    apiResponseCache: MutableMap<String, MutableMap<String, LLMBaseResponse>>
+) : AbstractRefactoringValidator(efLLMRequestProvider, project, editor, file, functionSrc, apiResponseCache) {
 
 
     override suspend fun getRefactoringSuggestions(llmResponseText: String): List<AbstractRefactoring> {

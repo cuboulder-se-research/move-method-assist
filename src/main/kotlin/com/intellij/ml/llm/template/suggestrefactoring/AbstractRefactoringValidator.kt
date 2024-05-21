@@ -1,6 +1,7 @@
 package com.intellij.ml.llm.template.suggestrefactoring
 
 import com.google.gson.Gson
+import com.intellij.ml.llm.template.models.LLMBaseResponse
 import com.intellij.ml.llm.template.models.LLMRequestProvider
 import com.intellij.ml.llm.template.models.openai.OpenAiChatMessage
 import com.intellij.ml.llm.template.models.sendChatRequest
@@ -8,10 +9,8 @@ import com.intellij.ml.llm.template.prompts.GetRefactoringObjParametersPrompt
 import com.intellij.ml.llm.template.prompts.SuggestRefactoringPrompt
 import com.intellij.ml.llm.template.refactoringobjects.AbstractRefactoring
 import com.intellij.ml.llm.template.refactoringobjects.MyRefactoringFactory
-import com.intellij.ml.llm.template.refactoringobjects.renamevariable.RenameVariable
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
-import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
 
 abstract class AbstractRefactoringValidator(
@@ -19,10 +18,11 @@ abstract class AbstractRefactoringValidator(
     private val project: Project,
     private val editor: Editor,
     private val file: PsiFile,
-    private val functionSrc: String
-
+    private val functionSrc: String,
+    private var apiResponseCache: MutableMap<String, MutableMap<String, LLMBaseResponse>>
 ) {
-
+//    private var apiResponseCache =
+//        mutableMapOf<String, MutableMap<String, LLMBaseResponse>>()
     abstract fun isExtractMethod(atomicSuggestion: AtomicSuggestion): Boolean;
 
     fun getParamsAndCreateObject(
@@ -32,10 +32,14 @@ abstract class AbstractRefactoringValidator(
         val messageList: MutableList<OpenAiChatMessage> =
             setupOpenAiChatMessages(atomicSuggestion, refactoringFactory)
 
-        val response = sendChatRequest(
-            project, messageList, efLLMRequestProvider.chatModel, efLLMRequestProvider
-        )
+        val response =
+            apiResponseCache[functionSrc]?.get(atomicSuggestion.getSerialized())
+                ?:sendChatRequest(
+                    project, messageList, efLLMRequestProvider.chatModel, efLLMRequestProvider
+                    )
         if (response != null) {
+            cacheResponse(atomicSuggestion, response)
+
             val funcCall: String = response.getSuggestions()[0].text
             println(funcCall)
             if (funcCall.startsWith(refactoringFactory.apiFunctionName)) {
@@ -49,6 +53,20 @@ abstract class AbstractRefactoringValidator(
             }
         }
         return null
+    }
+
+    private fun cacheResponse(
+        atomicSuggestion: AtomicSuggestion,
+        response: LLMBaseResponse?
+    ) {
+        if (response==null)
+            return
+
+        if (apiResponseCache[functionSrc] == null) {
+            apiResponseCache[functionSrc] = mutableMapOf()
+        }
+        apiResponseCache.get(functionSrc)!!.get(atomicSuggestion.getSerialized())
+            ?: apiResponseCache[functionSrc]!!.put(atomicSuggestion.getSerialized(), response)
     }
 
     private fun setupOpenAiChatMessages(

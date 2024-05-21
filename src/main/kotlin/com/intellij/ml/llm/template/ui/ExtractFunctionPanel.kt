@@ -323,7 +323,7 @@ class ExtractFunctionPanel(
         notifyObservers(EFNotification(EFTelemetryDataElapsedTimeNotificationPayload(TelemetryDataAction.STOP, prevSelectedCandidateIndex)))
         addSelectionToTelemetryData(index)
         val efCandidate = myCandidates[index]
-        myPopup!!.cancel()
+//        myPopup!!.cancel()
         val runnable = Runnable {
             myCodeTransformer.applyCandidate(efCandidate, myProject, myEditor, myFile)
         }

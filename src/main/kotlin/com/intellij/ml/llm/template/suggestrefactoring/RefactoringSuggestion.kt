@@ -50,4 +50,8 @@ data class AtomicSuggestion(
     @SerializedName("end")
     val end: Int
 
-    ){}
+    ){
+    fun getSerialized(): String{
+        return shortDescription+longDescription+start+end
+    }
+}
