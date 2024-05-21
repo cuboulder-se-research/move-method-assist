@@ -1,6 +1,5 @@
 package com.intellij.ml.llm.template.refactoringobjects.renamevariable
 
-import com.intellij.lang.Language
 import com.intellij.ml.llm.template.refactoringobjects.AbstractRefactoring
 import com.intellij.ml.llm.template.refactoringobjects.MyRefactoringFactory
 import com.intellij.ml.llm.template.utils.PsiUtils
@@ -9,7 +8,6 @@ import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
-import org.jetbrains.eval4j.checkNull
 import org.jetbrains.kotlin.idea.base.psi.getLineNumber
 
 class RenameVariableFactory {
@@ -25,7 +23,10 @@ class RenameVariableFactory {
             val newName = getStringFromParam(params[1])
             val oldName = getStringFromParam(params[0])
             val functionPsi: PsiElement? =
-                runReadAction { PsiUtils.getParentFunctionOrNull(editor, language = file.language) }
+                runReadAction {
+                    PsiUtils.getParentFunctionOrNull(editor, language = file.language)?:
+                    PsiUtils.getParentClassOrNull(editor, language = file.language)
+                }
 
             val renameObj = RenameVariableFactory.fromOldNewName(project, functionPsi, oldName, newName)
             if (renameObj!=null)
@@ -53,10 +54,10 @@ class RenameVariableFactory {
                     """.trimIndent()
 
         fun fromOldNewName(project: Project,
-                                   functionPsiElement: PsiElement?,
-                                   oldName:String,
-                                   newName: String): AbstractRefactoring?{
-            val varPsi = runReadAction { PsiUtils.getVariableFromPsi(functionPsiElement, oldName) }
+                           outerPsiElement: PsiElement?,
+                           oldName:String,
+                           newName: String): AbstractRefactoring?{
+            val varPsi = runReadAction { PsiUtils.getVariableFromPsi(outerPsiElement, oldName) }
             if (varPsi!=null)
                 return RenameVariable(varPsi.getLineNumber(),
                     varPsi.getLineNumber(), oldName, newName, varPsi)

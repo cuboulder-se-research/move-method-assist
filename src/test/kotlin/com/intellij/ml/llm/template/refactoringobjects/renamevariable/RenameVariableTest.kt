@@ -59,4 +59,20 @@ class RenameVariableTest: LightPlatformCodeInsightTestCase() {
         assert(characterVariable!=null)
         assert(characterVariable?.text=="public char character;")
     }
+
+    fun testCreateRenameFieldFromClass() {
+        configureByFile("/testdata/A1_CSC540.java")
+        editor.moveCaret(486)
+        val refObjs = RenameVariableFactory.createObjectsFromFuncCall(
+            "rename_variable('x', 'character')",
+            project, editor, file
+        )
+        assert(refObjs.isNotEmpty())
+        refObjs[0].performRefactoring(project, editor, file)
+
+        assert(PsiUtils.getVariableFromPsi(file, "x")==null)
+        val characterVariable = PsiUtils.getVariableFromPsi(file, "character")
+        assert(characterVariable!=null)
+        assert(characterVariable?.text=="public char character;")
+    }
 }
