@@ -39,8 +39,8 @@ class EFCandidateFactory {
     }
 
     private fun buildCandidateAsIs(efSuggestion: EFSuggestion, editor: Editor, file: PsiFile): EFCandidate? {
-        val psiElementStart = getLeftmostPsiElement(efSuggestion.lineStart - 1, editor, file)
-        var psiElementEnd = getLeftmostPsiElement(efSuggestion.lineEnd - 1, editor, file)
+        val psiElementStart = PsiUtils.getLeftmostPsiElement(efSuggestion.lineStart - 1, editor, file)
+        var psiElementEnd = PsiUtils.getLeftmostPsiElement(efSuggestion.lineEnd - 1, editor, file)
 
         if (psiElementStart == null || psiElementEnd == null) {
             return null
@@ -59,8 +59,8 @@ class EFCandidateFactory {
     }
 
     private fun buildCandidateWithAdjustment(efSuggestion: EFSuggestion, editor: Editor, file: PsiFile): EFCandidate? {
-        val psiElementStart = getLeftmostPsiElement(efSuggestion.lineStart - 1, editor, file)
-        val psiElementEnd = getLeftmostPsiElement(efSuggestion.lineEnd - 1, editor, file)
+        val psiElementStart = PsiUtils.getLeftmostPsiElement(efSuggestion.lineStart - 1, editor, file)
+        val psiElementEnd = PsiUtils.getLeftmostPsiElement(efSuggestion.lineEnd - 1, editor, file)
 
         if (psiElementStart == null || psiElementEnd == null) {
             return null
@@ -182,37 +182,6 @@ class EFCandidateFactory {
         }
 
         return result
-    }
-
-    private fun getLeftmostPsiElement(lineNumber: Int, editor: Editor, file: PsiFile): PsiElement? {
-        // get the PsiElement on the given lineNumber
-        var psiElement: PsiElement = file.findElementAt(editor.document.getLineStartOffset(lineNumber)) ?: return null
-
-        // if there are multiple sibling PsiElements on the same line, look for the first one
-        while (psiElement.getLineNumber(false) == psiElement.prevSibling?.getLineNumber(false)) {
-            psiElement = psiElement.prevSibling
-        }
-
-        // if we are still on a PsiWhiteSpace, then go right
-        while (psiElement.getLineNumber(false) == psiElement.nextSibling?.getLineNumber(false) && psiElement is PsiWhiteSpace) {
-            psiElement = psiElement.nextSibling
-        }
-
-        // if there are multiple parent PsiElements on the same line, look for the top one
-        val psiElementLineNumber = psiElement.getLineNumber(false)
-        while (true) {
-            if (psiElement.parent == null) break
-            if (psiElement.parent is PsiCodeBlock || psiElement.parent is KtBlockExpression) break
-            if (psiElementLineNumber != psiElement.parent.getLineNumber(false)) break
-            psiElement = psiElement.parent
-        }
-
-        // move to next non-white space sibling
-        while (psiElement is PsiWhiteSpace) {
-            psiElement = psiElement.nextSibling
-        }
-
-        return psiElement
     }
 
     private fun isValid(efSuggestion: EFSuggestion, file: PsiFile): Boolean {

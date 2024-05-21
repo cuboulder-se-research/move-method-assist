@@ -1,9 +1,6 @@
 package com.intellij.ml.llm.template
 
-import com.intellij.ml.llm.template.refactoringobjects.extractfunction.EFCandidate
-import com.intellij.ml.llm.template.refactoringobjects.extractfunction.EFCandidateFactory
-import com.intellij.ml.llm.template.refactoringobjects.extractfunction.EFSuggestion
-import com.intellij.ml.llm.template.refactoringobjects.extractfunction.EfCandidateType
+import com.intellij.ml.llm.template.refactoringobjects.extractfunction.*
 import com.intellij.ml.llm.template.utils.*
 import com.intellij.testFramework.LightPlatformCodeInsightTestCase
 import junit.framework.TestCase
@@ -667,5 +664,25 @@ class EFCandidateFactoryTest : LightPlatformCodeInsightTestCase() {
         TestCase.assertEquals(1, adjustedCandidates.size)
         TestCase.assertEquals(8465, adjustedCandidates[0].offsetStart)
         TestCase.assertEquals(8576, adjustedCandidates[0].offsetEnd)
+    }
+
+
+    /**
+     * Test when lineStart/lineEnd falls in a middle of parameter list of a function call
+     */
+    fun `test suggestion within parameter list of function call Java API call style`() {
+        configureByFile("/testdata/KafkaAdminClientTest.java")
+
+        val refObjs = ExtractMethodFactory.createObjectsFromFuncCall(
+            "extract_method(31, 46, 'foo')",
+            project, editor, file
+        )
+        assert(refObjs.isNotEmpty())
+
+
+        val adjustedCandidates = refObjs.filter { (it as ExtractMethod).efCandidate!!.type == EfCandidateType.ADJUSTED }
+        TestCase.assertEquals(1, adjustedCandidates.size)
+        TestCase.assertEquals(1784, adjustedCandidates[0].getStartOffset())
+        TestCase.assertEquals(3427, adjustedCandidates[0].getEndOffset())
     }
 }

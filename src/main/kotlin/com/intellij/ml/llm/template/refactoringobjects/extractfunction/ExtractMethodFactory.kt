@@ -2,10 +2,14 @@ package com.intellij.ml.llm.template.refactoringobjects.extractfunction
 
 import com.intellij.ml.llm.template.refactoringobjects.AbstractRefactoring
 import com.intellij.ml.llm.template.refactoringobjects.MyRefactoringFactory
+import com.intellij.ml.llm.template.utils.PsiUtils
 import com.intellij.openapi.application.runReadAction
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
+import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
+import org.jetbrains.kotlin.psi.psiUtil.endOffset
+import org.jetbrains.kotlin.psi.psiUtil.startOffset
 
 class ExtractMethodFactory {
     companion object: MyRefactoringFactory{
@@ -31,7 +35,13 @@ class ExtractMethodFactory {
             }
 
             return candidates.toList()
-                .map { ExtractMethod.fromEFCandidate(it) }
+                .map {
+                    fromEFCandidate(
+                        it,
+                        runReadAction{ PsiUtils.getLeftmostPsiElement(it.lineStart - 1, editor, file) },
+                        runReadAction{ PsiUtils.getLeftmostPsiElement(it.lineEnd - 1, editor, file) }
+                    )
+                }
                 .toList()
         }
 
@@ -58,6 +68,20 @@ class ExtractMethodFactory {
                     ""${'"'}
                     """.trimIndent()
 
+        fun fromEFCandidate(candidate: EFCandidate,
+                                    leftMostPsi: PsiElement?,
+                                    rightMostPsi: PsiElement?): ExtractMethod{
+//            if leftMostPsi.startOffset ==
+
+            val em = ExtractMethod(
+                    candidate.lineStart,
+                    candidate.lineEnd,
+                    candidate.functionName,
+                    leftMostPsi!!,
+                    rightMostPsi!!)
+//            em.efCandidate = candidate
+            return em
+        }
 
     }
 

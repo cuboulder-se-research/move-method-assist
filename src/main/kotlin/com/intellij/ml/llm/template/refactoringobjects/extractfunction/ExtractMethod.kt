@@ -14,23 +14,21 @@ import com.intellij.psi.PsiFile
 import com.intellij.psi.util.PsiTreeUtil
 import org.jetbrains.kotlin.idea.KotlinLanguage
 import org.jetbrains.kotlin.idea.refactoring.introduce.extractFunction.ExtractKotlinFunctionHandler
+import org.jetbrains.kotlin.psi.psiUtil.endOffset
+import org.jetbrains.kotlin.psi.psiUtil.startOffset
 
 class ExtractMethod(
     override val startLoc: Int,
     override val endLoc: Int,
     val newFuncName: String,
+    val leftPsi: PsiElement,
+    val rightPsi: PsiElement
 ) : AbstractRefactoring() {
 
-    var efCandidate: EFCandidate? =null
+//    var efCandidate: EFCandidate? =null
 
     companion object{
         const val REFACTORING_NAME = "Extract Method"
-
-        fun fromEFCandidate(candidate: EFCandidate): ExtractMethod{
-            val em = ExtractMethod(candidate.lineStart, candidate.lineEnd, candidate.functionName)
-            em.efCandidate = candidate
-            return em
-        }
 
     }
 
@@ -40,20 +38,29 @@ class ExtractMethod(
     }
 
     override fun getStartOffset(): Int {
-        return efCandidate!!.offsetStart
+        return leftPsi.startOffset
     }
 
     override fun getEndOffset(): Int {
-        return efCandidate!!.offsetEnd
+        return rightPsi.endOffset
     }
 
 
     override fun isValid(project: Project, editor: Editor, file: PsiFile): Boolean {
-        return this.efCandidate?.let {
-            isCandidateExtractable(
-                it, editor, file
-            )
-        }?: false
+        val candidate = EFCandidate(
+            functionName = this.newFuncName,
+            offsetStart = this.getStartOffset(),
+            offsetEnd = this.getEndOffset(),
+            lineStart = this.startLoc,
+            lineEnd = this.endLoc,
+        ).also {
+            it.efSuggestion = EFSuggestion(this.newFuncName, this.startLoc, this.endLoc)
+            it.type = EfCandidateType.AS_IS
+        }
+
+        return isCandidateExtractable(
+            candidate, editor, file
+        )
 
     }
 
