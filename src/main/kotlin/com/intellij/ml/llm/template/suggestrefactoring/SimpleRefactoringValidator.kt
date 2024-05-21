@@ -12,6 +12,8 @@ import com.intellij.ml.llm.template.refactoringobjects.looping.For2While
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiFile
+import kotlinx.coroutines.*
+import kotlin.system.measureTimeMillis
 
 class SimpleRefactoringValidator(
     private val efLLMRequestProvider: LLMRequestProvider,
@@ -23,46 +25,47 @@ class SimpleRefactoringValidator(
 
 
 
-    override fun getRefactoringSuggestions(llmResponseText: String): List<AbstractRefactoring> {
+    override suspend fun getRefactoringSuggestions(llmResponseText: String): List<AbstractRefactoring> {
         val refactoringSuggestion = getRawSuggestions(llmResponseText)
-
         val allRefactoringObjects= mutableListOf<AbstractRefactoring>()
 
 
-        var refFactory: MyRefactoringFactory
-        for (suggestion in refactoringSuggestion.improvements) {
-            refFactory = if (isExtractMethod(suggestion)) {
-                ExtractMethodFactory
-            } else if (isRenameVariable(suggestion)){
-                RenameVariableFactory
-            } else if(isEnhacedForRefactoring(suggestion)){
-                EnhancedForFactory.factory
-            } else if (isEnhancedSwitchRefactoring(suggestion)){
-                EnhancedSwitchFactory.factory
-            } else if (isFor2While(suggestion)){
-                For2While.factory
-            } else if (isFor2Streams(suggestion)){
-                For2Stream.factory
-            } else if (isIf2Switch(suggestion)){
-                If2Switch.factory
-            } else if (isSwitch2If(suggestion)){
-                Switch2IfFactory
-            } else if (isIf2Ternary(suggestion)){
-                If2Ternary.factory
-            } else if (isTernary2If(suggestion)){
-                Ternary2If.factory
-            } else{
-                ExtractMethodFactory //default
-            }
-            val createdRefactoringObjects =
-                getParamsAndCreateObject(suggestion, refactoringSuggestion.finalCode, refFactory)
-            if (createdRefactoringObjects!=null && createdRefactoringObjects.isNotEmpty()) {
-                allRefactoringObjects.addAll(createdRefactoringObjects)
-                println("Successfully created ${createdRefactoringObjects.size} refactoring object(s).")
-            }else{
-                println("No refactoring objects were created.")
+        val time = measureTimeMillis {
+            coroutineScope {
+                refactoringSuggestion.improvements.map { suggestion ->
+                    async(Dispatchers.Default) {
+                        val refFactory = when {
+                            isExtractMethod(suggestion) -> ExtractMethodFactory
+                            isRenameVariable(suggestion) -> RenameVariableFactory
+                            isEnhacedForRefactoring(suggestion) -> EnhancedForFactory.factory
+                            isEnhancedSwitchRefactoring(suggestion) -> EnhancedSwitchFactory.factory
+                            isFor2While(suggestion) -> For2While.factory
+                            isFor2Streams(suggestion) -> For2Stream.factory
+                            isIf2Switch(suggestion) -> If2Switch.factory
+                            isSwitch2If(suggestion) -> Switch2IfFactory
+                            isIf2Ternary(suggestion) -> If2Ternary.factory
+                            isTernary2If(suggestion) -> Ternary2If.factory
+                            else -> ExtractMethodFactory // default
+                        }
+
+                        val createdRefactoringObjects =
+                            getParamsAndCreateObject(suggestion, refFactory)
+
+                        if (!createdRefactoringObjects.isNullOrEmpty()) {
+                            println("Successfully created ${createdRefactoringObjects.size} refactoring object(s).")
+                            createdRefactoringObjects
+                        } else {
+                            println("No refactoring objects were created.")
+                            emptyList()
+                        }
+                    }
+                }.awaitAll().flatten().let {
+                    allRefactoringObjects.addAll(it)
+                }
             }
         }
+
+        println("Processing took $time ms")
 
         return allRefactoringObjects;
 

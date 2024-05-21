@@ -8,7 +8,7 @@ import com.intellij.psi.PsiForStatement
 class For2Stream {
     companion object{
         val preview = fun(element: PsiElement): String{
-            return ""
+            return "Convert For loop to Java Streams"
         }
         val factory = CodeInspectionFactory(
             "Convert For loop to Java Streams",

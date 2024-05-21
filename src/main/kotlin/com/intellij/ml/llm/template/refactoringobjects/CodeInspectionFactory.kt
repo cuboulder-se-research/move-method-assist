@@ -3,6 +3,7 @@ package com.intellij.ml.llm.template.refactoringobjects
 import com.intellij.codeInspection.AbstractBaseJavaLocalInspectionTool
 import com.intellij.codeInspection.InspectionManager
 import com.intellij.codeInspection.ProblemsHolder
+import com.intellij.openapi.application.runReadAction
 import com.intellij.openapi.command.WriteCommandAction
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
@@ -42,29 +43,34 @@ class CodeInspectionFactory<T: PsiElement>(
 
     fun fromStartLoc(startLine: Int, project: Project, editor: Editor, file: PsiFile)
     : AbstractRefactoring? {
-        val elementAtStartLine =
-            PsiUtilBase.getElementAtOffset(
-                file, editor.document.getLineStartOffset(startLine-1))
+        return runReadAction {
+            val elementAtStartLine =
+                PsiUtilBase.getElementAtOffset(
+                    file, editor.document.getLineStartOffset(startLine - 1)
+                )
 
-        val startOffset = editor.document.getLineStartOffset(startLine-1)
-        val endOffset = editor.document.getLineStartOffset(startLine)
-        val foundElements = PsiTreeUtil
-            .findChildrenOfType(elementAtStartLine.parent, psiClass)
-            .filter { it.startOffset in (startOffset..endOffset) }
-        if (foundElements.isEmpty())
-            return null
-        if (foundElements[0]!=null){
-            val problemsHolder = ProblemsHolder(
-                InspectionManager.getInstance(project), file, isOnTheFly)
-            val visitor = inspection.buildVisitor(problemsHolder, isOnTheFly)
-            foundElements[0].accept(visitor)
-            if (problemsHolder.hasResults())
-                return InspectionBasedRefactoring(
-                    startLine, startLine, foundElements[0], problemsHolder, refactoringPreview)
-            else
-                return null // cannot be transformed to refactoring object
+            val startOffset = editor.document.getLineStartOffset(startLine - 1)
+            val endOffset = editor.document.getLineStartOffset(startLine)
+            val foundElements = PsiTreeUtil
+                .findChildrenOfType(elementAtStartLine.parent, psiClass)
+                .filter { it.startOffset in (startOffset..endOffset) }
+            if (foundElements.isEmpty())
+                return@runReadAction null
+            if (foundElements[0] != null) {
+                val problemsHolder = ProblemsHolder(
+                    InspectionManager.getInstance(project), file, isOnTheFly
+                )
+                val visitor = inspection.buildVisitor(problemsHolder, isOnTheFly)
+                foundElements[0].accept(visitor)
+                if (problemsHolder.hasResults())
+                    return@runReadAction InspectionBasedRefactoring(
+                        startLine, startLine, foundElements[0], problemsHolder, refactoringPreview
+                    )
+                else
+                    return@runReadAction null // cannot be transformed to refactoring object
+            }
+            return@runReadAction null
         }
-        return null
     }
 
 

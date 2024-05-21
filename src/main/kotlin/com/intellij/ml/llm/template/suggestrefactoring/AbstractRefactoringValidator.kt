@@ -27,11 +27,10 @@ abstract class AbstractRefactoringValidator(
 
     fun getParamsAndCreateObject(
         atomicSuggestion: AtomicSuggestion,
-        finalCode: String,
         refactoringFactory: MyRefactoringFactory
     ): List<AbstractRefactoring>? {
         val messageList: MutableList<OpenAiChatMessage> =
-            setupOpenAiChatMessages(atomicSuggestion, finalCode, refactoringFactory)
+            setupOpenAiChatMessages(atomicSuggestion, refactoringFactory)
 
         val response = sendChatRequest(
             project, messageList, efLLMRequestProvider.chatModel, efLLMRequestProvider
@@ -54,7 +53,6 @@ abstract class AbstractRefactoringValidator(
 
     private fun setupOpenAiChatMessages(
         atomicSuggestion: AtomicSuggestion,
-        finalCode: String,
         refactoringFactory: MyRefactoringFactory
     ): MutableList<OpenAiChatMessage> {
         var messageList: MutableList<OpenAiChatMessage> = mutableListOf()
@@ -63,13 +61,14 @@ abstract class AbstractRefactoringValidator(
         messageList.add(
             OpenAiChatMessage(
                 "assistant",
-                Gson().toJson(RefactoringSuggestion(mutableListOf(atomicSuggestion), finalCode)).toString()
+                Gson().toJson(RefactoringSuggestion(mutableListOf(atomicSuggestion))).toString()
             )
         )
 
         messageList.addAll(
             GetRefactoringObjParametersPrompt.get(
-                atomicSuggestion.shortDescription,
+                atomicSuggestion.shortDescription +
+                        "Line: ${atomicSuggestion.start} to ${atomicSuggestion.end}",
                 refactoringFactory.logicalName,
                 refactoringFactory.APIDocumentation)
         )
@@ -137,7 +136,7 @@ abstract class AbstractRefactoringValidator(
     abstract fun isRenameVariable(atomicSuggestion: AtomicSuggestion): Boolean
 
     // Return a list of refactoring objects from an llm suggestion.
-    abstract fun getRefactoringSuggestions(llmResponseText: String): List<AbstractRefactoring>
+    abstract suspend fun getRefactoringSuggestions(llmResponseText: String): List<AbstractRefactoring>
 
     abstract fun isEnhacedForRefactoring(atomicSuggestion: AtomicSuggestion): Boolean
     abstract fun isEnhancedSwitchRefactoring(suggestion: AtomicSuggestion): Boolean

@@ -34,17 +34,12 @@ data class RefactoringSuggestion(
     @SerializedName("improvements")
     val improvements:List<AtomicSuggestion>,
 
-    @SerializedName("finalCode")
-    val finalCode: String
 ) {
 }
 
 data class AtomicSuggestion(
     @SerializedName("shortDescription")
     val shortDescription: String,
-
-    @SerializedName("changeDiff")
-    val changeDiff: String,
 
     @SerializedName("longDescription")
     val longDescription: String,

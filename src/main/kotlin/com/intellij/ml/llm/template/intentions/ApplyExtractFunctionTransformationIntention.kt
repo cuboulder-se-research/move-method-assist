@@ -34,6 +34,7 @@ import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
 import com.intellij.psi.PsiMethod
 import com.intellij.ui.awt.RelativePoint
+import kotlinx.coroutines.runBlocking
 import org.jetbrains.kotlin.util.capitalizeDecapitalize.toLowerCaseAsciiOnly
 import java.awt.Point
 import java.awt.Rectangle
@@ -162,9 +163,9 @@ abstract class ApplyExtractFunctionTransformationIntention(
         )
 //        val efSuggestionList = validator.getExtractMethodSuggestions(llmResponse.text)
 //        val renameSuggestions = validator.getRenamveVariableSuggestions(llmResponse.text)
-        val refactoringCandidates: List<AbstractRefactoring> =
-            validator.getRefactoringSuggestions(llmResponse.text)
-
+        val refactoringCandidates: List<AbstractRefactoring> = runBlocking {
+                validator.getRefactoringSuggestions(llmResponse.text)
+        }
 
 //        val candidates = EFCandidateFactory().buildCandidates(efSuggestionList.suggestionList, editor, file).toList()
         if (refactoringCandidates.isEmpty()) {
