@@ -73,6 +73,7 @@ class ExtractFunctionPanel(
     private val myEFTelemetryDataManager = efTelemetryDataManager
     private val logger = Logger.getInstance("#com.intellij.ml.llm")
     private var prevSelectedCandidateIndex = 0
+    private var completedIndices = mutableListOf<Int>()
 
     init {
         val tableModel = buildTableModel(myCandidates)
@@ -320,14 +321,25 @@ class ExtractFunctionPanel(
     }
 
     private fun doRefactoring(index: Int) {
-        notifyObservers(EFNotification(EFTelemetryDataElapsedTimeNotificationPayload(TelemetryDataAction.STOP, prevSelectedCandidateIndex)))
-        addSelectionToTelemetryData(index)
-        val efCandidate = myCandidates[index]
-//        myPopup!!.cancel()
-        val runnable = Runnable {
-            myCodeTransformer.applyCandidate(efCandidate, myProject, myEditor, myFile)
+        if (index !in completedIndices){
+            notifyObservers(
+                EFNotification(
+                    EFTelemetryDataElapsedTimeNotificationPayload(
+                        TelemetryDataAction.STOP,
+                        prevSelectedCandidateIndex
+                    )
+                )
+            )
+            addSelectionToTelemetryData(index)
+            val efCandidate = myCandidates[index]
+
+            val runnable = Runnable {
+                myCodeTransformer.applyCandidate(efCandidate, myProject, myEditor, myFile)
+            }
+            runnable.run()
+    //        myPopup!!.cancel()
+            refreshCandidates(index)
         }
-        runnable.run()
     }
 
     private fun addSelectionToTelemetryData(index: Int) {
@@ -341,5 +353,13 @@ class ExtractFunctionPanel(
                 myFile
             )
         )
+    }
+
+    private fun refreshCandidates(index: Int){
+        completedIndices.add(index)
+//        ExtractFunctionPanel.showPopup(this, myEditor)
+        val selectedRow = myExtractFunctionsCandidateTable.selectedRow
+        val refName = myExtractFunctionsCandidateTable.getValueAt(selectedRow, 1)!! as String
+        myExtractFunctionsCandidateTable.setValueAt("COMPLETED: $refName", selectedRow, 1)
     }
 }
