@@ -78,7 +78,8 @@ class ExtractMethodFactory {
                     candidate.lineEnd,
                     candidate.functionName,
                     leftMostPsi!!,
-                    rightMostPsi!!)
+                    rightMostPsi!!,
+                    candidate.type)
 //            em.efCandidate = candidate
             return em
         }

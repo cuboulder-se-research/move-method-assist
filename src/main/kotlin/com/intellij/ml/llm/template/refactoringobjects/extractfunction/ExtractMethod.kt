@@ -22,7 +22,8 @@ class ExtractMethod(
     override val endLoc: Int,
     val newFuncName: String,
     val leftPsi: PsiElement,
-    val rightPsi: PsiElement
+    val rightPsi: PsiElement,
+    val candidateType: EfCandidateType
 ) : AbstractRefactoring() {
 
 //    var efCandidate: EFCandidate? =null
@@ -47,6 +48,15 @@ class ExtractMethod(
 
 
     override fun isValid(project: Project, editor: Editor, file: PsiFile): Boolean {
+        val candidate = getEFCandidate()
+
+        return isCandidateExtractable(
+            candidate, editor, file
+        )
+
+    }
+
+    fun getEFCandidate(): EFCandidate {
         val candidate = EFCandidate(
             functionName = this.newFuncName,
             offsetStart = this.getStartOffset(),
@@ -55,13 +65,9 @@ class ExtractMethod(
             lineEnd = this.endLoc,
         ).also {
             it.efSuggestion = EFSuggestion(this.newFuncName, this.startLoc, this.endLoc)
-            it.type = EfCandidateType.AS_IS
+            it.type = candidateType
         }
-
-        return isCandidateExtractable(
-            candidate, editor, file
-        )
-
+        return candidate
     }
 
     override fun getRefactoringPreview(): String {

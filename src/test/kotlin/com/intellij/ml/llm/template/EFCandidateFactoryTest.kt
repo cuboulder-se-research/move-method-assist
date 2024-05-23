@@ -680,7 +680,7 @@ class EFCandidateFactoryTest : LightPlatformCodeInsightTestCase() {
         assert(refObjs.isNotEmpty())
 
 
-        val adjustedCandidates = refObjs.filter { (it as ExtractMethod).efCandidate!!.type == EfCandidateType.ADJUSTED }
+        val adjustedCandidates = refObjs.filter { (it as ExtractMethod).getEFCandidate().type == EfCandidateType.ADJUSTED }
         TestCase.assertEquals(1, adjustedCandidates.size)
         TestCase.assertEquals(1784, adjustedCandidates[0].getStartOffset())
         TestCase.assertEquals(3427, adjustedCandidates[0].getEndOffset())
