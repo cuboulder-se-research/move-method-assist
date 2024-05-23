@@ -44,12 +44,14 @@ abstract class AbstractRefactoringValidator(
             println(funcCall)
             if (funcCall.startsWith(refactoringFactory.apiFunctionName)) {
                 print("Looks like a ${refactoringFactory.apiFunctionName} call!")
-                return refactoringFactory.createObjectsFromFuncCall(
+                val createdObjectsFromFuncCall = refactoringFactory.createObjectsFromFuncCall(
                     funcCall,
                     project,
                     editor,
                     file
-                    )
+                )
+                createdObjectsFromFuncCall.forEach { it.description = atomicSuggestion.longDescription }
+                return createdObjectsFromFuncCall
             }
         }
         return null

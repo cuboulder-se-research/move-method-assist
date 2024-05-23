@@ -35,6 +35,7 @@ import com.intellij.ui.dsl.builder.panel
 import com.intellij.ui.table.JBTable
 import com.intellij.util.ui.JBDimension
 import com.intellij.util.ui.JBUI
+import org.apache.commons.lang.WordUtils
 import org.jetbrains.annotations.Nls
 import org.jetbrains.kotlin.idea.KotlinLanguage
 import org.jetbrains.kotlin.idea.base.psi.unifier.toRange
@@ -87,7 +88,8 @@ class ExtractFunctionPanel(
         val candidateSignatureMap: MutableMap<AbstractRefactoring, String> = mutableMapOf()
 
         candidates.forEach { candidate ->
-            candidateSignatureMap[candidate] = candidate.getRefactoringPreview()
+            val descriptionWrapped = WordUtils.wrap(candidate.description, 50).prependIndent("// ")
+            candidateSignatureMap[candidate] = "// "+candidate.getRefactoringPreview() + "\n" + descriptionWrapped
         }
 
         return candidateSignatureMap

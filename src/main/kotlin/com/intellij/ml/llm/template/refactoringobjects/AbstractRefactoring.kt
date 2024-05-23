@@ -15,7 +15,7 @@ import com.intellij.psi.PsiFile
 
 
 abstract class AbstractRefactoring{
-
+    var description: String = ""
 
 //    companion object{
 //        internal fun f(): Int{
@@ -57,4 +57,5 @@ abstract class AbstractRefactoring{
     abstract fun getStartOffset(): Int
 
     abstract fun getEndOffset(): Int
+
 }
