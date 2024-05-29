@@ -59,8 +59,10 @@ class RenameVariableFactory {
                            newName: String): AbstractRefactoring?{
             val varPsi = runReadAction { PsiUtils.getVariableFromPsi(outerPsiElement, oldName) }
             if (varPsi!=null)
-                return RenameVariable(varPsi.getLineNumber(),
-                    varPsi.getLineNumber(), oldName, newName, varPsi)
+                return RenameVariable(
+                    runReadAction{ varPsi.getLineNumber() },
+                    runReadAction{ varPsi.getLineNumber() },
+                    oldName, newName, varPsi)
             return null
         }
 

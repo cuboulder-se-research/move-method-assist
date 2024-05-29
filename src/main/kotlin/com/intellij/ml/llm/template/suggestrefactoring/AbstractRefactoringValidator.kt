@@ -166,4 +166,5 @@ abstract class AbstractRefactoringValidator(
     abstract fun isSwitch2If(suggestion: AtomicSuggestion): Boolean
     abstract fun isIf2Ternary(suggestion: AtomicSuggestion): Boolean
     abstract fun isTernary2If(suggestion: AtomicSuggestion): Boolean
+    abstract fun isStringBuilder(suggestion: AtomicSuggestion): Boolean
 }

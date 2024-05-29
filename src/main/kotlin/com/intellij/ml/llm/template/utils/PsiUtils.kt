@@ -10,6 +10,7 @@ import com.intellij.psi.util.PsiUtilCore
 import org.jetbrains.kotlin.idea.KotlinLanguage
 import org.jetbrains.kotlin.idea.base.psi.getLineNumber
 import org.jetbrains.kotlin.psi.*
+import org.jetbrains.kotlin.psi.psiUtil.startOffset
 
 class PsiUtils {
     companion object {
@@ -147,6 +148,40 @@ class PsiUtils {
             return null
         }
 
+        fun getVariableAndReferencesFromPsi(psiElement: PsiElement?, variableName: String): List<PsiElement>{
+
+            var matches: MutableList<PsiElement> = mutableListOf()
+            class VariableFinder: JavaRecursiveElementVisitor() {
+
+                override fun visitClass(aClass: PsiClass) {
+                    super.visitClass(aClass)
+                    print("Found ${aClass.name}")
+                }
+
+                override fun visitVariable(variable: PsiVariable) {
+                    super.visitVariable(variable)
+                    print("Found ${variable.name}")
+                }
+                override fun visitLocalVariable(variable: PsiLocalVariable) {
+                    super.visitLocalVariable(variable)
+                    print("found :"+variable.name)
+                    if (variable.name == variableName)
+                        matches.add(variable)
+                }
+
+                override fun visitReferenceExpression(expression: PsiReferenceExpression) {
+                    super.visitReferenceExpression(expression)
+                    if (expression.referenceName==variableName)
+                        matches.add(expression)
+                }
+
+            }
+            if (psiElement != null) {
+                psiElement.accept(VariableFinder())
+            }
+            return matches
+        }
+
         fun getLeftmostPsiElement(lineNumber: Int, editor: Editor, file: PsiFile): PsiElement? {
             // get the PsiElement on the given lineNumber
             var psiElement: PsiElement = file.findElementAt(editor.document.getLineStartOffset(lineNumber)) ?: return null
@@ -177,6 +212,22 @@ class PsiUtils {
 
             return psiElement
         }
+
+        fun <T: PsiElement> getElementsOfTypeOnLine(file: PsiFile, editor: Editor, lineNumber: Int, clazz: Class<out T>): List<T> {
+            val elementAtStartLine =
+                PsiUtilBase.getElementAtOffset(
+                    file, editor.document.getLineStartOffset(lineNumber - 1)
+                )
+
+            val startOffset = editor.document.getLineStartOffset(lineNumber - 1)
+            val endOffset = editor.document.getLineStartOffset(lineNumber)
+            val foundElements = PsiTreeUtil
+                .findChildrenOfType(elementAtStartLine.parent, clazz)
+                .filter { it.startOffset in (startOffset..endOffset) }
+            return foundElements
+
+        }
+
     }
 
 
