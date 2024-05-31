@@ -6,7 +6,6 @@ import com.intellij.openapi.editor.Editor
 import com.intellij.psi.*
 import com.intellij.psi.util.PsiTreeUtil
 import com.intellij.psi.util.PsiUtilBase
-import com.intellij.psi.util.PsiUtilCore
 import org.jetbrains.kotlin.idea.KotlinLanguage
 import org.jetbrains.kotlin.idea.base.psi.getLineNumber
 import org.jetbrains.kotlin.psi.*
@@ -226,6 +225,22 @@ class PsiUtils {
                 .filter { it.startOffset in (startOffset..endOffset) }
             return foundElements
 
+        }
+
+        fun getMethodNameFromClass(outerClass: PsiElement?, methodName: String): PsiMethod? {
+            var match: PsiMethod? = null
+            class MethodFinder: JavaRecursiveElementVisitor() {
+                override fun visitMethod(method: PsiMethod) {
+                    super.visitMethod(method)
+                    if (method.name == methodName)
+                        match = method
+                }
+
+            }
+            if (outerClass != null) {
+                outerClass.accept(MethodFinder())
+            }
+            return match
         }
 
     }

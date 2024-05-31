@@ -10,6 +10,7 @@ import com.intellij.ml.llm.template.refactoringobjects.renamevariable.RenameVari
 import com.intellij.ml.llm.template.refactoringobjects.extractfunction.ExtractMethodFactory
 import com.intellij.ml.llm.template.refactoringobjects.looping.For2Stream
 import com.intellij.ml.llm.template.refactoringobjects.looping.For2While
+import com.intellij.ml.llm.template.refactoringobjects.movemethod.MoveMethodFactory
 import com.intellij.ml.llm.template.refactoringobjects.stringbuilder.StringBuilderRefactoringFactory
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
@@ -48,6 +49,7 @@ class SimpleRefactoringValidator(
                             isIf2Ternary(suggestion) -> If2Ternary.factory
                             isTernary2If(suggestion) -> Ternary2If.factory
                             isStringBuilder(suggestion) -> StringBuilderRefactoringFactory
+                            isMoveMethod(suggestion) -> MoveMethodFactory
                             else -> ExtractMethodFactory // default
                         }
 
@@ -135,6 +137,11 @@ class SimpleRefactoringValidator(
     override fun isStringBuilder(suggestion: AtomicSuggestion): Boolean {
         return suggestion.shortDescription.lowercase().contains("string") &&
                 suggestion.shortDescription.lowercase().contains("builder")
+    }
+
+    override fun isMoveMethod(suggestion: AtomicSuggestion): Boolean {
+        return suggestion.shortDescription.lowercase().contains("move") &&
+                suggestion.shortDescription.lowercase().contains("method")
     }
 
 
