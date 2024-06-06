@@ -4,8 +4,11 @@ import com.intellij.lang.Language
 import com.intellij.lang.java.JavaLanguage
 import com.intellij.openapi.editor.Editor
 import com.intellij.psi.*
+import com.intellij.psi.impl.source.PsiClassReferenceType
 import com.intellij.psi.util.PsiTreeUtil
 import com.intellij.psi.util.PsiUtilBase
+import com.intellij.psi.util.childrenOfType
+import com.intellij.psi.util.elementType
 import org.jetbrains.kotlin.idea.KotlinLanguage
 import org.jetbrains.kotlin.idea.base.psi.getLineNumber
 import org.jetbrains.kotlin.psi.*
@@ -240,6 +243,54 @@ class PsiUtils {
             if (outerClass != null) {
                 outerClass.accept(MethodFinder())
             }
+            return match
+        }
+
+        fun getQualifiedTypeInFile(psiFile: PsiFile, typeName: String): String?{
+            var match: String? = null
+            class TypeFinder: JavaRecursiveElementVisitor() {
+                override fun visitTypeElement(type: PsiTypeElement) {
+                    super.visitTypeElement(type)
+                    if (type.text == typeName
+                        && (type.type as PsiClassReferenceType).resolve()!=null)
+                        match = (type.type as PsiClassReferenceType).resolve()?.qualifiedName
+                }
+                override fun visitImportStatement(statement: PsiImportStatement) {
+                    super.visitImportStatement(statement)
+
+                    val childrenOfTypeReference = statement.childrenOfType<PsiJavaCodeReferenceElement>()
+                    if (childrenOfTypeReference.isNotEmpty()
+                        && childrenOfTypeReference[0].referenceName==typeName){
+                        match = childrenOfTypeReference[0].qualifiedName
+                    }
+
+                }
+
+            }
+            psiFile.accept(TypeFinder())
+            return match
+        }
+
+        fun isMethodStatic(psiMethod: PsiMethod): Boolean{
+            return psiMethod.modifierList.text.contains("static")
+        }
+
+        fun getVariableOfType(psiElement: PsiElement, typeName: String): PsiElement?{
+            var match: PsiElement? = null
+            class TypeFinder: JavaRecursiveElementVisitor() {
+                override fun visitLocalVariable(variable: PsiLocalVariable) {
+                    super.visitLocalVariable(variable)
+                    if (variable.type?.canonicalText?.split(".")?.last()==typeName){
+                        match = variable
+                    }
+                }
+                override fun visitReferenceExpression(expression: PsiReferenceExpression) {
+                    super.visitReferenceExpression(expression)
+                    if (expression.type?.canonicalText?.split(".")?.last()==typeName)
+                        match = expression.resolve()
+                }
+            }
+            psiElement.accept(TypeFinder())
             return match
         }
 

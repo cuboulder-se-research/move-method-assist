@@ -4,11 +4,13 @@ import com.intellij.ml.llm.template.refactoringobjects.AbstractRefactoring
 import com.intellij.ml.llm.template.refactoringobjects.MyRefactoringFactory
 import com.intellij.ml.llm.template.utils.PsiUtils
 import com.intellij.openapi.application.runReadAction
+import com.intellij.openapi.application.runWriteAction
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
 import com.intellij.psi.*
 import com.intellij.refactoring.move.MoveInstanceMembersUtil
 import com.intellij.refactoring.move.moveInstanceMethod.MoveInstanceMethodProcessor
+import com.intellij.refactoring.openapi.impl.JavaRefactoringFactoryImpl
 import com.intellij.refactoring.suggested.startOffset
 import org.jetbrains.kotlin.idea.editor.fixers.endLine
 import org.jetbrains.kotlin.idea.editor.fixers.startLine
@@ -32,25 +34,72 @@ class MoveMethodFactory {
                     PsiUtils.getParentClassOrNull(editor, language = file.language)
                 }
             val methodToMove = runReadAction {  PsiUtils.getMethodNameFromClass(outerClass, methodName) } ?: return listOf()
-            val psiTargetVariable = runReadAction { PsiUtils.getVariableFromPsi(methodToMove, targetVariable) } ?: return listOf()
-            var targetAsField: PsiField? = null
-            if (psiTargetVariable is PsiField){
-                targetAsField = psiTargetVariable as PsiField
+            val psiTargetVariable =
+                runReadAction { PsiUtils.getVariableFromPsi(methodToMove, targetVariable) }
+                    ?: return runReadAction { tryMoveToClass(methodToMove, targetVariable, project, editor, file)}
+            return createMoveMethodRefactorings(psiTargetVariable, project, methodToMove, editor)
+        }
+
+        private fun createMoveMethodRefactorings(
+            psiTargetVariable: PsiElement,
+            project: Project,
+            methodToMove: PsiMethod,
+            editor: Editor
+        ): List<MyMoveMethodRefactoring> {
+
+            if (!(psiTargetVariable is PsiField || psiTargetVariable is PsiParameter || psiTargetVariable is PsiVariable ) ){
+                return listOf()
             }
 
-            val processor = runReadAction {  MoveInstanceMethodProcessor(
-                project, methodToMove, psiTargetVariable as PsiVariable, "public",
-                runReadAction{
-                    getParamNamesIfNeeded(MoveInstanceMembersUtil.getThisClassesToMembers(methodToMove), targetAsField)
-                }
-            ) }
+            val processor = runReadAction {
+                MoveInstanceMethodProcessor(
+                    project, methodToMove, psiTargetVariable as PsiVariable, "public",
+                    runReadAction {
+                        getParamNamesIfNeeded(
+                            MoveInstanceMembersUtil.getThisClassesToMembers(methodToMove),
+                            psiTargetVariable as? PsiField
+                        )
+                    }
+                )
+            }
             return listOf(
                 MyMoveMethodRefactoring(
                     methodToMove.startLine(editor.document),
                     methodToMove.endLine(editor.document),
                     methodToMove,
-                    processor)
+                    processor
+                )
             )
+        }
+
+        fun tryMoveToClass(
+            methodToMove: PsiMethod,
+            targetClassName: String,
+            project: Project,
+            editor: Editor,
+            file: PsiFile
+        ): List<AbstractRefactoring>{
+
+            if (PsiUtils.isMethodStatic(methodToMove)) {
+                val qualifiedfClassName = PsiUtils.getQualifiedTypeInFile(
+                    methodToMove.containingFile, targetClassName
+                )
+                if (qualifiedfClassName!=null){
+                    return listOf(
+                        MyMoveStaticMethodRefactoring(
+                            methodToMove.startLine(editor.document),
+                            methodToMove.endLine(editor.document),
+                            methodToMove, qualifiedfClassName)
+                    )
+                }
+            }else{
+                val variableOfType = PsiUtils.getVariableOfType(methodToMove, targetClassName)
+                if (variableOfType!=null){
+                    return createMoveMethodRefactorings(variableOfType, project, methodToMove, editor)
+                }
+            }
+
+            return listOf()
         }
 
         override val logicalName: String
@@ -63,12 +112,12 @@ class MoveMethodFactory {
                     "    Moves a method from its current class or context to a target class or object.\n" +
                     "\n" +
                     "    This function refactors code by moving a method identified by `method_name` from its original class or context\n" +
-                    "    to a target class or object identified by `target_variable_name`. It assumes that the necessary updates to the\n" +
+                    "    to a target object identified by `target_variable_name`. It assumes that the necessary updates to the\n" +
                     "    source code are handled externally.\n" +
                     "\n" +
                     "    Parameters:\n" +
                     "    - method_name (str): The name of the method to be moved.\n" +
-                    "    - target_variable_name (str): The name of the target class or object to which the method should be moved.\n" +
+                    "    - target_variable_name (str): The name of the target object to which the method should be moved.\n" +
                     "    \"\"\""
 
 
@@ -101,7 +150,6 @@ class MoveMethodFactory {
 
         }
 
-
         private fun getParamNamesIfNeeded(
             myThisClassesMap: Map<PsiClass, Set<PsiMember>>,
             targetVariable: PsiField?
@@ -120,4 +168,39 @@ class MoveMethodFactory {
         }
 
     }
+
+    class MyMoveStaticMethodRefactoring(
+        override val startLoc: Int,
+        override val endLoc: Int,
+        val methodToMove: PsiMethod,
+        val classToMoveTo: String
+    ) : AbstractRefactoring(){
+        override fun performRefactoring(project: Project, editor: Editor, file: PsiFile) {
+            val refFactory = JavaRefactoringFactoryImpl(project)
+            val moveRefactoring =
+                refFactory.createMoveMembers(
+                    arrayOf(methodToMove),
+                    classToMoveTo,
+                    "public")
+            moveRefactoring.run()
+        }
+
+        override fun isValid(project: Project, editor: Editor, file: PsiFile): Boolean {
+            return true
+        }
+
+        override fun getRefactoringPreview(): String {
+            return "Move Static method ${methodToMove.name} to class ${classToMoveTo}"
+        }
+
+        override fun getStartOffset(): Int {
+            return methodToMove.startOffset
+        }
+
+        override fun getEndOffset(): Int {
+            return methodToMove.endOffset
+        }
+
+    }
+
 }

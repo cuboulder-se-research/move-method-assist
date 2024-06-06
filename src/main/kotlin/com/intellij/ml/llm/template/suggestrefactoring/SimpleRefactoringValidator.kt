@@ -38,19 +38,8 @@ class SimpleRefactoringValidator(
                 refactoringSuggestion.improvements.map { suggestion ->
                     async(Dispatchers.Default) {
                         val refFactory = when {
-                            isExtractMethod(suggestion) -> ExtractMethodFactory
-                            isRenameVariable(suggestion) -> RenameVariableFactory
-                            isEnhacedForRefactoring(suggestion) -> EnhancedForFactory.factory
-                            isEnhancedSwitchRefactoring(suggestion) -> EnhancedSwitchFactory.factory
-                            isFor2While(suggestion) -> For2While.factory
-                            isFor2Streams(suggestion) -> For2Stream.factory
-                            isIf2Switch(suggestion) -> If2Switch.factory
-                            isSwitch2If(suggestion) -> Switch2IfFactory
-                            isIf2Ternary(suggestion) -> If2Ternary.factory
-                            isTernary2If(suggestion) -> Ternary2If.factory
-                            isStringBuilder(suggestion) -> StringBuilderRefactoringFactory
                             isMoveMethod(suggestion) -> MoveMethodFactory
-                            else -> ExtractMethodFactory // default
+                            else -> MoveMethodFactory // default
                         }
 
                         val createdRefactoringObjects =

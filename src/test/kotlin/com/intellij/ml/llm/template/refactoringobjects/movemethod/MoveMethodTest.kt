@@ -1,19 +1,14 @@
 package com.intellij.ml.llm.template.refactoringobjects.movemethod
 
-import com.intellij.java.refactoring.JavaRefactoringBundle
 import com.intellij.ml.llm.template.utils.PsiUtils
-import com.intellij.openapi.ui.Messages
 import com.intellij.psi.*
+import com.intellij.psi.impl.source.PsiClassReferenceType
 import com.intellij.psi.search.GlobalSearchScope
 import com.intellij.refactoring.BaseRefactoringProcessor
 import com.intellij.refactoring.makeStatic.MakeMethodStaticProcessor
 import com.intellij.refactoring.makeStatic.Settings
-import com.intellij.refactoring.move.MoveInstanceMembersUtil
-import com.intellij.refactoring.move.moveInstanceMethod.MoveInstanceMethodProcessor
 import com.intellij.refactoring.openapi.impl.JavaRefactoringFactoryImpl
 import com.intellij.testFramework.LightPlatformCodeInsightTestCase
-import com.intellij.ui.EditorTextField
-import org.jetbrains.kotlin.cli.common.repl.renderReplStackTrace
 import org.jetbrains.kotlin.idea.core.moveCaret
 
 
@@ -126,9 +121,76 @@ class MoveMethodTest: LightPlatformCodeInsightTestCase() {
 
     }
 
+    fun testMoveMethodM1ByClassName(){
+
+        createClassesABC()
+
+        editor.moveCaret(editor.document.getLineStartOffset(6))
+        val refObjs = MoveMethodFactory.createObjectsFromFuncCall(
+            "move_method('m1', 'B')", project, editor, file
+        )
+        assert(refObjs.isNotEmpty())
+        refObjs[0].performRefactoring(project, editor, file)
+        val PsiClassB = JavaPsiFacade.getInstance(project).findClass(
+            "$packageName.B",
+            GlobalSearchScope.projectScope(project))!!
+        val clientClass = JavaPsiFacade.getInstance(project).findClass(
+            "$packageName.Client",
+            GlobalSearchScope.projectScope(project))!!
+        assert(PsiClassB.text.contains("        public void m1(){\n" +
+                "            foo();\n" +
+                "            bar();\n" +
+                "    //        counter+=1;\n" +
+                "        }"))
+        assert(clientClass.text.contains("    public void compute(){\n" +
+                "        com.intellij.ml.llm.template.testdata.A objA = new com.intellij.ml.llm.template.testdata.A();\n" +
+                "        com.intellij.ml.llm.template.testdata.B objB = new com.intellij.ml.llm.template.testdata.B();\n" +
+                "//        com.intellij.ml.llm.template.testdata.C objC = new com.intellij.ml.llm.template.testdata.C();\n" +
+                "        objA.objB.m1();\n" +
+                "        objA.m2(objB);//objB.m2()\n" +
+                "        objA.m3();\n" +
+                "        objA.m4();\n" +
+                "    }"))
+
+    }
+
 
 
     fun testMoveMethodM2(){
+
+        createClassesABC()
+
+        val m1LineNum = 12
+        editor.moveCaret(editor.document.getLineStartOffset(m1LineNum))
+        val refObjs = MoveMethodFactory.createObjectsFromFuncCall(
+            "move_method('m2', 'paramObjB')", project, editor, file
+        )
+        assert(refObjs.isNotEmpty())
+        refObjs[0].performRefactoring(project, editor, file)
+
+        val PsiClassB = JavaPsiFacade.getInstance(project).findClass(
+            "$packageName.B",
+            GlobalSearchScope.projectScope(project))!!
+        val clientClass = JavaPsiFacade.getInstance(project).findClass(
+            "$packageName.Client",
+            GlobalSearchScope.projectScope(project))!!
+        assert(PsiClassB.text.contains("    public void m2(){\n" +
+                "        foo();\n" +
+                "        bar();\n" +
+                "    }"))
+        assert(clientClass.text.contains("    public void compute(){\n" +
+                "        com.intellij.ml.llm.template.testdata.A objA = new com.intellij.ml.llm.template.testdata.A();\n" +
+                "        com.intellij.ml.llm.template.testdata.B objB = new com.intellij.ml.llm.template.testdata.B();\n" +
+                "//        com.intellij.ml.llm.template.testdata.C objC = new com.intellij.ml.llm.template.testdata.C();\n" +
+                "        objA.m1();\n" +
+                "        objB.m2();//objB.m2()\n" +
+                "        objA.m3();\n" +
+                "        objA.m4();\n" +
+                "    }"))
+
+    }
+
+    fun testMoveMethodM2ByClassName(){
 
         createClassesABC()
 
@@ -242,6 +304,48 @@ class MoveMethodTest: LightPlatformCodeInsightTestCase() {
                 "        System.out.println(s);\n" +
                 "    }\n" +
                 "}"))
+
+    }
+
+    fun testMoveStaticMethodFromClassName(){
+        createAndSaveFile(
+            projectPath+"/MyWorld.java",
+            packageStatement +
+                    "\n" +
+                    "public class MyWorld {}")
+        configureByFile("/testdata/HelloWorld.java")
+        val lineNumber = 67
+        val psiMethods: List<PsiMethod> = PsiUtils.getElementsOfTypeOnLine(
+            file, editor, lineNumber, PsiMethod::class.java
+        )
+        assert(PsiUtils.isMethodStatic(psiMethods[0]))
+        assert(psiMethods.isNotEmpty())
+        val fullyQualiedName =
+            PsiUtils.getQualifiedTypeInFile(file, "MyWorld")
+        val t2 =
+            PsiUtils.getQualifiedTypeInFile(file, "List")
+        assert(fullyQualiedName!=null)
+        val refFactory = JavaRefactoringFactoryImpl(project)
+        val moveRefactoring =
+            refFactory.createMoveMembers(
+                psiMethods.toTypedArray(),
+                "$packageName.MyWorld",
+                "public")
+        moveRefactoring.run()
+
+        print( psiMethods[0].containingClass?.qualifiedName)
+        val changedClass = JavaPsiFacade.getInstance(project).findClass(
+            "$packageName.MyWorld",
+            GlobalSearchScope.projectScope(project))
+        assert(changedClass!=null)
+        println(changedClass!!.text)
+        assert(changedClass.text.contains("public class MyWorld {\n" +
+                "    public static void constructString(Integer a, Boolean b){\n" +
+                "        String s = \"String: \" + \"s\" + a + b;\n" +
+                "        System.out.println(s);\n" +
+                "    }\n" +
+                "}"))
+
 
     }
 
