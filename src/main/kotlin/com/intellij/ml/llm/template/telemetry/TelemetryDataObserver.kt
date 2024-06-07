@@ -4,6 +4,7 @@ import com.google.gson.Gson
 import com.intellij.ml.llm.template.utils.EFNotification
 import com.intellij.ml.llm.template.utils.Observer
 import com.intellij.openapi.application.PathManager
+import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.util.io.toNioPath
 import com.intellij.util.io.createDirectories
 import kotlinx.coroutines.Dispatchers
@@ -50,6 +51,7 @@ class TelemetryElapsedTimeObserver: Observer {
     private val elapsedTime: HashMap<Int, Long> = HashMap()
     private val candidateSelectionElapsedTime: HashMap<Int, Long> = HashMap()
     private var currentSelectedIndex = 0
+    private val logger = Logger.getInstance(javaClass)
     override fun update(notification: EFNotification) {
         when (notification.payload) {
             is EFTelemetryDataElapsedTimeNotificationPayload -> {
@@ -57,13 +59,13 @@ class TelemetryElapsedTimeObserver: Observer {
                     TelemetryDataAction.START -> {
                         currentSelectedIndex = notification.payload.selectionIndex
                         candidateSelectionElapsedTime[currentSelectedIndex] = System.currentTimeMillis()
-                        println("started index: $currentSelectedIndex at: ${candidateSelectionElapsedTime[currentSelectedIndex]}")
+                        logger.debug("started index: $currentSelectedIndex at: ${candidateSelectionElapsedTime[currentSelectedIndex]}")
                     }
                     TelemetryDataAction.STOP -> {
                         val elapsed = System.currentTimeMillis() - candidateSelectionElapsedTime.getOrDefault(currentSelectedIndex, 0)
                         val cumulated = elapsedTime.getOrDefault(currentSelectedIndex, 0) + elapsed
                         elapsedTime[currentSelectedIndex] = cumulated
-                        println("stopped $currentSelectedIndex, elapsed: $elapsed, cumulated: $cumulated")
+                        logger.debug("stopped $currentSelectedIndex, elapsed: $elapsed, cumulated: $cumulated")
                     }
                 }
             }

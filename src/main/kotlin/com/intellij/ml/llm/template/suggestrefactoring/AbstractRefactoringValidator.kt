@@ -9,6 +9,7 @@ import com.intellij.ml.llm.template.prompts.GetRefactoringObjParametersPrompt
 import com.intellij.ml.llm.template.prompts.SuggestRefactoringPrompt
 import com.intellij.ml.llm.template.refactoringobjects.AbstractRefactoring
 import com.intellij.ml.llm.template.refactoringobjects.MyRefactoringFactory
+import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiFile
@@ -21,8 +22,7 @@ abstract class AbstractRefactoringValidator(
     private val functionSrc: String,
     private var apiResponseCache: MutableMap<String, MutableMap<String, LLMBaseResponse>>
 ) {
-//    private var apiResponseCache =
-//        mutableMapOf<String, MutableMap<String, LLMBaseResponse>>()
+    private val logger = Logger.getInstance(javaClass)
     abstract fun isExtractMethod(atomicSuggestion: AtomicSuggestion): Boolean;
 
     fun getParamsAndCreateObject(
@@ -41,9 +41,9 @@ abstract class AbstractRefactoringValidator(
             cacheResponse(atomicSuggestion, response)
 
             val funcCall: String = response.getSuggestions()[0].text
-            println(funcCall)
+            logger.debug(funcCall)
             if (funcCall.startsWith(refactoringFactory.apiFunctionName)) {
-                print("Looks like a ${refactoringFactory.apiFunctionName} call!")
+                logger.debug("Looks like a ${refactoringFactory.apiFunctionName} call!")
                 val createdObjectsFromFuncCall = refactoringFactory.createObjectsFromFuncCall(
                     funcCall,
                     project,
@@ -96,48 +96,6 @@ abstract class AbstractRefactoringValidator(
     }
 
 
-//    fun getRenameVariableParameters(atomicSuggestion: AtomicSuggestion,
-//                                   finalCode: String, functionPsiElement: PsiElement):
-//            RenameVariable?{
-//
-//        var messageList:MutableList<OpenAiChatMessage> = mutableListOf()
-//        val basePrompt = SuggestRefactoringPrompt().getPrompt(functionSrc)
-//        messageList.addAll(basePrompt)
-//        messageList.add(
-//            OpenAiChatMessage("assistant",
-//                Gson().toJson(RefactoringSuggestion(mutableListOf(atomicSuggestion), finalCode)).toString()
-//            )
-//        )
-//
-////        messageList.addAll(
-//////            GetRenameVariableParametersPrompt().getPrompt(atomicSuggestion.shortDescription, "rename_variable")
-////        )
-//
-//        val response = sendChatRequest(
-//            project, messageList, efLLMRequestProvider.chatModel, efLLMRequestProvider
-//        )
-//        var new_name = "newVariableName"
-//        var old_name = "oldVariableName"
-//        if (response != null) {
-//            val funcCall:String = response.getSuggestions()[0].text
-//            println(funcCall)
-//            if(funcCall.startsWith("rename_variable"))
-//                print("Looks like a rename_variable call!")
-//            new_name = funcCall.split(',')[1]
-//                .removeSuffix(")")
-//                .replace("\"", "")
-//                .replace(" ", "")
-//            print("new name:$new_name")
-//
-//            old_name = funcCall.split(',')[0]
-//                .removeSuffix(")")
-//                .replace("\"", "")
-//                .replace(" ", "")
-//            println("old_name:$old_name")
-//        }
-//        return RenameVariable.fromOldNewName(project, functionPsiElement,
-//            "old_name", "new_name")
-//    }
 
 
 

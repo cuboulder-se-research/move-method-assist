@@ -112,18 +112,8 @@ class PsiUtils {
             var foundVariable: PsiElement? = null
             class VariableFinder: JavaRecursiveElementVisitor() {
 
-                override fun visitClass(aClass: PsiClass) {
-                    super.visitClass(aClass)
-                    print("Found ${aClass.name}")
-                }
-
-                override fun visitVariable(variable: PsiVariable) {
-                    super.visitVariable(variable)
-                    print("Found ${variable.name}")
-                }
                 override fun visitLocalVariable(variable: PsiLocalVariable) {
                     super.visitLocalVariable(variable)
-                    print("found :"+variable.name)
                     if (variable.name == variableName)
                         foundVariable = variable
                 }
@@ -135,7 +125,6 @@ class PsiUtils {
                 }
 //                override fun visitIdentifier(identifier: PsiIdentifier) {
 //                    super.visitIdentifier(identifier)
-//                    print("found :"+identifier.text)
 //                    if (identifier.text == variableName)
 //                        foundVariable = identifier
 //                }
@@ -155,18 +144,8 @@ class PsiUtils {
             var matches: MutableList<PsiElement> = mutableListOf()
             class VariableFinder: JavaRecursiveElementVisitor() {
 
-                override fun visitClass(aClass: PsiClass) {
-                    super.visitClass(aClass)
-                    print("Found ${aClass.name}")
-                }
-
-                override fun visitVariable(variable: PsiVariable) {
-                    super.visitVariable(variable)
-                    print("Found ${variable.name}")
-                }
                 override fun visitLocalVariable(variable: PsiLocalVariable) {
                     super.visitLocalVariable(variable)
-                    print("found :"+variable.name)
                     if (variable.name == variableName)
                         matches.add(variable)
                 }

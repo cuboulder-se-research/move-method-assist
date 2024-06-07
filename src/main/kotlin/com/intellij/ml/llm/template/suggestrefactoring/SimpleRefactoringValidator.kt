@@ -12,6 +12,7 @@ import com.intellij.ml.llm.template.refactoringobjects.looping.For2Stream
 import com.intellij.ml.llm.template.refactoringobjects.looping.For2While
 import com.intellij.ml.llm.template.refactoringobjects.movemethod.MoveMethodFactory
 import com.intellij.ml.llm.template.refactoringobjects.stringbuilder.StringBuilderRefactoringFactory
+import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiFile
@@ -27,6 +28,7 @@ class SimpleRefactoringValidator(
     apiResponseCache: MutableMap<String, MutableMap<String, LLMBaseResponse>>
 ) : AbstractRefactoringValidator(efLLMRequestProvider, project, editor, file, functionSrc, apiResponseCache) {
 
+    private val logger = Logger.getInstance(javaClass)
 
     override suspend fun getRefactoringSuggestions(llmResponseText: String): List<AbstractRefactoring> {
         val refactoringSuggestion = getRawSuggestions(llmResponseText)
@@ -46,10 +48,10 @@ class SimpleRefactoringValidator(
                             getParamsAndCreateObject(suggestion, refFactory)
 
                         if (!createdRefactoringObjects.isNullOrEmpty()) {
-                            println("Successfully created ${createdRefactoringObjects.size} refactoring object(s).")
+                            logger.info("Successfully created ${createdRefactoringObjects.size} refactoring object(s) of \"${refFactory.logicalName}\".")
                             createdRefactoringObjects
                         } else {
-                            println("No refactoring objects were created.")
+                            logger.info("No refactoring objects of \"${refFactory.logicalName}\" were created.")
                             emptyList()
                         }
                     }
@@ -59,7 +61,7 @@ class SimpleRefactoringValidator(
             }
         }
 
-        println("Processing took $time ms")
+        logger.debug("Processing took $time ms")
 
         return allRefactoringObjects;
 

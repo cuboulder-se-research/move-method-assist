@@ -15,9 +15,12 @@ import ai.grazie.utils.attributes.Attributes
 import com.intellij.ml.llm.template.models.LLMBaseRequest
 import com.intellij.ml.llm.template.models.LLMBaseResponse
 import com.intellij.ml.llm.template.models.openai.OpenAiChatRequestBody
+import com.intellij.openapi.diagnostic.Logger
 import kotlinx.coroutines.runBlocking
 
 class GrazieBaseRequest(body: OpenAiChatRequestBody) : LLMBaseRequest<OpenAiChatRequestBody>(body)  {
+
+    private val logger = Logger.getInstance(javaClass)
     private val url = "https://api.app.stgn.grazie.aws.intellij.net"
     private val grazieToken = System.getenv("GRAZIE_JWT_TOKEN")
     private val authData = AuthData(
@@ -77,17 +80,17 @@ class GrazieBaseRequest(body: OpenAiChatRequestBody) : LLMBaseRequest<OpenAiChat
                     getOpenAIProfileId(),
                     getChatMessages(),
                 )
-                println( response.toString())
+                logger.debug("Grazie request ID: ${response}")
                 var finalString: String=""
 //                response.collect()
                 response.collect{
                     finalString+=it.content
                     return@collect
                 }
-                println(finalString)
+                logger.debug("Response:\n$finalString")
                 return@runBlocking GrazieResponse(finalString, "completed")
             } catch (e: Exception){
-                println("Couldn't make request.")
+                logger.debug("Couldn't make request.")
 //                return@runBlocking GrazieResponse("", "failed")
                 throw e
             }

@@ -10,6 +10,7 @@ import java.net.HttpURLConnection
 
 open class OllamalBaseRequest<Body>(path: String, body: Body) : LLMBaseRequest<Body>(body) {
     private val url = "http://localhost:11434/api/$path"
+    private val logger = Logger.getInstance(javaClass)
 
     private fun decodeResponse(response: String): String {
         var content = ""
@@ -28,7 +29,7 @@ open class OllamalBaseRequest<Body>(path: String, body: Body) : LLMBaseRequest<B
 //                content +=
 //                    Json.decodeFromString<DecodeResponse>(jsonPartCorrected)!!.response
             } catch (e: Exception) {
-                println("Error decoding JSON part $jsonPart: ${e.message}")
+                logger.debug("Error decoding JSON part $jsonPart: ${e.message}")
             }
         }
         return content
