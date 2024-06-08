@@ -41,9 +41,10 @@ abstract class AbstractRefactoringValidator(
             cacheResponse(atomicSuggestion, response)
 
             val funcCall: String = response.getSuggestions()[0].text
-            logger.debug(funcCall)
+//            logger.debug(funcCall)
             if (funcCall.startsWith(refactoringFactory.apiFunctionName)) {
-                logger.debug("Looks like a ${refactoringFactory.apiFunctionName} call!")
+//                logger.debug("Looks like a ${refactoringFactory.apiFunctionName} call!")
+                logger.info("Attempting to form refactoring object: $funcCall")
                 val createdObjectsFromFuncCall = refactoringFactory.createObjectsFromFuncCall(
                     funcCall,
                     project,

@@ -124,8 +124,9 @@ private fun isFunctionExtractableJava(
         reason = LLMBundle.message("extract.function.entire.function.selection.message")
         applicationResult = EFApplicationResult.FAIL
     } else {
-        editor.selectionModel.setSelection(efCandidate.offsetStart, efCandidate.offsetEnd)
-        val range = ExtractMethodHelper.findEditorSelection(editor)
+//        editor.selectionModel.setSelection(efCandidate.offsetStart, efCandidate.offsetEnd)
+        val range = TextRange(efCandidate.offsetStart, efCandidate.offsetEnd)
+//        val range = ExtractMethodHelper.findEditorSelection(editor)
         val elements = ExtractSelector().suggestElementsToExtract(file, range!!)
         if (elements.isEmpty()) {
             result = false
@@ -147,7 +148,7 @@ private fun isFunctionExtractableJava(
             }
         }
     }
-    editor.selectionModel.removeSelection()
+//    editor.selectionModel.removeSelection()
     buildEFNotificationAndNotifyObservers(efCandidate, applicationResult, reason, observerList)
     return result
 }

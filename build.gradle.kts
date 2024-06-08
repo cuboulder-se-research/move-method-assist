@@ -91,4 +91,8 @@ tasks {
     test{
 
     }
+    runIde{
+        systemProperties(Pair("idea.log.warn.categories", "com.intellij,com.android"))
+        systemProperties(Pair("idea.log.info.categories", "com.intellij.ml.llm.template"))
+    }
 }

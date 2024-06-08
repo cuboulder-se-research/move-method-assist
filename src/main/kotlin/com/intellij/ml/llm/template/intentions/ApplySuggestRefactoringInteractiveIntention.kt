@@ -11,15 +11,22 @@ import com.intellij.ml.llm.template.prompts.ExtractMethodPrompt
 import com.intellij.ml.llm.template.prompts.MethodPromptBase
 import com.intellij.ml.llm.template.refactoringobjects.AbstractRefactoring
 import com.intellij.ml.llm.template.refactoringobjects.extractfunction.EFCandidate
+import com.intellij.ml.llm.template.refactoringobjects.extractfunction.ExtractMethod
 import com.intellij.ml.llm.template.showEFNotification
+import com.intellij.ml.llm.template.suggestrefactoring.AbstractRefactoringValidator
 import com.intellij.ml.llm.template.suggestrefactoring.SimpleRefactoringValidator
 import com.intellij.ml.llm.template.telemetry.*
 import com.intellij.ml.llm.template.ui.ExtractFunctionPanel
 import com.intellij.ml.llm.template.utils.*
 import com.intellij.notification.NotificationType
 import com.intellij.openapi.application.invokeLater
+import com.intellij.openapi.application.runReadAction
+import com.intellij.openapi.application.runWriteAction
 import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.editor.Editor
+import com.intellij.openapi.editor.LogicalPosition
+import com.intellij.openapi.editor.ScrollType
+import com.intellij.openapi.editor.SelectionModel
 import com.intellij.openapi.progress.ProgressIndicator
 import com.intellij.openapi.progress.ProgressManager
 import com.intellij.openapi.progress.Task
@@ -28,11 +35,16 @@ import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.popup.JBPopupFactory
 import com.intellij.openapi.ui.popup.JBPopupListener
 import com.intellij.openapi.ui.popup.LightweightWindowEvent
+import com.intellij.openapi.util.TextRange
 import com.intellij.psi.PsiClass
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
 import com.intellij.ui.awt.RelativePoint
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.runBlocking
+import org.jetbrains.kotlin.psi.psiUtil.endOffset
+import org.jetbrains.kotlin.psi.psiUtil.startOffset
 import org.jetbrains.kotlin.util.capitalizeDecapitalize.toLowerCaseAsciiOnly
 import java.awt.Point
 import java.awt.Rectangle
@@ -44,6 +56,7 @@ import java.util.concurrent.atomic.AtomicReference
 abstract class ApplySuggestRefactoringInteractiveIntention(
     private val efLLMRequestProvider: LLMRequestProvider = GPTExtractFunctionRequestProvider
 ) : IntentionAction {
+    private val MAX_ITERS: Int = 5
     private val logger = Logger.getInstance("#com.intellij.ml.llm")
     private val codeTransformer = CodeTransformer()
     private val telemetryDataManager = EFTelemetryDataManager()
@@ -68,23 +81,21 @@ abstract class ApplySuggestRefactoringInteractiveIntention(
 
     override fun invoke(project: Project, editor: Editor?, file: PsiFile?) {
         if (editor == null || file == null) return
-        val selectionModel = editor.selectionModel
         val namedElement =
             PsiUtils.getParentFunctionOrNull(editor, file.language)
-            ?: PsiUtils.getParentClassOrNull(editor, file.language)
+                ?: PsiUtils.getParentClassOrNull(editor, file.language)
+        val selectionModel = editor.selectionModel
+
         if (namedElement != null) {
+            functionPsiElement = namedElement
 
             telemetryDataManager.newSession()
             val codeSnippet = namedElement.text
+            selectionModel.setSelection(namedElement.startOffset, namedElement.endOffset)
+            val (startLineNumber, withLineNumbers) = setFunctionSrc(editor)
 
-            val textRange = namedElement.textRange
-            selectionModel.setSelection(textRange.startOffset, textRange.endOffset)
-            val startLineNumber = editor.document.getLineNumber(selectionModel.selectionStart) + 1
-            val withLineNumbers = addLineNumbersToCodeSnippet(codeSnippet, startLineNumber)
-            functionSrc = withLineNumbers
-            functionPsiElement = namedElement
 
-            val bodyLineStart = when(namedElement){
+            val bodyLineStart = when (namedElement) {
                 is PsiClass -> PsiUtils.getClassBodyStartLine(namedElement)
                 else -> PsiUtils.getFunctionBodyStartLine(namedElement)
             }
@@ -99,36 +110,57 @@ abstract class ApplySuggestRefactoringInteractiveIntention(
 
             invokeLlm(withLineNumbers, project, editor, file)
         }
+
+    }
+
+    private fun setFunctionSrc(
+        editor: Editor,
+    ): Pair<Int, String> {
+        return runReadAction {
+            val startLineNumber = editor.document.getLineNumber(functionPsiElement.startOffset) + 1
+            val withLineNumbers = addLineNumbersToCodeSnippet(functionPsiElement.text, startLineNumber)
+            functionSrc = withLineNumbers
+            Pair(startLineNumber, withLineNumbers)
+        }
     }
 
     private fun invokeLlm(text: String, project: Project, editor: Editor, file: PsiFile) {
-        logger.info("Invoking LLM with text: $text")
+
         val messageList = prompter.getPrompt(text)
+
+        logger.debug("Method/Class:\n$functionSrc")
 
         val task = object : Task.Backgroundable(
             project, LLMBundle.message("intentions.request.extract.function.background.process.title")
         ) {
             override fun run(indicator: ProgressIndicator) {
-                val now = System.nanoTime()
+                    for (iter in 1..MAX_ITERS){
+                        val now = System.nanoTime()
+                        logger.info(Companion.AGENT_HEADER)
+                        logger.info("Asking for refactoring suggestions!")
 
-                val response = llmResponseCache.get(functionSrc)?: sendChatRequest(
-                        project, messageList, efLLMRequestProvider.chatModel, efLLMRequestProvider
-                    )
-                if (response != null) {
-                    llmResponseCache.get(functionSrc)?:llmResponseCache.put(functionSrc, response)
-                    invokeLater {
-                        llmResponseTime = System.nanoTime() - now
-                        if (response.getSuggestions().isEmpty()) {
-                            showEFNotification(
-                                project,
-                                LLMBundle.message("notification.extract.function.with.llm.no.suggestions.message"),
-                                NotificationType.INFORMATION
-                            )
-                        } else {
-                            processLLMResponse(response, project, editor, file)
+                        if (iter!=1)
+                            setFunctionSrc(editor)
+
+                        val cacheKey = functionSrc + iter
+                        val response = llmResponseCache.get(cacheKey) ?: sendChatRequest(
+                            project, messageList, efLLMRequestProvider.chatModel, efLLMRequestProvider
+                        )
+                        if (response != null) {
+                            llmResponseCache.get(cacheKey) ?: llmResponseCache.put(cacheKey, response)
+                            llmResponseTime = System.nanoTime() - now
+                            if (response.getSuggestions().isEmpty()) {
+//                                showEFNotification(
+//                                    project,
+//                                    LLMBundle.message("notification.extract.function.with.llm.no.suggestions.message"),
+//                                    NotificationType.INFORMATION
+//                                )
+                            } else {
+                                runBlocking { processLLMResponse(response, project, editor, file) }
+                            }
                         }
                     }
-                }
+
             }
         }
         ProgressManager.getInstance().runProcessWithProgressAsynchronously(task, BackgroundableProcessIndicator(task))
@@ -153,7 +185,10 @@ abstract class ApplySuggestRefactoringInteractiveIntention(
         return filteredCandidates
     }
 
-    private fun processLLMResponse(response: LLMBaseResponse, project: Project, editor: Editor, file: PsiFile) {
+    private suspend fun processLLMResponse(response: LLMBaseResponse, project: Project, editor: Editor, file: PsiFile) {
+        delay(2000)
+        logLLMResponse(response)
+        delay(3000)
         val now = System.nanoTime()
 
         val llmResponse = response.getSuggestions()[0]
@@ -166,21 +201,23 @@ abstract class ApplySuggestRefactoringInteractiveIntention(
         )
 //        val efSuggestionList = validator.getExtractMethodSuggestions(llmResponse.text)
 //        val renameSuggestions = validator.getRenamveVariableSuggestions(llmResponse.text)
+        logger.info(AGENT_HEADER)
         val refactoringCandidates: List<AbstractRefactoring> =
             runBlocking {
                 validator.getRefactoringSuggestions(llmResponse.text)
             }
+
 //        val refactoringCandidates: List<AbstractRefactoring> = runBlocking {
 //                validator.getRefactoringSuggestions(llmResponse.text)
 //        }
 
 //        val candidates = EFCandidateFactory().buildCandidates(efSuggestionList.suggestionList, editor, file).toList()
         if (refactoringCandidates.isEmpty()) {
-            showEFNotification(
-                project,
-                LLMBundle.message("notification.extract.function.with.llm.no.suggestions.message"),
-                NotificationType.INFORMATION
-            )
+//            showEFNotification(
+//                project,
+//                LLMBundle.message("notification.extract.function.with.llm.no.suggestions.message"),
+//                NotificationType.INFORMATION
+//            )
             telemetryDataManager.addCandidatesTelemetryData(buildCandidatesTelemetryData(0, emptyList()))
             buildProcessingTimeTelemetryData(llmResponseTime, System.nanoTime() - now)
             sendTelemetryData()
@@ -188,7 +225,7 @@ abstract class ApplySuggestRefactoringInteractiveIntention(
             val candidatesApplicationTelemetryObserver = EFCandidatesApplicationTelemetryObserver()
 //            val filteredCandidates = filterCandidates(candidates, candidatesApplicationTelemetryObserver, editor, file)
             val validRefactoringCandidates = refactoringCandidates.filter {
-                it.isValid(project, editor, file)
+                runReadAction{ it.isValid(project, editor, file) }
             }
 
             telemetryDataManager.addCandidatesTelemetryData(
@@ -200,17 +237,31 @@ abstract class ApplySuggestRefactoringInteractiveIntention(
             buildProcessingTimeTelemetryData(llmResponseTime, System.nanoTime() - now)
 
             if (validRefactoringCandidates.isEmpty()) {
-                showEFNotification(
-                    project,
-                    LLMBundle.message("notification.extract.function.with.llm.no.extractable.candidates.message"),
-                    NotificationType.INFORMATION
-                )
+//                showEFNotification(
+//                    project,
+//                    LLMBundle.message("notification.extract.function.with.llm.no.extractable.candidates.message"),
+//                    NotificationType.INFORMATION
+//                )
+                logger.info("No valid refactoring objects created.")
                 sendTelemetryData()
             } else {
 //                refactoringObjectsCache.get(functionSrc)?:refactoringObjectsCache.put(functionSrc, validRefactoringCandidates)
-                showRefactoringOptionsPopup(
-                    project, editor, file, validRefactoringCandidates, codeTransformer,
-                )
+//                showRefactoringOptionsPopup(
+//                    project, editor, file, validRefactoringCandidates, codeTransformer,
+//                )
+                runBlocking { executeRefactorings(validRefactoringCandidates, project, editor, file) }
+
+            }
+        }
+    }
+
+    private fun logLLMResponse(response: LLMBaseResponse) {
+        logger.info(LLM_HEADER)
+        for (suggestion in response.getSuggestions()){
+//            logger.info(suggestion.)
+            for (atomicSuggestion in AbstractRefactoringValidator.getRawSuggestions(suggestion.text).improvements){
+                logger.info(atomicSuggestion.shortDescription)
+                logger.info(atomicSuggestion.longDescription)
             }
         }
     }
@@ -318,5 +369,42 @@ abstract class ApplySuggestRefactoringInteractiveIntention(
         if (efTelemetryData != null) {
             efTelemetryData.elapsedTime = elapsedTimeTelemetryData
         }
+    }
+
+    private suspend fun executeRefactorings(
+        validRefactoringCandidates: List<AbstractRefactoring>,
+        project: Project,
+        editor: Editor,
+        file: PsiFile
+    ) {
+        val myHighlighter = AtomicReference(ScopeHighlighter(editor))
+        for (refCandidate in validRefactoringCandidates.sortedBy { it is ExtractMethod }){
+                invokeLater {
+                    editor.scrollingModel.scrollTo(
+                        LogicalPosition(editor.document.getLineNumber(refCandidate.getStartOffset()), 0),
+                        ScrollType.CENTER
+                    )
+
+                    val scopeHighlighter: ScopeHighlighter = myHighlighter.get()
+                    scopeHighlighter.dropHighlight()
+                    val range = TextRange(refCandidate.getStartOffset(), refCandidate.getEndOffset())
+                    scopeHighlighter.highlight(com.intellij.openapi.util.Pair(range, listOf(range)))
+
+
+                    editor.selectionModel.setSelection(refCandidate.getStartOffset(), refCandidate.getStartOffset())
+                }
+                logger.info("Executing refactoring: ${refCandidate.getRefactoringPreview()}")
+                delay(2_000)
+                invokeLater {
+                    refCandidate.performRefactoring(project, editor, file)
+                }
+                delay(2_000)
+
+        }
+    }
+
+    companion object {
+        private const val AGENT_HEADER = "\n\n******************** Refactoring AGENT ********************"
+        private const val LLM_HEADER = "\n\n**************************  LLM **************************"
     }
 }

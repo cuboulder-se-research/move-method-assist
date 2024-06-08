@@ -5,6 +5,7 @@ import com.intellij.codeInsight.Nullability
 import com.intellij.codeInsight.highlighting.HighlightManager
 import com.intellij.ide.util.PropertiesComponent
 import com.intellij.java.refactoring.JavaRefactoringBundle
+import com.intellij.ml.llm.template.refactoringobjects.extractfunction.customextractors.MyInplaceMethodExtractor
 import com.intellij.openapi.application.ReadAction
 import com.intellij.openapi.application.WriteAction
 import com.intellij.openapi.command.CommandProcessor
@@ -34,7 +35,6 @@ import com.intellij.refactoring.extractMethod.newImpl.ExtractMethodPipeline.find
 import com.intellij.refactoring.extractMethod.newImpl.ExtractMethodPipeline.selectOptionWithTargetClass
 import com.intellij.refactoring.extractMethod.newImpl.ExtractMethodPipeline.withFilteredAnnotations
 import com.intellij.refactoring.extractMethod.newImpl.inplace.ExtractMethodPopupProvider
-import com.intellij.refactoring.extractMethod.newImpl.inplace.InplaceMethodExtractor
 import com.intellij.refactoring.extractMethod.newImpl.inplace.extractInDialog
 import com.intellij.refactoring.extractMethod.newImpl.structures.ExtractOptions
 import com.intellij.refactoring.listeners.RefactoringEventData
@@ -57,7 +57,7 @@ class MyMethodExtractor (private val functionNameProvider: FunctionNameProvider?
     fun doExtract(file: PsiFile, range: TextRange) {
         val editor = PsiEditorUtil.findEditor(file) ?: return
         if (EditorSettingsExternalizable.getInstance().isVariableInplaceRenameEnabled) {
-            val activeExtractor = InplaceMethodExtractor.getActiveExtractor(editor)
+            val activeExtractor = MyInplaceMethodExtractor.getActiveExtractor(editor)
             if (activeExtractor != null) {
                 activeExtractor.restartInDialog()
             } else {
@@ -108,7 +108,7 @@ class MyMethodExtractor (private val functionNameProvider: FunctionNameProvider?
         val methodName = guessedNames.first()
         val suggestedNames = guessedNames.takeIf { it.size > 1 }.orEmpty()
         executeRefactoringCommand(project) {
-            val inplaceExtractor = InplaceMethodExtractor(editor, range, options.targetClass, popupSettings, methodName)
+            val inplaceExtractor = MyInplaceMethodExtractor(editor, range, options.targetClass, popupSettings, methodName)
             inplaceExtractor.extractAndRunTemplate(LinkedHashSet(suggestedNames))
         }
     }

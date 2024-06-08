@@ -6,14 +6,18 @@ import com.intellij.ml.llm.template.models.MyMethodExtractor
 import com.intellij.ml.llm.template.refactoringobjects.AbstractRefactoring
 import com.intellij.ml.llm.template.refactoringobjects.extractfunction.customextractors.MyInplaceExtractionHelper
 import com.intellij.ml.llm.template.utils.isCandidateExtractable
+import com.intellij.openapi.application.runReadAction
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.editor.ex.EditorEx
+import com.intellij.openapi.keymap.impl.IdeKeyEventDispatcher
 import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
 import com.intellij.psi.util.PsiTreeUtil
+import com.intellij.refactoring.extractMethod.newImpl.inplace.InplaceMethodExtractor
 import org.jetbrains.kotlin.idea.KotlinLanguage
 import org.jetbrains.kotlin.idea.refactoring.introduce.extractFunction.ExtractKotlinFunctionHandler
+import org.jetbrains.kotlin.idea.util.executeEnterHandler
 import org.jetbrains.kotlin.psi.psiUtil.endOffset
 import org.jetbrains.kotlin.psi.psiUtil.startOffset
 
@@ -49,10 +53,11 @@ class ExtractMethod(
 
     override fun isValid(project: Project, editor: Editor, file: PsiFile): Boolean {
         val candidate = getEFCandidate()
-
-        return isCandidateExtractable(
-            candidate, editor, file
-        )
+        return runReadAction {
+             isCandidateExtractable(
+                candidate, editor, file
+            )
+        }
 
     }
 
