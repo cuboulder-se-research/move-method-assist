@@ -44,13 +44,22 @@ abstract class AbstractRefactoringValidator(
 //            logger.debug(funcCall)
             if (funcCall.startsWith(refactoringFactory.apiFunctionName)) {
 //                logger.debug("Looks like a ${refactoringFactory.apiFunctionName} call!")
-                logger.info("Attempting to form refactoring object: $funcCall")
-                val createdObjectsFromFuncCall = refactoringFactory.createObjectsFromFuncCall(
-                    funcCall,
-                    project,
-                    editor,
-                    file
-                )
+                logger.info("* Forming Refactoring Object: $funcCall")
+                val createdObjectsFromFuncCall = try {
+                    refactoringFactory.createObjectsFromFuncCall(
+                        funcCall,
+                        project,
+                        editor,
+                        file
+                    )
+                } catch (e: Exception) {
+                    logger.info("Failed to create refactoring object: ${e.message}")
+                    return null
+                }
+                if (createdObjectsFromFuncCall.isNotEmpty())
+                    logger.info("Status: Successfully created ${createdObjectsFromFuncCall.size} refactoring object(s).".prependIndent("    "))
+                else
+                    logger.info("Status: No refactoring objects were created.".prependIndent("    "))
                 createdObjectsFromFuncCall.forEach { it.description = atomicSuggestion.longDescription }
                 return createdObjectsFromFuncCall
             }

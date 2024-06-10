@@ -141,7 +141,7 @@ private fun isFunctionExtractableJava(
                     applicationResult = EFApplicationResult.FAIL
                 }
             } catch (e: Exception) {
-                logException(e)
+//                logException(e)
                 result = false
                 reason = e.message ?: reason
                 applicationResult = EFApplicationResult.FAIL

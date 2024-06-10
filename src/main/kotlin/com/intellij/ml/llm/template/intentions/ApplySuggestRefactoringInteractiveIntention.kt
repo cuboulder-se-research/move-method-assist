@@ -202,6 +202,8 @@ abstract class ApplySuggestRefactoringInteractiveIntention(
 //        val efSuggestionList = validator.getExtractMethodSuggestions(llmResponse.text)
 //        val renameSuggestions = validator.getRenamveVariableSuggestions(llmResponse.text)
         logger.info(AGENT_HEADER)
+        logger.info("Processing LLM Recommendations...")
+        logger.info("\n")
         val refactoringCandidates: List<AbstractRefactoring> =
             runBlocking {
                 validator.getRefactoringSuggestions(llmResponse.text)
@@ -236,6 +238,7 @@ abstract class ApplySuggestRefactoringInteractiveIntention(
             )
             buildProcessingTimeTelemetryData(llmResponseTime, System.nanoTime() - now)
 
+            logger.info("\n")
             if (validRefactoringCandidates.isEmpty()) {
 //                showEFNotification(
 //                    project,
@@ -249,6 +252,7 @@ abstract class ApplySuggestRefactoringInteractiveIntention(
 //                showRefactoringOptionsPopup(
 //                    project, editor, file, validRefactoringCandidates, codeTransformer,
 //                )
+                logger.info("Performing Refactoring Actions:")
                 runBlocking { executeRefactorings(validRefactoringCandidates, project, editor, file) }
 
             }
@@ -259,9 +263,10 @@ abstract class ApplySuggestRefactoringInteractiveIntention(
         logger.info(LLM_HEADER)
         for (suggestion in response.getSuggestions()){
 //            logger.info(suggestion.)
-            for (atomicSuggestion in AbstractRefactoringValidator.getRawSuggestions(suggestion.text).improvements){
-                logger.info(atomicSuggestion.shortDescription)
-                logger.info(atomicSuggestion.longDescription)
+            for (atomicSuggestion in AbstractRefactoringValidator.getRawSuggestions(suggestion.text).improvements.withIndex()){
+                logger.info("${atomicSuggestion.index+1}: ${atomicSuggestion.value.shortDescription}")
+                logger.info("Suggestion: ${atomicSuggestion.value.longDescription}".prependIndent("    "))
+                logger.info("\n")
             }
         }
     }
@@ -378,6 +383,7 @@ abstract class ApplySuggestRefactoringInteractiveIntention(
         file: PsiFile
     ) {
         val myHighlighter = AtomicReference(ScopeHighlighter(editor))
+        var count = 1
         for (refCandidate in validRefactoringCandidates.sortedBy { it is ExtractMethod }){
                 invokeLater {
                     editor.scrollingModel.scrollTo(
@@ -393,18 +399,19 @@ abstract class ApplySuggestRefactoringInteractiveIntention(
 
                     editor.selectionModel.setSelection(refCandidate.getStartOffset(), refCandidate.getStartOffset())
                 }
-                logger.info("Executing refactoring: ${refCandidate.getRefactoringPreview()}")
+                logger.info("$count. Executing refactoring: ${refCandidate.getRefactoringPreview()}".prependIndent("     "))
                 delay(2_000)
                 invokeLater {
                     refCandidate.performRefactoring(project, editor, file)
                 }
                 delay(2_000)
+                count+=1
 
         }
     }
 
     companion object {
-        private const val AGENT_HEADER = "\n\n******************** Refactoring AGENT ********************"
-        private const val LLM_HEADER = "\n\n**************************  LLM **************************"
+        private const val AGENT_HEADER = "\n\n************************** Refactoring AGENT **************************"
+        private const val LLM_HEADER = "\n\n******************************** LLM ********************************"
     }
 }

@@ -48,10 +48,8 @@ class SimpleRefactoringValidator(
                             getParamsAndCreateObject(suggestion, refFactory)
 
                         if (!createdRefactoringObjects.isNullOrEmpty()) {
-                            logger.info("Successfully created ${createdRefactoringObjects.size} refactoring object(s) of \"${refFactory.logicalName}\".")
                             createdRefactoringObjects
                         } else {
-                            logger.info("No refactoring objects of \"${refFactory.logicalName}\" were created.")
                             emptyList()
                         }
                     }
@@ -62,6 +60,7 @@ class SimpleRefactoringValidator(
         }
 
         logger.debug("Processing took $time ms")
+        delay(3000)
 
         return allRefactoringObjects;
 
