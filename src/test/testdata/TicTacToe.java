@@ -80,21 +80,15 @@ public class TicTacToe {
 	| 7 | 8 | 9 |
 	|---|---|---|*/
 
-    static void printBoard()
-    {
-        System.out.println("|---|---|---|");
-        System.out.println("| " + board[0] + " | "
-                + board[1] + " | " + board[2]
-                + " |");
-        System.out.println("|-----------|");
-        System.out.println("| " + board[3] + " | "
-                + board[4] + " | " + board[5]
-                + " |");
-        System.out.println("|-----------|");
-        System.out.println("| " + board[6] + " | "
-                + board[7] + " | " + board[8]
-                + " |");
-        System.out.println("|---|---|---|");
+    static void printBoard() {
+        String sb = "|---|---|---|\n" +
+                String.format("| %s | %s | %s |\n", board[0], board[1], board[2]) +
+                "|-----------|\n" +
+                String.format("| %s | %s | %s |\n", board[3], board[4], board[5]) +
+                "|-----------|\n" +
+                String.format("| %s | %s | %s |\n", board[6], board[7], board[8]) +
+                "|---|---|---|\n";
+        System.out.println(sb);
     }
 
     public static void main(String[] args)
