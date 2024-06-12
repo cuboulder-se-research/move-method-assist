@@ -6,9 +6,11 @@ import com.intellij.ml.llm.template.utils.PsiUtils
 import com.intellij.openapi.application.runReadAction
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
+import com.intellij.psi.PsiClass
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
 import org.jetbrains.kotlin.idea.base.psi.getLineNumber
+import org.jetbrains.kotlin.psi.psiUtil.getChildOfType
 
 class RenameVariableFactory {
     companion object: MyRefactoringFactory {
@@ -25,7 +27,8 @@ class RenameVariableFactory {
             val functionPsi: PsiElement? =
                 runReadAction {
                     PsiUtils.getParentFunctionOrNull(editor, language = file.language)?:
-                    PsiUtils.getParentClassOrNull(editor, language = file.language)
+                    PsiUtils.getParentClassOrNull(editor, language = file.language)?:
+                    file.getChildOfType<PsiClass>()
                 }
 
             val renameObj = RenameVariableFactory.fromOldNewName(project, functionPsi, oldName, newName)

@@ -3,7 +3,6 @@ package com.intellij.ml.llm.template.suggestrefactoring
 import com.intellij.ml.llm.template.models.LLMBaseResponse
 import com.intellij.ml.llm.template.models.LLMRequestProvider
 import com.intellij.ml.llm.template.refactoringobjects.AbstractRefactoring
-import com.intellij.ml.llm.template.refactoringobjects.MyRefactoringFactory
 import com.intellij.ml.llm.template.refactoringobjects.conditionals.*
 import com.intellij.ml.llm.template.refactoringobjects.looping.EnhancedForFactory
 import com.intellij.ml.llm.template.refactoringobjects.renamevariable.RenameVariableFactory
@@ -30,33 +29,35 @@ class SimpleRefactoringValidator(
 
     private val logger = Logger.getInstance(javaClass)
 
-    override suspend fun getRefactoringSuggestions(llmResponseText: String): List<AbstractRefactoring> {
+    override suspend fun getRefactoringSuggestions(llmResponseText: String, limit: Int): List<AbstractRefactoring> {
         val refactoringSuggestion = getRawSuggestions(llmResponseText)
         val allRefactoringObjects= mutableListOf<AbstractRefactoring>()
 
 
         val time = measureTimeMillis {
-            coroutineScope {
-                refactoringSuggestion.improvements.map { suggestion ->
-                    async(Dispatchers.Default) {
+
+            val subList = if (refactoringSuggestion.improvements.size > limit) {
+                refactoringSuggestion.improvements.subList(0, limit)
+            } else{
+                refactoringSuggestion.improvements
+            }
+            for (suggestion in subList)
+                    {
                         val refFactory = when {
                             isMoveMethod(suggestion) -> MoveMethodFactory
                             else -> MoveMethodFactory // default
                         }
-
+                        Thread.sleep(1000)
                         val createdRefactoringObjects =
                             getParamsAndCreateObject(suggestion, refFactory)
+                        Thread.sleep(2000)
 
                         if (!createdRefactoringObjects.isNullOrEmpty()) {
-                            createdRefactoringObjects
-                        } else {
-                            emptyList()
+                            allRefactoringObjects.addAll(createdRefactoringObjects)
                         }
                     }
-                }.awaitAll().flatten().let {
-                    allRefactoringObjects.addAll(it)
-                }
-            }
+
+
         }
 
         logger.debug("Processing took $time ms")

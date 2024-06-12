@@ -2,7 +2,6 @@ package com.intellij.ml.llm.template.suggestrefactoring
 
 import com.intellij.ml.llm.template.models.GPTExtractFunctionRequestProvider
 import com.intellij.testFramework.LightPlatformCodeInsightTestCase
-import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.runBlocking
 
 class SimpleRefactoringValidatorTest :LightPlatformCodeInsightTestCase(){
@@ -29,7 +28,7 @@ class SimpleRefactoringValidatorTest :LightPlatformCodeInsightTestCase(){
                 file,
                 funcSrc!!,
                 mutableMapOf()
-            ).getRefactoringSuggestions(llmResponse!!)
+            ).getRefactoringSuggestions(llmResponse!!, 1000)
 
             println(suggestions)
 

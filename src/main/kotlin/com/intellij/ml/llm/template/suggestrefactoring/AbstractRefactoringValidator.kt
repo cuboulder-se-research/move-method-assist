@@ -35,7 +35,7 @@ abstract class AbstractRefactoringValidator(
         val response =
             apiResponseCache[functionSrc]?.get(atomicSuggestion.getSerialized())
                 ?:sendChatRequest(
-                    project, messageList, efLLMRequestProvider.chatModel, efLLMRequestProvider
+                    project, messageList, efLLMRequestProvider.chatModel, efLLMRequestProvider, temperature = 0.5
                     )
         if (response != null) {
             cacheResponse(atomicSuggestion, response)
@@ -44,7 +44,7 @@ abstract class AbstractRefactoringValidator(
 //            logger.debug(funcCall)
             if (funcCall.startsWith(refactoringFactory.apiFunctionName)) {
 //                logger.debug("Looks like a ${refactoringFactory.apiFunctionName} call!")
-                logger.info("* Forming Refactoring Object: $funcCall")
+                logger.info("* Creating IntelliJ Refactoring Object: $funcCall")
                 val createdObjectsFromFuncCall = try {
                     refactoringFactory.createObjectsFromFuncCall(
                         funcCall,
@@ -124,7 +124,7 @@ abstract class AbstractRefactoringValidator(
     abstract fun isRenameVariable(atomicSuggestion: AtomicSuggestion): Boolean
 
     // Return a list of refactoring objects from an llm suggestion.
-    abstract suspend fun getRefactoringSuggestions(llmResponseText: String): List<AbstractRefactoring>
+    abstract suspend fun getRefactoringSuggestions(llmResponseText: String, limit: Int): List<AbstractRefactoring>
 
     abstract fun isEnhacedForRefactoring(atomicSuggestion: AtomicSuggestion): Boolean
     abstract fun isEnhancedSwitchRefactoring(suggestion: AtomicSuggestion): Boolean

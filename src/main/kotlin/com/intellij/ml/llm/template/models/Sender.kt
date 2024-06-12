@@ -71,12 +71,14 @@ fun sendChatRequest(
     project: Project,
     messages: List<OpenAiChatMessage>,
     model: String? = null,
-    llmRequestProvider: LLMRequestProvider = GPTRequestProvider
+    llmRequestProvider: LLMRequestProvider = GPTRequestProvider,
+    temperature: Double = 0.5
 ): LLMBaseResponse? {
     val request = llmRequestProvider.createChatGPTRequest(
         OpenAiChatRequestBody(
             model = model ?: llmRequestProvider.chatModel,
-            messages = messages
+            messages = messages,
+            temperature = temperature
         )
     )
     return sendRequest(project, request)

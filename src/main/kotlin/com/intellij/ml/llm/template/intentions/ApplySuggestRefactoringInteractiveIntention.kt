@@ -12,21 +12,17 @@ import com.intellij.ml.llm.template.prompts.MethodPromptBase
 import com.intellij.ml.llm.template.refactoringobjects.AbstractRefactoring
 import com.intellij.ml.llm.template.refactoringobjects.extractfunction.EFCandidate
 import com.intellij.ml.llm.template.refactoringobjects.extractfunction.ExtractMethod
-import com.intellij.ml.llm.template.showEFNotification
 import com.intellij.ml.llm.template.suggestrefactoring.AbstractRefactoringValidator
 import com.intellij.ml.llm.template.suggestrefactoring.SimpleRefactoringValidator
 import com.intellij.ml.llm.template.telemetry.*
 import com.intellij.ml.llm.template.ui.ExtractFunctionPanel
 import com.intellij.ml.llm.template.utils.*
-import com.intellij.notification.NotificationType
 import com.intellij.openapi.application.invokeLater
 import com.intellij.openapi.application.runReadAction
-import com.intellij.openapi.application.runWriteAction
 import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.editor.LogicalPosition
 import com.intellij.openapi.editor.ScrollType
-import com.intellij.openapi.editor.SelectionModel
 import com.intellij.openapi.progress.ProgressIndicator
 import com.intellij.openapi.progress.ProgressManager
 import com.intellij.openapi.progress.Task
@@ -40,7 +36,6 @@ import com.intellij.psi.PsiClass
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
 import com.intellij.ui.awt.RelativePoint
-import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.runBlocking
 import org.jetbrains.kotlin.psi.psiUtil.endOffset
@@ -126,7 +121,7 @@ abstract class ApplySuggestRefactoringInteractiveIntention(
 
     private fun invokeLlm(text: String, project: Project, editor: Editor, file: PsiFile) {
 
-        val messageList = prompter.getPrompt(text)
+
 
         logger.debug("Method/Class:\n$functionSrc")
 
@@ -142,9 +137,11 @@ abstract class ApplySuggestRefactoringInteractiveIntention(
                         if (iter!=1)
                             setFunctionSrc(editor)
 
+                        val messageList = prompter.getPrompt(functionSrc)
+
                         val cacheKey = functionSrc + iter
                         val response = llmResponseCache.get(cacheKey) ?: sendChatRequest(
-                            project, messageList, efLLMRequestProvider.chatModel, efLLMRequestProvider
+                            project, messageList, efLLMRequestProvider.chatModel, efLLMRequestProvider, temperature = 0.5
                         )
                         if (response != null) {
                             llmResponseCache.get(cacheKey) ?: llmResponseCache.put(cacheKey, response)
@@ -187,8 +184,9 @@ abstract class ApplySuggestRefactoringInteractiveIntention(
 
     private suspend fun processLLMResponse(response: LLMBaseResponse, project: Project, editor: Editor, file: PsiFile) {
         delay(2000)
-        logLLMResponse(response)
-        delay(3000)
+        val limit = 3
+        logLLMResponse(response, limit)
+//        delay(3000)
         val now = System.nanoTime()
 
         val llmResponse = response.getSuggestions()[0]
@@ -206,7 +204,7 @@ abstract class ApplySuggestRefactoringInteractiveIntention(
         logger.info("\n")
         val refactoringCandidates: List<AbstractRefactoring> =
             runBlocking {
-                validator.getRefactoringSuggestions(llmResponse.text)
+                validator.getRefactoringSuggestions(llmResponse.text, limit)
             }
 
 //        val refactoringCandidates: List<AbstractRefactoring> = runBlocking {
@@ -259,14 +257,22 @@ abstract class ApplySuggestRefactoringInteractiveIntention(
         }
     }
 
-    private fun logLLMResponse(response: LLMBaseResponse) {
+    private fun logLLMResponse(response: LLMBaseResponse, limit: Int) {
         logger.info(LLM_HEADER)
         for (suggestion in response.getSuggestions()){
 //            logger.info(suggestion.)
-            for (atomicSuggestion in AbstractRefactoringValidator.getRawSuggestions(suggestion.text).improvements.withIndex()){
+            val improvements = AbstractRefactoringValidator.getRawSuggestions(suggestion.text).improvements
+            val realLimit = if(improvements.size > limit){
+                limit
+            } else{
+                improvements.size
+            }
+            for (atomicSuggestion in
+                improvements.subList(0,realLimit).withIndex()){
                 logger.info("${atomicSuggestion.index+1}: ${atomicSuggestion.value.shortDescription}")
                 logger.info("Suggestion: ${atomicSuggestion.value.longDescription}".prependIndent("    "))
                 logger.info("\n")
+                Thread.sleep(3000)
             }
         }
     }

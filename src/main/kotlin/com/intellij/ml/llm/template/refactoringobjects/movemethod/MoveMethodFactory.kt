@@ -15,6 +15,7 @@ import com.intellij.refactoring.suggested.startOffset
 import org.jetbrains.kotlin.idea.editor.fixers.endLine
 import org.jetbrains.kotlin.idea.editor.fixers.startLine
 import org.jetbrains.kotlin.psi.psiUtil.endOffset
+import org.jetbrains.kotlin.psi.psiUtil.getChildOfType
 
 class MoveMethodFactory {
     companion object: MyRefactoringFactory{
@@ -31,7 +32,8 @@ class MoveMethodFactory {
 
             val outerClass: PsiElement? =
                 runReadAction {
-                    PsiUtils.getParentClassOrNull(editor, language = file.language)
+                    PsiUtils.getParentClassOrNull(editor, language = file.language)?:
+                    file.getChildOfType<PsiClass>()
                 }
             val methodToMove = runReadAction {  PsiUtils.getMethodNameFromClass(outerClass, methodName) } ?: return listOf()
             val psiTargetVariable =

@@ -9,18 +9,14 @@ import com.intellij.openapi.application.runReadAction
 import com.intellij.openapi.command.WriteCommandAction
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
-import com.intellij.psi.PsiAssignmentExpression
-import com.intellij.psi.PsiElement
-import com.intellij.psi.PsiFile
-import com.intellij.psi.PsiLocalVariable
-import com.intellij.psi.PsiPolyadicExpression
-import com.intellij.psi.PsiReferenceExpression
+import com.intellij.psi.*
 import com.intellij.refactoring.suggested.startOffset
 import com.siyeh.ig.performance.StringConcatenationInLoopsInspection
 import com.siyeh.ipp.concatenation.ReplaceConcatenationWithStringBufferIntention
 import org.jetbrains.kotlin.idea.editor.fixers.endLine
 import org.jetbrains.kotlin.idea.editor.fixers.startLine
 import org.jetbrains.kotlin.psi.psiUtil.endOffset
+import org.jetbrains.kotlin.psi.psiUtil.getChildOfType
 
 class StringBuilderRefactoringFactory {
     companion object: MyRefactoringFactory{
@@ -39,7 +35,8 @@ class StringBuilderRefactoringFactory {
             val outerPsi: PsiElement? =
                 runReadAction {
                     PsiUtils.getParentFunctionOrNull(editor, language = file.language)?:
-                    PsiUtils.getParentClassOrNull(editor, language = file.language)
+                    PsiUtils.getParentClassOrNull(editor, language = file.language)?:
+                    file.getChildOfType<PsiClass>()
                 }
             val varPsiElements = PsiUtils.getVariableAndReferencesFromPsi(outerPsi, varName)
 
