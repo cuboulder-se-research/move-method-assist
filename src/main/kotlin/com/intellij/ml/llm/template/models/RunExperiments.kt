@@ -104,15 +104,19 @@ class RunExperiments(val temperature: Double, val iterations: Int, val moveMetho
     }
 }
 
-class GetRefactoringObjects(val responsesFilePath: String, val classSourcesFilePath: String){
+class GetRefactoringObjects(
+    val responsesFilePath: String,
+    val classSourcesFilePath: String,
+    val apiResponsesFilePath:String?=null){
+
     val responses = mutableMapOf<String, MutableMap<String, String>>()
     val apiResponses = mutableMapOf<String, String>()
     val classSources = mutableMapOf<String, String>()
     val logBatches: Int = 10
-    var filename: File? = null
+    var apiResponsesFile: File? = null
 
     init {
-        filename = getFileName()
+        apiResponsesFile = getDestFile()
     }
     fun loadData(){
         val fileContents = File(responsesFilePath).readText()
@@ -121,6 +125,12 @@ class GetRefactoringObjects(val responsesFilePath: String, val classSourcesFileP
 
         val fileContentsSources = File(classSourcesFilePath).readText()
         classSources.putAll(Gson().fromJson(fileContentsSources, classSources.javaClass))
+
+        if (apiResponsesFile!=null && apiResponsesFile!!.exists()){
+            apiResponses.putAll(
+                Gson().fromJson(apiResponsesFile!!.readText(), apiResponses.javaClass)
+            )
+        }
     }
 
     fun getApiResponses(){
@@ -130,7 +140,11 @@ class GetRefactoringObjects(val responsesFilePath: String, val classSourcesFileP
             count+=1
             for(iteration in responses[id]!!.keys) {
 
-
+                val key = "$id-$iteration"
+                if (apiResponses.get(key)!=null) {
+                    println("Already got response.")
+                    continue
+                }
                 val llmResponseText = responses[id]!![iteration]!!
                 val refactoringSuggestion = try {
                     AbstractRefactoringValidator.getRawSuggestions(llmResponseText)
@@ -138,6 +152,7 @@ class GetRefactoringObjects(val responsesFilePath: String, val classSourcesFileP
                     print("Failed to parse json.")
                     continue
                 }
+                var apis = ""
                 for (atomicSuggestion in refactoringSuggestion.improvements) {
                     val messageList: MutableList<OpenAiChatMessage> =
                         setupOpenAiChatMessages(atomicSuggestion, MoveMethodFactory, id)
@@ -153,8 +168,9 @@ class GetRefactoringObjects(val responsesFilePath: String, val classSourcesFileP
                         continue
                     }
                     val suggestions = response?.getSuggestions()?.get(0)
-                    apiResponses["$id-$iteration"] = suggestions?.text ?: "No response"
+                    apis += (suggestions?.text + "\n")
                 }
+                apiResponses[key] = apis
             }
 
             if (count% logBatches==0){
@@ -194,7 +210,10 @@ class GetRefactoringObjects(val responsesFilePath: String, val classSourcesFileP
         )
         return messageList
     }
-    private fun getFileName(): File {
+    private fun getDestFile(): File {
+        if (apiResponsesFilePath!=null){
+            return File(apiResponsesFilePath)
+        }
         var fileName = File("data/apiResponses.json")
         var count = 1
         while (fileName.exists()) {
@@ -206,7 +225,7 @@ class GetRefactoringObjects(val responsesFilePath: String, val classSourcesFileP
     fun writeResults(){
         println("Saving results.")
         val contents = Gson().toJson(apiResponses).toString()
-        filename!!.printWriter().use { it.print(contents) }
+        apiResponsesFile!!.printWriter().use { it.print(contents) }
     }
 
 }

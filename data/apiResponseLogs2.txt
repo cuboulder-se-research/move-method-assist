@@ -1,0 +1,2420 @@
+Completed: 0Failed to parse json.ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@41a90fa8
+```python
+move_method("error", "ParseError")
+```
+Failed to parse json.ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@a486d78
+move_method("error", "error_handler")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@5dcbb60
+move_method("Token", "new_file")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@4c36250e
+move_method("tokenize", "StringTokenizer")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@21526f6c
+move_method("error", "ErrorHandlingClass")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@49f5c307
+move_method('Token', 'Token.java')
+Completed: 1ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@66ea1466
+move_method('precedence', 'Utility')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@1601e47
+move_method('isOperator', 'UtilityClass')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@3bffddff
+move_method('isSpecialChar', 'UtilityClass')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@66971f6b
+move_method("parse", "classLoader")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@50687efb
+move_method("loadBuilders", "PredicateBuilderFactory")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@517bd097
+move_method("parsePredicate", "builder")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@142eef62
+move_method("checkParameters", "PredicateBuilder")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@4a9cc6cb
+move_method("parse", "Parser")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@5990e6c5
+move_method("readArrayType", "ArrayUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@f415a95
+move_method("coerceToType", "TypeUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@cf65451
+move_method("precedence", "OperationUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@724f138e
+move_method("isOperator", "OperationUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@37eeec90
+move_method("isSpecialChar", "StringUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@32fe9d0a
+move_method("coerceToType", "TypeHandler")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@c9413d8
+move_method("isSpecialChar", "StringUtility")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@64da2a7
+move_method("isOperator", "OperatorParser")
+Completed: 2ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@46074492
+move_method("parse", "HandlerBuilder")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@d78795
+move_method("parseBuilder", "HandlerBuilder")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@2c715e84
+move_method("loadBuilders", "HandlerBuilder")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@47428937
+move_method("coerceToType", "Token")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@3b9d6699
+move_method("coerceToType", "Converter")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@7caa550
+move_method("parseBuilder", "builder")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@21694e53
+move_method("parseBuilder", "HandlerBuilder")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@72b16078
+move_method("checkParameters", "HandlerBuilder")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@22c86919
+move_method("tokenize", "Utils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@70fab835
+move_method("parse", "TokenHandler")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@1b0a7baf
+move_method("handleSingleArrayValue", "builder")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@62417a16
+move_method("readArrayType", "TypeHandler")
+Completed: 3Failed to parse json.ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@32057e6
+move_method("parse", "ParsingClass")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@26be6ca7
+move_method("parse", "PredicateBuilder")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@6ea1bcdc
+move_method("coerceToType", "TypeCasting")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@759fad4
+move_method("loadBuilders", "classLoader")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@64712be
+move_method("isSpecialChar", "StringUtility")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@53499d85
+move_method("isOperator", "StringUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@30ed9c6c
+move_method("precedence", "OperatorUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@782a4fff
+move_method("parse", "StringTokenParser")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@46c670a6
+move_method("loadBuilders", "PredicateBuilderLoader")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@59fc684e
+move_method("coerceToType", "TokenHandler")
+Completed: 4ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@5ae81e1
+move_method("precedence", "OperatorUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@2fd1731c
+move_method('isOperator', 'OperatorUtils')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@5ae76500
+move_method('isSpecialChar', 'specialCharacterHelper')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@6063d80a
+move_method("coerceToType", "TypeConversionUtility")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@1133ec6e
+move_method("parsePredicate", "PredicateCreator")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@355e34c7
+move_method("parse", "Token")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@54709809
+move_method("loadBuilders", "PredicateBuilder")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@2a2da905
+move_method("parsePredicate", "Token")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@24f360b2
+move_method("precedence", "Operator")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@60cf80e7
+move_method("isOperator", "Operator")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@302fec27
+move_method("isSpecialChar", "SpecialCharHandler")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@770d0ea6
+move_method("parsePredicate", "PredicateHandler")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@48c40605
+move_method("coerceToType", "TypeCoercionHelper")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@54107f42
+move_method("collapseOutput", "Node")
+move_method("parsePredicate", "BuilderNode")
+move_method("handleSingleArrayValue", "BuilderNode")
+move_method("handleSingleVarArgsValue", "BuilderNode")
+move_method("readArrayType", "BuilderNode")
+move_method("handleSingleValue", "BuilderNode")
+move_method("checkParameters", "BuilderNode")
+move_method("coerceToType", "BuilderNode")
+move_method("precedence", "OperatorClass")
+move_method("isOperator", "OperatorClass")
+move_method("isSpecialChar", "SpecialCharClass")
+Completed: 5Failed to parse json.ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@1b11ef33
+move_method("setFocus", "AgendaGroup")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@476aac9
+move_method("addActivation", "AgendaItem")
+move_method("removeActivation", "AgendaItem")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@6cea706c
+move_method("activateRuleFlowGroup", "RuleFlowGroup")
+move_method("deactivateRuleFlowGroup", "RuleFlowGroup")
+Failed to parse json.ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@3bd7f8dc
+move_method("setWorkingMemory", "MemoryManager")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@2f2bf0e2
+move_method("activateRuleFlowGroup", "RuleFlowManager")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@1eba372c
+move_method("deactivateRuleFlowGroup", "RuleFlowManager")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@21ec5d87
+move_method("getRuleFlowGroup", "RuleFlowManager")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@25f9407e
+move_method("fireUntilHalt", "ActivationController")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@552518c3
+move_method("sizeOfRuleFlowGroup", "RuleFlowGroupManager")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@1a69561c
+move_method('createAgendaItem', 'AgendaGroup')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@59aa20b3
+move_method('createScheduledAgendaItem', 'AgendaGroup')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@363f6148
+move_method('addAgendaGroup', 'agendaGroupManager')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@4b21844c
+move_method('addAgendaItemToGroup', 'agendaGroup')
+Completed: 6ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@1b28f282
+move_method("accept", "PlanVisitor")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@138fe6ec
+move_method("leftMergeNode", "MergeNode")
+move_method("rightMergeNode", "MergeNode")
+move_method("localMergeNode", "MergeNode")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@5e77f0f4
+move_method("right", "PlannedAnalyzedRelation")
+move_method("left", "PlannedAnalyzedRelation")
+move_method("inner", "PlannedAnalyzedRelation")
+move_method("outer", "PlannedAnalyzedRelation")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@19b30c92
+move_method("addProjection", "Projection")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@455351c4
+move_method('resultIsDistributed', 'targetClassName')
+Failed to parse json.ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@29876704
+move_method("resultIsDistributed", "AbstractBaseClass")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@4816c290
+move_method("resultNode", "MergeNode")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@4940809c
+move_method("leftMergeNode", "MergeNode")
+move_method("rightMergeNode", "MergeNode")
+move_method("localMergeNode", "MergeNode")
+move_method("addProjection", "Projection")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@16423501
+move_method("leftMergeNode", "MergeNode")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@4efcf8a
+move_method("rightMergeNode", "MergeNode")
+Completed: 7ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@7a138fc5
+move_method("leftMergeNode", "MergeNode")
+move_method("rightMergeNode", "MergeNode")
+move_method("localMergeNode", "MergeNode")
+move_method("left", "PlannedAnalyzedRelation")
+move_method("right", "PlannedAnalyzedRelation")
+move_method("inner", "PlannedAnalyzedRelation")
+move_method("outer", "PlannedAnalyzedRelation")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@379ab47b
+move_method("addProjection", "Projection")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@307765b4
+move_method("leftOuterLoop", "nestedLoopNode")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@4a9e6faf
+move_method("addProjection", "Projection")
+Failed to parse json.Failed to parse json.Failed to parse json.Completed: 8ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@2c95ac9e
+move_method("resultNode", "DQLPlanNode")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@4e4efc1b
+move_method("accept", "PlanVisitor")
+Failed to parse json.ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@459f7aa3
+move_method('addProjection', 'targetClassName')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@7cc586a8
+move_method('resultIsDistributed', 'targetClassOrObject')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@7db534f2
+move_method("left", "PlannedAnalyzedRelation")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@44a2b17b
+move_method("right", "PlannedAnalyzedRelation")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@7a56812e
+move_method("inner", "PlannedAnalyzedRelation")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@2a76b80a
+move_method("outer", "PlannedAnalyzedRelation")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@7eb01b12
+move_method("inner", "PlannedAnalyzedRelation")
+move_method("outer", "PlannedAnalyzedRelation")
+move_method("leftOuterLoop", "NestedLoopNode")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@2f4854d6
+move_method("resultNode", "localMergeNode")
+Completed: 9ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@61d9efe0
+move_method("leftOuterLoop", "targetClassName")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@7e70bd39
+move_method("resultIsDistributed", "ResultDistributor")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@e6516e
+move_method("resultNode", "MergeNode")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@6691490c
+move_method('inner', 'PlannedAnalyzedRelation')
+move_method('outer', 'PlannedAnalyzedRelation')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@2187fff7
+move_method("leftOuterLoop", "PlannedAnalyzedRelation")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@2e5c7f0b
+move_method("leftMergeNode", "MergeNode")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@21d5c1a0
+move_method("rightMergeNode", "MergeNode")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@4de025bf
+move_method("localMergeNode", "MergeNode")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@538613b3
+move_method('inner', 'PlannedAnalyzedRelation')
+move_method('outer', 'PlannedAnalyzedRelation')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@1eef9aef
+move_method('leftMergeNode', 'MergeNode')
+move_method('rightMergeNode', 'MergeNode')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@11389053
+move_method("resultNode", "PlannedAnalyzedRelation")
+move_method("resultNode", "MergeNode")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@5db99216
+move_method("left", "PlannedAnalyzedRelation")
+move_method("right", "PlannedAnalyzedRelation")
+move_method("leftMergeNode", "MergeNode")
+move_method("rightMergeNode", "MergeNode")
+Saving results.
+Completed: 10ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@9f46d94
+move_method("ConflictingHeadersException", "ExceptionHandlingUtility")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@18cc679e
+move_method('addAllEntriesToIncludeMap', 'mapUtils')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@2e77b8cf
+move_method("addAllEntriesToIncludeMap", "mapUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@2c4ca0f9
+move_method("concat", "CxxPreprocessorInputFactory")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@67ef029
+move_method("addAllEntriesToIncludeMap", "MapUtils or/and CxxHeaders")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@7df587ef
+move_method("concat", "CxxPreprocessorInputFactory")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@6e57e95e
+move_method("addAllEntriesToIncludeMap", "CxxPreprocessorInputUtils")
+move_method("ConflictingHeadersException", "CxxPreprocessorInputUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@2755d705
+move_method("concat", "CxxPreprocessorInputFactory")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@56db847e
+move_method("addAllEntriesToIncludeMap", "includeMapsManager")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@740abb5
+move_method("concat", "CxxPreprocessorInputManager")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@560cbf1a
+move_method("ConflictingHeadersException", "AbstractCxxPreprocessorInput")
+Completed: 11ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@5fe8b721
+move_method("fillParameters", "Resource")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@551a20d6
+move_method('fillContract', 'Contract')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@578524c3
+move_method('fillRepresentations', 'Contract')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@64c2b546
+move_method("translate", "ResourceListing")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@7e094740
+move_method("fillSections", "ResourceListing")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@7a11c4c7
+move_method("computeSectionName", "ResourceListingApi")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@4cc547a
+move_method("translate", "ResourceListing")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@7555b920
+move_method("validate", "ResourceListing")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@4152d38d
+move_method("toPathVariable", "PathVariable")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@3591009c
+move_method("toQueryParameter", "QueryParameter")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@5398edd0
+move_method("toEntity", "PayLoad")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@b5cc23a
+move_method("toRepresentation", "Representation")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@5cc5b667
+move_method("toPathVariable", "PathVariable")
+move_method("toQueryParameter", "QueryParameter")
+move_method("toRepresentation", "Representation")
+move_method("toEntity", "PayLoad")
+move_method("translate", "Definition")
+move_method("computeSectionName", "Section")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@61edc883
+move_method("validate", "Validator")
+Failed to parse json.Completed: 12Failed to parse json.Failed to parse json.Failed to parse json.Failed to parse json.Failed to parse json.Completed: 13Failed to parse json.Failed to parse json.Failed to parse json.Failed to parse json.Failed to parse json.Completed: 14ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@758f4f03
+move_method("sendResponse", "HttpResponder")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@182f1e9a
+move_method("forceTTLsIfConfigured", "Metric")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@6928f576
+move_method('createContainer', 'JSONMetricsContainer')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@660e9100
+move_method('forceTTLsIfConfigured', 'Metric')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@69f63d95
+move_method("createContainer", "JSONMetricsContainer")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@9cd25ff
+move_method('forceTTLsIfConfigured', 'Metric')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@27e0f2f5
+move_method("sendResponse", "HttpResponderUtility")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@3574e198
+move_method("createContainer", "JSONMetricsContainer")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@6db66836
+move_method("forceTTLsIfConfigured", "Metric")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@db44aa2
+move_method("forceTTLsIfConfigured", "ConfigTtlProvider")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@2de366bb
+move_method("sendResponse", "HttpResponder")
+Completed: 15ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@3f093abe
+move_method("sendResponse", "HttpResponder")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@61a002b1
+move_method("sendResponse", "HttpResponder")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@4eeea57d
+move_method("logger", "utilities")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@780ec4a5
+move_method("sendResponse", "HttpResponder")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@e24ddd0
+move_method("handle", "Event")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@6f70f32f
+move_method("sendResponse", "HttpResponder")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@548e76f1
+move_method("log.error", "loggingUtility")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@5aabbb29
+move_method("handle", "Event")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@72c927f1
+move_method("sendResponse", "HttpUtility")
+Completed: 16ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@1ac85b0c
+move_method("assertParseTypeAndConvert", "TypeExpressionParsingUtility")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@3dd69f5a
+move_method('assertParseJsDocAndConvert', 'JsDocParsingUtil')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@3aa3193a
+move_method("testConvertSimpleTypes", "TypeDeclarationNode")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@1ee4730
+move_method("testConvertNamedTypes", "TypeDeclarationNode")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@59a67c3a
+move_method("testConvertTypeApplication", "TypeDeclarations")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@5003041b
+move_method("testConvertFunctionType", "TypeDeclarationNode")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@724bade8
+move_method("assertParseTypeAndConvert", "TypeDeclarationsIRFactory")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@16fb356
+move_method("assertParseJsDocAndConvert", "JsDocInfoParser")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@6bc248ed
+move_method("testConvertNamedTypes","TypeDeclarationsIR")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@23a9ba52
+move_method("testConvertTypeApplication", "TypeDeclarationsIR")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@ca27722
+move_method("testConvertRecordType", "TypeDeclarationsIR")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@70ab80e3
+move_method("assertParseTypeAndConvert", "JsDocInfoParserHelper")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@9573b3b
+move_method("assertParseJsDocAndConvert", "JsDocParserUtil")
+Completed: 17ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@67427b69
+move_method("testConvertSimpleTypes", "TestSimpleTypes")
+move_method("testConvertNamedTypes", "TestNamedTypes")
+move_method("testConvertTypeApplication", "TestTypeApplication")
+move_method("testConvertTypeUnion", "TestTypeUnion")
+move_method("testConvertRecordType", "TestRecordType")
+move_method("testCreateRecordType", "TestCreateRecordType")
+move_method("testConvertRecordTypeWithTypeApplication", "TestRecordTypeWithTypeApplication")
+move_method("testConvertNullableType", "TestNullableType")
+move_method("testConvertNonNullableType", "TestNonNullableType")
+move_method("testConvertFunctionType", "TestFunctionType")
+move_method("testConvertFunctionReturnType", "TestFunctionReturnType")
+move_method("testConvertFunctionThisType", "TestFunctionThisType")
+move_method("testConvertFunctionNewType", "TestFunctionNewType")
+move_method("testConvertVariableParameters", "TestVariableParameters")
+move_method("testConvertOptionalFunctionParameters", "TestOptionalFunctionParameters")
+move_method("testConvertVarArgs", "TestVarArgs")
+move_method("assertParseJsDocAndConvert", "TestParseJsDocAndConvert")
+move_method("assertParseTypeAndConvert", "TestParseTypeAndConvert")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@78461bc4
+move_method("assertParseTypeAndConvert", "TestHelper")
+move_method("assertParseJsDocAndConvert", "TestHelper")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@544630b7
+move_method("testConvertSimpleTypes", "TypeConversion")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@64f857e7
+move_method("testConvertFunctionType", "FunctionTypeConversion")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@1095f122
+move_method("testConvertOptionalFunctionParameters", "OptionalFunctionParametersConversion")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@58c540cf
+move_method("assertParseTypeAndConvert", "TypeParsingAndConversion")
+Failed to parse json.ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@3d6300e8
+move_method("testConvertSimpleTypes", "JsDocInfoParser")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@1b822fcc
+move_method("testConvertNamedTypes", "JsDocInfoParser")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@24a1c17f
+move_method("testConvertTypeApplication", "JsDocInfoParser")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@56102e1c
+move_method("assertParseTypeAndConvert", "JsDocInfoParser")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@73511076
+move_method("assertParseTypeAndConvert", "TypeDeclarationNode")
+move_method("assertParseJsDocAndConvert", "TypeDeclarationNode")
+Completed: 18ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@7927bd9f
+move_method("assertParseTypeAndConvert", "JsDocInfoParser")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@532721fd
+move_method("testConvertSimpleTypes", "TypeDeclarationsIRFactory")
+move_method("testConvertNamedTypes", "TypeDeclarationsIRFactory")
+move_method("testConvertTypeApplication", "TypeDeclarationsIRFactory")
+move_method("testConvertTypeUnion", "TypeDeclarationsIRFactory")
+move_method("testConvertRecordType", "TypeDeclarationsIRFactory")
+move_method("testCreateRecordType", "TypeDeclarationsIRFactory")
+move_method("testConvertRecordTypeWithTypeApplication", "TypeDeclarationsIRFactory")
+move_method("testConvertNullableType", "TypeDeclarationsIRFactory")
+move_method("testConvertNonNullableType", "TypeDeclarationsIRFactory")
+move_method("testConvertFunctionType", "TypeDeclarationsIRFactory")
+move_method("testConvertFunctionReturnType", "TypeDeclarationsIRFactory")
+move_method("testConvertFunctionThisType", "TypeDeclarationsIRFactory")
+move_method("testConvertFunctionNewType", "TypeDeclarationsIRFactory")
+move_method("testConvertVariableParameters", "TypeDeclarationsIRFactory")
+move_method("testConvertOptionalFunctionParameters", "TypeDeclarationsIRFactory")
+move_method("testConvertVarArgs", "TypeDeclarationsIRFactory")
+move_method("assertParseJsDocAndConvert", "TypeDeclarationsIRFactory")
+move_method("assertParseTypeAndConvert", "TypeDeclarationsIRFactory")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@410954b
+move_method("testConvertSimpleTypes", "JsDocInfoParser")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@7fb9f71f
+move_method("testConvertNamedTypes", "JsDocInfoParser")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@3b366632
+move_method("assertParseTypeAndConvert", "JsDocInfoParser")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@51f49060
+move_method("assertParseTypeAndConvert", "TypeExpressionConverter")
+move_method("assertParseJsDocAndConvert", "TypeExpressionConverter")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@514eedd8
+move_method("propertiesCreationForRecordType", "TypeDeclarationsIRFactoryTest")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@617fe9e1
+move_method("assertParseTypeAndConvert", "TypeDeclarationsIRFactory")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@6970140a
+move_method("assertParseJsDocAndConvert", "JsDocParserObject")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@1cf2fed4
+move_method("assertParseTypeAndConvert", "QAUtil")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@3af4e0bf
+move_method("assertParseJsDocAndConvert", "utilityClass")
+Completed: 19ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@245a26e1
+move_method("testConvertSimpleTypes", "JSTypeExpression")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@4d63b624
+move_method("testConvertNamedTypes", "JSTypeExpression")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@466cf502
+move_method("assertParseTypeAndConvert", "JsDocInfoParser")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@5b800468
+move_method("testConvertSimpleTypes", "TypeConversionClass")
+move_method("testConvertNamedTypes", "TypeConversionClass")
+move_method("testConvertTypeApplication", "TypeConversionClass")
+move_method("testConvertTypeUnion", "TypeConversionClass")
+move_method("testConvertRecordType", "TypeConversionClass")
+move_method("testConvertRecordTypeWithTypeApplication", "TypeConversionClass")
+move_method("testConvertNullableType", "TypeConversionClass")
+move_method("testConvertNonNullableType", "TypeConversionClass")
+move_method("testConvertFunctionType", "TypeConversionClass")
+move_method("testConvertFunctionReturnType", "TypeConversionClass")
+move_method("testConvertFunctionThisType", "TypeConversionClass")
+move_method("testConvertFunctionNewType", "TypeConversionClass")
+move_method("testConvertVariableParameters", "TypeConversionClass")
+move_method("testConvertOptionalFunctionParameters", "TypeConversionClass")
+move_method("testConvertVarArgs", "TypeConversionClass")
+move_method("assertParseTypeAndConvert", "TypeConversionClass")
+move_method("assertParseJsDocAndConvert", "TypeConversionClass")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@2e185cd7
+move_method("testCreateRecordType", "RecordType")
+move_method("testConvertRecordType", "RecordType")
+move_method("testConvertRecordTypeWithTypeApplication", "RecordType")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@7e1a1da6
+move_method("testConvertFunctionType", "FunctionTypeConverter")
+move_method("testConvertFunctionReturnType", "FunctionTypeConverter")
+move_method("testConvertFunctionThisType", "FunctionTypeConverter")
+move_method("testConvertFunctionNewType", "FunctionTypeConverter")
+move_method("testConvertVariableParameters", "FunctionTypeConverter")
+move_method("testConvertOptionalFunctionParameters", "FunctionTypeConverter")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@5f7f2382
+move_method("testConvertVarArgs", "JsDocOperations")
+move_method("assertParseJsDocAndConvert", "JsDocOperations")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@407cf41
+move_method("testConvertSimpleTypes", "TypeDeclarationsIRFactory")
+move_method("testConvertNamedTypes", "TypeDeclarationsIRFactory")
+move_method("testConvertTypeApplication", "TypeDeclarationsIRFactory")
+move_method("testConvertTypeUnion", "TypeDeclarationsIRFactory")
+move_method("testConvertRecordType", "TypeDeclarationsIRFactory")
+move_method("testCreateRecordType", "TypeDeclarationsIRFactory")
+move_method("testConvertRecordTypeWithTypeApplication", "TypeDeclarationsIRFactory")
+move_method("testConvertNullableType", "TypeDeclarationsIRFactory")
+move_method("testConvertNonNullableType", "TypeDeclarationsIRFactory")
+move_method("testConvertFunctionType", "TypeDeclarationsIRFactory")
+move_method("testConvertFunctionReturnType", "TypeDeclarationsIRFactory")
+move_method("testConvertFunctionThisType", "TypeDeclarationsIRFactory")
+move_method("testConvertFunctionNewType", "TypeDeclarationsIRFactory")
+move_method("testConvertVariableParameters", "TypeDeclarationsIRFactory")
+move_method("testConvertOptionalFunctionParameters", "TypeDeclarationsIRFactory")
+move_method("testConvertVarArgs", "TypeDeclarationsIRFactory")
+move_method("assertParseJsDocAndConvert", "TypeDeclarationsIRFactory")
+move_method("assertParseTypeAndConvert", "TypeDeclarationsIRFactory")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@6815c5f2
+move_method('assertParseJsDocAndConvert', 'JsDocInfoParser')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@46cc127b
+move_method('assertParseTypeAndConvert', 'JsDocInfoParser')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@60094a13
+move_method("assertParseTypeAndConvert", "TypeDeclarationsIRFactory")
+move_method("assertParseJsDocAndConvert", "TypeDeclarationsIRFactory")
+Saving results.
+Completed: 20ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@5aceec94
+move_method("assertParseTypeAndConvert", "NodeSubject")
+move_method("assertParseJsDocAndConvert", "NodeSubject")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@1c32886a
+move_method("assertParseTypeAndConvert", "JsDocInfoParser")
+move_method("assertParseJsDocAndConvert", "TypeDeclarationsIRFactory")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@3a4b0e5d
+move_method("assertParseTypeAndConvert", "JsDocInfoParser")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@10b892d5
+move_method("assertParseJsDocAndConvert", "JsDocInfoParser")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@3d3f761a
+move_method("assertParseTypeAndConvert", "TestUtils")
+move_method("assertParseJsDocAndConvert", "TestUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@3546d80f
+move_method("testConvertFunctionType", "FunctionTypeTest")
+move_method("testConvertFunctionReturnType", "FunctionTypeTest")
+move_method("testConvertFunctionThisType", "FunctionTypeTest")
+move_method("testConvertFunctionNewType", "FunctionTypeTest")
+move_method("testConvertVariableParameters", "FunctionTypeTest")
+move_method("testConvertOptionalFunctionParameters", "FunctionTypeTest")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@579d011c
+move_method("testConvertRecordType", "RecordTypeTest")
+move_method("testConvertRecordTypeWithTypeApplication", "RecordTypeTest")
+move_method("testCreateRecordType", "RecordTypeTest")
+Failed to parse json.ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@3670f00
+move_method("assertParseJsDocAndConvert", "JsDocHandler")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@452e26d0
+move_method("assertParseTypeAndConvert", "TypeConversionClass")
+Completed: 21ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@46ab18da
+move_method("testConvertSimpleTypes", "SimpleTypeParserTest")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@790174f2
+move_method("testConvertNamedTypes", "TypeConversionTestClass")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@42257bdd
+move_method("testConvertTypeApplication", "TypeApplicationTests")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@7689ddef
+move_method("testConvertSimpleTypes", "SimpleTypesTestClass")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@687a762c
+move_method("testConvertNamedTypes", "NamedTypesTest")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@1a2e2935
+move_method("testConvertFunctionReturnType", "FunctionReturnTypeTest")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@733c423e
+move_method("testConvertVariableParameters", "variableParametersConverter")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@4b629f13
+move_method("assertParseTypeAndConvert", "UtilityClass")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@70925b45
+move_method("testConvertSimpleTypes", "TypeConversionTests")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@1b9ea3e3
+move_method("testConvertNamedTypes", "TypeConversionTests")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@aa22f1c
+move_method("testConvertSimpleTypes", "TypeConversionTests")
+move_method("testConvertNamedTypes", "TypeConversionTests")
+move_method("testConvertTypeApplication", "TypeConversionTests")
+move_method("testConvertTypeUnion", "TypeConversionTests")
+move_method("testConvertRecordType", "TypeConversionTests")
+move_method("testConvertNullableType", "TypeConversionTests")
+move_method("testConvertNonNullableType", "TypeConversionTests")
+move_method("testConvertFunctionType", "TypeConversionTests")
+move_method("testConvertFunctionReturnType", "TypeConversionTests")
+move_method("testConvertFunctionThisType", "TypeConversionTests")
+move_method("testConvertFunctionNewType", "TypeConversionTests")
+move_method("testConvertVariableParameters", "TypeConversionTests")
+move_method("testConvertOptionalFunctionParameters", "TypeConversionTests")
+move_method("testConvertVarArgs", "TypeConversionTests")
+move_method("assertParseJsDocAndConvert", "TypeConversionTests")
+move_method("assertParseTypeAndConvert", "TypeConversionTests")
+Failed to parse json.ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@55e7a35c
+move_method("assertParseTypeAndConvert", "JsDocInfoParser")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@37cd92d6
+move_method("assertParseJsDocAndConvert", "JsDocInfoParser")
+Completed: 22ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@5922ae77
+move_method("testConvertSimpleTypes", "SimpleTypesTestClass")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@4263b080
+move_method("testConvertNamedTypes", "NamedTypesTest")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@2af616d3
+move_method("testConvertTypeApplication", "typeApplicationTestClass")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@71f67a79
+move_method("testConvertFunctionType", "TestFunctionTypes")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@3deb2326
+move_method("testConvertSimpleTypes", "TypeDeclarationsIRFactoryTest")
+move_method("testConvertNamedTypes", "TypeDeclarationsIRFactoryTest")
+move_method("testConvertTypeApplication", "TypeDeclarationsIRFactoryTest")
+move_method("testConvertTypeUnion", "TypeDeclarationsIRFactoryTest")
+move_method("testConvertRecordType", "TypeDeclarationsIRFactoryTest")
+move_method("testCreateRecordType", "TypeDeclarationsIRFactoryTest")
+move_method("testConvertRecordTypeWithTypeApplication", "TypeDeclarationsIRFactoryTest")
+move_method("testConvertNullableType", "TypeDeclarationsIRFactoryTest")
+move_method("testConvertNonNullableType", "TypeDeclarationsIRFactoryTest")
+move_method("testConvertFunctionType", "TypeDeclarationsIRFactoryTest")
+move_method("testConvertFunctionReturnType", "TypeDeclarationsIRFactoryTest")
+move_method("testConvertFunctionThisType", "TypeDeclarationsIRFactoryTest")
+move_method("testConvertFunctionNewType", "TypeDeclarationsIRFactoryTest")
+move_method("testConvertVariableParameters", "TypeDeclarationsIRFactoryTest")
+move_method("testConvertOptionalFunctionParameters", "TypeDeclarationsIRFactoryTest")
+move_method("testConvertVarArgs", "TypeDeclarationsIRFactoryTest")
+move_method("assertParseJsDocAndConvert", "TypeDeclarationsIRFactoryTest")
+move_method("assertParseTypeAndConvert", "TypeDeclarationsIRFactoryTest")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@62d363ab
+move_method("assertParseTypeAndConvert", "TypeExpressionValidator")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@7889a1ac
+move_method("assertParseJsDocAndConvert", "JsDocParserConverter")
+Failed to parse json.Failed to parse json.ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@3aee3976
+move_method("testConvertSimpleTypes", "JsDocInfoParser")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@5ef8df1e
+move_method("assertParseTypeAndConvert", "JsDocInfoParser")
+Completed: 23ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@27cf3151
+move_method("testConvertSimpleTypes", "SimpleTypesClass")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@127e70c5
+move_method("testConvertNamedTypes", "NamedType")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@5910de75
+move_method("testConvertTypeApplication", "TypeApplication")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@4108fa66
+move_method("testConvertSimpleTypes", "SimpleTypesTest")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@1f130eaf
+move_method("testConvertNamedTypes", "NamedTypesTest")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@7e0aadd0
+move_method("testConvertTypeApplication", "TypeApplicationTest")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@21362712
+move_method("assertParseTypeAndConvert", "TestUtility")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@27eb3298
+move_method("assertParseJsDocAndConvert", "JsDocClass")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@200a26bc
+move_method("assertParseJsDocAndConvert", "JsDocInfoParser")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@bc57b40
+move_method("assertParseTypeAndConvert", "JsDocInfoParser")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@1b5bc39d
+move_method("testConvertSimpleTypes", "TypeConverterClass")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@655a5d9c
+move_method('testConvertNamedTypes', 'NamedTypesClass')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@1494b84d
+move_method("testConvertTypeApplication", "TypeApplicationClass")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@34abdee4
+move_method('testConvertTypeUnion', 'TypeUnionHandler')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@71a9b4c7
+move_method('testConvertRecordType', 'recordTypeClass')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@4628b1d3
+move_method('assertParseTypeAndConvert', 'TypeUtils')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@77cf3f8b
+move_method("assertParseJsDocAndConvert", "TestUtilityClass")
+Completed: 24ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@1df98368
+move_method("adjustRelativePath", "PathUtil")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@21ca139c
+move_method("adjustRelativePath", "FileUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@226f885f
+move_method("Type", "SeparateTypeEnumFile")
+move_method("CertificateVerification", "SeparateCertificateVerificationEnumFile")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@2cd2c8fe
+move_method("setCertificateKeyAlias", "JSSEConfig")
+move_method("getCertificateKeyAlias", "JSSEConfig")
+move_method("setCertificateKeystoreFile", "JSSEConfig")
+move_method("getCertificateKeystoreFile", "JSSEConfig")
+move_method("setCertificateKeystorePassword", "JSSEConfig")
+move_method("getCertificateKeystorePassword", "JSSEConfig")
+move_method("setCertificateKeystoreProvider", "JSSEConfig")
+move_method("getCertificateKeystoreProvider", "JSSEConfig")
+move_method("setCertificateKeystoreType", "JSSEConfig")
+move_method("getCertificateKeystoreType", "JSSEConfig")
+move_method("setKeyManagerAlgorithm", "JSSEConfig")
+move_method("getKeyManagerAlgorithm", "JSSEConfig")
+move_method("setSessionCacheSize", "JSSEConfig")
+move_method("getSessionCacheSize", "JSSEConfig")
+move_method("setSessionTimeout", "JSSEConfig")
+move_method("getSessionTimeout", "JSSEConfig")
+move_method("setSslProtocol", "JSSEConfig")
+move_method("getSslProtocol", "JSSEConfig")
+move_method("setTrustManagerClassName", "JSSEConfig")
+move_method("getTrustManagerClassName", "JSSEConfig")
+move_method("setTruststoreAlgorithm", "JSSEConfig")
+move_method("getTruststoreAlgorithm", "JSSEConfig")
+move_method("setTruststoreFile", "JSSEConfig")
+move_method("getTruststoreFile", "JSSEConfig")
+move_method("setTruststorePassword", "JSSEConfig")
+move_method("getTruststorePassword", "JSSEConfig")
+move_method("setTruststoreProvider", "JSSEConfig")
+move_method("getTruststoreProvider", "JSSEConfig")
+move_method("setTruststoreType", "JSSEConfig")
+move_method("getTruststoreType", "JSSEConfig")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@7d61eccf
+move_method("setCertificateFile", "OpenSSLConfig")
+move_method("getCertificateFile", "OpenSSLConfig")
+move_method("setCertificateKeyFile", "OpenSSLConfig")
+move_method("getCertificateKeyFile", "OpenSSLConfig")
+move_method("setCertificateRevocationListPath", "OpenSSLConfig")
+move_method("getCertificateRevocationListPath", "OpenSSLConfig")
+move_method("setCaCertificateFile", "OpenSSLConfig")
+move_method("getCaCertificateFile", "OpenSSLConfig")
+move_method("setCaCertificatePath", "OpenSSLConfig")
+move_method("getCaCertificatePath", "OpenSSLConfig")
+move_method("setDisableCompression", "OpenSSLConfig")
+move_method("getDisableCompression", "OpenSSLConfig")
+move_method("setDisableSessionTickets", "OpenSSLConfig")
+move_method("getDisableSessionTickets", "OpenSSLConfig")
+move_method("setInsecureRenegotiation", "OpenSSLConfig")
+move_method("getInsecureRenegotiation", "OpenSSLConfig")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@cc6460c
+move_method("setCertificateKeyPassword", "defaultCertificate")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@52350abb
+move_method("addCertificate", "SSLHostConfigCertificate")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@681aad3b
+move_method("setCertificateKeyAlias", "SSLHostConfigCertificate")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@1a6f2363
+move_method("setSslContext", "sslContext")
+move_method("getSslContext", "sslContext")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@2427e004
+move_method('setProperty', 'propertyManager')
+move_method('log.warn', 'logger')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@5ebd56e9
+move_method("registerDefaultCertificate", "SSLCertificateManager")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@63f34b70
+move_method("setCertificateKeyPassword", "defaultCertificate")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@641856
+move_method("setCiphers", "OpenSSLCipherConfigurationParser")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@1b58ff9e
+move_method("adjustRelativePath", "FileSystemUtils")
+Completed: 25ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@2f66e802
+move_method("setCiphers", "OpenSSLCipherConfigurationParser")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@56b78e55
+move_method("setProtocols", "Constants")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@76318a7d
+move_method("setConfigType", "SSLHostConfigPropertiesManager")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@2a492f2a
+move_method("setCertificateKeyPassword", "defaultCertificate")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@3277e499
+move_method("setCertificateKeyFile", "certificateFile")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@585811a4
+move_method("adjustRelativePath", "FileUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@22c01ab0
+move_method('fromString', 'CertificateVerificationParser')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@411341bd
+move_method("getCertificateFile", "OpenSSLConfig")
+move_method("setCertificateFile", "OpenSSLConfig")
+move_method("getCertificateKeyFile", "OpenSSLConfig")
+move_method("setCertificateKeyFile", "OpenSSLConfig")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@4c4d362a
+Couldn't make request.
+Failed to send request to LLM.
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@51768776
+move_method("initializeProtoAll", "SSLHostConfig")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@f31c0c6
+move_method('adjustRelativePath', 'FileUtil')
+Completed: 26ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@b93aad
+move_method("setConfigType", "Type")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@4a9419d7
+move_method("setProperty", "PropertyManager")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@2f3c6ac4
+move_method("adjustRelativePath", "PathUtilities")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@2e8ab815
+move_method("Type", "Type_separate_file")
+move_method("CertificateVerification", "CertificateVerification_separate_file")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@67af833b
+move_method("adjustRelativePath", "FilePathUtil")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@d1f74b8
+move_method("Type", "Type_Class")
+move_method("CertificateVerification", "CertificateVerification_Class")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@41394595
+move_method("adjustRelativePath", "FileSystemUtilities")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@3a0807b7
+move_method("fromString", "ConversionUtility")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@21a5fd96
+move_method("adjustRelativePath", "UtilityClass")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@5769e7ae
+move_method('fromString', 'ParserUtility')
+Completed: 27ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@5c77053b
+move_method("setCertificateKeyAlias", "JSSEConfig")
+move_method("getCertificateKeyAlias", "JSSEConfig")
+move_method("setCertificateKeystoreFile", "JSSEConfig")
+move_method("getCertificateKeystoreFile", "JSSEConfig")
+move_method("setCertificateKeystorePassword", "JSSEConfig")
+move_method("getCertificateKeystorePassword", "JSSEConfig")
+move_method("setCertificateKeystoreProvider", "JSSEConfig")
+move_method("getCertificateKeystoreProvider", "JSSEConfig")
+move_method("setCertificateKeystoreType", "JSSEConfig")
+move_method("getCertificateKeystoreType", "JSSEConfig")
+move_method("setKeyManagerAlgorithm", "JSSEConfig")
+move_method("getKeyManagerAlgorithm", "JSSEConfig")
+move_method("setSessionCacheSize", "JSSEConfig")
+move_method("getSessionCacheSize", "JSSEConfig")
+move_method("setSessionTimeout", "JSSEConfig")
+move_method("getSessionTimeout", "JSSEConfig")
+move_method("setSslProtocol", "JSSEConfig")
+move_method("getSslProtocol", "JSSEConfig")
+move_method("setTrustManagerClassName", "JSSEConfig")
+move_method("getTrustManagerClassName", "JSSEConfig")
+move_method("setTruststoreAlgorithm", "JSSEConfig")
+move_method("getTruststoreAlgorithm", "JSSEConfig")
+move_method("setTruststoreFile", "JSSEConfig")
+move_method("getTruststoreFile", "JSSEConfig")
+move_method("setTruststorePassword", "JSSEConfig")
+move_method("getTruststorePassword", "JSSEConfig")
+move_method("setTruststoreProvider", "JSSEConfig")
+move_method("getTruststoreProvider", "JSSEConfig")
+move_method("setTruststoreType", "JSSEConfig")
+move_method("getTruststoreType", "JSSEConfig")
+move_method("setCertificateFile", "OpenSSLConfig")
+move_method("getCertificateFile", "OpenSSLConfig")
+move_method("setCertificateKeyFile", "OpenSSLConfig")
+move_method("getCertificateKeyFile", "OpenSSLConfig")
+move_method("setCertificateRevocationListPath", "OpenSSLConfig")
+move_method("getCertificateRevocationListPath", "OpenSSLConfig")
+move_method("setCaCertificateFile", "OpenSSLConfig")
+move_method("getCaCertificateFile", "OpenSSLConfig")
+move_method("setCaCertificatePath", "OpenSSLConfig")
+move_method("getCaCertificatePath", "OpenSSLConfig")
+move_method("setDisableCompression", "OpenSSLConfig")
+move_method("getDisableCompression", "OpenSSLConfig")
+move_method("setDisableSessionTickets", "OpenSSLConfig")
+move_method("getDisableSessionTickets", "OpenSSLConfig")
+move_method("setInsecureRenegotiation", "OpenSSLConfig")
+move_method("getInsecureRenegotiation", "OpenSSLConfig")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@26b894bd
+move_method('setProperty', 'Utils')
+move_method('adjustRelativePath', 'Utils')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@287f94b1
+move_method("SSLHostConfig", "new_initialization_method")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@30b34287
+move_method("setConfigType", "ConfigTypeManager")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@5489c777
+move_method("setProperty", "configTypePropertyManager")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@3676ac27
+move_method("adjustRelativePath", "FilePathManager")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@62f87c44
+move_method("registerDefaultCertificate", "SSLHostConfigCertificate")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@48f5bde6
+move_method("adjustRelativePath", "PathUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@525d79f0
+move_method("fromString", "CertificateVerificationUtility")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@5149f008
+move_method("setProtocols", "Protocols")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@7072bc39
+move_method("registerDefaultCertificate", "SSLHostConfigCertificate")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@158d255c
+move_method("setCertificateKeyAlias", "SSLHostConfigCertificate")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@2ca65ce4
+move_method("setCiphers", "cipherManager")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@327120c8
+move_method("adjustRelativePath", "FilePathHelper")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@5707c1cb
+move_method("adjustRelativePath", "PathUtil")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@2b5cb9b2
+move_method("setProperty", "config")
+Completed: 28ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@35038141
+move_method('adjustRelativePath', 'FileUtils')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@ecf9049
+move_method("adjustRelativePath", "FileUtility")
+Failed to parse json.ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@672f11c2
+move_method("adjustRelativePath", "Utility")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@2970a5bc
+move_method("setProtocols", "protocolConfig")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@50305a
+move_method("adjustRelativePath", "SystemUtilityClass")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@72efb5c1
+move_method("fromString", "StringOperationsUtility")
+Completed: 29Failed to parse json.ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@6d511b5f
+move_method("writePidFile", "file")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@41200e0c
+move_method("getEnvironment", "SpringApplicationEvent")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@40f33492
+move_method("writePidFile", "ApplicationPid")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@4fbdc0f0
+move_method("getEnvironment", "SpringApplicationEvent")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@2ad3a1bb
+move_method("writePidFile", "ApplicationPid")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@6bc28a83
+move_method("getEnvironment", "SpringApplicationEvent")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@324c64cd
+move_method("writePidFile", "ApplicationPid")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@13579834
+move_method("getEnvironment", "SpringApplicationEvent")
+Saving results.
+Completed: 30ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@24be2d9c
+move_method("registerExtension", "Extensions")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@5bd73d1a
+move_method("registerExtension", "area")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@aec50a1
+move_method("printAsList", "JTree")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@2555fff0
+move_method("waitForAlarm", "ApplicationManager")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@70d2e40b
+move_method("startPerformanceTest", "PerformanceTestClass")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@120f38e6
+move_method("assertDirectoriesEqual", "VirtualFile")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@7a0e1b5e
+move_method("registerExtension", "area")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@702ed190
+move_method("toString", "AbstractTreeNode")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@173b9122
+move_method("print", "JTree")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@7c18432b
+move_method("printAsStringList", "JTree")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@7646731d
+move_method("print", "AbstractTreeStructure")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@70e29e14
+move_method("registerExtension", "ExtensionPointName")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@3b1bb3ab
+move_method("assertDirectoriesEqual", "VirtualFile")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@5a4bef8
+move_method("assertFilesEqual", "VirtualFile")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@40bffbca
+move_method("registerExtension", "area")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@2449cff7
+move_method("toString", "AbstractTreeNode")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@42a9a63e
+move_method("print", "JTree")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@62da83ed
+move_method("printAsList", "JTree")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@5d8445d7
+move_method("assertTreeEqual", "JTree")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@37d80fe7
+move_method("waitForAlarm", "alarm")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@384fc774
+move_method("dispatchAllInvocationEventsInIdeEventQueue", "eventQueue")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@e3cee7b
+move_method("print", "AbstractTreeStructure")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@71e9a896
+move_method("print", "listUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@6b9267b
+move_method("registerExtension", "area")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@408b35bf
+move_method("print", "JTree")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@29ad44e3
+move_method("dispatchAllInvocationEventsInIdeEventQueue", "IdeEventQueue")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@15bcf458
+move_method("assertTiming", "TestInfo")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@5af9926a
+move_method("assertDirectoriesEqual", "VirtualFile")
+Completed: 31ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@43c67247
+move_method("forceTTLsIfConfigured", "Metric")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@fac80
+move_method("createContainer", "JSONMetricsContainer")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@726386ed
+move_method("sendResponse", "HttpResponder")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@649f2009
+move_method("createContainer", "JSONMetricsContainer")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@14bb2297
+move_method('forceTTLsIfConfigured', 'Metric')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@69adf72c
+move_method("sendResponse", "HttpResponder")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@797501a
+move_method("forceTTLsIfConfigured", "Metric")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@1a15b789
+move_method("sendResponse", "HttpUtilities")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@57f791c6
+move_method("forceTTLsIfConfigured", "Metric")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@51650883
+move_method("sendResponse", "HttpResponder")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@6c4f9535
+move_method("sendResponse", "HttpResponder")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@5bd1ceca
+move_method("forceTTLsIfConfigured", "Metric")
+Completed: 32ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@30c31dd7
+move_method("augment", "ITrigger")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@499b2a5c
+move_method("assertTriggerExists", "TriggerUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@596df867
+move_method("assertTriggerDoesNotExists", "TriggerUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@c1fca1e
+move_method('augment', 'AbstractTrigger')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@241a53ef
+move_method('assertTriggerExists', 'CFMetaData')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@344344fa
+move_method("assertTriggerDoesNotExists", "CFMetaData")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@2db2cd5
+move_method("augment", "ITriggerImplementation")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@70e659aa
+move_method('TestTrigger', 'ITrigger')
+Completed: 33ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@615f972
+move_method("assertTriggerExists", "Schema")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@285f09de
+move_method("assertTriggerDoesNotExists", "CFMetaData")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@73393584
+move_method("assertTriggerExists", "CFMetaData")
+move_method("assertTriggerDoesNotExists", "CFMetaData")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@31500940
+move_method("TestTrigger", "ITrigger")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@1827a871
+move_method("assertTriggerExists", "CFMetaData")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@48e64352
+move_method("assertTriggerDoesNotExists", "CFMetaData")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@7249dadf
+move_method("TestTrigger", "TestUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@4362d7df
+move_method("augment", "MutationUtil")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@66238be2
+move_method("assertTriggerExists", "CFMetaData")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@1c25b8a7
+move_method("assertTriggerDoesNotExists", "CFMetaData")
+Completed: 34ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@200606de
+move_method("augment", "ITrigger")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@750fe12e
+move_method("assertTriggerExists", "CFMetaData")
+move_method("assertTriggerDoesNotExists", "CFMetaData")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@f8908f6
+move_method("augment", "ITrigger")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@3e587920
+move_method('assertTriggerExists', 'AssertUtil')
+move_method('assertTriggerDoesNotExists', 'AssertUtil')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@2ef8a8c3
+move_method("TestTrigger", "ITrigger")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@24f43aa3
+move_method("assertTriggerExists", "CQLTester")
+move_method("assertTriggerDoesNotExists", "CQLTester")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@63fd4873
+move_method("testCreateTrigger", "TriggerCreationTests")
+move_method("testCreateTriggerIfNotExists", "TriggerCreationTests")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@1e11bc55
+move_method("testDropTrigger", "TriggerDeletionTests")
+move_method("testDropTriggerIfExists", "TriggerDeletionTests")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@7544a1e4
+move_method("augment", "UtilityClass")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@70e0accd
+move_method("assertTriggerExists", "TriggerDefinition")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@7957dc72
+move_method("assertTriggerDoesNotExists", "TriggerTestUtility")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@6ab72419
+move_method("TestTrigger", "ITrigger")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@3aacf32a
+move_method("assertTriggerExists", "AssertionUtility")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@4fdfa676
+move_method("assertTriggerDoesNotExists", "AssertionUtilityClass")
+Completed: 35ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@82c57b3
+move_method("TestTrigger", "TestUtilities")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@5be82d43
+move_method("assertTriggerExists", "TestUtils")
+move_method("assertTriggerDoesNotExists", "TestUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@600b0b7
+move_method("assertTriggerExists", "AssertionClass")
+move_method("assertTriggerDoesNotExists", "AssertionClass")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@345e5a17
+move_method("assertTriggerExists", "CFMetaData")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@5ea502e0
+move_method("assertTriggerDoesNotExists", "cfm")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@443dbe42
+move_method("TestTrigger", "ITrigger")
+Failed to parse json.ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@473b3b7a
+move_method("augment", "TargetClassName")
+Completed: 36ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@1734f68
+move_method('augment', 'ITrigger')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@77b7ffa4
+move_method("assertTriggerExists", "Assertions")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@5ed190be
+move_method("assertTriggerDoesNotExists", "AssertionHelper")
+Failed to parse json.ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@402f80f5
+move_method("TestTrigger", "ITrigger")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@5bbc9f97
+move_method("assertTriggerExists", "TestUtilities")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@133e019b
+move_method("assertTriggerDoesNotExists", "TestAssertionsHelper")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@41382722
+move_method("TestTrigger", "ITrigger")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@7dac3fd8
+move_method("assertTriggerExists", "DatabaseSetupTeardown")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@425357dd
+move_method("assertTriggerDoesNotExists", "database_environment_setup")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@2102a4d5
+move_method("TestTrigger", "new_file")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@210386e0
+move_method("assertTriggerExists", "TestUtilities")
+move_method("assertTriggerDoesNotExists", "TestUtilities")
+Completed: 37ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@3d4d3fe7
+move_method('failInsert', 'TestHelper')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@65f87a2c
+move_method('succeedInsert', 'TestHelper')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@51684e4a
+move_method("failInsert", "TestHelper")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@6ce1f601
+move_method("succeedInsert", "TestHelper")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@38875e7d
+move_method("failInsert", "DbOperationsUtil")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@1e886a5b
+move_method("succeedInsert", "databaseUtility")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@d816dde
+move_method("failInsert", "superclass")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@6e33c391
+move_method("succeedInsert", "SuperClassOrUtilityClass")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@6c451c9c
+move_method('failInsert', 'DataManipulationUtils')
+move_method('succeedInsert', 'DataManipulationUtils')
+Completed: 38ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@31c269fd
+move_method("failInsert", "databaseHelper")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@372b0d86
+move_method("succeedInsert", "DatabaseOperations")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@47747fb9
+move_method("succeedInsert", "UtilityClass")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@3113a37
+move_method("failInsert", "TestUtility")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@213e3629
+move_method("failInsert", "testUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@4e9658b5
+move_method("succeedInsert", "TestUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@2a7b6f69
+move_method('failInsert', 'TestUtility')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@20312893
+move_method('succeedInsert', 'testUtilities')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@70eecdc2
+move_method("failInsert", "InsertionUtils")
+move_method("succeedInsert", "InsertionUtils")
+Completed: 39Failed to parse json.ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@c41709a
+move_method("failInsert", "TestUtilities")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@7db0565c
+move_method("succeedInsert", "TestUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@54ec8cc9
+move_method("failInsert", "CQLTester")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@52eacb4b
+move_method("succeedInsert", "databaseManager")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@5528a42c
+move_method("failInsert", "utilityClass")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@2a551a63
+move_method("succeedInsert", "utilities_class")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@1a6f5124
+move_method("failInsert", "DBValidationUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@1edb61b1
+move_method("succeedInsert", "utilityClass")
+Saving results.
+Completed: 40ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@ec2bf82
+move_method("failInsert", "TestUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@cc62a3b
+move_method('succeedInsert', 'testUtilClass')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@6cc0bcf6
+move_method("failInsert", "UtilityClass")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@29539e36
+move_method("succeedInsert", "UtilityClass")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@32f61a31
+move_method('failInsert', 'TestUtilityClass')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@f5c79a6
+move_method('succeedInsert', 'TestUtils')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@669253b7
+move_method("failInsert", "UtilityClass")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@5305c37d
+move_method("succeedInsert", "DatabaseUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@51a06cbe
+move_method("failInsert", "UtilityClass")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@3dddbe65
+move_method("succeedInsert", "UtilityClass")
+Completed: 41ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@49a64d82
+move_method("failInsert", "DbOperationsUtil")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@344561e0
+move_method("succeedInsert", "DatabaseOperations")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@66d23e4a
+move_method("failInsert", "DatabaseUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@36ac8a63
+move_method("succeedInsert", "databaseQueryUtility")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@4d9d1b69
+move_method('failInsert', 'TestHelper')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@52c8295b
+move_method("succeedInsert", "TestHelper")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@251f7d26
+move_method("failInsert", "TestUtils")
+move_method("succeedInsert", "TestUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@77b21474
+move_method('failInsert', 'utilityClass')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@52d10fb8
+move_method('succeedInsert', 'TestSuperclass')
+Completed: 42ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@41c07648
+move_method("failInsert", "utils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@1fe8d51b
+move_method("succeedInsert", "TestUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@781e7326
+move_method("failInsert", "execute")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@22680f52
+move_method('succeedInsert', 'execute_object')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@60d84f61
+move_method("testIndexOnCompositeValueOver64k", "IndexTest")
+move_method("testIndexOnClusteringColumnInsertPartitionKeyAndClusteringsOver64k", "ClusteringColumnTest")
+move_method("testCompactTableWithValueOver64k", "CompactTableTest")
+move_method("testIndexOnCollectionValueInsertPartitionKeyAndCollectionKeyOver64k", "CollectionValueTest")
+move_method("testIndexOnCollectionKeyInsertPartitionKeyAndClusteringOver64k", "CollectionKeyTest")
+move_method("testIndexOnPartitionKeyInsertValueOver64k", "PartitionKeyTest")
+move_method("testIndexOnClusteringColumnInsertValueOver64k", "ClusteringColumnTest")
+move_method("testIndexOnFullCollectionEntryInsertCollectionValueOver64k", "CollectionEntryTest")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@39c11e6c
+move_method("failInsert", "TestUtility")
+move_method("succeedInsert", "TestUtility")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@324dcd31
+move_method("failInsert", "ExecutorService")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@503d56b5
+move_method('succeedInsert', 'ExecutorService')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@72bca894
+move_method('failInsert', 'DBTestUtils')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@433ffad1
+move_method("succeedInsert", "DBTestUtils")
+Completed: 43ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@1fc793c2
+move_method("failInsert", "DBUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@2575f671
+move_method("succeedInsert", "DatabaseOperations")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@329a1243
+move_method("failInsert", "DatabaseOperations")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@ecf9fb3
+move_method("succeedInsert", "dbOperations")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@2d35442b
+move_method("failInsert", "TestHelper")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@27f9e982
+move_method("succeedInsert", "TestUtility")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@4593ff34
+move_method("succeedInsert", "TestUtilities")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@37d3d232
+move_method("failInsert", "TestUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@30c0ccff
+move_method("failInsert", "TestHelper")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@581d969c
+move_method("succeedInsert", "TestHelper")
+Completed: 44ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@22db8f4
+move_method("failInsert", "TestUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@2b46a8c1
+move_method("succeedInsert", "TestUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@1d572e62
+move_method("failInsert", "TestUtils")
+move_method("succeedInsert", "TestUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@29caf222
+move_method("failInsert", "CQLTestUtilityClass")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@46cf05f7
+move_method("succeedInsert", "utilityClass")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@5851bd4f
+move_method("failInsert", "DatabaseInteraction")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@7cd1ac19
+move_method("succeedInsert", "databaseHandler")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@2f40a43
+move_method("failInsert", "TestUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@3caa4757
+move_method('succeedInsert', 'TestUtils')
+Completed: 45ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@69c43e48
+move_method("failInsert", "DatabaseOperations")
+move_method("succeedInsert", "DatabaseOperations")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@1804f60d
+move_method("failInsert", "TestingUtility")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@3a80515c
+move_method("succeedInsert", "TestUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@547e29a4
+move_method("failInsert", "TestBaseClass")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@1c807b1d
+move_method("succeedInsert", "testUtilityClass")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@238b521e
+move_method("failInsert", "ExecutionUtilityClass")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@1b39fd82
+move_method("succeedInsert", "executionUtility")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@3e2fc448
+move_method("failInsert", "TestUtilities")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@21680803
+move_method("succeedInsert", "TestUtilities")
+Completed: 46ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@588ab592
+move_method("failInsert", "Validation")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@c8b96ec
+move_method("succeedInsert", "DBUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@4cc61eb1
+move_method("failInsert", "TestUtility")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@2d8f2f3a
+move_method("succeedInsert", "TestUtility")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@2024293c
+move_method("failInsert", "ValidationClass")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@7048f722
+move_method('succeedInsert', 'SuccessfulOperationsHandler')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@c074c0c
+move_method("failInsert", "executionErrorUtility")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@58a55449
+move_method("succeedInsert", "testUtilities")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@5949eba8
+move_method("failInsert", "TestUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@6e0ff644
+move_method("succeedInsert", "TestUtility")
+Completed: 47Failed to parse json.Failed to parse json.ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@58dea0a5
+move_method("testSingleClustering", "DataInteractionTest")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@2a2bb0eb
+move_method("testSingleClusteringReversed", "ReversedQueryDataInteractionTest")
+Failed to parse json.Failed to parse json.Completed: 48Failed to parse json.Failed to parse json.Failed to parse json.Failed to parse json.Failed to parse json.Completed: 49ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@3c291aad
+move_method("TestTrigger", "ITrigger")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@2d0566ba
+move_method("assertTriggerExists", "AssertionsUtilityClass")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@733037
+move_method('assertTriggerDoesNotExists', 'AssertionsUtility')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@7728643a
+move_method("TestTrigger", "ITrigger")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@320e400
+move_method("TestTrigger", "ITrigger")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@5167268
+move_method("assertTriggerExists", "CFMetaDataAssertions")
+move_method("assertTriggerDoesNotExists", "CFMetaDataAssertions")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@1cfd1875
+move_method('TestTrigger', 'ITrigger')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@28c0b664
+move_method("testCreateTrigger", "TestTrigger")
+move_method("testCreateTriggerIfNotExists", "TestTrigger")
+move_method("testDropTrigger", "TestTrigger")
+move_method("testDropTriggerIfExists", "TestTrigger")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@2c444798
+move_method("augment", "TestTrigger")
+Saving results.
+Completed: 50ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@1af7f54a
+move_method("descPassthroughMethod", "injector")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@6ebd78d1
+move_method('throwsIOException', 'ControlsInjector')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@436390f4
+move_method('assertPassthroughThrows', 'genericUtilityClass')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@4d157787
+move_method("assertPassthroughThrows", "TestHelper")
+move_method("createExceptionOnBit", "TestHelper")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@68ed96ca
+move_method("DummyClass", " SeparateFile")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@6d1310f6
+move_method("descPassthroughMethod", "QueryContext")
+move_method("throwsIOException", "QueryContext")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@3228d990
+move_method("assertPassthroughThrows", "AssertionsUtilityClass")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@54e7391d
+move_method("createException", "ExceptionUtils")
+move_method("createExceptionOnBit", "ExceptionUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@51c929ae
+move_method("descPassthroughMethod", "context")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@3c8bdd5b
+move_method("throwsIOException", "QueryContext")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@29d2d081
+move_method("createException", "ExceptionControlUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@40e4ea87
+move_method("createExceptionOnBit", "ExceptionControl")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@58783f6c
+move_method("assertPassthroughThrows", "AssertsUtility")
+Completed: 51ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@3a7b503d
+move_method("assertPassthroughThrows", "DummyClass")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@512d92b
+move_method("createException", "ControlsInjectionUtil")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@62c5bbdc
+move_method("createExceptionOnBit", "ControlsInjectionUtil")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@7bdf6bb7
+move_method("DummyClass", "QueryContext")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@1bc53649
+move_method("assertPassthroughThrows", "UtilityClass")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@88d6f9b
+move_method("createException", "TestSetupUtil")
+move_method("createExceptionOnBit", "TestSetupUtil")
+Failed to parse json.ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@47d93e0d
+move_method("UserSession", "UserSession")
+move_method("DummyClass", "DummyClass")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@475b7792
+move_method("createException", "DummyClass")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@751e664e
+move_method("createExceptionOnBit", "DummyClass")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@160c3ec1
+move_method("descPassthroughMethod", "ExecutionControls")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@182b435b
+move_method("throwsIOException", "ExecutionControls")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@4d0402b
+move_method("assertPassthroughThrows", "ExceptionValidator")
+Completed: 52ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@2fa7ae9
+move_method("generateTestData", "HiveTestDBManager")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@7577b641
+move_method("executeQuery", "HiveDBHelper")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@3704122f
+move_method("executeQuery", "hiveDriver")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@3153ddfc
+move_method("generateAllTypesDataFile", "DataGenerator")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@60afd40d
+move_method("addHiveTestPlugin", "HiveStoragePluginConfig")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@28a2a3e7
+move_method("updatePluginConfig", "storagePlugin")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@3f2049b6
+move_method("deleteHiveTestPlugin", "pluginRegistry")
+Failed to parse json.ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@10b3df93
+move_method("getInstance", "TempDirTestDataGenerator")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@ea27e34
+move_method("generateTestData", "TestDataGenerator")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@33a2499c
+move_method("executeQuery", "DatabaseOperations")
+Completed: 53Failed to parse json.ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@33c2bd
+move_method("hasName", "Type")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@1dfd5f51
+move_method("hasMaxSize", "Type")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@3c321bdb
+move_method("hasNominalSize", "actual")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@24855019
+move_method("hasName", "actual")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@3abd581e
+move_method("hasMaxSize", "actual")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@4d4d8fcf
+move_method("hasNominalSize", "actual")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@610db97e
+move_method("hasName", "actual")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@6f0628de
+move_method("hasMaxSize", "Type")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@3fabf088
+move_method("hasNominalSize", "Type")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@1e392345
+move_method("failWithMessage", "ErrorHandling")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@12f3afb5
+move_method("failWithMessage", "ErrorHandlingClass")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@4ced35ed
+move_method('failWithMessage', 'ErrorHandlingClass')
+Completed: 54ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@2c22a348
+move_method("hasName", "Type")
+move_method("hasMaxSize", "Type")
+move_method("hasNominalSize", "Type")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@7bd69e82
+move_method("hasName", "Type")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@74d7184a
+move_method("hasMaxSize", "Type")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@51b01960
+move_method("hasNominalSize", "Type")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@6831d8fd
+move_method("hasName", "Type")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@27dc79f7
+move_method("hasMaxSize", "actual")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@6b85300e
+move_method("hasNominalSize", "actual")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@3aaf4f07
+move_method("hasName", "Type")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@5cbf9e9f
+move_method("hasMaxSize", "Type")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@18e8473e
+move_method("hasNominalSize", "Type")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@5a2f016d
+move_method("hasName", "actual")
+move_method("hasMaxSize", "actual")
+move_method("hasNominalSize", "actual")
+Completed: 55ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@1a38ba58
+move_method("hasName", "Type")
+move_method("hasMaxSize", "Type")
+move_method("hasNominalSize", "Type")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@3ad394e6
+move_method("hasName", "Type")
+move_method("hasMaxSize", "Type")
+move_method("hasNominalSize", "Type")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@6058e535
+move_method("hasName", "Type")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@42deb43a
+move_method("hasMaxSize", "actual")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@1deb2c43
+move_method("hasNominalSize", "Type")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@3bb9efbc
+move_method("hasName", "Type")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@1cefc4b3
+move_method("hasMaxSize", "Type")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@2b27cc70
+move_method("hasNominalSize", "Type")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@6f6a7463
+move_method("hasName", "Type")
+move_method("hasMaxSize", "Type")
+move_method("hasNominalSize", "Type")
+Completed: 56ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@1bdaa23d
+move_method("definesType", "Type")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@79f227a9
+move_method("definesType", "Type")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@6ca320ab
+move_method("isEmpty", "SymbolTable")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@50d68830
+move_method("hasSize", "SymbolTable")
+Failed to parse json.ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@1e53135d
+move_method("definesType", "Type")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@7674a051
+move_method("definesType", "Type")
+Completed: 57ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@3a7704c
+move_method("configureMessageConverters", "HttpMessageConverters")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@6754ef00
+move_method("addFormatters", "FormatterRegistry")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@619bd14c
+move_method("getBeansOfType", "beanFactory")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@323e8306
+move_method("registerResourceChain", "ResourceHandlerRegistration")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@a23a01d
+move_method("configureResourceChain", "ResourceChainRegistration")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@4acf72b6
+move_method("getVersionResourceResolver", "VersionResourceResolver")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@7561db12
+move_method("faviconHandlerMapping", "SimpleUrlHandlerMapping")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@3301500b
+move_method("faviconRequestHandler", "ResourceHttpRequestHandler")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@24b52d3e
+move_method("getLocations", "resourceLoader")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@15deb1dc
+move_method("FaviconConfiguration", "FaviconHandler")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@6e9c413e
+move_method("EnableWebMvcConfiguration", "WebMvcRequestHandlerConfigurer")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@57a4d5ee
+move_method("WebMvcAutoConfigurationAdapter", "WebMvcConfigurer")
+Failed to parse json.Failed to parse json.ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@5af5def9
+move_method('configureResourceChain', 'ResourceChainConfiguration')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@3a45c42a
+move_method("getVersionResourceResolver", "ResourceResolverConfiguration")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@36dce7ed
+move_method("addStaticIndexHtmlViewControllers", "ViewControllerConfiguration")
+Completed: 58Failed to parse json.ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@47a64f7d
+move_method("RSConnect",
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@33d05366
+move_method("showPublishUI", "event")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@27a0a5a2
+Couldn't make request.
+Failed to send request to LLM.
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@32c0915e
+move_method("deployToRSConnect",
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@106faf11
+move_method("exportNativeCallbacks", "JavaScriptInteractionUtility")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@70f43b45
+move_method("deployToRSConnect", "DeploymentManager")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@26d10f2e
+Couldn't make request.
+Failed to send request to LLM.
+Failed to parse json.Completed: 59Failed to parse json.Failed to parse json.Failed to parse json.ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@10ad20cb
+move_method("setUp", "TestSetup")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@7dd712e8
+move_method("countRecordsMetrics", "Metrics")
+move_method("termsRecordsMetrics", "Metrics")
+move_method("termsStatsRecordsMetrics", "Metrics")
+move_method("fieldStatsRecordsMetrics", "Metrics")
+move_method("histogramRecordsMetrics", "Metrics")
+move_method("fieldHistogramRecordsMetrics", "Metrics")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@2c282004
+move_method("countRecordsMetrics", "MetricUtils")
+move_method("termsRecordsMetrics", "MetricUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@22ee2d0
+move_method("testFindNewestMessageTimestampOfIndex", "TimestampSearchesTest")
+move_method("testFindOldestMessageTimestampOfIndex", "TimestampSearchesTest")
+move_method("testTimestampStatsOfIndex", "TimestampSearchesTest")
+Saving results.
+Completed: 60ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@7bfc3126
+move_method("firstOfIndex", "IndexManipulator")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@3e792ce3
+move_method('lastOfIndex', 'indexManipulator')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@53bc1328
+move_method("findNewestMessageTimestampOfIndex", "IndexTimestampManipulator")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@26f143ed
+move_method("findOldestMessageTimestampOfIndex", "IndexTimestampManipulator")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@3c1e3314
+move_method('timestampStatsOfIndex', 'IndexTimestampManipulator')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@4b770e40
+move_method("countRecordsMetrics", "MetricsTest")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@78e16155
+move_method("termsRecordsMetrics", "MetricsTest")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@54a3ab8f
+move_method("termsStatsRecordsMetrics", "MetricsTest")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@1968a49c
+move_method("fieldStatsRecordsMetrics", "MetricsTest")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@6a1ebcff
+move_method("histogramRecordsMetrics", "MetricsTest")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@19868320
+move_method("fieldHistogramRecordsMetrics", "MetricsTest")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@50b0bc4c
+move_method("countRecordsMetrics", "Timer")
+move_method("termsRecordsMetrics", "Timer")
+move_method("termsStatsRecordsMetrics", "Timer")
+move_method("fieldStatsRecordsMetrics", "Timer")
+move_method("histogramRecordsMetrics", "Timer")
+move_method("fieldHistogramRecordsMetrics", "Timer")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@c20be82
+move_method("countRecordsMetrics", "Histogram")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@13c612bd
+move_method("histogramRecordsMetrics", "MetricsUtility")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@3ef41c66
+move_method("termsStatsRecordsMetrics", "MetricsUtility")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@6b739528
+move_method("countRecordsMetrics", "MetricsUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@622ef26a
+move_method("countRecordsMetrics", "MetricRegistry")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@41de5768
+move_method("termsRecordsMetrics", "MetricRegistry")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@5f577419
+move_method("termsStatsRecordsMetrics", "MetricRegistry")
+Completed: 61ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@28fa700e
+move_method("findOldestMessageTimestampOfIndex", "IndexManager")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@3d526ad9
+move_method('determineAffectedIndicesWithRanges', 'IndexHelper')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@e041f0c
+move_method("fieldHistogram", "HistogramFieldManager")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@6a175569
+move_method('timestampStatsOfIndex', 'IndexOperations')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@11963225
+move_method("count", "c")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@3f3c966c
+move_method("scroll", "c")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@11ee02f8
+move_method("histogram", "elasticsearchInstance")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@4102b1b1
+move_method("fieldHistogram", "c")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@61a5b4ae
+move_method("buildAggregation", "AggregationBuilder")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@3a71c100
+move_method("queryStringQuery", "QueryHelper")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@5b69fd74
+move_method("fieldHistogram", "FieldSearch")
+move_method("fieldStatsResult", "FieldSearch")
+move_method("timestampStatsOfIndex", "FieldSearch")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@f325091
+move_method("count", "IndexHelper")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@437e951d
+move_method("scroll", "IndexHelper")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@77b325b3
+move_method("search", "IndexHelper")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@63a5e46c
+move_method("terms", "IndexHelper")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@7e8e8651
+move_method("standardSearchRequest", "Utils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@49ef32e0
+move_method("standardFilters", "IndexHelper")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@271f18d3
+move_method("oneOfIndex", "ElasticsearchService")
+Completed: 62ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@6bd51ed8
+move_method("testCount", "CountResult")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@61e3a1fd
+move_method("countRecordsMetrics", "metricRegistry")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@51abf713
+move_method("testTerms", "TermsResult")
+Failed to parse json.ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@eadb475
+move_method("testCount", "client")
+move_method("countRecordsMetrics", "client")
+move_method("testTerms", "client")
+move_method("termsRecordsMetrics", "client")
+move_method("testTermsStats", "client")
+move_method("termsStatsRecordsMetrics", "client")
+move_method("testFieldStats", "client")
+move_method("fieldStatsRecordsMetrics", "client")
+move_method("testHistogram", "client")
+move_method("histogramRecordsMetrics", "client")
+move_method("testFieldHistogram", "client")
+move_method("fieldHistogramRecordsMetrics", "client")
+move_method("testFirstOfIndex", "client")
+move_method("testLastOfIndex", "client")
+move_method("testFindNewestMessageTimestampOfIndex", "client")
+move_method("testFindOldestMessageTimestampOfIndex", "client")
+move_method("testFindOldestMessageTimestampOfIndexWithNonExistingIndex", "client")
+move_method("testTimestampStatsOfIndex", "client")
+move_method("testTimestampStatsOfIndexWithEmptyIndex", "client")
+move_method("testTimestampStatsOfIndexWithNonExistingIndex", "client")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@4d4d48a6
+move_method("countRecordsMetrics", "metricRegistry")
+move_method("termsRecordsMetrics", "metricRegistry")
+move_method("termsStatsRecordsMetrics", "metricRegistry")
+move_method("fieldStatsRecordsMetrics", "metricRegistry")
+move_method("histogramRecordsMetrics", "metricRegistry")
+move_method("fieldHistogramRecordsMetrics", "metricRegistry")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@315df4bb
+move_method("setUp", "indexRangeService")
+Failed to parse json.ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@3fc08eec
+move_method("setUp", "SearchesTestInitialization")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@5cad8b7d
+move_method("testCount", "SearchesCountTest")
+Completed: 63ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@7b02e036
+move_method("concatenate", "ListHelper")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@25243bc1
+move_method("optionMatches", "WireOption")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@1e287667
+move_method("concatenate", "ListUtility")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@2e6ee0bc
+move_method('findOption', 'WireOption')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@4201a617
+move_method("optionMatches", "WireOption")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@467f77a5
+move_method("concatenate", "ListUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@1bb9aa43
+move_method("findOption", "OptionUtils")
+move_method("optionMatches", "OptionUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@420bc288
+move_method("findOption", "WireOption")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@df5f5c0
+move_method('optionMatches', 'WireOption')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@308a6984
+move_method("findOption", "WireOption")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@66b72664
+move_method("optionMatches", "WireOption")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@7a34b7b8
+move_method("concatenate", "ListUtils")
+Completed: 64ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@58cd06cb
+move_method("resolveFieldPath", "FieldsUtil")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@3be8821f
+move_method("register", "WireType")
+move_method("link", "WireType")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@64b31700
+move_method("register", "WireType")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@3b65e559
+move_method("resolveType", "ProtoTypeName")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@bae47a0
+move_method("resolveNamedType", "ProtoTypeName")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@74a9c4b0
+move_method("resolveFieldPath", "WireFieldUtility")
+Failed to parse json.ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@85ec632
+move_method("resolveFieldPath", "Utilities")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@1c05a54d
+move_method("resolveNamedType", "WireType")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@65ef722a
+move_method("link", "WireProtoFile")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@5fd9b663
+move_method("register", "WireType")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@214894fc
+move_method("resolveType", "DataType")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@10567255
+move_method("fieldPath", "WireField")
+Completed: 65ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@e362c57
+move_method("link", "linker")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@1c4ee95c
+move_method('link', 'linker')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@79c4715d
+move_method("link", "linker")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@5aa360ea
+move_method('link', 'linker')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@6548bb7d
+move_method("link", "linker")
+Completed: 66ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@e27ba81
+move_method("COMPARE_AS_DECIMAL", "DecimalComparator")
+move_method("FOO_COMPARATOR", "FooComparator")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@54336c81
+move_method("Foo", "Foo.java")
+move_method("Bar", "Bar.java")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@1556f2dd
+move_method("FOO_COMPARATOR", "Foo")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@35e52059
+move_method("COMPARE_AS_DECIMAL", "DecimalComparatorUtility")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@62577d6
+move_method('COMPARE_AS_DECIMAL', 'UtilityClass')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@49bd54f7
+move_method("FOO_COMPARATOR", "Foo")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@6b5f8707
+move_method("FOO_COMPARATOR", "Foo")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@772485dd
+move_method("COMPARE_AS_DECIMAL", "StringUtilities")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@5a12c728
+move_method("listOrderedByBaseClassComparator", "Bar")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@79ab3a71
+move_method("FOO_COMPARATOR", "Foo")
+Completed: 67ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@6e5bfdfc
+move_method("isOrderedFailure", "AssertionHandler")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@3d829787
+move_method("isStrictlyOrderedFailure", "AssertionFailureHandler")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@71652c98
+move_method("isStrictlyOrderedWithNonComparableElementsFailure", "ExceptionHandlingClass")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@51bde877
+move_method("isOrderedWithNonComparableElementsFailure", "ExceptionHandlingClass")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@60b85ba1
+move_method("COMPARE_AS_DECIMAL", "NumericStringComparator")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@492fc69e
+move_method("FOO_COMPARATOR", "Foo")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@117632cf
+move_method("COMPARE_AS_DECIMAL", "StringUtility")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@2fb68ec6
+move_method("FOO_COMPARATOR", "Foo")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@d71adc2
+move_method("isStrictlyOrderedFailure", "StrictlyOrderedFailureTest")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@3add81c4
+move_method("isOrderedFailure", "OrderedFailureTest")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@1a1d3c1a
+move_method("COMPARE_AS_DECIMAL", "String")
+move_method("FOO_COMPARATOR", "Foo")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@1c65121
+move_method("listIsStrictlyOrderedWithComparator", "COMPARE_AS_DECIMAL")
+Completed: 68ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@159e366
+move_method("COMPARE_AS_DECIMAL", "StringUtility")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@57dc9128
+move_method("FOO_COMPARATOR", "Foo")
+move_method("Foo", "Bar")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@24528a25
+move_method("COMPARE_AS_DECIMAL", "Integer")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@17ae98d7
+move_method("FOO_COMPARATOR", "Foo")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@59221b97
+move_method("compare", "StringComparator")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@6ac4944a
+move_method("compare", "FooComparator")
+Failed to parse json.ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@5a772895
+move_method('compare', 'Foo')
+Completed: 69ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@39fc6b2c
+move_method("compare", "FooComparator")
+move_method("compare", "DecimalComparator")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@704b2127
+move_method("COMPARE_AS_DECIMAL", "StringUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@3ee39da0
+move_method("FOO_COMPARATOR", "Foo")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@5d332969
+move_method("COMPARE_AS_DECIMAL", "DecimalComparator")
+move_method("FOO_COMPARATOR", "FooComparator")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@7cc9ce8
+move_method("Foo", "Foo.java")
+move_method("Bar", "Bar.java")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@2e27d72f
+move_method("FOO_COMPARATOR", "Foo")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@c0b41d6
+move_method("COMPARE_AS_DECIMAL", "DecimalComparator")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@4837595f
+move_method("compare", "Foo")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@2bffa76d
+move_method("compare", "Foo")
+Saving results.
+Completed: 70ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@3b718392
+move_method("highlightSyntax", "FileUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@6d2260db
+move_method("writeScriptInclude", "FileUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@1f2d2181
+move_method("writeCssInclude", "FileUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@49bf29c6
+move_method("highlightImage", "ImageUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@7ee55e70
+move_method("formatName", "User")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@3fcdcf
+move_method("highlightSyntax", "UiUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@7668d560
+move_method("highlightImage", "ImageUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@46292372
+move_method("formatRelativeTime", "DateUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@126be319
+move_method("applyBoldTagsAndSetText", "TypographyUtils")
+move_method("applyBoldTags", "TypographyUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@6c44052e
+move_method('highlightSyntax', 'HtmlGenerationClass')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@5c371e13
+move_method("highlightImage", "HtmlUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@530a8454
+move_method("checkEmail", "EmailValidator")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@1e34c607
+move_method("formatRelativeTime", "DateUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@5215cd9a
+move_method("applyBoldTagsAndSetText", "ViewUtil")
+move_method("applyBoldTags", "ViewUtil")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@36b6964d
+move_method("highlightSyntax", "HtmlUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@31198ceb
+move_method("writeScriptInclude", "ResourceUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@9257031
+move_method("writeCssInclude", "ResourceUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@75201592
+move_method("applyBoldTagsAndSetText", "CustomViewsUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@7726e185
+move_method("applyBoldTags", "TextStyle")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@aa5455e
+move_method("writeScriptInclude", "HtmlUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@282308c3
+move_method("writeCssInclude", "HtmlUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@5dda14d0
+move_method("applyBoldTagsAndSetText", "StyleableTextViewUtilities")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@1db0ec27
+move_method("applyBoldTags", "TextStyleClass")
+Completed: 71ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@3d9fc57a
+move_method("highlightSyntax", "HtmlUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@d4ab71a
+move_method("highlightImage", "HtmlUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@3b4ef7
+move_method("formatRelativeTime", "DateUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@1af05b03
+move_method("applyBoldTagsAndSetText", "TextUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@5987e932
+move_method("applyBoldTags", "TextUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@1ad777f
+move_method("writeScriptInclude", "HtmlGenerator")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@5bbbdd4b
+move_method("writeCssInclude", "HtmlGenerator")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@438bad7c
+move_method("highlightImage", "HtmlUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@25230246
+move_method("highlightSyntax", "Compiler")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@4fdf8f12
+move_method('highlightImage', 'HtmlGenerator')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@4a8b5227
+move_method('formatRelativeTime', 'DateTimeUtils')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@54f5f647
+move_method("applyBoldTagsAndSetText", "TextStyler")
+move_method("applyBoldTags", "TextStyler")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@6979efad
+move_method("writeScriptInclude", "HTMLBuilder")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@5a6d5a8f
+move_method("writeCssInclude", "HTMLBuilder")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@4a67318f
+move_method("highlightSyntax", "HtmlContentManager")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@315ba14a
+move_method("highlightImage", "HtmlContentManager")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@17f9344b
+move_method("writeScriptInclude", "HtmlUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@27f0ad19
+move_method("writeCssInclude", "htmlUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@54e81b21
+move_method("highlightSyntax", "SyntaxHighlightingUtility")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@38d5b107
+move_method("highlightImage", "ImageHtmlUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@6650813a
+move_method("applyBoldTagsAndSetText", "StyleableTextView")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@44ea608c
+move_method("applyBoldTags", "TextFormatter")
+Completed: 72ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@50cf5a23
+move_method("highlightSyntax", "SyntaxHighlighter")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@450794b4
+move_method("applyBoldTagsAndSetText", "StyleableTextView")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@273c947f
+move_method("applyBoldTags", "TextUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@30457e14
+move_method("highlightSyntax", "HTMLUtils")
+move_method("writeScriptInclude", "HTMLUtils")
+move_method("writeCssInclude", "HTMLUtils")
+move_method("highlightImage", "HTMLUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@1af1347d
+move_method("checkEmail", "EmailUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@632aa1a3
+move_method("formatRelativeTime", "DateUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@20765ed5
+move_method("applyBoldTagsAndSetText", "StyleUtils")
+move_method("applyBoldTags", "StyleUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@3b582111
+move_method("highlightImage", "ImageUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@2899a8db
+move_method("formatRelativeTime", "TimeUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@1e8823d2
+move_method("applyBoldTagsAndSetText", "TextStyler")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@c1a4620
+move_method("applyBoldTags", "TextStyler")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@76b0ae1b
+move_method("formatRelativeTime", "DateUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@130a0f66
+move_method("writeScriptInclude", "HTMLContentGenerator")
+move_method("writeCssInclude", "HTMLContentGenerator")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@4c432866
+move_method("highlightSyntax", "HtmlUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@12365c88
+move_method("highlightImage", "HtmlCodeGenerator")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@6105f8a3
+move_method("checkEmail", "EmailUtil")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@2237bada
+move_method("highlightSyntax", "UIHelpers")
+move_method("writeScriptInclude", "UIHelpers")
+move_method("writeCssInclude", "UIHelpers")
+move_method("highlightImage", "UIHelpers")
+move_method("applyBoldTagsAndSetText", "UIHelpers")
+move_method("applyBoldTags", "UIHelpers")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@77e2a6e2
+move_method("formatRelativeTime", "DateUtils")
+Completed: 73ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@5710768a
+move_method("getIrisSimpleConfig", "NeuralNetConfiguration")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@199e4c2b
+move_method('getIrisMLPSimpleConfig', 'NeuralNetConfiguration')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@6e0d4a8
+move_method("getIris1ItConfig", "NeuralNetConfiguration")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@64d7b720
+move_method("getIrisSimpleConfig", "NeuralNetworkConfiguration")
+move_method("getIrisMLPSimpleConfig", "NeuralNetworkConfiguration")
+move_method("getIris1ItConfig", "NeuralNetworkConfiguration")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@30272916
+move_method("getIrisSimpleConfig", "NeuralNetsConfig")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@5bb3d42d
+move_method("getIrisMLPSimpleConfig", "NeuralNetworkConfigurationHandler")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@5bf61e67
+move_method("getIris1ItConfig", "NeuralNetConfigHandler")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@2c1dc8e
+move_method("getIrisSimpleConfig", "NeuralNetConfigUtil")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@b273a59
+move_method("getIrisMLPSimpleConfig", "NeuralNetConfigurationUtil")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@4e7095ac
+move_method("getIris1ItConfig", "NeuralNetConfigUtil")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@251ebf23
+move_method("getIrisSimpleConfig", "networkConfigurationManager")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@29b732a2
+move_method("getIrisMLPSimpleConfig", "MultiLayerConfiguration")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@1b70203f
+move_method("getIris1ItConfig", "IrisNetworkConfigManager")
+Completed: 74ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@51671b08
+move_method('getLiveIndicator', 'IconTransformUtil')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@15051a0
+move_method('canReuseContent', 'Content')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@1162410a
+move_method('waitForProcess', 'processHandler')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@b09fac1
+move_method("registerToolwindow", "toolWindowManager")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@62df0ff3
+move_method("showRunContent", "executor")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@61019f59
+move_method("toFrontRunContent", "executor")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@62e8f862
+move_method("getSyncPublisher", "myProject")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@26f3d90c
+move_method('showRunContent', 'RunContentDescriptor')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@3c49fab6
+move_method('waitForProcess', 'RunContentDescriptor')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@515f4131
+move_method('getRunContentByDescriptor', 'contentManager')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@74518890
+move_method("waitForProcess", "RunContentDescriptor")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@4c5204af
+move_method("getLiveIndicator", "appropriate_UI_class")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@3f3ddbd9
+move_method("registerToolwindow", "executor")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@14c053c6
+move_method("init", "ToolWindowManagerEx")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@6c2d4cc6
+move_method("registerToolwindow", "toolWindowManager")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@30865a90
+move_method("getSyncPublisher", "myProject")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@6134ac4a
+move_method("findContentDescriptor", "executor")
+Completed: 75Failed to parse json.Failed to parse json.Failed to parse json.Failed to parse json.Failed to parse json.Completed: 76Failed to parse json.Failed to parse json.Failed to parse json.Failed to parse json.Failed to parse json.Completed: 77Failed to parse json.Failed to parse json.Failed to parse json.Failed to parse json.Failed to parse json.Completed: 78ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@71b1a49c
+move_method("setupTrustManager", "mXmppConnectionService")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@73e132e0
+move_method("setupTrustManager", "HttpsURLConnectionSecurityManager")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@3773862a
+move_method("updateProgress", "uiUpdateService")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@2472c7d8
+move_method("FileSizeChecker", "IndependentClass")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@589b028e
+move_method("FileDownloader", "FileDownloadManager")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@22175d4f
+move_method("setupTrustManager", "HttpsURLConnection")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@9fecdf1
+move_method("FileSizeChecker", "FileSizeCheckerClass")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@3b809711
+move_method("FileDownloader", "FileDownloaderClass")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@3b0f7d9d
+move_method('setupTrustManager', 'ConnectionManager')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@236ab296
+move_method('updateProgress', 'UIManager')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@5c84624f
+move_method("init", "message")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@63034ed1
+move_method("checkFileSize", "file")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@232024b9
+move_method("setupTrustManager", "SecureConnectionHandler")
+Completed: 79ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@55a8dc49
+move_method("readString", "LogChannelUtils")
+move_method("write3bLengthAndString", "LogChannelUtils")
+move_method("read3bLengthAndString", "LogChannelUtils")
+move_method("write2bLengthAndString", "LogChannelUtils")
+move_method("read2bLengthAndString", "LogChannelUtils")
+move_method("read2bMap", "LogChannelUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@2a415aa9
+move_method("writeLengthAndString", "StoreChannelUtils")
+move_method("writeChars", "StoreChannelUtils")
+move_method("writeInt", "StoreChannelUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@53cdecf6
+move_method('asArray', 'ArrayUtils')
+move_method('arrayAsCollection', 'ArrayUtils')
+Failed to parse json.ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@71ea1fda
+move_method("arrayAsCollection", "DataUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@62b3df3a
+move_method("asArray", "ArrayUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@420745d7
+move_method("asArray", "ConversionUtils")
+move_method("arrayAsCollection", "ConversionUtils")
+move_method("safeCastLongToInt", "ConversionUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@7e11ab3d
+move_method("readAndFlip", "lowLevelIOUtils")
+move_method("readInt", "lowLevelIOUtils")
+move_method("readBytes", "lowLevelIOUtils")
+move_method("writeInt", "lowLevelIOUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@5fa47fea
+move_method("readString", "ReadableLogChannel")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@2392212b
+move_method("write3bLengthAndString", "WritableLogChannel")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@5b43e173
+move_method("read3bLengthAndString", "ReadableLogChannel")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@28f8e165
+move_method("write2bLengthAndString", "WritableLogChannel")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@545f80bf
+move_method("read2bLengthAndString", "ReadableLogChannel")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@66f66866
+move_method("readCharArray", "java.nio.ByteBuffer")
+move_method("readBytes", "java.nio.ByteBuffer")
+move_method("readAndFlip", "java.nio.channels.ReadableByteChannel")
+Saving results.
+Completed: 80ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@22fa55b2
+move_method('generatePostParams', 'siteSettingsHelper')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@4d666b41
+move_method("getLanguageString", "LanguageUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@6594402a
+move_method("createLanguageDisplayStrings", "language_utils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@30f4b1a6
+move_method("getLanguageString", "LanguageUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@405325cf
+move_method("createLanguageDisplayStrings", "LanguageUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@3e1162e7
+move_method("generatePostParams", "RestClientUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@79c3f01f
+move_method("applySettings", "SiteSettingsService")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@6c2f1700
+move_method("applySettings", "WordPress.getRestClientUtils()")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@350b3a17
+move_method("generatePostParams", "RestClientUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@38600b
+move_method("generatePostParams", "SettingsParameters")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@669d2b1b
+move_method("createLanguageDisplayStrings", "localizationManager")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@721eb7df
+move_method("getLanguageString", "LanguageHandler")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@1ea9f009
+move_method("applySettings", "mBlog")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@5d52e3ef
+move_method("generatePostParams", "mBlog")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@5298dead
+move_method("initPreferences", "UIUtility")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@553f3b6e
+move_method("getLanguageString", "LanguageUtils")
+Completed: 81ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@4c7a078
+move_method("addJUnit4Library", "JUnit4LibraryManager")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@4e406694
+move_method("addBundledJarToRoots", "JarFileHandler")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@5ab9b447
+move_method("addJarsToRootsAndImportClass", "JarAndClassImportManager")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@76f10035
+move_method("addJarToRoots", "JarManager")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@4f8caaf3
+move_method("addJarsToRoots", "JarFilesManager")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@2b50150
+move_method("ensureAnnotationsJarInPath", "AnnotationsJarHandlingClass")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@15b986cd
+move_method("locateAnnotationsJar", "JarFileManager")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@6bb7cce7
+move_method("isAnnotationsJarInPath", "AnnotationsJarPathChecker")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@41c62850
+move_method("registerFixes", "JavaPsiFacade")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@6b530eb9
+move_method("addJarsToRootsAndImportClass", "LibraryService")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@328572f0
+move_method("addJarsToRoots", "ModuleLibraryManager")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@678040b3
+move_method("registerFixes", "classB")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@17f460bb
+move_method("addJUnit4Library", "B")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@64a1923a
+move_method("addJarsToRootsAndImportClass", "ModuleManager")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@7d2a6eac
+move_method("addJarsToRoots", "module")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@18ca3c62
+move_method("addJarToRoots", "Module")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@2c0f7678
+move_method("ensureAnnotationsJarInPath", "module")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@44d70181
+move_method("locateAnnotationsJar", "module")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@6aa648b9
+move_method("isAnnotationsJarInPath", "Module")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@23c650a3
+move_method("registerFixes", "targetClass")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@742d4e15
+move_method('addJUnit4Library', 'JUnitOperations')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@88a8218
+move_method('getJUnit4JarPaths', 'JUnitLibraryManager')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@50b1f030
+move_method('addJarsToRootsAndImportClass', 'project')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@4163f1cd
+move_method('ensureAnnotationsJarInPath', 'AnnotationsManager')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@5fa05212
+move_method("locateAnnotationsJar", "Module")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@3e681bc
+move_method("isAnnotationsJarInPath", "module")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@5c09d180
+move_method("addJUnit4Library", "Module")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@23aae55
+move_method("getJUnit4JarPaths", "JUnit4Util")
+Completed: 82ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@5f574cc2
+move_method("visitTable", "Table")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@680bddf5
+move_method("visitAliasedRelation", "AliasedRelation")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@7a9c84a5
+move_method("visitSampledRelation", "SampledRelation")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@2d83c5a5
+move_method("visitJoin", "Join")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@48d7ad8b
+move_method("visitTableSubquery", "TableSubquery")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@7e053511
+move_method("distinct", "AggregationNode")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@60222fd8
+move_method("initializePlanBuilder", "PlanBuilder")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@53bf7094
+move_method("planCrossJoinUnnest", "Unnest")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@26f1249d
+move_method("processAndCoerceIfNecessary", "Relation")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@710b30ef
+move_method("addConstantSampleWeight", "RelationPlan")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@a68df9
+move_method("appendProjections", "PlanBuilder")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@28b576a9
+move_method("appendSemiJoins", "PlanBuilder")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@7cf7aee
+move_method("appendSemiJoin", "PlanBuilder")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@2f6bbeb0
+move_method("distinct", "AggregationNode")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@1b1637e1
+move_method("visitJoin", "targetObject")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@18151a14
+move_method("visitTable", "TablePlanner")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@64711bf2
+move_method("visitUnion", "UnionNodeHandler")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@169da7f2
+move_method("visitTable", "Analysis")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@3c1e23ff
+move_method("visitSampledRelation", "Analysis")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@ceb4bd2
+move_method("visitJoin", "Analysis")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@60297f36
+move_method("visitTableSubquery", "Analysis")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@1bf0f6f6
+move_method("visitUnnest", "Analysis")
+Completed: 83ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@56bc3fac
+move_method('toStringTree', 'Tree')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@df4b72
+move_method('getNodeText', 'Tree')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@2ba45490
+move_method('isAncestorOf', 'Tree')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@37ff4054
+move_method('getRootOfSubtreeEnclosingRegion', 'Tree')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@894858
+move_method('findNodeSuchThat', 'Tree')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@7af707e0
+move_method("writePS", "FileHandler")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@737edcfa
+move_method("getPS", "TreePostScriptGenerator")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@3ecedf21
+move_method("toStringTree", "TreeSerializer")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@74cf8b28
+move_method('writePS', 'FileUtils')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@36c54a56
+move_method('getRootOfSubtreeEnclosingRegion', 'ParserRuleContext')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@3359c978
+move_method("stripChildrenOutOfRange", "ParserRuleContext")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@7ba63fe5
+move_method("findNodeSuchThat", "Tree")
+Failed to parse json.ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@73386d72
+move_method("getPS", "PSGenerator")
+move_method("writePS", "PSGenerator")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@6f330eb9
+move_method("toStringTree", "TreeStringConverter")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@125c082e
+move_method("findAllNodes", "TreeNavigator")
+move_method("descendants", "TreeNavigator")
+move_method("getRootOfSubtreeEnclosingRegion", "TreeNavigator")
+move_method("stripChildrenOutOfRange", "TreeNavigator")
+move_method("findNodeSuchThat", "TreeNavigator")
+Completed: 84ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@584f5497
+move_method("getPS", "TreePostScriptGenerator")
+move_method("writePS", "TreePostScriptGenerator")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@68ace111
+move_method("getNodeText", "t")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@1f9d6c7b
+move_method("findAllNodes", "ParseTree")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@6df20ade
+move_method("getDescendants", "ParseTree")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@4fbb001b
+move_method("getRootOfSubtreeEnclosingRegion", "ParseTree")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@4010d494
+move_method("getPS", "TreePostScriptGenerator")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@341a8659
+move_method("writePS", "fileWriter")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@4943defe
+move_method("getNodeText", "Tree")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@5eefa415
+move_method("getPS", "Tree")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@181d7f28
+move_method("writePS", "Tree")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@78d50a3c
+move_method("toStringTree", "Tree")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@2fb69ff6
+move_method("getNodeText", "Tree")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@cda4919
+move_method("getChildren", "Tree")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@7f4d9395
+move_method("getAncestors", "Tree")
+Failed to parse json.ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@2f19f2aa
+move_method("getPS", "TreePostScriptGenerator")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@344b8190
+move_method("writePS", "FileIOHandler")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@6a078481
+move_method("getNodeText", "Token")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@79c5636f
+move_method("getAncestors", "Tree")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@1929425f
+move_method("isAncestorOf", "Tree")
+Completed: 85ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@718607eb
+move_method('save', 'FileOperations')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@27f3b6d6
+move_method('inspect', 'GuiHandler')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@757f675c
+move_method('toStringTree', 'treeConverter')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@2617f816
+move_method('depth', 'TreeOperations')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@676f0a60
+move_method("inspect", "TreeViewer")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@5d10455d
+move_method("save", "Trees")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@535b8c24
+move_method("inspect", "UIRelatedClass")
+move_method("save", "UIRelatedClass")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@4a951911
+move_method("inspect", "TreeViewer")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@55b62629
+move_method("save", "FileManager")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@a53bb6f
+move_method("toStringTree", "TreeFormatter")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@5e63cad
+move_method("inspect", "TreeViewer")
+move_method("save", "Trees")
+move_method("toStringTree", "Trees")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@6759f091
+move_method("toString", "stringUtils")
+Completed: 86ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@33a053d
+move_method("save", "FileHandler")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@14a54ef6
+move_method("inspect", "IRProvider")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@20921b9b
+move_method("toStringTree", "Stringifier")
+move_method("toString", "Stringifier")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@867ba60
+move_method("inspect", "TreeDisplayManager")
+move_method("save", "TreeDisplayManager")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@5ba745bc
+move_method("toString", "TreeRepresentationManager")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@654b72c0
+move_method("inspect", "TreeViewer")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@55b5e331
+move_method("save", "Trees")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@6034e75d
+move_method("toStringTree", "Trees")
+Failed to parse json.ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@15fc442
+move_method("save", "FileHandler")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@3f3c7bdb
+move_method("inspect", "TreeViewer")
+Completed: 87ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@456abb66
+move_method("getPS", "TreePostScriptGenerator")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@2a3a299
+move_method("writePS", "fileHandler")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@7da10b5b
+move_method("getNodeText", "Tree")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@219f4597
+move_method("isAncestorOf", "Tree")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@31be6b49
+move_method('writePS', 'FileWriterService')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@2e16b08d
+move_method("toStringTree", "Parser")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@5b989dc7
+move_method("_findAllNodes", "TreeTraversal")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@70d8de
+move_method("stripChildrenOutOfRange", "TreeManipulation")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@42561fba
+move_method('writePS', 'FileUtils')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@595f4da5
+move_method('findAllNodes', 'TreeManager')
+move_method('_findAllNodes', 'TreeManager')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@46b695ec
+move_method('toStringTree', 'TreeStringRepresentation')
+Failed to parse json.ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@408613cc
+move_method("getPS", "TreePostScriptGenerator")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@325f7fa9
+move_method("writePS", "fileWriter")
+Completed: 88ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@11ce2e22
+move_method("inspect", "VisualizationUtility")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@63a5d002
+move_method("save", "FileManagement")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@13cda7c9
+move_method("inspect", "UIHandler")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@5aa6202e
+move_method("save", "FileManager")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@3af9aa66
+move_method("inspect", "TreeViewer")
+move_method("save", "Trees")
+move_method("toStringTree", "Trees")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@771158fb
+move_method("inspect", "TreeUtils")
+move_method("save", "TreeUtils")
+move_method("toStringTree", "TreeUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@91c4a3f
+move_method("toString", "ParseUtils")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@62d0ac62
+move_method('inspect', 'TreeVisualizer')
+move_method('save', 'TreeSerializer')
+move_method('toStringTree', 'TreeVisualizer')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@150d80c4
+move_method("depth", "ContextAnalyzer")
+move_method("isEmpty", "ContextAnalyzer")
+Failed to parse json.Completed: 89ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@6826c41e
+move_method("getPS", "TreePostScriptGenerator")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@3003697
+move_method("writePS", "FileOperations")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@64d43929
+move_method("getNodeText", "Tree")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@1d269ed7
+move_method("_findAllNodes", "ParseTree")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@437ebf59
+move_method("getRootOfSubtreeEnclosingRegion", "ParserRuleContext")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@41c89d2f
+move_method("stripChildrenOutOfRange", "ParserRuleContext")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@410e94e
+move_method("getPS", "TreePostScriptGenerator")
+move_method("writePS", "TreePostScriptGenerator")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@2d691f3d
+move_method("getNodeText", "NodeOperations")
+move_method("toStringTree", "NodeOperations")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@1bdbf9be
+move_method('findAllTokenNodes','NodeExtractor')
+move_method('findAllRuleNodes','NodeExtractor')
+move_method('findAllNodes','NodeExtractor')
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@1e7f2e0f
+move_method("getPS", "TreePostScriptGenerator")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@1da6ee17
+move_method("writePS", "FileOperations")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@78d39a69
+move_method("toStringTree", "TreeToStringConverter")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@3c818ac4
+move_method("getNodeText", "TreeDataExtractor")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@5b69d40d
+move_method("isAncestorOf", "Tree")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@71154f21
+move_method("getPS", "TreePostScriptGenerator")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@15f193b8
+move_method("writePS", "TreePostScriptGenerator")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@2516fc68
+move_method("toStringTree", "ParserRuleContext")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@304a9d7b
+move_method("getNodeText", "Tree")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@6bfdb014
+move_method("getNodeText", "Tree")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@72889280
+move_method("getChildren", "Tree")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@606fc505
+move_method("getAncestors", "Tree")
+ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@4aa3d36
+move_method("isAncestorOf", "Tree")
+Saving results.
+Completed: 90ai.grazie.api.gateway.client.api.llm.LlmAPIClient$V5$chat$$inlined$map$1@2d140a7
+move_method("inspect", "TreeViewer")
