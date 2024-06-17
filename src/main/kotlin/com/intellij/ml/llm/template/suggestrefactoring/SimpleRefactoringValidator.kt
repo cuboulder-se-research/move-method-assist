@@ -1,6 +1,6 @@
 package com.intellij.ml.llm.template.suggestrefactoring
 
-import com.intellij.ml.llm.template.intentions.ApplyExtractFunctionTransformationIntention.Companion.selectionPriority
+import com.intellij.ml.llm.template.intentions.ApplySuggestRefactoringAgentIntention.Companion.selectionPriority
 import com.intellij.ml.llm.template.models.LLMBaseResponse
 import com.intellij.ml.llm.template.models.LLMRequestProvider
 import com.intellij.ml.llm.template.refactoringobjects.AbstractRefactoring

@@ -49,7 +49,7 @@ import java.util.concurrent.atomic.AtomicReference
 
 
 @Suppress("UnstableApiUsage")
-abstract class ApplySuggestRefactoringInteractiveIntention(
+abstract class ApplySuggestRefactoringAgentIntention(
     private val efLLMRequestProvider: LLMRequestProvider = GPTExtractFunctionRequestProvider
 ) : IntentionAction {
     private val MAX_ITERS: Int = 1

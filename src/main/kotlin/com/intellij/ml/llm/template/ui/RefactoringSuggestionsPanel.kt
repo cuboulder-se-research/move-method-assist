@@ -52,14 +52,15 @@ import javax.swing.ListSelectionModel
 import javax.swing.table.DefaultTableModel
 
 
-class ExtractFunctionPanel(
+open class RefactoringSuggestionsPanel(
     project: Project,
     editor: Editor,
     file: PsiFile,
     candidates: List<AbstractRefactoring>,
     codeTransformer: CodeTransformer,
     highlighter: AtomicReference<ScopeHighlighter>,
-    efTelemetryDataManager: EFTelemetryDataManager? = null
+    efTelemetryDataManager: EFTelemetryDataManager? = null,
+    val button_name: String
 ) : Observable() {
     val myExtractFunctionsCandidateTable: JBTable
     private val myExtractFunctionsScrollPane: JBScrollPane
@@ -95,7 +96,7 @@ class ExtractFunctionPanel(
         return candidateSignatureMap
     }
 
-    private fun buildRefactoringCandidatesTable(
+    open fun buildRefactoringCandidatesTable(
         tableModel: DefaultTableModel,
         candidateSignatureMap: Map<AbstractRefactoring, String>
     ): JBTable {
@@ -212,7 +213,7 @@ class ExtractFunctionPanel(
             }
 
             row {
-                button(LLMBundle.message("ef.candidates.popup.extract.function.button.title"), actionListener = {
+                button(button_name, actionListener = {
                     doRefactoring(myExtractFunctionsCandidateTable.selectedRow)
                 }).comment(
                     LLMBundle.message(
