@@ -26,9 +26,9 @@ class RenameVariableFactory {
             val oldName = getStringFromParam(params[0])
             val functionPsi: PsiElement? =
                 runReadAction {
-                    PsiUtils.getParentFunctionOrNull(editor, language = file.language)?:
-                    PsiUtils.getParentClassOrNull(editor, language = file.language)?:
                     file.getChildOfType<PsiClass>()
+//                    PsiUtils.getParentFunctionOrNull(editor, language = file.language)?:
+//                    PsiUtils.getParentClassOrNull(editor, language = file.language)?:
                 }
 
             val renameObj = RenameVariableFactory.fromOldNewName(project, functionPsi, oldName, newName)

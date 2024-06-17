@@ -34,9 +34,10 @@ class StringBuilderRefactoringFactory {
 
             val outerPsi: PsiElement? =
                 runReadAction {
-                    PsiUtils.getParentFunctionOrNull(editor, language = file.language)?:
-                    PsiUtils.getParentClassOrNull(editor, language = file.language)?:
                     file.getChildOfType<PsiClass>()
+//                    PsiUtils.getParentFunctionOrNull(editor, language = file.language)?:
+//                    PsiUtils.getParentClassOrNull(editor, language = file.language)?:
+
                 }
             val varPsiElements = PsiUtils.getVariableAndReferencesFromPsi(outerPsi, varName)
 

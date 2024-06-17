@@ -1,5 +1,6 @@
 package com.intellij.ml.llm.template.suggestrefactoring
 
+import com.intellij.ml.llm.template.intentions.ApplyExtractFunctionTransformationIntention.Companion.selectionPriority
 import com.intellij.ml.llm.template.models.LLMBaseResponse
 import com.intellij.ml.llm.template.models.LLMRequestProvider
 import com.intellij.ml.llm.template.refactoringobjects.AbstractRefactoring
@@ -36,11 +37,12 @@ class SimpleRefactoringValidator(
 
         val time = measureTimeMillis {
 
-            val subList = if (refactoringSuggestion.improvements.size > limit) {
-                refactoringSuggestion.improvements.subList(0, limit)
+            val improvements = refactoringSuggestion.improvements.sortedBy { selectionPriority(it, this) }
+            val subList = if (improvements.size > limit) {
+                improvements.subList(0, limit)
             } else{
-                refactoringSuggestion.improvements
-            }
+                improvements
+            }.sortedBy { isExtractMethod(it) }
             for (suggestion in subList)
                     {
                         val refFactory = when {

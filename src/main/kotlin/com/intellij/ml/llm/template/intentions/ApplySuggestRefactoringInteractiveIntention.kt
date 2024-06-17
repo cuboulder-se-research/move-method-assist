@@ -13,6 +13,7 @@ import com.intellij.ml.llm.template.refactoringobjects.AbstractRefactoring
 import com.intellij.ml.llm.template.refactoringobjects.extractfunction.EFCandidate
 import com.intellij.ml.llm.template.refactoringobjects.extractfunction.ExtractMethod
 import com.intellij.ml.llm.template.suggestrefactoring.AbstractRefactoringValidator
+import com.intellij.ml.llm.template.suggestrefactoring.AtomicSuggestion
 import com.intellij.ml.llm.template.suggestrefactoring.SimpleRefactoringValidator
 import com.intellij.ml.llm.template.telemetry.*
 import com.intellij.ml.llm.template.ui.ExtractFunctionPanel
@@ -62,6 +63,10 @@ abstract class ApplySuggestRefactoringInteractiveIntention(
     private var apiResponseCache = mutableMapOf<String, MutableMap<String, LLMBaseResponse>>()
 
     var prompter: MethodPromptBase = ExtractMethodPrompt();
+
+//    private val selectionPritioty = mapOf(
+//
+//    )
 
     init {
         codeTransformer.addObserver(EFLoggerObserver(logger))
@@ -132,7 +137,7 @@ abstract class ApplySuggestRefactoringInteractiveIntention(
                     for (iter in 1..MAX_ITERS){
                         val now = System.nanoTime()
                         logger.info(Companion.AGENT_HEADER)
-                        logger.info("Asking for refactoring suggestions!")
+                        logger.info("Asking for refactoring suggestions! ($iter/$MAX_ITERS)")
 
                         if (iter!=1)
                             setFunctionSrc(editor)
@@ -183,9 +188,7 @@ abstract class ApplySuggestRefactoringInteractiveIntention(
     }
 
     private suspend fun processLLMResponse(response: LLMBaseResponse, project: Project, editor: Editor, file: PsiFile) {
-        delay(2000)
-        val limit = 3
-        logLLMResponse(response, limit)
+
 //        delay(3000)
         val now = System.nanoTime()
 
@@ -197,6 +200,10 @@ abstract class ApplySuggestRefactoringInteractiveIntention(
             functionSrc,
             apiResponseCache
         )
+
+        delay(2000)
+        val limit = 3
+        logLLMResponse(response, limit, validator)
 //        val efSuggestionList = validator.getExtractMethodSuggestions(llmResponse.text)
 //        val renameSuggestions = validator.getRenamveVariableSuggestions(llmResponse.text)
         logger.info(AGENT_HEADER)
@@ -257,7 +264,10 @@ abstract class ApplySuggestRefactoringInteractiveIntention(
         }
     }
 
-    private fun logLLMResponse(response: LLMBaseResponse, limit: Int) {
+
+    private fun logLLMResponse(response: LLMBaseResponse,
+                               limit: Int,
+                               validator: AbstractRefactoringValidator) {
         logger.info(LLM_HEADER)
         for (suggestion in response.getSuggestions()){
 //            logger.info(suggestion.)
@@ -267,8 +277,13 @@ abstract class ApplySuggestRefactoringInteractiveIntention(
             } else{
                 improvements.size
             }
-            for (atomicSuggestion in
-                improvements.subList(0,realLimit).withIndex()){
+            val improvementsSorted =
+                improvements
+                    .sortedBy { selectionPriority(it, validator) }
+                    .subList(0, realLimit)
+                    .sortedBy { validator.isExtractMethod(it) }
+                    .withIndex()
+            for (atomicSuggestion in improvementsSorted){
                 logger.info("${atomicSuggestion.index+1}: ${atomicSuggestion.value.shortDescription}")
                 logger.info("Suggestion: ${atomicSuggestion.value.longDescription}".prependIndent("    "))
                 logger.info("\n")
@@ -391,13 +406,13 @@ abstract class ApplySuggestRefactoringInteractiveIntention(
         val myHighlighter = AtomicReference(ScopeHighlighter(editor))
         var count = 1
         for (refCandidate in validRefactoringCandidates.sortedBy { it is ExtractMethod }){
+                val scopeHighlighter: ScopeHighlighter = myHighlighter.get()
                 invokeLater {
                     editor.scrollingModel.scrollTo(
                         LogicalPosition(editor.document.getLineNumber(refCandidate.getStartOffset()), 0),
                         ScrollType.CENTER
                     )
 
-                    val scopeHighlighter: ScopeHighlighter = myHighlighter.get()
                     scopeHighlighter.dropHighlight()
                     val range = TextRange(refCandidate.getStartOffset(), refCandidate.getEndOffset())
                     scopeHighlighter.highlight(com.intellij.openapi.util.Pair(range, listOf(range)))
@@ -406,11 +421,12 @@ abstract class ApplySuggestRefactoringInteractiveIntention(
                     editor.selectionModel.setSelection(refCandidate.getStartOffset(), refCandidate.getStartOffset())
                 }
                 logger.info("$count. Executing refactoring: ${refCandidate.getRefactoringPreview()}".prependIndent("     "))
-                delay(2_000)
+                delay(3_000)
                 invokeLater {
                     refCandidate.performRefactoring(project, editor, file)
+                    scopeHighlighter.dropHighlight()
                 }
-                delay(2_000)
+                delay(3_000)
                 count+=1
 
         }
@@ -419,5 +435,15 @@ abstract class ApplySuggestRefactoringInteractiveIntention(
     companion object {
         private const val AGENT_HEADER = "\n\n************************** Refactoring AGENT **************************"
         private const val LLM_HEADER = "\n\n******************************** LLM ********************************"
+        fun selectionPriority(
+            atomicSuggestion: AtomicSuggestion,
+            validator: AbstractRefactoringValidator): Int{
+            if (validator.isFor2While(atomicSuggestion) || validator.isEnhacedForRefactoring(atomicSuggestion)){
+                return 10;
+            }
+            if (validator.isExtractMethod(atomicSuggestion))
+                return 1;
+            return 5;
+        }
     }
 }
