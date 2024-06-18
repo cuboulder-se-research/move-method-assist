@@ -259,7 +259,7 @@ class MoveMethodTest: LightPlatformCodeInsightTestCase() {
                 "        objA.objB.m4(objA);\n" +
                 "    }"))
     }
-    
+
     fun testMakeMethodStatic(){
         configureByFile("/testdata/HelloWorld.java")
         val lineNumber = 13

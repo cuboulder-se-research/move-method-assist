@@ -52,7 +52,8 @@ class EnhancedForTest: LightPlatformCodeInsightTestCase() {
 
 
         functionPsi!!.accept(visitor)
-        functionPsi!!.children[8].children[2].accept(visitor)
+        val x = functionPsi!!.children[8].children[2]
+        x.accept(visitor)
         assert(problemsHolder.hasResults())
         val p0 = problemsHolder.results[0]!!
         WriteCommandAction.runWriteCommandAction(project,

@@ -123,13 +123,13 @@ public class KafkaAdminClientTest {
 
     private int foo1() {
         int x = 0;
-        return x
+        return x;
     }
 
     private int foo2()
     {
         int x = 0;
-        return x
+        return x;
     }
 
     private int foo3()
@@ -152,6 +152,6 @@ public class KafkaAdminClientTest {
             int b,
             int c
     ) {
-        return a + b + c
+        return a + b + c;
     }
 }
