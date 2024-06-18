@@ -1,6 +1,5 @@
 package com.intellij.ml.llm.template.intentions
 
-import com.google.gson.JsonSyntaxException
 import com.intellij.codeInsight.intention.IntentionAction
 import com.intellij.codeInsight.unwrap.ScopeHighlighter
 import com.intellij.ml.llm.template.LLMBundle
@@ -32,7 +31,6 @@ import com.intellij.openapi.ui.popup.LightweightWindowEvent
 import com.intellij.psi.PsiClass
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
-import com.intellij.psi.PsiMethod
 import com.intellij.ui.awt.RelativePoint
 import kotlinx.coroutines.runBlocking
 import org.jetbrains.kotlin.util.capitalizeDecapitalize.toLowerCaseAsciiOnly
@@ -43,7 +41,7 @@ import java.util.concurrent.atomic.AtomicReference
 
 
 @Suppress("UnstableApiUsage")
-abstract class ApplyExtractFunctionTransformationIntention(
+abstract class ApplySuggestRefactoringInteractiveIntention(
     private val efLLMRequestProvider: LLMRequestProvider = GPTExtractFunctionRequestProvider
 ) : IntentionAction {
     private val logger = Logger.getInstance("#com.intellij.ml.llm")

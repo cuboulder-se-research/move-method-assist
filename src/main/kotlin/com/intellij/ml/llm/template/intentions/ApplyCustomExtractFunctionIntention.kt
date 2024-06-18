@@ -6,7 +6,7 @@ import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.Messages
 
-class ApplyCustomExtractFunctionIntention : ApplyExtractFunctionTransformationIntention() {
+class ApplyCustomExtractFunctionIntention : ApplySuggestRefactoringInteractiveIntention() {
 
     init {
         prompter = ExtractMethodPrompt();

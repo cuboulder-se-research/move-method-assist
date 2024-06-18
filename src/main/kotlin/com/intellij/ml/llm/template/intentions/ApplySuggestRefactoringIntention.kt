@@ -2,14 +2,13 @@ package com.intellij.ml.llm.template.intentions
 
 import com.intellij.ml.llm.template.LLMBundle
 import com.intellij.ml.llm.template.models.grazie.GrazieGPT4RequestProvider
-import com.intellij.ml.llm.template.models.ollama.MistralChatRequestProvider
 import com.intellij.ml.llm.template.prompts.SuggestRefactoringPrompt
 
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.Messages
 
-class ApplySuggestRefactoringIntention: ApplyExtractFunctionTransformationIntention(GrazieGPT4RequestProvider) {
+class ApplySuggestRefactoringIntention: ApplySuggestRefactoringInteractiveIntention(GrazieGPT4RequestProvider) {
     init {
         prompter = SuggestRefactoringPrompt();
     }
