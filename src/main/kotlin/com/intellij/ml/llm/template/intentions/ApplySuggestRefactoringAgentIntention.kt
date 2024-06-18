@@ -1,16 +1,16 @@
 package com.intellij.ml.llm.template.intentions
 
-import com.intellij.codeInsight.intention.IntentionAction
 import com.intellij.codeInsight.unwrap.ScopeHighlighter
 import com.intellij.ml.llm.template.LLMBundle
 import com.intellij.ml.llm.template.models.GPTExtractFunctionRequestProvider
 import com.intellij.ml.llm.template.models.LLMBaseResponse
 import com.intellij.ml.llm.template.models.LLMRequestProvider
+import com.intellij.ml.llm.template.models.grazie.GrazieGPT4RequestProvider
+import com.intellij.ml.llm.template.models.openai.OpenAiChatMessage
 import com.intellij.ml.llm.template.models.sendChatRequest
 import com.intellij.ml.llm.template.prompts.ExtractMethodPrompt
 import com.intellij.ml.llm.template.prompts.MethodPromptBase
 import com.intellij.ml.llm.template.refactoringobjects.AbstractRefactoring
-import com.intellij.ml.llm.template.refactoringobjects.extractfunction.EFCandidate
 import com.intellij.ml.llm.template.refactoringobjects.extractfunction.ExtractMethod
 import com.intellij.ml.llm.template.suggestrefactoring.AbstractRefactoringValidator
 import com.intellij.ml.llm.template.suggestrefactoring.AtomicSuggestion
@@ -24,94 +24,37 @@ import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.editor.LogicalPosition
 import com.intellij.openapi.editor.ScrollType
-import com.intellij.openapi.progress.ProgressIndicator
-import com.intellij.openapi.progress.ProgressManager
-import com.intellij.openapi.progress.Task
-import com.intellij.openapi.progress.impl.BackgroundableProcessIndicator
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.popup.JBPopupFactory
 import com.intellij.openapi.ui.popup.JBPopupListener
 import com.intellij.openapi.ui.popup.LightweightWindowEvent
 import com.intellij.openapi.util.TextRange
-import com.intellij.psi.PsiClass
-import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
 import com.intellij.ui.awt.RelativePoint
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.runBlocking
-import org.jetbrains.kotlin.psi.psiUtil.endOffset
 import org.jetbrains.kotlin.psi.psiUtil.startOffset
-import org.jetbrains.kotlin.util.capitalizeDecapitalize.toLowerCaseAsciiOnly
 import java.awt.Point
 import java.awt.Rectangle
-import java.util.concurrent.TimeUnit
 import java.util.concurrent.atomic.AtomicReference
 
 
 @Suppress("UnstableApiUsage")
-abstract class ApplySuggestRefactoringAgentIntention(
-    private val efLLMRequestProvider: LLMRequestProvider = GPTExtractFunctionRequestProvider
-) : IntentionAction {
-    private val MAX_ITERS: Int = 1
-    private val logger = Logger.getInstance("#com.intellij.ml.llm")
-    private val codeTransformer = CodeTransformer()
-    private val telemetryDataManager = EFTelemetryDataManager()
-    private var llmResponseTime = 0L
-    private var functionSrc = ""
-    private lateinit var functionPsiElement: PsiElement
-    private var llmResponseCache = mutableMapOf<String, LLMBaseResponse>()
-    private var apiResponseCache = mutableMapOf<String, MutableMap<String, LLMBaseResponse>>()
+class ApplySuggestRefactoringAgentIntention(
+    private val efLLMRequestProvider: LLMRequestProvider = GrazieGPT4RequestProvider
+) : ApplySuggestRefactoringIntention(efLLMRequestProvider) {
+    private val MAX_ITERS: Int = 2
     private val performedRefactorings = mutableListOf<AbstractRefactoring>()
+    private val logger = Logger.getInstance(ApplySuggestRefactoringAgentIntention::class.java)
 
-    var prompter: MethodPromptBase = ExtractMethodPrompt();
-
-//    private val selectionPritioty = mapOf(
-//
-//    )
-
-    init {
-        codeTransformer.addObserver(EFLoggerObserver(logger))
-        codeTransformer.addObserver(TelemetryDataObserver())
+    override fun getText(): String {
+        return LLMBundle.message("intentions.apply.suggest.refactoring.agent.family.name")
     }
 
-    override fun getFamilyName(): String = LLMBundle.message("intentions.apply.transformation.family.name")
+    override fun getFamilyName(): String = LLMBundle.message("intentions.apply.suggest.refactoring.agent.family.name")
 
     override fun isAvailable(project: Project, editor: Editor?, file: PsiFile?): Boolean {
         return editor != null && file != null
-    }
-
-    override fun invoke(project: Project, editor: Editor?, file: PsiFile?) {
-        if (editor == null || file == null) return
-        val namedElement =
-            PsiUtils.getParentFunctionOrNull(editor, file.language)
-                ?: PsiUtils.getParentClassOrNull(editor, file.language)
-        val selectionModel = editor.selectionModel
-
-        if (namedElement != null) {
-            functionPsiElement = namedElement
-
-            telemetryDataManager.newSession()
-            val codeSnippet = namedElement.text
-            selectionModel.setSelection(namedElement.startOffset, namedElement.endOffset)
-            val (startLineNumber, withLineNumbers) = setFunctionSrc(editor)
-
-
-            val bodyLineStart = when (namedElement) {
-                is PsiClass -> PsiUtils.getClassBodyStartLine(namedElement)
-                else -> PsiUtils.getFunctionBodyStartLine(namedElement)
-            }
-            telemetryDataManager.addHostFunctionTelemetryData(
-                EFTelemetryDataUtils.buildHostFunctionTelemetryData(
-                    codeSnippet = codeSnippet,
-                    lineStart = startLineNumber,
-                    bodyLineStart = bodyLineStart,
-                    language = file.language.id.toLowerCaseAsciiOnly()
-                )
-            )
-
-            invokeLlm(withLineNumbers, project, editor, file)
-        }
-
     }
 
     private fun setFunctionSrc(
@@ -125,49 +68,42 @@ abstract class ApplySuggestRefactoringAgentIntention(
         }
     }
 
-    private fun invokeLlm(text: String, project: Project, editor: Editor, file: PsiFile) {
+    override fun invokeLLM(
+        project: Project,
+        messageList: MutableList<OpenAiChatMessage>,
+        editor: Editor,
+        file: PsiFile
+    ) {
+        for (iter in 1..MAX_ITERS) {
+            val now = System.nanoTime()
+            logger.info(AGENT_HEADER)
+            logger.info("Asking for refactoring suggestions! ($iter/$MAX_ITERS)")
 
+            if (iter != 1)
+                setFunctionSrc(editor)
 
+            val newMessageList = prompter.getPrompt(functionSrc)
 
-        logger.debug("Method/Class:\n$functionSrc")
-
-        val task = object : Task.Backgroundable(
-            project, LLMBundle.message("intentions.request.extract.function.background.process.title")
-        ) {
-            override fun run(indicator: ProgressIndicator) {
-                    for (iter in 1..MAX_ITERS){
-                        val now = System.nanoTime()
-                        logger.info(Companion.AGENT_HEADER)
-                        logger.info("Asking for refactoring suggestions! ($iter/$MAX_ITERS)")
-
-                        if (iter!=1)
-                            setFunctionSrc(editor)
-
-                        val messageList = prompter.getPrompt(functionSrc)
-
-                        val cacheKey = functionSrc + iter
-                        val response = llmResponseCache.get(cacheKey) ?: sendChatRequest(
-                            project, messageList, efLLMRequestProvider.chatModel, efLLMRequestProvider, temperature = 0.5
-                        )
-                        if (response != null) {
-                            llmResponseCache.get(cacheKey) ?: llmResponseCache.put(cacheKey, response)
-                            llmResponseTime = System.nanoTime() - now
-                            if (response.getSuggestions().isEmpty()) {
-//                                showEFNotification(
-//                                    project,
-//                                    LLMBundle.message("notification.extract.function.with.llm.no.suggestions.message"),
-//                                    NotificationType.INFORMATION
-//                                )
-                            } else {
-                                runBlocking { processLLMResponse(response, project, editor, file) }
-                            }
-                        }
-                    }
-
-                    showExecutedRefactorings(project, editor, file)
+            val cacheKey = functionSrc + iter
+            val response = llmResponseCache.get(cacheKey) ?: sendChatRequest(
+                project, newMessageList, efLLMRequestProvider.chatModel, efLLMRequestProvider, temperature = 0.5
+            )
+            if (response != null) {
+                llmResponseCache.get(cacheKey) ?: llmResponseCache.put(cacheKey, response)
+                llmResponseTime = System.nanoTime() - now
+                if (response.getSuggestions().isEmpty()) {
+    //                                showEFNotification(
+    //                                    project,
+    //                                    LLMBundle.message("notification.extract.function.with.llm.no.suggestions.message"),
+    //                                    NotificationType.INFORMATION
+    //                                )
+                } else {
+                    runBlocking { processLLMResponse(response, project, editor, file) }
+                }
             }
         }
-        ProgressManager.getInstance().runProcessWithProgressAsynchronously(task, BackgroundableProcessIndicator(task))
+
+        showExecutedRefactorings(project, editor, file)
     }
 
     private fun showExecutedRefactorings(project: Project, editor: Editor, file: PsiFile) {
@@ -178,26 +114,8 @@ abstract class ApplySuggestRefactoringAgentIntention(
         }
     }
 
-    /*
-    this function filters for valid extract methods candidates.
-    Removes whole body, one-liners, invalid selections
-     */
-    private fun filterCandidates(
-        candidates: List<EFCandidate>,
-        candidatesApplicationTelemetryObserver: EFCandidatesApplicationTelemetryObserver,
-        editor: Editor,
-        file: PsiFile
-    ): List<EFCandidate> {
-        val filteredCandidates = candidates.filter {
-            isCandidateExtractable(
-                it, editor, file, listOf(EFLoggerObserver(logger), candidatesApplicationTelemetryObserver)
-            )
-        }.sortedByDescending { it.lineEnd - it.lineStart }
 
-        return filteredCandidates
-    }
-
-    private suspend fun processLLMResponse(response: LLMBaseResponse, project: Project, editor: Editor, file: PsiFile) {
+    override fun processLLMResponse(response: LLMBaseResponse, project: Project, editor: Editor, file: PsiFile) {
 
 //        delay(3000)
         val now = System.nanoTime()
@@ -211,7 +129,7 @@ abstract class ApplySuggestRefactoringAgentIntention(
             apiResponseCache
         )
 
-        delay(2000)
+        Thread.sleep(2000)
         val limit = 3
         logLLMResponse(response, limit, validator)
 //        val efSuggestionList = validator.getExtractMethodSuggestions(llmResponse.text)
@@ -369,43 +287,6 @@ abstract class ApplySuggestRefactoringAgentIntention(
 
     override fun startInWriteAction(): Boolean = false
 
-    private fun sendTelemetryData() {
-        val efTelemetryData = telemetryDataManager.getData()
-        if (efTelemetryData != null) {
-            TelemetryDataObserver().update(EFNotification(efTelemetryData))
-        }
-    }
-
-    private fun buildProcessingTimeTelemetryData(llmResponseTime: Long, pluginProcessingTime: Long) {
-        val llmResponseTimeMillis = TimeUnit.NANOSECONDS.toMillis(llmResponseTime)
-        val pluginProcessingTimeMillis = TimeUnit.NANOSECONDS.toMillis(pluginProcessingTime)
-        val efTelemetryData = telemetryDataManager.getData()
-        if (efTelemetryData != null) {
-            efTelemetryData.processingTime = EFTelemetryDataProcessingTime(
-
-                llmResponseTime = llmResponseTimeMillis,
-                pluginProcessingTime = pluginProcessingTimeMillis,
-                totalTime = llmResponseTimeMillis + pluginProcessingTimeMillis
-            )
-        }
-    }
-
-    private fun buildCandidatesTelemetryData(
-        numberOfSuggestions: Int, notificationPayloadList: List<EFCandidateApplicationPayload>
-    ): EFCandidatesTelemetryData {
-        val candidateTelemetryDataList = EFTelemetryDataUtils.buildCandidateTelemetryData(notificationPayloadList)
-        return EFCandidatesTelemetryData(
-            numberOfSuggestions = numberOfSuggestions, candidates = candidateTelemetryDataList
-        )
-    }
-
-    private fun buildElapsedTimeTelemetryData(elapsedTimeTelemetryDataObserver: TelemetryElapsedTimeObserver) {
-        val elapsedTimeTelemetryData = elapsedTimeTelemetryDataObserver.getTelemetryData()
-        val efTelemetryData = telemetryDataManager.getData()
-        if (efTelemetryData != null) {
-            efTelemetryData.elapsedTime = elapsedTimeTelemetryData
-        }
-    }
 
     private suspend fun executeRefactorings(
         validRefactoringCandidates: List<AbstractRefactoring>,
@@ -446,15 +327,17 @@ abstract class ApplySuggestRefactoringAgentIntention(
     companion object {
         private const val AGENT_HEADER = "\n\n************************** Refactoring AGENT **************************"
         private const val LLM_HEADER = "\n\n******************************** LLM ********************************"
-        fun selectionPriority(
-            atomicSuggestion: AtomicSuggestion,
-            validator: AbstractRefactoringValidator): Int{
-            if (validator.isFor2While(atomicSuggestion) || validator.isEnhacedForRefactoring(atomicSuggestion)){
-                return 10;
-            }
-            if (validator.isExtractMethod(atomicSuggestion))
-                return 1;
-            return 5;
-        }
     }
+}
+
+fun selectionPriority(
+    atomicSuggestion: AtomicSuggestion,
+    validator: AbstractRefactoringValidator
+): Int{
+    if (validator.isFor2While(atomicSuggestion) || validator.isEnhacedForRefactoring(atomicSuggestion)){
+        return 10;
+    }
+    if (validator.isExtractMethod(atomicSuggestion))
+        return 1;
+    return 5;
 }
