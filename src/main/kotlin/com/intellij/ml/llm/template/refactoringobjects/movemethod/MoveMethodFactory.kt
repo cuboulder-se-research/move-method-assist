@@ -152,6 +152,14 @@ class MoveMethodFactory {
                 return methodToMove.endOffset
             }
 
+            override fun getReverseRefactoringObject(
+                project: Project,
+                editor: Editor,
+                file: PsiFile
+            ): AbstractRefactoring? {
+                TODO("Not yet implemented")
+            }
+
         }
 
         private fun getParamNamesIfNeeded(

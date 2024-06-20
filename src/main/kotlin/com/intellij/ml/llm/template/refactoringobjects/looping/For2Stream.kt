@@ -28,7 +28,8 @@ class For2Stream {
             PsiForStatement::class.java,
             getInspection(),
             preview,
-            true
+            true,
+            reverseRefactoringFactory = null
         )
 
         private fun getInspection(): StreamApiMigrationInspection{

@@ -29,7 +29,8 @@ class EnhancedSwitchFactory {
             PsiSwitchStatement::class.java,
             EnhancedSwitchMigrationInspection(),
             preview,
-            false
+            false,
+            reverseRefactoringFactory = null
         )
     }
 }

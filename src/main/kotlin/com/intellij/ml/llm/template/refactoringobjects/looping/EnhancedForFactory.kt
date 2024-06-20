@@ -28,7 +28,8 @@ class EnhancedForFactory {
             PsiForStatement::class.java,
             ForCanBeForeachInspection(),
             preview,
-            false
+            false,
+            reverseRefactoringFactory = null
         )
 
     }

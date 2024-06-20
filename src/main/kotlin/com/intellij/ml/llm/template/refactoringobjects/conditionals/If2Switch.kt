@@ -1,6 +1,7 @@
 package com.intellij.ml.llm.template.refactoringobjects.conditionals
 
 import com.intellij.ml.llm.template.refactoringobjects.CodeInspectionFactory
+import com.intellij.ml.llm.template.refactoringobjects.MyRefactoringFactory
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiIfStatement
 import com.siyeh.ig.migration.IfCanBeSwitchInspection
@@ -28,7 +29,8 @@ class If2Switch {
 """.trimIndent(),
             PsiIfStatement::class.java,
             getInspectionObj(),
-            preview
+            preview,
+            reverseRefactoringFactory = Switch2IfFactory
         )
 
         private fun getInspectionObj(): IfCanBeSwitchInspection {

@@ -63,4 +63,7 @@ abstract class AbstractRefactoring{
 
     abstract fun getEndOffset(): Int
 
+    abstract fun getReverseRefactoringObject(
+        project: Project, editor: Editor, file: PsiFile): AbstractRefactoring?
+
 }

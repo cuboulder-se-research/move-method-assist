@@ -1,6 +1,7 @@
 package com.intellij.ml.llm.template.refactoringobjects.conditionals
 
 import com.intellij.ml.llm.template.refactoringobjects.CodeInspectionFactory
+import com.intellij.ml.llm.template.refactoringobjects.MyRefactoringFactory
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiIfStatement
 import com.siyeh.ig.style.SimplifiableIfStatementInspection
@@ -10,7 +11,8 @@ class If2Ternary {
         val preview = fun(element: PsiElement): String{
             return "Use Ternary Operator instead of If statements"
         }
-        val factory = CodeInspectionFactory(
+        private val reverseFactory : MyRefactoringFactory = Ternary2If.factory
+        val factory = CodeInspectionFactory<PsiIfStatement, MyRefactoringFactory>(
             "Use Ternary Operator",
             "convert_if2ternary",
             """def convert_if2ternary(line_start):
@@ -27,7 +29,8 @@ class If2Ternary {
 """.trimIndent(),
             PsiIfStatement::class.java,
             getInspectionObject(),
-            preview
+            preview,
+            reverseRefactoringFactory = reverseFactory
         )
 
 

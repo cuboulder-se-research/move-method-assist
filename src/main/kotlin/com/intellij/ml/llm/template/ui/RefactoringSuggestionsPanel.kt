@@ -63,19 +63,19 @@ open class RefactoringSuggestionsPanel(
     val button_name: String
 ) : Observable() {
     val myExtractFunctionsCandidateTable: JBTable
-    private val myExtractFunctionsScrollPane: JBScrollPane
-    private val myProject: Project = project
-    private val myMethodSignaturePreview: MethodSignatureComponent
-    private val myCandidates = candidates
-    private val myEditor = editor
-    private var myPopup: JBPopup? = null
-    private val myCodeTransformer = codeTransformer
-    private val myFile = file
-    private val myHighlighter = highlighter
-    private val myEFTelemetryDataManager = efTelemetryDataManager
+    val myExtractFunctionsScrollPane: JBScrollPane
+    val myProject: Project = project
+    val myMethodSignaturePreview: MethodSignatureComponent
+    val myCandidates = candidates
+    val myEditor = editor
+    var myPopup: JBPopup? = null
+    val myCodeTransformer = codeTransformer
+    val myFile = file
+    val myHighlighter = highlighter
+    val myEFTelemetryDataManager = efTelemetryDataManager
     private val logger = Logger.getInstance("#com.intellij.ml.llm")
-    private var prevSelectedCandidateIndex = 0
-    private var completedIndices = mutableListOf<Int>()
+    var prevSelectedCandidateIndex = 0
+    var completedIndices = mutableListOf<Int>()
 
     init {
         val tableModel = buildTableModel(myCandidates)
@@ -105,7 +105,7 @@ open class RefactoringSuggestionsPanel(
                 if (e.keyCode == KeyEvent.VK_ENTER) {
                     if (e.id == KeyEvent.KEY_PRESSED) {
                         if (!isEditing && e.modifiersEx == 0) {
-                            doRefactoring(selectedRow)
+                            performAction(selectedRow)
                         }
                     }
                     e.consume()
@@ -121,7 +121,7 @@ open class RefactoringSuggestionsPanel(
 
             override fun processMouseEvent(e: MouseEvent?) {
                 if (e != null && e.clickCount == 2) {
-                    doRefactoring(selectedRow)
+                    performAction(selectedRow)
                 }
                 super.processMouseEvent(e)
             }
@@ -214,7 +214,7 @@ open class RefactoringSuggestionsPanel(
 
             row {
                 button(button_name, actionListener = {
-                    doRefactoring(myExtractFunctionsCandidateTable.selectedRow)
+                    performAction(myExtractFunctionsCandidateTable.selectedRow)
                 }).comment(
                     LLMBundle.message(
                         "ef.candidates.popup.invoke.extract.function",
@@ -323,7 +323,7 @@ open class RefactoringSuggestionsPanel(
         return signature
     }
 
-    private fun doRefactoring(index: Int) {
+    open fun performAction(index: Int) {
         if (index !in completedIndices){
             notifyObservers(
                 EFNotification(
@@ -341,11 +341,11 @@ open class RefactoringSuggestionsPanel(
             }
             runnable.run()
     //        myPopup!!.cancel()
-            refreshCandidates(index)
+            refreshCandidates(index, "COMPLETED")
         }
     }
 
-    private fun addSelectionToTelemetryData(index: Int) {
+    fun addSelectionToTelemetryData(index: Int) {
         val refCandidate = myCandidates[index]
         val hostFunctionTelemetryData = myEFTelemetryDataManager?.getData()?.hostFunctionTelemetryData
         myEFTelemetryDataManager?.addUserSelectionTelemetryData(
@@ -358,11 +358,11 @@ open class RefactoringSuggestionsPanel(
         )
     }
 
-    private fun refreshCandidates(index: Int){
+    fun refreshCandidates(index: Int, tag: String){
         completedIndices.add(index)
 //        ExtractFunctionPanel.showPopup(this, myEditor)
         val selectedRow = myExtractFunctionsCandidateTable.selectedRow
         val refName = myExtractFunctionsCandidateTable.getValueAt(selectedRow, 1)!! as String
-        myExtractFunctionsCandidateTable.setValueAt("COMPLETED: $refName", selectedRow, 1)
+        myExtractFunctionsCandidateTable.setValueAt("$tag: $refName", selectedRow, 1)
     }
 }

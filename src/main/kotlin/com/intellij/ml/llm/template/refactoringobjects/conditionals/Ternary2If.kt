@@ -1,6 +1,7 @@
 package com.intellij.ml.llm.template.refactoringobjects.conditionals
 
 import com.intellij.ml.llm.template.refactoringobjects.CodeInspectionFactory
+import com.intellij.ml.llm.template.refactoringobjects.MyRefactoringFactory
 import com.intellij.psi.PsiConditionalExpression
 import com.intellij.psi.PsiElement
 import com.siyeh.ig.controlflow.ConditionalExpressionInspection
@@ -10,7 +11,7 @@ class Ternary2If {
         val preview = fun(element: PsiElement): String{
             return "Convert Ternary Operator to If Statements"
         }
-        val factory = CodeInspectionFactory(
+        val factory = CodeInspectionFactory<PsiConditionalExpression, MyRefactoringFactory>(
             "Convert Ternary Operator to If Statements",
             "convert_ternary2if",
             """def convert_ternary2if(line_start):
@@ -27,7 +28,8 @@ class Ternary2If {
 """.trimIndent(),
             PsiConditionalExpression::class.java,
             ConditionalExpressionInspection(),
-            preview
+            preview,
+            reverseRefactoringFactory = If2Ternary.factory
         )
 
     }

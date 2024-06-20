@@ -106,6 +106,21 @@ class Switch2IfFactory {
             return switchStatement.endOffset
         }
 
+        override fun getReverseRefactoringObject(
+            project: Project,
+            editor: Editor,
+            file: PsiFile
+        ): AbstractRefactoring? {
+            val factory = If2Switch.factory
+            val createdObjectsFromFuncCall = factory.createObjectsFromFuncCall(
+                "${factory.apiFunctionName}($startLoc)",
+                project, editor, file
+            )
+            if (createdObjectsFromFuncCall.isNotEmpty())
+                return createdObjectsFromFuncCall[0]
+            return null
+        }
+
     }
 
 }

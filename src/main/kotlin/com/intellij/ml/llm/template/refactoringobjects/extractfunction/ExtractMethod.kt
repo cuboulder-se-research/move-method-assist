@@ -51,6 +51,10 @@ class ExtractMethod(
         return rightPsi.endOffset
     }
 
+    override fun getReverseRefactoringObject(project: Project, editor: Editor, file: PsiFile): AbstractRefactoring? {
+        return null
+    }
+
 
     override fun isValid(project: Project, editor: Editor, file: PsiFile): Boolean {
         val candidate = getEFCandidate()

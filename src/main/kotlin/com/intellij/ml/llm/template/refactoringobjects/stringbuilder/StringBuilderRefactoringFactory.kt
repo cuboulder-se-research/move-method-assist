@@ -125,6 +125,14 @@ class StringBuilderRefactoringFactory {
                 return psiPolyadicExpression.endOffset
             }
 
+            override fun getReverseRefactoringObject(
+                project: Project,
+                editor: Editor,
+                file: PsiFile
+            ): AbstractRefactoring? {
+                return null
+            }
+
         }
 
         class StringBuilder4AssignInLoop(
@@ -157,6 +165,14 @@ class StringBuilderRefactoringFactory {
 
             override fun getEndOffset(): Int {
                 return psiAssignmentExpression.endOffset
+            }
+
+            override fun getReverseRefactoringObject(
+                project: Project,
+                editor: Editor,
+                file: PsiFile
+            ): AbstractRefactoring? {
+                return null
             }
 
         }

@@ -19,7 +19,8 @@ class RenameVariable(
                      override val endLoc: Int,
                      val oldName: String,
                      val newName: String,
-                     val oldVarPsi: PsiElement
+                     val oldVarPsi: PsiElement,
+                     val outerPsiElement: PsiElement
 
 ): AbstractRefactoring() {
 
@@ -39,9 +40,9 @@ class RenameVariable(
 
     override fun isValid(project: Project, editor: Editor, file: PsiFile): Boolean {
         // Valid if oldName exists and newName doesn't
-        isValid = PsiUtils.getVariableFromPsi(file, oldName)!=null
-                && PsiUtils.getVariableFromPsi(file, newName)==null
-        return isValid!!
+//        return PsiUtils.getVariableFromPsi(file, oldName)!=null
+//                && PsiUtils.getVariableFromPsi(file, newName)==null
+        return true
     }
 
     override fun getRefactoringPreview(): String {
@@ -54,5 +55,12 @@ class RenameVariable(
 
     override fun getEndOffset(): Int {
         return oldVarPsi.endOffset
+    }
+
+    override fun getReverseRefactoringObject(project: Project, editor: Editor, file: PsiFile): AbstractRefactoring? {
+        return RenameVariableFactory.fromOldNewName(
+            project, outerPsiElement,
+            newName, oldName
+        )
     }
 }

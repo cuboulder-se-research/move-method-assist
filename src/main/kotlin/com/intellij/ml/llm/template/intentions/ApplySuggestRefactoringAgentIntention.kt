@@ -44,9 +44,10 @@ import java.util.concurrent.atomic.AtomicReference
 
 @Suppress("UnstableApiUsage")
 class ApplySuggestRefactoringAgentIntention(
-    private val efLLMRequestProvider: LLMRequestProvider = GrazieGPT4RequestProvider
+    private val efLLMRequestProvider: LLMRequestProvider = GrazieGPT4RequestProvider,
+    private val useDelays: Boolean = false
 ) : ApplySuggestRefactoringIntention(efLLMRequestProvider) {
-    private val MAX_ITERS: Int = 2
+    private val MAX_ITERS: Int = 1
     private val performedRefactorings = mutableListOf<AbstractRefactoring>()
     private val refactoringsPerIteration = mutableMapOf<Int, List<AbstractRefactoring>>()
     private val logger = Logger.getInstance(ApplySuggestRefactoringAgentIntention::class.java)
@@ -79,6 +80,7 @@ class ApplySuggestRefactoringAgentIntention(
         editor: Editor,
         file: PsiFile
     ) {
+        performedRefactorings.removeAll({it->true})
         for (iter in 1..MAX_ITERS) {
             setTelemetryData(editor, file)
             val now = System.nanoTime()
@@ -149,8 +151,8 @@ class ApplySuggestRefactoringAgentIntention(
             functionSrc,
             apiResponseCache
         )
-
-        Thread.sleep(2000)
+        if (useDelays)
+            Thread.sleep(2000)
         val limit = 3
         logLLMResponse(response, limit, validator)
 //        val efSuggestionList = validator.getExtractMethodSuggestions(llmResponse.text)
@@ -236,7 +238,8 @@ class ApplySuggestRefactoringAgentIntention(
                 logger.info("${atomicSuggestion.index+1}: ${atomicSuggestion.value.shortDescription}")
                 logger.info("Suggestion: ${atomicSuggestion.value.longDescription}".prependIndent("    "))
                 logger.info("\n")
-                Thread.sleep(3000)
+                if (useDelays)
+                    Thread.sleep(3000)
             }
         }
     }
@@ -333,13 +336,15 @@ class ApplySuggestRefactoringAgentIntention(
                     editor.selectionModel.setSelection(refCandidate.getStartOffset(), refCandidate.getStartOffset())
                 }
                 logger.info("$count. Executing refactoring: ${refCandidate.getRefactoringPreview()}".prependIndent("     "))
-                delay(3_000)
+                if (useDelays)
+                    delay(3_000)
                 invokeLater {
                     refCandidate.performRefactoring(project, editor, file)
                     scopeHighlighter.dropHighlight()
                 }
                 performedRefactorings.add(refCandidate)
-                delay(3_000)
+                if (useDelays)
+                    delay(3_000)
                 count+=1
 
         }

@@ -29,7 +29,8 @@ class For2While {
             PsiForStatement::class.java,
             ForLoopReplaceableByWhileInspection(),
             preview,
-            true
+            true,
+            reverseRefactoringFactory = null
         )
     }
 }

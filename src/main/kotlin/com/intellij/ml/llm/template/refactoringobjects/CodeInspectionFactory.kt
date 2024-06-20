@@ -14,14 +14,15 @@ import com.intellij.psi.util.PsiUtilBase
 import org.jetbrains.kotlin.psi.psiUtil.endOffset
 import org.jetbrains.kotlin.psi.psiUtil.startOffset
 
-class CodeInspectionFactory<T: PsiElement>(
+class CodeInspectionFactory<T: PsiElement, T2: MyRefactoringFactory>(
     override val logicalName: String,
     override val apiFunctionName: String,
     override val APIDocumentation: String, // first param to API call is the start line of element
     val psiClass: Class<out T>,
     val inspection: AbstractBaseJavaLocalInspectionTool, // inspection object, with the right options triggered.
     val refactoringPreview: (PsiElement) -> String,
-    val isOnTheFly: Boolean = false
+    val isOnTheFly: Boolean = false,
+    val reverseRefactoringFactory: T2?
 ) : MyRefactoringFactory {
     override fun createObjectsFromFuncCall(
         funcCall: String,
@@ -64,7 +65,8 @@ class CodeInspectionFactory<T: PsiElement>(
                 foundElements[0].accept(visitor)
                 if (problemsHolder.hasResults())
                     return@runReadAction InspectionBasedRefactoring(
-                        startLine, startLine, foundElements[0], problemsHolder, refactoringPreview
+                        startLine, startLine, foundElements[0], problemsHolder, refactoringPreview,
+                        reverseRefactoringFactory
                     )
                 else
                     return@runReadAction null // cannot be transformed to refactoring object
@@ -79,7 +81,8 @@ class CodeInspectionFactory<T: PsiElement>(
         override val endLoc: Int,
         val psiElement: PsiElement,
         val problemsHolder: ProblemsHolder,
-        val refactoringPreview: (PsiElement) -> String
+        val refactoringPreview: (PsiElement) -> String,
+        val reverseRefactoringFactory: MyRefactoringFactory?
     ) : AbstractRefactoring() {
         override fun performRefactoring(project: Project, editor: Editor, file: PsiFile) {
             super.performRefactoring(project, editor, file)
@@ -103,6 +106,19 @@ class CodeInspectionFactory<T: PsiElement>(
 
         override fun getEndOffset(): Int {
             return psiElement.endOffset
+        }
+
+        override fun getReverseRefactoringObject(
+            project: Project, editor: Editor, file: PsiFile
+        ): AbstractRefactoring? {
+            // Assumes that the creation function's signature
+            // is api_call(start_line)
+            if (reverseRefactoringFactory!=null)
+                return reverseRefactoringFactory.createObjectsFromFuncCall(
+                        "${reverseRefactoringFactory.apiFunctionName}($startLoc)",
+                        project, editor, file
+                    )[0]
+            return null
         }
 
     }
