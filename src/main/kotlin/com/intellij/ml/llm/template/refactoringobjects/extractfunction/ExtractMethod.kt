@@ -52,6 +52,9 @@ class ExtractMethod(
     }
 
     override fun getReverseRefactoringObject(project: Project, editor: Editor, file: PsiFile): AbstractRefactoring? {
+        val objects = InlineMethodFactory.fromMethodName(file, editor, newFuncName)
+        if (objects.isNotEmpty())
+            return objects[0]
         return null
     }
 

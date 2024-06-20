@@ -64,5 +64,10 @@ class HelloWorld{
         System.out.println(s);
     }
 
+    public static void client(){
+        constructString(1, false);
+        constructString(3, true);
+    }
+
 
 }

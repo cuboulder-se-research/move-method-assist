@@ -25,7 +25,7 @@ class RenameVariableTest: LightPlatformCodeInsightTestCase() {
         val functionPsi: PsiElement? = PsiUtils.getParentFunctionOrNull(
             PsiUtilBase.getElementAtCaret(editor), file.language)
         val renameObj = RenameVariableFactory.fromOldNewName(
-            project, functionPsi,
+            project, functionPsi!!,
 //            3, 4,
             "x", "count"
         )
@@ -47,7 +47,7 @@ class RenameVariableTest: LightPlatformCodeInsightTestCase() {
         val functionPsi: PsiElement? = PsiUtils.getParentFunctionOrNull(
             PsiUtilBase.getElementAtCaret(editor), file.language)
         val renameObj = RenameVariableFactory.fromOldNewName(
-            project, functionPsi,
+            project, functionPsi!!,
 //            3, 4,
             "x", "character"
         )
