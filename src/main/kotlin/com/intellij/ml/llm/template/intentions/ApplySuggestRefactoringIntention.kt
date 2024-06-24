@@ -83,7 +83,6 @@ abstract class ApplySuggestRefactoringIntention(
                     lineStart = startLineNumber,
                     bodyLineStart = bodyLineStart,
                     language = file.language.id.toLowerCaseAsciiOnly()
-                    // TODO: Add entire host method's code here.
                 )
             )
 
@@ -139,7 +138,7 @@ abstract class ApplySuggestRefactoringIntention(
     override fun startInWriteAction(): Boolean = false
 
 
-    fun sendTelemetryData() {
+    open fun sendTelemetryData() {
         val efTelemetryData = telemetryDataManager.getData()
         if (efTelemetryData != null) {
             TelemetryDataObserver().update(EFNotification(efTelemetryData))

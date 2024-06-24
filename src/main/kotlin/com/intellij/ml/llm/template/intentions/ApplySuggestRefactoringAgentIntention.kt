@@ -2,7 +2,6 @@ package com.intellij.ml.llm.template.intentions
 
 import com.intellij.codeInsight.unwrap.ScopeHighlighter
 import com.intellij.ml.llm.template.LLMBundle
-import com.intellij.ml.llm.template.models.GPTExtractFunctionRequestProvider
 import com.intellij.ml.llm.template.models.LLMBaseResponse
 import com.intellij.ml.llm.template.models.LLMRequestProvider
 import com.intellij.ml.llm.template.models.grazie.GrazieGPT4RequestProvider
@@ -33,7 +32,11 @@ import com.intellij.psi.PsiFile
 import com.intellij.ui.awt.RelativePoint
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.runBlocking
+import org.jetbrains.kotlin.idea.base.psi.getLineNumber
+import org.jetbrains.kotlin.idea.editor.fixers.endLine
+import org.jetbrains.kotlin.idea.editor.fixers.startLine
 import org.jetbrains.kotlin.psi.psiUtil.startOffset
+import org.jetbrains.kotlin.util.capitalizeDecapitalize.toLowerCaseAsciiOnly
 import java.awt.Point
 import java.awt.Rectangle
 import java.util.concurrent.atomic.AtomicReference
@@ -45,7 +48,9 @@ class ApplySuggestRefactoringAgentIntention(
 ) : ApplySuggestRefactoringIntention(efLLMRequestProvider) {
     private val MAX_ITERS: Int = 2
     private val performedRefactorings = mutableListOf<AbstractRefactoring>()
+    private val refactoringsPerIteration = mutableMapOf<Int, List<AbstractRefactoring>>()
     private val logger = Logger.getInstance(ApplySuggestRefactoringAgentIntention::class.java)
+    private val telemetryIds = mutableListOf<String>()
 
     override fun getText(): String {
         return LLMBundle.message("intentions.apply.suggest.refactoring.agent.family.name")
@@ -75,6 +80,7 @@ class ApplySuggestRefactoringAgentIntention(
         file: PsiFile
     ) {
         for (iter in 1..MAX_ITERS) {
+            setTelemetryData(editor, file)
             val now = System.nanoTime()
             logger.info(AGENT_HEADER)
             logger.info("Asking for refactoring suggestions! ($iter/$MAX_ITERS)")
@@ -104,6 +110,21 @@ class ApplySuggestRefactoringAgentIntention(
         }
 
         showExecutedRefactorings(project, editor, file)
+    }
+
+    private fun setTelemetryData(editor: Editor, file: PsiFile) {
+        telemetryDataManager.newSession()
+        telemetryDataManager.addHostFunctionTelemetryData(
+            EFTelemetryDataUtils.buildHostFunctionTelemetryData(
+                codeSnippet = functionSrc,
+                lineStart = functionPsiElement.startLine(editor.document),
+                bodyLineStart = functionPsiElement.endLine(editor.document),
+                language = file.language.id.toLowerCaseAsciiOnly()
+            )
+        )
+
+        telemetryIds.add(telemetryDataManager.currentSession())
+
     }
 
     private fun showExecutedRefactorings(project: Project, editor: Editor, file: PsiFile) {
@@ -141,7 +162,6 @@ class ApplySuggestRefactoringAgentIntention(
             runBlocking {
                 validator.getRefactoringSuggestions(llmResponse.text, limit)
             }
-
 //        val refactoringCandidates: List<AbstractRefactoring> = runBlocking {
 //                validator.getRefactoringSuggestions(llmResponse.text)
 //        }
@@ -157,7 +177,7 @@ class ApplySuggestRefactoringAgentIntention(
             buildProcessingTimeTelemetryData(llmResponseTime, System.nanoTime() - now)
             sendTelemetryData()
         } else {
-            telemetryDataManager.addRefactoringObjects(refactoringCandidates)
+            telemetryDataManager.setRefactoringObjects(refactoringCandidates)
             val candidatesApplicationTelemetryObserver = EFCandidatesApplicationTelemetryObserver()
 //            val filteredCandidates = filterCandidates(candidates, candidatesApplicationTelemetryObserver, editor, file)
             val validRefactoringCandidates = refactoringCandidates.filter {
@@ -323,6 +343,13 @@ class ApplySuggestRefactoringAgentIntention(
                 count+=1
 
         }
+    }
+
+    override fun sendTelemetryData() {
+        val agenticTelemetry = AgenticTelemetry.createFromSessionIds(
+            telemetryIds, telemetryDataManager
+        )
+        TelemetryDataObserver().update(EFNotification(agenticTelemetry))
     }
 
     companion object {

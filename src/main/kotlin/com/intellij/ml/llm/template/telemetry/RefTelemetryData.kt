@@ -4,7 +4,6 @@ import com.google.gson.annotations.SerializedName
 import com.intellij.ml.llm.template.refactoringobjects.AbstractRefactoring
 import com.intellij.ml.llm.template.refactoringobjects.UncreatableRefactoring
 import com.intellij.ml.llm.template.refactoringobjects.extractfunction.EfCandidateType
-import com.intellij.ml.llm.template.utils.EFApplicationResult
 import com.intellij.ml.llm.template.utils.EFCandidateApplicationPayload
 import com.intellij.openapi.util.TextRange
 import com.intellij.psi.PsiFile
@@ -13,7 +12,7 @@ import com.intellij.psi.util.elementType
 import org.jetbrains.kotlin.psi.psiUtil.elementsInRange
 import java.util.*
 
-data class EFTelemetryData(
+data class RefTelemetryData(
     @SerializedName("id")
     var id: String,
 ) {
@@ -31,6 +30,9 @@ data class EFTelemetryData(
 
     @SerializedName("processingTime")
     lateinit var processingTime: EFTelemetryDataProcessingTime
+
+    @Transient
+    lateinit var refactoringObjects: List<AbstractRefactoring>
 }
 
 data class HostFunctionTelemetryData(
@@ -152,15 +154,40 @@ data class EFTelemetryDataProcessingTime(
     var totalTime: Long
 )
 
+data class AgenticTelemetry(
+    @SerializedName("agentData")
+    val agentIterationData: List<AgentIterationTelemetry>
+){
+    companion object{
+        fun createFromSessionIds(sessionIds: List<String>,
+                                 telemetryDataManager: EFTelemetryDataManager): AgenticTelemetry{
+            return AgenticTelemetry(
+                sessionIds
+                    .map { telemetryDataManager.getData(it) }
+                    .filterNotNull()
+                    .mapIndexed { index: Int, refTelemetryData: RefTelemetryData
+                        ->  AgentIterationTelemetry(iteration = index, refTelemetryData = refTelemetryData)}
+            )
+        }
+    }
+}
+
+data class AgentIterationTelemetry(
+    @SerializedName("iteration")
+    val iteration: Int,
+
+    @SerializedName("iterationData")
+    val refTelemetryData: RefTelemetryData
+)
+
 class EFTelemetryDataManager {
     private var currentSessionId: String = ""
-    private val data: MutableMap<String, EFTelemetryData> = mutableMapOf()
-    private lateinit var currentTelemetryData: EFTelemetryData
-    private var currentRefCanditates: List<AbstractRefactoring>? =null
+    private val data: MutableMap<String, RefTelemetryData> = mutableMapOf()
+    private lateinit var currentTelemetryData: RefTelemetryData
 
     fun newSession(): String {
         currentSessionId = UUID.randomUUID().toString()
-        currentTelemetryData = EFTelemetryData(currentSessionId)
+        currentTelemetryData = RefTelemetryData(currentSessionId)
         data[currentSessionId] = currentTelemetryData
         return currentSessionId
     }
@@ -185,30 +212,36 @@ class EFTelemetryDataManager {
         return this
     }
 
-    fun getData(sessionId: String? = null): EFTelemetryData? {
-        val sId = sessionId ?: currentSession()
-        val orDefault = data.getOrDefault(sId, null)
-        if (currentRefCanditates!=null) {
-            val objs = currentRefCanditates!!.map { it ->
-                RefCandidateTelemetryData(
-                    it.startLoc, it.endLoc,
-                    it::class.simpleName.toString(),
-                    it.description,
-                    couldCreateRefObject = it !is UncreatableRefactoring,
-                    valid = it.isValid,
-                    applied = it.applied
-                )
-            }
+    fun getData(sessionId: String? = null): RefTelemetryData? {
 
-            currentTelemetryData.candidatesTelemetryData = RefCandidatesTelemetryData(
-                currentRefCanditates?.size ?: 0, objs
-            )
+        val sId = sessionId ?: currentSession()
+        val refTelemetryData = data.getOrDefault(sId, null)
+        if (refTelemetryData != null) {
+            processAbstractRefactorings(refTelemetryData)
         }
-        return orDefault
+        return refTelemetryData
     }
 
-    fun addRefactoringObjects(refactoringCandidates: List<AbstractRefactoring>) {
-        currentRefCanditates = refactoringCandidates
+    private fun processAbstractRefactorings(refTelemetryData: RefTelemetryData) {
+        val objs = refTelemetryData.refactoringObjects.map { it ->
+            RefCandidateTelemetryData(
+                it.startLoc, it.endLoc,
+                it::class.simpleName.toString(),
+                it.description,
+                couldCreateRefObject = it !is UncreatableRefactoring,
+                valid = it.isValid,
+                applied = it.applied
+            )
+        }
+
+        refTelemetryData.candidatesTelemetryData = RefCandidatesTelemetryData(
+            refTelemetryData.refactoringObjects?.size ?: 0, objs
+        )
+
+    }
+
+    fun setRefactoringObjects(refactoringCandidates: List<AbstractRefactoring>) {
+        currentTelemetryData.refactoringObjects = refactoringCandidates
     }
 }
 

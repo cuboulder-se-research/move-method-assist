@@ -32,7 +32,15 @@ class TelemetryDataObserver : Observer {
         }
     }
 
-    private fun logToPluginFile(telemetryData: EFTelemetryData) {
+    private fun logToPluginFile(telemetryData: RefTelemetryData) {
+        runBlocking {
+            withContext(Dispatchers.IO) {
+                logFile.appendText("${Gson().toJson(telemetryData)}\n")
+            }
+        }
+    }
+
+    private fun logToPluginFile(telemetryData: AgenticTelemetry) {
         runBlocking {
             withContext(Dispatchers.IO) {
                 logFile.appendText("${Gson().toJson(telemetryData)}\n")
@@ -42,7 +50,8 @@ class TelemetryDataObserver : Observer {
 
     override fun update(notification: EFNotification) {
         when (notification.payload) {
-            is EFTelemetryData -> logToPluginFile(notification.payload)
+            is RefTelemetryData -> logToPluginFile(notification.payload)
+            is AgenticTelemetry -> logToPluginFile(notification.payload)
         }
     }
 }

@@ -1,9 +1,7 @@
 package com.intellij.ml.llm.template.intentions
 
-import com.intellij.codeInsight.intention.IntentionAction
 import com.intellij.codeInsight.unwrap.ScopeHighlighter
 import com.intellij.ml.llm.template.LLMBundle
-import com.intellij.ml.llm.template.models.GPTExtractFunctionRequestProvider
 import com.intellij.ml.llm.template.models.LLMBaseResponse
 import com.intellij.ml.llm.template.models.LLMRequestProvider
 import com.intellij.ml.llm.template.models.grazie.GrazieGPT4RequestProvider
@@ -33,19 +31,13 @@ import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.popup.JBPopupFactory
 import com.intellij.openapi.ui.popup.JBPopupListener
 import com.intellij.openapi.ui.popup.LightweightWindowEvent
-import com.intellij.openapi.util.TextRange
-import com.intellij.psi.PsiClass
-import com.intellij.psi.PsiElement
+
 import com.intellij.psi.PsiFile
 import com.intellij.ui.awt.RelativePoint
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.runBlocking
-import org.jetbrains.kotlin.psi.psiUtil.endOffset
-import org.jetbrains.kotlin.psi.psiUtil.startOffset
-import org.jetbrains.kotlin.util.capitalizeDecapitalize.toLowerCaseAsciiOnly
 import java.awt.Point
 import java.awt.Rectangle
-import java.util.concurrent.TimeUnit
 import java.util.concurrent.atomic.AtomicReference
 
 
@@ -97,6 +89,7 @@ class ApplySuggestRefactoringInteractiveIntention(
             buildProcessingTimeTelemetryData(llmResponseTime, System.nanoTime() - now)
             sendTelemetryData()
         } else {
+            telemetryDataManager.setRefactoringObjects(refactoringCandidates)
             val candidatesApplicationTelemetryObserver = EFCandidatesApplicationTelemetryObserver()
 //            val filteredCandidates = filterCandidates(candidates, candidatesApplicationTelemetryObserver, editor, file)
             val validRefactoringCandidates = refactoringCandidates.filter {

@@ -6,7 +6,7 @@ import com.intellij.ml.llm.template.utils.EFCandidatesApplicationTelemetryObserv
 import com.intellij.testFramework.LightPlatformCodeInsightTestCase
 import junit.framework.TestCase
 
-class EFTelemetryDataTest : LightPlatformCodeInsightTestCase() {
+class RefTelemetryDataTest : LightPlatformCodeInsightTestCase() {
     private var projectPath = "src/test"
     override fun getTestDataPath(): String {
         return projectPath
