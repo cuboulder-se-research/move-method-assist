@@ -45,7 +45,7 @@ import java.util.concurrent.atomic.AtomicReference
 @Suppress("UnstableApiUsage")
 class ApplySuggestRefactoringAgentIntention(
     private val efLLMRequestProvider: LLMRequestProvider = GrazieGPT4RequestProvider,
-    private val useDelays: Boolean = false
+    private val useDelays: Boolean = true
 ) : ApplySuggestRefactoringIntention(efLLMRequestProvider) {
     private val MAX_ITERS: Int = 1
     private val performedRefactorings = mutableListOf<AbstractRefactoring>()

@@ -3,11 +3,13 @@ package com.intellij.ml.llm.template.ui
 import com.intellij.codeInsight.unwrap.ScopeHighlighter
 import com.intellij.ml.llm.template.LLMBundle
 import com.intellij.ml.llm.template.refactoringobjects.AbstractRefactoring
+import com.intellij.ml.llm.template.showEFNotification
 import com.intellij.ml.llm.template.telemetry.EFTelemetryDataElapsedTimeNotificationPayload
 import com.intellij.ml.llm.template.telemetry.EFTelemetryDataManager
 import com.intellij.ml.llm.template.telemetry.TelemetryDataAction
 import com.intellij.ml.llm.template.utils.CodeTransformer
 import com.intellij.ml.llm.template.utils.EFNotification
+import com.intellij.notification.NotificationType
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiFile
@@ -86,14 +88,22 @@ class CompletedRefactoringsPanel(
             )
             addSelectionToTelemetryData(index)
             val efCandidate = myCandidates[index]
-
-            val runnable = Runnable {
-                efCandidate.getReverseRefactoringObject(myProject, myEditor, myFile)
-                    ?.performRefactoring(myProject, myEditor,myFile)
+            val reverseRefactoring = efCandidate.getReverseRefactoringObject(myProject, myEditor, myFile)
+            if (reverseRefactoring!=null) {
+                val runnable = Runnable {
+                    reverseRefactoring.performRefactoring(myProject, myEditor, myFile)
+                }
+                runnable.run()
+                //        myPopup!!.cancel()
+                refreshCandidates(index, "UNDID")
             }
-            runnable.run()
-            //        myPopup!!.cancel()
-            refreshCandidates(index, "UNDID")
+            else {
+                showEFNotification(
+                    myProject,
+                    LLMBundle.message("notification.extract.function.not.reversible"),
+                    NotificationType.ERROR
+                )
+            }
         }
     }
 

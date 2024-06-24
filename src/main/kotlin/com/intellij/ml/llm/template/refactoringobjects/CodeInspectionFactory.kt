@@ -3,6 +3,9 @@ package com.intellij.ml.llm.template.refactoringobjects
 import com.intellij.codeInspection.AbstractBaseJavaLocalInspectionTool
 import com.intellij.codeInspection.InspectionManager
 import com.intellij.codeInspection.ProblemsHolder
+import com.intellij.ml.llm.template.LLMBundle
+import com.intellij.ml.llm.template.showEFNotification
+import com.intellij.notification.NotificationType
 import com.intellij.openapi.application.runReadAction
 import com.intellij.openapi.command.WriteCommandAction
 import com.intellij.openapi.editor.Editor
@@ -84,11 +87,14 @@ class CodeInspectionFactory<T: PsiElement, T2: MyRefactoringFactory>(
         val refactoringPreview: (PsiElement) -> String,
         val reverseRefactoringFactory: MyRefactoringFactory?
     ) : AbstractRefactoring() {
+
+        private var reverseRefactoring:AbstractRefactoring?=null
         override fun performRefactoring(project: Project, editor: Editor, file: PsiFile) {
             super.performRefactoring(project, editor, file)
             val p0 = problemsHolder.results[0]!!
             WriteCommandAction.runWriteCommandAction(project,
                 Runnable {  p0.fixes?.get(0)?.applyFix(project, p0)})
+            reverseRefactoring = getReverseRefactoringObject(project, editor, file)
         }
 
         override fun isValid(project: Project, editor: Editor, file: PsiFile): Boolean {
@@ -109,15 +115,22 @@ class CodeInspectionFactory<T: PsiElement, T2: MyRefactoringFactory>(
         }
 
         override fun getReverseRefactoringObject(
-            project: Project, editor: Editor, file: PsiFile
+            project: Project, editor: Editor, file: PsiFile,
         ): AbstractRefactoring? {
+
+            if (reverseRefactoring!=null)
+                return reverseRefactoring
+
             // Assumes that the creation function's signature
             // is api_call(start_line)
-            if (reverseRefactoringFactory!=null)
-                return reverseRefactoringFactory.createObjectsFromFuncCall(
-                        "${reverseRefactoringFactory.apiFunctionName}($startLoc)",
-                        project, editor, file
-                    )[0]
+            if (reverseRefactoringFactory!=null) {
+                val createdObjectsFromFuncCall = reverseRefactoringFactory.createObjectsFromFuncCall(
+                    "${reverseRefactoringFactory.apiFunctionName}($startLoc)",
+                    project, editor, file
+                )
+                if (createdObjectsFromFuncCall.isNotEmpty())
+                    return createdObjectsFromFuncCall[0]
+            }
             return null
         }
 
