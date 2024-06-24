@@ -18,6 +18,7 @@ abstract class AbstractRefactoring{
     var description: String = ""
     var applied: Boolean = false
     var isValid: Boolean? = null
+    var undone: Boolean = false
 
 //    companion object{
 //        internal fun f(): Int{

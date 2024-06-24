@@ -13,13 +13,7 @@ import com.intellij.notification.NotificationType
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiFile
-import com.intellij.ui.table.JBTable
-import java.awt.Dimension
-import java.awt.event.KeyEvent
-import java.awt.event.MouseEvent
 import java.util.concurrent.atomic.AtomicReference
-import javax.swing.KeyStroke
-import javax.swing.table.DefaultTableModel
 
 class CompletedRefactoringsPanel(
     project: Project,
@@ -87,14 +81,15 @@ class CompletedRefactoringsPanel(
                 )
             )
             addSelectionToTelemetryData(index)
-            val efCandidate = myCandidates[index]
-            val reverseRefactoring = efCandidate.getReverseRefactoringObject(myProject, myEditor, myFile)
+            val refCandidate = myCandidates[index]
+            val reverseRefactoring = refCandidate.getReverseRefactoringObject(myProject, myEditor, myFile)
             if (reverseRefactoring!=null) {
                 val runnable = Runnable {
                     reverseRefactoring.performRefactoring(myProject, myEditor, myFile)
                 }
                 runnable.run()
                 //        myPopup!!.cancel()
+                refCandidate.undone = true
                 refreshCandidates(index, "UNDID")
             }
             else {

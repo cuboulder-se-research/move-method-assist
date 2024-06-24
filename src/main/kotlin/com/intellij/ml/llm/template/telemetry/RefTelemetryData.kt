@@ -230,7 +230,8 @@ class EFTelemetryDataManager {
                 it.description,
                 couldCreateRefObject = it !is UncreatableRefactoring,
                 valid = it.isValid,
-                applied = it.applied
+                applied = it.applied,
+                undone = it.undone
             )
         }
 
