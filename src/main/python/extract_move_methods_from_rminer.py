@@ -118,5 +118,29 @@ def create_dataframe(move_method_examples):
     return df
 
 
+def redo_selected():
+    df = pd.read_csv("~/Documents/TBE/llm-guide-refactorings/"
+              "src/main/resources/data/move_methods_selected.csv")
+
+    file_contents_list = []
+    filepath_list = []
+    for i, row in df.iterrows():
+        try:
+            orig_class_source = row['Class Source']
+            filepath, file_contents = get_file_contents({"repository": row["project_name"].rstrip("/")+".", "sha1": row["commit"]},
+                              get_source_class(row['description']))
+            assert (orig_class_source in file_contents)
+            file_contents_list.append(file_contents)
+            filepath_list.append(filepath)
+        except:
+            file_contents_list.append("source not found")
+
+    df['file_contents'] = file_contents_list
+    # df['file_path'] = filepath_list
+    df.to_csv("~/Downloads/move_methods_selected.csv", index=False)
+
+
+
+
 if __name__ == '__main__':
     main()
