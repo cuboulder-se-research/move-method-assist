@@ -38,6 +38,7 @@ class ExtractMethod(
     }
 
     override fun performRefactoring(project: Project, editor: Editor, file: PsiFile) {
+        super.performRefactoring(project, editor, file)
         editor.selectionModel.setSelection(this.getStartOffset(), this.getEndOffset())
         invokeExtractFunction(newFuncName, project, editor, file)
     }
@@ -53,12 +54,12 @@ class ExtractMethod(
 
     override fun isValid(project: Project, editor: Editor, file: PsiFile): Boolean {
         val candidate = getEFCandidate()
-        return runReadAction {
+        isValid =  runReadAction {
              isCandidateExtractable(
                 candidate, editor, file
             )
         }
-
+        return isValid!!
     }
 
     fun getEFCandidate(): EFCandidate {

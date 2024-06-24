@@ -17,7 +17,7 @@ class CodeTransformer : Observable() {
 //        if (!isCandidateValid(efCandidate)) {
          if (!refCandidate.isValid(project, editor, file)){
             applicationResult = EFApplicationResult.FAIL
-            reason = "invalid extract function candidate"
+            reason = "invalid refactoring candidate"
         } else {
 //            editor.selectionModel.setSelection(refCandidate.getStartOffset(), refCandidate.getEndOffset())
             try {
@@ -46,10 +46,4 @@ class CodeTransformer : Observable() {
     }
 
 
-
-
-
-    private fun isCandidateValid(efCandidate: EFCandidate): Boolean {
-        return efCandidate.offsetStart >= 0 && efCandidate.offsetEnd >= 0
-    }
 }

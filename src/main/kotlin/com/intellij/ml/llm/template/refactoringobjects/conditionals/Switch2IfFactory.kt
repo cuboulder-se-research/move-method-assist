@@ -83,12 +83,14 @@ class Switch2IfFactory {
         val switchStatement: PsiSwitchStatement
     ) : AbstractRefactoring() {
         override fun performRefactoring(project: Project, editor: Editor, file: PsiFile) {
+            super.performRefactoring(project, editor, file)
             val intention = ConvertSwitchToIfIntention(switchStatement)
             WriteCommandAction.runWriteCommandAction(project,
                 Runnable { intention.invoke(project, editor, file) })
         }
 
         override fun isValid(project: Project, editor: Editor, file: PsiFile): Boolean {
+            isValid=true
             return true
         }
 

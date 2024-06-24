@@ -1,14 +1,8 @@
 package com.intellij.ml.llm.template
 
 import com.intellij.ml.llm.template.refactoringobjects.extractfunction.EFCandidate
-import com.intellij.ml.llm.template.refactoringobjects.extractfunction.EfCandidateType
-import com.intellij.ml.llm.template.refactoringobjects.extractfunction.ExtractMethod
-import com.intellij.ml.llm.template.refactoringobjects.extractfunction.ExtractMethodFactory
 import com.intellij.ml.llm.template.telemetry.*
-import com.intellij.ml.llm.template.utils.EFApplicationResult
-import com.intellij.ml.llm.template.utils.EFCandidateApplicationPayload
 import com.intellij.ml.llm.template.utils.EFCandidatesApplicationTelemetryObserver
-import com.intellij.ml.llm.template.utils.EFNotification
 import com.intellij.testFramework.LightPlatformCodeInsightTestCase
 import junit.framework.TestCase
 
@@ -30,7 +24,7 @@ class EFTelemetryDataTest : LightPlatformCodeInsightTestCase() {
     fun `test host function telemetry data added successfully`() {
         val manager = EFTelemetryDataManager()
         val sessionId = manager.newSession()
-        val hostFunctionTelemetryData = EFHostFunctionTelemetryData(
+        val hostFunctionTelemetryData = HostFunctionTelemetryData(
             hostFunctionSize = 10,
             lineStart = 5,
             lineEnd = 14,
@@ -115,7 +109,7 @@ class EFTelemetryDataTest : LightPlatformCodeInsightTestCase() {
                 TestCase.assertEquals(secondSessionId, manager.currentSession())
             } 
             """.trimIndent()
-        val expectedEFHostFunctionTelemetryData = EFHostFunctionTelemetryData(
+        val expectedHostFunctionTelemetryData = HostFunctionTelemetryData(
             hostFunctionSize = 8,
             lineStart = 5,
             lineEnd = 12,
@@ -123,7 +117,7 @@ class EFTelemetryDataTest : LightPlatformCodeInsightTestCase() {
             language = "java"
         )
         TestCase.assertEquals(
-            expectedEFHostFunctionTelemetryData,
+            expectedHostFunctionTelemetryData,
             EFTelemetryDataUtils.buildHostFunctionTelemetryData(
                 codeSnippet = codeSnippet,
                 lineStart = 5,

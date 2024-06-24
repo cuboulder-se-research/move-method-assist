@@ -2,6 +2,7 @@ package com.intellij.ml.llm.template.telemetry
 
 import com.google.gson.annotations.SerializedName
 import com.intellij.ml.llm.template.refactoringobjects.AbstractRefactoring
+import com.intellij.ml.llm.template.refactoringobjects.UncreatableRefactoring
 import com.intellij.ml.llm.template.refactoringobjects.extractfunction.EfCandidateType
 import com.intellij.ml.llm.template.utils.EFApplicationResult
 import com.intellij.ml.llm.template.utils.EFCandidateApplicationPayload
@@ -17,10 +18,10 @@ data class EFTelemetryData(
     var id: String,
 ) {
     @SerializedName("hostFunctionTelemetryData")
-    lateinit var hostFunctionTelemetryData: EFHostFunctionTelemetryData
+    lateinit var hostFunctionTelemetryData: HostFunctionTelemetryData
 
     @SerializedName("candidatesTelemetryData")
-    lateinit var candidatesTelemetryData: EFCandidatesTelemetryData
+    lateinit var candidatesTelemetryData: RefCandidatesTelemetryData
 
     @SerializedName("userSelectionTelemetryData")
     lateinit var userSelectionTelemetryData: EFUserSelectionTelemetryData
@@ -32,7 +33,7 @@ data class EFTelemetryData(
     lateinit var processingTime: EFTelemetryDataProcessingTime
 }
 
-data class EFHostFunctionTelemetryData(
+data class HostFunctionTelemetryData(
     @SerializedName("hostFunctionSize")
     var hostFunctionSize: Int,
 
@@ -46,32 +47,45 @@ data class EFHostFunctionTelemetryData(
     var bodyLineStart: Int,
 
     @SerializedName("language")
-    var language: String
+    var language: String,
+
+    @SerializedName("sourceCode")
+    var sourceCode: String
 )
 
-data class EFCandidatesTelemetryData(
+data class RefCandidatesTelemetryData(
     @SerializedName("numberOfSuggestions")
     var numberOfSuggestions: Int,
 
     @SerializedName("candidates")
-    var candidates: List<EFCandidateTelemetryData>,
+    var candidates: List<RefCandidateTelemetryData>,
 )
 
-data class EFCandidateTelemetryData(
+data class RefCandidateTelemetryData(
     @SerializedName("lineStart")
     var lineStart: Int,
 
     @SerializedName("lineEnd")
     var lineEnd: Int,
 
-    @SerializedName("candidateType")
-    var candidateType: EfCandidateType,
+    @SerializedName("refactoringType")
+    var refactoringType: String,
 
-    @SerializedName("applicationResult")
-    var applicationResult: EFApplicationResult,
+    @SerializedName("description")
+    var description: String,
 
-    @SerializedName("reason")
-    var reason: String
+    @SerializedName("couldCreateRefObject")
+    var couldCreateRefObject: Boolean?=null,
+
+    @SerializedName("valid")
+    var valid: Boolean?=null,
+
+    @SerializedName("applied")
+    var applied: Boolean?=null,
+
+    @SerializedName("undone")
+    var undone: Boolean?=null,
+
 )
 
 data class EFUserSelectionTelemetryData(
@@ -142,6 +156,7 @@ class EFTelemetryDataManager {
     private var currentSessionId: String = ""
     private val data: MutableMap<String, EFTelemetryData> = mutableMapOf()
     private lateinit var currentTelemetryData: EFTelemetryData
+    private var currentRefCanditates: List<AbstractRefactoring>? =null
 
     fun newSession(): String {
         currentSessionId = UUID.randomUUID().toString()
@@ -155,12 +170,12 @@ class EFTelemetryDataManager {
         return newSession()
     }
 
-    fun addHostFunctionTelemetryData(hostFunctionTelemetryData: EFHostFunctionTelemetryData): EFTelemetryDataManager {
+    fun addHostFunctionTelemetryData(hostFunctionTelemetryData: HostFunctionTelemetryData): EFTelemetryDataManager {
         currentTelemetryData.hostFunctionTelemetryData = hostFunctionTelemetryData
         return this
     }
 
-    fun addCandidatesTelemetryData(candidatesTelemetryData: EFCandidatesTelemetryData): EFTelemetryDataManager {
+    fun addCandidatesTelemetryData(candidatesTelemetryData: RefCandidatesTelemetryData): EFTelemetryDataManager {
         currentTelemetryData.candidatesTelemetryData = candidatesTelemetryData
         return this
     }
@@ -172,7 +187,28 @@ class EFTelemetryDataManager {
 
     fun getData(sessionId: String? = null): EFTelemetryData? {
         val sId = sessionId ?: currentSession()
-        return data.getOrDefault(sId, null)
+        val orDefault = data.getOrDefault(sId, null)
+        if (currentRefCanditates!=null) {
+            val objs = currentRefCanditates!!.map { it ->
+                RefCandidateTelemetryData(
+                    it.startLoc, it.endLoc,
+                    it::class.simpleName.toString(),
+                    it.description,
+                    couldCreateRefObject = it !is UncreatableRefactoring,
+                    valid = it.isValid,
+                    applied = it.applied
+                )
+            }
+
+            currentTelemetryData.candidatesTelemetryData = RefCandidatesTelemetryData(
+                currentRefCanditates?.size ?: 0, objs
+            )
+        }
+        return orDefault
+    }
+
+    fun addRefactoringObjects(refactoringCandidates: List<AbstractRefactoring>) {
+        currentRefCanditates = refactoringCandidates
     }
 }
 
@@ -183,31 +219,35 @@ class EFTelemetryDataUtils {
             lineStart: Int,
             bodyLineStart: Int,
             language: String
-        ): EFHostFunctionTelemetryData {
+        ): HostFunctionTelemetryData {
             val functionSize = codeSnippet.lines().size
-            return EFHostFunctionTelemetryData(
+            return HostFunctionTelemetryData(
                 lineStart = lineStart,
                 lineEnd = lineStart + functionSize - 1,
                 hostFunctionSize = functionSize,
                 bodyLineStart = bodyLineStart,
-                language = language
+                language = language,
+                sourceCode = codeSnippet
             )
         }
 
-        private fun buildCandidateTelemetryData(candidateApplicationPayload: EFCandidateApplicationPayload): EFCandidateTelemetryData {
+        private fun buildCandidateTelemetryData(candidateApplicationPayload: EFCandidateApplicationPayload): RefCandidateTelemetryData {
             val candidate = candidateApplicationPayload.candidate
-            return EFCandidateTelemetryData(
+            return RefCandidateTelemetryData(
                 lineStart = candidate.startLoc,
                 lineEnd = candidate.endLoc,
 //                candidateType = candidate.getRefactoringName(),
-                candidateType = EfCandidateType.AS_IS,
-                applicationResult = candidateApplicationPayload.result,
-                reason = candidateApplicationPayload.reason
+//                candidateType = EfCandidateType.AS_IS,
+//                applicationResult = candidateApplicationPayload.result,
+//                reason = candidateApplicationPayload.reason,
+                description = candidate.description,
+                refactoringType = candidate::class.java.toString(),
+//
             )
         }
 
-        fun buildCandidateTelemetryData(candidateApplicationPayloadList: List<EFCandidateApplicationPayload>): List<EFCandidateTelemetryData> {
-            val candidateTelemetryDataList: MutableList<EFCandidateTelemetryData> = mutableListOf()
+        fun buildCandidateTelemetryData(candidateApplicationPayloadList: List<EFCandidateApplicationPayload>): List<RefCandidateTelemetryData> {
+            val candidateTelemetryDataList: MutableList<RefCandidateTelemetryData> = mutableListOf()
             candidateApplicationPayloadList.forEach {
                 candidateTelemetryDataList.add(buildCandidateTelemetryData(it))
             }
@@ -217,7 +257,7 @@ class EFTelemetryDataUtils {
         fun buildUserSelectionTelemetryData(
             efCandidate: AbstractRefactoring,
             candidateIndex: Int,
-            hostFunctionTelemetryData: EFHostFunctionTelemetryData?,
+            hostFunctionTelemetryData: HostFunctionTelemetryData?,
             file: PsiFile
         ): EFUserSelectionTelemetryData {
             var positionInHostFunction = -1

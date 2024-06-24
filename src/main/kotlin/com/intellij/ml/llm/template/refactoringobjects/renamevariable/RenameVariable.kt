@@ -25,6 +25,7 @@ class RenameVariable(
 
 
     override fun performRefactoring(project: Project, editor: Editor, file: PsiFile) {
+        super.performRefactoring(project, editor, file)
 //        val varPsi = PsiUtils.getVariableFromPsi(file, oldName)
         val refactoringFactory = RefactoringFactory.getInstance(project)
         val rename = refactoringFactory.createRename(oldVarPsi, newName)
@@ -38,8 +39,9 @@ class RenameVariable(
 
     override fun isValid(project: Project, editor: Editor, file: PsiFile): Boolean {
         // Valid if oldName exists and newName doesn't
-        return PsiUtils.getVariableFromPsi(file, oldName)!=null
+        isValid = PsiUtils.getVariableFromPsi(file, oldName)!=null
                 && PsiUtils.getVariableFromPsi(file, newName)==null
+        return isValid!!
     }
 
     override fun getRefactoringPreview(): String {

@@ -1,7 +1,6 @@
 package com.intellij.ml.llm.template.intentions
 
 import com.intellij.codeInsight.intention.IntentionAction
-import com.intellij.codeInsight.unwrap.ScopeHighlighter
 import com.intellij.ml.llm.template.LLMBundle
 import com.intellij.ml.llm.template.models.GPTExtractFunctionRequestProvider
 import com.intellij.ml.llm.template.models.LLMBaseResponse
@@ -10,12 +9,8 @@ import com.intellij.ml.llm.template.models.openai.OpenAiChatMessage
 import com.intellij.ml.llm.template.models.sendChatRequest
 import com.intellij.ml.llm.template.prompts.MethodPromptBase
 import com.intellij.ml.llm.template.prompts.SuggestRefactoringPrompt
-import com.intellij.ml.llm.template.refactoringobjects.AbstractRefactoring
-import com.intellij.ml.llm.template.refactoringobjects.extractfunction.EFCandidate
 import com.intellij.ml.llm.template.showEFNotification
-import com.intellij.ml.llm.template.suggestrefactoring.SimpleRefactoringValidator
 import com.intellij.ml.llm.template.telemetry.*
-import com.intellij.ml.llm.template.ui.RefactoringSuggestionsPanel
 import com.intellij.ml.llm.template.utils.*
 import com.intellij.notification.NotificationType
 import com.intellij.openapi.application.invokeLater
@@ -26,19 +21,11 @@ import com.intellij.openapi.progress.ProgressManager
 import com.intellij.openapi.progress.Task
 import com.intellij.openapi.progress.impl.BackgroundableProcessIndicator
 import com.intellij.openapi.project.Project
-import com.intellij.openapi.ui.popup.JBPopupFactory
-import com.intellij.openapi.ui.popup.JBPopupListener
-import com.intellij.openapi.ui.popup.LightweightWindowEvent
 import com.intellij.psi.PsiClass
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
-import com.intellij.ui.awt.RelativePoint
-import kotlinx.coroutines.runBlocking
 import org.jetbrains.kotlin.util.capitalizeDecapitalize.toLowerCaseAsciiOnly
-import java.awt.Point
-import java.awt.Rectangle
 import java.util.concurrent.TimeUnit
-import java.util.concurrent.atomic.AtomicReference
 
 
 @Suppress("UnstableApiUsage")
@@ -96,6 +83,7 @@ abstract class ApplySuggestRefactoringIntention(
                     lineStart = startLineNumber,
                     bodyLineStart = bodyLineStart,
                     language = file.language.id.toLowerCaseAsciiOnly()
+                    // TODO: Add entire host method's code here.
                 )
             )
 
@@ -172,11 +160,12 @@ abstract class ApplySuggestRefactoringIntention(
         }
     }
 
-    fun buildCandidatesTelemetryData(
+    fun buildCandidatesTelemetryData( //TODO: this function should include telemetry information
+                                        // generic to all refactoring objects
         numberOfSuggestions: Int, notificationPayloadList: List<EFCandidateApplicationPayload>
-    ): EFCandidatesTelemetryData {
+    ): RefCandidatesTelemetryData {
         val candidateTelemetryDataList = EFTelemetryDataUtils.buildCandidateTelemetryData(notificationPayloadList)
-        return EFCandidatesTelemetryData(
+        return RefCandidatesTelemetryData(
             numberOfSuggestions = numberOfSuggestions, candidates = candidateTelemetryDataList
         )
     }

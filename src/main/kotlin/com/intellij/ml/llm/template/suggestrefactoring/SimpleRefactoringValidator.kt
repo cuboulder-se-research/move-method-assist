@@ -4,6 +4,8 @@ import com.intellij.ml.llm.template.intentions.ApplySuggestRefactoringAgentInten
 import com.intellij.ml.llm.template.models.LLMBaseResponse
 import com.intellij.ml.llm.template.models.LLMRequestProvider
 import com.intellij.ml.llm.template.refactoringobjects.AbstractRefactoring
+import com.intellij.ml.llm.template.refactoringobjects.MyRefactoringFactory
+import com.intellij.ml.llm.template.refactoringobjects.UncreatableRefactoring
 import com.intellij.ml.llm.template.refactoringobjects.conditionals.*
 import com.intellij.ml.llm.template.refactoringobjects.looping.EnhancedForFactory
 import com.intellij.ml.llm.template.refactoringobjects.renamevariable.RenameVariableFactory
@@ -55,7 +57,15 @@ class SimpleRefactoringValidator(
                         Thread.sleep(2000)
 
                         if (!createdRefactoringObjects.isNullOrEmpty()) {
-                            allRefactoringObjects.addAll(createdRefactoringObjects)
+                            println("Successfully created ${createdRefactoringObjects.size} refactoring object(s).")
+                            createdRefactoringObjects
+                        } else {
+                            println("No refactoring objects were created.")
+                            listOf(
+                                UncreatableRefactoring(
+                                    suggestion.start, suggestion.end, refFactory::class.simpleName.toString())
+                                    .also { it.description = suggestion.shortDescription+"\n"+suggestion.longDescription }
+                            )
                         }
                     }
 

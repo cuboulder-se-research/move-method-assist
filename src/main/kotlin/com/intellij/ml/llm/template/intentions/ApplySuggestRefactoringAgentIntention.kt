@@ -157,6 +157,7 @@ class ApplySuggestRefactoringAgentIntention(
             buildProcessingTimeTelemetryData(llmResponseTime, System.nanoTime() - now)
             sendTelemetryData()
         } else {
+            telemetryDataManager.addRefactoringObjects(refactoringCandidates)
             val candidatesApplicationTelemetryObserver = EFCandidatesApplicationTelemetryObserver()
 //            val filteredCandidates = filterCandidates(candidates, candidatesApplicationTelemetryObserver, editor, file)
             val validRefactoringCandidates = refactoringCandidates.filter {

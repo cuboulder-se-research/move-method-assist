@@ -16,13 +16,18 @@ import com.intellij.psi.PsiFile
 
 abstract class AbstractRefactoring{
     var description: String = ""
+    var applied: Boolean = false
+    var isValid: Boolean? = null
 
 //    companion object{
 //        internal fun f(): Int{
 //            return 1
 //        }
 //    }
-    abstract fun performRefactoring(project: Project, editor: Editor, file: PsiFile)
+    open fun performRefactoring(project: Project, editor: Editor, file: PsiFile){
+        applied = true
+    }
+
 
     /*
     Return true if the refactoring object can be applied to the code.

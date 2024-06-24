@@ -131,10 +131,12 @@ class MoveMethodFactory {
             val processor: MoveInstanceMethodProcessor
         ) : AbstractRefactoring(){
             override fun performRefactoring(project: Project, editor: Editor, file: PsiFile) {
+                super.performRefactoring(project, editor, file)
                 processor.run()
             }
 
             override fun isValid(project: Project, editor: Editor, file: PsiFile): Boolean {
+                isValid = true
                 return true
             }
 

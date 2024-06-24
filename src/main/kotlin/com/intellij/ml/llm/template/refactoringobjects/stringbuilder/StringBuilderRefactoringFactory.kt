@@ -100,6 +100,7 @@ class StringBuilderRefactoringFactory {
             val psiPolyadicExpression: PsiPolyadicExpression
         ) : AbstractRefactoring() {
             override fun performRefactoring(project: Project, editor: Editor, file: PsiFile) {
+                super.performRefactoring(project, editor, file)
                 val sbConcat = ReplaceConcatenationWithStringBufferIntention()
                 WriteCommandAction.runWriteCommandAction(project,
                     Runnable {
@@ -108,6 +109,7 @@ class StringBuilderRefactoringFactory {
             }
 
             override fun isValid(project: Project, editor: Editor, file: PsiFile): Boolean {
+                isValid = true
                 return true
             }
 
@@ -132,6 +134,7 @@ class StringBuilderRefactoringFactory {
             val problemsHolder: ProblemsHolder
         ) : AbstractRefactoring() {
             override fun performRefactoring(project: Project, editor: Editor, file: PsiFile) {
+                super.performRefactoring(project, editor, file)
                 val problem = problemsHolder.results[0]!!
                 val fix = problem.fixes!![0]
 
@@ -140,6 +143,7 @@ class StringBuilderRefactoringFactory {
             }
 
             override fun isValid(project: Project, editor: Editor, file: PsiFile): Boolean {
+                isValid = true
                 return true
             }
 

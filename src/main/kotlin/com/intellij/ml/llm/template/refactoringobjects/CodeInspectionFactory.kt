@@ -82,13 +82,15 @@ class CodeInspectionFactory<T: PsiElement>(
         val refactoringPreview: (PsiElement) -> String
     ) : AbstractRefactoring() {
         override fun performRefactoring(project: Project, editor: Editor, file: PsiFile) {
+            super.performRefactoring(project, editor, file)
             val p0 = problemsHolder.results[0]!!
             WriteCommandAction.runWriteCommandAction(project,
                 Runnable {  p0.fixes?.get(0)?.applyFix(project, p0)})
         }
 
         override fun isValid(project: Project, editor: Editor, file: PsiFile): Boolean {
-            return true
+            isValid = true
+            return isValid!!
         }
 
         override fun getRefactoringPreview(): String {
