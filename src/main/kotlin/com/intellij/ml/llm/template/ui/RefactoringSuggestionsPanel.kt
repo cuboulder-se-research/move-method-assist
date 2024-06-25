@@ -62,10 +62,10 @@ open class RefactoringSuggestionsPanel(
     efTelemetryDataManager: EFTelemetryDataManager? = null,
     val button_name: String
 ) : Observable() {
-    val myExtractFunctionsCandidateTable: JBTable
-    val myExtractFunctionsScrollPane: JBScrollPane
+    lateinit var myExtractFunctionsCandidateTable: JBTable
+    lateinit var myExtractFunctionsScrollPane: JBScrollPane
     val myProject: Project = project
-    val myMethodSignaturePreview: MethodSignatureComponent
+    lateinit var myMethodSignaturePreview: MethodSignatureComponent
     val myCandidates = candidates
     val myEditor = editor
     var myPopup: JBPopup? = null
@@ -77,7 +77,7 @@ open class RefactoringSuggestionsPanel(
     var prevSelectedCandidateIndex = 0
     var completedIndices = mutableListOf<Int>()
 
-    init {
+    fun initTable(){
         val tableModel = buildTableModel(myCandidates)
         val candidateSignatureMap = buildCandidateSignatureMap(myCandidates)
         myMethodSignaturePreview = buildMethodSignaturePreview()
@@ -131,20 +131,7 @@ open class RefactoringSuggestionsPanel(
 
         extractFunctionCandidateTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION)
         extractFunctionCandidateTable.selectionModel.addListSelectionListener {
-            val candidate = myCandidates[extractFunctionCandidateTable.selectedRow]
-            myEditor.selectionModel.setSelection(candidate.getStartOffset(), candidate.getStartOffset())
-
-            myMethodSignaturePreview.setSignature(candidateSignatureMap[candidate])
-            val scopeHighlighter: ScopeHighlighter = myHighlighter.get()
-            scopeHighlighter.dropHighlight()
-            val range = TextRange(candidate.getStartOffset(), candidate.getEndOffset())
-            scopeHighlighter.highlight(com.intellij.openapi.util.Pair(range, listOf(range)))
-            myEditor.scrollingModel.scrollTo(LogicalPosition(candidate.startLoc, 0), ScrollType.CENTER)
-
-            // compute elapsed time
-            notifyObservers(EFNotification(EFTelemetryDataElapsedTimeNotificationPayload(TelemetryDataAction.STOP, prevSelectedCandidateIndex)))
-            notifyObservers(EFNotification(EFTelemetryDataElapsedTimeNotificationPayload(TelemetryDataAction.START, extractFunctionCandidateTable.selectedRow)))
-            prevSelectedCandidateIndex = extractFunctionCandidateTable.selectedRow
+            highlightElement(extractFunctionCandidateTable, candidateSignatureMap)
         }
         extractFunctionCandidateTable.selectionModel.setSelectionInterval(0, 0)
         extractFunctionCandidateTable.cellEditor = null
@@ -364,5 +351,27 @@ open class RefactoringSuggestionsPanel(
         val selectedRow = myExtractFunctionsCandidateTable.selectedRow
         val refName = myExtractFunctionsCandidateTable.getValueAt(selectedRow, 1)!! as String
         myExtractFunctionsCandidateTable.setValueAt("$tag: $refName", selectedRow, 1)
+    }
+
+    fun highlightElement(extractFuncationCandidateJBTable: JBTable, candidateSignatureMap: Map<AbstractRefactoring, String>){
+        val candidate = getSelectedRefactoringObject(extractFuncationCandidateJBTable) ?: return
+        myEditor.selectionModel.setSelection(candidate.getStartOffset(), candidate.getStartOffset())
+
+        myMethodSignaturePreview.setSignature(candidateSignatureMap[candidate])
+        val scopeHighlighter: ScopeHighlighter = myHighlighter.get()
+        scopeHighlighter.dropHighlight()
+        val range = TextRange(candidate.getStartOffset(), candidate.getEndOffset())
+        scopeHighlighter.highlight(com.intellij.openapi.util.Pair(range, listOf(range)))
+        myEditor.scrollingModel.scrollTo(LogicalPosition(candidate.startLoc, 0), ScrollType.CENTER)
+
+        // compute elapsed time
+        notifyObservers(EFNotification(EFTelemetryDataElapsedTimeNotificationPayload(TelemetryDataAction.STOP, prevSelectedCandidateIndex)))
+        notifyObservers(EFNotification(EFTelemetryDataElapsedTimeNotificationPayload(TelemetryDataAction.START, extractFuncationCandidateJBTable.selectedRow)))
+        prevSelectedCandidateIndex = extractFuncationCandidateJBTable.selectedRow
+    }
+
+    open fun getSelectedRefactoringObject(extractFuncationCandidateJBTable: JBTable): AbstractRefactoring? {
+        val candidate = myCandidates[extractFuncationCandidateJBTable.selectedRow]
+        return candidate
     }
 }

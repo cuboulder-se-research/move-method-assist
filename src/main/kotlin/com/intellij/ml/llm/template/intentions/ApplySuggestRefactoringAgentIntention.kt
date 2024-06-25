@@ -261,6 +261,7 @@ class ApplySuggestRefactoringAgentIntention(
             highlighter = highlighter,
             efTelemetryDataManager = telemetryDataManager
         )
+        efPanel.initTable()
         val elapsedTimeTelemetryDataObserver = TelemetryElapsedTimeObserver()
         efPanel.addObserver(elapsedTimeTelemetryDataObserver)
         val panel = efPanel.createPanel()

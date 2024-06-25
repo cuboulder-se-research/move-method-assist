@@ -30,4 +30,8 @@ class UncreatableRefactoring(
     override fun getEndOffset(): Int {
         return 0
     }
+
+    override fun getReverseRefactoringObject(project: Project, editor: Editor, file: PsiFile): AbstractRefactoring? {
+        return null
+    }
 }

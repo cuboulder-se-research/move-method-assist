@@ -13,6 +13,7 @@ import com.intellij.notification.NotificationType
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiFile
+import com.intellij.ui.table.JBTable
 import java.util.concurrent.atomic.AtomicReference
 
 class CompletedRefactoringsPanel(
@@ -22,53 +23,22 @@ class CompletedRefactoringsPanel(
     candidates: List<AbstractRefactoring>,
     codeTransformer: CodeTransformer,
     highlighter: AtomicReference<ScopeHighlighter>,
-    efTelemetryDataManager: EFTelemetryDataManager
+    efTelemetryDataManager: EFTelemetryDataManager,
+    val reverseRefactorings: List<AbstractRefactoring?> = getReverseObjects(candidates, project, editor, file)
 ) : RefactoringSuggestionsPanel(
     project, editor,
     file,
     candidates, codeTransformer, highlighter, efTelemetryDataManager, LLMBundle.message("ef.candidates.completed.popup.extract.function.button.title")
 ) {
-//    override fun buildRefactoringCandidatesTable(
-//        tableModel: DefaultTableModel,
-//        candidateSignatureMap: Map<AbstractRefactoring, String>
-//    ): JBTable {
-//        val extractFunctionCandidateTable = object : JBTable(tableModel) {
-//            override fun processKeyBinding(ks: KeyStroke, e: KeyEvent, condition: Int, pressed: Boolean): Boolean {
-//                if (e.keyCode == KeyEvent.VK_ENTER) {
-//                    if (e.id == KeyEvent.KEY_PRESSED) {
-//                        if (!isEditing && e.modifiersEx == 0) {
-//                            undoRefactoring(selectedRow)
-//                        }
-//                    }
-//                    e.consume()
-//                    return true
-//                }
-//                if (e.keyCode == KeyEvent.VK_ESCAPE) {
-//                    if (e.id == KeyEvent.KEY_PRESSED) {
-//                        myPopup?.cancel()
-//                    }
-//                }
-//                return super.processKeyBinding(ks, e, condition, pressed)
-//            }
-//
-//            override fun processMouseEvent(e: MouseEvent?) {
-//                if (e != null && e.clickCount == 2) {
-//                    undoRefactoring(selectedRow)
-//                }
-//                super.processMouseEvent(e)
-//            }
-//        }
-//
-//        extractFunctionCandidateTable.minimumSize = Dimension(-1, 100)
-//        extractFunctionCandidateTable.tableHeader = null
-//
-//
-//        extractFunctionCandidateTable.columnModel.getColumn(0).maxWidth = 50
-//        extractFunctionCandidateTable.columnModel.getColumn(1).cellRenderer = FunctionNameTableCellRenderer()
-//        extractFunctionCandidateTable.setShowGrid(false)
-//
-//        return extractFunctionCandidateTable
-//    }
+
+    companion object{
+        fun getReverseObjects(
+            refactoringObjects: List<AbstractRefactoring>,
+            project: Project, editor: Editor, file: PsiFile
+        ): List<AbstractRefactoring?>{
+            return refactoringObjects.map { it.getReverseRefactoringObject(project, editor, file) }
+        }
+    }
 
     override fun performAction(index: Int) {
         if (index !in completedIndices){
@@ -81,8 +51,24 @@ class CompletedRefactoringsPanel(
                 )
             )
             addSelectionToTelemetryData(index)
+
+            // Undo refactorings after index.
+            // Undo Refactoring.
+            // Redo refactoring.
+
             val refCandidate = myCandidates[index]
-            val reverseRefactoring = refCandidate.getReverseRefactoringObject(myProject, myEditor, myFile)
+//            for (i in (index until myCandidates.size).reversed()){
+//                val refCandidate = myCandidates[i]
+//                refCandidate.getReverseRefactoringObject(myProject, myEditor, myFile)?.performRefactoring(myProject, myEditor, myFile)
+//            }
+//            for (i in index+1 until myCandidates.size){
+//                val refCandidate = myCandidates[i]
+//                refCandidate.performRefactoring(myProject, myEditor, myFile)
+//            }
+//
+
+//            val reverseRefactoring = refCandidate.getReverseRefactoringObject(myProject, myEditor, myFile)
+            val reverseRefactoring = reverseRefactorings[index]
             if (reverseRefactoring!=null) {
                 val runnable = Runnable {
                     reverseRefactoring.performRefactoring(myProject, myEditor, myFile)
@@ -100,6 +86,13 @@ class CompletedRefactoringsPanel(
                 )
             }
         }
+    }
+
+    override fun getSelectedRefactoringObject(extractFuncationCandidateJBTable: JBTable): AbstractRefactoring? {
+        val index = extractFuncationCandidateJBTable.selectedRow
+        if (index < reverseRefactorings.size)
+            return reverseRefactorings[index]
+        return null
     }
 
 
