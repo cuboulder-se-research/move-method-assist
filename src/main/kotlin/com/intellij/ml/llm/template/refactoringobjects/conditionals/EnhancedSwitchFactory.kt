@@ -30,7 +30,7 @@ class EnhancedSwitchFactory {
             EnhancedSwitchMigrationInspection(),
             preview,
             false,
-            reverseRefactoringFactory = null
+            reverseRefactoringFactory = OldStyleSwitch.factory
         )
     }
 }
