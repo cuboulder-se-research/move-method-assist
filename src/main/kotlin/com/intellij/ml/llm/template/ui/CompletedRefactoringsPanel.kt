@@ -88,11 +88,29 @@ class CompletedRefactoringsPanel(
         }
     }
 
-    override fun getSelectedRefactoringObject(extractFuncationCandidateJBTable: JBTable): AbstractRefactoring? {
-        val index = extractFuncationCandidateJBTable.selectedRow
-        if (index < reverseRefactorings.size)
-            return reverseRefactorings[index]
-        return null
+//    override fun getSelectedRefactoringObject(extractFuncationCandidateJBTable: JBTable): AbstractRefactoring? {
+//        val index = extractFuncationCandidateJBTable.selectedRow
+//        if (index < reverseRefactorings.size)
+//            return reverseRefactorings[index]
+//        return null
+//    }
+
+    override fun getEndOffset(index: Int): Int {
+        if(reverseRefactorings[index]!=null)
+            return reverseRefactorings[index]!!.getEndOffset()
+        return 0
+    }
+
+    override fun getStartOffset(index: Int): Int {
+        if(reverseRefactorings[index]!=null)
+            return reverseRefactorings[index]!!.getStartOffset()
+        return 0
+    }
+
+    override fun getStartLoc(index: Int): Int {
+        if(reverseRefactorings[index]!=null)
+            return reverseRefactorings[index]!!.startLoc
+        return 0
     }
 
 

@@ -353,16 +353,19 @@ open class RefactoringSuggestionsPanel(
         myExtractFunctionsCandidateTable.setValueAt("$tag: $refName", selectedRow, 1)
     }
 
-    fun highlightElement(extractFuncationCandidateJBTable: JBTable, candidateSignatureMap: Map<AbstractRefactoring, String>){
+    open fun highlightElement(extractFuncationCandidateJBTable: JBTable, candidateSignatureMap: Map<AbstractRefactoring, String>){
         val candidate = getSelectedRefactoringObject(extractFuncationCandidateJBTable) ?: return
-        myEditor.selectionModel.setSelection(candidate.getStartOffset(), candidate.getStartOffset())
+        val startOffset = getStartOffset(extractFuncationCandidateJBTable.selectedRow)
+        val endOffset = getEndOffset(extractFuncationCandidateJBTable.selectedRow)
+        myEditor.selectionModel.setSelection(startOffset, endOffset)
 
         myMethodSignaturePreview.setSignature(candidateSignatureMap[candidate])
         val scopeHighlighter: ScopeHighlighter = myHighlighter.get()
         scopeHighlighter.dropHighlight()
-        val range = TextRange(candidate.getStartOffset(), candidate.getEndOffset())
+        val range = TextRange(startOffset, endOffset)
         scopeHighlighter.highlight(com.intellij.openapi.util.Pair(range, listOf(range)))
-        myEditor.scrollingModel.scrollTo(LogicalPosition(candidate.startLoc, 0), ScrollType.CENTER)
+        val startLoc = getStartLoc(extractFuncationCandidateJBTable.selectedRow)
+        myEditor.scrollingModel.scrollTo(LogicalPosition(startLoc, 0), ScrollType.CENTER)
 
         // compute elapsed time
         notifyObservers(EFNotification(EFTelemetryDataElapsedTimeNotificationPayload(TelemetryDataAction.STOP, prevSelectedCandidateIndex)))
@@ -370,8 +373,18 @@ open class RefactoringSuggestionsPanel(
         prevSelectedCandidateIndex = extractFuncationCandidateJBTable.selectedRow
     }
 
-    open fun getSelectedRefactoringObject(extractFuncationCandidateJBTable: JBTable): AbstractRefactoring? {
+    open fun getStartLoc(index: Int) = myCandidates[index].startLoc
+
+    private fun getSelectedRefactoringObject(extractFuncationCandidateJBTable: JBTable): AbstractRefactoring? {
         val candidate = myCandidates[extractFuncationCandidateJBTable.selectedRow]
         return candidate
+    }
+
+    open fun getStartOffset(index: Int): Int{
+        return myCandidates[index].getStartOffset()
+    }
+
+    open fun getEndOffset(index: Int): Int{
+        return myCandidates[index].getEndOffset()
     }
 }
