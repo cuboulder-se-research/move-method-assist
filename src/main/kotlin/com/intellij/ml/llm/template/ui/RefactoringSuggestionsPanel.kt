@@ -156,8 +156,8 @@ open class RefactoringSuggestionsPanel(
         val columnNames = arrayOf("Function Length", "Function Name")
         val model = object : DefaultTableModel() {
             override fun getColumnClass(column: Int): Class<*> {
-                // Return the class that corresponds to the specified column.
-                return if (column == 0) String::class.java else Integer::class.java
+                // Return the class that corresponds to the specified column. Can return multiple types for multiple columns
+                return String::class.java
             }
 
             override fun isCellEditable(row: Int, column: Int): Boolean {
@@ -167,9 +167,8 @@ open class RefactoringSuggestionsPanel(
         }
         model.setColumnIdentifiers(columnNames)
         candidates.forEach { refCandidate ->
-            val refactoringSize = refCandidate.sizeLoc()
             val refName = refCandidate.getRefactoringPreview()
-            model.addRow(arrayOf(refactoringSize, refName))
+            model.addRow(arrayOf("", refName))
         }
         return model
     }

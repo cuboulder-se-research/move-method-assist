@@ -136,4 +136,5 @@ abstract class AbstractRefactoringValidator(
     abstract fun isTernary2If(suggestion: AtomicSuggestion): Boolean
     abstract fun isStringBuilder(suggestion: AtomicSuggestion): Boolean
     abstract fun isMoveMethod(suggestion: AtomicSuggestion): Boolean
+    abstract suspend fun buildObjectsFromImprovementsList(improvementsList: List<AtomicSuggestion>): List<AbstractRefactoring>
 }

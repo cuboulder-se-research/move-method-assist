@@ -11,9 +11,11 @@ import com.intellij.ml.llm.template.prompts.ExtractMethodPrompt
 import com.intellij.ml.llm.template.prompts.MethodPromptBase
 import com.intellij.ml.llm.template.refactoringobjects.AbstractRefactoring
 import com.intellij.ml.llm.template.refactoringobjects.extractfunction.ExtractMethod
+import com.intellij.ml.llm.template.settings.LLMSettingsManager
 import com.intellij.ml.llm.template.suggestrefactoring.AbstractRefactoringValidator
 import com.intellij.ml.llm.template.suggestrefactoring.AtomicSuggestion
 import com.intellij.ml.llm.template.suggestrefactoring.SimpleRefactoringValidator
+import com.intellij.ml.llm.template.suggestrefactoring.SimpleRefactoringValidatorSerial
 import com.intellij.ml.llm.template.telemetry.*
 import com.intellij.ml.llm.template.ui.CompletedRefactoringsPanel
 import com.intellij.ml.llm.template.utils.*
@@ -32,7 +34,6 @@ import com.intellij.psi.PsiFile
 import com.intellij.ui.awt.RelativePoint
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.runBlocking
-import org.jetbrains.kotlin.idea.base.psi.getLineNumber
 import org.jetbrains.kotlin.idea.editor.fixers.endLine
 import org.jetbrains.kotlin.idea.editor.fixers.startLine
 import org.jetbrains.kotlin.psi.psiUtil.startOffset
@@ -47,7 +48,8 @@ class ApplySuggestRefactoringAgentIntention(
     private val efLLMRequestProvider: LLMRequestProvider = GrazieGPT4RequestProvider,
     private val useDelays: Boolean = true
 ) : ApplySuggestRefactoringIntention(efLLMRequestProvider) {
-    private val MAX_ITERS: Int = 1
+    val refactoringLimit: Int = 3
+    private var MAX_ITERS: Int = LLMSettingsManager.getInstance().getNumberOfIterations()
     private val performedRefactorings = mutableListOf<AbstractRefactoring>()
     private val refactoringsPerIteration = mutableMapOf<Int, List<AbstractRefactoring>>()
     private val logger = Logger.getInstance(ApplySuggestRefactoringAgentIntention::class.java)
@@ -80,6 +82,7 @@ class ApplySuggestRefactoringAgentIntention(
         editor: Editor,
         file: PsiFile
     ) {
+        MAX_ITERS = LLMSettingsManager.getInstance().getNumberOfIterations()
         performedRefactorings.removeAll({it->true})
         for (iter in 1..MAX_ITERS) {
             setTelemetryData(editor, file)
@@ -144,7 +147,7 @@ class ApplySuggestRefactoringAgentIntention(
         val now = System.nanoTime()
 
         val llmResponse = response.getSuggestions()[0]
-        val validator = SimpleRefactoringValidator(efLLMRequestProvider,
+        val validator = SimpleRefactoringValidatorSerial(efLLMRequestProvider,
             project,
             editor,
             file,
@@ -153,16 +156,15 @@ class ApplySuggestRefactoringAgentIntention(
         )
         if (useDelays)
             Thread.sleep(2000)
-        val limit = 3
-        logLLMResponse(response, limit, validator)
-//        val efSuggestionList = validator.getExtractMethodSuggestions(llmResponse.text)
+        val filteredSuggestions = filterSuggestions(response, refactoringLimit, validator) ?: return
+        //        val efSuggestionList = validator.getExtractMethodSuggestions(llmResponse.text)
 //        val renameSuggestions = validator.getRenamveVariableSuggestions(llmResponse.text)
         logger.info(AGENT_HEADER)
         logger.info("Processing LLM Recommendations...")
         logger.info("\n")
         val refactoringCandidates: List<AbstractRefactoring> =
             runBlocking {
-                validator.getRefactoringSuggestions(llmResponse.text, limit)
+                validator.buildObjectsFromImprovementsList(filteredSuggestions)
             }
 //        val refactoringCandidates: List<AbstractRefactoring> = runBlocking {
 //                validator.getRefactoringSuggestions(llmResponse.text)
@@ -216,11 +218,15 @@ class ApplySuggestRefactoringAgentIntention(
     }
 
 
-    private fun logLLMResponse(response: LLMBaseResponse,
-                               limit: Int,
-                               validator: AbstractRefactoringValidator) {
+    private fun filterSuggestions(response: LLMBaseResponse,
+                                  limit: Int,
+                                  validator: AbstractRefactoringValidator): List<AtomicSuggestion>? {
         logger.info(LLM_HEADER)
-        for (suggestion in response.getSuggestions()){
+        val suggestions = response.getSuggestions()
+
+
+        if (suggestions.isNotEmpty()){
+            val suggestion = suggestions[0]
 //            logger.info(suggestion.)
             val improvements = AbstractRefactoringValidator.getRawSuggestions(suggestion.text).improvements
             val realLimit = if(improvements.size > limit){
@@ -233,15 +239,17 @@ class ApplySuggestRefactoringAgentIntention(
                     .sortedBy { selectionPriority(it, validator) }
                     .subList(0, realLimit)
                     .sortedBy { validator.isExtractMethod(it) }
-                    .withIndex()
-            for (atomicSuggestion in improvementsSorted){
+
+            for (atomicSuggestion in improvementsSorted.withIndex()){
                 logger.info("${atomicSuggestion.index+1}: ${atomicSuggestion.value.shortDescription}")
                 logger.info("Suggestion: ${atomicSuggestion.value.longDescription}".prependIndent("    "))
                 logger.info("\n")
                 if (useDelays)
                     Thread.sleep(3000)
             }
+            return improvementsSorted
         }
+        return null
     }
 
     private fun showCompletedRefactoringOptionsPopup(

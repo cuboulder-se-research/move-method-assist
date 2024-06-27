@@ -109,7 +109,7 @@ class CompletedRefactoringsPanel(
 
     override fun getStartLoc(index: Int): Int {
         if(reverseRefactorings[index]!=null)
-            return reverseRefactorings[index]!!.startLoc
+            return myEditor.document.getLineNumber(reverseRefactorings[index]!!.getStartOffset())
         return 0
     }
 

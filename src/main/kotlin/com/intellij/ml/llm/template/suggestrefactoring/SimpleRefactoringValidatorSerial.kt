@@ -43,33 +43,10 @@ class SimpleRefactoringValidatorSerial(
             } else{
                 improvements
             }.sortedBy { isExtractMethod(it) }
-            for (suggestion in subList)
-                    {
-                        val refFactory = when {
-                            isExtractMethod(suggestion) -> ExtractMethodFactory
-                            isRenameVariable(suggestion) -> RenameVariableFactory
-                            isEnhacedForRefactoring(suggestion) -> EnhancedForFactory.factory
-                            isEnhancedSwitchRefactoring(suggestion) -> EnhancedSwitchFactory.factory
-                            isFor2While(suggestion) -> For2While.factory
-                            isFor2Streams(suggestion) -> For2Stream.factory
-                            isIf2Switch(suggestion) -> If2Switch.factory
-                            isSwitch2If(suggestion) -> Switch2IfFactory
-                            isIf2Ternary(suggestion) -> If2Ternary.factory
-                            isTernary2If(suggestion) -> Ternary2If.factory
-                            isStringBuilder(suggestion) -> StringBuilderRefactoringFactory
-                            isMoveMethod(suggestion) -> MoveMethodFactory
-                            else -> ExtractMethodFactory // default
-                        }
-                        Thread.sleep(1000)
-                        val createdRefactoringObjects =
-                            getParamsAndCreateObject(suggestion, refFactory)
-                        Thread.sleep(2000)
 
-                        if (!createdRefactoringObjects.isNullOrEmpty()) {
-                            allRefactoringObjects.addAll(createdRefactoringObjects)
-                        }
-                    }
-
+            allRefactoringObjects.addAll(
+                buildObjectsFromImprovementsList(subList)
+            )
 
         }
 
@@ -146,6 +123,37 @@ class SimpleRefactoringValidatorSerial(
     override fun isMoveMethod(suggestion: AtomicSuggestion): Boolean {
         return suggestion.shortDescription.lowercase().contains("move") &&
                 suggestion.shortDescription.lowercase().contains("method")
+    }
+
+    override suspend fun buildObjectsFromImprovementsList(improvementsList: List<AtomicSuggestion>): List<AbstractRefactoring> {
+        val allRefactoringObjects= mutableListOf<AbstractRefactoring>()
+        for (suggestion in improvementsList)
+        {
+            val refFactory = when {
+                isExtractMethod(suggestion) -> ExtractMethodFactory
+                isRenameVariable(suggestion) -> RenameVariableFactory
+                isEnhacedForRefactoring(suggestion) -> EnhancedForFactory.factory
+                isEnhancedSwitchRefactoring(suggestion) -> EnhancedSwitchFactory.factory
+                isFor2While(suggestion) -> For2While.factory
+                isFor2Streams(suggestion) -> For2Stream.factory
+                isIf2Switch(suggestion) -> If2Switch.factory
+                isSwitch2If(suggestion) -> Switch2IfFactory
+                isIf2Ternary(suggestion) -> If2Ternary.factory
+                isTernary2If(suggestion) -> Ternary2If.factory
+                isStringBuilder(suggestion) -> StringBuilderRefactoringFactory
+                isMoveMethod(suggestion) -> MoveMethodFactory
+                else -> ExtractMethodFactory // default
+            }
+            Thread.sleep(1000)
+            val createdRefactoringObjects =
+                getParamsAndCreateObject(suggestion, refFactory)
+            Thread.sleep(2000)
+
+            if (!createdRefactoringObjects.isNullOrEmpty()) {
+                allRefactoringObjects.addAll(createdRefactoringObjects)
+            }
+        }
+        return allRefactoringObjects
     }
 
 

@@ -34,49 +34,57 @@ class SimpleRefactoringValidator(
 
     override suspend fun getRefactoringSuggestions(llmResponseText: String, limit: Int): List<AbstractRefactoring> {
         val refactoringSuggestion = getRawSuggestions(llmResponseText)
+        val allRefactoringObjects = buildObjectsFromImprovementsList(refactoringSuggestion.improvements)
+        return allRefactoringObjects;
+    }
+
+    override suspend fun buildObjectsFromImprovementsList(
+        improvementsList: List<AtomicSuggestion>,
+    ): List<AbstractRefactoring> {
         val allRefactoringObjects= mutableListOf<AbstractRefactoring>()
 
-
-        val time = measureTimeMillis {
-
-            val improvements = refactoringSuggestion.improvements.sortedBy { selectionPriority(it, this) }
-            val subList = if (improvements.size > limit) {
-                improvements.subList(0, limit)
-            } else{
-                improvements
-            }.sortedBy { isExtractMethod(it) }
-            for (suggestion in subList)
-                    {
-                        val refFactory = when {
-                            isMoveMethod(suggestion) -> MoveMethodFactory
-                            else -> MoveMethodFactory // default
-                        }
-                        Thread.sleep(1000)
-                        val createdRefactoringObjects =
-                            getParamsAndCreateObject(suggestion, refFactory)
-                        Thread.sleep(2000)
-
-                        if (!createdRefactoringObjects.isNullOrEmpty()) {
-                            println("Successfully created ${createdRefactoringObjects.size} refactoring object(s).")
-                            createdRefactoringObjects
-                        } else {
-                            println("No refactoring objects were created.")
-                            listOf(
-                                UncreatableRefactoring(
-                                    suggestion.start, suggestion.end, refFactory::class.simpleName.toString())
-                                    .also { it.description = suggestion.shortDescription+"\n"+suggestion.longDescription }
-                            )
-                        }
+        coroutineScope {
+            improvementsList.map { suggestion ->
+                async(Dispatchers.Default) {
+                    val refFactory = when {
+                        isExtractMethod(suggestion) -> ExtractMethodFactory
+                        isRenameVariable(suggestion) -> RenameVariableFactory
+                        isEnhacedForRefactoring(suggestion) -> EnhancedForFactory.factory
+                        isEnhancedSwitchRefactoring(suggestion) -> EnhancedSwitchFactory.factory
+                        isFor2While(suggestion) -> For2While.factory
+                        isFor2Streams(suggestion) -> For2Stream.factory
+                        isIf2Switch(suggestion) -> If2Switch.factory
+                        isSwitch2If(suggestion) -> Switch2IfFactory
+                        isIf2Ternary(suggestion) -> If2Ternary.factory
+                        isTernary2If(suggestion) -> Ternary2If.factory
+                        isStringBuilder(suggestion) -> StringBuilderRefactoringFactory
+                        isMoveMethod(suggestion) -> MoveMethodFactory
+                        else -> ExtractMethodFactory // default
                     }
 
+                    val createdRefactoringObjects =
+                        getParamsAndCreateObject(suggestion, refFactory)
 
+                    if (!createdRefactoringObjects.isNullOrEmpty()) {
+                        println("Successfully created ${createdRefactoringObjects.size} refactoring object(s).")
+                        createdRefactoringObjects
+                    } else {
+                        println("No refactoring objects were created.")
+                        listOf(
+                            UncreatableRefactoring(
+                                suggestion.start, suggestion.end, refFactory::class.simpleName.toString()
+                            )
+                                .also {
+                                    it.description = suggestion.shortDescription + "\n" + suggestion.longDescription
+                                }
+                        )
+                    }
+                }
+            }.awaitAll().flatten().let {
+                allRefactoringObjects.addAll(it)
+            }
         }
-
-        logger.debug("Processing took $time ms")
-        delay(3000)
-
-        return allRefactoringObjects;
-
+        return allRefactoringObjects
     }
 
     override fun isEnhacedForRefactoring(atomicSuggestion: AtomicSuggestion): Boolean {

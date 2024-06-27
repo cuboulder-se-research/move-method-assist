@@ -74,6 +74,8 @@ class LLMSettingsManager : PersistentStateComponent<LLMSettings> {
 
     fun getSuffixLength(): Int = state.openAi.suffixLength
 
+    fun getNumberOfIterations(): Int = state.openAi.numberOfIterations
+
 }
 
 class LLMSettings : BaseState() {
@@ -110,6 +112,9 @@ class OpenAISettings : BaseState() {
 
     @get:OptionTag("number_of_samples")
     var numberOfSamples by property(1)
+
+    @get:OptionTag("number_of_iterations")
+    var numberOfIterations by property(2)
 
     @get:OptionTag("max_tokens")
     var maxTokens by property(64)

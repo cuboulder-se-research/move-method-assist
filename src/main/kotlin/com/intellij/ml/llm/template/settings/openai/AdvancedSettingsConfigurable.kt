@@ -41,6 +41,12 @@ class AdvancedSettingsConfigurable : BoundConfigurable(LLMBundle.message("settin
                 spinner(0..5)
                     .bindIntValue(settings.state.openAi::numberOfSamples)
             }
+
+            row(LLMBundle.message("settings.configurable.option.number.of.iterations.label")) {
+                spinner(0..10)
+                    .bindIntValue(settings.state.openAi::numberOfIterations)
+            }
+
             row(LLMBundle.message("settings.configurable.option.presence.penalty.label")) {
                 spinner(0.0..1.0, step = 0.1).bindValue(
                     settings::getPresencePenalty, settings::setPresencePenalty

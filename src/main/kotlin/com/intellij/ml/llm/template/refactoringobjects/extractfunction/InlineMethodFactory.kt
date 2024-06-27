@@ -71,10 +71,7 @@ class InlineMethodRefactoring(
     val psiMethod: PsiMethod
 ) : AbstractRefactoring(){
     override fun performRefactoring(project: Project, editor: Editor, file: PsiFile) {
-//        InlineMethodHandler()
-        runWriteAction {
-            InlineMethodProcessor(project, psiMethod, null, editor, false).run()
-        }
+        InlineMethodProcessor(project, psiMethod, null, editor, false).run()
         reverseRefactoring = getReverseRefactoringObject(project, editor, file)
     }
 
