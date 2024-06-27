@@ -29,40 +29,53 @@ class EnhancedForTest: LightPlatformCodeInsightTestCase() {
     }
 
     fun testEnhancedForRefactoring() {
-        val codeTransformer = CodeTransformer()
-        val efObserver = EFObserver()
-        codeTransformer.addObserver(efObserver)
-
         configureByFile("/testdata/HelloWorld.java")
-//        configureByFile("/testdata/HelloWorld.java")
-        editor.moveCaret(305)
-        val functionPsi: PsiElement? = PsiUtils.getParentFunctionOrNull(editor, language = file.language)
-        val foreachInspection = ForCanBeForeachInspection()
-//        val foreachInspection = (f.tool as ForCanBeForeachInspection)
-        foreachInspection.shortName
-        foreachInspection.displayName
-        foreachInspection.groupDisplayName
-        foreachInspection.descriptionFileName
-//        val foreachInspection = ForLoopReplaceableByWhileInspection()
-//        .buildVisitor()
-        val problemsHolder = ProblemsHolder(
-            InspectionManager.getInstance(project), file, true)
-        val visitor = foreachInspection.buildVisitor(problemsHolder, true)
-
-
-
-        functionPsi!!.accept(visitor)
-        val x = functionPsi!!.children[8].children[2]
-        x.accept(visitor)
-        assert(problemsHolder.hasResults())
-        val p0 = problemsHolder.results[0]!!
-        WriteCommandAction.runWriteCommandAction(project,
-            Runnable {  p0.fixes?.get(0)?.applyFix(project, p0)})
-        println(file.text)
-        LocalInspectionToolWrapper(
-            LocalInspectionEP()
+        val refObjs = EnhancedForFactory.factory.createObjectsFromFuncCall(
+            "use_enhanced_forloop(14)", project, editor, file
         )
 
+        assert(refObjs.isNotEmpty()) // Test failing because unable to resolve
+        refObjs[0].performRefactoring(project, editor, file)
+        println(file.text)
+
+    }
+
+    fun testTraditionalForLoop(){
+        val packageName = "com.intellij.ml.llm.template.testdata"
+        val packageStatement = "package $packageName;\n"
+
+        val classASource = "import java.util.List;\n" +
+                "\n" +
+                "class A {\n" +
+                "    public static void main(String[] args) {\n" +
+                "    }\n" +
+                "\n" +
+                "    public void linearSearch(List<Integer> array, int value){\n" +
+                "        for (Integer integer : array) {\n" +
+                "            if (integer == value)\n" +
+                "                System.out.println(\"Found value.\");\n" +
+                "        }\n" +
+                "    }\n" +
+                "}"
+        configureFromFileText(
+            projectPath + "/A.java",
+            packageStatement +
+                    "\n" +
+                    classASource
+        )
+
+        val refObjs = TraditionalForFactory.createObjectsFromFuncCall(
+            "use_traditional_forloop(10)", project, editor, file)
+        assert(refObjs.isNotEmpty())
+        refObjs[0].performRefactoring(project, editor, file)
+        println(file.text)
+        assert(file.text.contains("    public void linearSearch(List<Integer> array, int value){\n" +
+                "        for (int i = 0; i < array.size(); i++) {\n" +
+                "            Integer integer = array.get(i);\n" +
+                "            if (integer == value)\n" +
+                "                System.out.println(\"Found value.\");\n" +
+                "        }\n" +
+                "    }"))
     }
 
     fun testFor2While(){
@@ -100,6 +113,34 @@ class EnhancedForTest: LightPlatformCodeInsightTestCase() {
             "    public void linearSearch(List<Integer> array, int value){\n" +
                     "        java.util.stream.IntStream.iterate(0, i -> i < array.size(), i -> i + 1).filter(i -> array.get(i) == value).mapToObj(i -> \"Found value.\").forEach(item -> System.out.println(item));\n" +
                     "    }"))
+    }
+
+    fun testFor2StreamReverse(){
+        configureByFile("/testdata/HelloWorld.java")
+
+        val refObjs = For2Stream.factory.createObjectsFromFuncCall(
+            "convert_for2stream(14)", project, editor, file
+        )
+        assert(refObjs.isNotEmpty())
+        refObjs[0].performRefactoring(project, editor, file)
+        println(file.text)
+        assert(file.text.contains(
+            "    public void linearSearch(List<Integer> array, int value){\n" +
+                    "        java.util.stream.IntStream.iterate(0, i -> i < array.size(), i -> i + 1).filter(i -> array.get(i) == value).mapToObj(i -> \"Found value.\").forEach(item -> System.out.println(item));\n" +
+                    "    }"))
+
+        refObjs[0]
+            .getReverseRefactoringObject(project, editor, file)
+            ?.performRefactoring(project, editor, file)
+        println(file.text) // Test fails because failing to resolve
+        assert(file.text.contains(
+            "    public void linearSearch(List<Integer> array, int value){\n" +
+                    "        for (int i=0;i<array.size();i++){\n" +
+                    "            if (array.get(i) ==value)\n" +
+                    "                System.out.println(\"Found value.\");\n" +
+                    "        }\n" +
+                    "    }"
+        ))
     }
 
 }

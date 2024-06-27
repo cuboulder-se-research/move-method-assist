@@ -29,7 +29,7 @@ class For2Stream {
             getInspection(),
             preview,
             true,
-            reverseRefactoringFactory = null
+            reverseRefactoringFactory = Stream2For.factory
         )
 
         private fun getInspection(): StreamApiMigrationInspection{

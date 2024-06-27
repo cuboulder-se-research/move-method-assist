@@ -29,7 +29,7 @@ class EnhancedForFactory {
             ForCanBeForeachInspection(),
             preview,
             false,
-            reverseRefactoringFactory = null
+            reverseRefactoringFactory = TraditionalForFactory
         )
 
     }

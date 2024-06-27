@@ -1,9 +1,5 @@
-package com.intellij.ml.llm.template.refactoringobjects.ifandswitch
+package com.intellij.ml.llm.template.refactoringobjects.conditionals
 
-import com.intellij.ml.llm.template.refactoringobjects.conditionals.If2Switch
-import com.intellij.ml.llm.template.refactoringobjects.conditionals.If2Ternary
-import com.intellij.ml.llm.template.refactoringobjects.conditionals.Switch2IfFactory
-import com.intellij.ml.llm.template.refactoringobjects.conditionals.Ternary2If
 import com.intellij.testFramework.LightPlatformCodeInsightTestCase
 
 class If2SwitchFactoryTest: LightPlatformCodeInsightTestCase(){
