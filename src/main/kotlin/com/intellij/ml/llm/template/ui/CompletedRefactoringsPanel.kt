@@ -36,7 +36,7 @@ class CompletedRefactoringsPanel(
             refactoringObjects: List<AbstractRefactoring>,
             project: Project, editor: Editor, file: PsiFile
         ): List<AbstractRefactoring?>{
-            return refactoringObjects.map { it.getReverseRefactoringObject(project, editor, file) }
+            return refactoringObjects.map { it.reverseRefactoring }
         }
     }
 

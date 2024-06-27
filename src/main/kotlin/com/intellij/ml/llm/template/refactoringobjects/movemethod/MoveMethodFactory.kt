@@ -135,6 +135,7 @@ class MoveMethodFactory {
             override fun performRefactoring(project: Project, editor: Editor, file: PsiFile) {
                 super.performRefactoring(project, editor, file)
                 processor.run()
+                reverseRefactoring = getReverseRefactoringObject(project, editor, file)
             }
 
             override fun isValid(project: Project, editor: Editor, file: PsiFile): Boolean {
@@ -200,6 +201,7 @@ class MoveMethodFactory {
                     classToMoveTo,
                     "public")
             moveRefactoring.run()
+            reverseRefactoring = getReverseRefactoringObject(project, editor, file)
         }
 
         override fun isValid(project: Project, editor: Editor, file: PsiFile): Boolean {

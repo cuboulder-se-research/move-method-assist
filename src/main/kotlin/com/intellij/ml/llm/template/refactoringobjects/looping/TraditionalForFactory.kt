@@ -105,6 +105,7 @@ class TraditionalForFactory {
         override fun performRefactoring(project: Project, editor: Editor, file: PsiFile) {
             super.performRefactoring(project, editor, file)
             runWriteAction { ReplaceForEachLoopWithIndexedForLoopIntention().processIntention(psiForeachStatement.children[0]) }
+            reverseRefactoring = getReverseRefactoringObject(project, editor, file)
         }
 
     }

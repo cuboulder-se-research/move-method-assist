@@ -106,6 +106,7 @@ class StringBuilderRefactoringFactory {
                     Runnable {
                         sbConcat.processIntention(psiPolyadicExpression)
                     })
+                reverseRefactoring = getReverseRefactoringObject(project, editor, file)
             }
 
             override fun isValid(project: Project, editor: Editor, file: PsiFile): Boolean {
@@ -148,6 +149,7 @@ class StringBuilderRefactoringFactory {
 
                 WriteCommandAction.runWriteCommandAction(project,
                     Runnable { fix.applyFix(project, problem) })
+                reverseRefactoring = getReverseRefactoringObject(project, editor, file)
             }
 
             override fun isValid(project: Project, editor: Editor, file: PsiFile): Boolean {

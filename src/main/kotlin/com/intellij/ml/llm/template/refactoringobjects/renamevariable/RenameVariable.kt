@@ -33,9 +33,7 @@ class RenameVariable(
         val usages = rename?.findUsages()
         rename?.doRefactoring(usages)
 
-//        val renamer = VariableInplaceRenamer(psiElement,
-//            editor,project,"myString","newMyString")
-//        renamer.performInplaceRename()
+        reverseRefactoring = getReverseRefactoringObject(project, editor, file)
     }
 
     override fun isValid(project: Project, editor: Editor, file: PsiFile): Boolean {

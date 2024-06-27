@@ -87,6 +87,7 @@ class Switch2IfFactory {
             val intention = ConvertSwitchToIfIntention(switchStatement)
             WriteCommandAction.runWriteCommandAction(project,
                 Runnable { intention.invoke(project, editor, file) })
+            reverseRefactoring = getReverseRefactoringObject(project, editor, file)
         }
 
         override fun isValid(project: Project, editor: Editor, file: PsiFile): Boolean {

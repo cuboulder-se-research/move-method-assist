@@ -88,7 +88,7 @@ class CodeInspectionFactory<T: PsiElement, T2: MyRefactoringFactory>(
         val reverseRefactoringFactory: MyRefactoringFactory?
     ) : AbstractRefactoring() {
 
-        private var reverseRefactoring:AbstractRefactoring?=null
+//        private var reverseRefactoring:AbstractRefactoring?=null
         override fun performRefactoring(project: Project, editor: Editor, file: PsiFile) {
             super.performRefactoring(project, editor, file)
             val p0 = problemsHolder.results[0]!!
@@ -117,9 +117,6 @@ class CodeInspectionFactory<T: PsiElement, T2: MyRefactoringFactory>(
         override fun getReverseRefactoringObject(
             project: Project, editor: Editor, file: PsiFile,
         ): AbstractRefactoring? {
-
-            if (reverseRefactoring!=null)
-                return reverseRefactoring
 
             // Assumes that the creation function's signature
             // is api_call(start_line)

@@ -75,6 +75,7 @@ class InlineMethodRefactoring(
         runWriteAction {
             InlineMethodProcessor(project, psiMethod, null, editor, false).run()
         }
+        reverseRefactoring = getReverseRefactoringObject(project, editor, file)
     }
 
     override fun isValid(project: Project, editor: Editor, file: PsiFile): Boolean {

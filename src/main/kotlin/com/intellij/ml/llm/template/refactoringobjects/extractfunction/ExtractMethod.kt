@@ -41,6 +41,7 @@ class ExtractMethod(
         super.performRefactoring(project, editor, file)
         editor.selectionModel.setSelection(this.getStartOffset(), this.getEndOffset())
         invokeExtractFunction(newFuncName, project, editor, file)
+        reverseRefactoring = getReverseRefactoringObject(project, editor, file)
     }
 
     override fun getStartOffset(): Int {
