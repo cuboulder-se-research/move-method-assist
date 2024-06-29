@@ -6,7 +6,7 @@ import com.intellij.ml.llm.template.LLMBundle
 import com.intellij.ml.llm.template.models.openai.AuthorizationException
 import com.intellij.ml.llm.template.models.openai.OpenAiChatMessage
 import com.intellij.ml.llm.template.models.openai.OpenAiChatRequestBody
-import com.intellij.ml.llm.template.settings.LLMSettingsManager
+import com.intellij.ml.llm.template.settings.RefAgentSettingsManager
 import com.intellij.ml.llm.template.showAuthorizationFailedNotification
 import com.intellij.ml.llm.template.showRequestFailedNotification
 import com.intellij.ml.llm.template.showUnauthorizedNotification
@@ -27,7 +27,7 @@ fun sendEditRequest(
     numberOfSuggestions: Int? = null,
     llmRequestProvider: LLMRequestProvider = CodexRequestProvider,
 ): LLMBaseResponse? {
-    val settings = LLMSettingsManager.getInstance()
+    val settings = RefAgentSettingsManager.getInstance()
 
     val request = llmRequestProvider.createEditRequest(
         input = input,

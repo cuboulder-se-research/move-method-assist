@@ -1,7 +1,7 @@
 package com.intellij.ml.llm.template.models
 
 import com.intellij.ml.llm.template.models.openai.*
-import com.intellij.ml.llm.template.settings.LLMSettingsManager
+import com.intellij.ml.llm.template.settings.RefAgentSettingsManager
 import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.util.registry.Registry
 
@@ -112,7 +112,7 @@ open class LLMRequestProvider(
         presencePenalty: Double? = null,
         frequencyPenalty: Double? = null,
     ): OpenAICompletionRequest {
-        val settings = LLMSettingsManager.getInstance()
+        val settings = RefAgentSettingsManager.getInstance()
         val body = OpenAiCompletionRequestBody(
             model = completionModel,
             prompt = input,

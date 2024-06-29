@@ -126,7 +126,7 @@ open class RefactoringSuggestionsPanel(
                 super.processMouseEvent(e)
             }
         }
-        extractFunctionCandidateTable.minimumSize = Dimension(-1, 100)
+        extractFunctionCandidateTable.minimumSize = Dimension(-1, 500)
         extractFunctionCandidateTable.tableHeader = null
 
         extractFunctionCandidateTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION)
@@ -147,7 +147,8 @@ open class RefactoringSuggestionsPanel(
         val extractFunctionsScrollPane = JBScrollPane(myExtractFunctionsCandidateTable)
 
         extractFunctionsScrollPane.border = JBUI.Borders.empty()
-        extractFunctionsScrollPane.maximumSize = Dimension(500, 100)
+        extractFunctionsScrollPane.maximumSize = Dimension(500, 500)
+        extractFunctionsScrollPane.minimumSize = Dimension(250, 250)
 
         return extractFunctionsScrollPane
     }
@@ -177,8 +178,8 @@ open class RefactoringSuggestionsPanel(
         val methodSignaturePreview =
             MethodSignatureComponent("", myProject, com.intellij.ide.highlighter.JavaFileType.INSTANCE)
         methodSignaturePreview.isFocusable = false
-        methodSignaturePreview.minimumSize = Dimension(500, 200)
-        methodSignaturePreview.preferredSize = Dimension(500, 200)
+        methodSignaturePreview.minimumSize = Dimension(500, 100)
+        methodSignaturePreview.preferredSize = Dimension(500, 150)
         methodSignaturePreview.maximumSize = Dimension(500, 200)
 
         return methodSignaturePreview
@@ -188,6 +189,7 @@ open class RefactoringSuggestionsPanel(
         val popupPanel = panel {
             row {
                 cell(myExtractFunctionsScrollPane).align(AlignX.FILL)
+                    .applyToComponent { minimumSize = JBDimension(100, 500) }
             }
 
             // TODO: Use the below if you would like to implement a nicer preview

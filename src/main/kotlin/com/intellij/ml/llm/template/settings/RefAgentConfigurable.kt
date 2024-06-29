@@ -9,8 +9,8 @@ import com.intellij.openapi.ui.DialogPanel
 import com.intellij.ui.dsl.builder.bindText
 import com.intellij.ui.dsl.builder.panel
 
-class LLMConfigurable : BoundConfigurable(LLMBundle.message("settings.configurable.display.name")) {
-    private val settings = service<LLMSettingsManager>()
+class RefAgentConfigurable : BoundConfigurable(LLMBundle.message("settings.configurable.display.name")) {
+    private val settings = service<RefAgentSettingsManager>()
 
     override fun createPanel(): DialogPanel {
         return panel {
@@ -30,5 +30,5 @@ class LLMConfigurable : BoundConfigurable(LLMBundle.message("settings.configurab
 }
 
 fun openSettingsDialog(project: Project?) {
-    ShowSettingsUtil.getInstance().showSettingsDialog(project, LLMConfigurable::class.java)
+    ShowSettingsUtil.getInstance().showSettingsDialog(project, RefAgentConfigurable::class.java)
 }

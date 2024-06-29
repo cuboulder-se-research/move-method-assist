@@ -13,8 +13,8 @@ import kotlinx.coroutines.withContext
 
 class TelemetryDataObserver : Observer {
     companion object {
-        private const val LOG_DIR_NAME = "ref_plugin_logs"
-        private const val LOG_FILE_NAME = "ref_telemetry_data.jsonl"
+        const val LOG_DIR_NAME = "ref_plugin_logs"
+        const val LOG_FILE_NAME = "ref_telemetry_data.jsonl"
     }
 
     private val logFile = PathManager.getLogPath().toNioPath()

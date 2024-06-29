@@ -6,21 +6,21 @@ import com.intellij.util.xmlb.annotations.OptionTag
 
 @Service(Service.Level.APP)
 @State(
-    name = "LLMSettings",
+    name = "RefAgentSettings",
     storages = [Storage(value = "llm.for.code.xml", roamingType = RoamingType.DISABLED, exportable = true)]
 )
-class LLMSettingsManager : PersistentStateComponent<LLMSettings> {
+class RefAgentSettingsManager : PersistentStateComponent<RefAgentSettings> {
 
     companion object {
 
-        fun getInstance() = service<LLMSettingsManager>()
+        fun getInstance() = service<RefAgentSettingsManager>()
     }
 
-    private var state = LLMSettings()
+    private var state = RefAgentSettings()
 
-    override fun getState(): LLMSettings = state
+    override fun getState(): RefAgentSettings = state
 
-    override fun loadState(newState: LLMSettings) {
+    override fun loadState(newState: RefAgentSettings) {
         state = newState
     }
 
@@ -42,43 +42,43 @@ class LLMSettingsManager : PersistentStateComponent<LLMSettings> {
 
     fun useOpenAiCompletion() = state.useOpenAi
 
-    fun getTemperature(): Double = state.openAi.temperature.toDouble()
+    fun getTemperature(): Double = state.llmSettings.temperature.toDouble()
 
     fun setTemperature(temperature: Double) {
-        state.openAi.temperature = temperature.toFloat()
+        state.llmSettings.temperature = temperature.toFloat()
     }
 
-    fun getPresencePenalty(): Double = state.openAi.presencePenalty.toDouble()
+    fun getPresencePenalty(): Double = state.llmSettings.presencePenalty.toDouble()
 
     fun setPresencePenalty(penalty: Double) {
-        state.openAi.presencePenalty = penalty.toFloat()
+        state.llmSettings.presencePenalty = penalty.toFloat()
     }
 
-    fun getFrequencyPenalty(): Double = state.openAi.frequencyPenalty.toDouble()
+    fun getFrequencyPenalty(): Double = state.llmSettings.frequencyPenalty.toDouble()
 
     fun setFrequencyPenalty(penalty: Double) {
-        state.openAi.frequencyPenalty = penalty.toFloat()
+        state.llmSettings.frequencyPenalty = penalty.toFloat()
     }
 
-    fun getTopP(): Double = state.openAi.topP.toDouble()
+    fun getTopP(): Double = state.llmSettings.topP.toDouble()
 
     fun setTopP(topP: Double) {
-        state.openAi.topP = topP.toFloat()
+        state.llmSettings.topP = topP.toFloat()
     }
 
-    fun getNumberOfSamples(): Int = state.openAi.numberOfSamples
+    fun getNumberOfSamples(): Int = state.llmSettings.numberOfSamples
 
-    fun getMaxTokens(): Int = state.openAi.maxTokens
+    fun getMaxTokens(): Int = state.llmSettings.maxTokens
 
-    fun getPromptLength(): Int = state.openAi.promptLength
+    fun getPromptLength(): Int = state.llmSettings.promptLength
 
-    fun getSuffixLength(): Int = state.openAi.suffixLength
+    fun getSuffixLength(): Int = state.llmSettings.suffixLength
 
-    fun getNumberOfIterations(): Int = state.openAi.numberOfIterations
+    fun getNumberOfIterations(): Int = state.llmSettings.numberOfIterations
 
 }
 
-class LLMSettings : BaseState() {
+class RefAgentSettings : BaseState() {
     @get:OptionTag("data_sharing")
     var isDataSharingEnabled by property(false)
 
@@ -94,10 +94,10 @@ class LLMSettings : BaseState() {
     var useOpenAi by property(true)
 
     @get:OptionTag("open_ai")
-    var openAi by property(OpenAISettings()) { it == OpenAISettings() }
+    var llmSettings by property(LLMSettings()) { it == LLMSettings() }
 }
 
-class OpenAISettings : BaseState() {
+class LLMSettings : BaseState() {
     @get:OptionTag("temperature")
     var temperature by property(0.0f)
 

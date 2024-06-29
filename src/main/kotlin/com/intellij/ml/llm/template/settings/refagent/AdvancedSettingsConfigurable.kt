@@ -1,7 +1,7 @@
-package com.intellij.ml.llm.template.settings.openai
+package com.intellij.ml.llm.template.settings.refagent
 
 import com.intellij.ml.llm.template.LLMBundle
-import com.intellij.ml.llm.template.settings.LLMSettingsManager
+import com.intellij.ml.llm.template.settings.RefAgentSettingsManager
 import com.intellij.openapi.components.service
 import com.intellij.openapi.options.BoundConfigurable
 import com.intellij.openapi.ui.DialogPanel
@@ -11,21 +11,21 @@ import com.intellij.ui.dsl.builder.bindValue
 import com.intellij.ui.dsl.builder.panel
 
 class AdvancedSettingsConfigurable : BoundConfigurable(LLMBundle.message("settings.configurable.openai.advanced.display.name")) {
-    private val settings = service<LLMSettingsManager>()
+    private val settings = service<RefAgentSettingsManager>()
 
     override fun createPanel(): DialogPanel {
         return panel {
             row(LLMBundle.message("settings.configurable.option.prompt.length.label")) {
                 intTextField(64..16384)
-                    .bindIntText(settings.state.openAi::promptLength)
+                    .bindIntText(settings.state.llmSettings::promptLength)
             }
             row(LLMBundle.message("settings.configurable.option.suffix.length.label")) {
                 intTextField(0..16384)
-                    .bindIntText(settings.state.openAi::suffixLength)
+                    .bindIntText(settings.state.llmSettings::suffixLength)
             }
             row(LLMBundle.message("settings.configurable.option.max.tokens.label")) {
                 intTextField(5..256)
-                    .bindIntText(settings.state.openAi::maxTokens)
+                    .bindIntText(settings.state.llmSettings::maxTokens)
             }
             row(LLMBundle.message("settings.configurable.option.top.p.label")) {
                 spinner(0.0..1.0, step = 0.1).bindValue(
@@ -39,12 +39,12 @@ class AdvancedSettingsConfigurable : BoundConfigurable(LLMBundle.message("settin
             }
             row(LLMBundle.message("settings.configurable.option.number.of.suggestions.label")) {
                 spinner(0..5)
-                    .bindIntValue(settings.state.openAi::numberOfSamples)
+                    .bindIntValue(settings.state.llmSettings::numberOfSamples)
             }
 
             row(LLMBundle.message("settings.configurable.option.number.of.iterations.label")) {
                 spinner(0..10)
-                    .bindIntValue(settings.state.openAi::numberOfIterations)
+                    .bindIntValue(settings.state.llmSettings::numberOfIterations)
             }
 
             row(LLMBundle.message("settings.configurable.option.presence.penalty.label")) {
