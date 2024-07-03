@@ -76,7 +76,8 @@ class InlineMethodRefactoring(
     }
 
     override fun isValid(project: Project, editor: Editor, file: PsiFile): Boolean {
-        return true
+        isValid = psiMethod.isPhysical
+        return isValid!!
     }
 
     override fun getRefactoringPreview(): String {

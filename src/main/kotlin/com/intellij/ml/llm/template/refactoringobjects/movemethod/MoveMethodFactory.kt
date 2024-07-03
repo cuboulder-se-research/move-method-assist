@@ -139,8 +139,8 @@ class MoveMethodFactory {
             }
 
             override fun isValid(project: Project, editor: Editor, file: PsiFile): Boolean {
-                isValid = true
-                return true
+                isValid = methodToMove.isPhysical
+                return isValid!!
             }
 
             override fun getRefactoringPreview(): String {
@@ -205,7 +205,8 @@ class MoveMethodFactory {
         }
 
         override fun isValid(project: Project, editor: Editor, file: PsiFile): Boolean {
-            return true
+            isValid = methodToMove.isPhysical
+            return methodToMove.isPhysical
         }
 
         override fun getRefactoringPreview(): String {

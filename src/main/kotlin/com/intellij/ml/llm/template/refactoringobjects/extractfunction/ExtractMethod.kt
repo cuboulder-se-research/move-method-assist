@@ -66,7 +66,7 @@ class ExtractMethod(
              isCandidateExtractable(
                 candidate, editor, file
             )
-        }
+        } && leftPsi.isPhysical && rightPsi.isPhysical
         return isValid!!
     }
 

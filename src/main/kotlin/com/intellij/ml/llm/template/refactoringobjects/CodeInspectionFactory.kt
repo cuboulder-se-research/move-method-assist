@@ -98,7 +98,7 @@ class CodeInspectionFactory<T: PsiElement, T2: MyRefactoringFactory>(
         }
 
         override fun isValid(project: Project, editor: Editor, file: PsiFile): Boolean {
-            isValid = true
+            isValid = psiElement.isPhysical
             return isValid!!
         }
 

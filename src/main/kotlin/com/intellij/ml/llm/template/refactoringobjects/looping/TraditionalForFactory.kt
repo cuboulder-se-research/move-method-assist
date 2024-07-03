@@ -79,6 +79,7 @@ class TraditionalForFactory {
         val psiForeachStatement: PsiForeachStatement
     ) : AbstractRefactoring() {
         override fun isValid(project: Project, editor: Editor, file: PsiFile): Boolean {
+            isValid = psiForeachStatement.isPhysical
             return true
         }
 

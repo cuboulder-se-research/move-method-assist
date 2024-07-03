@@ -91,7 +91,7 @@ class Switch2IfFactory {
         }
 
         override fun isValid(project: Project, editor: Editor, file: PsiFile): Boolean {
-            isValid=true
+            isValid=switchStatement.isPhysical
             return true
         }
 

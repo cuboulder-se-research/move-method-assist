@@ -110,8 +110,8 @@ class StringBuilderRefactoringFactory {
             }
 
             override fun isValid(project: Project, editor: Editor, file: PsiFile): Boolean {
-                isValid = true
-                return true
+                isValid = psiPolyadicExpression.isPhysical
+                return isValid!!
             }
 
             override fun getRefactoringPreview(): String {
@@ -153,8 +153,8 @@ class StringBuilderRefactoringFactory {
             }
 
             override fun isValid(project: Project, editor: Editor, file: PsiFile): Boolean {
-                isValid = true
-                return true
+                isValid = psiAssignmentExpression.isPhysical
+                return isValid!!
             }
 
             override fun getRefactoringPreview(): String {

@@ -40,6 +40,7 @@ class RenameVariable(
         // Valid if oldName exists and newName doesn't
         isValid = PsiUtils.getVariableFromPsi(outerPsiElement, oldName)!=null
                 && PsiUtils.getVariableFromPsi(outerPsiElement, newName)==null
+                && oldVarPsi.isPhysical
         return isValid!!
     }
 
