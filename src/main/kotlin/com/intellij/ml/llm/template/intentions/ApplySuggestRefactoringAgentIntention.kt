@@ -11,11 +11,10 @@ import com.intellij.ml.llm.template.prompts.ExtractMethodPrompt
 import com.intellij.ml.llm.template.prompts.MethodPromptBase
 import com.intellij.ml.llm.template.refactoringobjects.AbstractRefactoring
 import com.intellij.ml.llm.template.refactoringobjects.extractfunction.ExtractMethod
-import com.intellij.ml.llm.template.settings.LLMSettingsManager
+import com.intellij.ml.llm.template.settings.RefAgentSettingsManager
 import com.intellij.ml.llm.template.suggestrefactoring.AbstractRefactoringValidator
 import com.intellij.ml.llm.template.suggestrefactoring.AtomicSuggestion
 import com.intellij.ml.llm.template.suggestrefactoring.SimpleRefactoringValidator
-import com.intellij.ml.llm.template.suggestrefactoring.SimpleRefactoringValidatorSerial
 import com.intellij.ml.llm.template.telemetry.*
 import com.intellij.ml.llm.template.ui.CompletedRefactoringsPanel
 import com.intellij.ml.llm.template.utils.*
@@ -36,6 +35,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.runBlocking
 import org.jetbrains.kotlin.idea.editor.fixers.endLine
 import org.jetbrains.kotlin.idea.editor.fixers.startLine
+import org.jetbrains.kotlin.idea.gradleTooling.get
 import org.jetbrains.kotlin.psi.psiUtil.startOffset
 import org.jetbrains.kotlin.util.capitalizeDecapitalize.toLowerCaseAsciiOnly
 import java.awt.Point
@@ -49,7 +49,7 @@ class ApplySuggestRefactoringAgentIntention(
     private val useDelays: Boolean = true
 ) : ApplySuggestRefactoringIntention(efLLMRequestProvider) {
     val refactoringLimit: Int = 3
-    private var MAX_ITERS: Int = LLMSettingsManager.getInstance().getNumberOfIterations()
+    private var MAX_ITERS: Int = RefAgentSettingsManager.getInstance().getNumberOfIterations()
     private val performedRefactorings = mutableListOf<AbstractRefactoring>()
     private val refactoringsPerIteration = mutableMapOf<Int, List<AbstractRefactoring>>()
     private val logger = Logger.getInstance(ApplySuggestRefactoringAgentIntention::class.java)
@@ -82,7 +82,7 @@ class ApplySuggestRefactoringAgentIntention(
         editor: Editor,
         file: PsiFile
     ) {
-        MAX_ITERS = LLMSettingsManager.getInstance().getNumberOfIterations()
+        MAX_ITERS = RefAgentSettingsManager.getInstance().getNumberOfIterations()
         performedRefactorings.removeAll({it->true})
         for (iter in 1..MAX_ITERS) {
             setTelemetryData(editor, file)
@@ -147,7 +147,7 @@ class ApplySuggestRefactoringAgentIntention(
         val now = System.nanoTime()
 
         val llmResponse = response.getSuggestions()[0]
-        val validator = SimpleRefactoringValidatorSerial(efLLMRequestProvider,
+        val validator = SimpleRefactoringValidator(efLLMRequestProvider,
             project,
             editor,
             file,
@@ -178,6 +178,7 @@ class ApplySuggestRefactoringAgentIntention(
 //                NotificationType.INFORMATION
 //            )
             telemetryDataManager.addCandidatesTelemetryData(buildCandidatesTelemetryData(0, emptyList()))
+            telemetryDataManager.setRefactoringObjects(emptyList())
             buildProcessingTimeTelemetryData(llmResponseTime, System.nanoTime() - now)
             sendTelemetryData()
         } else {
@@ -329,7 +330,7 @@ class ApplySuggestRefactoringAgentIntention(
     ) {
         val myHighlighter = AtomicReference(ScopeHighlighter(editor))
         var count = 1
-        for (refCandidate in validRefactoringCandidates.sortedBy { it is ExtractMethod }){
+        for (refCandidate in getExecutionOrder(validRefactoringCandidates)){
                 val scopeHighlighter: ScopeHighlighter = myHighlighter.get()
                 invokeLater {
                     editor.scrollingModel.scrollTo(
@@ -358,6 +359,9 @@ class ApplySuggestRefactoringAgentIntention(
 
         }
     }
+
+
+
 
     override fun sendTelemetryData() {
         val agenticTelemetry = AgenticTelemetry.createFromSessionIds(
