@@ -1,6 +1,5 @@
 package com.intellij.ml.llm.template.suggestrefactoring
 
-import com.intellij.ml.llm.template.intentions.ApplySuggestRefactoringAgentIntention.Companion.selectionPriority
 import com.intellij.ml.llm.template.models.LLMBaseResponse
 import com.intellij.ml.llm.template.models.LLMRequestProvider
 import com.intellij.ml.llm.template.refactoringobjects.AbstractRefactoring
@@ -14,7 +13,6 @@ import com.intellij.ml.llm.template.refactoringobjects.looping.For2Stream
 import com.intellij.ml.llm.template.refactoringobjects.looping.For2While
 import com.intellij.ml.llm.template.refactoringobjects.movemethod.MoveMethodFactory
 import com.intellij.ml.llm.template.refactoringobjects.stringbuilder.StringBuilderRefactoringFactory
-import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiFile
@@ -30,7 +28,6 @@ class SimpleRefactoringValidator(
     apiResponseCache: MutableMap<String, MutableMap<String, LLMBaseResponse>>
 ) : AbstractRefactoringValidator(efLLMRequestProvider, project, editor, file, functionSrc, apiResponseCache) {
 
-    private val logger = Logger.getInstance(javaClass)
 
     override suspend fun getRefactoringSuggestions(llmResponseText: String, limit: Int): List<AbstractRefactoring> {
         val refactoringSuggestion = getRawSuggestions(llmResponseText)
@@ -42,7 +39,6 @@ class SimpleRefactoringValidator(
         improvementsList: List<AtomicSuggestion>,
     ): List<AbstractRefactoring> {
         val allRefactoringObjects= mutableListOf<AbstractRefactoring>()
-
         coroutineScope {
             improvementsList.map { suggestion ->
                 async(Dispatchers.Default) {

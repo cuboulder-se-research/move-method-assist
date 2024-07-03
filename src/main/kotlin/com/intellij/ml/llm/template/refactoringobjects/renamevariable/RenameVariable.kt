@@ -38,9 +38,9 @@ class RenameVariable(
 
     override fun isValid(project: Project, editor: Editor, file: PsiFile): Boolean {
         // Valid if oldName exists and newName doesn't
-//        return PsiUtils.getVariableFromPsi(file, oldName)!=null
-//                && PsiUtils.getVariableFromPsi(file, newName)==null
-        return true
+        isValid = PsiUtils.getVariableFromPsi(outerPsiElement, oldName)!=null
+                && PsiUtils.getVariableFromPsi(outerPsiElement, newName)==null
+        return isValid!!
     }
 
     override fun getRefactoringPreview(): String {

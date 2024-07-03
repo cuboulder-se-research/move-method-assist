@@ -5,36 +5,21 @@ import com.intellij.ml.llm.template.LLMBundle
 import com.intellij.ml.llm.template.models.LLMBaseResponse
 import com.intellij.ml.llm.template.models.LLMRequestProvider
 import com.intellij.ml.llm.template.models.grazie.GrazieGPT4RequestProvider
-import com.intellij.ml.llm.template.models.sendChatRequest
-import com.intellij.ml.llm.template.prompts.ExtractMethodPrompt
-import com.intellij.ml.llm.template.prompts.MethodPromptBase
 import com.intellij.ml.llm.template.refactoringobjects.AbstractRefactoring
-import com.intellij.ml.llm.template.refactoringobjects.extractfunction.EFCandidate
-import com.intellij.ml.llm.template.refactoringobjects.extractfunction.ExtractMethod
-import com.intellij.ml.llm.template.suggestrefactoring.AbstractRefactoringValidator
-import com.intellij.ml.llm.template.suggestrefactoring.AtomicSuggestion
+import com.intellij.ml.llm.template.showEFNotification
 import com.intellij.ml.llm.template.suggestrefactoring.SimpleRefactoringValidator
 import com.intellij.ml.llm.template.telemetry.*
-import com.intellij.ml.llm.template.ui.CompletedRefactoringsPanel
+import com.intellij.ml.llm.template.ui.RefactoringSuggestionsPanel
 import com.intellij.ml.llm.template.utils.*
-import com.intellij.openapi.application.invokeLater
-import com.intellij.openapi.application.runReadAction
+import com.intellij.notification.NotificationType
 import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.editor.Editor
-import com.intellij.openapi.editor.LogicalPosition
-import com.intellij.openapi.editor.ScrollType
-import com.intellij.openapi.progress.ProgressIndicator
-import com.intellij.openapi.progress.ProgressManager
-import com.intellij.openapi.progress.Task
-import com.intellij.openapi.progress.impl.BackgroundableProcessIndicator
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.popup.JBPopupFactory
 import com.intellij.openapi.ui.popup.JBPopupListener
 import com.intellij.openapi.ui.popup.LightweightWindowEvent
-
 import com.intellij.psi.PsiFile
 import com.intellij.ui.awt.RelativePoint
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.runBlocking
 import java.awt.Point
 import java.awt.Rectangle
@@ -47,7 +32,7 @@ class ApplySuggestRefactoringInteractiveIntention(
 ) : ApplySuggestRefactoringIntention(efLLMRequestProvider) {
     val logger = Logger.getInstance(ApplySuggestRefactoringInteractiveIntention::class.java)
 
-    override fun getFamilyName(): String = LLMBundle.message("intentions.apply.transformation.family.name")
+    override fun getFamilyName(): String = LLMBundle.message("intentions.apply.suggest.refactoring.family.name")
 
     override fun processLLMResponse(response: LLMBaseResponse, project: Project, editor: Editor, file: PsiFile) {
         val now = System.nanoTime()
@@ -60,31 +45,23 @@ class ApplySuggestRefactoringInteractiveIntention(
             functionSrc,
             apiResponseCache
         )
-
-        delay(2000)
-        val limit = 3
-        logLLMResponse(response, limit, validator)
 //        val efSuggestionList = validator.getExtractMethodSuggestions(llmResponse.text)
 //        val renameSuggestions = validator.getRenamveVariableSuggestions(llmResponse.text)
-        logger.info(AGENT_HEADER)
-        logger.info("Processing LLM Recommendations...")
-        logger.info("\n")
         val refactoringCandidates: List<AbstractRefactoring> =
             runBlocking {
-                validator.getRefactoringSuggestions(llmResponse.text, limit)
+                validator.getRefactoringSuggestions(llmResponse.text, MAX_REFACTORINGS)
             }
-
 //        val refactoringCandidates: List<AbstractRefactoring> = runBlocking {
 //                validator.getRefactoringSuggestions(llmResponse.text)
 //        }
 
 //        val candidates = EFCandidateFactory().buildCandidates(efSuggestionList.suggestionList, editor, file).toList()
         if (refactoringCandidates.isEmpty()) {
-//            showEFNotification(
-//                project,
-//                LLMBundle.message("notification.extract.function.with.llm.no.suggestions.message"),
-//                NotificationType.INFORMATION
-//            )
+            showEFNotification(
+                project,
+                LLMBundle.message("notification.extract.function.with.llm.no.suggestions.message"),
+                NotificationType.INFORMATION
+            )
             telemetryDataManager.addCandidatesTelemetryData(buildCandidatesTelemetryData(0, emptyList()))
             buildProcessingTimeTelemetryData(llmResponseTime, System.nanoTime() - now)
             sendTelemetryData()
@@ -93,7 +70,7 @@ class ApplySuggestRefactoringInteractiveIntention(
             val candidatesApplicationTelemetryObserver = EFCandidatesApplicationTelemetryObserver()
 //            val filteredCandidates = filterCandidates(candidates, candidatesApplicationTelemetryObserver, editor, file)
             val validRefactoringCandidates = refactoringCandidates.filter {
-                runReadAction{ it.isValid(project, editor, file) }
+                it.isValid(project, editor, file)
             }
 
             telemetryDataManager.addCandidatesTelemetryData(
@@ -104,56 +81,23 @@ class ApplySuggestRefactoringInteractiveIntention(
             )
             buildProcessingTimeTelemetryData(llmResponseTime, System.nanoTime() - now)
 
-            logger.info("\n")
             if (validRefactoringCandidates.isEmpty()) {
-//                showEFNotification(
-//                    project,
-//                    LLMBundle.message("notification.extract.function.with.llm.no.extractable.candidates.message"),
-//                    NotificationType.INFORMATION
-//                )
-                logger.info("No valid refactoring objects created.")
+                showEFNotification(
+                    project,
+                    LLMBundle.message("notification.extract.function.with.llm.no.extractable.candidates.message"),
+                    NotificationType.INFORMATION
+                )
                 sendTelemetryData()
             } else {
 //                refactoringObjectsCache.get(functionSrc)?:refactoringObjectsCache.put(functionSrc, validRefactoringCandidates)
-//                showRefactoringOptionsPopup(
-//                    project, editor, file, validRefactoringCandidates, codeTransformer,
-//                )
-                logger.info("Performing Refactoring Actions:")
-                runBlocking { executeRefactorings(validRefactoringCandidates, project, editor, file) }
-
+                showRefactoringOptionsPopup(
+                    project, editor, file, validRefactoringCandidates, codeTransformer,
+                )
             }
         }
     }
 
-
-    private fun logLLMResponse(response: LLMBaseResponse,
-                               limit: Int,
-                               validator: AbstractRefactoringValidator) {
-        logger.info(LLM_HEADER)
-        for (suggestion in response.getSuggestions()){
-//            logger.info(suggestion.)
-            val improvements = AbstractRefactoringValidator.getRawSuggestions(suggestion.text).improvements
-            val realLimit = if(improvements.size > limit){
-                limit
-            } else{
-                improvements.size
-            }
-            val improvementsSorted =
-                improvements
-                    .sortedBy { selectionPriority(it, validator) }
-                    .subList(0, realLimit)
-                    .sortedBy { validator.isExtractMethod(it) }
-                    .withIndex()
-            for (atomicSuggestion in improvementsSorted){
-                logger.info("${atomicSuggestion.index+1}: ${atomicSuggestion.value.shortDescription}")
-                logger.info("Suggestion: ${atomicSuggestion.value.longDescription}".prependIndent("    "))
-                logger.info("\n")
-                Thread.sleep(3000)
-            }
-        }
-    }
-
-    private fun showCompletedRefactoringOptionsPopup(
+    private fun showRefactoringOptionsPopup(
         project: Project,
         editor: Editor,
         file: PsiFile,
@@ -161,14 +105,15 @@ class ApplySuggestRefactoringInteractiveIntention(
         codeTransformer: CodeTransformer
     ) {
         val highlighter = AtomicReference(ScopeHighlighter(editor))
-        val efPanel = CompletedRefactoringsPanel(
+        val efPanel = RefactoringSuggestionsPanel(
             project = project,
             editor = editor,
             file = file,
             candidates = candidates,
             codeTransformer = codeTransformer,
             highlighter = highlighter,
-            efTelemetryDataManager = telemetryDataManager
+            efTelemetryDataManager = telemetryDataManager,
+            button_name = LLMBundle.message("ef.candidates.popup.extract.function.button.title")
         )
         efPanel.initTable()
         val elapsedTimeTelemetryDataObserver = TelemetryElapsedTimeObserver()
@@ -180,7 +125,7 @@ class ApplySuggestRefactoringInteractiveIntention(
             JBPopupFactory.getInstance()
                 .createComponentPopupBuilder(panel, efPanel.myExtractFunctionsCandidateTable)
                 .setRequestFocus(true)
-                .setTitle(LLMBundle.message("ef.candidates.completed.popup.title"))
+                .setTitle(LLMBundle.message("ef.candidates.popup.title"))
                 .setResizable(true)
                 .setMovable(true).createPopup()
 
@@ -217,8 +162,10 @@ class ApplySuggestRefactoringInteractiveIntention(
         efPopup.show(RelativePoint(contentComponent, point))
     }
 
-    abstract fun getInstruction(project: Project, editor: Editor): String?
 
     override fun startInWriteAction(): Boolean = false
+    override fun getText(): String {
+        return LLMBundle.message("intentions.apply.suggest.refactoring.family.name")
+    }
 
 }

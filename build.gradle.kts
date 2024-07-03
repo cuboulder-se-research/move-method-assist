@@ -2,11 +2,7 @@ import org.jetbrains.changelog.Changelog
 import org.jetbrains.changelog.markdownToHTML
 
 fun properties(key: String) = project.findProperty(key).toString()
-configure<SourceSetContainer> {
-    named("main") {
-        java.srcDir("src/main/kotlin")
-    }
-}
+
 dependencies {
     implementation("org.junit.jupiter:junit-jupiter:5.8.1")
     testImplementation("junit:junit:4.13.2")
@@ -20,7 +16,6 @@ dependencies {
     implementation("ai.grazie.client:client-ktor:0.3.57"){
         exclude("org.slf4j", "slf4j-api")
     }
-    implementation("com.github.doyaaaaaken:kotlin-csv-jvm:1.9.3")
     testImplementation(kotlin("test"))
 }
 
@@ -43,14 +38,6 @@ repositories {
 
 kotlin {
     jvmToolchain(17)
-}
-
-java{
-    sourceSets{
-        named("main") {
-            java.srcDir("src/main/kotlin")
-        }
-    }
 }
 
 intellij {

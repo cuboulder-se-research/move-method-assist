@@ -24,21 +24,14 @@
 
         <!--suppress PluginXmlExtensionRegistration -->
         <intentionAction>
-            <className>com.intellij.ml.llm.template.intentions.ApplyCustomEditIntention</className>
-            <bundleName>messages.LLMBundle</bundleName>
-            <categoryKey>intention.category.codex</categoryKey>
-        </intentionAction>
-
-        <intentionAction>
-            <className>com.intellij.ml.llm.template.intentions.ApplyCustomExtractFunctionIntention</className>
+            <className>com.intellij.ml.llm.template.intentions.ApplySuggestRefactoringAgentIntention</className>
             <bundleName>messages.LLMBundle</bundleName>
             <categoryKey>intention.category.extract.function</categoryKey>
         </intentionAction>
         <intentionAction>
-            <className>com.intellij.ml.llm.template.intentions.ApplySuggestRefactoringIntention</className>
+            <className>com.intellij.ml.llm.template.intentions.ApplySuggestRefactoringInteractiveIntention</className>
             <bundleName>messages.LLMBundle</bundleName>
-            <categoryKey>intention.category.extract.function</categoryKey>
-            <!--            whats this-->
+            <categoryKey>intention.category.suggest.refactoring</categoryKey>
         </intentionAction>
 
         <registryKey defaultValue="false"

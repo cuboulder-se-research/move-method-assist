@@ -7,8 +7,6 @@ import com.intellij.ml.llm.template.models.LLMRequestProvider
 import com.intellij.ml.llm.template.models.grazie.GrazieGPT4RequestProvider
 import com.intellij.ml.llm.template.models.openai.OpenAiChatMessage
 import com.intellij.ml.llm.template.models.sendChatRequest
-import com.intellij.ml.llm.template.prompts.ExtractMethodPrompt
-import com.intellij.ml.llm.template.prompts.MethodPromptBase
 import com.intellij.ml.llm.template.refactoringobjects.AbstractRefactoring
 import com.intellij.ml.llm.template.refactoringobjects.extractfunction.ExtractMethod
 import com.intellij.ml.llm.template.settings.RefAgentSettingsManager
@@ -317,7 +315,6 @@ class ApplySuggestRefactoringAgentIntention(
         efPopup.show(RelativePoint(contentComponent, point))
     }
 
-    abstract fun getInstruction(project: Project, editor: Editor): String?
 
     override fun startInWriteAction(): Boolean = false
 
