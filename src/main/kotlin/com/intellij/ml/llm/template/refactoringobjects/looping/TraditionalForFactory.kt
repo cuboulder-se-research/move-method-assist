@@ -103,6 +103,10 @@ class TraditionalForFactory {
             return EnhancedForFactory.factory.fromStartLoc(startLoc, project, editor, file)
         }
 
+        override fun recalibrateRefactoring(project: Project, editor: Editor, file: PsiFile): AbstractRefactoring? {
+            TODO("Not yet implemented")
+        }
+
         override fun performRefactoring(project: Project, editor: Editor, file: PsiFile) {
             super.performRefactoring(project, editor, file)
             runWriteAction { ReplaceForEachLoopWithIndexedForLoopIntention().processIntention(psiForeachStatement.children[0]) }

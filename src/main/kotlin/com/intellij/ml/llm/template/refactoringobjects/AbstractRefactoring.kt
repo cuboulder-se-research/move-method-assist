@@ -2,6 +2,7 @@ package com.intellij.ml.llm.template.refactoringobjects
 
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
+import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
 
 //abstract class AbstractRefactoring {
@@ -67,5 +68,17 @@ abstract class AbstractRefactoring{
 
     abstract fun getReverseRefactoringObject(
         project: Project, editor: Editor, file: PsiFile): AbstractRefactoring?
+
+    abstract fun recalibrateRefactoring(
+        project: Project, editor: Editor, file: PsiFile
+    ): AbstractRefactoring?
+
+    fun recalibrateFromPsiElement(psiElement: PsiElement){
+
+
+    }
+
+    fun recalibrateFromLineNumber(){}
+
 
 }

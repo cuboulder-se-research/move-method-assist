@@ -78,11 +78,37 @@ class RefactoringUtilsKtTest: LightPlatformCodeInsightTestCase(){
         children[11].children[0].children[8] as PsiIfStatement
         print(ifStatement.isValid)
         print(ifStatement.isPhysical)
-        val ref = If2Switch.factory.fromStartLoc(19, project, editor, file)
+
+        val if2switch = If2Switch.factory.fromStartLoc(19, project, editor, file)!!
+
+        val ref = For2While.factory.fromStartLoc(15, project, editor, file)
         ref?.performRefactoring(project, editor, file)
         print("done")
         print(ifStatement.isValid)
         print(ifStatement.isPhysical)
+
+        if2switch.performRefactoring(project, editor, file) // this doesn't refactor the code.
+
+        val foundIfStatement = PsiUtils.searchForPsiElement(file, ifStatement)
+        assert(foundIfStatement!=null)
+        val newRefactoring = if2switch.recalibrateRefactoring(project, editor, file)!!
+        newRefactoring.performRefactoring(project, editor, file)
+
+        print(file.text)
+        assert(file.text.contains("while (i < prices.length) {\n" +
+                "                    double price = prices[i];\n" +
+                "                    int quantity = quantities[i];\n" +
+                "                    double itemTotal = price * quantity;\n" +
+                "                    switch (customerType) {\n" +
+                "                        case 1 -> itemTotal *= (1 - discountRate);\n" +
+                "                        case 2 -> itemTotal *= (1 - (discountRate / 2));\n" +
+                "                        case 3 -> itemTotal *= (1 - (discountRate * 2));\n" +
+                "                    }\n" +
+                "                    sum += itemTotal;\n" +
+                "                    i++;\n" +
+                "                }"))
+
+
 
     }
 

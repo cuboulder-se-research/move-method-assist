@@ -59,6 +59,10 @@ class ExtractMethod(
         return null
     }
 
+    override fun recalibrateRefactoring(project: Project, editor: Editor, file: PsiFile): AbstractRefactoring? {
+        TODO("Not yet implemented")
+    }
+
 
     override fun isValid(project: Project, editor: Editor, file: PsiFile): Boolean {
         val candidate = getEFCandidate()

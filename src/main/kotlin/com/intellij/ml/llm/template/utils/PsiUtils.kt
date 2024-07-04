@@ -8,7 +8,6 @@ import com.intellij.psi.impl.source.PsiClassReferenceType
 import com.intellij.psi.util.PsiTreeUtil
 import com.intellij.psi.util.PsiUtilBase
 import com.intellij.psi.util.childrenOfType
-import com.intellij.psi.util.elementType
 import org.jetbrains.kotlin.idea.KotlinLanguage
 import org.jetbrains.kotlin.idea.base.psi.getLineNumber
 import org.jetbrains.kotlin.psi.*
@@ -270,6 +269,25 @@ class PsiUtils {
                 }
             }
             psiElement.accept(TypeFinder())
+            return match
+        }
+
+        fun searchForPsiElement(outerPsiElement: PsiElement, elementToSearchFor: PsiElement): PsiElement?{
+            var match: PsiElement? = null
+            val psiManager = PsiManager.getInstance(
+                outerPsiElement.project
+            )
+            val elementHash = elementToSearchFor.text.filter { !it.isWhitespace() }
+            class ElementFinder: JavaRecursiveElementVisitor() {
+                override fun visitElement(element: PsiElement) {
+                    super.visitElement(element)
+                    if (element.text.filter { !it.isWhitespace() } == elementHash) {
+                        match = element
+                    }
+                }
+            }
+
+            outerPsiElement.accept(ElementFinder())
             return match
         }
 

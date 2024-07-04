@@ -134,6 +134,10 @@ class StringBuilderRefactoringFactory {
                 return null
             }
 
+            override fun recalibrateRefactoring(project: Project, editor: Editor, file: PsiFile): AbstractRefactoring? {
+                TODO("Not yet implemented")
+            }
+
         }
 
         class StringBuilder4AssignInLoop(
@@ -175,6 +179,10 @@ class StringBuilderRefactoringFactory {
                 file: PsiFile
             ): AbstractRefactoring? {
                 return null
+            }
+
+            override fun recalibrateRefactoring(project: Project, editor: Editor, file: PsiFile): AbstractRefactoring? {
+                TODO("Not yet implemented")
             }
 
         }

@@ -9,6 +9,9 @@ class UncreatableRefactoring(
     override val endLoc: Int,
     val suggestionType: String
 ) : AbstractRefactoring() {
+    init {
+        isValid = false
+    }
     override fun performRefactoring(project: Project, editor: Editor, file: PsiFile) {
         // do nothing.
         super.performRefactoring(project, editor, file)
@@ -33,5 +36,9 @@ class UncreatableRefactoring(
 
     override fun getReverseRefactoringObject(project: Project, editor: Editor, file: PsiFile): AbstractRefactoring? {
         return null
+    }
+
+    override fun recalibrateRefactoring(project: Project, editor: Editor, file: PsiFile): AbstractRefactoring? {
+        return this
     }
 }

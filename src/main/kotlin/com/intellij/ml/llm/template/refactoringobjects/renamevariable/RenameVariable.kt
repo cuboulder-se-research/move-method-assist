@@ -62,4 +62,8 @@ class RenameVariable(
             newName, oldName
         )
     }
+
+    override fun recalibrateRefactoring(project: Project, editor: Editor, file: PsiFile): AbstractRefactoring? {
+        TODO("Not yet implemented")
+    }
 }

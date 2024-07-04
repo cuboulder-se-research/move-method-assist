@@ -56,6 +56,10 @@ class ReverseStringBuilderFactory {
             TODO("Not yet implemented")
         }
 
+        override fun recalibrateRefactoring(project: Project, editor: Editor, file: PsiFile): AbstractRefactoring? {
+            TODO("Not yet implemented")
+        }
+
     }
 
 }

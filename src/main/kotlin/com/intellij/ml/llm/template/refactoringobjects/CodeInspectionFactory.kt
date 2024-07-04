@@ -3,9 +3,7 @@ package com.intellij.ml.llm.template.refactoringobjects
 import com.intellij.codeInspection.AbstractBaseJavaLocalInspectionTool
 import com.intellij.codeInspection.InspectionManager
 import com.intellij.codeInspection.ProblemsHolder
-import com.intellij.ml.llm.template.LLMBundle
-import com.intellij.ml.llm.template.showEFNotification
-import com.intellij.notification.NotificationType
+import com.intellij.ml.llm.template.utils.PsiUtils
 import com.intellij.openapi.application.runReadAction
 import com.intellij.openapi.command.WriteCommandAction
 import com.intellij.openapi.editor.Editor
@@ -69,7 +67,7 @@ class CodeInspectionFactory<T: PsiElement, T2: MyRefactoringFactory>(
                 if (problemsHolder.hasResults())
                     return@runReadAction InspectionBasedRefactoring(
                         startLine, startLine, foundElements[0], problemsHolder, refactoringPreview,
-                        reverseRefactoringFactory
+                        reverseRefactoringFactory, isOnTheFly, inspection
                     )
                 else
                     return@runReadAction null // cannot be transformed to refactoring object
@@ -83,9 +81,11 @@ class CodeInspectionFactory<T: PsiElement, T2: MyRefactoringFactory>(
         override val startLoc: Int,
         override val endLoc: Int,
         val psiElement: PsiElement,
-        val problemsHolder: ProblemsHolder,
+        var problemsHolder: ProblemsHolder,
         val refactoringPreview: (PsiElement) -> String,
-        val reverseRefactoringFactory: MyRefactoringFactory?
+        val reverseRefactoringFactory: MyRefactoringFactory?,
+        val isOnTheFly: Boolean,
+        val inspection: AbstractBaseJavaLocalInspectionTool
     ) : AbstractRefactoring() {
 
 //        private var reverseRefactoring:AbstractRefactoring?=null
@@ -127,6 +127,22 @@ class CodeInspectionFactory<T: PsiElement, T2: MyRefactoringFactory>(
                 )
                 if (createdObjectsFromFuncCall.isNotEmpty())
                     return createdObjectsFromFuncCall[0]
+            }
+            return null
+        }
+
+        override fun recalibrateRefactoring(project: Project, editor: Editor, file: PsiFile): AbstractRefactoring? {
+            if (this.isValid(project, editor, file))
+                return this
+
+            val foundPsiElement = PsiUtils.searchForPsiElement(file, psiElement)
+            if (foundPsiElement!=null) {
+                problemsHolder = ProblemsHolder(
+                    InspectionManager.getInstance(project), file, isOnTheFly
+                )
+                val visitor = inspection.buildVisitor(problemsHolder, isOnTheFly)
+                foundPsiElement.accept(visitor)
+                return this
             }
             return null
         }

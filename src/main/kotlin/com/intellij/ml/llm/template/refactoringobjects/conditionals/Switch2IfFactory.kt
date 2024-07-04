@@ -3,6 +3,7 @@ package com.intellij.ml.llm.template.refactoringobjects.conditionals
 import com.intellij.codeInsight.daemon.impl.quickfix.ConvertSwitchToIfIntention
 import com.intellij.ml.llm.template.refactoringobjects.AbstractRefactoring
 import com.intellij.ml.llm.template.refactoringobjects.MyRefactoringFactory
+import com.intellij.ml.llm.template.utils.PsiUtils
 import com.intellij.openapi.application.runReadAction
 import com.intellij.openapi.command.WriteCommandAction
 import com.intellij.openapi.editor.Editor
@@ -80,7 +81,7 @@ class Switch2IfFactory {
     private class Switch2IfRefactoring(
         override val startLoc: Int,
         override val endLoc: Int,
-        val switchStatement: PsiSwitchStatement
+        var switchStatement: PsiSwitchStatement
     ) : AbstractRefactoring() {
         override fun performRefactoring(project: Project, editor: Editor, file: PsiFile) {
             super.performRefactoring(project, editor, file)
@@ -119,6 +120,24 @@ class Switch2IfFactory {
             )
             if (createdObjectsFromFuncCall.isNotEmpty())
                 return createdObjectsFromFuncCall[0]
+            return null
+        }
+
+        override fun recalibrateRefactoring(project: Project, editor: Editor, file: PsiFile): AbstractRefactoring? {
+            if (isValid==true){
+                return this
+            }
+            val recalibratedByLineNumber = Switch2IfFactory.fromStartLoc(
+                startLoc, project, editor, file
+            )
+            if (recalibratedByLineNumber!=null)
+                return recalibratedByLineNumber
+            else {
+                val foundPsiElement = PsiUtils.searchForPsiElement(file, switchStatement)
+                if (foundPsiElement !=null && foundPsiElement is PsiSwitchStatement){
+                    switchStatement = foundPsiElement
+                }
+            }
             return null
         }
 

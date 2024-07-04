@@ -69,7 +69,7 @@ class CompletedRefactoringsPanel(
 
 //            val reverseRefactoring = refCandidate.getReverseRefactoringObject(myProject, myEditor, myFile)
             val reverseRefactoring = reverseRefactorings[index]
-            if (reverseRefactoring!=null) {
+            if (reverseRefactoring!=null && reverseRefactoring.isValid?:true) {
                 val runnable = Runnable {
                     reverseRefactoring.performRefactoring(myProject, myEditor, myFile)
                 }
@@ -77,6 +77,7 @@ class CompletedRefactoringsPanel(
                 //        myPopup!!.cancel()
                 refCandidate.undone = true
                 refreshCandidates(index, "UNDID")
+                recalibrateRefactorings()
             }
             else {
                 showEFNotification(
@@ -87,13 +88,6 @@ class CompletedRefactoringsPanel(
             }
         }
     }
-
-//    override fun getSelectedRefactoringObject(extractFuncationCandidateJBTable: JBTable): AbstractRefactoring? {
-//        val index = extractFuncationCandidateJBTable.selectedRow
-//        if (index < reverseRefactorings.size)
-//            return reverseRefactorings[index]
-//        return null
-//    }
 
     override fun getEndOffset(index: Int): Int {
         if(reverseRefactorings[index]!=null)
@@ -111,6 +105,14 @@ class CompletedRefactoringsPanel(
         if(reverseRefactorings[index]!=null)
             return myEditor.document.getLineNumber(reverseRefactorings[index]!!.getStartOffset())
         return 0
+    }
+
+    private fun recalibrateRefactorings(){
+        // recalibrate refactorings in case any got invalidated.
+        reverseRefactorings
+            .filterNotNull()
+            .filterNot { it.isValid(myProject, myEditor, myFile) }
+            .forEach { it.recalibrateRefactoring(myProject, myEditor, myFile) }
     }
 
 

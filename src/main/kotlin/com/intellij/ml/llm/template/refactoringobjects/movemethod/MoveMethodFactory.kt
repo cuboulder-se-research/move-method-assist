@@ -163,6 +163,10 @@ class MoveMethodFactory {
                 TODO("Not yet implemented")
             }
 
+            override fun recalibrateRefactoring(project: Project, editor: Editor, file: PsiFile): AbstractRefactoring? {
+                TODO("Not yet implemented")
+            }
+
         }
 
         private fun getParamNamesIfNeeded(
@@ -239,6 +243,10 @@ class MoveMethodFactory {
                         foundMethod, sourceClass.qualifiedName!!)
             }
             return null
+        }
+
+        override fun recalibrateRefactoring(project: Project, editor: Editor, file: PsiFile): AbstractRefactoring? {
+            TODO("Not yet implemented")
         }
 
     }
