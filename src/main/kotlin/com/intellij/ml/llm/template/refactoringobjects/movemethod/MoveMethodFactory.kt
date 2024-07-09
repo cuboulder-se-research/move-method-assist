@@ -164,7 +164,9 @@ class MoveMethodFactory {
             }
 
             override fun recalibrateRefactoring(project: Project, editor: Editor, file: PsiFile): AbstractRefactoring? {
-                TODO("Not yet implemented")
+                if (isValid==true)
+                    return this
+                return null // TODO: implement search
             }
 
         }
@@ -246,7 +248,9 @@ class MoveMethodFactory {
         }
 
         override fun recalibrateRefactoring(project: Project, editor: Editor, file: PsiFile): AbstractRefactoring? {
-            TODO("Not yet implemented")
+            if (isValid==true)
+                return this
+            return null // TODO: Impl search
         }
 
     }

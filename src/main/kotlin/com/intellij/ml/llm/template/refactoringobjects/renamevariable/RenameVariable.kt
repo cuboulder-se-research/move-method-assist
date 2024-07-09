@@ -6,21 +6,17 @@ import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
-import com.intellij.psi.PsiMethod
 import com.intellij.refactoring.RefactoringFactory
-import org.jetbrains.kotlin.idea.base.psi.getLineNumber
-import org.jetbrains.kotlin.idea.editor.fixers.startLine
 import org.jetbrains.kotlin.psi.psiUtil.endOffset
-import org.jetbrains.kotlin.psi.psiUtil.getChildrenOfType
 import org.jetbrains.kotlin.psi.psiUtil.startOffset
 
 class RenameVariable(
-                     override val startLoc: Int,
-                     override val endLoc: Int,
-                     val oldName: String,
-                     val newName: String,
-                     val oldVarPsi: PsiElement,
-                     val outerPsiElement: PsiElement
+    override val startLoc: Int,
+    override val endLoc: Int,
+    val oldName: String,
+    val newName: String,
+    var oldVarPsi: PsiElement,
+    val outerPsiElement: PsiElement
 
 ): AbstractRefactoring() {
 
@@ -64,6 +60,20 @@ class RenameVariable(
     }
 
     override fun recalibrateRefactoring(project: Project, editor: Editor, file: PsiFile): AbstractRefactoring? {
-        TODO("Not yet implemented")
+        if (isValid==true)
+            return this
+
+        val variablePsi = PsiUtils.getVariableFromPsi(outerPsiElement, oldName)
+        if (variablePsi!=null) {
+            oldVarPsi = variablePsi
+            return this
+        }else{
+            val variablePsiInFile = PsiUtils.getVariableFromPsi(file, oldName)
+            if (variablePsiInFile!=null){
+                oldVarPsi = variablePsiInFile
+                return this
+            }
+        }
+        return null
     }
 }

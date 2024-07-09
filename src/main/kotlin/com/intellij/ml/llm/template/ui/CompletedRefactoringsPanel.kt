@@ -13,7 +13,6 @@ import com.intellij.notification.NotificationType
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiFile
-import com.intellij.ui.table.JBTable
 import java.util.concurrent.atomic.AtomicReference
 
 class CompletedRefactoringsPanel(
@@ -24,7 +23,7 @@ class CompletedRefactoringsPanel(
     codeTransformer: CodeTransformer,
     highlighter: AtomicReference<ScopeHighlighter>,
     efTelemetryDataManager: EFTelemetryDataManager,
-    val reverseRefactorings: List<AbstractRefactoring?> = getReverseObjects(candidates, project, editor, file)
+    var reverseRefactorings: List<AbstractRefactoring?> = getReverseObjects(candidates, project, editor, file)
 ) : RefactoringSuggestionsPanel(
     project, editor,
     file,
@@ -38,6 +37,10 @@ class CompletedRefactoringsPanel(
         ): List<AbstractRefactoring?>{
             return refactoringObjects.map { it.reverseRefactoring }
         }
+    }
+    init {
+        reverseRefactorings = recalibrateRefactorings(reverseRefactorings)
+        // Recalibrate at the start to avoid issue with other ref objects being executed later.
     }
 
     override fun performAction(index: Int) {
@@ -69,7 +72,7 @@ class CompletedRefactoringsPanel(
 
 //            val reverseRefactoring = refCandidate.getReverseRefactoringObject(myProject, myEditor, myFile)
             val reverseRefactoring = reverseRefactorings[index]
-            if (reverseRefactoring!=null && reverseRefactoring.isValid?:true) {
+            if (reverseRefactoring!=null && reverseRefactoring.isValid(myProject, myEditor, myFile)) {
                 val runnable = Runnable {
                     reverseRefactoring.performRefactoring(myProject, myEditor, myFile)
                 }
@@ -77,7 +80,7 @@ class CompletedRefactoringsPanel(
                 //        myPopup!!.cancel()
                 refCandidate.undone = true
                 refreshCandidates(index, "UNDID")
-                recalibrateRefactorings()
+                reverseRefactorings = recalibrateRefactorings(reverseRefactorings)
             }
             else {
                 showEFNotification(
@@ -107,12 +110,19 @@ class CompletedRefactoringsPanel(
         return 0
     }
 
-    private fun recalibrateRefactorings(){
+    private fun recalibrateRefactorings(refactoringObjects: List<AbstractRefactoring?>): MutableList<AbstractRefactoring?> {
         // recalibrate refactorings in case any got invalidated.
-        reverseRefactorings
-            .filterNotNull()
-            .filterNot { it.isValid(myProject, myEditor, myFile) }
-            .forEach { it.recalibrateRefactoring(myProject, myEditor, myFile) }
+        val recalibratedRefactorings = mutableListOf<AbstractRefactoring?>()
+        refactoringObjects.forEach { ref ->
+            if (ref==null)
+                recalibratedRefactorings.add(ref)
+            else if (ref.isValid(myProject, myEditor, myFile))
+                recalibratedRefactorings.add(ref)
+            else
+                recalibratedRefactorings.add(ref.recalibrateRefactoring(myProject, myEditor, myFile))
+        }
+        return recalibratedRefactorings
+
     }
 
 

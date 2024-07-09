@@ -142,7 +142,8 @@ class CodeInspectionFactory<T: PsiElement, T2: MyRefactoringFactory>(
                 )
                 val visitor = inspection.buildVisitor(problemsHolder, isOnTheFly)
                 foundPsiElement.accept(visitor)
-                return this
+                if (problemsHolder.hasResults())
+                    return this
             }
             return null
         }

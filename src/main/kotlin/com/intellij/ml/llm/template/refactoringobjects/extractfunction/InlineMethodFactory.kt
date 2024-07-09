@@ -68,7 +68,7 @@ class InlineMethodFactory {
 
 class InlineMethodRefactoring(
     override val startLoc: Int, override val endLoc: Int,
-    val psiMethod: PsiMethod
+    var psiMethod: PsiMethod
 ) : AbstractRefactoring(){
     override fun performRefactoring(project: Project, editor: Editor, file: PsiFile) {
         InlineMethodProcessor(project, psiMethod, null, editor, false).run()
@@ -97,7 +97,15 @@ class InlineMethodRefactoring(
     }
 
     override fun recalibrateRefactoring(project: Project, editor: Editor, file: PsiFile): AbstractRefactoring? {
-        TODO("Not yet implemented")
+        if (isValid==true)
+            return this
+
+        val foundMethodPsi = PsiUtils.searchForPsiElement(file, psiMethod)
+        if (foundMethodPsi!=null && foundMethodPsi is PsiMethod){
+            psiMethod = foundMethodPsi
+            return this
+        }
+        return  null
     }
 
 }

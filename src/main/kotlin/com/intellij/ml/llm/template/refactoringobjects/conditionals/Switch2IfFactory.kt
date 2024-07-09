@@ -93,7 +93,7 @@ class Switch2IfFactory {
 
         override fun isValid(project: Project, editor: Editor, file: PsiFile): Boolean {
             isValid=switchStatement.isPhysical
-            return true
+            return isValid!!
         }
 
         override fun getRefactoringPreview(): String {
@@ -136,6 +136,7 @@ class Switch2IfFactory {
                 val foundPsiElement = PsiUtils.searchForPsiElement(file, switchStatement)
                 if (foundPsiElement !=null && foundPsiElement is PsiSwitchStatement){
                     switchStatement = foundPsiElement
+                    return this
                 }
             }
             return null

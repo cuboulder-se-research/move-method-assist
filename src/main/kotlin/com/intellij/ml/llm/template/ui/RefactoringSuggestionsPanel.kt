@@ -113,7 +113,7 @@ open class RefactoringSuggestionsPanel(
                 }
                 if (e.keyCode == KeyEvent.VK_ESCAPE) {
                     if (e.id == KeyEvent.KEY_PRESSED) {
-                        myPopup?.cancel()
+//                        myPopup?.cancel()
                     }
                 }
                 return super.processKeyBinding(ks, e, condition, pressed)
@@ -139,7 +139,6 @@ open class RefactoringSuggestionsPanel(
         extractFunctionCandidateTable.columnModel.getColumn(0).maxWidth = 50
         extractFunctionCandidateTable.columnModel.getColumn(1).cellRenderer = FunctionNameTableCellRenderer()
         extractFunctionCandidateTable.setShowGrid(false)
-
         return extractFunctionCandidateTable
     }
 

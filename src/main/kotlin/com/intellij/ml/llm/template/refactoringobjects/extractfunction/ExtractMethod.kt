@@ -5,6 +5,7 @@ import com.intellij.ml.llm.template.models.FunctionNameProvider
 import com.intellij.ml.llm.template.models.MyMethodExtractor
 import com.intellij.ml.llm.template.refactoringobjects.AbstractRefactoring
 import com.intellij.ml.llm.template.refactoringobjects.extractfunction.customextractors.MyInplaceExtractionHelper
+import com.intellij.ml.llm.template.utils.PsiUtils
 import com.intellij.ml.llm.template.utils.isCandidateExtractable
 import com.intellij.openapi.application.runReadAction
 import com.intellij.openapi.editor.Editor
@@ -60,7 +61,24 @@ class ExtractMethod(
     }
 
     override fun recalibrateRefactoring(project: Project, editor: Editor, file: PsiFile): AbstractRefactoring? {
-        TODO("Not yet implemented")
+        if (isValid==true)
+            return this
+
+        val newLeft = if (!leftPsi.isPhysical) {
+            PsiUtils.searchForPsiElement(file, leftPsi)
+        } else {
+            leftPsi
+        }
+
+        val newRight = if (!rightPsi.isPhysical) {
+            PsiUtils.searchForPsiElement(file, rightPsi)
+        } else {
+            rightPsi
+        }
+        if (newLeft!=null && newRight!=null){
+            return ExtractMethod(startLoc, endLoc,  newFuncName, newLeft, newRight, candidateType)
+        }
+        return null
     }
 
 

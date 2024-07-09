@@ -97,7 +97,7 @@ class StringBuilderRefactoringFactory {
         class StringBuilder4ConcatRefactoring(
             override val startLoc: Int,
             override val endLoc: Int,
-            val psiPolyadicExpression: PsiPolyadicExpression
+            var psiPolyadicExpression: PsiPolyadicExpression
         ) : AbstractRefactoring() {
             override fun performRefactoring(project: Project, editor: Editor, file: PsiFile) {
                 super.performRefactoring(project, editor, file)
@@ -135,7 +135,15 @@ class StringBuilderRefactoringFactory {
             }
 
             override fun recalibrateRefactoring(project: Project, editor: Editor, file: PsiFile): AbstractRefactoring? {
-                TODO("Not yet implemented")
+                if (this.isValid(project, editor, file))
+                    return this
+
+                val foundPsiElement = PsiUtils.searchForPsiElement(file, psiPolyadicExpression)
+                if (foundPsiElement!=null && foundPsiElement is PsiPolyadicExpression) {
+                    psiPolyadicExpression = foundPsiElement
+                    return this
+                }
+                return null
             }
 
         }
@@ -143,8 +151,8 @@ class StringBuilderRefactoringFactory {
         class StringBuilder4AssignInLoop(
             override val startLoc: Int,
             override val endLoc: Int,
-            val psiAssignmentExpression: PsiAssignmentExpression,
-            val problemsHolder: ProblemsHolder
+            var psiAssignmentExpression: PsiAssignmentExpression,
+            var problemsHolder: ProblemsHolder
         ) : AbstractRefactoring() {
             override fun performRefactoring(project: Project, editor: Editor, file: PsiFile) {
                 super.performRefactoring(project, editor, file)
@@ -182,7 +190,22 @@ class StringBuilderRefactoringFactory {
             }
 
             override fun recalibrateRefactoring(project: Project, editor: Editor, file: PsiFile): AbstractRefactoring? {
-                TODO("Not yet implemented")
+                if (this.isValid(project, editor, file))
+                    return this
+
+                val foundPsiElement = PsiUtils.searchForPsiElement(file, psiAssignmentExpression)
+                if (foundPsiElement!=null && foundPsiElement is PsiAssignmentExpression) {
+                    psiAssignmentExpression = foundPsiElement
+                    val sbConcat = StringConcatenationInLoopsInspection()
+                    problemsHolder = ProblemsHolder(
+                        InspectionManager.getInstance(project), file, false
+                    )
+                    val visitor = sbConcat.buildVisitor(problemsHolder, false)
+                    runReadAction { foundPsiElement.accept(visitor) }
+                    if (problemsHolder.hasResults())
+                        return this
+                }
+                return null
             }
 
         }

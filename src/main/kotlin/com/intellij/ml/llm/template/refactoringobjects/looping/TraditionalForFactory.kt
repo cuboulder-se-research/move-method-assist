@@ -2,10 +2,12 @@ package com.intellij.ml.llm.template.refactoringobjects.looping
 
 import com.intellij.ml.llm.template.refactoringobjects.AbstractRefactoring
 import com.intellij.ml.llm.template.refactoringobjects.MyRefactoringFactory
+import com.intellij.ml.llm.template.utils.PsiUtils
 import com.intellij.openapi.application.runWriteAction
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiFile
+import com.intellij.psi.PsiForStatement
 import com.intellij.psi.PsiForeachStatement
 import com.intellij.psi.util.PsiTreeUtil
 import com.intellij.psi.util.PsiUtilBase
@@ -76,11 +78,11 @@ class TraditionalForFactory {
 
     class UseTraditionalForLoop(
         override val startLoc: Int, override val endLoc: Int,
-        val psiForeachStatement: PsiForeachStatement
+        var psiForeachStatement: PsiForeachStatement
     ) : AbstractRefactoring() {
         override fun isValid(project: Project, editor: Editor, file: PsiFile): Boolean {
             isValid = psiForeachStatement.isPhysical
-            return true
+            return isValid!!
         }
 
         override fun getRefactoringPreview(): String {
@@ -104,7 +106,15 @@ class TraditionalForFactory {
         }
 
         override fun recalibrateRefactoring(project: Project, editor: Editor, file: PsiFile): AbstractRefactoring? {
-            TODO("Not yet implemented")
+            if (isValid==true)
+                return this
+            val foundForEach = PsiUtils.searchForPsiElement(file, psiForeachStatement)
+            if (foundForEach!=null && foundForEach is PsiForeachStatement) {
+                psiForeachStatement = foundForEach
+                return this
+            }
+            return null
+
         }
 
         override fun performRefactoring(project: Project, editor: Editor, file: PsiFile) {
