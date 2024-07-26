@@ -3,6 +3,7 @@
 package com.intellij.ml.llm.template.models
 
 import com.intellij.ml.llm.template.LLMBundle
+import com.intellij.ml.llm.template.models.grazie.GrazieResponse
 import com.intellij.ml.llm.template.models.openai.AuthorizationException
 import com.intellij.ml.llm.template.models.openai.OpenAiChatMessage
 import com.intellij.ml.llm.template.models.openai.OpenAiChatRequestBody
@@ -78,24 +79,45 @@ fun sendChatRequest(
     llmRequestProvider: LLMRequestProvider = GPTRequestProvider,
     temperature: Double = 0.5
 ): LLMBaseResponse? {
-    val request = llmRequestProvider.createChatGPTRequest(
-        OpenAiChatRequestBody(
-            model = model ?: llmRequestProvider.chatModel,
-            messages = messages,
-            temperature = temperature
-        )
-    )
-    return sendRequest(project, request)
+//    val request = llmRequestProvider.createChatGPTRequest(
+//        OpenAiChatRequestBody(
+//            model = model ?: llmRequestProvider.chatModel,
+//            messages = messages,
+//            temperature = temperature
+//        )
+//    )
+//    return sendRequest(project, request)
+    TODO("Deprecate function")
 }
 
 fun sendChatRequest(
     project: Project,
     messages: List<ChatMessage>,
-    model: ChatLanguageModel,
-    temperature: Double = 0.5
-): Response<AiMessage>? {
-    val response = model.generate(messages)
-    return response
+    model: ChatLanguageModel
+): GrazieResponse? {
+    try {
+        val response = model.generate(messages)
+        return GrazieResponse(response.content().text(),
+            if (response.finishReason()==null) "normal" else response.finishReason().toString())
+    } catch (e: AuthorizationException) {
+        showUnauthorizedNotification(project)
+    } catch (e: HttpRequests.HttpStatusException) {
+        when (e.statusCode) {
+            HttpURLConnection.HTTP_UNAUTHORIZED -> showAuthorizationFailedNotification(project)
+            else -> {
+                showRequestFailedNotification(
+                    project, LLMBundle.message("notification.request.failed.message", e.message ?: "")
+                )
+                logger.warn(e)
+            }
+        }
+    } catch (e: IOException) {
+        showRequestFailedNotification(
+            project, LLMBundle.message("notification.request.failed.message", e.message ?: "")
+        )
+        logger.warn(e)
+    }
+    return null
 }
 
 fun sendChatRequest(

@@ -16,11 +16,12 @@ import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiFile
+import dev.langchain4j.model.chat.ChatLanguageModel
 import kotlinx.coroutines.*
 import kotlin.system.measureTimeMillis
 
 class SimpleRefactoringValidatorSerial(
-    private val efLLMRequestProvider: LLMRequestProvider,
+    private val efLLMRequestProvider: ChatLanguageModel,
     private val project: Project,
     private val editor: Editor,
     private val file: PsiFile,

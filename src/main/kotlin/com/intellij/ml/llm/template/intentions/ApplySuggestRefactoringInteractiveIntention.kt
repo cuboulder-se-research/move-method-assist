@@ -4,6 +4,7 @@ import com.intellij.codeInsight.unwrap.ScopeHighlighter
 import com.intellij.ml.llm.template.LLMBundle
 import com.intellij.ml.llm.template.models.LLMBaseResponse
 import com.intellij.ml.llm.template.models.LLMRequestProvider
+import com.intellij.ml.llm.template.models.grazie.GrazieGPT4
 import com.intellij.ml.llm.template.models.grazie.GrazieGPT4RequestProvider
 import com.intellij.ml.llm.template.refactoringobjects.AbstractRefactoring
 import com.intellij.ml.llm.template.showEFNotification
@@ -20,6 +21,7 @@ import com.intellij.openapi.ui.popup.JBPopupListener
 import com.intellij.openapi.ui.popup.LightweightWindowEvent
 import com.intellij.psi.PsiFile
 import com.intellij.ui.awt.RelativePoint
+import dev.langchain4j.model.chat.ChatLanguageModel
 import kotlinx.coroutines.runBlocking
 import java.awt.Point
 import java.awt.Rectangle
@@ -28,7 +30,7 @@ import java.util.concurrent.atomic.AtomicReference
 
 @Suppress("UnstableApiUsage")
 class ApplySuggestRefactoringInteractiveIntention(
-    private val efLLMRequestProvider: LLMRequestProvider = GrazieGPT4RequestProvider
+    private val efLLMRequestProvider: ChatLanguageModel = GrazieGPT4
 ) : ApplySuggestRefactoringIntention(efLLMRequestProvider) {
     val logger = Logger.getInstance(ApplySuggestRefactoringInteractiveIntention::class.java)
 

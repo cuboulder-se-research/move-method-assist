@@ -2,8 +2,6 @@ package com.intellij.ml.llm.template.suggestrefactoring
 
 import com.google.gson.Gson
 import com.intellij.ml.llm.template.models.LLMBaseResponse
-import com.intellij.ml.llm.template.models.LLMRequestProvider
-import com.intellij.ml.llm.template.models.openai.OpenAiChatMessage
 import com.intellij.ml.llm.template.models.sendChatRequest
 import com.intellij.ml.llm.template.prompts.GetRefactoringObjParametersPrompt
 import com.intellij.ml.llm.template.prompts.SuggestRefactoringPrompt
@@ -15,9 +13,10 @@ import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiFile
 import dev.langchain4j.data.message.AiMessage
 import dev.langchain4j.data.message.ChatMessage
+import dev.langchain4j.model.chat.ChatLanguageModel
 
 abstract class AbstractRefactoringValidator(
-    private val efLLMRequestProvider: LLMRequestProvider,
+    private val llmChatModel: ChatLanguageModel,
     private val project: Project,
     private val editor: Editor,
     private val file: PsiFile,
@@ -37,7 +36,7 @@ abstract class AbstractRefactoringValidator(
         val response =
             apiResponseCache[functionSrc]?.get(atomicSuggestion.getSerialized())
                 ?:sendChatRequest(
-                    project, messageList, efLLMRequestProvider.chatModel, efLLMRequestProvider, temperature = 0.5
+                    project, messageList, llmChatModel
                     )
         if (response != null) {
             cacheResponse(atomicSuggestion, response)

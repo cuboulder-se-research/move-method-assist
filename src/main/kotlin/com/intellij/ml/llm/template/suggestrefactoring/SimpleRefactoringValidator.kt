@@ -1,9 +1,7 @@
 package com.intellij.ml.llm.template.suggestrefactoring
 
 import com.intellij.ml.llm.template.models.LLMBaseResponse
-import com.intellij.ml.llm.template.models.LLMRequestProvider
 import com.intellij.ml.llm.template.refactoringobjects.AbstractRefactoring
-import com.intellij.ml.llm.template.refactoringobjects.MyRefactoringFactory
 import com.intellij.ml.llm.template.refactoringobjects.UncreatableRefactoring
 import com.intellij.ml.llm.template.refactoringobjects.conditionals.*
 import com.intellij.ml.llm.template.refactoringobjects.looping.EnhancedForFactory
@@ -16,17 +14,17 @@ import com.intellij.ml.llm.template.refactoringobjects.stringbuilder.StringBuild
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiFile
+import dev.langchain4j.model.chat.ChatLanguageModel
 import kotlinx.coroutines.*
-import kotlin.system.measureTimeMillis
 
 class SimpleRefactoringValidator(
-    private val efLLMRequestProvider: LLMRequestProvider,
+    private val llmChatModel: ChatLanguageModel,
     private val project: Project,
     private val editor: Editor,
     private val file: PsiFile,
     private val functionSrc: String,
     apiResponseCache: MutableMap<String, MutableMap<String, LLMBaseResponse>>
-) : AbstractRefactoringValidator(efLLMRequestProvider, project, editor, file, functionSrc, apiResponseCache) {
+) : AbstractRefactoringValidator(llmChatModel, project, editor, file, functionSrc, apiResponseCache) {
 
 
     override suspend fun getRefactoringSuggestions(llmResponseText: String, limit: Int): List<AbstractRefactoring> {
