@@ -13,8 +13,10 @@ import com.intellij.ml.llm.template.showUnauthorizedNotification
 import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.project.Project
 import com.intellij.util.io.HttpRequests
+import dev.langchain4j.data.message.AiMessage
 import dev.langchain4j.data.message.ChatMessage
 import dev.langchain4j.model.chat.ChatLanguageModel
+import dev.langchain4j.model.output.Response
 import java.io.IOException
 import java.net.HttpURLConnection
 
@@ -84,6 +86,16 @@ fun sendChatRequest(
         )
     )
     return sendRequest(project, request)
+}
+
+fun sendChatRequest(
+    project: Project,
+    messages: List<ChatMessage>,
+    model: ChatLanguageModel,
+    temperature: Double = 0.5
+): Response<AiMessage>? {
+    val response = model.generate(messages)
+    return response
 }
 
 fun sendChatRequest(
