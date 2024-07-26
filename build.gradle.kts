@@ -16,6 +16,8 @@ dependencies {
     implementation("ai.grazie.client:client-ktor:0.3.57"){
         exclude("org.slf4j", "slf4j-api")
     }
+
+    implementation("dev.langchain4j:langchain4j:0.33.0")
     testImplementation(kotlin("test"))
 }
 

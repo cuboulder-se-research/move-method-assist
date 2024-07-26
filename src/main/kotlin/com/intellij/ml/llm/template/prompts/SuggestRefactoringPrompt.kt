@@ -1,12 +1,15 @@
 package com.intellij.ml.llm.template.prompts
 
-import com.intellij.ml.llm.template.models.openai.OpenAiChatMessage
+import dev.langchain4j.data.message.AiMessage
+import dev.langchain4j.data.message.ChatMessage
+import dev.langchain4j.data.message.SystemMessage
+import dev.langchain4j.data.message.UserMessage
 
 class SuggestRefactoringPrompt: MethodPromptBase() {
-    override fun getPrompt(methodCode: String): MutableList<OpenAiChatMessage> {
+    override fun getPrompt(methodCode: String): MutableList<ChatMessage> {
         return mutableListOf(
-            OpenAiChatMessage("system", "You are an expert programmer performing refactoring operations."),
-            OpenAiChatMessage("user", """
+            SystemMessage.from("You are an expert programmer performing refactoring operations."),
+            UserMessage.from("""
                     Please provide suggestions to improve the following Java method/class. 
                     Only provide suggestions that are: 
                     1. Extract Method. 
@@ -31,7 +34,7 @@ class SuggestRefactoringPrompt: MethodPromptBase() {
                      6.        return sum;
                      7.    }
                      """.trimIndent()),
-            OpenAiChatMessage("assistant", """
+            AiMessage.from("""
 {
     "improvements": [
         {
@@ -50,7 +53,7 @@ class SuggestRefactoringPrompt: MethodPromptBase() {
 }
 """
             ),
-            OpenAiChatMessage("user", methodCode)
+            UserMessage.from(methodCode)
         )
     }
 }

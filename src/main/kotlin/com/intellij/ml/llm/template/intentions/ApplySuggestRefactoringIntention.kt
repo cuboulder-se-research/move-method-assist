@@ -24,6 +24,7 @@ import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiClass
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
+import dev.langchain4j.data.message.ChatMessage
 import org.jetbrains.kotlin.util.capitalizeDecapitalize.toLowerCaseAsciiOnly
 import java.util.concurrent.TimeUnit
 
@@ -107,7 +108,7 @@ abstract class ApplySuggestRefactoringIntention(
 
     open fun invokeLLM(
         project: Project,
-        messageList: MutableList<OpenAiChatMessage>,
+        messageList: MutableList<ChatMessage>,
         editor: Editor,
         file: PsiFile
     ) {

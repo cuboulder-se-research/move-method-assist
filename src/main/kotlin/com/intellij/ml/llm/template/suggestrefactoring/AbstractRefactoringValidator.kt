@@ -13,6 +13,8 @@ import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiFile
+import dev.langchain4j.data.message.AiMessage
+import dev.langchain4j.data.message.ChatMessage
 
 abstract class AbstractRefactoringValidator(
     private val efLLMRequestProvider: LLMRequestProvider,
@@ -29,7 +31,7 @@ abstract class AbstractRefactoringValidator(
         atomicSuggestion: AtomicSuggestion,
         refactoringFactory: MyRefactoringFactory
     ): List<AbstractRefactoring>? {
-        val messageList: MutableList<OpenAiChatMessage> =
+        val messageList: MutableList<ChatMessage> =
             setupOpenAiChatMessages(atomicSuggestion, refactoringFactory)
 
         val response =
@@ -84,13 +86,12 @@ abstract class AbstractRefactoringValidator(
     private fun setupOpenAiChatMessages(
         atomicSuggestion: AtomicSuggestion,
         refactoringFactory: MyRefactoringFactory
-    ): MutableList<OpenAiChatMessage> {
-        var messageList: MutableList<OpenAiChatMessage> = mutableListOf()
+    ): MutableList<ChatMessage> {
+        var messageList: MutableList<ChatMessage> = mutableListOf()
         val basePrompt = SuggestRefactoringPrompt().getPrompt(functionSrc)
         messageList.addAll(basePrompt)
         messageList.add(
-            OpenAiChatMessage(
-                "assistant",
+            AiMessage.from(
                 Gson().toJson(RefactoringSuggestion(mutableListOf(atomicSuggestion))).toString()
             )
         )

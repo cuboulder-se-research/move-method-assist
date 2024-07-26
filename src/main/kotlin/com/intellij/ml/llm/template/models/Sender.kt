@@ -13,6 +13,8 @@ import com.intellij.ml.llm.template.showUnauthorizedNotification
 import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.project.Project
 import com.intellij.util.io.HttpRequests
+import dev.langchain4j.data.message.ChatMessage
+import dev.langchain4j.model.chat.ChatLanguageModel
 import java.io.IOException
 import java.net.HttpURLConnection
 
@@ -69,7 +71,7 @@ fun sendCompletionRequest(
 
 fun sendChatRequest(
     project: Project,
-    messages: List<OpenAiChatMessage>,
+    messages: List<ChatMessage>,
     model: String? = null,
     llmRequestProvider: LLMRequestProvider = GPTRequestProvider,
     temperature: Double = 0.5
