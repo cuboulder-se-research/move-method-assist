@@ -42,10 +42,15 @@ abstract class AbstractRefactoringValidator(
             cacheResponse(atomicSuggestion, response)
 
             val funcCall: String = response.getSuggestions()[0].text
+            val extractedFuncCall = if (funcCall.startsWith(refactoringFactory.apiFunctionName)){
+                funcCall
+            } else{
+                tryFindFuncCall(funcCall, refactoringFactory.apiFunctionName)
+            }
 //            logger.debug(funcCall)
-            if (funcCall.startsWith(refactoringFactory.apiFunctionName)) {
+            if (extractedFuncCall.startsWith(refactoringFactory.apiFunctionName)) {
 //                logger.debug("Looks like a ${refactoringFactory.apiFunctionName} call!")
-                logger.info("* Creating IntelliJ Refactoring Object: $funcCall")
+                logger.info("* Creating IntelliJ Refactoring Object: $extractedFuncCall")
                 val createdObjectsFromFuncCall = try {
                     refactoringFactory.createObjectsFromFuncCall(
                         funcCall,
@@ -66,6 +71,15 @@ abstract class AbstractRefactoringValidator(
             }
         }
         return null
+    }
+
+    private fun tryFindFuncCall(funcCall: String, apiFunctionName: String) : String{
+        // sanitise string
+        val sanitisedFuncCall = funcCall.replace("\\", "")
+        if (sanitisedFuncCall.contains(apiFunctionName)){
+            return "$apiFunctionName${sanitisedFuncCall.split(apiFunctionName)[1]}"
+        }
+        return ""
     }
 
     private fun cacheResponse(
