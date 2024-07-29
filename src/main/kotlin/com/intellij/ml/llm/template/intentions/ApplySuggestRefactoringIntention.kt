@@ -94,7 +94,7 @@ abstract class ApplySuggestRefactoringIntention(
     }
 
 //    abstract fun invokeLlm(text: String, project: Project, editor: Editor, file: PsiFile)
-    private fun getPromptAndRunBackgroundable(text: String, project: Project, editor: Editor, file: PsiFile) {
+fun getPromptAndRunBackgroundable(text: String, project: Project, editor: Editor, file: PsiFile) {
         logger.info("Invoking LLM with text: $text")
         val messageList = prompter.getPrompt(text)
 

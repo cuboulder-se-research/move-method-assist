@@ -45,7 +45,7 @@ import java.util.concurrent.atomic.AtomicReference
 
 
 @Suppress("UnstableApiUsage")
-class ApplySuggestRefactoringAgentIntention(
+open class ApplySuggestRefactoringAgentIntention(
     private val llmChatModel: ChatLanguageModel = GrazieGPT4,
     private val useDelays: Boolean = true
 ) : ApplySuggestRefactoringIntention(llmChatModel) {
