@@ -3,6 +3,7 @@ package com.intellij.ml.llm.template.models.grazie
 import ai.grazie.api.gateway.client.SuspendableAPIGatewayClient
 import ai.grazie.client.common.SuspendableHTTPClient
 import ai.grazie.client.ktor.GrazieKtorHTTPClient
+import ai.grazie.client.ktor.GrazieKtorHTTPClient.Client
 import ai.grazie.model.auth.GrazieAgent
 import ai.grazie.model.auth.v5.AuthData
 import ai.grazie.model.cloud.AuthType
@@ -26,13 +27,14 @@ class GrazieBaseRequest(body: OpenAiChatRequestBody) : LLMBaseRequest<OpenAiChat
     private val authData = AuthData(
         token = grazieToken,
         originalUserToken = null,
-        originalServiceToken = grazieToken,
+        originalServiceToken = null,
+        originalApplicationToken = grazieToken,
         grazieAgent = GrazieAgent("suggest-refactoring-research", "0.1"),
     )
     private val client = SuspendableAPIGatewayClient(
         serverUrl = url,
-        authType = AuthType.Service,
-        httpClient = SuspendableHTTPClient.WithV5(GrazieKtorHTTPClient.Default, authData)
+        authType = AuthType.Application,
+        httpClient = SuspendableHTTPClient.WithV5(Client.Default, authData)
     )
 
     private fun getChatMessages(): LLMChat {
