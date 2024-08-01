@@ -2,6 +2,7 @@ package com.intellij.ml.llm.template.intentions
 
 import com.intellij.ml.llm.template.LLMBundle
 import com.intellij.ml.llm.template.models.grazie.GrazieGPT4
+import com.intellij.ml.llm.template.settings.RefAgentSettingsManager
 import com.intellij.ml.llm.template.telemetry.EFTelemetryDataUtils
 import com.intellij.ml.llm.template.utils.GitUtils
 import com.intellij.ml.llm.template.utils.PsiUtils
@@ -26,7 +27,7 @@ import org.jetbrains.kotlin.util.capitalizeDecapitalize.toLowerCaseAsciiOnly
 
 
 class ApplySuggestRefactoringOnCommitIntention(
-    private val efLLMRequestProvider: ChatLanguageModel = GrazieGPT4
+    private val efLLMRequestProvider: ChatLanguageModel = RefAgentSettingsManager.getInstance().createAndGetAiModel()!!,
 ) : ApplySuggestRefactoringAgentIntention(efLLMRequestProvider) {
 
     init {
@@ -62,8 +63,9 @@ class ApplySuggestRefactoringOnCommitIntention(
         val editedJavaFiles =
             GitUtils.getDiffsInLatestCommit(project.basePath!!)
                 .filter { it.changeType!= DiffEntry.ChangeType.DELETE }
+                .filter { it.newPath.endsWith(".java") }
+//                .sortedBy { it.newPath }
                 .map{ it.newPath }
-                .filter { it.endsWith(".java") }
 
         // TODO: filter diffs to find the most interesting changes.
         //  get the top 1 (or top 3) changed files. Files added for examples.

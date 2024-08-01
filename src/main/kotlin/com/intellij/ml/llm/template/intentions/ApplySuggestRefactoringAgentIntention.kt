@@ -46,10 +46,10 @@ import java.util.concurrent.atomic.AtomicReference
 
 @Suppress("UnstableApiUsage")
 open class ApplySuggestRefactoringAgentIntention(
-    private val llmChatModel: ChatLanguageModel = GrazieGPT4,
+    private val llmChatModel: ChatLanguageModel = RefAgentSettingsManager.getInstance().createAndGetAiModel()!!,
     private val useDelays: Boolean = true
 ) : ApplySuggestRefactoringIntention(llmChatModel) {
-    val refactoringLimit: Int = 3
+    val refactoringLimit: Int = 10
     private var MAX_ITERS: Int = RefAgentSettingsManager.getInstance().getNumberOfIterations()
     private val performedRefactorings = mutableListOf<AbstractRefactoring>()
     private val refactoringsPerIteration = mutableMapOf<Int, List<AbstractRefactoring>>()

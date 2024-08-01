@@ -10,6 +10,7 @@ import com.intellij.ml.llm.template.models.openai.OpenAiChatMessage
 import com.intellij.ml.llm.template.models.sendChatRequest
 import com.intellij.ml.llm.template.prompts.MethodPromptBase
 import com.intellij.ml.llm.template.prompts.SuggestRefactoringPrompt
+import com.intellij.ml.llm.template.settings.RefAgentSettingsManager
 import com.intellij.ml.llm.template.showEFNotification
 import com.intellij.ml.llm.template.telemetry.*
 import com.intellij.ml.llm.template.utils.*
@@ -33,7 +34,7 @@ import java.util.concurrent.TimeUnit
 
 @Suppress("UnstableApiUsage")
 abstract class ApplySuggestRefactoringIntention(
-    private val llmChatModel: ChatLanguageModel = GrazieGPT4
+    private val llmChatModel: ChatLanguageModel = RefAgentSettingsManager.getInstance().createAndGetAiModel()!!,
 ) : IntentionAction {
     private val logger = Logger.getInstance("#com.intellij.ml.llm")
     val codeTransformer = CodeTransformer()

@@ -7,6 +7,7 @@ import com.intellij.ml.llm.template.models.LLMRequestProvider
 import com.intellij.ml.llm.template.models.grazie.GrazieGPT4
 import com.intellij.ml.llm.template.models.grazie.GrazieGPT4RequestProvider
 import com.intellij.ml.llm.template.refactoringobjects.AbstractRefactoring
+import com.intellij.ml.llm.template.settings.RefAgentSettingsManager
 import com.intellij.ml.llm.template.showEFNotification
 import com.intellij.ml.llm.template.suggestrefactoring.SimpleRefactoringValidator
 import com.intellij.ml.llm.template.telemetry.*
@@ -30,7 +31,7 @@ import java.util.concurrent.atomic.AtomicReference
 
 @Suppress("UnstableApiUsage")
 class ApplySuggestRefactoringInteractiveIntention(
-    private val efLLMRequestProvider: ChatLanguageModel = GrazieGPT4
+    private val efLLMRequestProvider: ChatLanguageModel = RefAgentSettingsManager.getInstance().createAndGetAiModel()!!,
 ) : ApplySuggestRefactoringIntention(efLLMRequestProvider) {
     val logger = Logger.getInstance(ApplySuggestRefactoringInteractiveIntention::class.java)
 

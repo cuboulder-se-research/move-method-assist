@@ -1,8 +1,12 @@
 package com.intellij.ml.llm.template.settings
 
+import com.intellij.ml.llm.template.models.grazie.GrazieGPT4
+import com.intellij.ml.llm.template.models.grazie.GrazieModel
+import com.intellij.ml.llm.template.models.ollama.localOllamaMistral
 import com.intellij.ml.llm.template.models.openai.CredentialsHolder
 import com.intellij.openapi.components.*
 import com.intellij.util.xmlb.annotations.OptionTag
+import dev.langchain4j.model.chat.ChatLanguageModel
 
 @Service(Service.Level.APP)
 @State(
@@ -30,6 +34,13 @@ class RefAgentSettingsManager : PersistentStateComponent<RefAgentSettings> {
 
     fun setOpenAiKey(key: String) {
         CredentialsHolder.getInstance().setOpenAiApiKey(key)
+    }
+
+    fun getAiModel() = state.aiModel
+
+    fun setAiModel(aiModel: String?){
+        if (aiModel!=null)
+            state.aiModel = aiModel
     }
 
     fun getOpenAiOrganization(): String {
@@ -76,6 +87,21 @@ class RefAgentSettingsManager : PersistentStateComponent<RefAgentSettings> {
 
     fun getNumberOfIterations(): Int = state.llmSettings.numberOfIterations
 
+    fun createAndGetAiModel(): ChatLanguageModel? {
+        when (state.aiModel) {
+            "grazie" -> {
+                return GrazieGPT4
+            }
+            "openai" -> {
+                return localOllamaMistral
+            }
+            "ollama" -> {
+                return localOllamaMistral
+            }
+        }
+        return null
+    }
+
 }
 
 class RefAgentSettings : BaseState() {
@@ -92,6 +118,9 @@ class RefAgentSettings : BaseState() {
 
     @get:OptionTag("use_open_ai")
     var useOpenAi by property(true)
+
+    @get:OptionTag("ai_model")
+    var aiModel = "grazie"
 
     @get:OptionTag("open_ai")
     var llmSettings by property(LLMSettings()) { it == LLMSettings() }
