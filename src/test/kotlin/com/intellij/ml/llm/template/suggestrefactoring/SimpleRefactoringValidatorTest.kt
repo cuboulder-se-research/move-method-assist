@@ -1,6 +1,7 @@
 package com.intellij.ml.llm.template.suggestrefactoring
 
 import com.intellij.ml.llm.template.models.GPTExtractFunctionRequestProvider
+import com.intellij.ml.llm.template.models.grazie.GrazieGPT4
 import com.intellij.testFramework.LightPlatformCodeInsightTestCase
 import kotlinx.coroutines.runBlocking
 
@@ -22,7 +23,7 @@ class SimpleRefactoringValidatorTest :LightPlatformCodeInsightTestCase(){
 
         runBlocking {
             val suggestions = SimpleRefactoringValidator(
-                GPTExtractFunctionRequestProvider,
+                GrazieGPT4,
                 project,
                 editor,
                 file,

@@ -1,6 +1,7 @@
 package com.intellij.ml.llm.template.prompts
 
-import com.intellij.ml.llm.template.models.openai.OpenAiChatMessage
+import dev.langchain4j.data.message.ChatMessage
+import dev.langchain4j.data.message.UserMessage
 
 /*
 This prompt passes the documentation of a refactoring API and
@@ -13,10 +14,10 @@ class GetRefactoringObjParametersPrompt {
         fun get(improvementDescription: String,
                 refactoringType: String,
                 refactoringApiDocumentation: String
-                ): List<OpenAiChatMessage>{
+                ): List<ChatMessage>{
 
             return mutableListOf(
-                OpenAiChatMessage("user", """
+                UserMessage.from("user", """
                 
                 You suggested to improve the method by doing the following: \"$improvementDescription\". 
                 Please provide a function call to a python function that performs this $refactoringType refactoring(see documentation below). 

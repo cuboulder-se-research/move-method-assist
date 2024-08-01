@@ -2,8 +2,6 @@ package com.intellij.ml.llm.template.suggestrefactoring
 
 import com.google.gson.Gson
 import com.intellij.ml.llm.template.models.LLMBaseResponse
-import com.intellij.ml.llm.template.models.LLMRequestProvider
-import com.intellij.ml.llm.template.models.openai.OpenAiChatMessage
 import com.intellij.ml.llm.template.models.sendChatRequest
 import com.intellij.ml.llm.template.prompts.GetRefactoringObjParametersPrompt
 import com.intellij.ml.llm.template.prompts.SuggestRefactoringPrompt
@@ -13,9 +11,12 @@ import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiFile
+import dev.langchain4j.data.message.AiMessage
+import dev.langchain4j.data.message.ChatMessage
+import dev.langchain4j.model.chat.ChatLanguageModel
 
 abstract class AbstractRefactoringValidator(
-    private val efLLMRequestProvider: LLMRequestProvider,
+    private val llmChatModel: ChatLanguageModel,
     private val project: Project,
     private val editor: Editor,
     private val file: PsiFile,
@@ -29,22 +30,27 @@ abstract class AbstractRefactoringValidator(
         atomicSuggestion: AtomicSuggestion,
         refactoringFactory: MyRefactoringFactory
     ): List<AbstractRefactoring>? {
-        val messageList: MutableList<OpenAiChatMessage> =
+        val messageList: MutableList<ChatMessage> =
             setupOpenAiChatMessages(atomicSuggestion, refactoringFactory)
 
         val response =
             apiResponseCache[functionSrc]?.get(atomicSuggestion.getSerialized())
                 ?:sendChatRequest(
-                    project, messageList, efLLMRequestProvider.chatModel, efLLMRequestProvider, temperature = 0.5
+                    project, messageList, llmChatModel
                     )
         if (response != null) {
             cacheResponse(atomicSuggestion, response)
 
             val funcCall: String = response.getSuggestions()[0].text
+            val extractedFuncCall = if (funcCall.startsWith(refactoringFactory.apiFunctionName)){
+                funcCall
+            } else{
+                tryFindFuncCall(funcCall, refactoringFactory.apiFunctionName)
+            }
 //            logger.debug(funcCall)
-            if (funcCall.startsWith(refactoringFactory.apiFunctionName)) {
+            if (extractedFuncCall.startsWith(refactoringFactory.apiFunctionName)) {
 //                logger.debug("Looks like a ${refactoringFactory.apiFunctionName} call!")
-                logger.info("* Creating IntelliJ Refactoring Object: $funcCall")
+                logger.info("* Creating IntelliJ Refactoring Object: $extractedFuncCall")
                 val createdObjectsFromFuncCall = try {
                     refactoringFactory.createObjectsFromFuncCall(
                         funcCall,
@@ -67,6 +73,15 @@ abstract class AbstractRefactoringValidator(
         return null
     }
 
+    private fun tryFindFuncCall(funcCall: String, apiFunctionName: String) : String{
+        // sanitise string
+        val sanitisedFuncCall = funcCall.replace("\\", "")
+        if (sanitisedFuncCall.contains(apiFunctionName)){
+            return "$apiFunctionName${sanitisedFuncCall.split(apiFunctionName)[1]}"
+        }
+        return ""
+    }
+
     private fun cacheResponse(
         atomicSuggestion: AtomicSuggestion,
         response: LLMBaseResponse?
@@ -84,13 +99,12 @@ abstract class AbstractRefactoringValidator(
     private fun setupOpenAiChatMessages(
         atomicSuggestion: AtomicSuggestion,
         refactoringFactory: MyRefactoringFactory
-    ): MutableList<OpenAiChatMessage> {
-        var messageList: MutableList<OpenAiChatMessage> = mutableListOf()
+    ): MutableList<ChatMessage> {
+        var messageList: MutableList<ChatMessage> = mutableListOf()
         val basePrompt = SuggestRefactoringPrompt().getPrompt(functionSrc)
         messageList.addAll(basePrompt)
         messageList.add(
-            OpenAiChatMessage(
-                "assistant",
+            AiMessage.from(
                 Gson().toJson(RefactoringSuggestion(mutableListOf(atomicSuggestion))).toString()
             )
         )

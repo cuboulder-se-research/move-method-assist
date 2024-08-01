@@ -3,6 +3,7 @@
 package com.intellij.ml.llm.template.models
 
 import com.intellij.ml.llm.template.LLMBundle
+import com.intellij.ml.llm.template.models.grazie.GrazieResponse
 import com.intellij.ml.llm.template.models.openai.AuthorizationException
 import com.intellij.ml.llm.template.models.openai.OpenAiChatMessage
 import com.intellij.ml.llm.template.models.openai.OpenAiChatRequestBody
@@ -13,6 +14,10 @@ import com.intellij.ml.llm.template.showUnauthorizedNotification
 import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.project.Project
 import com.intellij.util.io.HttpRequests
+import dev.langchain4j.data.message.AiMessage
+import dev.langchain4j.data.message.ChatMessage
+import dev.langchain4j.model.chat.ChatLanguageModel
+import dev.langchain4j.model.output.Response
 import java.io.IOException
 import java.net.HttpURLConnection
 
@@ -69,19 +74,50 @@ fun sendCompletionRequest(
 
 fun sendChatRequest(
     project: Project,
-    messages: List<OpenAiChatMessage>,
+    messages: List<ChatMessage>,
     model: String? = null,
     llmRequestProvider: LLMRequestProvider = GPTRequestProvider,
     temperature: Double = 0.5
 ): LLMBaseResponse? {
-    val request = llmRequestProvider.createChatGPTRequest(
-        OpenAiChatRequestBody(
-            model = model ?: llmRequestProvider.chatModel,
-            messages = messages,
-            temperature = temperature
+//    val request = llmRequestProvider.createChatGPTRequest(
+//        OpenAiChatRequestBody(
+//            model = model ?: llmRequestProvider.chatModel,
+//            messages = messages,
+//            temperature = temperature
+//        )
+//    )
+//    return sendRequest(project, request)
+    TODO("Deprecate function")
+}
+
+fun sendChatRequest(
+    project: Project,
+    messages: List<ChatMessage>,
+    model: ChatLanguageModel
+): GrazieResponse? {
+    try {
+        val response = model.generate(messages)
+        return GrazieResponse(response.content().text(),
+            if (response.finishReason()==null) "normal" else response.finishReason().toString())
+    } catch (e: AuthorizationException) {
+        showUnauthorizedNotification(project)
+    } catch (e: HttpRequests.HttpStatusException) {
+        when (e.statusCode) {
+            HttpURLConnection.HTTP_UNAUTHORIZED -> showAuthorizationFailedNotification(project)
+            else -> {
+                showRequestFailedNotification(
+                    project, LLMBundle.message("notification.request.failed.message", e.message ?: "")
+                )
+                logger.warn(e)
+            }
+        }
+    } catch (e: IOException) {
+        showRequestFailedNotification(
+            project, LLMBundle.message("notification.request.failed.message", e.message ?: "")
         )
-    )
-    return sendRequest(project, request)
+        logger.warn(e)
+    }
+    return null
 }
 
 fun sendChatRequest(

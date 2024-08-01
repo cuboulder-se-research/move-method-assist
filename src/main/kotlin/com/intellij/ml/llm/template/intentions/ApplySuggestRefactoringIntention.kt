@@ -5,6 +5,7 @@ import com.intellij.ml.llm.template.LLMBundle
 import com.intellij.ml.llm.template.models.GPTExtractFunctionRequestProvider
 import com.intellij.ml.llm.template.models.LLMBaseResponse
 import com.intellij.ml.llm.template.models.LLMRequestProvider
+import com.intellij.ml.llm.template.models.grazie.GrazieGPT4
 import com.intellij.ml.llm.template.models.openai.OpenAiChatMessage
 import com.intellij.ml.llm.template.models.sendChatRequest
 import com.intellij.ml.llm.template.prompts.MethodPromptBase
@@ -24,13 +25,15 @@ import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiClass
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
+import dev.langchain4j.data.message.ChatMessage
+import dev.langchain4j.model.chat.ChatLanguageModel
 import org.jetbrains.kotlin.util.capitalizeDecapitalize.toLowerCaseAsciiOnly
 import java.util.concurrent.TimeUnit
 
 
 @Suppress("UnstableApiUsage")
 abstract class ApplySuggestRefactoringIntention(
-    private val efLLMRequestProvider: LLMRequestProvider = GPTExtractFunctionRequestProvider
+    private val llmChatModel: ChatLanguageModel = GrazieGPT4
 ) : IntentionAction {
     private val logger = Logger.getInstance("#com.intellij.ml.llm")
     val codeTransformer = CodeTransformer()
@@ -91,7 +94,7 @@ abstract class ApplySuggestRefactoringIntention(
     }
 
 //    abstract fun invokeLlm(text: String, project: Project, editor: Editor, file: PsiFile)
-    private fun getPromptAndRunBackgroundable(text: String, project: Project, editor: Editor, file: PsiFile) {
+fun getPromptAndRunBackgroundable(text: String, project: Project, editor: Editor, file: PsiFile) {
         logger.info("Invoking LLM with text: $text")
         val messageList = prompter.getPrompt(text)
 
@@ -107,13 +110,13 @@ abstract class ApplySuggestRefactoringIntention(
 
     open fun invokeLLM(
         project: Project,
-        messageList: MutableList<OpenAiChatMessage>,
+        messageList: MutableList<ChatMessage>,
         editor: Editor,
         file: PsiFile
     ) {
         val now = System.nanoTime()
         val response = llmResponseCache.get(functionSrc) ?: sendChatRequest(
-            project, messageList, efLLMRequestProvider.chatModel, efLLMRequestProvider
+            project, messageList, llmChatModel
         )
         if (response != null) {
             llmResponseCache.get(functionSrc) ?: llmResponseCache.put(functionSrc, response)

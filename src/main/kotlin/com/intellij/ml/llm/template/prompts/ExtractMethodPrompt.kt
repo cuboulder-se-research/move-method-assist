@@ -1,16 +1,18 @@
 package com.intellij.ml.llm.template.prompts
 
-import com.intellij.ml.llm.template.models.openai.OpenAiChatMessage
+import dev.langchain4j.data.message.AiMessage
+import dev.langchain4j.data.message.ChatMessage
+import dev.langchain4j.data.message.SystemMessage
+import dev.langchain4j.data.message.UserMessage
 
 class ExtractMethodPrompt: MethodPromptBase() {
-    override fun getPrompt(methodCode: String): MutableList<OpenAiChatMessage> {
+    override fun getPrompt(methodCode: String): MutableList<ChatMessage> {
         return fewShotExtractSuggestion(methodCode);
     }
 
 }
 fun fewShotExtractSuggestion(methodCode: String) = mutableListOf(
-    OpenAiChatMessage(
-        "system",
+    SystemMessage.from(
         """
                 You are a skilled software developer. You have immense knowledge on software refactoring. 
                 You communicate with a remote server that sends you code of functions (one function in a message) that it wants to simplify by applying extract method refactoring. 
@@ -19,8 +21,7 @@ fun fewShotExtractSuggestion(methodCode: String) = mutableListOf(
                 The JSON should have the following format: [{"function_name": <new function name>, "line_start": <line start>, "line_end": <line end>}, ..., ].
                 """.trimIndent()
     ),
-    OpenAiChatMessage(
-        "user",
+    UserMessage.from(
         """
                 1. fun floydWarshall(graph: Array<IntArray>): Array<IntArray> {
                 2.    val n = graph.size
@@ -42,16 +43,14 @@ fun fewShotExtractSuggestion(methodCode: String) = mutableListOf(
                 18.  }
                 """.trimIndent()
     ),
-    OpenAiChatMessage(
-        "assistant",
+    AiMessage.from(
         """
                 [
                 {"function_name":  "floydWarshallUpdate", "line_start":  5, "line_end": 15}
                 ]
                 """.trimIndent()
     ),
-    OpenAiChatMessage(
-        "user",
+    UserMessage.from(
         methodCode
     )
 )

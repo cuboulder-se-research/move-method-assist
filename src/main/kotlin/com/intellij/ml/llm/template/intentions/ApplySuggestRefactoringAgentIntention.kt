@@ -4,6 +4,7 @@ import com.intellij.codeInsight.unwrap.ScopeHighlighter
 import com.intellij.ml.llm.template.LLMBundle
 import com.intellij.ml.llm.template.models.LLMBaseResponse
 import com.intellij.ml.llm.template.models.LLMRequestProvider
+import com.intellij.ml.llm.template.models.grazie.GrazieGPT4
 import com.intellij.ml.llm.template.models.grazie.GrazieGPT4RequestProvider
 import com.intellij.ml.llm.template.models.openai.OpenAiChatMessage
 import com.intellij.ml.llm.template.models.sendChatRequest
@@ -29,6 +30,8 @@ import com.intellij.openapi.ui.popup.LightweightWindowEvent
 import com.intellij.openapi.util.TextRange
 import com.intellij.psi.PsiFile
 import com.intellij.ui.awt.RelativePoint
+import dev.langchain4j.data.message.ChatMessage
+import dev.langchain4j.model.chat.ChatLanguageModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.runBlocking
 import org.jetbrains.kotlin.idea.editor.fixers.endLine
@@ -42,10 +45,10 @@ import java.util.concurrent.atomic.AtomicReference
 
 
 @Suppress("UnstableApiUsage")
-class ApplySuggestRefactoringAgentIntention(
-    private val efLLMRequestProvider: LLMRequestProvider = GrazieGPT4RequestProvider,
+open class ApplySuggestRefactoringAgentIntention(
+    private val llmChatModel: ChatLanguageModel = GrazieGPT4,
     private val useDelays: Boolean = true
-) : ApplySuggestRefactoringIntention(efLLMRequestProvider) {
+) : ApplySuggestRefactoringIntention(llmChatModel) {
     val refactoringLimit: Int = 3
     private var MAX_ITERS: Int = RefAgentSettingsManager.getInstance().getNumberOfIterations()
     private val performedRefactorings = mutableListOf<AbstractRefactoring>()
@@ -76,7 +79,7 @@ class ApplySuggestRefactoringAgentIntention(
 
     override fun invokeLLM(
         project: Project,
-        messageList: MutableList<OpenAiChatMessage>,
+        messageList: MutableList<ChatMessage>,
         editor: Editor,
         file: PsiFile
     ) {
@@ -95,7 +98,7 @@ class ApplySuggestRefactoringAgentIntention(
 
             val cacheKey = functionSrc + iter
             val response = llmResponseCache.get(cacheKey) ?: sendChatRequest(
-                project, newMessageList, efLLMRequestProvider.chatModel, efLLMRequestProvider, temperature = 0.5
+                project, newMessageList, llmChatModel
             )
             if (response != null) {
                 llmResponseCache.get(cacheKey) ?: llmResponseCache.put(cacheKey, response)
@@ -145,7 +148,7 @@ class ApplySuggestRefactoringAgentIntention(
         val now = System.nanoTime()
 
         val llmResponse = response.getSuggestions()[0]
-        val validator = SimpleRefactoringValidator(efLLMRequestProvider,
+        val validator = SimpleRefactoringValidator(llmChatModel,
             project,
             editor,
             file,
