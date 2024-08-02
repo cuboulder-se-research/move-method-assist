@@ -34,7 +34,7 @@ import java.util.concurrent.TimeUnit
 
 @Suppress("UnstableApiUsage")
 abstract class ApplySuggestRefactoringIntention(
-    private val llmChatModel: ChatLanguageModel = RefAgentSettingsManager.getInstance().createAndGetAiModel()!!,
+    private var llmChatModel: ChatLanguageModel = RefAgentSettingsManager.getInstance().createAndGetAiModel()!!,
 ) : IntentionAction {
     private val logger = Logger.getInstance("#com.intellij.ml.llm")
     val codeTransformer = CodeTransformer()
@@ -60,6 +60,8 @@ abstract class ApplySuggestRefactoringIntention(
     }
 
     override fun invoke(project: Project, editor: Editor?, file: PsiFile?) {
+        llmChatModel= RefAgentSettingsManager.getInstance().createAndGetAiModel()!!
+
         if (editor == null || file == null) return
         val selectionModel = editor.selectionModel
         val namedElement =

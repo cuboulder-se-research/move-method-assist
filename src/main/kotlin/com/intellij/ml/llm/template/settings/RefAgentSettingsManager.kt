@@ -4,9 +4,13 @@ import com.intellij.ml.llm.template.models.grazie.GrazieGPT4
 import com.intellij.ml.llm.template.models.grazie.GrazieModel
 import com.intellij.ml.llm.template.models.ollama.localOllamaMistral
 import com.intellij.ml.llm.template.models.openai.CredentialsHolder
+import com.intellij.ml.llm.template.models.openai.OpenAiGpt4
+import com.intellij.ml.llm.template.models.openai.getOpenAiModel
 import com.intellij.openapi.components.*
 import com.intellij.util.xmlb.annotations.OptionTag
 import dev.langchain4j.model.chat.ChatLanguageModel
+import dev.langchain4j.model.openai.OpenAiModelName.GPT_3_5_TURBO
+import dev.langchain4j.model.openai.OpenAiModelName.GPT_4
 
 @Service(Service.Level.APP)
 @State(
@@ -92,8 +96,13 @@ class RefAgentSettingsManager : PersistentStateComponent<RefAgentSettings> {
             "grazie" -> {
                 return GrazieGPT4
             }
-            "openai" -> {
-                return localOllamaMistral
+            "openai-gpt-4" -> {
+                return getOpenAiModel(
+                    GPT_4, getOpenAiKey(), state.llmSettings.temperature.toDouble())
+            }
+            "openai-gpt-3.5-turbo" -> {
+                return getOpenAiModel(
+                    GPT_3_5_TURBO, getOpenAiKey(), state.llmSettings.temperature.toDouble())
             }
             "ollama" -> {
                 return localOllamaMistral

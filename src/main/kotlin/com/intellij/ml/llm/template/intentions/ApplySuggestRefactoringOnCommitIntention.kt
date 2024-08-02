@@ -27,7 +27,7 @@ import org.jetbrains.kotlin.util.capitalizeDecapitalize.toLowerCaseAsciiOnly
 
 
 class ApplySuggestRefactoringOnCommitIntention(
-    private val efLLMRequestProvider: ChatLanguageModel = RefAgentSettingsManager.getInstance().createAndGetAiModel()!!,
+    private var efLLMRequestProvider: ChatLanguageModel = RefAgentSettingsManager.getInstance().createAndGetAiModel()!!,
 ) : ApplySuggestRefactoringAgentIntention(efLLMRequestProvider) {
 
     init {
@@ -55,8 +55,9 @@ class ApplySuggestRefactoringOnCommitIntention(
     }
 
     override fun invoke(project: Project, editor: Editor?, file: PsiFile?) {
-        if (editor == null || file == null) return
+        efLLMRequestProvider = RefAgentSettingsManager.getInstance().createAndGetAiModel()!!
 
+        if (editor == null || file == null) return
 
         // TODO: get latest commit.
         // TODO: get all files in commit

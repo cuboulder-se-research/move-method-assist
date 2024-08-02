@@ -31,13 +31,14 @@ import java.util.concurrent.atomic.AtomicReference
 
 @Suppress("UnstableApiUsage")
 class ApplySuggestRefactoringInteractiveIntention(
-    private val efLLMRequestProvider: ChatLanguageModel = RefAgentSettingsManager.getInstance().createAndGetAiModel()!!,
+    private var efLLMRequestProvider: ChatLanguageModel = RefAgentSettingsManager.getInstance().createAndGetAiModel()!!,
 ) : ApplySuggestRefactoringIntention(efLLMRequestProvider) {
     val logger = Logger.getInstance(ApplySuggestRefactoringInteractiveIntention::class.java)
 
     override fun getFamilyName(): String = LLMBundle.message("intentions.apply.suggest.refactoring.family.name")
 
     override fun processLLMResponse(response: LLMBaseResponse, project: Project, editor: Editor, file: PsiFile) {
+        efLLMRequestProvider = RefAgentSettingsManager.getInstance().createAndGetAiModel()!!
         val now = System.nanoTime()
 
         val llmResponse = response.getSuggestions()[0]

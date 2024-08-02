@@ -46,7 +46,7 @@ import java.util.concurrent.atomic.AtomicReference
 
 @Suppress("UnstableApiUsage")
 open class ApplySuggestRefactoringAgentIntention(
-    private val llmChatModel: ChatLanguageModel = RefAgentSettingsManager.getInstance().createAndGetAiModel()!!,
+    private var llmChatModel: ChatLanguageModel = RefAgentSettingsManager.getInstance().createAndGetAiModel()!!,
     private val useDelays: Boolean = true
 ) : ApplySuggestRefactoringIntention(llmChatModel) {
     val refactoringLimit: Int = 10
@@ -83,6 +83,7 @@ open class ApplySuggestRefactoringAgentIntention(
         editor: Editor,
         file: PsiFile
     ) {
+        llmChatModel = RefAgentSettingsManager.getInstance().createAndGetAiModel()!!
         MAX_ITERS = RefAgentSettingsManager.getInstance().getNumberOfIterations()
         performedRefactorings.removeAll({it->true})
         for (iter in 1..MAX_ITERS) {
