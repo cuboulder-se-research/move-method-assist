@@ -6,8 +6,11 @@ import com.intellij.ml.llm.template.models.LLMBaseResponse
 import com.intellij.ml.llm.template.models.LLMRequestProvider
 import com.intellij.ml.llm.template.models.grazie.GrazieGPT4
 import com.intellij.ml.llm.template.models.grazie.GrazieGPT4RequestProvider
+import com.intellij.ml.llm.template.models.ollama.localOllamaMistral
 import com.intellij.ml.llm.template.refactoringobjects.AbstractRefactoring
+import com.intellij.ml.llm.template.settings.RefAgentSettingsManager
 import com.intellij.ml.llm.template.showEFNotification
+import com.intellij.ml.llm.template.suggestrefactoring.AbstractRefactoringValidator
 import com.intellij.ml.llm.template.suggestrefactoring.SimpleRefactoringValidator
 import com.intellij.ml.llm.template.telemetry.*
 import com.intellij.ml.llm.template.ui.RefactoringSuggestionsPanel
@@ -30,17 +33,23 @@ import java.util.concurrent.atomic.AtomicReference
 
 @Suppress("UnstableApiUsage")
 class ApplySuggestRefactoringInteractiveIntention(
-    private val efLLMRequestProvider: ChatLanguageModel = GrazieGPT4
+    private var efLLMRequestProvider: ChatLanguageModel = RefAgentSettingsManager.getInstance().createAndGetAiModel()!!,
 ) : ApplySuggestRefactoringIntention(efLLMRequestProvider) {
     val logger = Logger.getInstance(ApplySuggestRefactoringInteractiveIntention::class.java)
 
     override fun getFamilyName(): String = LLMBundle.message("intentions.apply.suggest.refactoring.family.name")
 
     override fun processLLMResponse(response: LLMBaseResponse, project: Project, editor: Editor, file: PsiFile) {
+        efLLMRequestProvider = RefAgentSettingsManager.getInstance().createAndGetAiModel()!!
         val now = System.nanoTime()
 
         val llmResponse = response.getSuggestions()[0]
-        val validator = SimpleRefactoringValidator(efLLMRequestProvider,
+        val validatorChatModel =
+            if(RefAgentSettingsManager.getInstance().getUseLocalLLM()) localOllamaMistral
+            else efLLMRequestProvider
+
+        val validator = SimpleRefactoringValidator(
+            validatorChatModel,
             project,
             editor,
             file,
@@ -68,6 +77,9 @@ class ApplySuggestRefactoringInteractiveIntention(
             buildProcessingTimeTelemetryData(llmResponseTime, System.nanoTime() - now)
             sendTelemetryData()
         } else {
+            logLLMResponse(
+                AbstractRefactoringValidator.getRawSuggestions(llmResponse.text).improvements,
+                false)
             telemetryDataManager.setRefactoringObjects(refactoringCandidates)
             val candidatesApplicationTelemetryObserver = EFCandidatesApplicationTelemetryObserver()
 //            val filteredCandidates = filterCandidates(candidates, candidatesApplicationTelemetryObserver, editor, file)

@@ -2,15 +2,13 @@ package com.intellij.ml.llm.template.intentions
 
 import com.intellij.codeInsight.intention.IntentionAction
 import com.intellij.ml.llm.template.LLMBundle
-import com.intellij.ml.llm.template.models.GPTExtractFunctionRequestProvider
 import com.intellij.ml.llm.template.models.LLMBaseResponse
-import com.intellij.ml.llm.template.models.LLMRequestProvider
-import com.intellij.ml.llm.template.models.grazie.GrazieGPT4
-import com.intellij.ml.llm.template.models.openai.OpenAiChatMessage
 import com.intellij.ml.llm.template.models.sendChatRequest
 import com.intellij.ml.llm.template.prompts.MethodPromptBase
 import com.intellij.ml.llm.template.prompts.SuggestRefactoringPrompt
+import com.intellij.ml.llm.template.settings.RefAgentSettingsManager
 import com.intellij.ml.llm.template.showEFNotification
+import com.intellij.ml.llm.template.suggestrefactoring.AtomicSuggestion
 import com.intellij.ml.llm.template.telemetry.*
 import com.intellij.ml.llm.template.utils.*
 import com.intellij.notification.NotificationType
@@ -33,7 +31,7 @@ import java.util.concurrent.TimeUnit
 
 @Suppress("UnstableApiUsage")
 abstract class ApplySuggestRefactoringIntention(
-    private val llmChatModel: ChatLanguageModel = GrazieGPT4
+    private var llmChatModel: ChatLanguageModel = RefAgentSettingsManager.getInstance().createAndGetAiModel()!!,
 ) : IntentionAction {
     private val logger = Logger.getInstance("#com.intellij.ml.llm")
     val codeTransformer = CodeTransformer()
@@ -59,6 +57,8 @@ abstract class ApplySuggestRefactoringIntention(
     }
 
     override fun invoke(project: Project, editor: Editor?, file: PsiFile?) {
+        llmChatModel= RefAgentSettingsManager.getInstance().createAndGetAiModel()!!
+
         if (editor == null || file == null) return
         val selectionModel = editor.selectionModel
         val namedElement =
@@ -177,6 +177,16 @@ fun getPromptAndRunBackgroundable(text: String, project: Project, editor: Editor
         val efTelemetryData = telemetryDataManager.getData()
         if (efTelemetryData != null) {
             efTelemetryData.elapsedTime = elapsedTimeTelemetryData
+        }
+    }
+
+    protected fun logLLMResponse(improvementsList: List<AtomicSuggestion>, useDelays: Boolean) {
+        for (atomicSuggestion in improvementsList.withIndex()) {
+            logger.info("${atomicSuggestion.index + 1}: ${atomicSuggestion.value.shortDescription}")
+            logger.info("Suggestion: ${atomicSuggestion.value.longDescription}".prependIndent("    "))
+            logger.info("\n")
+            if (useDelays)
+                Thread.sleep(3000)
         }
     }
 }
