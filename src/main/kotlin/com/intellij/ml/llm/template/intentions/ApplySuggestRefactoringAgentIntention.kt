@@ -3,13 +3,9 @@ package com.intellij.ml.llm.template.intentions
 import com.intellij.codeInsight.unwrap.ScopeHighlighter
 import com.intellij.ml.llm.template.LLMBundle
 import com.intellij.ml.llm.template.models.LLMBaseResponse
-import com.intellij.ml.llm.template.models.LLMRequestProvider
-import com.intellij.ml.llm.template.models.grazie.GrazieGPT4
-import com.intellij.ml.llm.template.models.grazie.GrazieGPT4RequestProvider
-import com.intellij.ml.llm.template.models.openai.OpenAiChatMessage
+import com.intellij.ml.llm.template.models.ollama.localOllamaMistral
 import com.intellij.ml.llm.template.models.sendChatRequest
 import com.intellij.ml.llm.template.refactoringobjects.AbstractRefactoring
-import com.intellij.ml.llm.template.refactoringobjects.extractfunction.ExtractMethod
 import com.intellij.ml.llm.template.settings.RefAgentSettingsManager
 import com.intellij.ml.llm.template.suggestrefactoring.AbstractRefactoringValidator
 import com.intellij.ml.llm.template.suggestrefactoring.AtomicSuggestion
@@ -36,7 +32,6 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.runBlocking
 import org.jetbrains.kotlin.idea.editor.fixers.endLine
 import org.jetbrains.kotlin.idea.editor.fixers.startLine
-import org.jetbrains.kotlin.idea.gradleTooling.get
 import org.jetbrains.kotlin.psi.psiUtil.startOffset
 import org.jetbrains.kotlin.util.capitalizeDecapitalize.toLowerCaseAsciiOnly
 import java.awt.Point
@@ -149,7 +144,8 @@ open class ApplySuggestRefactoringAgentIntention(
         val now = System.nanoTime()
 
         val llmResponse = response.getSuggestions()[0]
-        val validator = SimpleRefactoringValidator(llmChatModel,
+        val validatorModel = if(RefAgentSettingsManager.getInstance().getUseLocalLLM()) localOllamaMistral else llmChatModel
+        val validator = SimpleRefactoringValidator(validatorModel,
             project,
             editor,
             file,
@@ -243,13 +239,7 @@ open class ApplySuggestRefactoringAgentIntention(
                     .subList(0, realLimit)
                     .sortedBy { validator.isExtractMethod(it) }
 
-            for (atomicSuggestion in improvementsSorted.withIndex()){
-                logger.info("${atomicSuggestion.index+1}: ${atomicSuggestion.value.shortDescription}")
-                logger.info("Suggestion: ${atomicSuggestion.value.longDescription}".prependIndent("    "))
-                logger.info("\n")
-                if (useDelays)
-                    Thread.sleep(3000)
-            }
+            logLLMResponse(improvementsSorted, useDelays)
             return improvementsSorted
         }
         return null

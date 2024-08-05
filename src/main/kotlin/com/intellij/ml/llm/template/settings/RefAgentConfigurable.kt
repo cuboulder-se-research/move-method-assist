@@ -32,6 +32,10 @@ class RefAgentConfigurable : BoundConfigurable(LLMBundle.message("settings.confi
                     settings::getAiModel, settings::setAiModel
                 )
             }
+            row(LLMBundle.message("settings.configurable.openai.use.ollama.obj.creation")) {
+                checkBox("Yes")
+                    .bindSelected(settings::getUseLocalLLM, settings::setUseLocalLLM)
+            }
         }
     }
 }

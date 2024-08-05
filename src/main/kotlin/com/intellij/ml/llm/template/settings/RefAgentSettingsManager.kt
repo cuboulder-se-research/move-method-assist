@@ -81,6 +81,13 @@ class RefAgentSettingsManager : PersistentStateComponent<RefAgentSettings> {
         state.llmSettings.topP = topP.toFloat()
     }
 
+    fun getUseLocalLLM(): Boolean{
+        return state.useOllamaToCreateObj
+    }
+
+    fun setUseLocalLLM(b: Boolean){
+        state.useOllamaToCreateObj = b
+    }
     fun getNumberOfSamples(): Int = state.llmSettings.numberOfSamples
 
     fun getMaxTokens(): Int = state.llmSettings.maxTokens
@@ -130,6 +137,9 @@ class RefAgentSettings : BaseState() {
 
     @get:OptionTag("ai_model")
     var aiModel = "grazie"
+
+    @get:OptionTag("use_local_llm")
+    var useOllamaToCreateObj = true
 
     @get:OptionTag("open_ai")
     var llmSettings by property(LLMSettings()) { it == LLMSettings() }
