@@ -23,6 +23,7 @@ dependencies {
     implementation("org.testcontainers:testcontainers:1.19.1")
 
     implementation("org.eclipse.jgit:org.eclipse.jgit:6.4.0.202211300538-r")
+    implementation("com.github.tsantalis:refactoring-miner:3.0.7")
 
 
     testImplementation(kotlin("test"))

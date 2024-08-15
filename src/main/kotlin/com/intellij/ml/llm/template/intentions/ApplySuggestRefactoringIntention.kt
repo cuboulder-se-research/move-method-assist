@@ -25,6 +25,7 @@ import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
 import dev.langchain4j.data.message.ChatMessage
 import dev.langchain4j.model.chat.ChatLanguageModel
+import okhttp3.internal.wait
 import org.jetbrains.kotlin.util.capitalizeDecapitalize.toLowerCaseAsciiOnly
 import java.util.concurrent.TimeUnit
 

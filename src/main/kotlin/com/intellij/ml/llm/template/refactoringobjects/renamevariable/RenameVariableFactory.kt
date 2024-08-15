@@ -9,6 +9,7 @@ import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiClass
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
+import com.intellij.psi.PsiMethod
 import org.jetbrains.kotlin.idea.base.psi.getLineNumber
 import org.jetbrains.kotlin.psi.psiUtil.getChildOfType
 
@@ -59,6 +60,24 @@ class RenameVariableFactory {
                            outerPsiElement: PsiElement,
                            oldName:String,
                            newName: String): AbstractRefactoring?{
+            val varPsi = runReadAction { PsiUtils.getVariableFromPsi(outerPsiElement, oldName) }
+            if (varPsi!=null)
+                return RenameVariable(
+                    runReadAction{ varPsi.getLineNumber() },
+                    runReadAction{ varPsi.getLineNumber() },
+                    oldName, newName, varPsi,
+                    outerPsiElement)
+            return null
+        }
+
+        fun fromMethodOldNewName(
+            project: Project,
+            outerClass: PsiClass,
+            methodName: String,
+            oldName: String,
+            newName: String
+        ): AbstractRefactoring?{
+            val outerPsiElement: PsiMethod = PsiUtils.getMethodNameFromClass(outerClass, methodName) ?: return null
             val varPsi = runReadAction { PsiUtils.getVariableFromPsi(outerPsiElement, oldName) }
             if (varPsi!=null)
                 return RenameVariable(
