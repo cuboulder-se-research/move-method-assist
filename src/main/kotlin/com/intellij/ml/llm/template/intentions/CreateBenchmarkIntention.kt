@@ -6,8 +6,6 @@ import com.google.gson.JsonParser
 import com.intellij.codeInsight.intention.IntentionAction
 import com.intellij.ml.llm.template.LLMBundle
 import com.intellij.ml.llm.template.benchmark.CreateBenchmarkForFile
-import com.intellij.openapi.application.invokeAndWaitIfNeeded
-import com.intellij.openapi.application.invokeLater
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.fileEditor.FileDocumentManager
 import com.intellij.openapi.fileEditor.FileEditorManager
@@ -27,7 +25,8 @@ import java.io.File
 import java.nio.file.Files
 import java.nio.file.Path
 
-class CreateBenchmarkIntention: IntentionAction {
+class CreateBenchmarkIntention : IntentionAction {
+    val newCommitMap: MutableMap<String, Pair<String, String>> = mutableMapOf()
     override fun startInWriteAction(): Boolean {
         return false
     }
@@ -56,17 +55,20 @@ class CreateBenchmarkIntention: IntentionAction {
             .setGitDir(File("${project.basePath}/.git"))
             .build()
         val gitRepo = Git(repo)
-        val newCommitMap = mutableMapOf<String, Pair<String, String>>()
 
         val task = object : Task.Backgroundable(
             project, LLMBundle.message("intentions.create.benchmark.progress.title")
         ) {
             override fun run(indicator: ProgressIndicator) {
                     for (filename in json.asJsonObject.keySet()) {
-                        createBenchmark(json, filename, gitRepo, project, newCommitMap)
+                        createBenchmark(json, filename, gitRepo, project)
                     }
-                    Files.write(Path.of("/Users/abhiram/Documents/TBE/evaluation_projects/cassandra-interesting-two-files-new-commits.json"),
-                        Gson().toJson(newCommitMap).toString().toByteArray())
+                    DumbService.getInstance(project).smartInvokeLater {
+                        Files.write(
+                            Path.of("/Users/abhiram/Documents/TBE/evaluation_projects/cassandra-interesting-two-files-new-commits.json"),
+                            Gson().toJson(newCommitMap).toString().toByteArray()
+                        )
+                    }
 
             }
         }
@@ -87,8 +89,7 @@ class CreateBenchmarkIntention: IntentionAction {
         json: JsonElement,
         filename: String,
         gitRepo: Git,
-        project: Project,
-        newCommitMap: MutableMap<String, Pair<String, String>>
+        project: Project
     ) {
         val commitInfo = json.asJsonObject[filename].asJsonArray[0]
         val commitHash = commitInfo.asJsonObject["sha1"].asString
@@ -98,30 +99,31 @@ class CreateBenchmarkIntention: IntentionAction {
             gitRepo.checkout().setName(commitHash).setForced(true).call()
             project.getBaseDir().refresh(false, true);
         }
-            DumbService.getInstance(project).smartInvokeLater {
+        // allow re-index after updating git repo head.
+        DumbService.getInstance(project).smartInvokeLater {
 
-                // Open file
-                val editorFilePair = try {
-                    openFile(filename, project)
-                } catch (e: Exception) {
-                    print("file not found")
-                    return@smartInvokeLater
-                }
-                val newEditor = editorFilePair.first
-                val newFile = editorFilePair.second
-
-                val refactorings = commitInfo.asJsonObject["refactorings"].asJsonArray
-                val fileBenchmark =
-                    CreateBenchmarkForFile(filename, project, newEditor, newFile, refactorings)
-                fileBenchmark.create()
-
-                FileDocumentManager.getInstance().saveAllDocuments(); // save changes to local filesystem
-                project.baseDir.refresh(false, true);
-                gitRepo.add().addFilepattern(".").call()
-                val newCommitHash = gitRepo.commit().setMessage("undo refactorings in $commitHash").call()
-                // TODO: Push changes to a new branch.
-                newCommitMap.put(filename, Pair(commitHash, newCommitHash.name))
+            // Open file
+            val editorFilePair = try {
+                openFile(filename, project)
+            } catch (e: Exception) {
+                print("file not found")
+                return@smartInvokeLater
             }
+            val newEditor = editorFilePair.first
+            val newFile = editorFilePair.second
+
+            val refactorings = commitInfo.asJsonObject["refactorings"].asJsonArray
+            val fileBenchmark =
+                CreateBenchmarkForFile(filename, project, newEditor, newFile, refactorings)
+            fileBenchmark.create()
+
+            FileDocumentManager.getInstance().saveAllDocuments(); // save changes to local filesystem
+            project.baseDir.refresh(false, true);
+            gitRepo.add().addFilepattern(".").call()
+            val newCommitHash = gitRepo.commit().setMessage("undo refactorings in $commitHash").call()
+
+            newCommitMap.put(filename, Pair(commitHash, newCommitHash.name))
+        }
 
 
     }

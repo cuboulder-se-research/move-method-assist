@@ -44,6 +44,7 @@ class ApplySuggestRefactoringInteractiveIntention(
         val now = System.nanoTime()
 
         val llmResponse = response.getSuggestions()[0]
+        println("LLM Response -> ${llmResponse.text}")
         val validatorChatModel =
             if(RefAgentSettingsManager.getInstance().getUseLocalLLM()) localOllamaMistral
             else efLLMRequestProvider
