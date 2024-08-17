@@ -1,6 +1,8 @@
 package com.intellij.ml.llm.template.suggestrefactoring
 
 import com.google.gson.Gson
+import com.google.gson.JsonArray
+import com.google.gson.JsonParser
 import com.intellij.ml.llm.template.models.LLMBaseResponse
 import com.intellij.ml.llm.template.models.sendChatRequest
 import com.intellij.ml.llm.template.prompts.GetRefactoringObjParametersPrompt
@@ -14,6 +16,8 @@ import com.intellij.psi.PsiFile
 import dev.langchain4j.data.message.AiMessage
 import dev.langchain4j.data.message.ChatMessage
 import dev.langchain4j.model.chat.ChatLanguageModel
+import kotlin.math.max
+import kotlin.math.min
 
 abstract class AbstractRefactoringValidator(
     private val llmChatModel: ChatLanguageModel,
@@ -41,34 +45,55 @@ abstract class AbstractRefactoringValidator(
         if (response != null) {
             cacheResponse(atomicSuggestion, response)
 
-            val funcCall: String = response.getSuggestions()[0].text
-            val extractedFuncCall = if (funcCall.startsWith(refactoringFactory.apiFunctionName)){
-                funcCall
-            } else{
-                tryFindFuncCall(funcCall, refactoringFactory.apiFunctionName)
-            }
-//            logger.debug(funcCall)
-            if (extractedFuncCall.startsWith(refactoringFactory.apiFunctionName)) {
-//                logger.debug("Looks like a ${refactoringFactory.apiFunctionName} call!")
-                logger.info("* Creating IntelliJ Refactoring Object: $extractedFuncCall")
-                val createdObjectsFromFuncCall = try {
-                    refactoringFactory.createObjectsFromFuncCall(
-                        funcCall,
-                        project,
-                        editor,
-                        file
-                    )
-                } catch (e: Exception) {
-                    logger.info("Failed to create refactoring object: ${e.message}")
-                    return null
+            val funcCallListString: String = response.getSuggestions()[0].text
+
+            val refObjects = mutableListOf<AbstractRefactoring>()
+            for (funcCall in JsonParser.parseString(sanitiseJsonString(funcCallListString)) as JsonArray){
+                val r = getRefactoringObject(funcCall.asString, refactoringFactory, atomicSuggestion)
+                if (r!=null) {
+                    refObjects.addAll(r)
                 }
-                if (createdObjectsFromFuncCall.isNotEmpty())
-                    logger.info("Status: Successfully created ${createdObjectsFromFuncCall.size} refactoring object(s).".prependIndent("    "))
-                else
-                    logger.info("Status: No refactoring objects were created.".prependIndent("    "))
-                createdObjectsFromFuncCall.forEach { it.description = atomicSuggestion.longDescription }
-                return createdObjectsFromFuncCall
             }
+            if (refObjects.size>0) return refObjects
+        }
+        return null
+    }
+
+    private fun sanitiseJsonString(funcCallListString: String) = funcCallListString.replace("\\_", "_")
+
+    private fun getRefactoringObject(funcCall: String,
+                                     refactoringFactory: MyRefactoringFactory,
+                                     atomicSuggestion: AtomicSuggestion): List<AbstractRefactoring>? {
+        val extractedFuncCall = if (funcCall.startsWith(refactoringFactory.apiFunctionName)) {
+            funcCall
+        } else {
+            tryFindFuncCall(funcCall, refactoringFactory.apiFunctionName)
+        }
+//            logger.debug(funcCall)
+        if (extractedFuncCall.startsWith(refactoringFactory.apiFunctionName)) {
+//                logger.debug("Looks like a ${refactoringFactory.apiFunctionName} call!")
+            logger.info("* Creating IntelliJ Refactoring Object: $extractedFuncCall")
+            val createdObjectsFromFuncCall = try {
+                refactoringFactory.createObjectsFromFuncCall(
+                    funcCall,
+                    project,
+                    editor,
+                    file
+                )
+            } catch (e: Exception) {
+                logger.info("Failed to create refactoring object: ${e.message}")
+                return null
+            }
+            if (createdObjectsFromFuncCall.isNotEmpty())
+                logger.info(
+                    "Status: Successfully created ${createdObjectsFromFuncCall.size} refactoring object(s).".prependIndent(
+                        "    "
+                    )
+                )
+            else
+                logger.info("Status: No refactoring objects were created.".prependIndent("    "))
+            createdObjectsFromFuncCall.forEach { it.description = atomicSuggestion.longDescription }
+            return createdObjectsFromFuncCall
         }
         return null
     }
@@ -101,7 +126,15 @@ abstract class AbstractRefactoringValidator(
         refactoringFactory: MyRefactoringFactory
     ): MutableList<ChatMessage> {
         var messageList: MutableList<ChatMessage> = mutableListOf()
-        val basePrompt = SuggestRefactoringPrompt().getPrompt(functionSrc)
+        val paddingLines = 3
+        val firstLine = functionSrc.split('.')[0].toInt()
+        val fromIndex = max(atomicSuggestion.start - firstLine - paddingLines, 0)
+        val toIndex = min(atomicSuggestion.end - firstLine + paddingLines, functionSrc.lines().size)
+        val changedCode = functionSrc
+            .lines()
+            .subList(fromIndex, toIndex)
+            .joinToString("\n")
+        val basePrompt = SuggestRefactoringPrompt().getPromptWithoutExample(changedCode)
         messageList.addAll(basePrompt)
         messageList.add(
             AiMessage.from(

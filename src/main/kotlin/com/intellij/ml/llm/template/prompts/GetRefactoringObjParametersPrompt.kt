@@ -19,9 +19,9 @@ class GetRefactoringObjParametersPrompt {
             return mutableListOf(
                 UserMessage.from("user", """
                 
-                You suggested to improve the method by doing the following: \"$improvementDescription\". 
+                You suggested to improve my code by doing the following: \"$improvementDescription\". 
                 Please provide a function call to a python function that performs this $refactoringType refactoring(see documentation below). 
-                Respond with ONLY a call to the function below:
+                Respond with ONLY a JSON list of calls to the function below (ex: ["func1(param1)", "func(param2)"]):
                 Here is the signature of the function:
                 $refactoringApiDocumentation
                    
