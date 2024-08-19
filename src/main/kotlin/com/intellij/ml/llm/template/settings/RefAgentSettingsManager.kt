@@ -9,6 +9,7 @@ import com.intellij.ml.llm.template.models.openai.getOpenAiModel
 import com.intellij.openapi.components.*
 import com.intellij.util.xmlb.annotations.OptionTag
 import dev.langchain4j.model.chat.ChatLanguageModel
+import dev.langchain4j.model.openai.OpenAiChatModelName
 import dev.langchain4j.model.openai.OpenAiModelName.GPT_3_5_TURBO
 import dev.langchain4j.model.openai.OpenAiModelName.GPT_4
 
@@ -110,6 +111,10 @@ class RefAgentSettingsManager : PersistentStateComponent<RefAgentSettings> {
             "openai-gpt-3.5-turbo" -> {
                 return getOpenAiModel(
                     GPT_3_5_TURBO, getOpenAiKey(), state.llmSettings.temperature.toDouble())
+            }
+            "openai-gpt-4-o-mini" -> {
+                return getOpenAiModel(
+                    OpenAiChatModelName.GPT_4_O_MINI.toString(), getOpenAiKey(), state.llmSettings.temperature.toDouble())
             }
             "ollama" -> {
                 return localOllamaMistral
