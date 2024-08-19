@@ -86,7 +86,8 @@ abstract class ApplySuggestRefactoringIntention(
                     codeSnippet = codeSnippet,
                     lineStart = startLineNumber,
                     bodyLineStart = bodyLineStart,
-                    language = file.language.id.toLowerCaseAsciiOnly()
+                    language = file.language.id.toLowerCaseAsciiOnly(),
+                    filePath = file.virtualFile.path
                 )
             )
 

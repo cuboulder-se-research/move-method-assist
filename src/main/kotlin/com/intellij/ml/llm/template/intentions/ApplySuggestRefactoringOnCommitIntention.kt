@@ -115,7 +115,8 @@ class ApplySuggestRefactoringOnCommitIntention(
                         codeSnippet = codeSnippet,
                         lineStart = startLineNumber,
                         bodyLineStart = bodyLineStart,
-                        language = psiFile.language.id.toLowerCaseAsciiOnly()
+                        language = psiFile.language.id.toLowerCaseAsciiOnly(),
+                        filePath = psiFile.virtualFile.path
                     )
                 )
 

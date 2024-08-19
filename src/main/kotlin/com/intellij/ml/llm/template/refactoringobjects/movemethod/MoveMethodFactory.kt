@@ -144,7 +144,8 @@ class MoveMethodFactory {
             }
 
             override fun getRefactoringPreview(): String {
-                return "Move method ${methodToMove.name}"
+                return "Move method ${methodToMove.name} " +
+                        "from ${methodToMove.containingClass?.name} to ${processor.targetClass.name}"
             }
 
             override fun getStartOffset(): Int {
