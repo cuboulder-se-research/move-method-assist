@@ -32,3 +32,4 @@ class GrazieModel(
 }
 
 val GrazieGPT4 = GrazieModel("GPT-4", 0.5)
+val GrazieGPT4omini = GrazieModel("gpt-4o-mini", 0.5)

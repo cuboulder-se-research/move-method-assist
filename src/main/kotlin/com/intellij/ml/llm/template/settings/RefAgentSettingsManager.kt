@@ -1,6 +1,7 @@
 package com.intellij.ml.llm.template.settings
 
 import com.intellij.ml.llm.template.models.grazie.GrazieGPT4
+import com.intellij.ml.llm.template.models.grazie.GrazieGPT4omini
 import com.intellij.ml.llm.template.models.grazie.GrazieModel
 import com.intellij.ml.llm.template.models.ollama.localOllamaMistral
 import com.intellij.ml.llm.template.models.openai.CredentialsHolder
@@ -104,6 +105,9 @@ class RefAgentSettingsManager : PersistentStateComponent<RefAgentSettings> {
             "grazie" -> {
                 return GrazieGPT4
             }
+            "grazie-gpt-4o-mini" -> {
+                return GrazieGPT4omini
+            }
             "openai-gpt-4" -> {
                 return getOpenAiModel(
                     GPT_4, getOpenAiKey(), state.llmSettings.temperature.toDouble())
@@ -112,7 +116,7 @@ class RefAgentSettingsManager : PersistentStateComponent<RefAgentSettings> {
                 return getOpenAiModel(
                     GPT_3_5_TURBO, getOpenAiKey(), state.llmSettings.temperature.toDouble())
             }
-            "openai-gpt-4-o-mini" -> {
+            "openai-gpt-4o-mini" -> {
                 return getOpenAiModel(
                     OpenAiChatModelName.GPT_4_O_MINI.toString(), getOpenAiKey(), state.llmSettings.temperature.toDouble())
             }

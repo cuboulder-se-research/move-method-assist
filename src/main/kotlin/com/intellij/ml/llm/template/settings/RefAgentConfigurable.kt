@@ -31,9 +31,10 @@ class RefAgentConfigurable : BoundConfigurable(LLMBundle.message("settings.confi
                 comboBox(
                     listOf(
                         "grazie",
+                        "grazie-gpt-4o-mini",
                         "openai-gpt-4",
                         "openai-gpt-3.5-turbo",
-                        "openai-gpt-4-o-mini",
+                        "openai-gpt-4o-mini",
                         "ollama")).bindItem(
                     settings::getAiModel, settings::setAiModel
                 )
