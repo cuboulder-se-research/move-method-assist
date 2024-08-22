@@ -88,6 +88,9 @@ data class RefCandidateTelemetryData(
     @SerializedName("undone")
     var undone: Boolean?=null,
 
+    @SerializedName("userRating")
+    var rating: Int? = null
+
 )
 
 data class EFUserSelectionTelemetryData(
@@ -231,7 +234,8 @@ class EFTelemetryDataManager {
                 couldCreateRefObject = it !is UncreatableRefactoring,
                 valid = it.isValid,
                 applied = it.applied,
-                undone = it.undone
+                undone = it.undone,
+                rating = it.userRating
             )
         }
 
