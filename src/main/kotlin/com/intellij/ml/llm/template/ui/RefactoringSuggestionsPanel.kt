@@ -48,6 +48,7 @@ import java.awt.event.KeyEvent
 import java.awt.event.MouseEvent
 import java.util.concurrent.atomic.AtomicReference
 import javax.swing.JComponent
+import javax.swing.JLabel
 import javax.swing.JSlider
 import javax.swing.KeyStroke
 import javax.swing.ListSelectionModel
@@ -99,6 +100,7 @@ open class RefactoringSuggestionsPanel(
         ratingSlider.createStandardLabels(1)
         ratingSlider.paintLabels = true
         ratingSlider.paintTicks = true
+        ratingSlider.labelTable.put(0, JLabel("none"))
     }
 
     private fun buildCandidateSignatureMap(candidates: List<AbstractRefactoring>): Map<AbstractRefactoring, String> {
