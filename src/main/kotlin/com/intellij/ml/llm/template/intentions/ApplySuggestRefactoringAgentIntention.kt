@@ -81,6 +81,7 @@ open class ApplySuggestRefactoringAgentIntention(
         llmChatModel = RefAgentSettingsManager.getInstance().createAndGetAiModel()!!
         MAX_ITERS = RefAgentSettingsManager.getInstance().getNumberOfIterations()
         performedRefactorings.removeAll({it->true})
+        telemetryIds.clear() // to reset the data in the session.
         for (iter in 1..MAX_ITERS) {
             setTelemetryData(editor, file)
             val now = System.nanoTime()
@@ -227,7 +228,7 @@ open class ApplySuggestRefactoringAgentIntention(
         if (suggestions.isNotEmpty()){
             val suggestion = suggestions[0]
 //            logger.info(suggestion.)
-            val improvements = AbstractRefactoringValidator.getRawSuggestions(suggestion.text).improvements
+            val improvements = AbstractRefactoringValidator.getRawSuggestions(suggestion.text)?.improvements?: return emptyList()
             val realLimit = if(improvements.size > limit){
                 limit
             } else{

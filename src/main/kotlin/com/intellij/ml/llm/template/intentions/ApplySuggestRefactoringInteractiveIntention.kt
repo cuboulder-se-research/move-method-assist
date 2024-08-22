@@ -77,36 +77,40 @@ class ApplySuggestRefactoringInteractiveIntention(
             buildProcessingTimeTelemetryData(llmResponseTime, System.nanoTime() - now)
             sendTelemetryData()
         } else {
-            logLLMResponse(
-                AbstractRefactoringValidator.getRawSuggestions(llmResponse.text).improvements,
-                false)
-            telemetryDataManager.setRefactoringObjects(refactoringCandidates)
-            val candidatesApplicationTelemetryObserver = EFCandidatesApplicationTelemetryObserver()
+            val rawSuggestions = AbstractRefactoringValidator.getRawSuggestions(llmResponse.text)
+            if (rawSuggestions!=null) {
+                logLLMResponse(
+                    rawSuggestions.improvements,
+                    false
+                )
+                telemetryDataManager.setRefactoringObjects(refactoringCandidates)
+                val candidatesApplicationTelemetryObserver = EFCandidatesApplicationTelemetryObserver()
 //            val filteredCandidates = filterCandidates(candidates, candidatesApplicationTelemetryObserver, editor, file)
-            val validRefactoringCandidates = refactoringCandidates.filter {
-                it.isValid(project, editor, file)
-            }
+                val validRefactoringCandidates = refactoringCandidates.filter {
+                    it.isValid(project, editor, file)
+                }
 
-            telemetryDataManager.addCandidatesTelemetryData(
-                buildCandidatesTelemetryData(
-                    refactoringCandidates.size,
-                    candidatesApplicationTelemetryObserver.getData()
+                telemetryDataManager.addCandidatesTelemetryData(
+                    buildCandidatesTelemetryData(
+                        refactoringCandidates.size,
+                        candidatesApplicationTelemetryObserver.getData()
+                    )
                 )
-            )
-            buildProcessingTimeTelemetryData(llmResponseTime, System.nanoTime() - now)
+                buildProcessingTimeTelemetryData(llmResponseTime, System.nanoTime() - now)
 
-            if (validRefactoringCandidates.isEmpty()) {
-                showEFNotification(
-                    project,
-                    LLMBundle.message("notification.extract.function.with.llm.no.extractable.candidates.message"),
-                    NotificationType.INFORMATION
-                )
-                sendTelemetryData()
-            } else {
+                if (validRefactoringCandidates.isEmpty()) {
+                    showEFNotification(
+                        project,
+                        LLMBundle.message("notification.extract.function.with.llm.no.extractable.candidates.message"),
+                        NotificationType.INFORMATION
+                    )
+                    sendTelemetryData()
+                } else {
 //                refactoringObjectsCache.get(functionSrc)?:refactoringObjectsCache.put(functionSrc, validRefactoringCandidates)
-                showRefactoringOptionsPopup(
-                    project, editor, file, validRefactoringCandidates, codeTransformer,
-                )
+                    showRefactoringOptionsPopup(
+                        project, editor, file, validRefactoringCandidates, codeTransformer,
+                    )
+                }
             }
         }
     }

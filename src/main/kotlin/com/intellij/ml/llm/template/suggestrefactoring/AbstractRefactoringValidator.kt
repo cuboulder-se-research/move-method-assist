@@ -3,6 +3,8 @@ package com.intellij.ml.llm.template.suggestrefactoring
 import com.google.gson.Gson
 import com.google.gson.JsonArray
 import com.google.gson.JsonParser
+import com.google.gson.JsonSyntaxException
+import com.google.gson.stream.MalformedJsonException
 import com.intellij.ml.llm.template.models.LLMBaseResponse
 import com.intellij.ml.llm.template.models.sendChatRequest
 import com.intellij.ml.llm.template.prompts.GetRefactoringObjParametersPrompt
@@ -43,12 +45,16 @@ abstract class AbstractRefactoringValidator(
                     project, messageList, llmChatModel
                     )
         if (response != null) {
-            cacheResponse(atomicSuggestion, response)
-
             val funcCallListString: String = response.getSuggestions()[0].text
-
             val refObjects = mutableListOf<AbstractRefactoring>()
-            for (funcCall in JsonParser.parseString(sanitiseJsonString(funcCallListString)) as JsonArray){
+            val jsonArray = try {
+                JsonParser.parseString(sanitiseJsonString(funcCallListString)) as JsonArray
+
+            } catch (e: JsonSyntaxException){
+                return null // failed to decode json
+            }
+            cacheResponse(atomicSuggestion, response)
+            for (funcCall in jsonArray){
                 val r = getRefactoringObject(funcCall.asString, refactoringFactory, atomicSuggestion)
                 if (r!=null) {
                     refObjects.addAll(r)
@@ -157,12 +163,15 @@ abstract class AbstractRefactoringValidator(
 
 
     companion object{
-        fun getRawSuggestions(llmText: String): RefactoringSuggestion{
+        fun getRawSuggestions(llmText: String): RefactoringSuggestion?{
             var refactoringSuggestion: RefactoringSuggestion;
             try {
                 refactoringSuggestion= Gson().fromJson(llmText, RefactoringSuggestion::class.java)
             } catch (e: Exception){
-                refactoringSuggestion = Gson().fromJson("{$llmText}", RefactoringSuggestion::class.java)
+                try{ refactoringSuggestion = Gson().fromJson("{$llmText}", RefactoringSuggestion::class.java) }
+                catch (e: Exception){
+                    return null
+                }
             }
             return refactoringSuggestion
         }
