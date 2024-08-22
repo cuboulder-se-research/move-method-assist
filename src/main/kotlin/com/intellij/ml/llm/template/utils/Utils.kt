@@ -96,10 +96,11 @@ fun isCandidateExtractable(
     efCandidate: EFCandidate,
     editor: Editor,
     file: PsiFile,
-    observerList: List<Observer> = emptyList()
+    observerList: List<Observer> = emptyList(),
+    allowWholeBody: Boolean=false
 ): Boolean {
     when (file.language) {
-        JavaLanguage.INSTANCE -> return isFunctionExtractableJava(efCandidate, editor, file, observerList)
+        JavaLanguage.INSTANCE -> return isFunctionExtractableJava(efCandidate, editor, file, observerList, allowWholeBody)
         KotlinLanguage.INSTANCE -> return isSelectionExtractableKotlin(efCandidate, editor, file, observerList)
     }
     return false
@@ -109,7 +110,8 @@ private fun isFunctionExtractableJava(
     efCandidate: EFCandidate,
     editor: Editor,
     file: PsiFile,
-    observerList: List<Observer>
+    observerList: List<Observer>,
+    allowWholeBody: Boolean
 ): Boolean {
     var result = true
     var reason = ""
@@ -119,7 +121,7 @@ private fun isFunctionExtractableJava(
         result = false
         reason = LLMBundle.message("extract.function.invalid.candidate")
         applicationResult = EFApplicationResult.FAIL
-    } else if (selectionIsEntireBodyFunctionJava(efCandidate, file)) {
+    } else if (!allowWholeBody && selectionIsEntireBodyFunctionJava(efCandidate, file)) {
         result = false
         reason = LLMBundle.message("extract.function.entire.function.selection.message")
         applicationResult = EFApplicationResult.FAIL
