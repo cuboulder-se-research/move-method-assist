@@ -32,7 +32,7 @@ class SimpleRefactoringValidatorSerial(
     private val logger = Logger.getInstance(javaClass)
 
     override suspend fun getRefactoringSuggestions(llmResponseText: String, limit: Int): List<AbstractRefactoring> {
-        val refactoringSuggestion = getRawSuggestions(llmResponseText)
+        val refactoringSuggestion = getRawSuggestions(llmResponseText)?: return emptyList()
         val allRefactoringObjects= mutableListOf<AbstractRefactoring>()
 
 
