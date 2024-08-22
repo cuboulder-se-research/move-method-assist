@@ -86,7 +86,7 @@ class ExtractMethod(
         val candidate = getEFCandidate()
         isValid =  runReadAction {
              isCandidateExtractable(
-                candidate, editor, file
+                candidate, editor, file, allowWholeBody=true
             )
         } && leftPsi.isPhysical && rightPsi.isPhysical
         return isValid!!
