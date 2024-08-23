@@ -19,6 +19,7 @@ import com.intellij.openapi.project.Project
 import com.intellij.openapi.vfs.LocalFileSystem
 import com.intellij.psi.PsiFile
 import com.intellij.psi.PsiManager
+import okhttp3.internal.wait
 import org.eclipse.jgit.api.Git
 import org.eclipse.jgit.storage.file.FileRepositoryBuilder
 import java.io.File
@@ -26,6 +27,8 @@ import java.nio.file.Files
 import java.nio.file.Path
 
 class CreateBenchmarkIntention : IntentionAction {
+
+
     val newCommitMap: MutableMap<String, Pair<String, String>> = mutableMapOf()
     override fun startInWriteAction(): Boolean {
         return false
@@ -46,8 +49,10 @@ class CreateBenchmarkIntention : IntentionAction {
         // Create inverse refactoring objects
         // Execute them. Remember which ones were executed successfully.
         // create branch, create commit and save this information somewhere.
-        val projectDir = "/Users/abhiram/Documents/TBE/evaluation_projects/cassandra"
-        val refminerOut = "/Users/abhiram/Documents/TBE/evaluation_projects/cassandra-interesting-two-files.json"
+//        val projectDir = "/Users/abhiram/Documents/TBE/evaluation_projects/cassandra"
+        val refminerOut = "/Users/abhiram/Documents/TBE/RefactoringAgentProject/" +
+                "llm-guide-refactorings/src/main/python/v1_dataset_apache_cassandra_1.json"
+//        val refminerOut = "/Users/abhiram/Documents/TBE/evaluation_projects/cassandra-interesting-two-files.json"
         val jsonContent = Files.readString(Path.of(refminerOut))
         val json = JsonParser.parseString(jsonContent)
 
@@ -60,8 +65,9 @@ class CreateBenchmarkIntention : IntentionAction {
             project, LLMBundle.message("intentions.create.benchmark.progress.title")
         ) {
             override fun run(indicator: ProgressIndicator) {
-                    for (filename in json.asJsonObject.keySet()) {
-                        createBenchmark(json, filename, gitRepo, project)
+                    for (jsonElement in json.asJsonArray) {
+                        val filename = jsonElement.asJsonObject.get("file").asString
+                        createBenchmark(jsonElement, filename, gitRepo, project)
                     }
                     DumbService.getInstance(project).smartInvokeLater {
                         Files.write(
@@ -86,13 +92,13 @@ class CreateBenchmarkIntention : IntentionAction {
     }
 
     private fun createBenchmark(
-        json: JsonElement,
+        refJson: JsonElement,
         filename: String,
         gitRepo: Git,
         project: Project
     ) {
-        val commitInfo = json.asJsonObject[filename].asJsonArray[0]
-        val commitHash = commitInfo.asJsonObject["sha1"].asString
+//        val commitInfo = refJson.asJsonObject[filename].asJsonArray[0]
+        val commitHash = refJson.asJsonObject["v2_hash"].asString
         DumbService.getInstance(project).smartInvokeLater {
 
             // Checkout commit
@@ -112,7 +118,7 @@ class CreateBenchmarkIntention : IntentionAction {
             val newEditor = editorFilePair.first
             val newFile = editorFilePair.second
 
-            val refactorings = commitInfo.asJsonObject["refactorings"].asJsonArray
+            val refactorings = refJson.asJsonObject["refactorings"].asJsonArray
             val fileBenchmark =
                 CreateBenchmarkForFile(filename, project, newEditor, newFile, refactorings)
             fileBenchmark.create()
@@ -121,8 +127,22 @@ class CreateBenchmarkIntention : IntentionAction {
             project.baseDir.refresh(false, true);
             gitRepo.add().addFilepattern(".").call()
             val newCommitHash = gitRepo.commit().setMessage("undo refactorings in $commitHash").call()
+            val branchName = "undo-${commitHash.substring(0, 7)}"
+
+            try {
+                gitRepo.branchDelete().setForce(true).setBranchNames(branchName).call()
+            } catch (e: Exception) {
+                print("failed to delete. must not exist")
+                print(e.stackTrace)
+            }
+            gitRepo.checkout()
+                .setCreateBranch(true)
+                .setForced(true)
+                .setName(branchName).call();
 
             newCommitMap.put(filename, Pair(commitHash, newCommitHash.name))
+            // TODO: create branch
+            // TODO: push branch to origin
         }
 
 
