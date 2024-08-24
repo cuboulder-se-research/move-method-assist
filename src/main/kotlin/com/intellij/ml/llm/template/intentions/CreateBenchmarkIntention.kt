@@ -17,14 +17,16 @@ import com.intellij.openapi.progress.impl.BackgroundableProcessIndicator
 import com.intellij.openapi.project.DumbService
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.vfs.LocalFileSystem
+import com.intellij.openapi.vfs.VfsUtil
+import com.intellij.openapi.vfs.VirtualFile
 import com.intellij.psi.PsiFile
 import com.intellij.psi.PsiManager
-import okhttp3.internal.wait
 import org.eclipse.jgit.api.Git
 import org.eclipse.jgit.storage.file.FileRepositoryBuilder
 import java.io.File
 import java.nio.file.Files
 import java.nio.file.Path
+
 
 class CreateBenchmarkIntention : IntentionAction {
 
@@ -51,7 +53,7 @@ class CreateBenchmarkIntention : IntentionAction {
         // create branch, create commit and save this information somewhere.
 //        val projectDir = "/Users/abhiram/Documents/TBE/evaluation_projects/cassandra"
         val refminerOut = "/Users/abhiram/Documents/TBE/RefactoringAgentProject/" +
-                "llm-guide-refactorings/src/main/python/v1_dataset_apache_cassandra_1.json"
+                "llm-guide-refactorings/src/main/python/v1_dataset_apache_cassandra.json"
 //        val refminerOut = "/Users/abhiram/Documents/TBE/evaluation_projects/cassandra-interesting-two-files.json"
         val jsonContent = Files.readString(Path.of(refminerOut))
         val json = JsonParser.parseString(jsonContent)
@@ -103,7 +105,7 @@ class CreateBenchmarkIntention : IntentionAction {
 
             // Checkout commit
             gitRepo.checkout().setName(commitHash).setForced(true).call()
-            project.getBaseDir().refresh(false, true);
+            project.getBaseDir().refresh(false, true)
         }
         // allow re-index after updating git repo head.
         DumbService.getInstance(project).smartInvokeLater {
@@ -124,7 +126,11 @@ class CreateBenchmarkIntention : IntentionAction {
             fileBenchmark.create()
 
             FileDocumentManager.getInstance().saveAllDocuments(); // save changes to local filesystem
+            val apiDir: VirtualFile = project.getBaseDir()
+            VfsUtil.markDirtyAndRefresh(true, true, true, apiDir)
             project.baseDir.refresh(false, true);
+        }
+        DumbService.getInstance(project).smartInvokeLater{
             gitRepo.add().addFilepattern(".").call()
             val newCommitHash = gitRepo.commit().setMessage("undo refactorings in $commitHash").call()
             val branchName = "undo-${commitHash.substring(0, 7)}"
@@ -133,7 +139,7 @@ class CreateBenchmarkIntention : IntentionAction {
                 gitRepo.branchDelete().setForce(true).setBranchNames(branchName).call()
             } catch (e: Exception) {
                 print("failed to delete. must not exist")
-                print(e.stackTrace)
+                e.printStackTrace()
             }
             gitRepo.checkout()
                 .setCreateBranch(true)
@@ -141,8 +147,6 @@ class CreateBenchmarkIntention : IntentionAction {
                 .setName(branchName).call();
 
             newCommitMap.put(filename, Pair(commitHash, newCommitHash.name))
-            // TODO: create branch
-            // TODO: push branch to origin
         }
 
 

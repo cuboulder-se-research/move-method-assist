@@ -11,7 +11,6 @@ import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.util.TextRange
 import com.intellij.psi.*
-import com.intellij.refactoring.extractMethod.newImpl.ExtractMethodHelper
 import com.intellij.refactoring.extractMethod.newImpl.ExtractMethodPipeline.findAllOptionsToExtract
 import com.intellij.refactoring.extractMethod.newImpl.ExtractSelector
 import com.intellij.refactoring.suggested.endOffset
@@ -283,5 +282,4 @@ private fun selectionIsEntireBodyFunctionJava(efCandidate: EFCandidate, file: Ps
     val statementsOffsetRange = statements.first().startOffset to statements.last().endOffset
     return efCandidate.offsetStart <= statementsOffsetRange.first && efCandidate.offsetEnd >= statementsOffsetRange.second
 }
-
 

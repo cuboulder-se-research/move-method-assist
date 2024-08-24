@@ -10,6 +10,7 @@ import com.intellij.psi.util.PsiUtilBase
 import com.intellij.psi.util.childrenOfType
 import org.jetbrains.kotlin.idea.KotlinLanguage
 import org.jetbrains.kotlin.idea.base.psi.getLineNumber
+import org.jetbrains.kotlin.j2k.accessModifier
 import org.jetbrains.kotlin.psi.*
 import org.jetbrains.kotlin.psi.psiUtil.startOffset
 
@@ -289,6 +290,40 @@ class PsiUtils {
 
             outerPsiElement.accept(ElementFinder())
             return match
+        }
+
+        fun getMethodWithSignatureFromClass(outerClass: PsiElement?, signature: MethodSignature): PsiMethod? {
+            var match: PsiMethod? = null
+            class MethodFinder: JavaRecursiveElementVisitor() {
+                override fun visitMethod(method: PsiMethod) {
+                    super.visitMethod(method)
+                    if (method.name == signature.methodName &&
+                        method.accessModifier()==signature.modifier &&
+                        method.returnType?.canonicalText==signature.returnType &&
+                        matchMethodParams(method, signature.paramsList)
+                    )
+                        match = method
+                }
+
+            }
+            if (outerClass != null) {
+                outerClass.accept(MethodFinder())
+            }
+            return match
+        }
+
+        fun matchMethodParams(psiMethod: PsiMethod, paramsList: List<Parameter>): Boolean{
+            if (psiMethod.parameters.size!=paramsList.size)
+                return false
+            for (param in paramsList.withIndex()){
+                if (param.index >= psiMethod.parameters.size)
+                    return false
+                if (psiMethod.parameters[param.index].name != param.value.name)
+                    return false
+                if (psiMethod.parameters[param.index].type.toString().split(":")[1] != param.value.type)
+                    return false
+            }
+            return true
         }
 
     }
