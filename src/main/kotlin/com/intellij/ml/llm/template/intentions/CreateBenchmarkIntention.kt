@@ -103,7 +103,7 @@ class CreateBenchmarkIntention : IntentionAction {
 //        val commitInfo = refJson.asJsonObject[filename].asJsonArray[0]
         val commitHash = refJson.asJsonObject["v2_hash"].asString
         DumbService.getInstance(project).smartInvokeLater {
-
+            Thread.sleep(500)
             // Checkout commit
             gitRepo.checkout().setName(commitHash).setForced(true).call()
             project.getBaseDir().refresh(false, true)
@@ -111,6 +111,7 @@ class CreateBenchmarkIntention : IntentionAction {
         }
         // allow re-index after updating git repo head.
         DumbService.getInstance(project).smartInvokeLater {
+            Thread.sleep(500)
             // Open file
             val editorFilePair = try {
                 openFile(filename, project)
@@ -125,14 +126,16 @@ class CreateBenchmarkIntention : IntentionAction {
             val fileBenchmark =
                 CreateBenchmarkForFile(filename, project, newEditor, newFile, refactorings)
             fileBenchmark.create()
-            FileDocumentManager.getInstance().saveAllDocuments(); // save changes to local filesystem
+            FileDocumentManager.getInstance().saveAllDocuments() // save changes to local filesystem
             val apiDir: VirtualFile = project.getBaseDir()
             VfsUtil.markDirtyAndRefresh(false, true, true, apiDir)
             VirtualFileManager.getInstance().syncRefresh()
             project.baseDir.refresh(false, true);
-            Thread.sleep(500)
+            Thread.sleep(1000)
+            project.save()
         }
         DumbService.getInstance(project).smartInvokeLater{
+            Thread.sleep(500)
             gitRepo.add().addFilepattern(".").call()
             val newCommitHash = gitRepo.commit().setMessage("undo refactorings in $commitHash").call()
             val branchName = "undo-${commitHash.substring(0, 7)}"
