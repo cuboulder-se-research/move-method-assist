@@ -33,6 +33,7 @@ class CreateBenchmarkIntention : IntentionAction {
 
 
     val newCommitMap: MutableMap<String, Pair<String, String>> = mutableMapOf()
+    val statusMap = mutableMapOf<Int, Pair<Boolean, String>>()
     override fun startInWriteAction(): Boolean {
         return false
     }
@@ -74,8 +75,14 @@ class CreateBenchmarkIntention : IntentionAction {
                     }
                     DumbService.getInstance(project).smartInvokeLater {
                         Files.write(
-                            Path.of("/Users/abhiram/Documents/TBE/evaluation_projects/cassandra-interesting-two-files-new-commits.json"),
+                            Path.of("/Users/abhiram/Documents/TBE/RefactoringAgentProject/" +
+                                    "llm-guide-refactorings/src/main/python/v1_dataset_apache_cassandra_commit_map.json"),
                             Gson().toJson(newCommitMap).toString().toByteArray()
+                        )
+                        Files.write(
+                            Path.of("/Users/abhiram/Documents/TBE/RefactoringAgentProject/" +
+                                    "llm-guide-refactorings/src/main/python/v1_dataset_apache_cassandra_status_map.json"),
+                            Gson().toJson(statusMap).toString().toByteArray()
                         )
                     }
 
@@ -126,6 +133,7 @@ class CreateBenchmarkIntention : IntentionAction {
             val fileBenchmark =
                 CreateBenchmarkForFile(filename, project, newEditor, newFile, refactorings)
             fileBenchmark.create()
+            statusMap.putAll(fileBenchmark.statusMap)
             FileDocumentManager.getInstance().saveAllDocuments() // save changes to local filesystem
             val apiDir: VirtualFile = project.getBaseDir()
             VfsUtil.markDirtyAndRefresh(false, true, true, apiDir)

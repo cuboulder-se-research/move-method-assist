@@ -23,16 +23,20 @@ class CreateBenchmarkForFile(
     val project: Project, val editor: Editor, val file: PsiFile,
     val refactorings: JsonArray
 ) {
-
+    val refObjectToRefIDMap = mutableMapOf<AbstractRefactoring, Int>()
+    val statusMap = mutableMapOf<Int, Pair<Boolean, String>>()
 
     fun create(){
         val allRefactoringObjects = mutableListOf<AbstractRefactoring>()
         for (refactoring in refactorings) {
+            val refID = refactoring.asJsonObject.get("refID").asInt
             val refactoringsObjects = createReverseRefactoringObject(refactoring)
+            refactoringsObjects.map { refObjectToRefIDMap[it] = refID }
             allRefactoringObjects.addAll(refactoringsObjects)
-
         }
         // Execute all inverse refactorings
+        // TODO: deduplicate refactoring objects.
+        //  Ex: Extract method can extract the same method from two separate places (refactoring miner reports it twice)
         executeReverse(getExecutionOrder(allRefactoringObjects))
     }
 
@@ -178,15 +182,14 @@ class CreateBenchmarkForFile(
 
     private fun executeReverse(refObjects: List<AbstractRefactoring>){
         for (r in refObjects){
-//            if (!r.isValid(project, editor, file))
-//                r.recalibrateRefactoring(project, editor, file)
             try {
                 r.performRefactoring(project, editor, file)
-                // TODO: mark success
+
+                statusMap[refObjectToRefIDMap[r]!!] = Pair(true, "success")
             } catch (e: Exception) {
-                // TODO: mark failure.
                 println("Failed to reverse ${r.getRefactoringPreview()}")
                 e.printStackTrace()
+                statusMap[refObjectToRefIDMap[r]!!] = Pair(false, e.stackTraceToString())
             }
         }
     }
