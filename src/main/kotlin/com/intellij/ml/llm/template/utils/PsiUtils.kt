@@ -299,7 +299,7 @@ class PsiUtils {
                     super.visitMethod(method)
                     if (method.name == signature.methodName &&
                         method.accessModifier()==signature.modifier &&
-                        method.returnType?.canonicalText==signature.returnType &&
+                        method.returnType.toString().split(":")[1]==signature.returnType &&
                         matchMethodParams(method, signature.paramsList)
                     )
                         match = method

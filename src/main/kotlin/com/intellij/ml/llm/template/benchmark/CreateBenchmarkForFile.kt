@@ -106,6 +106,7 @@ class CreateBenchmarkForFile(
     }
 
     private fun getUnsupportedRefactoring(refactoring: JsonElement): List<AbstractRefactoring> {
+        println("Unsupported refactoring: ${refactoring.asJsonObject.get("description").asString}")
         return listOf(
             UncreatableRefactoring(1, 1, refactoring.asJsonObject.get("description").asString)
         )
@@ -119,8 +120,10 @@ class CreateBenchmarkForFile(
             .get(0)
         val signature = getMethodSignatureParts(extractedCodeElement)
         val psiClass = (file as PsiJavaFileImpl).classes
-        if (psiClass.size==0 || signature==null)
+        if (psiClass.size==0 || signature==null) {
+            println("Failed to create Inline: ${refactoring.asJsonObject.get("description").asString}")
             return emptyList()
+        }
         return InlineMethodFactory.fromMethodSignature(
             file, editor, signature)
 

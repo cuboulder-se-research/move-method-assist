@@ -19,6 +19,7 @@ import com.intellij.openapi.project.Project
 import com.intellij.openapi.vfs.LocalFileSystem
 import com.intellij.openapi.vfs.VfsUtil
 import com.intellij.openapi.vfs.VirtualFile
+import com.intellij.openapi.vfs.VirtualFileManager
 import com.intellij.psi.PsiFile
 import com.intellij.psi.PsiManager
 import org.eclipse.jgit.api.Git
@@ -53,7 +54,7 @@ class CreateBenchmarkIntention : IntentionAction {
         // create branch, create commit and save this information somewhere.
 //        val projectDir = "/Users/abhiram/Documents/TBE/evaluation_projects/cassandra"
         val refminerOut = "/Users/abhiram/Documents/TBE/RefactoringAgentProject/" +
-                "llm-guide-refactorings/src/main/python/v1_dataset_apache_cassandra.json"
+                "llm-guide-refactorings/src/main/python/v1_dataset_apache_cassandra_1.json"
 //        val refminerOut = "/Users/abhiram/Documents/TBE/evaluation_projects/cassandra-interesting-two-files.json"
         val jsonContent = Files.readString(Path.of(refminerOut))
         val json = JsonParser.parseString(jsonContent)
@@ -106,15 +107,15 @@ class CreateBenchmarkIntention : IntentionAction {
             // Checkout commit
             gitRepo.checkout().setName(commitHash).setForced(true).call()
             project.getBaseDir().refresh(false, true)
+            VfsUtil.markDirtyAndRefresh(false, true, true, project.baseDir)
         }
         // allow re-index after updating git repo head.
         DumbService.getInstance(project).smartInvokeLater {
-
             // Open file
             val editorFilePair = try {
                 openFile(filename, project)
             } catch (e: Exception) {
-                print("file not found")
+                print("file not found: $filename")
                 return@smartInvokeLater
             }
             val newEditor = editorFilePair.first
@@ -124,11 +125,12 @@ class CreateBenchmarkIntention : IntentionAction {
             val fileBenchmark =
                 CreateBenchmarkForFile(filename, project, newEditor, newFile, refactorings)
             fileBenchmark.create()
-
             FileDocumentManager.getInstance().saveAllDocuments(); // save changes to local filesystem
             val apiDir: VirtualFile = project.getBaseDir()
-            VfsUtil.markDirtyAndRefresh(true, true, true, apiDir)
+            VfsUtil.markDirtyAndRefresh(false, true, true, apiDir)
+            VirtualFileManager.getInstance().syncRefresh()
             project.baseDir.refresh(false, true);
+            Thread.sleep(500)
         }
         DumbService.getInstance(project).smartInvokeLater{
             gitRepo.add().addFilepattern(".").call()
