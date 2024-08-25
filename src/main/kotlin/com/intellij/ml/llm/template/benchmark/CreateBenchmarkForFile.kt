@@ -6,7 +6,9 @@ import com.intellij.ml.llm.template.refactoringobjects.AbstractRefactoring
 import com.intellij.ml.llm.template.refactoringobjects.UncreatableRefactoring
 import com.intellij.ml.llm.template.refactoringobjects.extractfunction.InlineMethodFactory
 import com.intellij.ml.llm.template.refactoringobjects.renamevariable.RenameVariableFactory
+import com.intellij.ml.llm.template.utils.MethodSignature
 import com.intellij.ml.llm.template.utils.MethodSignature.Companion.getMethodSignatureParts
+import com.intellij.ml.llm.template.utils.Parameter
 import com.intellij.ml.llm.template.utils.PsiUtils
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
@@ -40,10 +42,54 @@ class CreateBenchmarkForFile(
             "Extract Method" -> getExtractMethodInverse(refactoring)
             "Rename Variable" -> getRenameVariableInverse(refactoring)
             "Rename Method" -> getRenameMethodInverse(refactoring)
+            "Rename Parameter" -> getRenameParameterInverse(refactoring)
             else -> {getUnsupportedRefactoring(refactoring)}
         }
         return inverseRefactorings
 
+    }
+
+    private fun getRenameParameterInverse(refactoring: JsonElement): List<AbstractRefactoring> {
+        val refJsonObj = refactoring.asJsonObject
+        
+        val oldVariableDeclaration = refactoring.asJsonObject
+            .get("leftSideLocations").asJsonArray
+            .filter { it.asJsonObject.get("description").asString.equals("original variable declaration") }
+            .map{ it.asJsonObject.get("codeElement").asString}
+            .get(0)
+        val splitColonOld = oldVariableDeclaration.split(":")
+        val oldParam = Parameter(name= splitColonOld[0].strip(), type = splitColonOld[1].strip())
+
+        val newVariableDeclaration = refactoring.asJsonObject
+            .get("rightSideLocations").asJsonArray
+            .filter { it.asJsonObject.get("description").asString.equals("renamed variable declaration") }
+            .map{ it.asJsonObject.get("codeElement").asString}
+            .get(0)
+        val newSplitColon = newVariableDeclaration.split(":")
+        val newParam = Parameter(name= newSplitColon[0].strip(), type = newSplitColon[1].strip())
+
+        val methodSignatureString = refactoring.asJsonObject
+            .get("rightSideLocations").asJsonArray
+            .filter { it.asJsonObject.get("description").asString.equals("method declaration with renamed variable") }
+            .map{ it.asJsonObject.get("codeElement").asString}
+            .get(0)
+        val methodSignature = MethodSignature.getMethodSignatureParts(methodSignatureString)
+
+
+
+        val psiClass = (file as PsiJavaFileImpl).classes
+        if (psiClass.size==0)
+            return emptyList()
+
+        if (methodSignature!=null) {
+            val refObj = RenameVariableFactory.renameParameter(
+                methodSignature, psiClass[0], newParam, oldParam
+            )
+            if (refObj!=null)
+                return listOf(refObj)
+        }
+
+        return emptyList()
     }
 
 

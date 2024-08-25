@@ -3,6 +3,7 @@ package com.intellij.ml.llm.template.refactoringobjects.renamevariable
 import com.intellij.ml.llm.template.refactoringobjects.AbstractRefactoring
 import com.intellij.ml.llm.template.refactoringobjects.MyRefactoringFactory
 import com.intellij.ml.llm.template.utils.MethodSignature
+import com.intellij.ml.llm.template.utils.Parameter
 import com.intellij.ml.llm.template.utils.PsiUtils
 import com.intellij.openapi.application.runReadAction
 import com.intellij.openapi.editor.Editor
@@ -98,6 +99,20 @@ class RenameVariableFactory {
                     runReadAction{ methodPsi.getLineNumber() },
                     methodName, newName, methodPsi, outerClass
                 )
+            }
+            return null
+        }
+
+        fun renameParameter(methodSignature: MethodSignature, outerClass: PsiClass, oldParameter: Parameter, newParameter: Parameter): AbstractRefactoring?{
+            val methodPsi = PsiUtils.getMethodWithSignatureFromClass(outerClass, methodSignature)
+            if (methodPsi!=null){
+                val oldParamPsi = PsiUtils.getMethodParameter(methodPsi, oldParameter)
+                if (oldParamPsi!=null)
+                    return RenameVariable(
+                        runReadAction{ methodPsi.getLineNumber() },
+                        runReadAction{ methodPsi.getLineNumber() },
+                        oldParameter.name, newParameter.name, oldParamPsi, outerClass
+                    )
             }
             return null
         }

@@ -326,6 +326,20 @@ class PsiUtils {
             return true
         }
 
+        fun getMethodParameter(methodPsi: PsiMethod, parameterToFind: Parameter): PsiParameter? {
+            var match: PsiParameter? = null
+            class MethodFinder: JavaRecursiveElementVisitor() {
+                override fun visitParameter(parameter: PsiParameter) {
+                    if (parameter.name == parameterToFind.name &&
+                        parameter.type.toString().split(":")[1] == parameterToFind.type)
+                        match = parameter
+                }
+
+            }
+            methodPsi.accept(MethodFinder())
+            return match
+        }
+
     }
 
 
