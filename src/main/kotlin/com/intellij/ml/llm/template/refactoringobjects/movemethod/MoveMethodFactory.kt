@@ -14,8 +14,6 @@ import com.intellij.refactoring.openapi.impl.JavaRefactoringFactoryImpl
 import com.intellij.refactoring.suggested.startOffset
 import org.jetbrains.kotlin.idea.editor.fixers.endLine
 import org.jetbrains.kotlin.idea.editor.fixers.startLine
-import org.jetbrains.kotlin.load.java.createJavaClassFinder
-import org.jetbrains.kotlin.name.ClassId
 import org.jetbrains.kotlin.psi.psiUtil.endOffset
 import org.jetbrains.kotlin.psi.psiUtil.getChildOfType
 
@@ -41,10 +39,10 @@ class MoveMethodFactory {
             val psiTargetVariable =
                 runReadAction { PsiUtils.getVariableFromPsi(methodToMove, targetVariable) }
                     ?: return runReadAction { tryMoveToClass(methodToMove, targetVariable, project, editor, file)}
-            return createMoveMethodRefactorings(psiTargetVariable, project, methodToMove, editor)
+            return createInstanceMoveMethodRefactorings(psiTargetVariable, project, methodToMove, editor)
         }
 
-        private fun createMoveMethodRefactorings(
+        fun createInstanceMoveMethodRefactorings(
             psiTargetVariable: PsiElement,
             project: Project,
             methodToMove: PsiMethod,
@@ -89,21 +87,30 @@ class MoveMethodFactory {
                     methodToMove.containingFile, targetClassName
                 )
                 if (qualifiedClassName!=null){
-                    return listOf(
-                        MyMoveStaticMethodRefactoring(
-                            methodToMove.startLine(editor.document),
-                            methodToMove.endLine(editor.document),
-                            methodToMove, qualifiedClassName)
-                    )
+                    return createStaticMove(methodToMove, editor, qualifiedClassName)
                 }
             }else{
                 val variableOfType = PsiUtils.getVariableOfType(methodToMove, targetClassName)
                 if (variableOfType!=null){
-                    return createMoveMethodRefactorings(variableOfType, project, methodToMove, editor)
+                    return createInstanceMoveMethodRefactorings(variableOfType, project, methodToMove, editor)
                 }
             }
 
             return listOf()
+        }
+
+        fun createStaticMove(
+            methodToMove: PsiMethod,
+            editor: Editor,
+            qualifiedClassName: String
+        ): List<MyMoveStaticMethodRefactoring> {
+            return listOf(
+                MyMoveStaticMethodRefactoring(
+                    methodToMove.startLine(editor.document),
+                    methodToMove.endLine(editor.document),
+                    methodToMove, qualifiedClassName
+                )
+            )
         }
 
         override val logicalName: String

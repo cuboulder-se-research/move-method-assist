@@ -16,7 +16,7 @@ import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiFile
 import com.intellij.psi.impl.source.PsiJavaFileImpl
 
-class CreateBenchmarkForFile(
+open class CreateBenchmarkForFile(
 //    val projectPath: String,
 //    val refMinerOut: String,
     val filename: String,
@@ -26,7 +26,7 @@ class CreateBenchmarkForFile(
     val refObjectToRefIDMap = mutableMapOf<AbstractRefactoring, Int>()
     val statusMap = mutableMapOf<Int, Pair<Boolean, String>>()
 
-    fun create(){
+    open fun create(){
         val allRefactoringObjects = mutableListOf<AbstractRefactoring>()
         for (refactoring in refactorings) {
             val refID = refactoring.asJsonObject.get("refID").asInt
@@ -38,6 +38,9 @@ class CreateBenchmarkForFile(
         // TODO: deduplicate refactoring objects.
         //  Ex: Extract method can extract the same method from two separate places (refactoring miner reports it twice)
         executeReverse(getExecutionOrder(allRefactoringObjects))
+
+        // Undo move methods.
+        CreateMoveMethodBenchmark(filename, project, editor, file, refactorings).create()
     }
 
 
@@ -180,7 +183,7 @@ class CreateBenchmarkForFile(
 
     }
 
-    private fun executeReverse(refObjects: List<AbstractRefactoring>){
+    fun executeReverse(refObjects: List<AbstractRefactoring>){
         for (r in refObjects){
             try {
                 r.performRefactoring(project, editor, file)

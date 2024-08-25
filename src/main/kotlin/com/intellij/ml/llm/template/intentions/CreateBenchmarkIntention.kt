@@ -6,6 +6,7 @@ import com.google.gson.JsonParser
 import com.intellij.codeInsight.intention.IntentionAction
 import com.intellij.ml.llm.template.LLMBundle
 import com.intellij.ml.llm.template.benchmark.CreateBenchmarkForFile
+import com.intellij.ml.llm.template.utils.openFile
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.fileEditor.FileDocumentManager
 import com.intellij.openapi.fileEditor.FileEditorManager
@@ -165,22 +166,5 @@ class CreateBenchmarkIntention : IntentionAction {
 
     }
 
-    private fun openFile(filePath: String, project: Project): Pair<Editor, PsiFile> {
-//        runWriteAction {  }
-        var ret : Pair<Editor, PsiFile>? = null
-        val vfile = LocalFileSystem.getInstance().refreshAndFindFileByPath(project.basePath + "/" + filePath)
-            ?: throw Exception("file not found")
-        val newEditor = FileEditorManager.getInstance(project).openTextEditor(
-            OpenFileDescriptor(
-                project,
-                vfile
-            ),
-            false // request focus to editor
-        )!!
-        val psiFile = PsiManager.getInstance(project).findFile(vfile)!!
 
-        ret = Pair(newEditor, psiFile)
-
-        return ret!!
-    }
 }
