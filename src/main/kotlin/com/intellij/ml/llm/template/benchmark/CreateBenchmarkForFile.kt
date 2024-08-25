@@ -10,6 +10,7 @@ import com.intellij.ml.llm.template.utils.MethodSignature
 import com.intellij.ml.llm.template.utils.MethodSignature.Companion.getMethodSignatureParts
 import com.intellij.ml.llm.template.utils.Parameter
 import com.intellij.ml.llm.template.utils.PsiUtils
+import com.intellij.ml.llm.template.utils.getExecutionOrder
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiFile
@@ -32,7 +33,7 @@ class CreateBenchmarkForFile(
 
         }
         // Execute all inverse refactorings
-        executeReverse(allRefactoringObjects)
+        executeReverse(getExecutionOrder(allRefactoringObjects))
     }
 
 
@@ -177,8 +178,8 @@ class CreateBenchmarkForFile(
 
     private fun executeReverse(refObjects: List<AbstractRefactoring>){
         for (r in refObjects){
-            if (!r.isValid(project, editor, file))
-                r.recalibrateRefactoring(project, editor, file)
+//            if (!r.isValid(project, editor, file))
+//                r.recalibrateRefactoring(project, editor, file)
             try {
                 r.performRefactoring(project, editor, file)
                 // TODO: mark success

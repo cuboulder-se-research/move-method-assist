@@ -12,8 +12,8 @@ fun refactoringOrderComparator() = Comparator<AbstractRefactoring>{ a, b ->
         else -> 0
     }
 }
-fun getExecutionOrder(validRefactoringCandidates: List<AbstractRefactoring>): List<AbstractRefactoring> {
-    return validRefactoringCandidates.sortedWith(refactoringOrderComparator())
+fun getExecutionOrder(refactoringCandidates: List<AbstractRefactoring>): List<AbstractRefactoring> {
+    return refactoringCandidates.sortedWith(refactoringOrderComparator())
 }
 
 fun isEquivalent(psiA: PsiElement, psiB: PsiElement, project: Project){
