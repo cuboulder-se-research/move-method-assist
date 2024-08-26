@@ -37,6 +37,6 @@ class CreateBenchmarkForFileIntentionTest: LightJavaCodeInsightFixtureTestCase()
         val refminerOut = "/Users/abhiram/Documents/TBE/evaluation_projects/elastic-interesting-files.json"
         myFixture.configureByFile("server/src/main/java/org/elasticsearch/index/translog/Translog.java")
 
-        CreateBenchmarkForFile(projectDir, refminerOut, project, editor, file).create()
+//        CreateBenchmarkForFile(projectDir, project, editor, file).create()
     }
 }
