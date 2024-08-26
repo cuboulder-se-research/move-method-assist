@@ -313,16 +313,18 @@ class PsiUtils {
         }
 
         fun matchMethodParams(psiMethod: PsiMethod, paramsList: List<Parameter>): Boolean{
-            if (psiMethod.parameters.size!=paramsList.size)
+            if (psiMethod.parameterList.parameters.size!=paramsList.size)
                 return false
             for (param in paramsList.withIndex()){
-                if (param.index >= psiMethod.parameters.size)
+                if (param.index >= psiMethod.parameterList.parameters.size)
                     return false
-                if (psiMethod.parameters[param.index].name != param.value.name)
+                if (psiMethod.parameterList.parameters[param.index].name != param.value.name)
                     return false
-                if (psiMethod.parameters[param.index].type.toString()
-                    .split(":")[1].replace(" ", "") != param.value.type)
-                    return false
+                if (psiMethod.parameterList.parameters[param.index].type.toString()
+                    .split(":")[1].replace(" ", "") != param.value.type) {
+                    if (!psiMethod.parameterList.parameters[param.index].type.canonicalText.endsWith(param.value.type))
+                        return false
+                }
             }
             return true
         }
