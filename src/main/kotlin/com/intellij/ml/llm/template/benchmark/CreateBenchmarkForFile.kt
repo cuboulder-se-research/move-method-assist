@@ -15,6 +15,7 @@ import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiFile
 import com.intellij.psi.impl.source.PsiJavaFileImpl
+import io.ktor.util.reflect.*
 
 open class CreateBenchmarkForFile(
 //    val projectPath: String,
@@ -40,7 +41,9 @@ open class CreateBenchmarkForFile(
         executeReverse(getExecutionOrder(allRefactoringObjects))
 
         // Undo move methods.
-        CreateMoveMethodBenchmark(filename, project, editor, file, refactorings).create()
+        val moveMethodBenchmark = CreateMoveMethodBenchmark(filename, project, editor, file, refactorings)
+        moveMethodBenchmark.create()
+        statusMap.putAll(moveMethodBenchmark.statusMap)
     }
 
 
@@ -186,9 +189,14 @@ open class CreateBenchmarkForFile(
     fun executeReverse(refObjects: List<AbstractRefactoring>){
         for (r in refObjects){
             try {
-                r.performRefactoring(project, editor, file)
+                if (r is UncreatableRefactoring){
+                    statusMap[refObjectToRefIDMap[r]!!] = Pair(false, "Failed to create refactoring object")
+                }
+                else {
+                    r.performRefactoring(project, editor, file)
 
-                statusMap[refObjectToRefIDMap[r]!!] = Pair(true, "success")
+                    statusMap[refObjectToRefIDMap[r]!!] = Pair(true, "success")
+                }
             } catch (e: Exception) {
                 println("Failed to reverse ${r.getRefactoringPreview()}")
                 e.printStackTrace()

@@ -290,7 +290,7 @@ private fun selectionIsEntireBodyFunctionJava(efCandidate: EFCandidate, file: Ps
 fun openFile(filePath: String, project: Project): Pair<Editor, PsiFile> {
     var ret : Pair<Editor, PsiFile>? = null
     val vfile = LocalFileSystem.getInstance().refreshAndFindFileByPath(project.basePath + "/" + filePath)
-        ?: throw Exception("file not found")
+        ?: throw Exception("file not found - ${project.basePath+"/"+filePath}")
     val newEditor = FileEditorManager.getInstance(project).openTextEditor(
         OpenFileDescriptor(
             project,

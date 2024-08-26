@@ -125,6 +125,7 @@ class CreateBenchmarkIntention : IntentionAction {
                 openFile(filename, project)
             } catch (e: Exception) {
                 print("file not found: $filename")
+                newCommitMap.put(filename, Pair(commitHash, "file not found"))
                 return@smartInvokeLater
             }
             val newEditor = editorFilePair.first
@@ -142,8 +143,8 @@ class CreateBenchmarkIntention : IntentionAction {
             project.baseDir.refresh(false, true);
             Thread.sleep(1000)
             project.save()
-        }
-        DumbService.getInstance(project).smartInvokeLater{
+//        }
+//        DumbService.getInstance(project).smartInvokeLater{
             Thread.sleep(500)
             gitRepo.add().addFilepattern(".").call()
             val newCommitHash = gitRepo.commit().setMessage("undo refactorings in $commitHash").call()
@@ -155,6 +156,7 @@ class CreateBenchmarkIntention : IntentionAction {
             } catch (e: Exception) {
                 print("failed to delete. must not exist")
                 e.printStackTrace()
+                return@smartInvokeLater
             }
             gitRepo.checkout()
                 .setCreateBranch(true)

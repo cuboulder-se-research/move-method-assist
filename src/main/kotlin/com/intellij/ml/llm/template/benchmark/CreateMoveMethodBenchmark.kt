@@ -50,7 +50,12 @@ class CreateMoveMethodBenchmark(filename: String,
 
 
         // TODO: Open right file, identify method.
-        val movedEditorAndFile = openFile(newFile[0], project)
+        val movedEditorAndFile = try {
+            openFile(newFile[0], project)
+        } catch (e: Exception) {
+            print("file not found - ${newFile[0]}")
+            return emptyList()
+        }
         val movedEditor = movedEditorAndFile.first
         val movedFile = movedEditorAndFile.second
 
