@@ -147,7 +147,8 @@ class CreateBenchmarkIntention : IntentionAction {
             Thread.sleep(500)
             gitRepo.add().addFilepattern(".").call()
             val newCommitHash = gitRepo.commit().setMessage("undo refactorings in $commitHash").call()
-            val branchName = "undo-${commitHash.substring(0, 7)}"
+            val baseClassName = filename.split("/").last().split(".java").first()
+            val branchName = "undo-$baseClassName-${commitHash.substring(0, 7)}"
 
             try {
                 gitRepo.branchDelete().setForce(true).setBranchNames(branchName).call()
