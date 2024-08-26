@@ -24,7 +24,7 @@ data class MethodSignature(val methodName: String, val paramsList: List<Paramete
         fun getParamsList(methodParams: String): List<Parameter>{
             if (methodParams=="()")
                 return emptyList()
-            return methodParams.substring(1, methodParams.length-1).split(",")
+            return methodParams.substring(1, methodParams.length-1).split(", ")
                 .map {
                     val nameAndType = it.strip().split(" ")
                     Parameter(nameAndType[0], nameAndType[1])

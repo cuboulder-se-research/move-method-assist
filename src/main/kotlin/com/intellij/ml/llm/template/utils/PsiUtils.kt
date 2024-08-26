@@ -320,7 +320,8 @@ class PsiUtils {
                     return false
                 if (psiMethod.parameters[param.index].name != param.value.name)
                     return false
-                if (psiMethod.parameters[param.index].type.toString().split(":")[1] != param.value.type)
+                if (psiMethod.parameters[param.index].type.toString()
+                    .split(":")[1].replace(" ", "") != param.value.type)
                     return false
             }
             return true

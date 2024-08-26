@@ -56,7 +56,7 @@ class CreateBenchmarkIntention : IntentionAction {
         // create branch, create commit and save this information somewhere.
 //        val projectDir = "/Users/abhiram/Documents/TBE/evaluation_projects/cassandra"
         val refminerOut = "/Users/abhiram/Documents/TBE/RefactoringAgentProject/" +
-                "llm-guide-refactorings/src/main/python/v1_dataset_apache_cassandra_1.json"
+                "llm-guide-refactorings/src/main/python/v1_dataset_file.json"
 //        val refminerOut = "/Users/abhiram/Documents/TBE/evaluation_projects/cassandra-interesting-two-files.json"
         val jsonContent = Files.readString(Path.of(refminerOut))
         val json = JsonParser.parseString(jsonContent)
@@ -77,12 +77,12 @@ class CreateBenchmarkIntention : IntentionAction {
                     DumbService.getInstance(project).smartInvokeLater {
                         Files.write(
                             Path.of("/Users/abhiram/Documents/TBE/RefactoringAgentProject/" +
-                                    "llm-guide-refactorings/src/main/python/v1_dataset_apache_cassandra_commit_map.json"),
+                                    "llm-guide-refactorings/src/main/python/commit_map.json"),
                             Gson().toJson(newCommitMap).toString().toByteArray()
                         )
                         Files.write(
                             Path.of("/Users/abhiram/Documents/TBE/RefactoringAgentProject/" +
-                                    "llm-guide-refactorings/src/main/python/v1_dataset_apache_cassandra_status_map.json"),
+                                    "llm-guide-refactorings/src/main/python/refactoring_status_map.json"),
                             Gson().toJson(statusMap).toString().toByteArray()
                         )
                     }
