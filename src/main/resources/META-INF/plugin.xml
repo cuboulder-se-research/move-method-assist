@@ -9,6 +9,10 @@
     <depends>org.jetbrains.kotlin</depends>
 
     <extensions defaultExtensionNs="com.intellij">
+        <toolWindow factoryClass="com.intellij.ml.llm.template.toolwindow.AgentLogsWindow" id="RefactoringAgent Logs" anchor="right">
+
+        </toolWindow>
+        
         <applicationConfigurable
                 groupId="tools"
                 instance="com.intellij.ml.llm.template.settings.RefAgentConfigurable"

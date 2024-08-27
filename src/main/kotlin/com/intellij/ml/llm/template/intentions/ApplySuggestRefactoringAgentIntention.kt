@@ -11,6 +11,7 @@ import com.intellij.ml.llm.template.suggestrefactoring.AbstractRefactoringValida
 import com.intellij.ml.llm.template.suggestrefactoring.AtomicSuggestion
 import com.intellij.ml.llm.template.suggestrefactoring.SimpleRefactoringValidator
 import com.intellij.ml.llm.template.telemetry.*
+import com.intellij.ml.llm.template.toolwindow.logViewer
 import com.intellij.ml.llm.template.ui.CompletedRefactoringsPanel
 import com.intellij.ml.llm.template.utils.*
 import com.intellij.openapi.application.invokeLater
@@ -85,7 +86,9 @@ open class ApplySuggestRefactoringAgentIntention(
         for (iter in 1..MAX_ITERS) {
             setTelemetryData(editor, file)
             val now = System.nanoTime()
+            logViewer.appendLog(AGENT_HEADER)
             logger.info(AGENT_HEADER)
+            logViewer.appendLog("Asking for refactoring suggestions! ($iter/$MAX_ITERS)")
             logger.info("Asking for refactoring suggestions! ($iter/$MAX_ITERS)")
 
             if (iter != 1)
@@ -158,7 +161,9 @@ open class ApplySuggestRefactoringAgentIntention(
         val filteredSuggestions = filterSuggestions(response, refactoringLimit, validator) ?: return
         //        val efSuggestionList = validator.getExtractMethodSuggestions(llmResponse.text)
 //        val renameSuggestions = validator.getRenamveVariableSuggestions(llmResponse.text)
+        logViewer.appendLog(AGENT_HEADER)
         logger.info(AGENT_HEADER)
+        logViewer.appendLog("Processing LLM Recommendations...")
         logger.info("Processing LLM Recommendations...")
         logger.info("\n")
         val refactoringCandidates: List<AbstractRefactoring> =
@@ -204,6 +209,7 @@ open class ApplySuggestRefactoringAgentIntention(
 //                    NotificationType.INFORMATION
 //                )
                 logger.info("No valid refactoring objects created.")
+                logViewer.appendLog("No valid refactoring objects created.")
                 sendTelemetryData()
             } else {
 //                refactoringObjectsCache.get(functionSrc)?:refactoringObjectsCache.put(functionSrc, validRefactoringCandidates)
@@ -211,6 +217,7 @@ open class ApplySuggestRefactoringAgentIntention(
 //                    project, editor, file, validRefactoringCandidates, codeTransformer,
 //                )
                 logger.info("Performing Refactoring Actions:")
+                logViewer.appendLog("Performing Refactoring Actions:")
                 runBlocking { executeRefactorings(validRefactoringCandidates, project, editor, file) }
 
             }
@@ -222,6 +229,7 @@ open class ApplySuggestRefactoringAgentIntention(
                                   limit: Int,
                                   validator: AbstractRefactoringValidator): List<AtomicSuggestion>? {
         logger.info(LLM_HEADER)
+        logViewer.appendLog(LLM_HEADER)
         val suggestions = response.getSuggestions()
 
 
@@ -338,6 +346,7 @@ open class ApplySuggestRefactoringAgentIntention(
                     editor.selectionModel.setSelection(refCandidate.getStartOffset(), refCandidate.getStartOffset())
                 }
                 logger.info("$count. Executing refactoring: ${refCandidate.getRefactoringPreview()}".prependIndent("     "))
+                logViewer.appendLog("$count. Executing refactoring: ${refCandidate.getRefactoringPreview()}".prependIndent("     "))
                 if (useDelays)
                     delay(3_000)
                 invokeLater {
