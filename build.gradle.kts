@@ -68,7 +68,7 @@ tasks {
     }
 
     buildPlugin {
-            archiveFileName.set("llm-extract-function.zip")
+            archiveFileName.set("refactoring-agent-plugin.zip")
     }
 
     patchPluginXml {
