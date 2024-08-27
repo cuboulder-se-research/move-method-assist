@@ -24,6 +24,7 @@ class GrazieBaseRequest(body: OpenAiChatRequestBody) : LLMBaseRequest<OpenAiChat
 
     private val logger = Logger.getInstance(javaClass)
     private val url = "https://api.app.stgn.grazie.aws.intellij.net"
+//    "https://api.app.prod.grazie.aws.intellij.net"
     private val grazieToken = RefAgentSettingsManager.getInstance().getOpenAiKey()
     private val authData = AuthData(
         token = grazieToken,
