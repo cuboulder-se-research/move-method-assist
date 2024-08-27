@@ -11,14 +11,14 @@ class SuggestRefactoringPrompt: MethodPromptBase() {
         val refactoringOptions = listOf(
             "Extract Method",
             "Rename Variable",
+            "Move Method",
 //            "Use Enhanced For Loop",
 //            "Convert For Loop to While Loop" ,
 //            "Convert For loop to use Java Streams",
 //            "Use Enhanced Switch Statement",
 //            "Convert If Statement to Switch Statement (and vice versa)",
 //            "Convert If Statement to Ternary Operator (and vice versa)",
-//            "Use String Builder",
-            "Move Method"
+//            "Use String Builder"
         )
         val refactoringOptionsString = refactoringOptions.mapIndexed{ind, it -> "${ind+1}. $it"}.toList().joinToString("\n")
         val systemMessageText = "You are an expert programmer performing refactoring operations."

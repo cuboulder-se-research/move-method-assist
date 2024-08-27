@@ -1,1 +1,62 @@
-{"test/unit/org/apache/cassandra/cql3/validation/entities/UFTest.java":{"first":"5790b4a44ba85e7e8ece64613d9e6a1b737a6cde","second":"88fc4e799da398a0f6bc264c4f4f9b5718d7f8f5"},"src/java/org/apache/cassandra/cql3/functions/UDFunction.java":{"first":"5790b4a44ba85e7e8ece64613d9e6a1b737a6cde","second":"7cb77c8f0b92d4e72ed9db473f16a84d1ab13d6c"}}
+{
+  "src/java/org/apache/cassandra/config/Schema.java": {
+    "first": "35668435090eb47cf8c5e704243510b6cee35a7b",
+    "second": "031d88ef598b37d7b4fac69ad5ffa12a0ebea93b"
+  },
+  "src/java/org/apache/cassandra/cql3/QueryProcessor.java": {
+    "first": "35668435090eb47cf8c5e704243510b6cee35a7b",
+    "second": "242ca7fe4e4d2c5808817f315a0bb7c04a64f5a5"
+  },
+  "src/java/org/apache/cassandra/cql3/functions/UDFunction.java": {
+    "first": "5790b4a44ba85e7e8ece64613d9e6a1b737a6cde",
+    "second": "b28f373b6958638c6fc8168c595a200ec56c221b"
+  },
+  "src/java/org/apache/cassandra/db/ColumnFamilyStore.java": {
+    "first": "3bdcaa336a6e6a9727c333b433bb9f5d3afc0fb1",
+    "second": "88e07a63dfeec9901c32930911e9f7781b75d89e"
+  },
+  "src/java/org/apache/cassandra/hadoop/AbstractColumnFamilyInputFormat.java": {
+    "first": "446e2537895c15b404a74107069a12f3fc404b15",
+    "second": "file not found"
+  },
+  "src/java/org/apache/cassandra/net/MessagingService.java": {
+    "first": "573a1d115b86abbe3fb53ff930464d7d8fd95600",
+    "second": "931152c2536621e5c6145f4414a7a128cacb72c9"
+  },
+  "test/pig/org/apache/cassandra/pig/ThriftColumnFamilyTest.java": {
+    "first": "446e2537895c15b404a74107069a12f3fc404b15",
+    "second": "0adced6df1c2439422489e0a152d9391afc83b5e"
+  },
+  "test/unit/org/apache/cassandra/cql3/ContainsRelationTest.java": {
+    "first": "f797bfa4da53315b49f8d97b784047f33ba1bf5f",
+    "second": "file not found"
+  },
+  "test/unit/org/apache/cassandra/cql3/CreateIndexStatementTest.java": {
+    "first": "f797bfa4da53315b49f8d97b784047f33ba1bf5f",
+    "second": "file not found"
+  },
+  "test/unit/org/apache/cassandra/cql3/CreateTriggerStatementTest.java": {
+    "first": "f797bfa4da53315b49f8d97b784047f33ba1bf5f",
+    "second": "file not found"
+  },
+  "test/unit/org/apache/cassandra/cql3/IndexedValuesValidationTest.java": {
+    "first": "f797bfa4da53315b49f8d97b784047f33ba1bf5f",
+    "second": "file not found"
+  },
+  "test/unit/org/apache/cassandra/cql3/MultiColumnRelationTest.java": {
+    "first": "f797bfa4da53315b49f8d97b784047f33ba1bf5f",
+    "second": "file not found"
+  },
+  "test/unit/org/apache/cassandra/cql3/StaticColumnsQueryTest.java": {
+    "first": "f797bfa4da53315b49f8d97b784047f33ba1bf5f",
+    "second": "file not found"
+  },
+  "test/unit/org/apache/cassandra/cql3/validation/entities/UFTest.java": {
+    "first": "5790b4a44ba85e7e8ece64613d9e6a1b737a6cde",
+    "second": "cf145a4ec9f76342cb179b3a54a4603c49a778ec"
+  },
+  "test/unit/org/apache/cassandra/db/compaction/CompactionsCQLTest.java": {
+    "first": "1a2c1bcdc7267abec9b19d77726aedbb045d79a8",
+    "second": "87799db30fc7408ab1ee27a146917f625ec7844a"
+  }
+}

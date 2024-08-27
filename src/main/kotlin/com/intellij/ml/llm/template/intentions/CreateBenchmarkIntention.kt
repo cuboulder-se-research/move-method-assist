@@ -136,10 +136,10 @@ class CreateBenchmarkIntention : IntentionAction {
                 CreateBenchmarkForFile(filename, project, newEditor, newFile, refactorings)
             fileBenchmark.create()
             statusMap.putAll(fileBenchmark.statusMap)
-            FileDocumentManager.getInstance().saveAllDocuments() // save changes to local filesystem
             val apiDir: VirtualFile = project.getBaseDir()
             VfsUtil.markDirtyAndRefresh(false, true, true, apiDir)
-            VirtualFileManager.getInstance().syncRefresh()
+//            VirtualFileManager.getInstance().syncRefresh()
+            FileDocumentManager.getInstance().saveAllDocuments() // save changes to local filesystem
             project.baseDir.refresh(false, true);
             Thread.sleep(1000)
             project.save()
@@ -147,6 +147,7 @@ class CreateBenchmarkIntention : IntentionAction {
 //        DumbService.getInstance(project).smartInvokeLater{
             Thread.sleep(500)
             gitRepo.add().addFilepattern(".").call()
+            gitRepo.checkout().setName(commitHash).call()
             val newCommitHash = gitRepo.commit().setMessage("undo refactorings in $commitHash").call()
             val baseClassName = filename.split("/").last().split(".java").first()
             val branchName = "undo-$baseClassName-${commitHash.substring(0, 7)}"
@@ -156,7 +157,7 @@ class CreateBenchmarkIntention : IntentionAction {
             } catch (e: Exception) {
                 print("failed to delete. must not exist")
                 e.printStackTrace()
-                return@smartInvokeLater
+//                return@smartInvokeLater
             }
             gitRepo.checkout()
                 .setCreateBranch(true)
@@ -168,6 +169,5 @@ class CreateBenchmarkIntention : IntentionAction {
 
 
     }
-
 
 }

@@ -14,6 +14,7 @@ import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiFile
 import com.intellij.psi.impl.source.PsiJavaFileImpl
 import org.jetbrains.kotlin.j2k.getContainingClass
+import org.jetbrains.kotlin.tools.projectWizard.core.classMismatchError
 
 class CreateMoveMethodBenchmark(filename: String,
                                 project: Project, editor: Editor, file: PsiFile,
@@ -80,7 +81,8 @@ class CreateMoveMethodBenchmark(filename: String,
                 }
             }
 
-            for (field in (movedFile as PsiJavaFileImpl).classes[0].allFields){
+            val allFields = movedMethod.containingClass?.allFields?: return undoMoves
+            for (field in allFields){
                 if (field.type.canonicalText == currentQualifiedClass){
                     println("found move from field")
                     undoMoves.addAll(
