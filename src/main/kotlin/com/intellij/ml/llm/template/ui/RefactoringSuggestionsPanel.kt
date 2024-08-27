@@ -22,6 +22,7 @@ import com.intellij.openapi.editor.LogicalPosition
 import com.intellij.openapi.editor.ScrollType
 import com.intellij.openapi.keymap.KeymapUtil
 import com.intellij.openapi.project.Project
+import com.intellij.openapi.ui.ComboBox
 import com.intellij.openapi.ui.popup.JBPopup
 import com.intellij.openapi.util.TextRange
 import com.intellij.psi.PsiElement
@@ -30,6 +31,7 @@ import com.intellij.psi.PsiMethod
 import com.intellij.refactoring.extractMethod.newImpl.MethodExtractor
 import com.intellij.refactoring.ui.MethodSignatureComponent
 import com.intellij.ui.components.JBScrollPane
+import com.intellij.ui.components.Label
 import com.intellij.ui.dsl.builder.AlignX
 import com.intellij.ui.dsl.builder.panel
 import com.intellij.ui.table.JBTable
@@ -46,7 +48,10 @@ import java.awt.Dimension
 import java.awt.event.KeyEvent
 import java.awt.event.MouseEvent
 import java.util.concurrent.atomic.AtomicReference
+import javax.swing.JComboBox
 import javax.swing.JComponent
+import javax.swing.JLabel
+import javax.swing.JSlider
 import javax.swing.KeyStroke
 import javax.swing.ListSelectionModel
 import javax.swing.table.DefaultTableModel
@@ -76,6 +81,17 @@ open class RefactoringSuggestionsPanel(
     private val logger = Logger.getInstance("#com.intellij.ml.llm")
     var prevSelectedCandidateIndex = 0
     var completedIndices = mutableListOf<Int>()
+    val ratingOptions = arrayOf(
+        "No Rating",
+        "Very Unhelpful",
+        "Unhelpful",
+        "Somewhat Unhelpful",
+        "Somewhat Helpful",
+        "Helpful",
+        "Very Helpful"
+    )
+    val ratingsBox = ComboBox(ratingOptions)
+    private var resetRating: Boolean = false
 
     fun initTable(){
         val tableModel = buildTableModel(myCandidates)
@@ -83,7 +99,9 @@ open class RefactoringSuggestionsPanel(
         myMethodSignaturePreview = buildMethodSignaturePreview()
         myExtractFunctionsCandidateTable = buildRefactoringCandidatesTable(tableModel, candidateSignatureMap)
         myExtractFunctionsScrollPane = buildExtractFunctionScrollPane()
+
     }
+
 
     private fun buildCandidateSignatureMap(candidates: List<AbstractRefactoring>): Map<AbstractRefactoring, String> {
         val candidateSignatureMap: MutableMap<AbstractRefactoring, String> = mutableMapOf()
@@ -209,9 +227,18 @@ open class RefactoringSuggestionsPanel(
                     )
                 )
             }
+            row {
+                cell(ratingsBox).comment("Rate the suggestion!").onChanged { registerRating(myExtractFunctionsCandidateTable.selectedRow, ratingsBox.selectedItem as String) }
+            }
         }
         popupPanel.preferredFocusedComponent = myExtractFunctionsCandidateTable
         return popupPanel
+    }
+
+    private fun registerRating(selectedRow: Int, rating: String) {
+        println("Rating for $selectedRow = $rating")
+        if (!resetRating)
+            myCandidates[selectedRow].userRating = rating
     }
 
     fun setDelegatePopup(jbPopup: JBPopup) {
@@ -367,6 +394,13 @@ open class RefactoringSuggestionsPanel(
         val startLoc = getStartLoc(extractFuncationCandidateJBTable.selectedRow)
         myEditor.scrollingModel.scrollTo(LogicalPosition(startLoc, 0), ScrollType.CENTER)
 
+        // set rating value
+        if (::myExtractFunctionsCandidateTable.isInitialized) {
+            resetRating = true
+            val indexOf = ratingOptions.indexOf(myCandidates[myExtractFunctionsCandidateTable.selectedRow].userRating)
+            ratingsBox.selectedIndex = if(indexOf==-1) 0 else indexOf
+            resetRating = false
+        }
         // compute elapsed time
         notifyObservers(EFNotification(EFTelemetryDataElapsedTimeNotificationPayload(TelemetryDataAction.STOP, prevSelectedCandidateIndex)))
         notifyObservers(EFNotification(EFTelemetryDataElapsedTimeNotificationPayload(TelemetryDataAction.START, extractFuncationCandidateJBTable.selectedRow)))
