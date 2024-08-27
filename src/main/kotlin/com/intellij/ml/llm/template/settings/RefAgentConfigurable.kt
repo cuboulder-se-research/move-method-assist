@@ -32,9 +32,7 @@ class RefAgentConfigurable : BoundConfigurable(LLMBundle.message("settings.confi
                 )
             }
             row(LLMBundle.message("settings.configurable.openai.use.ollama.obj.creation")) {
-                val checkBox = checkBox("Yes")
-                    .bindSelected(settings::getUseLocalLLM, settings::setUseLocalLLM)
-                checkBox.component.isSelected = false
+                checkBox("Yes").bindSelected(settings::getUseLocalLLM, settings::setUseLocalLLM)
             }
         }
     }
