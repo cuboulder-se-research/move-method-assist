@@ -6,10 +6,7 @@ import com.intellij.openapi.options.BoundConfigurable
 import com.intellij.openapi.options.ShowSettingsUtil
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.DialogPanel
-import com.intellij.ui.dsl.builder.bindItem
-import com.intellij.ui.dsl.builder.bindSelected
-import com.intellij.ui.dsl.builder.bindText
-import com.intellij.ui.dsl.builder.panel
+import com.intellij.ui.dsl.builder.*
 
 class RefAgentConfigurable : BoundConfigurable(LLMBundle.message("settings.configurable.display.name")) {
     private val settings = service<RefAgentSettingsManager>()
@@ -21,11 +18,6 @@ class RefAgentConfigurable : BoundConfigurable(LLMBundle.message("settings.confi
                     settings::getOpenAiKey, settings::setOpenAiKey
                 )
                 browserLink("Sign up for API key", "https://platform.openai.com/signup")
-            }
-            row(LLMBundle.message("settings.configurable.openai.organization.label")) {
-                passwordField().bindText(
-                    settings::getOpenAiOrganization, settings::setOpenAiOrganization
-                )
             }
             row(LLMBundle.message("settings.configurable.openai.model.label")) {
                 comboBox(
@@ -40,8 +32,9 @@ class RefAgentConfigurable : BoundConfigurable(LLMBundle.message("settings.confi
                 )
             }
             row(LLMBundle.message("settings.configurable.openai.use.ollama.obj.creation")) {
-                checkBox("Yes")
+                val checkBox = checkBox("Yes")
                     .bindSelected(settings::getUseLocalLLM, settings::setUseLocalLLM)
+                checkBox.component.isSelected = false
             }
         }
     }
