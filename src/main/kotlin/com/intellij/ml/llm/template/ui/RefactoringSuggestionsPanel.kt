@@ -22,6 +22,7 @@ import com.intellij.openapi.editor.LogicalPosition
 import com.intellij.openapi.editor.ScrollType
 import com.intellij.openapi.keymap.KeymapUtil
 import com.intellij.openapi.project.Project
+import com.intellij.openapi.ui.ComboBox
 import com.intellij.openapi.ui.popup.JBPopup
 import com.intellij.openapi.util.TextRange
 import com.intellij.psi.PsiElement
@@ -47,6 +48,7 @@ import java.awt.Dimension
 import java.awt.event.KeyEvent
 import java.awt.event.MouseEvent
 import java.util.concurrent.atomic.AtomicReference
+import javax.swing.JComboBox
 import javax.swing.JComponent
 import javax.swing.JLabel
 import javax.swing.JSlider
@@ -79,7 +81,16 @@ open class RefactoringSuggestionsPanel(
     private val logger = Logger.getInstance("#com.intellij.ml.llm")
     var prevSelectedCandidateIndex = 0
     var completedIndices = mutableListOf<Int>()
-    val ratingSlider = JSlider(0, 5)
+    val ratingOptions = arrayOf(
+        "No Rating",
+        "Very Unhelpful",
+        "Unhelpful",
+        "Somewhat Unhelpful",
+        "Somewhat Helpful",
+        "Helpful",
+        "Very Helpful"
+    )
+    val ratingsBox = ComboBox(ratingOptions)
     private var resetRating: Boolean = false
 
     fun initTable(){
@@ -88,20 +99,9 @@ open class RefactoringSuggestionsPanel(
         myMethodSignaturePreview = buildMethodSignaturePreview()
         myExtractFunctionsCandidateTable = buildRefactoringCandidatesTable(tableModel, candidateSignatureMap)
         myExtractFunctionsScrollPane = buildExtractFunctionScrollPane()
-        setupRatingSlider()
 
     }
 
-    private fun setupRatingSlider() {
-        ratingSlider.value = 0
-        ratingSlider.majorTickSpacing = 1
-        ratingSlider.minorTickSpacing = 1
-        ratingSlider.addChangeListener { registerRating(myExtractFunctionsCandidateTable.selectedRow, ratingSlider.value) }
-        ratingSlider.createStandardLabels(1)
-        ratingSlider.paintLabels = true
-        ratingSlider.paintTicks = true
-        ratingSlider.labelTable.put(0, JLabel("none"))
-    }
 
     private fun buildCandidateSignatureMap(candidates: List<AbstractRefactoring>): Map<AbstractRefactoring, String> {
         val candidateSignatureMap: MutableMap<AbstractRefactoring, String> = mutableMapOf()
@@ -228,21 +228,14 @@ open class RefactoringSuggestionsPanel(
                 )
             }
             row {
-//                componentWithCommentAtBottom(ratingSlider, "Rate the suggestion on a scale of 1-5")
-                cell(ratingSlider).comment("Rate the suggestion on a scale of 1-5")
-//                val slider = slider(0, 5, 1, 1)
-//                    .comment("Rate the suggestion on a scale of 1-5")
-//                    .component
-//                slider.value = 0
-//                slider.addChangeListener { registerRating(myExtractFunctionsCandidateTable.selectedRow, slider.value) }
-//                    .onChangedContext { component, context -> registerRating(myExtractFunctionsCandidateTable.selectedRow, component.value) }
+                cell(ratingsBox).comment("Rate the suggestion!").onChanged { registerRating(myExtractFunctionsCandidateTable.selectedRow, ratingsBox.selectedItem as String) }
             }
         }
         popupPanel.preferredFocusedComponent = myExtractFunctionsCandidateTable
         return popupPanel
     }
 
-    private fun registerRating(selectedRow: Int, rating: Int) {
+    private fun registerRating(selectedRow: Int, rating: String) {
         println("Rating for $selectedRow = $rating")
         if (!resetRating)
             myCandidates[selectedRow].userRating = rating
@@ -404,7 +397,8 @@ open class RefactoringSuggestionsPanel(
         // set rating value
         if (::myExtractFunctionsCandidateTable.isInitialized) {
             resetRating = true
-            ratingSlider.value = myCandidates[myExtractFunctionsCandidateTable.selectedRow].userRating ?: 0
+            val indexOf = ratingOptions.indexOf(myCandidates[myExtractFunctionsCandidateTable.selectedRow].userRating)
+            ratingsBox.selectedIndex = if(indexOf==-1) 0 else indexOf
             resetRating = false
         }
         // compute elapsed time

@@ -89,7 +89,7 @@ data class RefCandidateTelemetryData(
     var undone: Boolean?=null,
 
     @SerializedName("userRating")
-    var rating: Int? = null
+    var rating: String? = null
 
 )
 

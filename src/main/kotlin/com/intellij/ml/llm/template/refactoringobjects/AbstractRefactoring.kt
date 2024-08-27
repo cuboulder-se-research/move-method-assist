@@ -21,7 +21,7 @@ abstract class AbstractRefactoring{
     var isValid: Boolean? = null
     var undone: Boolean = false
     var reverseRefactoring: AbstractRefactoring? = null
-    var userRating: Int? = null
+    var userRating: String? = null
 
 //    companion object{
 //        internal fun f(): Int{
