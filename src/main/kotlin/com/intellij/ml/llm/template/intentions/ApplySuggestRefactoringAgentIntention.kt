@@ -21,10 +21,12 @@ import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.editor.LogicalPosition
 import com.intellij.openapi.editor.ScrollType
 import com.intellij.openapi.project.Project
+import com.intellij.openapi.ui.popup.IconButton
 import com.intellij.openapi.ui.popup.JBPopupFactory
 import com.intellij.openapi.ui.popup.JBPopupListener
 import com.intellij.openapi.ui.popup.LightweightWindowEvent
 import com.intellij.openapi.util.TextRange
+import com.intellij.openapi.wm.impl.customFrameDecorations.style.StyleProperty
 import com.intellij.psi.PsiFile
 import com.intellij.ui.awt.RelativePoint
 import dev.langchain4j.data.message.ChatMessage
@@ -38,6 +40,8 @@ import org.jetbrains.kotlin.util.capitalizeDecapitalize.toLowerCaseAsciiOnly
 import java.awt.Point
 import java.awt.Rectangle
 import java.util.concurrent.atomic.AtomicReference
+import javax.swing.Icon
+import javax.swing.JButton
 import kotlin.math.log
 
 
@@ -232,6 +236,10 @@ open class ApplySuggestRefactoringAgentIntention(
         candidates: List<AbstractRefactoring>,
         codeTransformer: CodeTransformer
     ) {
+        if (candidates.isEmpty()){
+            log2fileAndViewer("No refactorings executed.", logger)
+            return
+        }
         val highlighter = AtomicReference(ScopeHighlighter(editor))
         val efPanel = CompletedRefactoringsPanel(
             project = project,
@@ -254,7 +262,9 @@ open class ApplySuggestRefactoringAgentIntention(
                 .setRequestFocus(true)
                 .setTitle(LLMBundle.message("ef.candidates.completed.popup.title"))
                 .setResizable(true)
-                .setMovable(true).createPopup()
+                .setMovable(true)
+                .setCancelOnClickOutside(false)
+                .createPopup()
 
         // Add onClosed listener
         efPopup.addListener(object : JBPopupListener {
