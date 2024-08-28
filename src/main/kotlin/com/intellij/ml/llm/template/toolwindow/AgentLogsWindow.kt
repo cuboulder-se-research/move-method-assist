@@ -15,7 +15,7 @@ class AgentLogsWindow: ToolWindowFactory {
         val content =
             ContentFactory.getInstance().createContent(logViewer, "", false)
         toolWindow.contentManager.addContent(content)
-        logViewer.appendLog("Refactoring Agent Logs!")
+        logViewer.appendLog("Refactoring Assistant Logs!")
     }
 
 }

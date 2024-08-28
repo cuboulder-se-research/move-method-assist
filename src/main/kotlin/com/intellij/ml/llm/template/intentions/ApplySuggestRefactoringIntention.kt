@@ -183,13 +183,19 @@ fun getPromptAndRunBackgroundable(text: String, project: Project, editor: Editor
 
     protected fun logLLMResponse(improvementsList: List<AtomicSuggestion>, useDelays: Boolean) {
         for (atomicSuggestion in improvementsList.withIndex()) {
-            logViewer.appendLog("${atomicSuggestion.index + 1}: ${atomicSuggestion.value.shortDescription}")
-            logger.info("${atomicSuggestion.index + 1}: ${atomicSuggestion.value.shortDescription}")
-            logViewer.appendLog("Suggestion: ${atomicSuggestion.value.longDescription}".prependIndent("    "))
-            logger.info("Suggestion: ${atomicSuggestion.value.longDescription}".prependIndent("    "))
+            log2fileAndViewer("${atomicSuggestion.index + 1}: ${atomicSuggestion.value.shortDescription}", logger)
+            log2fileAndViewer("Suggestion: ${atomicSuggestion.value.longDescription}".prependIndent("    "), logger)
             logger.info("\n")
             if (useDelays)
                 Thread.sleep(3000)
+        }
+    }
+
+    companion object {
+        @JvmStatic
+        protected fun log2fileAndViewer(logMessage: String, logger: Logger){
+            logViewer.appendLog(logMessage)
+            logger.info(logMessage)
         }
     }
 }

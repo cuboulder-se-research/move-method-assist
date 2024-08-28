@@ -9,7 +9,7 @@
     <depends>org.jetbrains.kotlin</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <toolWindow factoryClass="com.intellij.ml.llm.template.toolwindow.AgentLogsWindow" id="RefactoringAgent Logs" anchor="right">
+        <toolWindow factoryClass="com.intellij.ml.llm.template.toolwindow.AgentLogsWindow" id="Refactoring Assistant Logs" anchor="right">
 
         </toolWindow>
         

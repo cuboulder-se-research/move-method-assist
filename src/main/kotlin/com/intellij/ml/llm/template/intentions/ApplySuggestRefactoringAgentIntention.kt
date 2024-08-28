@@ -38,6 +38,7 @@ import org.jetbrains.kotlin.util.capitalizeDecapitalize.toLowerCaseAsciiOnly
 import java.awt.Point
 import java.awt.Rectangle
 import java.util.concurrent.atomic.AtomicReference
+import kotlin.math.log
 
 
 @Suppress("UnstableApiUsage")
@@ -48,7 +49,6 @@ open class ApplySuggestRefactoringAgentIntention(
     val refactoringLimit: Int = 10
     private var MAX_ITERS: Int = RefAgentSettingsManager.getInstance().getNumberOfIterations()
     private val performedRefactorings = mutableListOf<AbstractRefactoring>()
-    private val refactoringsPerIteration = mutableMapOf<Int, List<AbstractRefactoring>>()
     private val logger = Logger.getInstance(ApplySuggestRefactoringAgentIntention::class.java)
     private val telemetryIds = mutableListOf<String>()
 
@@ -86,10 +86,8 @@ open class ApplySuggestRefactoringAgentIntention(
         for (iter in 1..MAX_ITERS) {
             setTelemetryData(editor, file)
             val now = System.nanoTime()
-            logViewer.appendLog(AGENT_HEADER)
-            logger.info(AGENT_HEADER)
-            logViewer.appendLog("Asking for refactoring suggestions! ($iter/$MAX_ITERS)")
-            logger.info("Asking for refactoring suggestions! ($iter/$MAX_ITERS)")
+            log2fileAndViewer(ASSISTANT_HEADER, logger)
+            log2fileAndViewer("Asking for refactoring suggestions! ($iter/$MAX_ITERS)", logger)
 
             if (iter != 1)
                 setFunctionSrc(editor)
@@ -159,28 +157,14 @@ open class ApplySuggestRefactoringAgentIntention(
         if (useDelays)
             Thread.sleep(2000)
         val filteredSuggestions = filterSuggestions(response, refactoringLimit, validator) ?: return
-        //        val efSuggestionList = validator.getExtractMethodSuggestions(llmResponse.text)
-//        val renameSuggestions = validator.getRenamveVariableSuggestions(llmResponse.text)
-        logViewer.appendLog(AGENT_HEADER)
-        logger.info(AGENT_HEADER)
-        logViewer.appendLog("Processing LLM Recommendations...")
-        logger.info("Processing LLM Recommendations...")
+        log2fileAndViewer(ASSISTANT_HEADER, logger)
+        log2fileAndViewer("Processing LLM Recommendations...", logger)
         logger.info("\n")
         val refactoringCandidates: List<AbstractRefactoring> =
             runBlocking {
                 validator.buildObjectsFromImprovementsList(filteredSuggestions)
             }
-//        val refactoringCandidates: List<AbstractRefactoring> = runBlocking {
-//                validator.getRefactoringSuggestions(llmResponse.text)
-//        }
-
-//        val candidates = EFCandidateFactory().buildCandidates(efSuggestionList.suggestionList, editor, file).toList()
         if (refactoringCandidates.isEmpty()) {
-//            showEFNotification(
-//                project,
-//                LLMBundle.message("notification.extract.function.with.llm.no.suggestions.message"),
-//                NotificationType.INFORMATION
-//            )
             telemetryDataManager.addCandidatesTelemetryData(buildCandidatesTelemetryData(0, emptyList()))
             telemetryDataManager.setRefactoringObjects(emptyList())
             buildProcessingTimeTelemetryData(llmResponseTime, System.nanoTime() - now)
@@ -203,21 +187,10 @@ open class ApplySuggestRefactoringAgentIntention(
 
             logger.info("\n")
             if (validRefactoringCandidates.isEmpty()) {
-//                showEFNotification(
-//                    project,
-//                    LLMBundle.message("notification.extract.function.with.llm.no.extractable.candidates.message"),
-//                    NotificationType.INFORMATION
-//                )
-                logger.info("No valid refactoring objects created.")
-                logViewer.appendLog("No valid refactoring objects created.")
+                log2fileAndViewer("No valid refactoring objects created.", logger)
                 sendTelemetryData()
             } else {
-//                refactoringObjectsCache.get(functionSrc)?:refactoringObjectsCache.put(functionSrc, validRefactoringCandidates)
-//                showRefactoringOptionsPopup(
-//                    project, editor, file, validRefactoringCandidates, codeTransformer,
-//                )
-                logger.info("Performing Refactoring Actions:")
-                logViewer.appendLog("Performing Refactoring Actions:")
+                log2fileAndViewer("Performing Refactoring Actions:", logger)
                 runBlocking { executeRefactorings(validRefactoringCandidates, project, editor, file) }
 
             }
@@ -228,14 +201,12 @@ open class ApplySuggestRefactoringAgentIntention(
     private fun filterSuggestions(response: LLMBaseResponse,
                                   limit: Int,
                                   validator: AbstractRefactoringValidator): List<AtomicSuggestion>? {
-        logger.info(LLM_HEADER)
-        logViewer.appendLog(LLM_HEADER)
+        log2fileAndViewer(LLM_HEADER, logger)
         val suggestions = response.getSuggestions()
 
 
         if (suggestions.isNotEmpty()){
             val suggestion = suggestions[0]
-//            logger.info(suggestion.)
             val improvements = AbstractRefactoringValidator.getRawSuggestions(suggestion.text)?.improvements?: return emptyList()
             val realLimit = if(improvements.size > limit){
                 limit
@@ -345,8 +316,7 @@ open class ApplySuggestRefactoringAgentIntention(
 
                     editor.selectionModel.setSelection(refCandidate.getStartOffset(), refCandidate.getStartOffset())
                 }
-                logger.info("$count. Executing refactoring: ${refCandidate.getRefactoringPreview()}".prependIndent("     "))
-                logViewer.appendLog("$count. Executing refactoring: ${refCandidate.getRefactoringPreview()}".prependIndent("     "))
+                log2fileAndViewer("$count. Executing refactoring: ${refCandidate.getRefactoringPreview()}".prependIndent("     "), logger)
                 if (useDelays)
                     delay(3_000)
                 invokeLater {
@@ -372,8 +342,9 @@ open class ApplySuggestRefactoringAgentIntention(
     }
 
     companion object {
-        private const val AGENT_HEADER = "\n\n************************** Refactoring AGENT **************************"
+        private const val ASSISTANT_HEADER = "\n\n************************** Refactoring Assistant **************************"
         private const val LLM_HEADER = "\n\n******************************** LLM ********************************"
+
     }
 }
 
