@@ -1,6 +1,6 @@
 <idea-plugin package="com.intellij.ml.llm.template">
     <id>com.intellij.ml.llm.template</id>
-    <name>LLM Extract Function</name>
+    <name>LLM Based Refactoring Assistant</name>
     <vendor>JetBrains</vendor>
 
     <depends>com.intellij.modules.platform</depends>
@@ -9,6 +9,10 @@
     <depends>org.jetbrains.kotlin</depends>
 
     <extensions defaultExtensionNs="com.intellij">
+        <toolWindow factoryClass="com.intellij.ml.llm.template.toolwindow.AgentLogsWindow" id="Refactoring Assistant Logs" anchor="right">
+
+        </toolWindow>
+        
         <applicationConfigurable
                 groupId="tools"
                 instance="com.intellij.ml.llm.template.settings.RefAgentConfigurable"
@@ -28,18 +32,18 @@
             <bundleName>messages.LLMBundle</bundleName>
             <categoryKey>intention.category.suggest.refactoring</categoryKey>
         </intentionAction>
-        <intentionAction>
-            <language>JAVA</language>
-            <className>com.intellij.ml.llm.template.intentions.ApplySuggestRefactoringOnCommitIntention</className>
-            <bundleName>messages.LLMBundle</bundleName>
-            <categoryKey>intention.category.suggest.refactoring</categoryKey>
-        </intentionAction>
-        <intentionAction>
-            <language>JAVA</language>
-            <className>com.intellij.ml.llm.template.intentions.ApplySuggestRefactoringInteractiveIntention</className>
-            <bundleName>messages.LLMBundle</bundleName>
-            <categoryKey>intention.category.suggest.refactoring</categoryKey>
-        </intentionAction>
+<!--        <intentionAction>-->
+<!--            <language>JAVA</language>-->
+<!--            <className>com.intellij.ml.llm.template.intentions.ApplySuggestRefactoringOnCommitIntention</className>-->
+<!--            <bundleName>messages.LLMBundle</bundleName>-->
+<!--            <categoryKey>intention.category.suggest.refactoring</categoryKey>-->
+<!--        </intentionAction>-->
+<!--        <intentionAction>-->
+<!--            <language>JAVA</language>-->
+<!--            <className>com.intellij.ml.llm.template.intentions.ApplySuggestRefactoringInteractiveIntention</className>-->
+<!--            <bundleName>messages.LLMBundle</bundleName>-->
+<!--            <categoryKey>intention.category.suggest.refactoring</categoryKey>-->
+<!--        </intentionAction>-->
 
         <registryKey defaultValue="false"
                      description="If enabled, emulates requests instead of using OpenAI API. Used for debug purposes."

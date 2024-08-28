@@ -148,7 +148,7 @@ class RefAgentSettings : BaseState() {
     var aiModel = "grazie"
 
     @get:OptionTag("use_local_llm")
-    var useOllamaToCreateObj = true
+    var useOllamaToCreateObj = false
 
     @get:OptionTag("open_ai")
     var llmSettings by property(LLMSettings()) { it == LLMSettings() }

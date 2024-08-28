@@ -10,6 +10,7 @@ import com.intellij.ml.llm.template.settings.RefAgentSettingsManager
 import com.intellij.ml.llm.template.showEFNotification
 import com.intellij.ml.llm.template.suggestrefactoring.AtomicSuggestion
 import com.intellij.ml.llm.template.telemetry.*
+import com.intellij.ml.llm.template.toolwindow.logViewer
 import com.intellij.ml.llm.template.utils.*
 import com.intellij.notification.NotificationType
 import com.intellij.openapi.application.invokeLater
@@ -182,11 +183,19 @@ fun getPromptAndRunBackgroundable(text: String, project: Project, editor: Editor
 
     protected fun logLLMResponse(improvementsList: List<AtomicSuggestion>, useDelays: Boolean) {
         for (atomicSuggestion in improvementsList.withIndex()) {
-            logger.info("${atomicSuggestion.index + 1}: ${atomicSuggestion.value.shortDescription}")
-            logger.info("Suggestion: ${atomicSuggestion.value.longDescription}".prependIndent("    "))
+            log2fileAndViewer("${atomicSuggestion.index + 1}: ${atomicSuggestion.value.shortDescription}", logger)
+            log2fileAndViewer("Suggestion: ${atomicSuggestion.value.longDescription}".prependIndent("    "), logger)
             logger.info("\n")
             if (useDelays)
                 Thread.sleep(3000)
+        }
+    }
+
+    companion object {
+        @JvmStatic
+        protected fun log2fileAndViewer(logMessage: String, logger: Logger){
+            logViewer.appendLog(logMessage)
+            logger.info(logMessage)
         }
     }
 }

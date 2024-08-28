@@ -16,14 +16,15 @@ import ai.grazie.utils.attributes.Attributes
 import com.intellij.ml.llm.template.models.LLMBaseRequest
 import com.intellij.ml.llm.template.models.LLMBaseResponse
 import com.intellij.ml.llm.template.models.openai.OpenAiChatRequestBody
+import com.intellij.ml.llm.template.settings.RefAgentSettingsManager
 import com.intellij.openapi.diagnostic.Logger
 import kotlinx.coroutines.runBlocking
 
 class GrazieBaseRequest(body: OpenAiChatRequestBody) : LLMBaseRequest<OpenAiChatRequestBody>(body)  {
 
     private val logger = Logger.getInstance(javaClass)
-    private val url = "https://api.app.stgn.grazie.aws.intellij.net"
-    private val grazieToken = System.getenv("GRAZIE_JWT_TOKEN")
+    private val url = "https://api.app.prod.grazie.aws.intellij.net"
+    private val grazieToken = RefAgentSettingsManager.getInstance().getOpenAiKey()
     private val authData = AuthData(
         token = grazieToken,
         originalUserToken = null,
