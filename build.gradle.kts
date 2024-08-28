@@ -68,7 +68,7 @@ tasks {
     }
 
     buildPlugin {
-            archiveFileName.set("refactoring-agent-plugin.zip")
+            archiveFileName.set("refactoring-assistant-plugin.zip")
     }
 
     patchPluginXml {
