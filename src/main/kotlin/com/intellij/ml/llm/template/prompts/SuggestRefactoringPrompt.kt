@@ -8,19 +8,9 @@ import dev.langchain4j.data.message.UserMessage
 class SuggestRefactoringPrompt: MethodPromptBase() {
 
     companion object{
-        val systemMessageText = "You are an expert programmer performing refactoring operations."
-        val suggestionAskText = """Please provide suggestions to improve the following Java method/class. 
-                    Only provide suggestions that are: 
-                    1. Extract Method. 
-                    2. Rename Variable 
-                    3. Use Enhanced For Loop
-                    4. Convert For Loop to While Loop
-                    5. Convert For loop to use Java Streams 
-                    6. Use Enhanced Switch Statement
-                    7. Convert If Statement to Switch Statement (and vice versa)
-                    8. Convert If Statement to Ternary Operator (and vice versa)
-                    9. Use String Builder
-                    10. Move Method"""
+        const val systemMessageText = "You are an expert programmer performing refactoring operations."
+        const val suggestionAskText = """Please provide suggestions to improve the following Java method/class. 
+                    Only provide suggestions that are: Move Method"""
     }
 
 
