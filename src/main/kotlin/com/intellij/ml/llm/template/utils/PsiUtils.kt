@@ -3,6 +3,10 @@ package com.intellij.ml.llm.template.utils
 import com.intellij.lang.Language
 import com.intellij.lang.java.JavaLanguage
 import com.intellij.openapi.editor.Editor
+import com.intellij.openapi.progress.ModalTaskOwner.project
+import com.intellij.openapi.project.Project
+import com.intellij.openapi.util.NlsSafe
+import com.intellij.patterns.PsiJavaPatterns.psiClass
 import com.intellij.psi.*
 import com.intellij.psi.impl.source.PsiClassReferenceType
 import com.intellij.psi.util.PsiTreeUtil
@@ -10,8 +14,10 @@ import com.intellij.psi.util.PsiUtilBase
 import com.intellij.psi.util.childrenOfType
 import org.jetbrains.kotlin.idea.KotlinLanguage
 import org.jetbrains.kotlin.idea.base.psi.getLineNumber
+import org.jetbrains.kotlin.idea.base.util.projectScope
 import org.jetbrains.kotlin.psi.*
 import org.jetbrains.kotlin.psi.psiUtil.startOffset
+
 
 class PsiUtils {
     companion object {
@@ -289,6 +295,44 @@ class PsiUtils {
 
             outerPsiElement.accept(ElementFinder())
             return match
+        }
+
+        fun fetchClassesInPackage(containingClass: PsiClass, project: Project): List<PsiClass> {
+            val javaFile = containingClass.containingFile as PsiJavaFile
+            val psiPackage = JavaPsiFacade.getInstance(project)
+                .findPackage(javaFile.packageName)
+            if (psiPackage != null) {
+                return psiPackage.classes.toList()
+            }
+            return emptyList()
+        }
+
+        fun fetchImportsInFile(file: PsiFile, project: Project): List<PsiClass> {
+            return file.childrenOfType<PsiImportStatement>()
+                .map {
+                    if (it.qualifiedName==null) return@map null
+                    if (isInProject(it.qualifiedName!!, project)){
+                        return@map findClassFromQualifier(it.qualifiedName!!, project)
+                    }
+                    null
+                }.filterNotNull()
+        }
+
+        fun findClassFromQualifier(canonicalType: @NlsSafe String, project: Project): PsiClass? {
+            return JavaPsiFacade.getInstance(project)
+                .findClass(canonicalType, project.projectScope())
+        }
+
+        fun isInProject(qualifier: @NlsSafe String, project: Project): Boolean {
+            return JavaPsiFacade.getInstance(project)
+                .findClass(qualifier, project.projectScope())!=null
+        }
+
+        fun computeCosineSimilarity(psiMethod: PsiMethod, psiClass: PsiClass): Double {
+            val methodBody = psiMethod.text
+            val classBody = psiClass.text
+            // TODO: compute cosine similarity between the two strings.
+            return 1.0
         }
 
     }
