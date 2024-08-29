@@ -2,6 +2,7 @@ package com.intellij.ml.llm.template.utils
 
 import com.intellij.lang.Language
 import com.intellij.lang.java.JavaLanguage
+import com.intellij.openapi.application.runReadAction
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.progress.ModalTaskOwner.project
 import com.intellij.openapi.project.Project
@@ -17,6 +18,7 @@ import org.jetbrains.kotlin.idea.base.psi.getLineNumber
 import org.jetbrains.kotlin.idea.base.util.projectScope
 import org.jetbrains.kotlin.psi.*
 import org.jetbrains.kotlin.psi.psiUtil.startOffset
+import kotlin.math.sqrt
 
 
 class PsiUtils {
@@ -302,7 +304,7 @@ class PsiUtils {
             val psiPackage = JavaPsiFacade.getInstance(project)
                 .findPackage(javaFile.packageName)
             if (psiPackage != null) {
-                return psiPackage.classes.toList()
+                return runReadAction{ psiPackage.classes.toList() }
             }
             return emptyList()
         }
@@ -331,9 +333,47 @@ class PsiUtils {
         fun computeCosineSimilarity(psiMethod: PsiMethod, psiClass: PsiClass): Double {
             val methodBody = psiMethod.text
             val classBody = psiClass.text
+
             // TODO: compute cosine similarity between the two strings.
-            return 1.0
+            return computeCosineSimilarity(methodBody, classBody)
         }
+
+        private fun tokenize(text: String): List<String> {
+            return text.split("\\s+".toRegex()).map { it.toLowerCase() }
+        }
+
+        private fun termFrequency(tokens: List<String>): Map<String, Int> {
+            return tokens.groupingBy { it }.eachCount()
+        }
+
+        private fun vectorize(termFreq: Map<String, Int>, vocabulary: Set<String>): List<Double> {
+            return vocabulary.map { termFreq[it]?.toDouble() ?: 0.0 }
+        }
+
+        private fun cosineSimilarity(vectorA: List<Double>, vectorB: List<Double>): Double {
+            val dotProduct = vectorA.zip(vectorB).sumOf { it.first * it.second }
+            val magnitudeA = sqrt(vectorA.sumOf { it * it })
+            val magnitudeB = sqrt(vectorB.sumOf { it * it })
+
+            return if (magnitudeA != 0.0 && magnitudeB != 0.0) {
+                dotProduct / (magnitudeA * magnitudeB)
+            } else {
+                0.0
+            }
+        }
+
+        fun computeCosineSimilarity(textA: String, textB: String): Double {
+            val tokensA = tokenize(textA)
+            val tokensB = tokenize(textB)
+
+            val vocabulary = (tokensA + tokensB).toSet()
+
+            val vectorA = vectorize(termFrequency(tokensA), vocabulary)
+            val vectorB = vectorize(termFrequency(tokensB), vocabulary)
+
+            return cosineSimilarity(vectorA, vectorB)
+        }
+
 
     }
 

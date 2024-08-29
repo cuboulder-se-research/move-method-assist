@@ -54,7 +54,9 @@ class MoveMethodFactory {
         ): List<AbstractRefactoring> {
 
             val targetPivots = getPotentialMovePivots(project, editor, file, methodToMove)
-            val targetPivotsSorted = targetPivots.sortedByDescending { PsiUtils.computeCosineSimilarity(methodToMove, it.psiClass)  }
+            val targetPivotsSorted = targetPivots
+                .filter { methodToMove.containingClass?.qualifiedName!=it.psiClass.qualifiedName }
+                .sortedByDescending { PsiUtils.computeCosineSimilarity(methodToMove, it.psiClass)  }
 
             if (PsiUtils.isMethodStatic(methodToMove)){
                 return targetPivotsSorted.map {
