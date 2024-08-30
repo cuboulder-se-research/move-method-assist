@@ -1,20 +1,24 @@
 package com.intellij.ml.llm.template.refactoringobjects.movemethod
 
+import com.google.gson.JsonArray
+import com.google.gson.JsonParser
+import com.intellij.ml.llm.template.models.LLMBaseResponse
+import com.intellij.ml.llm.template.models.sendChatRequest
+import com.intellij.ml.llm.template.prompts.MoveMethodRefactoringPrompt
+import com.intellij.ml.llm.template.prompts.SuggestRefactoringPrompt
 import com.intellij.ml.llm.template.refactoringobjects.AbstractRefactoring
 import com.intellij.ml.llm.template.refactoringobjects.MyRefactoringFactory
-import com.intellij.ml.llm.template.refactoringobjects.UncreatableRefactoring
-import com.intellij.ml.llm.template.utils.CodeBertScore.Companion.computeCodeBertScore
 import com.intellij.ml.llm.template.utils.PsiUtils
 import com.intellij.openapi.application.runReadAction
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
 import com.intellij.psi.*
 import com.intellij.psi.search.GlobalSearchScope
-import com.intellij.psi.util.MethodSignature
 import com.intellij.refactoring.move.MoveInstanceMembersUtil
 import com.intellij.refactoring.move.moveInstanceMethod.MoveInstanceMethodProcessor
 import com.intellij.refactoring.openapi.impl.JavaRefactoringFactoryImpl
 import com.intellij.refactoring.suggested.startOffset
+import dev.langchain4j.model.chat.ChatLanguageModel
 import org.jetbrains.kotlin.idea.editor.fixers.endLine
 import org.jetbrains.kotlin.idea.editor.fixers.startLine
 import org.jetbrains.kotlin.psi.psiUtil.endOffset
@@ -25,6 +29,11 @@ class MoveMethodFactory {
 
     data class MovePivot(val psiClass: PsiClass, val psiElement: PsiElement?)
     companion object: MyRefactoringFactory{
+
+        const val TOPN_SUGGESTIONS4USER = 1
+        const val TOPN_SUGGESTIONS4LLM = 5
+        val llmResponseCache = mutableMapOf<String, LLMBaseResponse>()
+
         override fun createObjectsFromFuncCall(
             funcCall: String,
             project: Project,
@@ -36,33 +45,47 @@ class MoveMethodFactory {
             val methodName = getStringFromParam(params[0])
             val targetVariable = getStringFromParam(params[1])
 
-            val outerClass: PsiElement? =
-                runReadAction {
-                    PsiUtils.getParentClassOrNull(editor, language = file.language)?:
-                    file.getChildOfType<PsiClass>()
-                }
-            val methodToMove = runReadAction {  PsiUtils.getMethodNameFromClass(outerClass, methodName) } ?: return listOf()
-//            val psiTargetVariable =
-//                runReadAction { PsiUtils.getVariableFromPsi(methodToMove, targetVariable) }
-//                    ?: return runReadAction { tryMoveToClass(methodToMove, targetVariable, project, editor, file)}
-            return createMoveMethodRefactorings(project, methodToMove, editor, file)
+            return createMoveMethodFromName(editor, file, methodName, project)
         }
 
+        fun createMoveMethodFromName(
+            editor: Editor,
+            file: PsiFile,
+            methodName: String,
+            project: Project,
+            llmChatModel: ChatLanguageModel? = null
+        ): List<AbstractRefactoring> {
+            val outerClass: PsiElement? =
+                runReadAction {
+                    PsiUtils.getParentClassOrNull(editor, language = file.language) ?: file.getChildOfType<PsiClass>()
+                }
+            val methodToMove =
+                runReadAction { PsiUtils.getMethodNameFromClass(outerClass, methodName) } ?: return listOf()
+
+            return createMoveMethodRefactorings(project, methodToMove, editor, file, llmChatModel)
+        }
 
         private fun createMoveMethodRefactorings(
             project: Project,
             methodToMove: PsiMethod,
             editor: Editor,
-            file: PsiFile
+            file: PsiFile,
+            llmChatModel: ChatLanguageModel?
         ): List<AbstractRefactoring> {
 
             val targetPivots = getPotentialMovePivots(project, editor, file, methodToMove)
             val targetPivotsSorted = targetPivots
                 .filter { methodToMove.containingClass?.qualifiedName!=it.psiClass.qualifiedName }
-                .sortedByDescending { computeCodeBertScore(methodToMove, it.psiClass)  }
+                .sortedByDescending { PsiUtils.computeCosineSimilarity(methodToMove, it.psiClass)  }
+
+            val pivotsSortedByLLM =
+                if (llmChatModel!=null)
+                    rerankByLLM(targetPivotsSorted, methodToMove, methodToMove.containingClass, project, llmChatModel)?: targetPivotsSorted
+                else
+                    targetPivotsSorted
 
             if (PsiUtils.isMethodStatic(methodToMove)){
-                return targetPivotsSorted.map {
+                return pivotsSortedByLLM.map {
                     it.psiClass.qualifiedName?.let { it1 ->
                         MyMoveStaticMethodRefactoring(
                             methodToMove.startLine(editor.document),
@@ -73,7 +96,7 @@ class MoveMethodFactory {
                 }.filterNotNull().subList(0, 3)
             }
 
-            return targetPivotsSorted
+            return pivotsSortedByLLM
                 .map {
                     if (it.psiElement!=null) {
                         val processor = runReadAction {
@@ -99,6 +122,30 @@ class MoveMethodFactory {
                 }
                 .filterNotNull()
                 .subList(0, 3) // choose top-3 moves
+        }
+
+        private fun rerankByLLM(
+            targetPivotsSorted: List<MovePivot>,
+            methodToMove: PsiMethod,
+            containingClass: PsiClass?,
+            project: Project,
+            llmChatModel: ChatLanguageModel
+        ) : List<MovePivot>?{
+
+            val response =
+                llmResponseCache[methodToMove.text]?:
+                sendChatRequest(project, MoveMethodRefactoringPrompt().askForTargetClassPriorityPrompt(methodToMove.text, targetPivotsSorted), llmChatModel)
+            if (response!=null){
+                llmResponseCache[methodToMove.text]?: llmResponseCache.put(methodToMove.text, response)
+                try {
+                    val priorityOrder = (JsonParser.parseString(response.getSuggestions()[0].text) as JsonArray)
+                        .map { it.asString }
+                    return targetPivotsSorted.sortedBy { priorityOrder.indexOf(it.psiClass.name) }
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                }
+            }
+            return null
         }
 
         private fun getPotentialMovePivots(project: Project, editor: Editor, file: PsiFile, methodToMove: PsiMethod): List<MovePivot> {

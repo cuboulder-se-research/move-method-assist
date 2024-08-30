@@ -28,7 +28,7 @@
 
         <!--suppress PluginXmlExtensionRegistration -->
         <intentionAction>
-            <className>com.intellij.ml.llm.template.intentions.ApplySuggestRefactoringAgentIntention</className>
+            <className>com.intellij.ml.llm.template.intentions.ApplyMoveMethodInteractiveIntention</className>
             <bundleName>messages.LLMBundle</bundleName>
             <categoryKey>intention.category.suggest.refactoring</categoryKey>
         </intentionAction>

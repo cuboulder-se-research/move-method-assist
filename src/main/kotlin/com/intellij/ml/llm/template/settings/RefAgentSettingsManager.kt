@@ -171,7 +171,7 @@ class LLMSettings : BaseState() {
     var numberOfSamples by property(1)
 
     @get:OptionTag("number_of_iterations")
-    var numberOfIterations by property(2)
+    var numberOfIterations by property(3)
 
     @get:OptionTag("max_tokens")
     var maxTokens by property(64)

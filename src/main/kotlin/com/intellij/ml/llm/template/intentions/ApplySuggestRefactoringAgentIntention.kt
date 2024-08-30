@@ -47,7 +47,7 @@ import kotlin.math.log
 
 @Suppress("UnstableApiUsage")
 open class ApplySuggestRefactoringAgentIntention(
-    private var llmChatModel: ChatLanguageModel = RefAgentSettingsManager.getInstance().createAndGetAiModel()!!,
+    override var llmChatModel: ChatLanguageModel = RefAgentSettingsManager.getInstance().createAndGetAiModel()!!,
     private val useDelays: Boolean = true
 ) : ApplySuggestRefactoringIntention(llmChatModel) {
     val refactoringLimit: Int = 10

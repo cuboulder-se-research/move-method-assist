@@ -32,7 +32,7 @@ import java.util.concurrent.TimeUnit
 
 @Suppress("UnstableApiUsage")
 abstract class ApplySuggestRefactoringIntention(
-    private var llmChatModel: ChatLanguageModel = RefAgentSettingsManager.getInstance().createAndGetAiModel()!!,
+    open var llmChatModel: ChatLanguageModel = RefAgentSettingsManager.getInstance().createAndGetAiModel()!!,
 ) : IntentionAction {
     private val logger = Logger.getInstance("#com.intellij.ml.llm")
     val codeTransformer = CodeTransformer()
@@ -44,7 +44,7 @@ abstract class ApplySuggestRefactoringIntention(
     var apiResponseCache = mutableMapOf<String, MutableMap<String, LLMBaseResponse>>()
     val MAX_REFACTORINGS = 10
 
-    var prompter: MethodPromptBase = SuggestRefactoringPrompt();
+    open var prompter: MethodPromptBase = SuggestRefactoringPrompt();
 
     init {
         codeTransformer.addObserver(EFLoggerObserver(logger))

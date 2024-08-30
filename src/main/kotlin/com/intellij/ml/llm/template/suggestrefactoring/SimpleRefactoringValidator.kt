@@ -53,7 +53,7 @@ class SimpleRefactoringValidator(
                         isTernary2If(suggestion) -> Ternary2If.factory
                         isStringBuilder(suggestion) -> StringBuilderRefactoringFactory
                         isMoveMethod(suggestion) -> MoveMethodFactory
-                        else -> MoveMethodFactory // default
+                        else -> ExtractMethodFactory // default
                     }
 
                     val createdRefactoringObjects =
