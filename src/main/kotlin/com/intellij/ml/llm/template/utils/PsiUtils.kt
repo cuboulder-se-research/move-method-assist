@@ -20,7 +20,6 @@ import org.jetbrains.kotlin.psi.*
 import org.jetbrains.kotlin.psi.psiUtil.startOffset
 import kotlin.math.sqrt
 
-
 class PsiUtils {
     companion object {
         fun getParentClassOrNull(editor: Editor, language: Language?): PsiElement? {
@@ -334,7 +333,6 @@ class PsiUtils {
             val methodBody = psiMethod.text
             val classBody = psiClass.text
 
-            // TODO: compute cosine similarity between the two strings.
             return computeCosineSimilarity(methodBody, classBody)
         }
 
@@ -373,7 +371,6 @@ class PsiUtils {
 
             return cosineSimilarity(vectorA, vectorB)
         }
-
 
     }
 

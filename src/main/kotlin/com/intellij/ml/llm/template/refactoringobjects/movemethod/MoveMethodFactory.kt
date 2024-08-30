@@ -3,12 +3,14 @@ package com.intellij.ml.llm.template.refactoringobjects.movemethod
 import com.intellij.ml.llm.template.refactoringobjects.AbstractRefactoring
 import com.intellij.ml.llm.template.refactoringobjects.MyRefactoringFactory
 import com.intellij.ml.llm.template.refactoringobjects.UncreatableRefactoring
+import com.intellij.ml.llm.template.utils.CodeBertScore.Companion.computeCodeBertScore
 import com.intellij.ml.llm.template.utils.PsiUtils
 import com.intellij.openapi.application.runReadAction
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
 import com.intellij.psi.*
 import com.intellij.psi.search.GlobalSearchScope
+import com.intellij.psi.util.MethodSignature
 import com.intellij.refactoring.move.MoveInstanceMembersUtil
 import com.intellij.refactoring.move.moveInstanceMethod.MoveInstanceMethodProcessor
 import com.intellij.refactoring.openapi.impl.JavaRefactoringFactoryImpl
@@ -46,6 +48,7 @@ class MoveMethodFactory {
             return createMoveMethodRefactorings(project, methodToMove, editor, file)
         }
 
+
         private fun createMoveMethodRefactorings(
             project: Project,
             methodToMove: PsiMethod,
@@ -56,7 +59,7 @@ class MoveMethodFactory {
             val targetPivots = getPotentialMovePivots(project, editor, file, methodToMove)
             val targetPivotsSorted = targetPivots
                 .filter { methodToMove.containingClass?.qualifiedName!=it.psiClass.qualifiedName }
-                .sortedByDescending { PsiUtils.computeCosineSimilarity(methodToMove, it.psiClass)  }
+                .sortedByDescending { computeCodeBertScore(methodToMove, it.psiClass)  }
 
             if (PsiUtils.isMethodStatic(methodToMove)){
                 return targetPivotsSorted.map {
