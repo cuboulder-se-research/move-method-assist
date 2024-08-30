@@ -2,6 +2,7 @@ package com.intellij.ml.llm.template.intentions
 
 import com.google.gson.Gson
 import com.google.gson.annotations.SerializedName
+import com.intellij.codeInsight.unwrap.ScopeHighlighter
 import com.intellij.ml.llm.template.LLMBundle
 import com.intellij.ml.llm.template.models.LLMBaseResponse
 import com.intellij.ml.llm.template.models.sendChatRequest
@@ -10,10 +11,26 @@ import com.intellij.ml.llm.template.prompts.MoveMethodRefactoringPrompt
 import com.intellij.ml.llm.template.refactoringobjects.AbstractRefactoring
 import com.intellij.ml.llm.template.refactoringobjects.movemethod.MoveMethodFactory
 import com.intellij.ml.llm.template.settings.RefAgentSettingsManager
+import com.intellij.ml.llm.template.showEFNotification
+import com.intellij.ml.llm.template.telemetry.EFTelemetryDataElapsedTimeNotificationPayload
+import com.intellij.ml.llm.template.telemetry.TelemetryDataAction
+import com.intellij.ml.llm.template.telemetry.TelemetryElapsedTimeObserver
+import com.intellij.ml.llm.template.ui.RefactoringSuggestionsPanel
+import com.intellij.ml.llm.template.utils.CodeTransformer
+import com.intellij.ml.llm.template.utils.EFNotification
+import com.intellij.notification.NotificationType
+import com.intellij.openapi.application.invokeLater
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
+import com.intellij.openapi.ui.popup.JBPopupFactory
+import com.intellij.openapi.ui.popup.JBPopupListener
+import com.intellij.openapi.ui.popup.LightweightWindowEvent
 import com.intellij.psi.PsiFile
+import com.intellij.ui.awt.RelativePoint
 import dev.langchain4j.data.message.ChatMessage
+import java.awt.Point
+import java.awt.Rectangle
+import java.util.concurrent.atomic.AtomicReference
 
 class ApplyMoveMethodInteractiveIntention: ApplySuggestRefactoringIntention() {
     var MAX_ITERS = RefAgentSettingsManager.getInstance().getNumberOfIterations()
@@ -79,6 +96,11 @@ class ApplyMoveMethodInteractiveIntention: ApplySuggestRefactoringIntention() {
         val uniqueSuggestions = vanillaLLMSuggestions.distinctBy { it.methodName }
         if (uniqueSuggestions.isEmpty()){
             // show message to user.
+            invokeLater { showEFNotification(
+                project,
+                LLMBundle.message("notification.extract.function.with.llm.no.suggestions.message"),
+                NotificationType.INFORMATION
+            ) }
         }
         else {
             val priority = getSuggestionPriority(uniqueSuggestions, project)
@@ -89,10 +111,88 @@ class ApplyMoveMethodInteractiveIntention: ApplySuggestRefactoringIntention() {
 
     }
 
-    private fun createRefactoringObjectsAndShowSuggestions(moveMethodSuggestions: List<MoveMethodSuggestion>): List<AbstractRefactoring> {
-        return moveMethodSuggestions
-            .map { MoveMethodFactory.createMoveMethodFromName(currentEditor, currentFile, it.methodName, currentProject, llmChatModel) }
-            .reduce { acc, abstractRefactorings -> acc + abstractRefactorings }
+    private fun createRefactoringObjectsAndShowSuggestions(moveMethodSuggestions: List<MoveMethodSuggestion>) {
+        invokeLater {
+            val refObjs = moveMethodSuggestions
+                .map {
+                    MoveMethodFactory.createMoveMethodFromName(
+                        currentEditor,
+                        currentFile,
+                        it.methodName,
+                        currentProject,
+                        llmChatModel
+                    )
+                }
+                .reduce { acc, abstractRefactorings -> acc + abstractRefactorings }
+            showRefactoringOptionsPopup(currentProject, currentEditor, currentFile, refObjs, codeTransformer)
+        }
+
+    }
+    fun showRefactoringOptionsPopup(
+        project: Project,
+        editor: Editor,
+        file: PsiFile,
+        candidates: List<AbstractRefactoring>,
+        codeTransformer: CodeTransformer
+    ) {
+        val highlighter = AtomicReference(ScopeHighlighter(editor))
+        val efPanel = RefactoringSuggestionsPanel(
+            project = project,
+            editor = editor,
+            file = file,
+            candidates = candidates,
+            codeTransformer = codeTransformer,
+            highlighter = highlighter,
+            efTelemetryDataManager = telemetryDataManager,
+            button_name = LLMBundle.message("ef.candidates.popup.extract.function.button.title")
+        )
+        efPanel.initTable()
+        val elapsedTimeTelemetryDataObserver = TelemetryElapsedTimeObserver()
+        efPanel.addObserver(elapsedTimeTelemetryDataObserver)
+        val panel = efPanel.createPanel()
+
+        // Create the popup
+        val efPopup =
+            JBPopupFactory.getInstance()
+                .createComponentPopupBuilder(panel, efPanel.myExtractFunctionsCandidateTable)
+                .setRequestFocus(true)
+                .setTitle(LLMBundle.message("ef.candidates.popup.title"))
+                .setResizable(true)
+                .setMovable(true)
+                .setCancelOnClickOutside(false)
+                .createPopup()
+
+        // Add onClosed listener
+        efPopup.addListener(object : JBPopupListener {
+            override fun onClosed(event: LightweightWindowEvent) {
+                elapsedTimeTelemetryDataObserver.update(
+                    EFNotification(
+                        EFTelemetryDataElapsedTimeNotificationPayload(TelemetryDataAction.STOP, 0)
+                    )
+                )
+                buildElapsedTimeTelemetryData(elapsedTimeTelemetryDataObserver)
+                highlighter.getAndSet(null).dropHighlight()
+                sendTelemetryData()
+            }
+
+            override fun beforeShown(event: LightweightWindowEvent) {
+                super.beforeShown(event)
+                elapsedTimeTelemetryDataObserver.update(
+                    EFNotification(
+                        EFTelemetryDataElapsedTimeNotificationPayload(TelemetryDataAction.START, 0)
+                    )
+                )
+            }
+        })
+
+        // set the popup as delegate to the Extract Function panel
+        efPanel.setDelegatePopup(efPopup)
+
+        // Show the popup at the top right corner of the current editor
+        val contentComponent = editor.contentComponent
+        val visibleRect: Rectangle = contentComponent.visibleRect
+        val point = Point(visibleRect.x + visibleRect.width - 500, visibleRect.y)
+        efPopup.show(RelativePoint(contentComponent, point))
     }
 
     private fun getSuggestionPriority(
