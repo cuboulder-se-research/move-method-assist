@@ -193,7 +193,7 @@ fun getPromptAndRunBackgroundable(text: String, project: Project, editor: Editor
 
     companion object {
         @JvmStatic
-        protected fun log2fileAndViewer(logMessage: String, logger: Logger){
+        fun log2fileAndViewer(logMessage: String, logger: Logger){
             logViewer.appendLog(logMessage)
             logger.info(logMessage)
         }

@@ -84,6 +84,7 @@ class ApplyMoveMethodInteractiveIntention: ApplySuggestRefactoringIntention() {
         val vanillaLLMSuggestions = mutableListOf<MoveMethodSuggestion>()
 
         for (iter in 1..MAX_ITERS){
+            log2fileAndViewer("******** ITERATION-$iter ********", logger)
             val cacheKey = functionSrc + iter.toString()
             val response = llmResponseCache[cacheKey]?: sendChatRequest(project, messageList, llmChatModel)
 
@@ -101,16 +102,20 @@ class ApplyMoveMethodInteractiveIntention: ApplySuggestRefactoringIntention() {
                         }.filterNotNull()
                 } catch (e: Exception) {
                     print("Failed to parse ${llmText.text}")
+                    log2fileAndViewer("LLM response: ${llmText.text}", logger)
                     e.printStackTrace()
                     null
                 }
                 if (refactoringSuggestions!=null) {
                     llmResponseCache[cacheKey] ?: llmResponseCache.put(cacheKey, response) // cache response
                     vanillaLLMSuggestions.addAll(refactoringSuggestions)
+                    logMethods(refactoringSuggestions)
                 }
             }
         }
         val uniqueSuggestions = vanillaLLMSuggestions.distinctBy { it.methodName }
+
+        log2fileAndViewer("*** Combining responses from iterations ***", logger)
         logMethods(uniqueSuggestions)
         if (uniqueSuggestions.isEmpty()){
             telemetryDataManager.addCandidatesTelemetryData(buildCandidatesTelemetryData(0, emptyList()))
@@ -123,6 +128,7 @@ class ApplyMoveMethodInteractiveIntention: ApplySuggestRefactoringIntention() {
             ) }
         }
         else {
+            log2fileAndViewer("Prioritising suggestions...", logger)
             val priority = getSuggestionPriority(uniqueSuggestions, project)
             if (priority!=null){
                 logPriority(priority)
@@ -238,6 +244,7 @@ class ApplyMoveMethodInteractiveIntention: ApplySuggestRefactoringIntention() {
             val methodPriority2 = try {
                 Gson().fromJson(response.getSuggestions()[0].text, methodPriority::class.java)
             } catch (e: Exception) {
+                log2fileAndViewer("LLM Response: " + response.getSuggestions()[0].text, logger)
                 null
             }
             if (methodPriority2!=null) {
@@ -260,6 +267,11 @@ class ApplyMoveMethodInteractiveIntention: ApplySuggestRefactoringIntention() {
     }
 
     private fun logMethods(moveMethodSuggestions: List<MoveMethodSuggestion>){
+        if (moveMethodSuggestions.isEmpty()){
+            log2fileAndViewer("No suggestions from llm", logger)
+            return
+        }
+
         log2fileAndViewer(logMessage = "LLM suggested to move:", logger = logger)
         moveMethodSuggestions.forEachIndexed {
              index, moveMethodSuggestion ->  log2fileAndViewer(logMessage = "${index+1}. ${moveMethodSuggestion.methodName}", logger = logger)

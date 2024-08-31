@@ -4,6 +4,7 @@ import com.google.gson.Gson
 import com.google.gson.JsonArray
 import com.google.gson.JsonParser
 import com.google.gson.annotations.SerializedName
+import com.intellij.ml.llm.template.intentions.ApplySuggestRefactoringIntention
 import com.intellij.ml.llm.template.models.LLMBaseResponse
 import com.intellij.ml.llm.template.models.sendChatRequest
 import com.intellij.ml.llm.template.prompts.MoveMethodRefactoringPrompt
@@ -11,6 +12,7 @@ import com.intellij.ml.llm.template.refactoringobjects.AbstractRefactoring
 import com.intellij.ml.llm.template.refactoringobjects.MyRefactoringFactory
 import com.intellij.ml.llm.template.utils.PsiUtils
 import com.intellij.openapi.application.runReadAction
+import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
 import com.intellij.psi.*
@@ -91,6 +93,7 @@ class MoveMethodFactory {
                     rerankByLLM(targetPivotsSorted, methodToMove, methodToMove.containingClass, project, llmChatModel)?: targetPivotsSorted
                 else
                     targetPivotsSorted
+            logPottentialPivots(pivotsSortedByLLM.subList(0, 3), methodToMove)
 
             if (PsiUtils.isMethodStatic(methodToMove)){
                 return pivotsSortedByLLM.map {
@@ -133,6 +136,20 @@ class MoveMethodFactory {
                 }
                 .filterNotNull()
                 .subList(0, TOPN_SUGGESTIONS4USER) // choose top-3 moves
+        }
+
+        private fun logPottentialPivots(
+            targetPivotsSorted: List<MovePivot>,
+            methodToMove: PsiMethod
+        ) {
+            ApplySuggestRefactoringIntention.log2fileAndViewer(
+                "Found potential target class(s) for ${methodToMove.name}", Logger.getInstance(this::class.java))
+            ApplySuggestRefactoringIntention.log2fileAndViewer(
+                "Pottential Target Classes -> ${
+                    targetPivotsSorted.distinctBy { it.psiClass.name }.map{it.psiClass.name}.joinToString(", ")
+                }",
+                Logger.getInstance(this::class.java)
+            )
         }
 
         private fun rerankByLLM(
@@ -287,7 +304,7 @@ class MoveMethodFactory {
             }
 
             override fun getRefactoringPreview(): String {
-                return "Move method ${methodToMove.name}\n to class ${classToMoveTo.name}"
+                return "Move method ${methodToMove.name} to class ${classToMoveTo.name}"
             }
 
             override fun getStartOffset(): Int {

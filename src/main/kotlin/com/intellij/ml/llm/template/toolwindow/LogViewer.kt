@@ -34,6 +34,6 @@ class LogViewer(val initalText: String) : JPanel() {
     }
 
     fun clear(){
-        logArea.text = initalText
+        logArea.text = initalText + "\n"
     }
 }

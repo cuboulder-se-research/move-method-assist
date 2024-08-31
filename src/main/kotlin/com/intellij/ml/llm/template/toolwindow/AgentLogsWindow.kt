@@ -7,7 +7,7 @@ import com.intellij.ui.content.ContentFactory
 import javax.swing.JComponent
 import javax.swing.JPanel
 
-val logViewer = LogViewer("Move-Method Assistant Logs!")
+val logViewer = LogViewer("Move-Method Assistant's Logs!")
 
 class AgentLogsWindow: ToolWindowFactory {
     override fun createToolWindowContent(project: Project, toolWindow: ToolWindow) {
