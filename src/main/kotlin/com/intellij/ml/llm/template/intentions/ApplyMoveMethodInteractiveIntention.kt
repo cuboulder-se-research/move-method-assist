@@ -17,6 +17,7 @@ import com.intellij.ml.llm.template.showEFNotification
 import com.intellij.ml.llm.template.telemetry.EFTelemetryDataElapsedTimeNotificationPayload
 import com.intellij.ml.llm.template.telemetry.TelemetryDataAction
 import com.intellij.ml.llm.template.telemetry.TelemetryElapsedTimeObserver
+import com.intellij.ml.llm.template.toolwindow.logViewer
 import com.intellij.ml.llm.template.ui.RefactoringSuggestionsPanel
 import com.intellij.ml.llm.template.utils.CodeTransformer
 import com.intellij.ml.llm.template.utils.EFCandidatesApplicationTelemetryObserver
@@ -78,6 +79,7 @@ class ApplyMoveMethodInteractiveIntention: ApplySuggestRefactoringIntention() {
 
         MAX_ITERS = RefAgentSettingsManager.getInstance().getNumberOfIterations()
         llmChatModel = RefAgentSettingsManager.getInstance().createAndGetAiModel()!!
+        logViewer.clear()
 
         val vanillaLLMSuggestions = mutableListOf<MoveMethodSuggestion>()
 
