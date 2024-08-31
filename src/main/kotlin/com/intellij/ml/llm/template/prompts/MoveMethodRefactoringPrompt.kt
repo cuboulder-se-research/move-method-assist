@@ -84,7 +84,14 @@ class MoveMethodRefactoringPrompt: MethodPromptBase() {
                 
                 Please decide which target class is the best option:
                    ${Gson().toJson(movePivots.map { it.psiClass.name }) }} 
-                Respond with ONLY a JSON list, with the most target class suggestion at the beginning of the list. 
+                Respond with ONLY a JSON list of objects (with keys "target_class" and "rationale"), with the most important target class suggestion at the beginning of the list. 
+                Ex:
+                 [
+                    {
+                        "target_class": "Customer",
+                        "rationale": "calculateDiscount() relies heavily on the Customer class, so it might be more appropriate to move this method to the Customer class.",
+                    }
+                ]
                      """.trimIndent()),
         )
     }

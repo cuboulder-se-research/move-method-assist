@@ -1,11 +1,12 @@
 package com.intellij.ml.llm.template.refactoringobjects.movemethod
 
+import com.google.gson.Gson
 import com.google.gson.JsonArray
 import com.google.gson.JsonParser
+import com.google.gson.annotations.SerializedName
 import com.intellij.ml.llm.template.models.LLMBaseResponse
 import com.intellij.ml.llm.template.models.sendChatRequest
 import com.intellij.ml.llm.template.prompts.MoveMethodRefactoringPrompt
-import com.intellij.ml.llm.template.prompts.SuggestRefactoringPrompt
 import com.intellij.ml.llm.template.refactoringobjects.AbstractRefactoring
 import com.intellij.ml.llm.template.refactoringobjects.MyRefactoringFactory
 import com.intellij.ml.llm.template.utils.PsiUtils
@@ -27,7 +28,13 @@ import org.jetbrains.kotlin.psi.psiUtil.getChildOfType
 class MoveMethodFactory {
 
 
-    data class MovePivot(val psiClass: PsiClass, val psiElement: PsiElement?)
+    data class MovePivot(val psiClass: PsiClass, val psiElement: PsiElement?, var rationale: String? = null)
+    data class MoveSuggestion(
+        @SerializedName("target_class")
+        val targetClassName: String,
+        @SerializedName("rationale")
+        val rationale: String
+    )
     companion object: MyRefactoringFactory{
 
         const val TOPN_SUGGESTIONS4USER = 1
@@ -91,7 +98,8 @@ class MoveMethodFactory {
                         MyMoveStaticMethodRefactoring(
                             methodToMove.startLine(editor.document),
                             methodToMove.endLine(editor.document),
-                            methodToMove, it1
+                            methodToMove, it1,
+                            rationale = it.rationale
                         )
                     }
                 }.filterNotNull().subList(0, TOPN_SUGGESTIONS4USER)
@@ -115,7 +123,9 @@ class MoveMethodFactory {
                             methodToMove.startLine(editor.document),
                             methodToMove.endLine(editor.document),
                             methodToMove,
-                            processor
+                            processor,
+                            classToMoveTo = it.psiClass,
+                            rationale = it.rationale
                         )
                     }else {
                         null
@@ -146,9 +156,16 @@ class MoveMethodFactory {
                 llmResponseCache[methodToMove.text]?: llmResponseCache.put(methodToMove.text, response)
                 try {
                     val priorityOrder = (JsonParser.parseString(response.getSuggestions()[0].text) as JsonArray)
-                        .map { it.asString }
+                        .map { try{ Gson().fromJson(it, MoveSuggestion::class.java) } catch (e: Exception){null} }
+                        .filterNotNull()
+                    val targetClassesRanked = priorityOrder.map { it.targetClassName }
+                    priorityOrder.forEach {
+                        moveSuggestion -> targetPivotsSorted
+                            .filter { it.psiClass.name == moveSuggestion.targetClassName}
+                            .forEach { it.rationale=moveSuggestion.rationale }
+                    }
                     return targetPivotsSorted.sortedBy {
-                        val index = priorityOrder.indexOf(it.psiClass.name)
+                        val index = targetClassesRanked.indexOf(it.psiClass.name)
                         if (index == -1){
                             targetPivotsSorted.size+1
                         }else {
@@ -249,7 +266,9 @@ class MoveMethodFactory {
             override val startLoc: Int,
             override val endLoc: Int,
             val methodToMove: PsiMethod,
-            val processor: MoveInstanceMethodProcessor
+            val processor: MoveInstanceMethodProcessor,
+            val classToMoveTo: PsiClass,
+            val rationale: String? = null
         ) : AbstractRefactoring(){
             override fun performRefactoring(project: Project, editor: Editor, file: PsiFile) {
                 super.performRefactoring(project, editor, file)
@@ -263,7 +282,8 @@ class MoveMethodFactory {
             }
 
             override fun getRefactoringPreview(): String {
-                return "Move method ${methodToMove.name}"
+                return "Move method ${methodToMove.name}\n to class ${classToMoveTo.qualifiedName}" +
+                        "Rationale: $rationale"
             }
 
             override fun getStartOffset(): Int {
@@ -313,7 +333,8 @@ class MoveMethodFactory {
         override val startLoc: Int,
         override val endLoc: Int,
         val methodToMove: PsiMethod,
-        val classToMoveTo: String
+        val classToMoveTo: String,
+        val rationale: String?=null
     ) : AbstractRefactoring(){
         val sourceClass: PsiClass = methodToMove.containingClass!!
         val methodName = methodToMove.name
@@ -335,7 +356,8 @@ class MoveMethodFactory {
         }
 
         override fun getRefactoringPreview(): String {
-            return "Move Static method ${methodToMove.name} to class ${classToMoveTo}"
+            return "Move Static method ${methodToMove.name} to class ${classToMoveTo}\n" +
+                    "Rationale: $rationale"
         }
 
         override fun getStartOffset(): Int {
