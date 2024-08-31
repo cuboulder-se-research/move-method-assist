@@ -1,5 +1,6 @@
 package com.intellij.ml.llm.template.prompts
 
+import com.google.gson.Gson
 import com.intellij.ml.llm.template.intentions.ApplyMoveMethodInteractiveIntention
 import com.intellij.ml.llm.template.refactoringobjects.movemethod.MoveMethodFactory
 import dev.langchain4j.data.message.AiMessage
@@ -61,11 +62,11 @@ class MoveMethodRefactoringPrompt: MethodPromptBase() {
                 
                 Please rank the following move-method suggestions:
                  ${
-                     moveMethodSuggetions.forEach { it.methodName }
+                     Gson().toJson(moveMethodSuggetions.map{it.methodName})
                  }
                     
                 Respond in a JSON list, with the most important move-method suggestion at the beginning of the list. 
-                If you think it is not important to move any of these methods, respond with an empty list.
+                If you think it is not important to move some any of these methods, exclude them from the response list.
                      """.trimIndent()),
         )
     }
@@ -82,7 +83,7 @@ class MoveMethodRefactoringPrompt: MethodPromptBase() {
                 ${methodCode}
                 
                 Please decide which target class is the best option:
-                   ${movePivots.map { it.psiClass.name }.joinToString(", ") }} 
+                   ${Gson().toJson(movePivots.map { it.psiClass.name }) }} 
                 Respond with ONLY a JSON list, with the most target class suggestion at the beginning of the list. 
                      """.trimIndent()),
         )

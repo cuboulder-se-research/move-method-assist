@@ -221,13 +221,21 @@ class ApplyMoveMethodInteractiveIntention: ApplySuggestRefactoringIntention() {
                 null
             }
             if (methodPriority2!=null)
-                return uniqueSuggestions.sortedBy { methodPriority2.indexOf(it.methodName) }
+                return uniqueSuggestions.sortedBy {
+                    val index = methodPriority2.indexOf(it.methodName)
+                    if (index == -1){
+                        uniqueSuggestions.size+1
+                    }
+                    else{
+                        index
+                    }
+                }
         }
         return null
     }
 
     override fun processLLMResponse(response: LLMBaseResponse, project: Project, editor: Editor, file: PsiFile) {
-//        super.processLLMResponse(response, project, editor, file)
+        throw Exception("Shouldn't be here.")
     }
 
 

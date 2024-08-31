@@ -77,6 +77,7 @@ class MoveMethodFactory {
             val targetPivotsSorted = targetPivots
                 .filter { methodToMove.containingClass?.qualifiedName!=it.psiClass.qualifiedName }
                 .sortedByDescending { PsiUtils.computeCosineSimilarity(methodToMove, it.psiClass)  }
+                .distinctBy { it.psiClass.name+it.psiElement?.text }
 
             val pivotsSortedByLLM =
                 if (llmChatModel!=null)
@@ -93,7 +94,7 @@ class MoveMethodFactory {
                             methodToMove, it1
                         )
                     }
-                }.filterNotNull().subList(0, 3)
+                }.filterNotNull().subList(0, TOPN_SUGGESTIONS4USER)
             }
 
             return pivotsSortedByLLM
@@ -121,7 +122,7 @@ class MoveMethodFactory {
                     }
                 }
                 .filterNotNull()
-                .subList(0, 3) // choose top-3 moves
+                .subList(0, TOPN_SUGGESTIONS4USER) // choose top-3 moves
         }
 
         private fun rerankByLLM(
@@ -134,13 +135,23 @@ class MoveMethodFactory {
 
             val response =
                 llmResponseCache[methodToMove.text]?:
-                sendChatRequest(project, MoveMethodRefactoringPrompt().askForTargetClassPriorityPrompt(methodToMove.text, targetPivotsSorted), llmChatModel)
+                sendChatRequest(
+                    project,
+                    MoveMethodRefactoringPrompt().askForTargetClassPriorityPrompt(methodToMove.text, targetPivotsSorted),
+                    llmChatModel)
             if (response!=null){
                 llmResponseCache[methodToMove.text]?: llmResponseCache.put(methodToMove.text, response)
                 try {
                     val priorityOrder = (JsonParser.parseString(response.getSuggestions()[0].text) as JsonArray)
                         .map { it.asString }
-                    return targetPivotsSorted.sortedBy { priorityOrder.indexOf(it.psiClass.name) }
+                    return targetPivotsSorted.sortedBy {
+                        val index = priorityOrder.indexOf(it.psiClass.name)
+                        if (index == -1){
+                            targetPivotsSorted.size+1
+                        }else {
+                            index
+                        }
+                    }
                 } catch (e: Exception) {
                     e.printStackTrace()
                 }
