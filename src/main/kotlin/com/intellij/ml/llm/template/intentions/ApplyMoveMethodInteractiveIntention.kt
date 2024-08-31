@@ -19,6 +19,7 @@ import com.intellij.ml.llm.template.telemetry.TelemetryDataAction
 import com.intellij.ml.llm.template.telemetry.TelemetryElapsedTimeObserver
 import com.intellij.ml.llm.template.ui.RefactoringSuggestionsPanel
 import com.intellij.ml.llm.template.utils.CodeTransformer
+import com.intellij.ml.llm.template.utils.EFCandidatesApplicationTelemetryObserver
 import com.intellij.ml.llm.template.utils.EFNotification
 import com.intellij.notification.NotificationType
 import com.intellij.openapi.application.invokeLater
@@ -107,6 +108,8 @@ class ApplyMoveMethodInteractiveIntention: ApplySuggestRefactoringIntention() {
         }
         val uniqueSuggestions = vanillaLLMSuggestions.distinctBy { it.methodName }
         if (uniqueSuggestions.isEmpty()){
+            telemetryDataManager.addCandidatesTelemetryData(buildCandidatesTelemetryData(0, emptyList()))
+            telemetryDataManager.setRefactoringObjects(emptyList())
             // show message to user.
             invokeLater { showEFNotification(
                 project,
@@ -136,6 +139,14 @@ class ApplyMoveMethodInteractiveIntention: ApplySuggestRefactoringIntention() {
                     )
                 }
                 .reduce { acc, abstractRefactorings -> acc + abstractRefactorings }
+            telemetryDataManager.setRefactoringObjects(refObjs)
+            val candidatesApplicationTelemetryObserver = EFCandidatesApplicationTelemetryObserver()
+            telemetryDataManager.addCandidatesTelemetryData(
+                buildCandidatesTelemetryData(
+                    refObjs.size,
+                    candidatesApplicationTelemetryObserver.getData()
+                )
+            )
             showRefactoringOptionsPopup(currentProject, currentEditor, currentFile, refObjs, codeTransformer)
         }
 
@@ -213,7 +224,7 @@ class ApplyMoveMethodInteractiveIntention: ApplySuggestRefactoringIntention() {
     ) : List<MoveMethodSuggestion>? {
         val messages =
             (prompter as MoveMethodRefactoringPrompt).askForMethodPriorityPrompt(functionSrc, uniqueSuggestions)
-        val response = sendChatRequest(project, messages, llmChatModel)
+        val response = llmResponseCache[messages.toString()]?:sendChatRequest(project, messages, llmChatModel)
         if (response != null) {
             var methodPriority = mutableListOf<String>()
             val methodPriority2 = try {
@@ -221,16 +232,17 @@ class ApplyMoveMethodInteractiveIntention: ApplySuggestRefactoringIntention() {
             } catch (e: Exception) {
                 null
             }
-            if (methodPriority2!=null)
+            if (methodPriority2!=null) {
+                llmResponseCache.put(messages.toString(), response)
                 return uniqueSuggestions.sortedBy {
                     val index = methodPriority2.indexOf(it.methodName)
-                    if (index == -1){
-                        uniqueSuggestions.size+1
-                    }
-                    else{
+                    if (index == -1) {
+                        uniqueSuggestions.size + 1
+                    } else {
                         index
                     }
                 }
+            }
         }
         return null
     }
