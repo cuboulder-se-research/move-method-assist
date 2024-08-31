@@ -137,7 +137,10 @@ class MoveMethodFactory {
                 llmResponseCache[methodToMove.text]?:
                 sendChatRequest(
                     project,
-                    MoveMethodRefactoringPrompt().askForTargetClassPriorityPrompt(methodToMove.text, targetPivotsSorted),
+                    MoveMethodRefactoringPrompt().askForTargetClassPriorityPrompt(
+                        methodToMove.text,
+                        targetPivotsSorted.distinctBy { it.psiClass.name }
+                    ),
                     llmChatModel)
             if (response!=null){
                 llmResponseCache[methodToMove.text]?: llmResponseCache.put(methodToMove.text, response)

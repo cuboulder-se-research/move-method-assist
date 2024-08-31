@@ -41,6 +41,7 @@ class ApplyMoveMethodInteractiveIntention: ApplySuggestRefactoringIntention() {
     lateinit var currentEditor: Editor
     lateinit var currentFile: PsiFile
     lateinit var currentProject: Project
+    val SUGGESTIONS4USER = 3
 
     data class MoveSuggestionList(
         val suggestionList: List<MoveMethodSuggestion>
@@ -116,7 +117,7 @@ class ApplyMoveMethodInteractiveIntention: ApplySuggestRefactoringIntention() {
         else {
             val priority = getSuggestionPriority(uniqueSuggestions, project)
             if (priority!=null){
-                createRefactoringObjectsAndShowSuggestions(priority)
+                createRefactoringObjectsAndShowSuggestions(priority.subList(0, SUGGESTIONS4USER))
             }
         }
 
