@@ -2,6 +2,7 @@
 
 package com.intellij.ml.llm.template.models
 
+import ai.grazie.model.cloud.exceptions.HTTPStatusException
 import com.intellij.ml.llm.template.LLMBundle
 import com.intellij.ml.llm.template.models.grazie.GrazieResponse
 import com.intellij.ml.llm.template.models.openai.AuthorizationException
@@ -101,7 +102,12 @@ fun sendChatRequest(
             if (response.finishReason()==null) "normal" else response.finishReason().toString())
     } catch (e: AuthorizationException) {
         showUnauthorizedNotification(project)
-    } catch (e: HttpRequests.HttpStatusException) {
+        throw e
+    } catch (e: HTTPStatusException.Unauthorized){
+        showUnauthorizedNotification(project)
+        throw e
+    }
+    catch (e: HttpRequests.HttpStatusException) {
         when (e.statusCode) {
             HttpURLConnection.HTTP_UNAUTHORIZED -> showAuthorizationFailedNotification(project)
             else -> {
@@ -111,13 +117,14 @@ fun sendChatRequest(
                 logger.warn(e)
             }
         }
-    } catch (e: IOException) {
+        throw e
+    } catch (e: Exception) {
         showRequestFailedNotification(
             project, LLMBundle.message("notification.request.failed.message", e.message ?: "")
         )
         logger.warn(e)
+        throw e
     }
-    return null
 }
 
 fun sendChatRequest(
