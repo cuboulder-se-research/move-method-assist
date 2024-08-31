@@ -32,7 +32,7 @@ import java.util.concurrent.atomic.AtomicReference
 
 
 @Suppress("UnstableApiUsage")
-class ApplySuggestRefactoringInteractiveIntention(
+open class ApplySuggestRefactoringInteractiveIntention(
     private var efLLMRequestProvider: ChatLanguageModel = RefAgentSettingsManager.getInstance().createAndGetAiModel()!!,
 ) : ApplySuggestRefactoringIntention(efLLMRequestProvider) {
     val logger = Logger.getInstance(ApplySuggestRefactoringInteractiveIntention::class.java)
@@ -56,17 +56,10 @@ class ApplySuggestRefactoringInteractiveIntention(
             functionSrc,
             apiResponseCache
         )
-//        val efSuggestionList = validator.getExtractMethodSuggestions(llmResponse.text)
-//        val renameSuggestions = validator.getRenamveVariableSuggestions(llmResponse.text)
         val refactoringCandidates: List<AbstractRefactoring> =
             runBlocking {
                 validator.getRefactoringSuggestions(llmResponse.text, MAX_REFACTORINGS)
             }
-//        val refactoringCandidates: List<AbstractRefactoring> = runBlocking {
-//                validator.getRefactoringSuggestions(llmResponse.text)
-//        }
-
-//        val candidates = EFCandidateFactory().buildCandidates(efSuggestionList.suggestionList, editor, file).toList()
         if (refactoringCandidates.isEmpty()) {
             showEFNotification(
                 project,
@@ -145,7 +138,9 @@ class ApplySuggestRefactoringInteractiveIntention(
                 .setRequestFocus(true)
                 .setTitle(LLMBundle.message("ef.candidates.popup.title"))
                 .setResizable(true)
-                .setMovable(true).createPopup()
+                .setMovable(true)
+                .setCancelOnClickOutside(false)
+                .createPopup()
 
         // Add onClosed listener
         efPopup.addListener(object : JBPopupListener {
