@@ -24,21 +24,28 @@ class MoveMethodRefactoringPrompt: MethodPromptBase() {
             The third field, "target_class" is the class it should move to.
             The fourth field "rationale", is the reason why it should be moved.
                 
-            TODO: EXAMPLE
+            class Order {
+                private Customer customer;
+                private double amount;
+            
+                public double calculateDiscount() {
+                    if (customer.getLoyaltyPoints() > 1000) {
+                        return amount * 0.1;
+                    } else if (customer.getMembershipLevel().equals("Gold")) {
+                        return amount * 0.05;
+                    } else {
+                        return 0;
+                    }
+                }
+            }
                      """.trimIndent()),
             AiMessage.from("""
                             [
                                 {
-                                    "method_name":"...",
-                                    "method_signature": "...",
-                                    "target_class": "...",
-                                    "rationale": "////",
-                                },
-                                {
-                                    "method_name":"...",
-                                    "method_signature": "...",
-                                    "target_class": "...",
-                                    "rationale": "////",
+                                    "method_name":"calculateDiscount",
+                                    "method_signature": "public calculateDiscount(double amount): double",
+                                    "target_class": "Customer",
+                                    "rationale": "calculateDiscount() relies heavily on the Customer class, so it might be more appropriate to move this method to the Customer class.",
                                 }
                             ]
                             """.trimIndent()),
@@ -47,7 +54,7 @@ class MoveMethodRefactoringPrompt: MethodPromptBase() {
     }
     fun askForMethodPriorityPrompt(methodCode: String, moveMethodSuggetions: List<ApplyMoveMethodInteractiveIntention.MoveMethodSuggestion>): MutableList<ChatMessage> {
         return mutableListOf(
-            SystemMessage.from("You are an expert Java developer who prioritises move-method refactoring suggestions based on your expertise. "),
+            SystemMessage.from("You are an expert Java developer who prioritises move-method refactoring suggestions based on your expertise."),
             UserMessage.from("""
                 Here is a java class:
                 ${methodCode}
@@ -68,7 +75,7 @@ class MoveMethodRefactoringPrompt: MethodPromptBase() {
         return mutableListOf(
             SystemMessage.from("You are an expert Java developer. " +
                     "You are told that a certain method doesn't belong to a class," +
-                    " and it is your responsibility to decides which class the method should move to," +
+                    " and it is your responsibility to decide which class the method should move to," +
                     " based on your expertise. "),
             UserMessage.from("""
                 Here is the method that needs to move:
@@ -76,7 +83,7 @@ class MoveMethodRefactoringPrompt: MethodPromptBase() {
                 
                 Please decide which target class is the best option:
                    ${movePivots.map { it.psiClass.name }.joinToString(", ") }} 
-                Respond with ONLY a JSON list, with the most important class suggestion at the beginning of the list. 
+                Respond with ONLY a JSON list, with the most target class suggestion at the beginning of the list. 
                      """.trimIndent()),
         )
     }
