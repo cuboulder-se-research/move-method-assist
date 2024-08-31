@@ -1,6 +1,8 @@
 package com.intellij.ml.llm.template.intentions
 
 import com.google.gson.Gson
+import com.google.gson.JsonArray
+import com.google.gson.JsonParser
 import com.google.gson.annotations.SerializedName
 import com.intellij.codeInsight.unwrap.ScopeHighlighter
 import com.intellij.ml.llm.template.LLMBundle
@@ -31,6 +33,7 @@ import dev.langchain4j.data.message.ChatMessage
 import java.awt.Point
 import java.awt.Rectangle
 import java.util.concurrent.atomic.AtomicReference
+
 
 class ApplyMoveMethodInteractiveIntention: ApplySuggestRefactoringIntention() {
     var MAX_ITERS = RefAgentSettingsManager.getInstance().getNumberOfIterations()
@@ -80,16 +83,24 @@ class ApplyMoveMethodInteractiveIntention: ApplySuggestRefactoringIntention() {
 
             if (response!=null) {
                 val llmText = response.getSuggestions()[0]
-                val refactoringSuggestion =try {
-                    Gson().fromJson(llmText.text, MoveSuggestionList::class.java)
+                val refactoringSuggestions =try {
+                    (JsonParser.parseString(llmText.text) as JsonArray)
+                        .map {
+                            try{
+                                Gson().fromJson(it, MoveMethodSuggestion::class.java )
+                            } catch (e: Exception){
+                                print("failed to decode json ->$it")
+                                null
+                            }
+                        }.filterNotNull()
                 } catch (e: Exception) {
                     print("Failed to parse ${llmText.text}")
                     e.printStackTrace()
                     null
                 }
-                if (refactoringSuggestion!=null) {
+                if (refactoringSuggestions!=null) {
                     llmResponseCache[cacheKey] ?: llmResponseCache.put(cacheKey, response) // cache response
-                    vanillaLLMSuggestions.addAll(refactoringSuggestion.suggestionList)
+                    vanillaLLMSuggestions.addAll(refactoringSuggestions)
                 }
             }
         }
