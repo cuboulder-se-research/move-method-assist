@@ -270,6 +270,11 @@ class MoveMethodFactory {
             val classToMoveTo: PsiClass,
             val rationale: String? = null
         ) : AbstractRefactoring(){
+
+            init {
+                description = "Move method to ${classToMoveTo.qualifiedName}\n" +
+                        "Rationale: $rationale"
+            }
             override fun performRefactoring(project: Project, editor: Editor, file: PsiFile) {
                 super.performRefactoring(project, editor, file)
                 processor.run()
@@ -282,8 +287,7 @@ class MoveMethodFactory {
             }
 
             override fun getRefactoringPreview(): String {
-                return "Move method ${methodToMove.name}\n to class ${classToMoveTo.qualifiedName}" +
-                        "Rationale: $rationale"
+                return "Move method ${methodToMove.name}\n to class ${classToMoveTo.name}"
             }
 
             override fun getStartOffset(): Int {
@@ -338,6 +342,10 @@ class MoveMethodFactory {
     ) : AbstractRefactoring(){
         val sourceClass: PsiClass = methodToMove.containingClass!!
         val methodName = methodToMove.name
+        init {
+            description = "move method to $classToMoveTo\n" +
+                    "Rationale: $rationale"
+        }
 
         override fun performRefactoring(project: Project, editor: Editor, file: PsiFile) {
             val refFactory = JavaRefactoringFactoryImpl(project)
@@ -356,8 +364,7 @@ class MoveMethodFactory {
         }
 
         override fun getRefactoringPreview(): String {
-            return "Move Static method ${methodToMove.name} to class ${classToMoveTo}\n" +
-                    "Rationale: $rationale"
+            return "Move Static method ${methodToMove.name} to class ${classToMoveTo.split(".").last()}"
         }
 
         override fun getStartOffset(): Int {
