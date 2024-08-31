@@ -23,6 +23,7 @@ import com.intellij.ml.llm.template.utils.EFCandidatesApplicationTelemetryObserv
 import com.intellij.ml.llm.template.utils.EFNotification
 import com.intellij.notification.NotificationType
 import com.intellij.openapi.application.invokeLater
+import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.popup.JBPopupFactory
@@ -43,6 +44,7 @@ class ApplyMoveMethodInteractiveIntention: ApplySuggestRefactoringIntention() {
     lateinit var currentFile: PsiFile
     lateinit var currentProject: Project
     val SUGGESTIONS4USER = 3
+    val logger = Logger.getInstance(this::class.java)
 
     data class MoveSuggestionList(
         val suggestionList: List<MoveMethodSuggestion>
@@ -107,6 +109,7 @@ class ApplyMoveMethodInteractiveIntention: ApplySuggestRefactoringIntention() {
             }
         }
         val uniqueSuggestions = vanillaLLMSuggestions.distinctBy { it.methodName }
+        logMethods(uniqueSuggestions)
         if (uniqueSuggestions.isEmpty()){
             telemetryDataManager.addCandidatesTelemetryData(buildCandidatesTelemetryData(0, emptyList()))
             telemetryDataManager.setRefactoringObjects(emptyList())
@@ -120,7 +123,10 @@ class ApplyMoveMethodInteractiveIntention: ApplySuggestRefactoringIntention() {
         else {
             val priority = getSuggestionPriority(uniqueSuggestions, project)
             if (priority!=null){
+                logPriority(priority)
                 createRefactoringObjectsAndShowSuggestions(priority.subList(0, SUGGESTIONS4USER))
+            }else{
+                log2fileAndViewer("No methods are important to move.", logger)
             }
         }
 
@@ -249,6 +255,20 @@ class ApplyMoveMethodInteractiveIntention: ApplySuggestRefactoringIntention() {
 
     override fun processLLMResponse(response: LLMBaseResponse, project: Project, editor: Editor, file: PsiFile) {
         throw Exception("Shouldn't be here.")
+    }
+
+    private fun logMethods(moveMethodSuggestions: List<MoveMethodSuggestion>){
+        log2fileAndViewer(logMessage = "LLM suggested to move:", logger = logger)
+        moveMethodSuggestions.forEachIndexed {
+             index, moveMethodSuggestion ->  log2fileAndViewer(logMessage = "${index+1}. ${moveMethodSuggestion.methodName}", logger = logger)
+        }
+    }
+
+    private fun logPriority(moveMethodSuggestions: List<MoveMethodSuggestion>){
+        log2fileAndViewer(logMessage = "Priority of methods to move, according to LLM:", logger = logger)
+        moveMethodSuggestions.forEachIndexed {
+                index, moveMethodSuggestion ->  log2fileAndViewer(logMessage = "${index+1}. ${moveMethodSuggestion.methodName}", logger = logger)
+        }
     }
 
 
