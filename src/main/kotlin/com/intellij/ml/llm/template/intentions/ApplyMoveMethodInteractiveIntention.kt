@@ -38,6 +38,7 @@ import dev.langchain4j.data.message.ChatMessage
 import java.awt.Point
 import java.awt.Rectangle
 import java.util.concurrent.atomic.AtomicReference
+import kotlin.math.min
 import kotlin.system.measureTimeMillis
 
 
@@ -142,7 +143,21 @@ class ApplyMoveMethodInteractiveIntention: ApplySuggestRefactoringIntention() {
             val priority = getSuggestionPriority(uniqueSuggestions, project)
             if (priority!=null){
                 logPriority(priority)
-                createRefactoringObjectsAndShowSuggestions(priority.subList(0, SUGGESTIONS4USER))
+                if (priority.size==0) {
+                    invokeLater { showEFNotification(
+                        project,
+                        LLMBundle.message("notification.extract.function.with.llm.no.suggestions.message"),
+                        NotificationType.INFORMATION
+                    ) }
+                    sendTelemetryData()
+                }else {
+                    createRefactoringObjectsAndShowSuggestions(
+                        priority.subList(
+                            0,
+                            min(SUGGESTIONS4USER, priority.size)
+                        )
+                    )
+                }
             }else{
                 log2fileAndViewer("No methods are important to move.", logger)
                 sendTelemetryData()

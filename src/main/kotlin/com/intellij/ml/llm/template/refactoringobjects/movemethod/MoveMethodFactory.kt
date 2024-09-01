@@ -28,6 +28,7 @@ import org.jetbrains.kotlin.idea.editor.fixers.endLine
 import org.jetbrains.kotlin.idea.editor.fixers.startLine
 import org.jetbrains.kotlin.psi.psiUtil.endOffset
 import org.jetbrains.kotlin.psi.psiUtil.getChildOfType
+import kotlin.math.min
 import kotlin.system.measureTimeMillis
 
 class MoveMethodFactory {
@@ -118,10 +119,12 @@ class MoveMethodFactory {
                         telemetryDataManager)?: targetPivotsSorted
                 else
                     targetPivotsSorted
-            logPottentialPivots(pivotsSortedByLLM.subList(0, 3), methodToMove)
+            if (pivotsSortedByLLM.isEmpty())
+                return emptyList()
+            logPottentialPivots(pivotsSortedByLLM.subList(0, min(3, pivotsSortedByLLM.size)), methodToMove)
 
             if (PsiUtils.isMethodStatic(methodToMove)){
-                return pivotsSortedByLLM.map {
+                val moveMethods = pivotsSortedByLLM.map {
                     it.psiClass.qualifiedName?.let { it1 ->
                         MyMoveStaticMethodRefactoring(
                             methodToMove.startLine(editor.document),
@@ -130,10 +133,13 @@ class MoveMethodFactory {
                             rationale = it.rationale
                         )
                     }
-                }.filterNotNull().subList(0, TOPN_SUGGESTIONS4USER)
+                }.filterNotNull()
+                if (moveMethods.isEmpty())
+                    return emptyList()
+                return moveMethods.subList(0, min(TOPN_SUGGESTIONS4USER, moveMethods.size))
             }
 
-            return pivotsSortedByLLM
+            val moveMethods = pivotsSortedByLLM
                 .map {
                     if (it.psiElement!=null) {
                         val processor = runReadAction {
@@ -160,7 +166,9 @@ class MoveMethodFactory {
                     }
                 }
                 .filterNotNull()
-                .subList(0, TOPN_SUGGESTIONS4USER) // choose top-3 moves
+            if (moveMethods.isEmpty())
+                return emptyList()
+            return moveMethods.subList(0, min(TOPN_SUGGESTIONS4USER, moveMethods.size)) // choose top-3 moves
         }
 
         private fun logPottentialPivots(
