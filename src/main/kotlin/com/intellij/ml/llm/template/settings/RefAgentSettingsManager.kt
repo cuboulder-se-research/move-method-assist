@@ -1,6 +1,7 @@
 package com.intellij.ml.llm.template.settings
 
 import com.intellij.ml.llm.template.models.grazie.GrazieGPT4
+import com.intellij.ml.llm.template.models.grazie.GrazieGPT4o
 import com.intellij.ml.llm.template.models.grazie.GrazieGPT4omini
 import com.intellij.ml.llm.template.models.grazie.GrazieModel
 import com.intellij.ml.llm.template.models.ollama.localOllamaMistral
@@ -110,8 +111,11 @@ class RefAgentSettingsManager : PersistentStateComponent<RefAgentSettings> {
 
     fun createAndGetAiModel(): ChatLanguageModel? {
         when (state.aiModel) {
-            "grazie" -> {
+            "grazie-gpt-4" -> {
                 return GrazieGPT4
+            }
+            "grazie-gpt-4o" -> {
+                return GrazieGPT4o
             }
             "grazie-gpt-4o-mini" -> {
                 return GrazieGPT4omini
@@ -153,7 +157,7 @@ class RefAgentSettings : BaseState() {
     var useOpenAi by property(true)
 
     @get:OptionTag("ai_model")
-    var aiModel = "grazie"
+    var aiModel = "grazie-gpt-4"
 
     @get:OptionTag("use_local_llm")
     var useOllamaToCreateObj = false
