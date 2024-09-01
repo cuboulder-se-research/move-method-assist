@@ -7,6 +7,7 @@ import com.google.gson.annotations.SerializedName
 import com.intellij.codeInsight.unwrap.ScopeHighlighter
 import com.intellij.ml.llm.template.LLMBundle
 import com.intellij.ml.llm.template.models.LLMBaseResponse
+import com.intellij.ml.llm.template.models.grazie.GrazieResponse
 import com.intellij.ml.llm.template.models.sendChatRequest
 import com.intellij.ml.llm.template.prompts.MethodPromptBase
 import com.intellij.ml.llm.template.prompts.MoveMethodRefactoringPrompt
@@ -22,6 +23,7 @@ import com.intellij.ml.llm.template.ui.RefactoringSuggestionsPanel
 import com.intellij.ml.llm.template.utils.CodeTransformer
 import com.intellij.ml.llm.template.utils.EFCandidatesApplicationTelemetryObserver
 import com.intellij.ml.llm.template.utils.EFNotification
+import com.intellij.ml.llm.template.utils.JsonUtils
 import com.intellij.notification.NotificationType
 import com.intellij.openapi.application.invokeLater
 import com.intellij.openapi.diagnostic.Logger
@@ -36,6 +38,7 @@ import dev.langchain4j.data.message.ChatMessage
 import java.awt.Point
 import java.awt.Rectangle
 import java.util.concurrent.atomic.AtomicReference
+import kotlin.system.measureTimeMillis
 
 
 class ApplyMoveMethodInteractiveIntention: ApplySuggestRefactoringIntention() {
@@ -70,8 +73,11 @@ class ApplyMoveMethodInteractiveIntention: ApplySuggestRefactoringIntention() {
         return LLMBundle.message("intentions.apply.suggest.refactoring.move.method.family.name")
     }
 
-
     override fun invokeLLM(project: Project, messageList: MutableList<ChatMessage>, editor: Editor, file: PsiFile) {
+        val totalPluginTime = measureTimeMillis{ invokeMoveMethodPlugin(project, messageList, editor, file) }
+        telemetryDataManager.setTotalTime(totalPluginTime)
+    }
+    private fun invokeMoveMethodPlugin(project: Project, messageList: MutableList<ChatMessage>, editor: Editor, file: PsiFile) {
 
         currentFile = file
         currentEditor = editor
@@ -86,12 +92,14 @@ class ApplyMoveMethodInteractiveIntention: ApplySuggestRefactoringIntention() {
         for (iter in 1..MAX_ITERS){
             log2fileAndViewer("******** ITERATION-$iter ********", logger)
             val cacheKey = functionSrc + iter.toString()
-            val response = llmResponseCache[cacheKey]?: sendChatRequest(project, messageList, llmChatModel)
+            val response : LLMBaseResponse?
+            val llmRequestTime = measureTimeMillis{ response = llmResponseCache[cacheKey] ?: sendChatRequest(project, messageList, llmChatModel) }
 
             if (response!=null) {
                 val llmText = response.getSuggestions()[0]
+                val processed = JsonUtils.sanitizeJson(llmText.text)
                 val refactoringSuggestions =try {
-                    (JsonParser.parseString(llmText.text) as JsonArray)
+                    (JsonParser.parseString(processed) as JsonArray)
                         .map {
                             try{
                                 Gson().fromJson(it, MoveMethodSuggestion::class.java )
@@ -101,22 +109,23 @@ class ApplyMoveMethodInteractiveIntention: ApplySuggestRefactoringIntention() {
                             }
                         }.filterNotNull()
                 } catch (e: Exception) {
-                    print("Failed to parse ${llmText.text}")
-                    log2fileAndViewer("LLM response: ${llmText.text}", logger)
+                    print("Failed to parse ${processed}")
+                    log2fileAndViewer("LLM response: ${processed}", logger)
                     e.printStackTrace()
+                    logMethods(listOf(MoveMethodSuggestion("failed to unparse","failed to unparse","failed to unparse", processed)), iter, llmRequestTime)
                     null
                 }
                 if (refactoringSuggestions!=null) {
                     llmResponseCache[cacheKey] ?: llmResponseCache.put(cacheKey, response) // cache response
                     vanillaLLMSuggestions.addAll(refactoringSuggestions)
-                    logMethods(refactoringSuggestions)
+                    logMethods(refactoringSuggestions, iter, llmRequestTime)
                 }
             }
         }
         val uniqueSuggestions = vanillaLLMSuggestions.distinctBy { it.methodName }
 
         log2fileAndViewer("*** Combining responses from iterations ***", logger)
-        logMethods(uniqueSuggestions)
+        logMethods(uniqueSuggestions, -1, 0)
         if (uniqueSuggestions.isEmpty()){
             telemetryDataManager.addCandidatesTelemetryData(buildCandidatesTelemetryData(0, emptyList()))
             telemetryDataManager.setRefactoringObjects(emptyList())
@@ -126,6 +135,7 @@ class ApplyMoveMethodInteractiveIntention: ApplySuggestRefactoringIntention() {
                 LLMBundle.message("notification.extract.function.with.llm.no.suggestions.message"),
                 NotificationType.INFORMATION
             ) }
+            sendTelemetryData()
         }
         else {
             log2fileAndViewer("Prioritising suggestions...", logger)
@@ -135,6 +145,7 @@ class ApplyMoveMethodInteractiveIntention: ApplySuggestRefactoringIntention() {
                 createRefactoringObjectsAndShowSuggestions(priority.subList(0, SUGGESTIONS4USER))
             }else{
                 log2fileAndViewer("No methods are important to move.", logger)
+                sendTelemetryData()
             }
         }
 
@@ -149,7 +160,8 @@ class ApplyMoveMethodInteractiveIntention: ApplySuggestRefactoringIntention() {
                         currentFile,
                         it.methodName,
                         currentProject,
-                        llmChatModel
+                        llmChatModel,
+                        telemetryDataManager
                     )
                 }
                 .reduce { acc, abstractRefactorings -> acc + abstractRefactorings }
@@ -238,18 +250,23 @@ class ApplyMoveMethodInteractiveIntention: ApplySuggestRefactoringIntention() {
     ) : List<MoveMethodSuggestion>? {
         val messages =
             (prompter as MoveMethodRefactoringPrompt).askForMethodPriorityPrompt(functionSrc, uniqueSuggestions)
-        val response = llmResponseCache[messages.toString()]?:sendChatRequest(project, messages, llmChatModel)
+        val response: LLMBaseResponse?
+        val llmResponseTime = measureTimeMillis { response = llmResponseCache[messages.toString()]?:sendChatRequest(project, messages, llmChatModel)}
         if (response != null) {
             var methodPriority = mutableListOf<String>()
             val methodPriority2 = try {
-                Gson().fromJson(response.getSuggestions()[0].text, methodPriority::class.java)
+                Gson().fromJson(
+                    JsonUtils.sanitizeJson(response.getSuggestions()[0].text),
+                    methodPriority::class.java
+                )
             } catch (e: Exception) {
                 log2fileAndViewer("LLM Response: " + response.getSuggestions()[0].text, logger)
+                telemetryDataManager.addLLMPriorityResponse(response.getSuggestions()[0].text, llmResponseTime)
                 null
             }
             if (methodPriority2!=null) {
                 llmResponseCache.put(messages.toString(), response)
-                return uniqueSuggestions.sortedBy {
+                val sortedSuggestions = uniqueSuggestions.sortedBy {
                     val index = methodPriority2.indexOf(it.methodName)
                     if (index == -1) {
                         uniqueSuggestions.size + 1
@@ -257,6 +274,8 @@ class ApplyMoveMethodInteractiveIntention: ApplySuggestRefactoringIntention() {
                         index
                     }
                 }
+                telemetryDataManager.addLLMPriorityResponse(sortedSuggestions.map{it.methodName}, llmResponseTime)
+                return sortedSuggestions
             }
         }
         return null
@@ -266,9 +285,10 @@ class ApplyMoveMethodInteractiveIntention: ApplySuggestRefactoringIntention() {
         throw Exception("Shouldn't be here.")
     }
 
-    private fun logMethods(moveMethodSuggestions: List<MoveMethodSuggestion>){
+    private fun logMethods(moveMethodSuggestions: List<MoveMethodSuggestion>, iter: Int, llmRequestTime: Long){
         if (moveMethodSuggestions.isEmpty()){
             log2fileAndViewer("No suggestions from llm", logger)
+            telemetryDataManager.addMovesSuggestedInIteration(iter, emptyList(), llmRequestTime)
             return
         }
 
@@ -276,6 +296,12 @@ class ApplyMoveMethodInteractiveIntention: ApplySuggestRefactoringIntention() {
         moveMethodSuggestions.forEachIndexed {
              index, moveMethodSuggestion ->  log2fileAndViewer(logMessage = "${index+1}. ${moveMethodSuggestion.methodName}", logger = logger)
         }
+        log2fileAndViewer(logMessage = "LLM took $llmRequestTime ms to respond", logger = logger)
+        telemetryDataManager.addMovesSuggestedInIteration(
+            iter,
+            moveMethodSuggestions.map{it.methodName},
+            llmRequestTime
+        )
     }
 
     private fun logPriority(moveMethodSuggestions: List<MoveMethodSuggestion>){

@@ -34,6 +34,9 @@ class RefAgentConfigurable : BoundConfigurable(LLMBundle.message("settings.confi
             row(LLMBundle.message("settings.configurable.openai.use.ollama.obj.creation")) {
                 checkBox("Yes").bindSelected(settings::getUseLocalLLM, settings::setUseLocalLLM)
             }
+            row(LLMBundle.message("settings.configurable.openai.anonymize.telemetry")) {
+                checkBox("Yes").bindSelected(settings::getAnonymizeTelemetry, settings::setAnonymizeTelemetry)
+            }
         }
     }
 }
