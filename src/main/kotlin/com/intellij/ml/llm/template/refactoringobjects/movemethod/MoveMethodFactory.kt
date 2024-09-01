@@ -10,6 +10,7 @@ import com.intellij.ml.llm.template.models.sendChatRequest
 import com.intellij.ml.llm.template.prompts.MoveMethodRefactoringPrompt
 import com.intellij.ml.llm.template.refactoringobjects.AbstractRefactoring
 import com.intellij.ml.llm.template.refactoringobjects.MyRefactoringFactory
+import com.intellij.ml.llm.template.telemetry.EFTelemetryDataManager
 import com.intellij.ml.llm.template.utils.PsiUtils
 import com.intellij.openapi.application.runReadAction
 import com.intellij.openapi.diagnostic.Logger
@@ -26,6 +27,7 @@ import org.jetbrains.kotlin.idea.editor.fixers.endLine
 import org.jetbrains.kotlin.idea.editor.fixers.startLine
 import org.jetbrains.kotlin.psi.psiUtil.endOffset
 import org.jetbrains.kotlin.psi.psiUtil.getChildOfType
+import kotlin.system.measureTimeMillis
 
 class MoveMethodFactory {
 
@@ -62,7 +64,8 @@ class MoveMethodFactory {
             file: PsiFile,
             methodName: String,
             project: Project,
-            llmChatModel: ChatLanguageModel? = null
+            llmChatModel: ChatLanguageModel? = null,
+            telemetyDataManager: EFTelemetryDataManager? =null
         ): List<AbstractRefactoring> {
             val outerClass: PsiElement? =
                 runReadAction {
@@ -71,7 +74,7 @@ class MoveMethodFactory {
             val methodToMove =
                 runReadAction { PsiUtils.getMethodNameFromClass(outerClass, methodName) } ?: return listOf()
 
-            return createMoveMethodRefactorings(project, methodToMove, editor, file, llmChatModel)
+            return createMoveMethodRefactorings(project, methodToMove, editor, file, llmChatModel, telemetyDataManager)
         }
 
         private fun createMoveMethodRefactorings(
@@ -79,18 +82,39 @@ class MoveMethodFactory {
             methodToMove: PsiMethod,
             editor: Editor,
             file: PsiFile,
-            llmChatModel: ChatLanguageModel?
+            llmChatModel: ChatLanguageModel?,
+            telemetryDataManager: EFTelemetryDataManager?
         ): List<AbstractRefactoring> {
 
             val targetPivots = getPotentialMovePivots(project, editor, file, methodToMove)
-            val targetPivotsSorted = targetPivots
-                .filter { methodToMove.containingClass?.qualifiedName!=it.psiClass.qualifiedName }
-                .sortedByDescending { PsiUtils.computeCosineSimilarity(methodToMove, it.psiClass)  }
-                .distinctBy { it.psiClass.name+it.psiElement?.text }
+            val targetPivotsWithSimilarity: List<Pair<MovePivot, Double>>
+            val similarityComputationTime = measureTimeMillis {
+                targetPivotsWithSimilarity = targetPivots
+                    .filter { methodToMove.containingClass?.qualifiedName != it.psiClass.qualifiedName }
+                    .map { pivot ->
+                        val similarity = PsiUtils.computeCosineSimilarity(methodToMove, pivot.psiClass)
+                        pivot to similarity
+                    }
+            }
+            val targetPivotsSorted = targetPivotsWithSimilarity
+                .sortedByDescending { it.second }
+                .distinctBy { it.first.psiClass.name + it.first.psiElement?.text }
+                .map { it.first }
+            telemetryDataManager
+                ?.addPotentialTargetClassesOrdered(
+                    methodToMove.name,
+                    targetPivotsWithSimilarity.map{it.first.psiClass.name to it.second},
+                    "cosine",
+                    similarityComputationTime)
 
             val pivotsSortedByLLM =
                 if (llmChatModel!=null)
-                    rerankByLLM(targetPivotsSorted, methodToMove, methodToMove.containingClass, project, llmChatModel)?: targetPivotsSorted
+                    rerankByLLM(targetPivotsSorted,
+                        methodToMove,
+                        methodToMove.containingClass,
+                        project,
+                        llmChatModel,
+                        telemetryDataManager)?: targetPivotsSorted
                 else
                     targetPivotsSorted
             logPottentialPivots(pivotsSortedByLLM.subList(0, 3), methodToMove)
@@ -157,18 +181,20 @@ class MoveMethodFactory {
             methodToMove: PsiMethod,
             containingClass: PsiClass?,
             project: Project,
-            llmChatModel: ChatLanguageModel
+            llmChatModel: ChatLanguageModel,
+            telemetryDataManager: EFTelemetryDataManager?
         ) : List<MovePivot>?{
 
-            val response =
-                llmResponseCache[methodToMove.text]?:
-                sendChatRequest(
+            val response: LLMBaseResponse?
+            val llmResponseTime = measureTimeMillis {
+                response = llmResponseCache[methodToMove.text] ?: sendChatRequest(
                     project,
                     MoveMethodRefactoringPrompt().askForTargetClassPriorityPrompt(
                         methodToMove.text,
                         targetPivotsSorted.distinctBy { it.psiClass.name }
                     ),
                     llmChatModel)
+            }
             if (response!=null){
                 llmResponseCache[methodToMove.text]?: llmResponseCache.put(methodToMove.text, response)
                 try {
@@ -181,7 +207,7 @@ class MoveMethodFactory {
                             .filter { it.psiClass.name == moveSuggestion.targetClassName}
                             .forEach { it.rationale=moveSuggestion.rationale }
                     }
-                    return targetPivotsSorted.sortedBy {
+                    val llmSortedPivots = targetPivotsSorted.sortedBy {
                         val index = targetClassesRanked.indexOf(it.psiClass.name)
                         if (index == -1){
                             targetPivotsSorted.size+1
@@ -189,7 +215,18 @@ class MoveMethodFactory {
                             index
                         }
                     }
+                    telemetryDataManager?.addLlmMethodPriorityResponse(
+                        methodToMove.name,
+                        llmSortedPivots.map{it.psiClass.name}.filterNotNull(),
+                        llmResponseTime
+                    )
+                    return llmSortedPivots
                 } catch (e: Exception) {
+                    telemetryDataManager?.addLlmMethodPriorityResponse(
+                        methodToMove.name,
+                        response.getSuggestions()[0].text,
+                        llmResponseTime
+                    )
                     e.printStackTrace()
                 }
             }

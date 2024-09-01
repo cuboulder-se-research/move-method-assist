@@ -6,6 +6,7 @@ import com.intellij.ml.llm.template.refactoringobjects.UncreatableRefactoring
 import com.intellij.ml.llm.template.refactoringobjects.extractfunction.EfCandidateType
 import com.intellij.ml.llm.template.settings.RefAgentSettingsManager
 import com.intellij.ml.llm.template.utils.EFCandidateApplicationPayload
+import com.intellij.openapi.util.NlsSafe
 import com.intellij.openapi.util.TextRange
 import com.intellij.psi.PsiFile
 import com.intellij.psi.PsiWhiteSpace
@@ -248,6 +249,37 @@ class EFTelemetryDataManager {
 
     fun setRefactoringObjects(refactoringCandidates: List<AbstractRefactoring>) {
         currentTelemetryData.refactoringObjects = refactoringCandidates
+    }
+
+    fun addMovesSuggestedInIteration(iter: Int, methodNames: List<String>, llmResponseTime: Long) {
+        TODO("Implement")
+    }
+
+    fun addLLMPriorityResponse(moveMethodSuggestions: List<String>, llmResponseTime: Long) {
+        TODO()
+    }
+    fun addLLMPriorityResponse(responseText: String, llmResponseTime: Long) {
+        TODO()
+    }
+
+    fun addPotentialTargetClassesOrdered(
+        methodToMove: String,
+        targetClassesWithSimilarityMetric: List<Pair<String?, Double>>,
+        similarityMetric: String,
+        similarityComputationTime: Long
+    ) {
+        TODO("Not yet implemented")
+    }
+
+    fun setTotalTime(totalPluginTime: Long) {
+        TODO("Not yet implemented")
+    }
+
+    fun addLlmMethodPriorityResponse(methodToMove: String, targetClassesSorted: List<String>, llmResponseTime: Long) {
+        TODO("Not yet implemented")
+    }
+    fun addLlmMethodPriorityResponse(methodToMove: String, unparseableResponse: String, llmResponseTime: Long) {
+        TODO("Not yet implemented")
     }
 }
 
