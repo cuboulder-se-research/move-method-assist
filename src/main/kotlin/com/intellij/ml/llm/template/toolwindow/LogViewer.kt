@@ -19,10 +19,13 @@ class LogViewer(val initalText: String) : JPanel() {
         val scrollPane = JScrollPane(logArea)
         scrollPane.verticalScrollBarPolicy = JScrollPane.VERTICAL_SCROLLBAR_ALWAYS
         scrollPane.preferredSize = Dimension(500, 400) // Adjust the size as needed
+        val clearButton = JButton("Clear Logs")
+        clearButton.addActionListener { e: ActionEvent? -> clear() }
 
         // Add the JScrollPane to this JPanel
         layout = BorderLayout()
         add(scrollPane, BorderLayout.CENTER)
+        add(clearButton, BorderLayout.SOUTH);
     }
 
     // Method to add logs
