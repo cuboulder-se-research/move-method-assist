@@ -11,6 +11,7 @@ import com.intellij.ml.llm.template.prompts.MoveMethodRefactoringPrompt
 import com.intellij.ml.llm.template.refactoringobjects.AbstractRefactoring
 import com.intellij.ml.llm.template.refactoringobjects.MyRefactoringFactory
 import com.intellij.ml.llm.template.telemetry.EFTelemetryDataManager
+import com.intellij.ml.llm.template.utils.JsonUtils
 import com.intellij.ml.llm.template.utils.PsiUtils
 import com.intellij.openapi.application.runReadAction
 import com.intellij.openapi.diagnostic.Logger
@@ -198,7 +199,8 @@ class MoveMethodFactory {
             if (response!=null){
                 llmResponseCache[methodToMove.text]?: llmResponseCache.put(methodToMove.text, response)
                 try {
-                    val priorityOrder = (JsonParser.parseString(response.getSuggestions()[0].text) as JsonArray)
+                    val priorityOrder =
+                        (JsonParser.parseString(JsonUtils.sanitizeJson(response.getSuggestions()[0].text)) as JsonArray)
                         .map { try{ Gson().fromJson(it, MoveSuggestion::class.java) } catch (e: Exception){null} }
                         .filterNotNull()
                     val targetClassesRanked = priorityOrder.map { it.targetClassName }

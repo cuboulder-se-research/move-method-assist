@@ -23,6 +23,7 @@ import com.intellij.ml.llm.template.ui.RefactoringSuggestionsPanel
 import com.intellij.ml.llm.template.utils.CodeTransformer
 import com.intellij.ml.llm.template.utils.EFCandidatesApplicationTelemetryObserver
 import com.intellij.ml.llm.template.utils.EFNotification
+import com.intellij.ml.llm.template.utils.JsonUtils
 import com.intellij.notification.NotificationType
 import com.intellij.openapi.application.invokeLater
 import com.intellij.openapi.diagnostic.Logger
@@ -96,7 +97,7 @@ class ApplyMoveMethodInteractiveIntention: ApplySuggestRefactoringIntention() {
 
             if (response!=null) {
                 val llmText = response.getSuggestions()[0]
-                val processed = llmText.text.removePrefix("```json").removeSuffix("```")
+                val processed = JsonUtils.sanitizeJson(llmText.text)
                 val refactoringSuggestions =try {
                     (JsonParser.parseString(processed) as JsonArray)
                         .map {
@@ -144,6 +145,7 @@ class ApplyMoveMethodInteractiveIntention: ApplySuggestRefactoringIntention() {
                 createRefactoringObjectsAndShowSuggestions(priority.subList(0, SUGGESTIONS4USER))
             }else{
                 log2fileAndViewer("No methods are important to move.", logger)
+                sendTelemetryData()
             }
         }
 
@@ -253,7 +255,10 @@ class ApplyMoveMethodInteractiveIntention: ApplySuggestRefactoringIntention() {
         if (response != null) {
             var methodPriority = mutableListOf<String>()
             val methodPriority2 = try {
-                Gson().fromJson(response.getSuggestions()[0].text, methodPriority::class.java)
+                Gson().fromJson(
+                    JsonUtils.sanitizeJson(response.getSuggestions()[0].text),
+                    methodPriority::class.java
+                )
             } catch (e: Exception) {
                 log2fileAndViewer("LLM Response: " + response.getSuggestions()[0].text, logger)
                 telemetryDataManager.addLLMPriorityResponse(response.getSuggestions()[0].text, llmResponseTime)
