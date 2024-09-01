@@ -4,6 +4,7 @@ import com.google.gson.annotations.SerializedName
 import com.intellij.ml.llm.template.refactoringobjects.AbstractRefactoring
 import com.intellij.ml.llm.template.refactoringobjects.UncreatableRefactoring
 import com.intellij.ml.llm.template.refactoringobjects.extractfunction.EfCandidateType
+import com.intellij.ml.llm.template.settings.RefAgentSettingsManager
 import com.intellij.ml.llm.template.utils.EFCandidateApplicationPayload
 import com.intellij.openapi.util.TextRange
 import com.intellij.psi.PsiFile
@@ -265,7 +266,7 @@ class EFTelemetryDataUtils {
                 hostFunctionSize = functionSize,
                 bodyLineStart = bodyLineStart,
                 language = language,
-                sourceCode = codeSnippet
+                sourceCode = if (RefAgentSettingsManager.getInstance().getAnonymizeTelemetry()) "" else codeSnippet
             )
         }
 

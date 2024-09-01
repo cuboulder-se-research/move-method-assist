@@ -87,6 +87,14 @@ class RefAgentSettingsManager : PersistentStateComponent<RefAgentSettings> {
         return state.useOllamaToCreateObj
     }
 
+    fun getAnonymizeTelemetry(): Boolean{
+        return state.anonymize_telemetry
+    }
+
+    fun setAnonymizeTelemetry(v: Boolean){
+        state.anonymize_telemetry = v
+    }
+
     fun setUseLocalLLM(b: Boolean){
         state.useOllamaToCreateObj = b
     }
@@ -152,6 +160,9 @@ class RefAgentSettings : BaseState() {
 
     @get:OptionTag("open_ai")
     var llmSettings by property(LLMSettings()) { it == LLMSettings() }
+
+    @get:OptionTag("anonymize_telemetry")
+    var anonymize_telemetry by property(true)
 }
 
 class LLMSettings : BaseState() {
