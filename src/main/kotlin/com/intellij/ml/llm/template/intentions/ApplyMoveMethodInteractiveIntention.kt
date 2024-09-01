@@ -96,8 +96,9 @@ class ApplyMoveMethodInteractiveIntention: ApplySuggestRefactoringIntention() {
 
             if (response!=null) {
                 val llmText = response.getSuggestions()[0]
+                val processed = llmText.text.removePrefix("```json").removeSuffix("```")
                 val refactoringSuggestions =try {
-                    (JsonParser.parseString(llmText.text) as JsonArray)
+                    (JsonParser.parseString(processed) as JsonArray)
                         .map {
                             try{
                                 Gson().fromJson(it, MoveMethodSuggestion::class.java )
@@ -107,9 +108,10 @@ class ApplyMoveMethodInteractiveIntention: ApplySuggestRefactoringIntention() {
                             }
                         }.filterNotNull()
                 } catch (e: Exception) {
-                    print("Failed to parse ${llmText.text}")
-                    log2fileAndViewer("LLM response: ${llmText.text}", logger)
+                    print("Failed to parse ${processed}")
+                    log2fileAndViewer("LLM response: ${processed}", logger)
                     e.printStackTrace()
+                    logMethods(listOf(MoveMethodSuggestion("failed to unparse","failed to unparse","failed to unparse", processed)), iter, llmRequestTime)
                     null
                 }
                 if (refactoringSuggestions!=null) {
@@ -132,6 +134,7 @@ class ApplyMoveMethodInteractiveIntention: ApplySuggestRefactoringIntention() {
                 LLMBundle.message("notification.extract.function.with.llm.no.suggestions.message"),
                 NotificationType.INFORMATION
             ) }
+            sendTelemetryData()
         }
         else {
             log2fileAndViewer("Prioritising suggestions...", logger)

@@ -215,14 +215,14 @@ class MoveMethodFactory {
                             index
                         }
                     }
-                    telemetryDataManager?.addLlmMethodPriorityResponse(
+                    telemetryDataManager?.addLlmTargetClassPriorityResponse(
                         methodToMove.name,
                         llmSortedPivots.map{it.psiClass.name}.filterNotNull(),
                         llmResponseTime
                     )
                     return llmSortedPivots
                 } catch (e: Exception) {
-                    telemetryDataManager?.addLlmMethodPriorityResponse(
+                    telemetryDataManager?.addLlmTargetClassPriorityResponse(
                         methodToMove.name,
                         response.getSuggestions()[0].text,
                         llmResponseTime

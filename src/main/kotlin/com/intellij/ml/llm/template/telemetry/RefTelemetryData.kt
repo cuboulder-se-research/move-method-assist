@@ -6,7 +6,6 @@ import com.intellij.ml.llm.template.refactoringobjects.UncreatableRefactoring
 import com.intellij.ml.llm.template.refactoringobjects.extractfunction.EfCandidateType
 import com.intellij.ml.llm.template.settings.RefAgentSettingsManager
 import com.intellij.ml.llm.template.utils.EFCandidateApplicationPayload
-import com.intellij.openapi.util.NlsSafe
 import com.intellij.openapi.util.TextRange
 import com.intellij.psi.PsiFile
 import com.intellij.psi.PsiWhiteSpace
@@ -32,6 +31,15 @@ data class RefTelemetryData(
 
     @SerializedName("processingTime")
     lateinit var processingTime: EFTelemetryDataProcessingTime
+
+    @SerializedName("iterationData")
+    var iterationData: MutableList<MoveMethodIterationData> = mutableListOf()
+
+    @SerializedName("llmMethodPriority")
+    lateinit var llmPriority: LlmMovePriority
+
+    @SerializedName("targetClassMap")
+    var targetClassMap: MutableMap<String, TargetClass4Method> = mutableMapOf()
 
     @Transient
     lateinit var refactoringObjects: List<AbstractRefactoring>
@@ -159,6 +167,56 @@ data class EFTelemetryDataProcessingTime(
     var totalTime: Long
 )
 
+data class MoveMethodIterationData(
+    @SerializedName("iteration_num")
+    var iterationNum: Int,
+
+    @SerializedName("suggested_method_names")
+    var methodNames: List<String>,
+
+    @SerializedName("llm_response_time")
+    var llmResponseTime: Long
+)
+
+data class LlmMovePriority(
+    @SerializedName("priority_method_names")
+    var methodNames: List<String>?,
+
+    @SerializedName("explanation")
+    var explanation: String?,
+
+    @SerializedName("llm_response_time")
+    var llmResponseTime: Long
+)
+data class TargetClass4Method(
+    @SerializedName("target_classes")
+    var targetClasses: List<TargetClass>,
+
+    @SerializedName("target_classes_sorted_by_llm")
+    var targetClassesSorted: List<String>?,
+
+    @SerializedName("llm_response_time")
+    var llmResponseTime: Long?,
+
+    @SerializedName("similarity_computation_time")
+    var similarityComputationTime: Long,
+
+    @SerializedName("similarity_metric")
+    var similarityMetric: String,
+
+    @SerializedName("target_class_priority_explanation")
+    var explanation: String?
+
+)
+
+data class TargetClass(
+    @SerializedName("class_name")
+    val className: String,
+
+    @SerializedName("similarity_score")
+    val similarityScore: Double
+)
+
 data class AgenticTelemetry(
     @SerializedName("agentData")
     val agentIterationData: List<AgentIterationTelemetry>
@@ -252,14 +310,14 @@ class EFTelemetryDataManager {
     }
 
     fun addMovesSuggestedInIteration(iter: Int, methodNames: List<String>, llmResponseTime: Long) {
-        TODO("Implement")
+        currentTelemetryData.iterationData.add(MoveMethodIterationData(iter, methodNames, llmResponseTime))
     }
 
     fun addLLMPriorityResponse(moveMethodSuggestions: List<String>, llmResponseTime: Long) {
-        TODO()
+        currentTelemetryData.llmPriority = LlmMovePriority(moveMethodSuggestions, null, llmResponseTime)
     }
     fun addLLMPriorityResponse(responseText: String, llmResponseTime: Long) {
-        TODO()
+        currentTelemetryData.llmPriority = LlmMovePriority(null, responseText, llmResponseTime)
     }
 
     fun addPotentialTargetClassesOrdered(
@@ -268,18 +326,50 @@ class EFTelemetryDataManager {
         similarityMetric: String,
         similarityComputationTime: Long
     ) {
-        TODO("Not yet implemented")
+        val targetClassData = currentTelemetryData.targetClassMap.get(
+            methodToMove)
+        val updatedInfo = TargetClass4Method(
+                targetClassesWithSimilarityMetric.map { it.first.let { first ->
+                    if (first != null) {
+                        TargetClass(first, it.second)
+                    }else {
+                        null
+                    }
+                } }.filterNotNull(),
+                similarityComputationTime = similarityComputationTime,
+                similarityMetric = similarityMetric,
+                targetClassesSorted = null,
+                llmResponseTime = null,
+                explanation = null
+            )
+        if (targetClassData!=null){
+            targetClassData.targetClasses = updatedInfo.targetClasses
+            targetClassData.similarityMetric = updatedInfo.similarityMetric
+            targetClassData.similarityComputationTime = updatedInfo.similarityComputationTime
+        }else{
+            currentTelemetryData.targetClassMap.put(methodToMove, updatedInfo)
+        }
     }
 
     fun setTotalTime(totalPluginTime: Long) {
-        TODO("Not yet implemented")
+        currentTelemetryData.processingTime = EFTelemetryDataProcessingTime(llmResponseTime = -1, totalTime = totalPluginTime, pluginProcessingTime = -1)
     }
 
-    fun addLlmMethodPriorityResponse(methodToMove: String, targetClassesSorted: List<String>, llmResponseTime: Long) {
-        TODO("Not yet implemented")
+    fun addLlmTargetClassPriorityResponse(methodToMove: String, targetClassesSorted: List<String>, llmResponseTime: Long) {
+        val targetClassData = currentTelemetryData.targetClassMap.get(
+            methodToMove)
+        if (targetClassData!=null){
+            targetClassData.targetClassesSorted = targetClassesSorted
+            targetClassData.llmResponseTime = llmResponseTime
+        }
     }
-    fun addLlmMethodPriorityResponse(methodToMove: String, unparseableResponse: String, llmResponseTime: Long) {
-        TODO("Not yet implemented")
+    fun addLlmTargetClassPriorityResponse(methodToMove: String, unparseableResponse: String, llmResponseTime: Long) {
+        val targetClassData = currentTelemetryData.targetClassMap.get(
+            methodToMove)
+        if (targetClassData!=null){
+            targetClassData.explanation = unparseableResponse
+            targetClassData.llmResponseTime = llmResponseTime
+        }
     }
 }
 
