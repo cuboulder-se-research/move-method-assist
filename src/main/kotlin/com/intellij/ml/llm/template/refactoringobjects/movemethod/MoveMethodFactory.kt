@@ -13,16 +13,20 @@ import com.intellij.ml.llm.template.refactoringobjects.MyRefactoringFactory
 import com.intellij.ml.llm.template.telemetry.EFTelemetryDataManager
 import com.intellij.ml.llm.template.utils.JsonUtils
 import com.intellij.ml.llm.template.utils.PsiUtils
+import com.intellij.openapi.application.ApplicationManager
+import com.intellij.openapi.application.impl.ApplicationImpl
 import com.intellij.openapi.application.runReadAction
 import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
+import com.intellij.openapi.util.Ref
 import com.intellij.psi.*
 import com.intellij.psi.search.GlobalSearchScope
 import com.intellij.refactoring.move.MoveInstanceMembersUtil
 import com.intellij.refactoring.move.moveInstanceMethod.MoveInstanceMethodProcessor
 import com.intellij.refactoring.openapi.impl.JavaRefactoringFactoryImpl
 import com.intellij.refactoring.suggested.startOffset
+import com.intellij.usageView.UsageInfo
 import dev.langchain4j.model.chat.ChatLanguageModel
 import org.jetbrains.kotlin.idea.editor.fixers.endLine
 import org.jetbrains.kotlin.idea.editor.fixers.startLine
@@ -30,6 +34,7 @@ import org.jetbrains.kotlin.psi.psiUtil.endOffset
 import org.jetbrains.kotlin.psi.psiUtil.getChildOfType
 import kotlin.math.min
 import kotlin.system.measureTimeMillis
+
 
 class MoveMethodFactory {
 
@@ -46,6 +51,10 @@ class MoveMethodFactory {
         const val TOPN_SUGGESTIONS4USER = 1
         const val TOPN_SUGGESTIONS4LLM = 5
         val llmResponseCache = mutableMapOf<String, LLMBaseResponse>()
+
+        fun test(){
+
+        }
 
         override fun createObjectsFromFuncCall(
             funcCall: String,
@@ -89,9 +98,10 @@ class MoveMethodFactory {
         ): List<AbstractRefactoring> {
 
             val targetPivots = getPotentialMovePivots(project, editor, file, methodToMove)
+            val validMovePivots = getValidPivots(project, editor, file, methodToMove, targetPivots)
             val targetPivotsWithSimilarity: List<Pair<MovePivot, Double>>
             val similarityComputationTime = measureTimeMillis {
-                targetPivotsWithSimilarity = targetPivots
+                targetPivotsWithSimilarity = validMovePivots
                     .filter { methodToMove.containingClass?.qualifiedName != it.psiClass.qualifiedName }
                     .map { pivot ->
                         val similarity = PsiUtils.computeCosineSimilarity(methodToMove, pivot.psiClass)
@@ -171,6 +181,47 @@ class MoveMethodFactory {
             return moveMethods.subList(0, min(TOPN_SUGGESTIONS4USER, moveMethods.size)) // choose top-3 moves
         }
 
+        private fun getValidPivots(
+            project: Project,
+            editor: Editor,
+            file: PsiFile,
+            methodToMove: PsiMethod,
+            targetPivots: List<MovePivot>
+        ): List<MovePivot> {
+            return targetPivots.filter {
+                if (PsiUtils.isMethodStatic(methodToMove))
+                    checkStaticMoveValidity(project, methodToMove, it)
+                else
+                    checkInstanceMoveValidity(project, methodToMove, it)
+            }
+        }
+
+        private fun checkInstanceMoveValidity(
+            project: Project,
+            methodToMove: PsiMethod,
+            it: MovePivot
+        ): Boolean {
+            val processor = MoveInstanceMethodProcessorAutoValidator(
+                project, methodToMove, it.psiElement as PsiVariable, "public",
+                runReadAction {
+                    getParamNamesIfNeeded(
+                        MoveInstanceMembersUtil.getThisClassesToMembers(methodToMove),
+                        it.psiElement as? PsiField
+                    )
+                }
+            )
+            // Reflection. This is a hacky way to call intellij API.
+            val method = processor.javaClass.getDeclaredMethod("findUsages")
+            method.setAccessible(true)
+            val usages = method.invoke(processor)
+            val refUsages = Ref<Array<UsageInfo>>(usages as Array<UsageInfo>)
+
+            val preprocessUsagesMethod =
+                processor.javaClass.getDeclaredMethod("preprocessUsages", refUsages::class.java)
+            preprocessUsagesMethod.setAccessible(true)
+            return preprocessUsagesMethod.invoke(processor, refUsages) as Boolean
+        }
+
         private fun logPottentialPivots(
             targetPivotsSorted: List<MovePivot>,
             methodToMove: PsiMethod
@@ -245,34 +296,20 @@ class MoveMethodFactory {
 
         private fun getPotentialMovePivots(project: Project, editor: Editor, file: PsiFile, methodToMove: PsiMethod): List<MovePivot> {
             if (methodToMove.containingClass==null) return emptyList()
-            if (PsiUtils.isMethodStatic(methodToMove)){
+            if (PsiUtils.isMethodStatic(methodToMove)
+                && MoveMembersPreConditions.checkPreconditions(project, arrayOf(methodToMove), null, null)){
                 return (PsiUtils.fetchClassesInPackage(methodToMove.containingClass!!, project) + PsiUtils.fetchImportsInFile(file, project))
                     .map { MovePivot(it, null) }
             }else{
-                val movePivots = mutableListOf<MovePivot>()
-                for (field in methodToMove.containingClass!!.allFields){
-                    val qualifier = field.type.canonicalText
-                    if (PsiUtils.isInProject(qualifier, project)){
-                        val clazz = PsiUtils.findClassFromQualifier(qualifier, project)
-                        if (clazz!=null)
-                            movePivots.add(
-                                MovePivot(clazz, field)
-                            )
-                    }
-                }
-
-                for (parameter in methodToMove.parameterList.parameters){
-                    val qualifier = parameter.type.canonicalText
-                    if (PsiUtils.isInProject(qualifier, project)){
-                        val clazz = PsiUtils.findClassFromQualifier(qualifier, project)
-                        if (clazz!=null)
-                            movePivots.add(
-                                MovePivot(clazz, parameter)
-                            )
-                    }
-                }
-
-                return movePivots
+                val handler = MoveInstanceMethodHandlerForPlugin()
+                handler.invoke(project, arrayOf(methodToMove), null)
+                return handler.suitableVariablesToMove.map {
+                    val clazz = PsiUtils.findClassFromQualifier(it.type.canonicalText, project)
+                    if (clazz!=null)
+                        MovePivot(clazz, it)
+                    else
+                        null
+                }.filterNotNull()
             }
         }
 
@@ -376,6 +413,23 @@ class MoveMethodFactory {
                 return null // TODO: implement search
             }
 
+        }
+
+        private fun checkStaticMoveValidity(project: Project,
+                                            methodToMove: PsiMethod,
+                                            movePivot: MovePivot) : Boolean {
+            if (methodToMove.containingClass!!.name==movePivot.psiClass.name)
+                return false
+            val processor = MoveStaticMethodValidator(project, methodToMove.containingClass!!, movePivot.psiClass, methodToMove)
+            val method = processor.javaClass.getDeclaredMethod("findUsages")
+            method.setAccessible(true)
+            val usages = method.invoke(processor)
+            val refUsages = Ref<Array<UsageInfo>>(usages as Array<UsageInfo>)
+
+            val preprocessUsagesMethod =
+                processor.javaClass.getDeclaredMethod("preprocessUsages", refUsages::class.java)
+            preprocessUsagesMethod.setAccessible(true)
+            return preprocessUsagesMethod.invoke(processor, refUsages) as Boolean
         }
 
         private fun getParamNamesIfNeeded(
