@@ -62,49 +62,30 @@ class MoveInstanceMethodHandlerForPlugin: MoveInstanceMethodHandler() {
                 for (aClass in classes) {
                     if (aClass is JspClass) {
                         message = JavaRefactoringBundle.message("synthetic.jsp.class.is.referenced.in.the.method")
-                        val editor = CommonDataKeys.EDITOR.getData(dataContext!!)
-                        CommonRefactoringUtil.showErrorHint(
-                            project,
-                            editor,
-                            message,
-                            getRefactoringName()!!,
-                            HelpID.MOVE_INSTANCE_METHOD
-                        )
+//                        val editor = CommonDataKeys.EDITOR.getData(dataContext!!)
+//                        CommonRefactoringUtil.showErrorHint(
+//                            project,
+//                            editor,
+//                            message,
+//                            getRefactoringName()!!,
+//                            HelpID.MOVE_INSTANCE_METHOD
+//                        )
                         break
                     }
                 }
             }
         }
         if (message != null) {
-            showErrorHint(project, dataContext, message)
+//            showErrorHint(project, dataContext, message)
             return
         }
 
         val suitableVariables: MutableList<PsiVariable> = ArrayList()
         message = collectSuitableVariables(method, suitableVariables)
         if (message != null) {
-            val unableToMakeStaticMessage = MakeStaticHandler.validateTarget(method)
-            if (unableToMakeStaticMessage != null) {
-                showErrorHint(project, dataContext, message)
-            } else {
-                val suggestToMakeStaticMessage =
-                    JavaRefactoringBundle.message("move.instance.method.handler.make.method.static", method.getName())
-                if (Messages
-                        .showYesNoCancelDialog(
-                            project, "$message. $suggestToMakeStaticMessage",
-                            getRefactoringName(), Messages.getErrorIcon()
-                        ) == Messages.YES
-                ) {
-                    MakeStaticHandler.invoke(method)
-                }
-            }
             return
         }
 
-//        MoveInstanceMethodDialog(
-//            method,
-//            suitableVariables.toTypedArray<PsiVariable>()
-//        ).show()
         suitableVariablesToMove.addAll(suitableVariables)
     }
 
