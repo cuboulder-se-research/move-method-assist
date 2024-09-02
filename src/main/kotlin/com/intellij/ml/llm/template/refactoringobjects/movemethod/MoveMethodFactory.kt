@@ -189,25 +189,37 @@ class MoveMethodFactory {
             targetPivots: List<MovePivot>
         ): List<MovePivot> {
             return targetPivots.filter {
-                val processor = MoveInstanceMethodProcessorAutoValidator(
-                    project, methodToMove, it.psiElement as PsiVariable, "public",
-                    runReadAction {
-                        getParamNamesIfNeeded(
-                            MoveInstanceMembersUtil.getThisClassesToMembers(methodToMove),
-                            it.psiElement as? PsiField
-                        )
-                    }
-                )
-                // Reflection. This is a hacky way to call intellij API.
-                val method= processor.javaClass.getDeclaredMethod("findUsages")
-                method.setAccessible(true)
-                val usages = method.invoke(processor)
-                val refUsages = Ref<Array<UsageInfo>>(usages as Array<UsageInfo>)
-
-                val preprocessUsagesMethod= processor.javaClass.getDeclaredMethod("preprocessUsages", refUsages::class.java)
-                preprocessUsagesMethod.setAccessible(true)
-                preprocessUsagesMethod.invoke(processor, refUsages) as Boolean
+                if (PsiUtils.isMethodStatic(methodToMove))
+                    checkStaticMoveValidity(project, methodToMove, it)
+                else
+                    checkInstanceMoveValidity(project, methodToMove, it)
             }
+        }
+
+        private fun checkInstanceMoveValidity(
+            project: Project,
+            methodToMove: PsiMethod,
+            it: MovePivot
+        ): Boolean {
+            val processor = MoveInstanceMethodProcessorAutoValidator(
+                project, methodToMove, it.psiElement as PsiVariable, "public",
+                runReadAction {
+                    getParamNamesIfNeeded(
+                        MoveInstanceMembersUtil.getThisClassesToMembers(methodToMove),
+                        it.psiElement as? PsiField
+                    )
+                }
+            )
+            // Reflection. This is a hacky way to call intellij API.
+            val method = processor.javaClass.getDeclaredMethod("findUsages")
+            method.setAccessible(true)
+            val usages = method.invoke(processor)
+            val refUsages = Ref<Array<UsageInfo>>(usages as Array<UsageInfo>)
+
+            val preprocessUsagesMethod =
+                processor.javaClass.getDeclaredMethod("preprocessUsages", refUsages::class.java)
+            preprocessUsagesMethod.setAccessible(true)
+            return preprocessUsagesMethod.invoke(processor, refUsages) as Boolean
         }
 
         private fun logPottentialPivots(
@@ -284,11 +296,11 @@ class MoveMethodFactory {
 
         private fun getPotentialMovePivots(project: Project, editor: Editor, file: PsiFile, methodToMove: PsiMethod): List<MovePivot> {
             if (methodToMove.containingClass==null) return emptyList()
-            if (PsiUtils.isMethodStatic(methodToMove)){
+            if (PsiUtils.isMethodStatic(methodToMove)
+                && MoveMembersPreConditions.checkPreconditions(project, arrayOf(methodToMove), null, null)){
                 return (PsiUtils.fetchClassesInPackage(methodToMove.containingClass!!, project) + PsiUtils.fetchImportsInFile(file, project))
                     .map { MovePivot(it, null) }
             }else{
-//                doNewThing(project, editor, file, methodToMove)
                 val handler = MoveInstanceMethodHandlerForPlugin()
                 handler.invoke(project, arrayOf(methodToMove), null)
                 return handler.suitableVariablesToMove.map {
@@ -401,6 +413,23 @@ class MoveMethodFactory {
                 return null // TODO: implement search
             }
 
+        }
+
+        private fun checkStaticMoveValidity(project: Project,
+                                            methodToMove: PsiMethod,
+                                            movePivot: MovePivot) : Boolean {
+            if (methodToMove.containingClass!!.name==movePivot.psiClass.name)
+                return false
+            val processor = MoveStaticMethodValidator(project, methodToMove.containingClass!!, movePivot.psiClass, methodToMove)
+            val method = processor.javaClass.getDeclaredMethod("findUsages")
+            method.setAccessible(true)
+            val usages = method.invoke(processor)
+            val refUsages = Ref<Array<UsageInfo>>(usages as Array<UsageInfo>)
+
+            val preprocessUsagesMethod =
+                processor.javaClass.getDeclaredMethod("preprocessUsages", refUsages::class.java)
+            preprocessUsagesMethod.setAccessible(true)
+            return preprocessUsagesMethod.invoke(processor, refUsages) as Boolean
         }
 
         private fun getParamNamesIfNeeded(

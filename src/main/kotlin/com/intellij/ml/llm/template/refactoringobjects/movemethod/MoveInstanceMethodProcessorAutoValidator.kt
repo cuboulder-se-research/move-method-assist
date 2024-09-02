@@ -17,10 +17,7 @@ class MoveInstanceMethodProcessorAutoValidator(project: Project,
                                                oldClassParameterNames: Map<PsiClass, String> ):
     MoveInstanceMethodProcessor(project, method, targetVariable, newVisibility, oldClassParameterNames) {
     override fun showConflicts(conflicts: MultiMap<PsiElement, String>, usages: Array<out UsageInfo>?): Boolean {
-        if (conflicts.isEmpty){
-            return true
-        }
-        return false
+        return conflicts.isEmpty
     }
 
     override fun findUsages(): Array<UsageInfo> { // To make reflection work
