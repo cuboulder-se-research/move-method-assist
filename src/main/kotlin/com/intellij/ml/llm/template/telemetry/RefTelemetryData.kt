@@ -247,8 +247,14 @@ class EFTelemetryDataManager {
     private var currentSessionId: String = ""
     private val data: MutableMap<String, RefTelemetryData> = mutableMapOf()
     private lateinit var currentTelemetryData: RefTelemetryData
+    private var anonimizeTelemetry = RefAgentSettingsManager.getInstance().getAnonymizeTelemetry()
+    private val anonMethodMap = mutableMapOf<String, String>()
+    private val anonClassMap = mutableMapOf<String, String>()
 
     fun newSession(): String {
+        anonimizeTelemetry = RefAgentSettingsManager.getInstance().getAnonymizeTelemetry()
+        anonClassMap.clear()
+        anonMethodMap.clear()
         currentSessionId = UUID.randomUUID().toString()
         currentTelemetryData = RefTelemetryData(currentSessionId)
         data[currentSessionId] = currentTelemetryData
@@ -290,7 +296,7 @@ class EFTelemetryDataManager {
             RefCandidateTelemetryData(
                 it.startLoc, it.endLoc,
                 it::class.simpleName.toString(),
-                it.description,
+                if(anonimizeTelemetry) "Anonymous" else it.description,
                 couldCreateRefObject = it !is UncreatableRefactoring,
                 valid = it.isValid,
                 applied = it.applied,
@@ -308,16 +314,39 @@ class EFTelemetryDataManager {
     fun setRefactoringObjects(refactoringCandidates: List<AbstractRefactoring>) {
         currentTelemetryData.refactoringObjects = refactoringCandidates
     }
+    private fun getAndSetAnonMethodName(methodName: String): String {
+        val anonMethodName = anonMethodMap[methodName] ?: "method${anonMethodMap.size}"
+        anonMethodMap.put(methodName, anonMethodName)
+        return anonMethodName
+    }
+    private fun getAndSetAnonClassName(className: String): String {
+        val anonClassName = anonClassMap[className] ?: "class${anonClassMap.size}"
+        anonClassMap.put(className, anonClassName)
+        return anonClassName
+    }
 
     fun addMovesSuggestedInIteration(iter: Int, methodNames: List<String>, llmResponseTime: Long) {
-        currentTelemetryData.iterationData.add(MoveMethodIterationData(iter, methodNames, llmResponseTime))
+        val transformedMethodNames = if (anonimizeTelemetry) {
+            methodNames.map {
+                val anonMethodName = getAndSetAnonMethodName(it)
+                anonMethodName
+            }
+        }else{ methodNames}
+        currentTelemetryData.iterationData.add(MoveMethodIterationData(iter, transformedMethodNames, llmResponseTime))
     }
 
     fun addLLMPriorityResponse(moveMethodSuggestions: List<String>, llmResponseTime: Long) {
-        currentTelemetryData.llmPriority = LlmMovePriority(moveMethodSuggestions, null, llmResponseTime)
+        val transformedMethodNames = if (anonimizeTelemetry){
+            moveMethodSuggestions.map{getAndSetAnonMethodName(it)}
+        }else{moveMethodSuggestions}
+        currentTelemetryData.llmPriority = LlmMovePriority(transformedMethodNames, null, llmResponseTime)
     }
     fun addLLMPriorityResponse(responseText: String, llmResponseTime: Long) {
-        currentTelemetryData.llmPriority = LlmMovePriority(null, responseText, llmResponseTime)
+        currentTelemetryData.llmPriority = LlmMovePriority(
+            null,
+            if(anonimizeTelemetry) "LLM Gave some reasoning. Hiding for anonymity." else responseText,
+            llmResponseTime
+        )
     }
 
     fun addPotentialTargetClassesOrdered(
@@ -326,10 +355,25 @@ class EFTelemetryDataManager {
         similarityMetric: String,
         similarityComputationTime: Long
     ) {
+        // TODO: Anonymize.
+        val anonIfTargetClassesWithSimilarity = if (anonimizeTelemetry){
+            targetClassesWithSimilarityMetric.map{
+                if (it.first==null)
+                    null
+                else{
+                    Pair(getAndSetAnonClassName(it.first!!), it.second)
+                }
+            }.filterNotNull()
+        }else{targetClassesWithSimilarityMetric}
+
+        val anonIfMethodToMove = if(anonimizeTelemetry){
+            getAndSetAnonMethodName(methodToMove)
+        }else {methodToMove}
+
         val targetClassData = currentTelemetryData.targetClassMap.get(
-            methodToMove)
+            anonIfMethodToMove)
         val updatedInfo = TargetClass4Method(
-                targetClassesWithSimilarityMetric.map { it.first.let { first ->
+            anonIfTargetClassesWithSimilarity.map { it.first.let { first ->
                     if (first != null) {
                         TargetClass(first, it.second)
                     }else {
@@ -347,7 +391,7 @@ class EFTelemetryDataManager {
             targetClassData.similarityMetric = updatedInfo.similarityMetric
             targetClassData.similarityComputationTime = updatedInfo.similarityComputationTime
         }else{
-            currentTelemetryData.targetClassMap.put(methodToMove, updatedInfo)
+            currentTelemetryData.targetClassMap.put(anonIfMethodToMove, updatedInfo)
         }
     }
 
@@ -356,10 +400,18 @@ class EFTelemetryDataManager {
     }
 
     fun addLlmTargetClassPriorityResponse(methodToMove: String, targetClassesSorted: List<String>, llmResponseTime: Long) {
+        val anonIfTargetClasses = if (anonimizeTelemetry){
+            targetClassesSorted.map{getAndSetAnonClassName(it)}
+        }else{targetClassesSorted}
+
+        val anonIfMethodToMove = if(anonimizeTelemetry){
+            getAndSetAnonMethodName(methodToMove)
+        }else {methodToMove}
+
         val targetClassData = currentTelemetryData.targetClassMap.get(
-            methodToMove)
+            anonIfMethodToMove)
         if (targetClassData!=null){
-            targetClassData.targetClassesSorted = targetClassesSorted
+            targetClassData.targetClassesSorted = anonIfTargetClasses
             targetClassData.llmResponseTime = llmResponseTime
         }
     }
@@ -367,7 +419,8 @@ class EFTelemetryDataManager {
         val targetClassData = currentTelemetryData.targetClassMap.get(
             methodToMove)
         if (targetClassData!=null){
-            targetClassData.explanation = unparseableResponse
+            targetClassData.explanation =
+                if(anonimizeTelemetry) "LLM gave some reasoning. Hiding for anonymity." else unparseableResponse
             targetClassData.llmResponseTime = llmResponseTime
         }
     }
@@ -392,7 +445,9 @@ class EFTelemetryDataUtils {
             )
         }
 
-        private fun buildCandidateTelemetryData(candidateApplicationPayload: EFCandidateApplicationPayload): RefCandidateTelemetryData {
+        private fun buildCandidateTelemetryData(
+            candidateApplicationPayload: EFCandidateApplicationPayload,
+            anonymizeDescription: Boolean = true): RefCandidateTelemetryData {
             val candidate = candidateApplicationPayload.candidate
             return RefCandidateTelemetryData(
                 lineStart = candidate.startLoc,
@@ -401,7 +456,7 @@ class EFTelemetryDataUtils {
 //                candidateType = EfCandidateType.AS_IS,
 //                applicationResult = candidateApplicationPayload.result,
 //                reason = candidateApplicationPayload.reason,
-                description = candidate.description,
+                description = if(anonymizeDescription) "Anonymized." else candidate.description,
                 refactoringType = candidate::class.java.toString(),
 //
             )
