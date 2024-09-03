@@ -13,8 +13,6 @@ import com.intellij.ml.llm.template.refactoringobjects.MyRefactoringFactory
 import com.intellij.ml.llm.template.telemetry.EFTelemetryDataManager
 import com.intellij.ml.llm.template.utils.JsonUtils
 import com.intellij.ml.llm.template.utils.PsiUtils
-import com.intellij.openapi.application.ApplicationManager
-import com.intellij.openapi.application.impl.ApplicationImpl
 import com.intellij.openapi.application.runReadAction
 import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.editor.Editor
@@ -131,7 +129,7 @@ class MoveMethodFactory {
                     targetPivotsSorted
             if (pivotsSortedByLLM.isEmpty())
                 return emptyList()
-            logPottentialPivots(pivotsSortedByLLM.subList(0, min(3, pivotsSortedByLLM.size)), methodToMove)
+            logPotentialPivots(pivotsSortedByLLM.subList(0, min(3, pivotsSortedByLLM.size)), methodToMove)
 
             if (PsiUtils.isMethodStatic(methodToMove)){
                 val moveMethods = pivotsSortedByLLM.map {
@@ -222,14 +220,14 @@ class MoveMethodFactory {
             return preprocessUsagesMethod.invoke(processor, refUsages) as Boolean
         }
 
-        private fun logPottentialPivots(
+        private fun logPotentialPivots(
             targetPivotsSorted: List<MovePivot>,
             methodToMove: PsiMethod
         ) {
             ApplySuggestRefactoringIntention.log2fileAndViewer(
                 "Found potential target class(s) for ${methodToMove.name}", Logger.getInstance(this::class.java))
             ApplySuggestRefactoringIntention.log2fileAndViewer(
-                "Pottential Target Classes -> ${
+                "Potential Target Classes -> ${
                     targetPivotsSorted.distinctBy { it.psiClass.name }.map{it.psiClass.name}.joinToString(", ")
                 }",
                 Logger.getInstance(this::class.java)
