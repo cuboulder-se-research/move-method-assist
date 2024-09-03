@@ -181,6 +181,15 @@ class ApplyMoveMethodInteractiveIntention: ApplySuggestRefactoringIntention() {
                 }
                 .reduce { acc, abstractRefactorings -> acc + abstractRefactorings }
             telemetryDataManager.setRefactoringObjects(refObjs)
+            if (refObjs.isEmpty()){
+                showEFNotification(
+                    currentProject,
+                    LLMBundle.message("notification.extract.function.with.llm.no.extractable.candidates.message"),
+                    NotificationType.INFORMATION
+                )
+                sendTelemetryData()
+                return@invokeLater
+            }
             val candidatesApplicationTelemetryObserver = EFCandidatesApplicationTelemetryObserver()
             telemetryDataManager.addCandidatesTelemetryData(
                 buildCandidatesTelemetryData(
