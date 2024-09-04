@@ -160,6 +160,11 @@ class ApplyMoveMethodInteractiveIntention: ApplySuggestRefactoringIntention() {
                 }
             }else{
                 log2fileAndViewer("No methods are important to move.", logger)
+                invokeLater { showEFNotification(
+                    project,
+                    LLMBundle.message("notification.extract.function.with.llm.no.suggestions.message"),
+                    NotificationType.INFORMATION
+                ) }
                 sendTelemetryData()
             }
         }
