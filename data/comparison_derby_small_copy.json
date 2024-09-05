@@ -1,0 +1,1589 @@
+[
+    {
+        "oracle": "method org.apache.derby.client.net.NetConnectionReply::getInputStream():java.io.InputStream need move to org.apache.derby.client.net.NetAgent",
+        "class_name": "org.apache.derby.client.net.NetConnectionReply",
+        "telemetry": {
+            "id": "369c10c2-8cde-4d71-959f-41e7f1820ebd",
+            "hostFunctionTelemetryData": {
+                "hostFunctionSize": 594,
+                "lineStart": 31,
+                "lineEnd": 624,
+                "bodyLineStart": 31,
+                "language": "java",
+                "sourceCode": "/**\n * Element representation of a <code>Redirector</code>.\n * @since Ant 1.6.2\n */\npublic class RedirectorElement extends DataType {\n\n    /**\n     * Whether the input mapper was set via <code>setOutput</code>.\n     */\n    private boolean usingInput = false;\n\n    /**\n     * Whether the output mapper was set via <code>setOutput</code>.\n     */\n    private boolean usingOutput = false;\n\n    /**\n     * Whether the error mapper was set via <code>setError</code>.\n     */\n    private boolean usingError = false;\n\n    /**\n     * Indicates if standard error should be logged to Ant's log system\n     * rather than the output. This has no effect if standard error is\n     * redirected to a file or property.\n     */\n    private Boolean logError;\n\n    /** The name of the property into which output is to be stored */\n    private String outputProperty;\n\n    /** The name of the property into which error output is to be stored */\n    private String errorProperty;\n\n    /** String from which input is taken */\n    private String inputString;\n\n    /** Flag which indicates if error and output files are to be appended. */\n    private Boolean append;\n\n    /** Flag which indicates that output should be always sent to the log */\n    private Boolean alwaysLog;\n\n    /** Flag which indicates whether files should be created even if empty. */\n    private Boolean createEmptyFiles;\n\n    /** Input file mapper. */\n    private Mapper inputMapper;\n\n    /** Output file mapper. */\n    private Mapper outputMapper;\n\n    /** Error file mapper. */\n    private Mapper errorMapper;\n\n    /** input filter chains. */\n    private Vector inputFilterChains = new Vector();\n\n    /** output filter chains. */\n    private Vector outputFilterChains = new Vector();\n\n    /** error filter chains. */\n    private Vector errorFilterChains = new Vector();\n\n    /** The output encoding */\n    private String outputEncoding;\n\n    /** The error encoding */\n    private String errorEncoding;\n\n    /** The input encoding */\n    private String inputEncoding;\n\n    /** whether to log the inputstring */\n    private Boolean logInputString;\n\n    /**\n     * Add the input file mapper.\n     * @param inputMapper   <code>Mapper</code>.\n     */\n    public void addConfiguredInputMapper(Mapper inputMapper) {\n        if (isReference()) {\n            throw noChildrenAllowed();\n        }\n        if (this.inputMapper != null) {\n            if (usingInput) {\n                throw new BuildException(\"attribute \\\"input\\\"\"\n                    + \" cannot coexist with a nested <inputmapper>\");\n            } else {\n                throw new BuildException(\"Cannot have > 1 <inputmapper>\");\n            }\n        }\n        setChecked(false);\n        this.inputMapper = inputMapper;\n    }\n\n    /**\n     * Add the output file mapper.\n     * @param outputMapper   <code>Mapper</code>.\n     */\n    public void addConfiguredOutputMapper(Mapper outputMapper) {\n        if (isReference()) {\n            throw noChildrenAllowed();\n        }\n        if (this.outputMapper != null) {\n            if (usingOutput) {\n                throw new BuildException(\"attribute \\\"output\\\"\"\n                    + \" cannot coexist with a nested <outputmapper>\");\n            } else {\n                throw new BuildException(\"Cannot have > 1 <outputmapper>\");\n            }\n        }\n        setChecked(false);\n        this.outputMapper = outputMapper;\n    }\n\n    /**\n     * Add the error file mapper.\n     * @param errorMapper   <code>Mapper</code>.\n     */\n    public void addConfiguredErrorMapper(Mapper errorMapper) {\n        if (isReference()) {\n            throw noChildrenAllowed();\n        }\n        if (this.errorMapper != null) {\n            if (usingError) {\n                throw new BuildException(\"attribute \\\"error\\\"\"\n                    + \" cannot coexist with a nested <errormapper>\");\n            } else {\n                throw new BuildException(\"Cannot have > 1 <errormapper>\");\n            }\n        }\n        setChecked(false);\n        this.errorMapper = errorMapper;\n    }\n\n    /**\n     * Make this instance in effect a reference to another instance.\n     *\n     * <p>You must not set another attribute or nest elements inside\n     * this element if you make it a reference.</p>\n     * @param r the reference to use.\n     * @throws BuildException on error.\n     */\n    public void setRefid(Reference r) throws BuildException {\n        if (usingInput\n            || usingOutput\n            || usingError\n            || inputString != null\n            || logError != null\n            || append != null\n            || createEmptyFiles != null\n            || inputEncoding != null\n            || outputEncoding != null\n            || errorEncoding != null\n            || outputProperty != null\n            || errorProperty != null\n            || logInputString != null) {\n            throw tooManyAttributes();\n        }\n        super.setRefid(r);\n    }\n\n    /**\n     * Set the input to use for the task.\n     * @param input the file from which input is read.\n     */\n    public void setInput(File input) {\n        if (isReference()) {\n            throw tooManyAttributes();\n        }\n        if (inputString != null) {\n            throw new BuildException(\"The \\\"input\\\" and \\\"inputstring\\\" \"\n                + \"attributes cannot both be specified\");\n        }\n        usingInput = true;\n        inputMapper = createMergeMapper(input);\n    }\n\n    /**\n     * Set the string to use as input\n     * @param inputString the string which is used as the input source\n     */\n    public void setInputString(String inputString) {\n        if (isReference()) {\n            throw tooManyAttributes();\n        }\n        if (usingInput) {\n            throw new BuildException(\"The \\\"input\\\" and \\\"inputstring\\\" \"\n                + \"attributes cannot both be specified\");\n        }\n        this.inputString = inputString;\n    }\n\n    /**\n     * Set whether to include the value of the input string in log messages.\n     * Defaults to true.\n     * @param logInputString true or false.\n     * @since Ant 1.7\n     */\n    public void setLogInputString(boolean logInputString) {\n        if (isReference()) {\n            throw tooManyAttributes();\n        }\n        this.logInputString = logInputString ? Boolean.TRUE : Boolean.FALSE;\n    }\n\n    /**\n     * File the output of the process is redirected to. If error is not\n     * redirected, it too will appear in the output.\n     *\n     * @param out the file to which output stream is written.\n     */\n    public void setOutput(File out) {\n        if (isReference()) {\n            throw tooManyAttributes();\n        }\n        if (out == null) {\n            throw new IllegalArgumentException(\"output file specified as null\");\n        }\n        usingOutput = true;\n        outputMapper = createMergeMapper(out);\n    }\n\n    /**\n     * Set the output encoding.\n     * @param outputEncoding   <code>String</code>.\n     */\n    public void setOutputEncoding(String outputEncoding) {\n        if (isReference()) {\n            throw tooManyAttributes();\n        }\n        this.outputEncoding = outputEncoding;\n    }\n\n    /**\n     * Set the error encoding.\n     *\n     * @param errorEncoding   <code>String</code>.\n     */\n    public void setErrorEncoding(String errorEncoding) {\n        if (isReference()) {\n            throw tooManyAttributes();\n        }\n        this.errorEncoding = errorEncoding;\n    }\n\n    /**\n     * Set the input encoding.\n     * @param inputEncoding   <code>String</code>.\n     */\n    public void setInputEncoding(String inputEncoding) {\n        if (isReference()) {\n            throw tooManyAttributes();\n        }\n        this.inputEncoding = inputEncoding;\n    }\n\n    /**\n     * Controls whether error output of exec is logged. This is only useful\n     * when output is being redirected and error output is desired in the\n     * Ant log.\n     * @param logError if true the standard error is sent to the Ant log system\n     *        and not sent to output.\n     */\n    public void setLogError(boolean logError) {\n        if (isReference()) {\n            throw tooManyAttributes();\n        }\n        this.logError = ((logError) ? Boolean.TRUE : Boolean.FALSE);\n    }\n\n    /**\n     * Set the file to which standard error is to be redirected.\n     * @param error the file to which error is to be written.\n     */\n    public void setError(File error) {\n        if (isReference()) {\n            throw tooManyAttributes();\n        }\n        if (error == null) {\n            throw new IllegalArgumentException(\"error file specified as null\");\n        }\n        usingError = true;\n        errorMapper = createMergeMapper(error);\n    }\n\n    /**\n     * Property name whose value should be set to the output of\n     * the process.\n     * @param outputProperty the name of the property to be set with the\n     *        task's output.\n     */\n    public void setOutputProperty(String outputProperty) {\n        if (isReference()) {\n            throw tooManyAttributes();\n        }\n        this.outputProperty = outputProperty;\n    }\n\n    /**\n     * Whether output should be appended to or overwrite an existing file.\n     * Defaults to false.\n     * @param append if true output and error streams are appended to their\n     *        respective files, if specified.\n     */\n    public void setAppend(boolean append) {\n        if (isReference()) {\n            throw tooManyAttributes();\n        }\n        this.append = ((append) ? Boolean.TRUE : Boolean.FALSE);\n    }\n\n    /**\n     * If true, (error and non-error) output will be \"teed\", redirected\n     * as specified while being sent to Ant's logging mechanism as if no\n     * redirection had taken place.  Defaults to false.\n     * @param alwaysLog <code>boolean</code>\n     * @since Ant 1.6.3\n     */\n    public void setAlwaysLog(boolean alwaysLog) {\n        if (isReference()) {\n            throw tooManyAttributes();\n        }\n        this.alwaysLog = ((alwaysLog) ? Boolean.TRUE : Boolean.FALSE);\n    }\n\n    /**\n     * Whether output and error files should be created even when empty.\n     * Defaults to true.\n     * @param createEmptyFiles <code>boolean</code>.\n     */\n    public void setCreateEmptyFiles(boolean createEmptyFiles) {\n        if (isReference()) {\n            throw tooManyAttributes();\n        }\n        this.createEmptyFiles = ((createEmptyFiles)\n            ? Boolean.TRUE : Boolean.FALSE);\n    }\n\n    /**\n     * Property name whose value should be set to the error of\n     * the process.\n     * @param errorProperty the name of the property to be set\n     *        with the error output.\n     */\n    public void setErrorProperty(String errorProperty) {\n        if (isReference()) {\n            throw tooManyAttributes();\n        }\n        this.errorProperty = errorProperty;\n    }\n\n    /**\n     * Create a nested input <code>FilterChain</code>.\n     * @return <code>FilterChain</code>.\n     */\n    public FilterChain createInputFilterChain() {\n        if (isReference()) {\n            throw noChildrenAllowed();\n        }\n        FilterChain result = new FilterChain();\n        result.setProject(getProject());\n        inputFilterChains.add(result);\n        setChecked(false);\n        return result;\n    }\n\n    /**\n     * Create a nested output <code>FilterChain</code>.\n     * @return <code>FilterChain</code>.\n     */\n    public FilterChain createOutputFilterChain() {\n        if (isReference()) {\n            throw noChildrenAllowed();\n        }\n        FilterChain result = new FilterChain();\n        result.setProject(getProject());\n        outputFilterChains.add(result);\n        setChecked(false);\n        return result;\n    }\n\n    /**\n     * Create a nested error <code>FilterChain</code>.\n     * @return <code>FilterChain</code>.\n     */\n    public FilterChain createErrorFilterChain() {\n        if (isReference()) {\n            throw noChildrenAllowed();\n        }\n        FilterChain result = new FilterChain();\n        result.setProject(getProject());\n        errorFilterChains.add(result);\n        setChecked(false);\n        return result;\n    }\n\n    /**\n     * Configure the specified <code>Redirector</code>.\n     * @param redirector   <code>Redirector</code>.\n     */\n    public void configure(Redirector redirector) {\n        configure(redirector, null);\n    }\n\n    /**\n     * Configure the specified <code>Redirector</code>\n     * for the specified sourcefile.\n     * @param redirector   <code>Redirector</code>.\n     * @param sourcefile   <code>String</code>.\n     */\n    public void configure(Redirector redirector, String sourcefile) {\n        if (isReference()) {\n            getRef().configure(redirector, sourcefile);\n            return;\n        }\n        dieOnCircularReference();\n        if (alwaysLog != null) {\n            redirector.setAlwaysLog(alwaysLog.booleanValue());\n        }\n        if (logError != null) {\n            redirector.setLogError(logError.booleanValue());\n        }\n        if (append != null) {\n            redirector.setAppend(append.booleanValue());\n        }\n        if (createEmptyFiles != null) {\n            redirector.setCreateEmptyFiles(createEmptyFiles.booleanValue());\n        }\n        if (outputProperty != null) {\n            redirector.setOutputProperty(outputProperty);\n        }\n        if (errorProperty != null) {\n            redirector.setErrorProperty(errorProperty);\n        }\n        if (inputString != null) {\n            redirector.setInputString(inputString);\n        }\n        if (logInputString != null) {\n            redirector.setLogInputString(logInputString.booleanValue());\n        }\n        if (inputMapper != null) {\n            String[] inputTargets = null;\n            try {\n                inputTargets =\n                    inputMapper.getImplementation().mapFileName(sourcefile);\n            } catch (NullPointerException enPeaEx) {\n                if (sourcefile != null) {\n                    throw enPeaEx;\n                }\n            }\n            if (inputTargets != null && inputTargets.length > 0) {\n                redirector.setInput(toFileArray(inputTargets));\n            }\n        }\n        if (outputMapper != null) {\n            String[] outputTargets = null;\n            try {\n                outputTargets =\n                    outputMapper.getImplementation().mapFileName(sourcefile);\n            } catch (NullPointerException enPeaEx) {\n                if (sourcefile != null) {\n                    throw enPeaEx;\n                }\n            }\n            if (outputTargets != null && outputTargets.length > 0) {\n                redirector.setOutput(toFileArray(outputTargets));\n            }\n        }\n        if (errorMapper != null) {\n            String[] errorTargets = null;\n            try {\n                errorTargets =\n                    errorMapper.getImplementation().mapFileName(sourcefile);\n            } catch (NullPointerException enPeaEx) {\n                if (sourcefile != null) {\n                    throw enPeaEx;\n                }\n            }\n            if (errorTargets != null && errorTargets.length > 0) {\n                redirector.setError(toFileArray(errorTargets));\n            }\n        }\n        if (inputFilterChains.size() > 0) {\n            redirector.setInputFilterChains(inputFilterChains);\n        }\n        if (outputFilterChains.size() > 0) {\n            redirector.setOutputFilterChains(outputFilterChains);\n        }\n        if (errorFilterChains.size() > 0) {\n            redirector.setErrorFilterChains(errorFilterChains);\n        }\n        if (inputEncoding != null) {\n            redirector.setInputEncoding(inputEncoding);\n        }\n        if (outputEncoding != null) {\n            redirector.setOutputEncoding(outputEncoding);\n        }\n        if (errorEncoding != null) {\n            redirector.setErrorEncoding(errorEncoding);\n        }\n    }\n\n    /**\n     * Create a merge mapper pointing to the specified destination file.\n     * @param destfile   <code>File</code>\n     * @return <code>Mapper</code>.\n     */\n    protected Mapper createMergeMapper(File destfile) {\n        Mapper result = new Mapper(getProject());\n        result.setClassname(\n            org.apache.tools.ant.util.MergingMapper.class.getName());\n        result.setTo(destfile.getAbsolutePath());\n        return result;\n    }\n\n    /**\n     * Return a <code>File[]</code> from the specified set of filenames.\n     * @param name   <code>String[]</code>\n     * @return <code>File[]</code>.\n     */\n    protected File[] toFileArray(String[] name) {\n        if (name == null) {\n            return null;\n        }\n        //remove any null elements\n        ArrayList list = new ArrayList(name.length);\n        for (int i = 0; i < name.length; i++) {\n            if (name[i] != null) {\n                list.add(getProject().resolveFile(name[i]));\n            }\n        }\n        return (File[]) (list.toArray(new File[list.size()]));\n    }\n\n    /**\n     * Overrides the version of DataType to recurse on all DataType\n     * child elements that may have been added.\n     * @param stk the stack of data types to use (recursively).\n     * @param p   the project to use to dereference the references.\n     * @throws BuildException on error.\n     */\n    protected void dieOnCircularReference(Stack stk, Project p)\n        throws BuildException {\n        if (isChecked()) {\n            return;\n        }\n        if (isReference()) {\n            super.dieOnCircularReference(stk, p);\n        } else {\n            Mapper[] m = new Mapper[] {inputMapper, outputMapper, errorMapper};\n            for (int i = 0; i < m.length; i++) {\n                if (m[i] != null) {\n                    stk.push(m[i]);\n                    m[i].dieOnCircularReference(stk, p);\n                    stk.pop();\n                }\n            }\n            Vector[] v = new Vector[]\n                {inputFilterChains, outputFilterChains, errorFilterChains};\n            for (int i = 0; i < v.length; i++) {\n                if (v[i] != null) {\n                    for (Iterator fci = v[i].iterator(); fci.hasNext();) {\n                        FilterChain fc = (FilterChain) fci.next();\n                        pushAndInvokeCircularReferenceCheck(fc, stk, p);\n                    }\n                }\n            }\n            setChecked(true);\n        }\n    }\n\n    /**\n     * Perform the check for circular references, returning the\n     * referenced RedirectorElement.\n     * @return the referenced RedirectorElement.\n     */\n    private RedirectorElement getRef() {\n        return (RedirectorElement) getCheckedRef();\n    }\n\n\t/**\n\t * Set whether or not you want the process to be spawned.\n\t * Default is false.\n\t * @param execTask TODO\n\t * @param spawn if true you do not want Ant to wait for the end of the process.\n\t * @since Ant 1.6\n\t */\n\tpublic void setSpawn(ExecTask execTask, boolean spawn) {\n\t    execTask.spawn = spawn;\n\t}\n\n}"
+            },
+            "candidatesTelemetryData": {
+                "numberOfSuggestions": 1,
+                "candidates": [
+                    {
+                        "lineStart": 612,
+                        "lineEnd": 621,
+                        "refactoringType": "MyMoveMethodRefactoring",
+                        "description": "Move method to org.apache.tools.ant.taskdefs.ExecTask\nRationale: The method setSpawn directly modifies the spawn property of the ExecTask instance, making it more appropriate for this method to reside within the ExecTask class.",
+                        "couldCreateRefObject": true,
+                        "applied": false,
+                        "undone": false
+                    }
+                ]
+            },
+            "processingTime": {
+                "llmResponseTime": -1,
+                "pluginProcessingTime": -1,
+                "totalTime": 5213
+            },
+            "iterationData": [
+                {
+                    "iteration_num": 1,
+                    "suggested_method_names": [
+                        "setSpawn"
+                    ],
+                    "llm_response_time": 1059
+                },
+                {
+                    "iteration_num": 2,
+                    "suggested_method_names": [
+                        "setSpawn"
+                    ],
+                    "llm_response_time": 1844
+                },
+                {
+                    "iteration_num": 3,
+                    "suggested_method_names": [
+                        "setSpawn"
+                    ],
+                    "llm_response_time": 1733
+                },
+                {
+                    "iteration_num": -1,
+                    "suggested_method_names": [
+                        "setSpawn"
+                    ],
+                    "llm_response_time": 0
+                }
+            ],
+            "llmMethodPriority": {
+                "priority_method_names": [
+                    "setSpawn"
+                ],
+                "llm_response_time": 501
+            },
+            "targetClassMap": {
+                "setSpawn": {
+                    "target_classes": [
+                        {
+                            "class_name": "ExecTask",
+                            "similarity_score": 0.7229949699773045
+                        },
+                        {
+                            "class_name": "Mapper",
+                            "similarity_score": 0.5840287739421158
+                        },
+                        {
+                            "class_name": "Mapper",
+                            "similarity_score": 0.5840287739421158
+                        },
+                        {
+                            "class_name": "Mapper",
+                            "similarity_score": 0.5840287739421158
+                        }
+                    ],
+                    "target_classes_sorted_by_llm": [
+                        "ExecTask",
+                        "Mapper",
+                        "Mapper",
+                        "Mapper"
+                    ],
+                    "llm_response_time": 1208,
+                    "similarity_computation_time": 4,
+                    "similarity_metric": "cosine"
+                }
+            }
+        }
+    },
+    {
+        "oracle": "- method org.apache.derby.impl.store.access.btree.OpenBTree::lockScanRow(OpenBTree, BTree, BTreeRowPosition, FetchDescriptor, DataValueDescriptor[], RowLocation, boolean, boolean, int):boolean need move to org.apache.derby.impl.store.access.btree.index.B2IRowLocking1",
+        "class_name": "org.apache.derby.impl.store.access.btree.OpenBTree",
+        "telemetry": {
+            "id": "97532926-644f-4638-b9aa-9b61a3d3e97e",
+            "hostFunctionTelemetryData": {
+                "hostFunctionSize": 678,
+                "lineStart": 43,
+                "lineEnd": 720,
+                "bodyLineStart": 43,
+                "language": "java",
+                "sourceCode": "/**\n\n  An open b-tree contains fields and methods common to scans and controllers.\n  <P>\n  <B>Concurrency Notes</B>\n  <P>\n  An instance of an open b-tree is owned by a single context.  The b-tree code\n  assumes that the context ensures that only one thread at a time is using\n  the open b-tree.  The open b-tree itself does not enforce or check this.\n\n**/\n\npublic class OpenBTree \n{\n\t/*\n\t** Fields of OpenBTree\n\t*/\n\n    /**\n     * The following group of fields are all basic input parameters which are\n     * provided by the calling code when doing any sort of operation requiring\n     * an open conglomerate (openScan(), open(), openCostController(), ...).\n     * These are just saved values from what was initially input.\n     **/\n    private BTree                           init_conglomerate;\n\n    /**\n    The TransactionManager that open'd this btree.  In the case of Internal\n    transactions used by split this will be the internal transaction, and \n    init_open_user_scans will be the user transaction that began the internal\n    transaction.\n    **/\n    private TransactionManager              init_xact_manager;\n\n    private Transaction                     init_rawtran;\n\n\t/**\n\tThe ContainerHandle mode the container is opened with.  Remember this so\n\tthat if the BTree needs to do SMO with another transaction, it would open\n\tthe container with the same mode.\n\t**/\n    private int                             init_openmode;\n\n    /**\n    Table or page locking?\n    **/\n    protected int                           init_lock_level;\n\n    private boolean                         init_hold;\n\n    /**\n    The Locking Policy to use for for access to this btree.\n    **/\n    private BTreeLockingPolicy              init_btree_locking_policy;\n\n\t\n\t/**\n\tThe (open) container which contains the b-tree.\n\t**/\n\tprotected ContainerHandle container;\n\n    /**\n    The conglomerate containerid for error reporting.\n    **/\n    protected long  err_containerid;\n\n    /** The user transaction that opened this B-tree. */\n    protected TransactionManager init_open_user_scans = null;\n\n\n    protected LogicalUndo btree_undo = null;\n\n    /**\n     * scratch space used for stuff like templates, export rows, ...\n     **/\n    protected OpenConglomerateScratchSpace  runtime_mem;\n\n    /**************************************************************************\n     * Public Accessors of This class:\n     **************************************************************************\n     */\n    public final TransactionManager getXactMgr()\n    {\n        return(init_xact_manager);\n    }\n\n    public final Transaction getRawTran()\n    {\n        return(init_rawtran);\n    }\n    public final int getLockLevel()\n    {\n        return(init_lock_level);\n    }\n\n    public final ContainerHandle getContainer()\n    {\n        return(container);\n    }\n\n    public final int getOpenMode()\n    {\n        return(init_openmode);\n    }\n    \n    public final BTree getConglomerate()\n    {\n        return(init_conglomerate);\n    }\n\n    public final boolean getHold()\n    {\n        return(init_hold);\n    }\n    public final BTreeLockingPolicy getLockingPolicy()\n    {\n        return(init_btree_locking_policy);\n    }\n    public final void setLockingPolicy(BTreeLockingPolicy policy)\n    {\n        init_btree_locking_policy = policy;\n    }\n\n\n    public final boolean isClosed()\n    {\n        return(container == null);\n    }\n\n    public final OpenConglomerateScratchSpace getRuntimeMem()\n    {\n        return(runtime_mem);\n    }\n\n    /**************************************************************************\n     * Public Methods of RowCountable class:\n     **************************************************************************\n     */\n\n    /**\n     * Get the total estimated number of rows in the container.\n     * <p>\n     * The number is a rough estimate and may be grossly off.  In general\n     * the server will cache the row count and then occasionally write\n     * the count unlogged to a backing store.  If the system happens to \n     * shutdown before the store gets a chance to update the row count it\n     * may wander from reality.\n     * <p>\n     * This call is currently only supported on Heap conglomerates, it\n     * will throw an exception if called on btree conglomerates.\n     *\n\t * @return The total estimated number of rows in the conglomerate.\n     *\n\t * @exception  StandardException  Standard exception policy.\n     **/\n    public long getEstimatedRowCount()\n\t\tthrows StandardException\n    {\n        if (container == null)\n            reopen();\n\n        // Don't return 0 rows (return 1 instead), as this often leads the \n        // optimizer to produce plans which don't use indexes because of the 0 \n        // row edge case.\n        //\n        // Eventually the plan is recompiled when rows are added, but we\n        // have seen multiple customer cases of deadlocks and timeouts \n        // because of these 0 row based plans.  \n        long row_count = \n            this.container.getEstimatedRowCount(/* unused flag */ 0);\n\n        return(row_count == 0 ? 1 : row_count);\n    }\n\n    /**\n     * Set the total estimated number of rows in the container.\n     * <p>\n     * Often, after a scan, the client of RawStore has a much better estimate\n     * of the number of rows in the container than what store has.  For \n     * instance if we implement some sort of update statistics command, or\n     * just after a create index a complete scan will have been done of the\n     * table.  In this case this interface allows the client to set the\n     * estimated row count for the container, and store will use that number\n     * for all future references.\n     * <p>\n     * This call is currently only supported on Heap conglomerates, it\n     * will throw an exception if called on btree conglomerates.\n     *\n     * @param count the estimated number of rows in the container.\n     *\n\t * @exception  StandardException  Standard exception policy.\n     **/\n    public void setEstimatedRowCount(long count)\n\t\tthrows StandardException\n    {\n        if (container == null)\n            reopen();\n\n        this.container.setEstimatedRowCount(count, /* unused flag */ 0);\n    }\n\n\n    /**************************************************************************\n     * Public Methods of ConglomerateController interface:\n     **************************************************************************\n     */\n\n    /**\n     * Check consistency of a btree.\n     * <p>\n     * Read in root and check consistency of entire tree.  Currently raises\n     * sanity check errors.\n     * <p>\n     * RESOLVE (mikem) if this is to be supported in non-sanity servers what \n     * should it do?\n     *\n\t * @exception  StandardException  Standard exception policy.\n     **/\n    public void checkConsistency()\n\t\tthrows StandardException\n    {\n\t\tControlRow root = null;\n\n        try\n        {\n            if (this.container == null)\n            {\n                throw(StandardException.newException(\n                        SQLState.BTREE_IS_CLOSED, new Long(err_containerid)));\n            }\n\n            if (SanityManager.DEBUG)\n                SanityManager.ASSERT(this.init_conglomerate.format_ids != null);\n\n            root = ControlRow.get(this, BTree.ROOTPAGEID);\n\n            int actualpages = root.checkConsistency(this, null, true);\n\n            // RESOLVE (mikem) - anything useful to assert about number of pages\n            // in the tree?\n        }\n        finally\n        {\n            if (root != null)\n                root.release();\n        }\n    }\n\n    /**************************************************************************\n     * Public Methods of ScanController interface:\n     **************************************************************************\n     */\n\n    /**\n     * is the open btree table locked?\n     **/\n    public boolean isTableLocked()\n    {\n        return(init_lock_level == TransactionController.MODE_TABLE);\n    }\n\n\n\t/*\n\t** Methods of OpenBTree\n\t*/\n\n\t/**\n\tInitialize the open conglomerate.\n\n    If container is null, open the container, otherwise use the container\n    passed in.\n\n    @exception StandardException standard exception policy.\n\t**/\n    /**\n     * Initialize the open conglomerate.\n     * <p>\n     * If container is null, open the container, otherwise use the container\n     * passed in.  The container is always opened with no locking, it is up\n     * to the caller to make the appropriate container locking call.\n     * <p>\n     *\n     * @param open_user_scans The user transaction which opened this btree.\n     * @param xact_manager    The current transaction, usually the same as\n     *                        \"open_user_scans\", but in the case of split it\n     *                        is the internal xact nested below the user xact.\n     * @param input_container The open container holding the index, if it is\n     *                        already open, else null which will mean this\n     *                        routine will open it.\n     * @param rawtran         The current raw store transaction.\n     * @param open_mode       The opening mode for the ContainerHandle.\n     * @param conglomerate    Readonly description of the conglomerate.\n     * @param undo            Logical undo object to associate with all updates\n     *                        done on this open btree.\n     *\n     *\n\t * @exception  StandardException  Standard exception policy.\n     **/\n\tpublic void init(\n    TransactionManager              open_user_scans,\n    TransactionManager              xact_manager,\n    ContainerHandle                 input_container,\n    Transaction                     rawtran,\n    boolean                         hold,\n\tint                             open_mode,\n    int                             lock_level,\n    BTreeLockingPolicy              btree_locking_policy,\n    BTree                           conglomerate,\n    LogicalUndo                     undo,\n    DynamicCompiledOpenConglomInfo  dynamic_info)\n        throws StandardException\n\t{\n\t\t// If the b-tree is already open, close it.\n\t\tif (this.container != null)\n        {\n            if (SanityManager.DEBUG)\n                SanityManager.ASSERT(false, \"why is the container open?\");\n\t\t\tclose();\n        }\n        err_containerid = conglomerate.id.getContainerId();\n\n        // Locking policy to pass back to concrete implementation lock calls\n        this.init_btree_locking_policy = btree_locking_policy;\n\n\t\t// if the conglomerate is temporary, open with IS_KEPT set.\n\t\t// RESOLVE(mikem): track 1825\n\t\t// don't want to open temp cantainer with IS_KEPT always.\n\t\tif (conglomerate.isTemporary())\n\t\t\topen_mode |= ContainerHandle.MODE_TEMP_IS_KEPT;\n\n        // now open the container if it wasn't already opened by the client.\n        // No locks will be requested by raw store on this open.\n        if (input_container == null)\n        {\n            // Open the container. \n            this.container = \n                rawtran.openContainer(\n                    conglomerate.id, \n                    (LockingPolicy) null /* get no locks on btree */,\n\t\t\t\t\topen_mode);\n        }\n        else\n        {\n            // Use the open container passed in.\n            this.container = input_container;\n\n\t\t\t// RESOLVE (sku) - ContainerHandle should have an interface to\n\t\t\t// verify that it is opened with open_mode\n        }\n\n\t\tif (this.container == null)\n        {\n            throw StandardException.newException(\n                    SQLState.BTREE_CONTAINER_NOT_FOUND,\n                    new Long(err_containerid));\n        }\n\n\t\t// Remember the conglomerate so its properties can be found.\n        init_conglomerate   = conglomerate;\n\n        // Remember the transaction manager so commit() can be called\n        init_xact_manager   = xact_manager;\n\n        init_rawtran        = rawtran;\n\n        init_openmode       = open_mode;\n\n        // Isolation level of this btree.\n        init_lock_level     = lock_level;\n\n        init_hold           = hold;\n\n\n        this.init_open_user_scans = open_user_scans;\n\n        // Logical undo class to pass to raw store, on inserts/deletes.\n        this.btree_undo = undo;\n\n        // either use passed in \"compiled\" runtime scratch space, or create\n        // new space.\n        this.runtime_mem    = \n            (dynamic_info != null ? \n             ((OpenConglomerateScratchSpace) dynamic_info) : \n              (OpenConglomerateScratchSpace)\n                conglomerate.getDynamicCompiledConglomInfo());\n\n\t}\n\n    /**\n     * Open the container after it has been closed previously.\n     * <p>\n     * Open the container, obtaining necessary locks.  Most work is actually\n     * done by RawStore.openContainer().  Will only reopen() if the container\n     * is not already open.\n     *\n\t * @exception  StandardException  Standard exception policy.\n     **/\n    public ContainerHandle reopen()\n        throws StandardException\n    {\n        // reget transaction from context manager, in the case of XA\n        // transaction this may have changed.\n        //\n        /* TODO - XA transactions my change the current transaction on the \n         * context stack.  Will want to something like:\n         *\n         * init_rawtran = context_manager.getcurrenttransaction()\n         */\n\n\t\t// If the b-tree is already open, close it.\n\n        /*\n\t\tif (this.container != null)\n        {\n\t\t\tclose();\n        }\n        */\n\n        if (SanityManager.DEBUG)\n        {\n            SanityManager.ASSERT(init_xact_manager != null);\n            SanityManager.ASSERT(init_xact_manager.getRawStoreXact() != null);\n            SanityManager.ASSERT(init_conglomerate != null);\n        }\n     \n        if (container == null)\n        {\n            // Open the container. \n            this.container = \n                init_xact_manager.getRawStoreXact().openContainer(\n                    init_conglomerate.id, \n                    (LockingPolicy) null /* get no locks on btree */,\n                    init_openmode);\n        }\n\n        return(this.container);\n    }\n\n    /**\n    Close the open conglomerate.\n    **/\n    public void close()\n        throws StandardException\n\t{\n\t\tif (container != null)\n\t\t\tcontainer.close();\n\t\tcontainer = null;\n\t}\n\n    /**\n    Check if all the \n    columns are Indexable and Storable.  Eventually this routine could\n    check whether all the types were right also.\n\n    @exception StandardException Standard Exception Policy.\n    **/\n    void isIndexableRowConsistent(DataValueDescriptor[] row)\n        throws StandardException\n    {\n        if (SanityManager.DEBUG)\n        {\n            DataValueDescriptor[] template = \n                this.init_conglomerate.createTemplate(getRawTran());\n\n            for (int i = 0; i < row.length; i++)\n            {\n                // Compare class's rather than format id's to pick up \n                // different problems with wrong collation implementation.\n\t\t\t\tif (!row[i].getClass().equals(template[i].getClass()))\n                {\n                    SanityManager.THROWASSERT(\n                        \"type of inserted column[\" + i + \"] = \" + \n                        row[i].getClass().getName()                +\n                        \"type of template column[\" + i + \"] = \" +\n                        template[i].getClass().getName());\n                }\n            }\n        }\n    }\n\n    /**\n     * Return the container handle.\n     * <p>\n\t * @return The open container handle of the btree.\n     **/\n    public ContainerHandle getContainerHandle()\n    {\n        return(container);\n    }\n\t\n\t/**\n     * get height of the tree.\n     * <p>\n     * Read in root and return the height (number of levels) of the tree.\n     * The level of a tree is 0 in the leaf and increases by 1 for each\n     * level of the tree as you go up the tree.  \n     *\n\t * @exception  StandardException  Standard exception policy.\n     **/\n    public int getHeight()\n\t\tthrows StandardException\n    {\n\t\t// container.checkConsistency();\n\n\t\tControlRow root = null;\n\n        try\n        {\n            root = ControlRow.get(this, BTree.ROOTPAGEID);\n\n            int height = root.getLevel() + 1;\n\n            return(height);\n        }\n        finally\n        {\n            if (root != null)\n                root.release();\n        }\n    }\n\n    /**\n     * Dump information about tree into the log.\n     * <p>\n     * Traverse the tree dumping info about tree into the log.\n     *\n\t * @exception  StandardException  Standard exception policy.\n     **/\n    public void debugConglomerate()\n\t\tthrows StandardException\n    {\n\t\t// container.checkConsistency();\n\n\t\tControlRow root = null;\n\n        try\n        {\n            if (SanityManager.DEBUG)\n            {\n                SanityManager.DEBUG_PRINT(\n                    \"p_tree\", \"BTREE Dump: containerId \" + container.getId());\n                SanityManager.DEBUG_PRINT(\n                    \"p_tree\", \"BTREE Dump: btree \" + this.init_conglomerate);\n            }\n\n            root = ControlRow.get(this, BTree.ROOTPAGEID);\n            root.printTree(this);\n        }\n        finally\n        {\n            if (root != null)\n                root.release();\n        }\n    }\n\n    /**\n     * Testing infrastructure to cause unusual paths through the code.\n     * <p>\n     * Through the use of debug flags allow test code to cause otherwise\n     * hard to cause paths through the code.  \n     * <p>\n     *\n     * @param pos the current scan position if the condition simulated by\n     * this call would have resulted in the position being saved\n\t * @return whether the latch has been released by this routine.\n     *\n\t * @exception  StandardException  Standard exception policy.\n     **/\n    public static boolean test_errors(\n    OpenBTree           open_btree,\n    String              debug_string,\n    BTreeRowPosition    pos,\n    BTreeLockingPolicy  btree_locking_policy,\n    LeafControlRow      leaf,\n    boolean             input_latch_released)\n        throws StandardException\n    {\n        boolean latch_released = input_latch_released;\n\n        // special test to see if latch release code works\n        if (SanityManager.DEBUG)\n        {\n            String debug_lost_latch = debug_string + \"1\";\n\n            if (SanityManager.DEBUG_ON(debug_lost_latch))\n            {\n                // Simulate a lost latch because of a wait for a lock.\n                if (!latch_released)\n                {\n                    if (pos != null) {\n                        SanityManager.ASSERT(pos.current_leaf == leaf);\n                        pos.saveMeAndReleasePage();\n                    } else {\n                        leaf.release();\n                    }\n\n                    latch_released = true;\n                    SanityManager.DEBUG_PRINT(\n                        debug_lost_latch, debug_lost_latch);\n                    SanityManager.DEBUG_CLEAR(debug_lost_latch);\n                }\n            }\n\n            String debug_deadlock = debug_string + \"2\";\n\n            if (SanityManager.DEBUG_ON(debug_deadlock))\n            {\n                SanityManager.DEBUG_PRINT(debug_deadlock, debug_deadlock);\n                SanityManager.DEBUG_CLEAR(debug_deadlock);\n\n                // Simulate a deadlock error.\n                StandardException se = \n                    StandardException.newException(\n                        SQLState.DEADLOCK, \"fake deadlock\", \"fake victim\");\n\n\t\t\t\tse.setReport(StandardException.REPORT_ALWAYS);\n\t\t\t\tthrow se;\n            }\n        }\n\n        return(latch_released);\n    }\n\n    public SpaceInfo getSpaceInfo()\n        throws StandardException\n    {\n        return container.getSpaceInfo();\n    }\n\n\t// return column Sort order information\n\tpublic boolean[] getColumnSortOrderInfo()\n\t\tthrows\tStandardException\n\t{\n\t\treturn init_conglomerate.ascDescInfo;\n\t}\n\n\t/**\n\t * Lock a row as part of doing the scan.\n\t * <p>\n\t * Lock the row at the given slot (or the previous row if slot is 0).\n\t * <p>\n\t * If this routine returns true all locks were acquired while maintaining\n\t * the latch on leaf.  If this routine returns false, locks may or may\n\t * not have been acquired, and the routine should be called again after\n\t * the client has researched the tree to reget the latch on the \n\t * appropriate page.\n\t *\n\t * @param b2iRowLocking1 TODO\n\t * @param btree             the conglomerate info.\n\t * @param pos               The position of the row to lock.\n\t * @param lock_fetch_desc TODO\n\t * @param lock_template     A scratch area to use to read in rows.\n\t * @param lock_row_loc TODO\n\t * @param previous_key_lock Is this a previous key lock call?\n\t * @param forUpdate         Is the scan for update or for read only.\n\t * @param lock_operation TODO\n\t * @return Whether locks were acquired without releasing latch on leaf.\n\t *\n\t * @exception  StandardException  Standard exception policy.\n\t **/\n\tpublic boolean lockScanRow(\n\tB2IRowLocking1 b2iRowLocking1, BTree btree, BTreeRowPosition pos, FetchDescriptor lock_fetch_desc, DataValueDescriptor[] lock_template, RowLocation lock_row_loc, boolean previous_key_lock, boolean forUpdate, int lock_operation)\n\t\tthrows StandardException\n\t{\n\t    // only get the row lock if it is not a previous key lock and iff\n\t    // it is an update lock.\n\t    return(\n\t        b2iRowLocking1._lockScanRow(\n\t             this,\n\t             btree,\n\t             pos,\n\t             (forUpdate && !previous_key_lock), // only get update row lock\n\t             lock_fetch_desc, lock_template, lock_row_loc,\n\t             previous_key_lock,\n\t             forUpdate,\n\t             lock_operation));\n\t}\n}"
+            },
+            "candidatesTelemetryData": {
+                "numberOfSuggestions": 3,
+                "candidates": [
+                    {
+                        "lineStart": 181,
+                        "lineEnd": 214,
+                        "refactoringType": "MyMoveMethodRefactoring",
+                        "description": "Move method to org.apache.derby.iapi.store.raw.ContainerHandle\nRationale: The method getEstimatedRowCount() directly interacts with the container to retrieve the estimated row count, making it more appropriate for the ContainerHandle class, which likely manages the container's state and operations.",
+                        "couldCreateRefObject": true,
+                        "applied": false,
+                        "undone": false
+                    },
+                    {
+                        "lineStart": 216,
+                        "lineEnd": 241,
+                        "refactoringType": "MyMoveMethodRefactoring",
+                        "description": "Move method to org.apache.derby.iapi.store.raw.ContainerHandle\nRationale: The method setEstimatedRowCount() directly manipulates the estimated row count of a container, which is a core responsibility of the ContainerHandle class. This class likely manages the state and properties of the container, making it the most appropriate location for this method.",
+                        "couldCreateRefObject": true,
+                        "applied": false,
+                        "undone": false
+                    },
+                    {
+                        "lineStart": 249,
+                        "lineEnd": 288,
+                        "refactoringType": "MyMoveMethodRefactoring",
+                        "description": "Move method to org.apache.derby.impl.store.access.btree.BTree\nRationale: The checkConsistency() method is directly related to the structure and integrity of the B-tree, making it most appropriate to reside within the BTree class.",
+                        "couldCreateRefObject": true,
+                        "applied": false,
+                        "undone": false
+                    }
+                ]
+            },
+            "processingTime": {
+                "llmResponseTime": -1,
+                "pluginProcessingTime": -1,
+                "totalTime": 19606
+            },
+            "iterationData": [
+                {
+                    "iteration_num": 1,
+                    "suggested_method_names": [
+                        "getEstimatedRowCount",
+                        "setEstimatedRowCount",
+                        "checkConsistency",
+                        "getHeight",
+                        "debugConglomerate",
+                        "lockScanRow"
+                    ],
+                    "llm_response_time": 7757
+                },
+                {
+                    "iteration_num": 2,
+                    "suggested_method_names": [
+                        "getEstimatedRowCount",
+                        "setEstimatedRowCount",
+                        "checkConsistency",
+                        "getHeight",
+                        "debugConglomerate",
+                        "lockScanRow"
+                    ],
+                    "llm_response_time": 6095
+                },
+                {
+                    "iteration_num": 3,
+                    "suggested_method_names": [
+                        "getEstimatedRowCount",
+                        "setEstimatedRowCount",
+                        "getSpaceInfo",
+                        "lockScanRow",
+                        "checkConsistency",
+                        "debugConglomerate"
+                    ],
+                    "llm_response_time": 4704
+                },
+                {
+                    "iteration_num": -1,
+                    "suggested_method_names": [
+                        "getEstimatedRowCount",
+                        "setEstimatedRowCount",
+                        "checkConsistency",
+                        "getHeight",
+                        "debugConglomerate",
+                        "lockScanRow",
+                        "getSpaceInfo"
+                    ],
+                    "llm_response_time": 0
+                }
+            ],
+            "llmMethodPriority": {
+                "priority_method_names": [
+                    "getEstimatedRowCount",
+                    "setEstimatedRowCount",
+                    "checkConsistency",
+                    "getHeight",
+                    "debugConglomerate",
+                    "lockScanRow",
+                    "getSpaceInfo"
+                ],
+                "llm_response_time": 916
+            },
+            "targetClassMap": {
+                "getEstimatedRowCount": {
+                    "target_classes": [
+                        {
+                            "class_name": "BTree",
+                            "similarity_score": 0.7680002372833518
+                        },
+                        {
+                            "class_name": "TransactionManager",
+                            "similarity_score": 0.7284215346819861
+                        },
+                        {
+                            "class_name": "Transaction",
+                            "similarity_score": 0.6834622029126461
+                        },
+                        {
+                            "class_name": "BTreeLockingPolicy",
+                            "similarity_score": 0.7734319796916482
+                        },
+                        {
+                            "class_name": "ContainerHandle",
+                            "similarity_score": 0.6137524339326025
+                        },
+                        {
+                            "class_name": "TransactionManager",
+                            "similarity_score": 0.7284215346819861
+                        },
+                        {
+                            "class_name": "LogicalUndo",
+                            "similarity_score": 0.5592849443319985
+                        }
+                    ],
+                    "target_classes_sorted_by_llm": [
+                        "ContainerHandle",
+                        "BTree",
+                        "TransactionManager",
+                        "TransactionManager",
+                        "Transaction",
+                        "BTreeLockingPolicy",
+                        "LogicalUndo"
+                    ],
+                    "llm_response_time": 3113,
+                    "similarity_computation_time": 8,
+                    "similarity_metric": "cosine"
+                },
+                "setEstimatedRowCount": {
+                    "target_classes": [
+                        {
+                            "class_name": "BTree",
+                            "similarity_score": 0.7661516404350539
+                        },
+                        {
+                            "class_name": "TransactionManager",
+                            "similarity_score": 0.7820775439788572
+                        },
+                        {
+                            "class_name": "Transaction",
+                            "similarity_score": 0.6859455166243447
+                        },
+                        {
+                            "class_name": "BTreeLockingPolicy",
+                            "similarity_score": 0.8000368408189973
+                        },
+                        {
+                            "class_name": "ContainerHandle",
+                            "similarity_score": 0.5711069334927642
+                        },
+                        {
+                            "class_name": "TransactionManager",
+                            "similarity_score": 0.7820775439788572
+                        },
+                        {
+                            "class_name": "LogicalUndo",
+                            "similarity_score": 0.48193410077172366
+                        }
+                    ],
+                    "target_classes_sorted_by_llm": [
+                        "ContainerHandle",
+                        "BTree",
+                        "TransactionManager",
+                        "TransactionManager",
+                        "BTreeLockingPolicy",
+                        "LogicalUndo",
+                        "Transaction"
+                    ],
+                    "llm_response_time": 2986,
+                    "similarity_computation_time": 5,
+                    "similarity_metric": "cosine"
+                },
+                "checkConsistency": {
+                    "target_classes": [
+                        {
+                            "class_name": "BTree",
+                            "similarity_score": 0.6389303199066336
+                        },
+                        {
+                            "class_name": "TransactionManager",
+                            "similarity_score": 0.6011158281403202
+                        },
+                        {
+                            "class_name": "Transaction",
+                            "similarity_score": 0.41819053928839856
+                        },
+                        {
+                            "class_name": "BTreeLockingPolicy",
+                            "similarity_score": 0.516751068042523
+                        },
+                        {
+                            "class_name": "ContainerHandle",
+                            "similarity_score": 0.3382714662104009
+                        },
+                        {
+                            "class_name": "TransactionManager",
+                            "similarity_score": 0.6011158281403202
+                        },
+                        {
+                            "class_name": "LogicalUndo",
+                            "similarity_score": 0.19410766494455656
+                        }
+                    ],
+                    "target_classes_sorted_by_llm": [
+                        "BTree",
+                        "ContainerHandle",
+                        "TransactionManager",
+                        "TransactionManager",
+                        "BTreeLockingPolicy",
+                        "Transaction",
+                        "LogicalUndo"
+                    ],
+                    "llm_response_time": 1179,
+                    "similarity_computation_time": 5,
+                    "similarity_metric": "cosine"
+                }
+            }
+        }
+    },
+    {
+        "oracle": "method org.apache.derby.iapi.sql.dictionary.IndexRowGenerator::setConglomerateNumber(long):void need move to org.apache.derby.impl.sql.catalog.IndexInfoImpl",
+        "class_name": "org.apache.derby.iapi.sql.dictionary.IndexRowGenerator",
+        "telemetry": {
+            "id": "ad14d52c-fa82-41d1-9d49-e9a5f3cf45eb",
+            "hostFunctionTelemetryData": {
+                "hostFunctionSize": 412,
+                "lineStart": 45,
+                "lineEnd": 456,
+                "bodyLineStart": 45,
+                "language": "java",
+                "sourceCode": "/**\n * This class extends IndexDescriptor for internal use by the\n * DataDictionary.\n */\npublic class IndexRowGenerator implements IndexDescriptor, Formatable\n{\n\tprivate IndexDescriptor\tid;\n\tprivate ExecutionFactory ef;\n\n\t/**\n\t * Constructor for an IndexRowGeneratorImpl\n\t *\n\t * @param indexType\t\tThe type of index\n\t * @param isUnique\t\tTrue means the index is unique\n\t * @param baseColumnPositions\tAn array of column positions in the base\n\t *\t\t\t\t\t\t\t\ttable.  Each index column corresponds to a\n\t *\t\t\t\t\t\t\t\tcolumn position in the base table.\n\t * @param isAscending\tAn array of booleans telling asc/desc on each\n\t *\t\t\t\t\t\tcolumn.\n\t * @param numberOfOrderedColumns\tIn the future, it will be possible\n\t *\t\t\t\t\t\t\t\t\tto store non-ordered columns in an\n\t *\t\t\t\t\t\t\t\t\tindex.  These will be useful for\n\t *\t\t\t\t\t\t\t\t\tcovered queries.\n\t */\n\tpublic IndexRowGenerator(String indexType,\n\t\t\t\t\t\t\t\tboolean isUnique,\n\t\t\t\t\t\t\t\tint[] baseColumnPositions,\n\t\t\t\t\t\t\t\tboolean[] isAscending,\n\t\t\t\t\t\t\t\tint numberOfOrderedColumns)\n\t{\n\t\tid = new IndexDescriptorImpl(\n                        indexType,\n                        isUnique, //default uniqueWithDuplicateNulls to false\n                        false,\n                        baseColumnPositions,\n                        isAscending,\n                        numberOfOrderedColumns);\n\n\t\tif (SanityManager.DEBUG)\n\t\t{\n\t\t\tSanityManager.ASSERT(baseColumnPositions != null,\n\t\t\t\t\"baseColumnPositions are null\");\n\t\t}\n\t}\n        \n    /**\n     * Constructor for an IndexRowGeneratorImpl\n     * \n     * @param indexType\t\tThe type of index\n     * @param isUnique\t\tTrue means the index is unique\n     * @param isUniqueWithDuplicateNulls means the index is almost unique\n     *                              i.e. unique only for non null keys\n     * @param baseColumnPositions\tAn array of column positions in the base\n     * \t\t\t\t\t\t\t\ttable.  Each index column corresponds to a\n     * \t\t\t\t\t\t\t\tcolumn position in the base table.\n     * @param isAscending\tAn array of booleans telling asc/desc on each\n     * \t\t\t\t\t\tcolumn.\n     * @param numberOfOrderedColumns\tIn the future, it will be possible\n     * \t\t\t\t\t\t\t\t\tto store non-ordered columns in an\n     * \t\t\t\t\t\t\t\t\tindex.  These will be useful for\n     * \t\t\t\t\t\t\t\t\tcovered queries.\n     */\n\tpublic IndexRowGenerator(String indexType,\n\t\t\t\t\t\t\t\tboolean isUnique,\n\t\t\t\t\t\t\t\tboolean isUniqueWithDuplicateNulls,\n\t\t\t\t\t\t\t\tint[] baseColumnPositions,\n\t\t\t\t\t\t\t\tboolean[] isAscending,\n\t\t\t\t\t\t\t\tint numberOfOrderedColumns)\n\t{\n\t\tid = new IndexDescriptorImpl(indexType,\n\t\t\t\t\t\t\t\t\tisUnique,\n\t\t\t\t\t\t\t\t\tisUniqueWithDuplicateNulls,\n\t\t\t\t\t\t\t\t\tbaseColumnPositions,\n\t\t\t\t\t\t\t\t\tisAscending,\n\t\t\t\t\t\t\t\t\tnumberOfOrderedColumns);\n\n\t\tif (SanityManager.DEBUG)\n\t\t{\n\t\t\tSanityManager.ASSERT(baseColumnPositions != null,\n\t\t\t\t\"baseColumnPositions are null\");\n\t\t}\n\t}\n\n\t/**\n\t * Constructor for an IndexRowGeneratorImpl\n\t *\n\t * @param indexDescriptor\t\tAn IndexDescriptor to delegate calls to\n\t */\n\tpublic IndexRowGenerator(IndexDescriptor indexDescriptor)\n\t{\n\t\tid = indexDescriptor;\n\t}\n\n\t/**\n\t * Get a template for the index row, to be used with getIndexRow.\n\t *\n\t * @return\tA row template for the index row.\n\t */\n\tpublic ExecIndexRow getIndexRowTemplate()\n\t{\n\t\treturn getExecutionFactory().getIndexableRow(\n\t\t\t\t\t\t\t\t\t\tid.baseColumnPositions().length + 1);\n\t}\n\n    /**\n     * Get a NULL Index Row for this index. This is useful to create objects\n     * that need to be passed to ScanController.\n     *\n     * @param columnList ColumnDescriptors describing the base table.\n     * @param rowLocation   empty row location.\n     *\n     * @exception StandardException thrown on error.\n     */\n    public ExecIndexRow getNullIndexRow(ColumnDescriptorList columnList,\n    \t\tRowLocation rowLocation)\n    throws StandardException\n    {\n            int[] baseColumnPositions = id.baseColumnPositions();\n            ExecIndexRow indexRow = getIndexRowTemplate();\n\n            for (int i = 0; i < baseColumnPositions.length; i++)\n            {\n                    DataTypeDescriptor dtd =\n                            columnList.elementAt(baseColumnPositions[i] - 1).getType();\n                    indexRow.setColumn(i + 1, dtd.getNull());\n            }\n\n            indexRow.setColumn(baseColumnPositions.length + 1, rowLocation);\n            return indexRow;\n    }\n\n\t/**\n\t * Get an index row for this index given a row from the base table\n\t * and the RowLocation of the base row.  This method can be used\n\t * to get the new index row for inserts, and the old and new index\n\t * rows for deletes and updates.  For updates, the result row has\n\t * all the old column values followed by all of the new column values,\n\t * so you must form a row using the new column values to pass to\n\t * this method to get the new index row.\n\t *\n\t * @param baseRow\tA row in the base table\n\t * @param rowLocation\tThe RowLocation of the row in the base table\n\t * @param indexRow\tA template for the index row.  It must have the\n\t *\t\t\t\t\tcorrect number of columns.\n\t * @param bitSet\tIf non-null, then baseRow is a partial row and the\n\t *\t\t\t\t\tset bits in bitSet represents the column mapping for\n\t *\t\t\t\t\tthe partial row to the complete base row. <B> WARNING:\n\t *\t\t\t\t\t</B> ONE based!!!\n\t *\n\t * @exception StandardException\t\tThrown on error\n\t */\n\tpublic void getIndexRow(ExecRow baseRow,\n\t\t\t\t\t\t\tRowLocation rowLocation,\n\t\t\t\t\t\t\tExecIndexRow indexRow,\n\t\t\t\t\t\t\tFormatableBitSet bitSet)\n\t\t\t\t\t\tthrows StandardException\n\t{\n\t\t/*\n\t\t** Set the columns in the index row that are based on columns in\n\t\t** the base row.\n\t\t*/\n\t\tint[] baseColumnPositions = id.baseColumnPositions();\n\t\tint colCount = baseColumnPositions.length;\n\n\t\tif (bitSet == null)\n\t\t{\n\t\t\t/*\n\t\t\t** Set the columns in the index row that are based on columns in\n\t\t\t** the base row.\n\t\t\t*/\n\t\t\tfor (int i = 0; i < colCount ; i++)\n\t\t\t{\n\t\t\t\tindexRow.setColumn(i + 1,\n\t\t\t\t\t\tbaseRow.getColumn(baseColumnPositions[i]));\n\t\t\t}\n\t\t}\n\t\telse\n\t\t{\n\t\t\tif (SanityManager.DEBUG)\n\t\t\t{\n\t\t\t\tSanityManager.ASSERT(!bitSet.get(0), \"element zero of the bitSet passed into getIndexRow() is not false, bitSet should be 1 based\");\n\t\t\t}\n \n\t\t\t/*\n\t\t\t** Set the columns in the index row that are based on columns in\n\t\t\t** the base row.\n\t\t\t*/\n\t\t\tfor (int i = 0; i < colCount; i++)\n\t\t\t{\n\t\t\t\tint fullColumnNumber = baseColumnPositions[i];\n\t\t\t\tint partialColumnNumber = 0;\n\t\t\t\tfor (int index = 1; index <= fullColumnNumber; index++)\n\t\t\t\t{\n\t\t\t\t\tif (bitSet.get(index))\n\t\t\t\t\t{\n\t\t\t\t\t\tpartialColumnNumber++;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t\tindexRow.setColumn(i + 1,\n\t\t\t\t\t\t\tbaseRow.getColumn(partialColumnNumber));\n\t\t\t}\n\t\t}\n\n\t\t/* Set the row location in the last column of the index row */\n\t\tindexRow.setColumn(colCount + 1, rowLocation);\n\t}\n\n    /**\n     * Return an array of collation ids for this table.\n     * <p>\n     * Return an array of collation ids, one for each column in the\n     * columnDescriptorList.  This is useful for passing collation id info\n     * down to store, for instance in createConglomerate() to create\n     * the index.\n     *\n     * This is only expected to get called during ddl, so object allocation\n     * is ok. \n     *\n\t * @param columnList ColumnDescriptors describing the base table.\n     *\n\t * @exception  StandardException  Standard exception policy.\n     **/\n    public int[] getColumnCollationIds(ColumnDescriptorList columnList)\n\t\tthrows StandardException\n    {\n        int[] base_cols     = id.baseColumnPositions();\n        int[] collation_ids = new int[base_cols.length + 1];\n\n\t\tfor (int i = 0; i < base_cols.length; i++)\n\t\t{\n            collation_ids[i] =\n\t\t\t\tcolumnList.elementAt(\n                    base_cols[i] - 1).getType().getCollationType();\n\t\t}\n\n        // row location column at end is always basic collation type.\n        collation_ids[collation_ids.length - 1] = \n            StringDataValue.COLLATION_TYPE_UCS_BASIC; \n\n\t\treturn(collation_ids);\n    }\n\n\t\t \n\t/**\n\t * Get the IndexDescriptor that this IndexRowGenerator is based on.\n\t */\n\tpublic IndexDescriptor getIndexDescriptor()\n\t{\n\t\treturn id;\n\t}\n\n\t/** Zero-argument constructor for Formatable interface */\n\tpublic IndexRowGenerator()\n\t{\n\t}\n\n\t/**\n     * @see IndexDescriptor#isUniqueWithDuplicateNulls\n     */\n\tpublic boolean isUniqueWithDuplicateNulls()\n\t{\n\t\treturn id.isUniqueWithDuplicateNulls();\n\t}\n\t/** @see IndexDescriptor#isUnique */\n\tpublic boolean isUnique()\n\t{\n\t\treturn id.isUnique();\n\t}\n\n\t/** @see IndexDescriptor#baseColumnPositions */\n\tpublic int[] baseColumnPositions()\n\t{\n\t\treturn id.baseColumnPositions();\n\t}\n\n\t/** @see IndexDescriptor#getKeyColumnPosition */\n\tpublic int getKeyColumnPosition(int heapColumnPosition)\n\t{\n\t\treturn id.getKeyColumnPosition(heapColumnPosition);\n\t}\n\n\t/** @see IndexDescriptor#numberOfOrderedColumns */\n\tpublic int numberOfOrderedColumns()\n\t{\n\t\treturn id.numberOfOrderedColumns();\n\t}\n\n\t/** @see IndexDescriptor#indexType */\n\tpublic String indexType()\n\t{\n\t\treturn id.indexType();\n\t}\n\n\tpublic String toString()\n\t{\n\t\treturn id.toString();\n\t}\n\n\t/** @see IndexDescriptor#isAscending */\n\tpublic boolean\t\t\tisAscending(Integer keyColumnPosition)\n\t{\n\t\treturn id.isAscending(keyColumnPosition);\n\t}\n\n\t/** @see IndexDescriptor#isDescending */\n\tpublic boolean\t\t\tisDescending(Integer keyColumnPosition)\n\t{\n\t\treturn id.isDescending(keyColumnPosition);\n\t}\n\n\t/** @see IndexDescriptor#isAscending */\n\tpublic boolean[]\t\tisAscending()\n\t{\n\t\treturn id.isAscending();\n\t}\n\n\t/** @see IndexDescriptor#setBaseColumnPositions */\n\tpublic void\t\tsetBaseColumnPositions(int[] baseColumnPositions)\n\t{\n\t\tid.setBaseColumnPositions(baseColumnPositions);\n\t}\n\n\t/** @see IndexDescriptor#setIsAscending */\n\tpublic void\t\tsetIsAscending(boolean[] isAscending)\n\t{\n\t\tid.setIsAscending(isAscending);\n\t}\n\n\t/** @see IndexDescriptor#setNumberOfOrderedColumns */\n\tpublic void\t\tsetNumberOfOrderedColumns(int numberOfOrderedColumns)\n\t{\n\t\tid.setNumberOfOrderedColumns(numberOfOrderedColumns);\n\t}\n\n\t/**\n\t * Test for value equality\n\t *\n\t * @param other\t\tThe other indexrowgenerator to compare this one with\n\t *\n\t * @return\ttrue if this indexrowgenerator has the same value as other\n\t */\n\n\tpublic boolean equals(Object other)\n\t{\n\t\treturn id.equals(other);\n\t}\n\n\t/**\n\t  @see java.lang.Object#hashCode\n\t  */\n\tpublic int hashCode()\n\t{\n\t\treturn id.hashCode();\n\t}\n\n\tprivate ExecutionFactory getExecutionFactory()\n\t{\n\t\tif (ef == null)\n\t\t{\n\t\t\tExecutionContext\tec;\n\n\t\t\tec = (ExecutionContext)\n\t\t\t\t\tContextService.getContext(ExecutionContext.CONTEXT_ID);\n\t\t\tef = ec.getExecutionFactory();\n\t\t}\n\t\treturn ef;\n\t}\n\n\t////////////////////////////////////////////////////////////////////////////\n\t//\n\t// EXTERNALIZABLE\n\t//\n\t////////////////////////////////////////////////////////////////////////////\n\n\t/**\n\t * @see java.io.Externalizable#readExternal\n\t *\n\t * @exception IOException\tThrown on read error\n\t * @exception ClassNotFoundException\tThrown on read error\n\t */\n\tpublic void readExternal(ObjectInput in) throws IOException, ClassNotFoundException\n\t{\n\t\tid = (IndexDescriptor)in.readObject();\n\t}\n\n\t/**\n\t *\n\t * @exception IOException\tThrown on write error\n\t */\n\tpublic void writeExternal(ObjectOutput out) throws IOException\n\t{\n\t\tout.writeObject(id);\n\t}\n\n\t/* TypedFormat interface */\n\tpublic int getTypeFormatId()\n\t{\n\t\treturn StoredFormatIds.INDEX_ROW_GENERATOR_V01_ID;\n\t}\n\n\t/**\n\t * Set the conglomerate number for the index.\n\t *\n\t * @param indexInfoImpl TODO\n\t * @param conglomerateNumber\tThe conglomerateNumber for the index.\n\t */\n\tpublic void setConglomerateNumber(IndexInfoImpl indexInfoImpl, long conglomerateNumber)\n\t{\n\t\tindexInfoImpl.conglomerateNumber = conglomerateNumber;\n\t}\n\n}"
+            },
+            "candidatesTelemetryData": {
+                "numberOfSuggestions": 2,
+                "candidates": [
+                    {
+                        "lineStart": 399,
+                        "lineEnd": 410,
+                        "refactoringType": "MyMoveMethodRefactoring",
+                        "description": "Move method to org.apache.derby.iapi.sql.execute.ExecutionFactory\nRationale: The method is responsible for obtaining an instance of ExecutionFactory, which indicates that it is closely related to the functionality of the ExecutionFactory class.",
+                        "couldCreateRefObject": true,
+                        "applied": false,
+                        "undone": false
+                    },
+                    {
+                        "lineStart": 444,
+                        "lineEnd": 453,
+                        "refactoringType": "MyMoveMethodRefactoring",
+                        "description": "Move method to org.apache.derby.impl.sql.catalog.IndexInfoImpl\nRationale: The method directly modifies the 'conglomerateNumber' property of the IndexInfoImpl instance, indicating that it is closely related to the state and behavior of the IndexInfoImpl class.",
+                        "couldCreateRefObject": true,
+                        "applied": false,
+                        "undone": false
+                    }
+                ]
+            },
+            "processingTime": {
+                "llmResponseTime": -1,
+                "pluginProcessingTime": -1,
+                "totalTime": 6322
+            },
+            "iterationData": [
+                {
+                    "iteration_num": 1,
+                    "suggested_method_names": [
+                        "getExecutionFactory",
+                        "setConglomerateNumber"
+                    ],
+                    "llm_response_time": 2145
+                },
+                {
+                    "iteration_num": 2,
+                    "suggested_method_names": [
+                        "getExecutionFactory",
+                        "setConglomerateNumber"
+                    ],
+                    "llm_response_time": 1455
+                },
+                {
+                    "iteration_num": 3,
+                    "suggested_method_names": [
+                        "getExecutionFactory",
+                        "setConglomerateNumber"
+                    ],
+                    "llm_response_time": 2009
+                },
+                {
+                    "iteration_num": -1,
+                    "suggested_method_names": [
+                        "getExecutionFactory",
+                        "setConglomerateNumber"
+                    ],
+                    "llm_response_time": 0
+                }
+            ],
+            "llmMethodPriority": {
+                "priority_method_names": [
+                    "getExecutionFactory",
+                    "setConglomerateNumber"
+                ],
+                "llm_response_time": 606
+            },
+            "targetClassMap": {
+                "getExecutionFactory": {
+                    "target_classes": [
+                        {
+                            "class_name": "IndexDescriptor",
+                            "similarity_score": 0.023755052166878232
+                        },
+                        {
+                            "class_name": "ExecutionFactory",
+                            "similarity_score": 0.025856776851497038
+                        }
+                    ],
+                    "target_classes_sorted_by_llm": [
+                        "ExecutionFactory",
+                        "IndexDescriptor"
+                    ],
+                    "llm_response_time": 1378,
+                    "similarity_computation_time": 3,
+                    "similarity_metric": "cosine"
+                },
+                "setConglomerateNumber": {
+                    "target_classes": [
+                        {
+                            "class_name": "IndexInfoImpl",
+                            "similarity_score": 0.7914169227312173
+                        },
+                        {
+                            "class_name": "IndexDescriptor",
+                            "similarity_score": 0.6625082005462068
+                        },
+                        {
+                            "class_name": "ExecutionFactory",
+                            "similarity_score": 0.6974373043173009
+                        }
+                    ],
+                    "target_classes_sorted_by_llm": [
+                        "IndexInfoImpl",
+                        "IndexDescriptor",
+                        "ExecutionFactory"
+                    ],
+                    "llm_response_time": 1720,
+                    "similarity_computation_time": 2,
+                    "similarity_metric": "cosine"
+                }
+            }
+        }
+    },
+    {
+        "oracle": "method org.apache.derby.jdbc.ClientConnectionPoolDataSource40::getParentLogger():Logger need move to org.apache.derbyTesting.functionTests.tests.jdbc4.Wrapper41DataSource",
+        "class_name": "org.apache.derby.jdbc.ClientConnectionPoolDataSource40",
+        "telemetry": {
+            "id": "ffc5b084-3de3-43ed-baea-28a2ff0f9ec9",
+            "hostFunctionTelemetryData": {
+                "hostFunctionSize": 77,
+                "lineStart": 35,
+                "lineEnd": 111,
+                "bodyLineStart": 35,
+                "language": "java",
+                "sourceCode": "/**\n * ClientConnectionPoolDataSource40 is a factory for PooledConnection objects.\n * An object that implements this interface\n * will typically be registered with a naming service that is based on the\n * Java Naming and Directory Interface (JNDI). Use this factory\n * if your application runs under JDBC4.0.\n * Use\n * ClientConnectionPoolDataSource, instead, if your application runs under\n * JDBC3.0 or JDBC2.0, that is, on the following Java Virtual Machines:\n * <p/>\n * <UL>\n * <LI> JDBC 3.0 - Java 2 - JDK 1.4, J2SE 5.0\n * <LI> JDBC 2.0 - Java 2 - JDK 1.2,1.3\n * </UL>\n */\npublic class ClientConnectionPoolDataSource40\n        extends ClientConnectionPoolDataSource {\n    /**\n     * Returns false unless <code>interfaces</code> is implemented \n     * \n     * @param  interfaces             a Class defining an interface.\n     * @return true                   if this implements the interface or \n     *                                directly or indirectly wraps an object \n     *                                that does.\n     * @throws java.sql.SQLException  if an error occurs while determining \n     *                                whether this is a wrapper for an object \n     *                                with the given interface.\n     */\n    public boolean isWrapperFor(Class<?> interfaces) throws SQLException {\n        return interfaces.isInstance(this);\n    }\n    \n    /**\n     * Returns <code>this</code> if this class implements the interface\n     *\n     * @param  interfaces a Class defining an interface\n     * @return an object that implements the interface\n     * @throws java.sql.SQLExption if no object if found that implements the \n     * interface\n     */\n    public <T> T unwrap(java.lang.Class<T> interfaces)\n                                   throws SQLException {\n        try { \n            return interfaces.cast(this);\n        } catch (ClassCastException cce) {\n            throw new SqlException(null,new ClientMessageId(\n                    SQLState.UNABLE_TO_UNWRAP), interfaces).getSQLException();\n        }\n    }    \n\n    ////////////////////////////////////////////////////////////////////\n    //\n    // INTRODUCED BY JDBC 4.1 IN JAVA 7\n    //\n    ////////////////////////////////////////////////////////////////////\n\n    public  Logger getParentLogger()\n        throws SQLFeatureNotSupportedException\n    {\n        throw (SQLFeatureNotSupportedException)\n            (\n             new SqlException( null, new ClientMessageId(SQLState.NOT_IMPLEMENTED), \"getParentLogger\" )\n             ).getSQLException();\n    }\n\n\tpublic  Logger    getParentLogger(Wrapper41DataSource wrapper41DataSource) throws SQLException\n\t{\n\t    if ( wrapper41DataSource._embedded != null ) { return wrapper41DataSource._embedded.getParentLogger(); }\n\t    else if ( wrapper41DataSource._netclient != null ) { return wrapper41DataSource._netclient.getParentLogger(); }\n\t    else if ( wrapper41DataSource._ecpds != null ) { return wrapper41DataSource._ecpds.getParentLogger(); }\n\t    else if ( wrapper41DataSource._exads != null ) { return wrapper41DataSource._exads.getParentLogger(); }\n\t    else if ( this != null ) { return getParentLogger(); }\n\t    else if ( wrapper41DataSource._cxads != null ) { return wrapper41DataSource._cxads.getParentLogger(); }\n\t    else { throw wrapper41DataSource.nothingWrapped(); }\n\t}\n    \n}"
+            },
+            "candidatesTelemetryData": {
+                "numberOfSuggestions": 1,
+                "candidates": [
+                    {
+                        "lineStart": 99,
+                        "lineEnd": 108,
+                        "refactoringType": "MyMoveMethodRefactoring",
+                        "description": "Move method to org.apache.derbyTesting.functionTests.tests.jdbc4.Wrapper41DataSource\nRationale: The method directly operates on the properties of the Wrapper41DataSource class, checking its fields to determine which logger to return. It is logical for this method to reside within the Wrapper41DataSource class as it encapsulates the behavior related to its internal components.",
+                        "couldCreateRefObject": true,
+                        "applied": false,
+                        "undone": false
+                    }
+                ]
+            },
+            "processingTime": {
+                "llmResponseTime": -1,
+                "pluginProcessingTime": -1,
+                "totalTime": 7113
+            },
+            "iterationData": [
+                {
+                    "iteration_num": 1,
+                    "suggested_method_names": [
+                        "getParentLogger",
+                        "getParentLogger"
+                    ],
+                    "llm_response_time": 2173
+                },
+                {
+                    "iteration_num": 2,
+                    "suggested_method_names": [
+                        "getParentLogger",
+                        "getParentLogger"
+                    ],
+                    "llm_response_time": 2419
+                },
+                {
+                    "iteration_num": 3,
+                    "suggested_method_names": [
+                        "getParentLogger",
+                        "getParentLogger"
+                    ],
+                    "llm_response_time": 2062
+                },
+                {
+                    "iteration_num": -1,
+                    "suggested_method_names": [
+                        "getParentLogger"
+                    ],
+                    "llm_response_time": 0
+                }
+            ],
+            "llmMethodPriority": {
+                "priority_method_names": [
+                    "getParentLogger"
+                ],
+                "llm_response_time": 367
+            },
+            "targetClassMap": {
+                "getParentLogger": {
+                    "target_classes": [
+                        {
+                            "class_name": "Wrapper41DataSource",
+                            "similarity_score": 0.77138921583987
+                        }
+                    ],
+                    "target_classes_sorted_by_llm": [
+                        "Wrapper41DataSource"
+                    ],
+                    "llm_response_time": 839,
+                    "similarity_computation_time": 1,
+                    "similarity_metric": "cosine"
+                }
+            }
+        }
+    },
+    {
+        "oracle": "- method org.apache.derby.client.net.NetPackageReply::resetAgent_(org.apache.derby.client.am.LogWriter, int, String, int):void need move to org.apache.derby.client.net.NetAgent",
+        "class_name": "org.apache.derby.client.net.NetPackageReply",
+        "telemetry": {
+            "id": "ffd6765a-1bec-49ce-be8c-8ef1b66aed20",
+            "hostFunctionTelemetryData": {
+                "hostFunctionSize": 209,
+                "lineStart": 30,
+                "lineEnd": 238,
+                "bodyLineStart": 30,
+                "language": "java",
+                "sourceCode": "public class NetPackageReply extends NetConnectionReply {\n    NetPackageReply(NetAgent netAgent, int bufferSize) {\n        super(netAgent, bufferSize);\n    }\n\n\n    NetSqlca parseSqlErrorCondition() throws DisconnectException {\n        parseSQLERRRM();\n        parseTypdefsOrMgrlvlovrs();\n        NetSqlca netSqlca = parseSQLCARD(null);\n        return netSqlca;\n    }\n\n\n    // Also called by NetStatementReply\n    void parseDTAMCHRM() throws DisconnectException {\n        boolean svrcodReceived = false;\n        int svrcod = CodePoint.SVRCOD_INFO;\n        boolean rdbnamReceived = false;\n        String rdbnam = null;\n\n        parseLengthAndMatchCodePoint(CodePoint.DTAMCHRM);\n        pushLengthOnCollectionStack();\n        int peekCP = peekCodePoint();\n\n        while (peekCP != Reply.END_OF_COLLECTION) {\n\n            boolean foundInPass = false;\n\n            if (peekCP == CodePoint.SVRCOD) {\n                foundInPass = true;\n                svrcodReceived = checkAndGetReceivedFlag(svrcodReceived);\n                svrcod = parseSVRCOD(CodePoint.SVRCOD_ERROR, CodePoint.SVRCOD_ERROR);\n                peekCP = peekCodePoint();\n            }\n\n            if (peekCP == CodePoint.RDBNAM) {\n                foundInPass = true;\n                rdbnamReceived = checkAndGetReceivedFlag(rdbnamReceived);\n                rdbnam = parseRDBNAM(true);\n                peekCP = peekCodePoint();\n            }\n\n            if (!foundInPass) {\n                doPrmnsprmSemantics(peekCP);\n            }\n\n        }\n        popCollectionStack();\n        checkRequiredObjects(svrcodReceived, rdbnamReceived);\n\n        netAgent_.setSvrcod(svrcod);\n        doDtamchrmSemantics();\n    }\n\n    // RDB Update Reply Message indicates that a DDM command resulted\n    // in an update at the target relational database.  If a command\n    // generated multiple reply messages including an RDBUPDRM, then\n    // the RDBUPDRM must be the first reply message for the command.\n    // For each target server, the RDBUPDRM  must be returned the first\n    // time an update is made to the target RDB within a unit of work.\n    // The target server may optionally return the RDBUPDRM after subsequent\n    // updates within the UOW.  If multiple target RDBs are involved with\n    // the current UOW and updates are made with any of them, then the RDBUPDRM\n    // must be returned in response to the first update at each of them.\n    protected void parseRDBUPDRM() throws DisconnectException {\n        boolean svrcodReceived = false;\n        int svrcod = CodePoint.SVRCOD_INFO;\n        boolean rdbnamReceived = false;\n        String rdbnam = null;\n\n        parseLengthAndMatchCodePoint(CodePoint.RDBUPDRM);\n        pushLengthOnCollectionStack();\n\n        // in XA Global transaction we need to know if we have a read-only\n        //  transaction, if we get a RDBUPDRM this is NOT a read-only transaction\n        //  currently only XAConnections care about read-only transactions, if\n        //  non-XA wants this information they will need to initialize the flag\n        //  at start of UOW\n        netAgent_.netConnection_.setReadOnlyTransactionFlag(false);\n\n        int peekCP = peekCodePoint();\n\n        while (peekCP != Reply.END_OF_COLLECTION) {\n\n            boolean foundInPass = false;\n\n            if (peekCP == CodePoint.SVRCOD) {\n                foundInPass = true;\n                svrcodReceived = checkAndGetReceivedFlag(svrcodReceived);\n                svrcod = parseSVRCOD(CodePoint.SVRCOD_INFO, CodePoint.SVRCOD_INFO);\n                peekCP = peekCodePoint();\n            }\n\n            if (peekCP == CodePoint.RDBNAM) {\n                foundInPass = true;\n                rdbnamReceived = checkAndGetReceivedFlag(rdbnamReceived);\n                rdbnam = parseRDBNAM(true);\n                peekCP = peekCodePoint();\n            }\n\n            if (!foundInPass) {\n                doPrmnsprmSemantics(peekCP);\n            }\n\n        }\n        popCollectionStack();\n        checkRequiredObjects(svrcodReceived, rdbnamReceived);\n\n        // call an event to indicate the server has been updated\n        netAgent_.setSvrcod(svrcod);\n\n    }\n\n    // SQL Error Condition Reply Message indicates that an SQL error\n    // has occurred.  It may be sent even though no reply message\n    // precedes the SQLCARD object that is the normal\n    // response to a command when an exception occurs.\n    // The SQLERRM is also used when a BNDSQLSTT command is terminated\n    // by an INTRRDBRQS command.\n    // This reply message must precede an SQLCARD object.\n    // The SQLSTATE is returned in the SQLCARD.\n    //\n    // Returned from Server:\n    // SVRCOD - required  (8 - ERROR)\n    // RDBNAM - optional\n    //\n    // Also called by NetResultSetReply and NetStatementReply\n    void parseSQLERRRM() throws DisconnectException {\n        boolean svrcodReceived = false;\n        int svrcod = CodePoint.SVRCOD_INFO;\n        boolean rdbnamReceived = false;\n        String rdbnam = null;\n\n        parseLengthAndMatchCodePoint(CodePoint.SQLERRRM);\n        pushLengthOnCollectionStack();\n        int peekCP = peekCodePoint();\n\n        while (peekCP != Reply.END_OF_COLLECTION) {\n\n            boolean foundInPass = false;\n\n            if (peekCP == CodePoint.SVRCOD) {\n                foundInPass = true;\n                svrcodReceived = checkAndGetReceivedFlag(svrcodReceived);\n                svrcod = parseSVRCOD(CodePoint.SVRCOD_ERROR, CodePoint.SVRCOD_ERROR);\n                peekCP = peekCodePoint();\n            }\n\n            if (peekCP == CodePoint.RDBNAM) {\n                foundInPass = true;\n                rdbnamReceived = checkAndGetReceivedFlag(rdbnamReceived);\n                rdbnam = parseRDBNAM(true);\n                peekCP = peekCodePoint();\n            }\n\n            if (!foundInPass) {\n                doPrmnsprmSemantics(peekCP);\n            }\n\n        }\n        popCollectionStack();\n        checkRequiredObjects(svrcodReceived);\n\n        // move into a method\n        netAgent_.setSvrcod(svrcod);\n    }\n\n    //--------------------- parse DDM Reply Data--------------------------------------\n\n    //------------------------parse DDM Scalars-----------------------------\n\n    // RDB Package Name and Consistency token Scalar Object specifies the\n    // fully qualified name of a relational database package and its\n    // consistency token.\n    protected Object parsePKGNAMCT(boolean skip) throws DisconnectException {\n        parseLengthAndMatchCodePoint(CodePoint.PKGNAMCT);\n        if (skip) {\n            skipBytes();\n            return null;\n        }\n        agent_.accumulateChainBreakingReadExceptionAndThrow(new DisconnectException(agent_,\n                new ClientMessageId(SQLState.DRDA_COMMAND_NOT_IMPLEMENTED),\n                \"parsePKGNAMCT\"));\n        return null; // to make compiler happy\n    }\n\n\n\tprotected void resetAgent_(NetAgent netAgent, LogWriter netLogWriter, int loginTimeout, String server, int port) throws SqlException {\n\t    \n\t    netAgent.exceptionConvertingRdbnam = null;\n\t    // most properties will remain unchanged on connect reset.\n\t    netAgent.targetTypdef_ = netAgent.originalTargetTypdef_;\n\t    netAgent.svrcod_ = 0;\n\t\n\t    // Set TCP/IP Socket Properties\n\t    try {\n\t        netAgent.socket_.setSoTimeout(loginTimeout * 1000);\n\t    } catch (java.net.SocketException e) {\n\t        try {\n\t            netAgent.socket_.close();\n\t        } catch (java.io.IOException doNothing) {\n\t        }\n\t        throw new SqlException(netAgent.logWriter_, \n\t            new ClientMessageId(SQLState.SOCKET_EXCEPTION),\n\t            e.getMessage(), e);\n\t    }\n\t}\n}"
+            },
+            "candidatesTelemetryData": {
+                "numberOfSuggestions": 0,
+                "candidates": []
+            },
+            "processingTime": {
+                "llmResponseTime": -1,
+                "pluginProcessingTime": -1,
+                "totalTime": 12259
+            },
+            "iterationData": [
+                {
+                    "iteration_num": 1,
+                    "suggested_method_names": [
+                        "parseDTAMCHRM",
+                        "parseRDBUPDRM",
+                        "parseSQLERRRM",
+                        "resetAgent_"
+                    ],
+                    "llm_response_time": 4112
+                },
+                {
+                    "iteration_num": 2,
+                    "suggested_method_names": [
+                        "parseDTAMCHRM",
+                        "parseRDBUPDRM",
+                        "parseSQLERRRM",
+                        "resetAgent_"
+                    ],
+                    "llm_response_time": 4205
+                },
+                {
+                    "iteration_num": 3,
+                    "suggested_method_names": [
+                        "parseSQLERRRM",
+                        "parseRDBUPDRM",
+                        "parseDTAMCHRM",
+                        "resetAgent_"
+                    ],
+                    "llm_response_time": 3141
+                },
+                {
+                    "iteration_num": -1,
+                    "suggested_method_names": [
+                        "parseDTAMCHRM",
+                        "parseRDBUPDRM",
+                        "parseSQLERRRM",
+                        "resetAgent_"
+                    ],
+                    "llm_response_time": 0
+                }
+            ],
+            "llmMethodPriority": {
+                "priority_method_names": [
+                    "parseSQLERRRM",
+                    "parseDTAMCHRM",
+                    "parseRDBUPDRM",
+                    "resetAgent_"
+                ],
+                "llm_response_time": 628
+            },
+            "targetClassMap": {
+                "parseSQLERRRM": {
+                    "target_classes": [],
+                    "target_classes_sorted_by_llm": [],
+                    "llm_response_time": 1429,
+                    "similarity_computation_time": 0,
+                    "similarity_metric": "cosine"
+                },
+                "parseDTAMCHRM": {
+                    "target_classes": [],
+                    "target_classes_sorted_by_llm": [],
+                    "llm_response_time": 1116,
+                    "similarity_computation_time": 0,
+                    "similarity_metric": "cosine"
+                },
+                "parseRDBUPDRM": {
+                    "target_classes": [],
+                    "target_classes_sorted_by_llm": [],
+                    "llm_response_time": 1636,
+                    "similarity_computation_time": 0,
+                    "similarity_metric": "cosine"
+                }
+            }
+        }
+    },
+    {
+        "oracle": "method org.apache.derby.iapi.types.SQLInteger::isUpdated():boolean need move to org.apache.derby.impl.sql.execute.ScrollInsensitiveResultSet",
+        "class_name": "org.apache.derby.iapi.types.SQLInteger",
+        "telemetry": {
+            "id": "b304745d-f743-44de-b4cb-13dbe71c2735",
+            "hostFunctionTelemetryData": {
+                "hostFunctionSize": 677,
+                "lineStart": 46,
+                "lineEnd": 722,
+                "bodyLineStart": 46,
+                "language": "java",
+                "sourceCode": "/**\n * SQLInteger represents an INTEGER value.\n */\npublic final class SQLInteger\n\textends NumberDataType\n{\n\t/*\n\t * DataValueDescriptor interface\n\t * (mostly implemented in DataType)\n\t */\n\n\n        // JDBC is lax in what it permits and what it\n\t// returns, so we are similarly lax\n\t// @see DataValueDescriptor\n\tpublic int\tgetInt()\n\t{\n\t\t/* This value is 0 if the SQLInteger is null */\n\t\treturn value;\n\t}\n\n\t/**\n\t * @exception StandardException thrown on failure to convert\n\t */\n\tpublic byte\tgetByte() throws StandardException\n\t{\n\t\tif (value > Byte.MAX_VALUE || value < Byte.MIN_VALUE)\n\t\t\tthrow StandardException.newException(SQLState.LANG_OUTSIDE_RANGE_FOR_DATATYPE, \"TINYINT\");\n\t\treturn (byte) value;\n\t}\n\n\t/**\n\t * @exception StandardException thrown on failure to convert\n\t */\n\tpublic short\tgetShort() throws StandardException\n\t{\n\t\tif (value > Short.MAX_VALUE || value < Short.MIN_VALUE)\n\t\t\tthrow StandardException.newException(SQLState.LANG_OUTSIDE_RANGE_FOR_DATATYPE, \"SMALLINT\");\n\t\treturn (short) value;\n\t}\n\n\tpublic long\tgetLong()\n\t{\n\t\treturn (long) value;\n\t}\n\n\tpublic float\tgetFloat()\n\t{\n\t\treturn (float) value;\n\t}\n\n\tpublic double\tgetDouble()\n\t{\n\t\treturn (double) value;\n\t}\n\n    // for lack of a specification: 0 or null is false,\n    // all else is true\n\tpublic boolean\tgetBoolean()\n\t{\n\t\treturn (value != 0);\n\t}\n\n\tpublic String\tgetString()\n\t{\n\t\tif (isNull())\n\t\t\treturn null;\n\t\telse\n\t\t\treturn Integer.toString(value);\n\t}\n\n\tpublic Object\tgetObject()\n\t{\n\t\tif (isNull())\n\t\t\treturn null;\n\t\telse\n\t\t\treturn new Integer(value);\n\t}\n\n\tpublic int\tgetLength()\n\t{\n\t\treturn INTEGER_LENGTH;\n\t}\n\n\t// this is for DataType's error generator\n\tpublic String getTypeName()\n\t{\n\t\treturn TypeId.INTEGER_NAME;\n\t}\n\n\t/*\n\t * Storable interface, implies Externalizable, TypedFormat\n\t */\n\n\n\t/**\n\t\tReturn my format identifier.\n\n\t\t@see org.apache.derby.iapi.services.io.TypedFormat#getTypeFormatId\n\t*/\n\tpublic int getTypeFormatId() {\n\t\treturn StoredFormatIds.SQL_INTEGER_ID;\n\t}\n\n\t/*\n\t * see if the integer value is null.\n\t */\n\t/** @see Storable#isNull */\n\tpublic boolean isNull()\n\t{\n\t\treturn isnull;\n\t}\n\n\tpublic void writeExternal(ObjectOutput out) throws IOException {\n\n\t\t// never called when value is null\n\t\tif (SanityManager.DEBUG)\n\t\t\tSanityManager.ASSERT(! isNull());\n\n\t\tout.writeInt(value);\n\t}\n\n\t/** @see java.io.Externalizable#readExternal */\n\tpublic final void readExternal(ObjectInput in) \n        throws IOException {\n\n\t\tvalue = in.readInt();\n\t\tisnull = false;\n\t}\n\tpublic final void readExternalFromArray(ArrayInputStream in) \n        throws IOException {\n\n\t\tvalue = in.readInt();\n\t\tisnull = false;\n\t}\n\n\t/**\n\t * @see Storable#restoreToNull\n\t *\n\t */\n\n\tpublic void restoreToNull()\n\t{\n\t\tvalue = 0;\n\t\tisnull = true;\n\t}\n\n\n\t/** @exception StandardException\t\tThrown on error */\n\tprotected int typeCompare(DataValueDescriptor arg) throws StandardException\n\t{\n\t\t/* neither are null, get the value */\n\n\t\tint thisValue = this.getInt();\n\n\t\tint otherValue = arg.getInt();\n\n\t\tif (thisValue == otherValue)\n\t\t\treturn 0;\n\t\telse if (thisValue > otherValue)\n\t\t\treturn 1;\n\t\telse\n\t\t\treturn -1;\n\t}\n\n\n\t/*\n\t * DataValueDescriptor interface\n\t */\n\n\t/** @see DataValueDescriptor#cloneValue */\n\tpublic DataValueDescriptor cloneValue(boolean forceMaterialization)\n\t{\n\t\tSQLInteger nsi = new SQLInteger(value);\n\n\t\tnsi.isnull = isnull;\n\t\treturn nsi;\n\t}\n\n\t/**\n\t * @see DataValueDescriptor#getNewNull\n\t */\n\tpublic DataValueDescriptor getNewNull()\n\t{\n\t\treturn new SQLInteger();\n\t}\n\n\t/** \n\t * @see DataValueDescriptor#setValueFromResultSet \n\t *\n\t * @exception SQLException\t\tThrown on error\n\t */\n\tpublic void setValueFromResultSet(ResultSet resultSet, int colNumber,\n\t\t\t\t\t\t\t\t\t  boolean isNullable)\n\t\tthrows SQLException\n\t{\n\t\t\tif ((value = resultSet.getInt(colNumber)) == 0)\n\t\t\t\tisnull = (isNullable && resultSet.wasNull());\n\t\t\telse\n\t\t\t\tisnull = false;\n\t}\n\t/**\n\t\tSet the value into a PreparedStatement.\n\n\t\t@exception SQLException Error setting value in PreparedStatement\n\t*/\n\tpublic final void setInto(PreparedStatement ps, int position) throws SQLException {\n\n\t\tif (isNull()) {\n\t\t\tps.setNull(position, java.sql.Types.INTEGER);\n\t\t\treturn;\n\t\t}\n\n\t\tps.setInt(position, value);\n\t}\n\t/**\n\t\tSet this value into a ResultSet for a subsequent ResultSet.insertRow\n\t\tor ResultSet.updateRow. This method will only be called for non-null values.\n\n\t\t@exception SQLException thrown by the ResultSet object\n\t*/\n\tpublic final void setInto(ResultSet rs, int position) throws SQLException {\n\t\trs.updateInt(position, value);\n\t}\n\n\t/*\n\t * class interface\n\t */\n\n\t/*\n\t * constructors\n\t */\n\n\t/** no-arg constructor, required by Formattable */\n    // This constructor also gets used when we are\n    // allocating space for an integer.\n\tpublic SQLInteger() \n\t{\n\t\tisnull = true;\n\t}\n\n\tpublic SQLInteger(int val)\n\t{\n\t\tvalue = val;\n\t}\n\n\tpublic SQLInteger(char val)\n\t{\n\t\tvalue = val;\n\t}\n\n\tpublic SQLInteger(Integer obj) {\n\t\tif (isnull = (obj == null))\n\t\t\t;\n\t\telse\n\t\t\tvalue = obj.intValue();\n\t}\n\n\t/**\n\t\t@exception StandardException thrown if string not accepted\n\t */\n\tpublic void setValue(String theValue)\n\t\tthrows StandardException\n\t{\n\t\tif (theValue == null)\n\t\t{\n\t\t\tvalue = 0;\n\t\t\tisnull = true;\n\t\t}\n\t\telse\n\t\t{\n\t\t    try {\n\t\t        value = Integer.parseInt(theValue.trim());\n\t\t\t} catch (NumberFormatException nfe) {\n\t\t\t    throw invalidFormat();\n\t\t\t}\n\t\t\tisnull = false;\n\t\t}\n\t}\n\n\tpublic void setValue(int theValue)\n\t{\n\t\tvalue = theValue;\n\t\tisnull = false;\n\t}\n\n\t/**\n\t\t@exception StandardException thrown on overflow\n\t */\n\tpublic void setValue(long theValue) throws StandardException\n\t{\n\t\tif (theValue > Integer.MAX_VALUE || theValue < Integer.MIN_VALUE) {\n\t\t\tthrow outOfRange();\n\t\t}\n\n\t\tvalue = (int)theValue;\n\t\tisnull = false;\n\t}\n\n\t/**\n\t * @see NumberDataValue#setValue\n\t *\n\t * @exception StandardException\t\tThrown on error\n\t */\n\tpublic void setValue(float theValue) throws StandardException\n\t{\n        theValue = NumberDataType.normalizeREAL(theValue);\n\n\t\tif (theValue > Integer.MAX_VALUE || theValue < Integer.MIN_VALUE)\n\t\t\tthrow outOfRange();\n\n\t\tfloat floorValue = (float)Math.floor(theValue);\n\n\t\tvalue = (int)floorValue;\n\t\tisnull = false;\n\t}\n\n\t/**\n\t * @see NumberDataValue#setValue\n\t *\n\t * @exception StandardException\t\tThrown on error\n\t */\n\tpublic void setValue(double theValue) throws StandardException\n\t{\n\t\ttheValue = NumberDataType.normalizeDOUBLE(theValue);\n\n\t\tif (theValue > Integer.MAX_VALUE || theValue < Integer.MIN_VALUE)\n\t\t\tthrow outOfRange();\n\n\t\tdouble floorValue = Math.floor(theValue);\n\n\t\tvalue = (int)floorValue;\n\t\tisnull = false;\n\t}\n\n\tpublic void setValue(boolean theValue)\n\t{\n\t\tvalue = theValue?1:0;\n\t\tisnull = false;\n\t}\n\n\tprotected void setFrom(DataValueDescriptor theValue) throws StandardException {\n\n\t\tsetValue(theValue.getInt());\n\t}\n\n\t/*\n\t * DataValueDescriptor interface\n\t */\n\n\t/** @see DataValueDescriptor#typePrecedence */\n\tpublic int typePrecedence()\n\t{\n\t\treturn TypeId.INT_PRECEDENCE;\n\t}\n\n\t/*\n\t** SQL Operators\n\t*/\n\n\t/**\n\t * The = operator as called from the language module, as opposed to\n\t * the storage module.\n\t *\n\t * @param left\t\t\tThe value on the left side of the =\n\t * @param right\t\t\tThe value on the right side of the =\n\t *\n\t * @return\tA SQL boolean value telling whether the two parameters are equal\n\t *\n\t * @exception StandardException\t\tThrown on error\n\t */\n\n\tpublic BooleanDataValue equals(DataValueDescriptor left,\n\t\t\t\t\t\t\tDataValueDescriptor right)\n\t\t\tthrows StandardException\n\t{\n\t\treturn SQLBoolean.truthValue(left,\n\t\t\t\t\t\t\t\t\t right,\n\t\t\t\t\t\t\t\t\t left.getInt() == right.getInt());\n\t}\n\n\t/**\n\t * The <> operator as called from the language module, as opposed to\n\t * the storage module.\n\t *\n\t * @param left\t\t\tThe value on the left side of the <>\n\t * @param right\t\t\tThe value on the right side of the <>\n\t *\n\t * @return\tA SQL boolean value telling whether the two parameters\n\t *\t\t\tare not equal\n\t *\n\t * @exception StandardException\t\tThrown on error\n\t */\n\n\tpublic BooleanDataValue notEquals(DataValueDescriptor left,\n\t\t\t\t\t\t\tDataValueDescriptor right)\n\t\t\tthrows StandardException\n\t{\n\t\treturn SQLBoolean.truthValue(left,\n\t\t\t\t\t\t\t\t\t right,\n\t\t\t\t\t\t\t\t\t left.getInt() != right.getInt());\n\t}\n\n\t/**\n\t * The < operator as called from the language module, as opposed to\n\t * the storage module.\n\t *\n\t * @param left\t\t\tThe value on the left side of the <\n\t * @param right\t\t\tThe value on the right side of the <\n\t *\n\t * @return\tA SQL boolean value telling whether the first operand is less\n\t *\t\t\tthan the second operand\n\t *\n\t * @exception StandardException\t\tThrown on error\n\t */\n\n\tpublic BooleanDataValue lessThan(DataValueDescriptor left,\n\t\t\t\t\t\t\tDataValueDescriptor right)\n\t\t\tthrows StandardException\n\t{\n\t\treturn SQLBoolean.truthValue(left,\n\t\t\t\t\t\t\t\t\t right,\n\t\t\t\t\t\t\t\t\t left.getInt() < right.getInt());\n\t}\n\n\t/**\n\t * The > operator as called from the language module, as opposed to\n\t * the storage module.\n\t *\n\t * @param left\t\t\tThe value on the left side of the >\n\t * @param right\t\t\tThe value on the right side of the >\n\t *\n\t * @return\tA SQL boolean value telling whether the first operand is greater\n\t *\t\t\tthan the second operand\n\t *\n\t * @exception StandardException\t\tThrown on error\n\t */\n\n\tpublic BooleanDataValue greaterThan(DataValueDescriptor left,\n\t\t\t\t\t\t\tDataValueDescriptor right)\n\t\t\tthrows StandardException\n\t{\n\t\treturn SQLBoolean.truthValue(left,\n\t\t\t\t\t\t\t\t\t right,\n\t\t\t\t\t\t\t\t\t left.getInt() > right.getInt());\n\t}\n\n\t/**\n\t * The <= operator as called from the language module, as opposed to\n\t * the storage module.\n\t *\n\t * @param left\t\t\tThe value on the left side of the <=\n\t * @param right\t\t\tThe value on the right side of the <=\n\t *\n\t * @return\tA SQL boolean value telling whether the first operand is less\n\t *\t\t\tthan or equal to the second operand\n\t *\n\t * @exception StandardException\t\tThrown on error\n\t */\n\n\tpublic BooleanDataValue lessOrEquals(DataValueDescriptor left,\n\t\t\t\t\t\t\tDataValueDescriptor right)\n\t\t\tthrows StandardException\n\t{\n\t\treturn SQLBoolean.truthValue(left,\n\t\t\t\t\t\t\t\t\t right,\n\t\t\t\t\t\t\t\t\t left.getInt() <= right.getInt());\n\t}\n\n\t/**\n\t * The >= operator as called from the language module, as opposed to\n\t * the storage module.\n\t *\n\t * @param left\t\t\tThe value on the left side of the >=\n\t * @param right\t\t\tThe value on the right side of the >=\n\t *\n\t * @return\tA SQL boolean value telling whether the first operand is greater\n\t *\t\t\tthan or equal to the second operand\n\t *\n\t * @exception StandardException\t\tThrown on error\n\t */\n\n\tpublic BooleanDataValue greaterOrEquals(DataValueDescriptor left,\n\t\t\t\t\t\t\tDataValueDescriptor right)\n\t\t\tthrows StandardException\n\t{\n\t\treturn SQLBoolean.truthValue(left,\n\t\t\t\t\t\t\t\t\t right,\n\t\t\t\t\t\t\t\t\t left.getInt() >= right.getInt());\n\t}\n\n\t/**\n\t * This method implements the * operator for \"int * int\".\n\t *\n\t * @param left\tThe first value to be multiplied\n\t * @param right\tThe second value to be multiplied\n\t * @param result\tThe result of a previous call to this method, null\n\t *\t\t\t\t\tif not called yet\n\t *\n\t * @return\tA SQLInteger containing the result of the multiplication\n\t *\n\t * @exception StandardException\t\tThrown on error\n\t */\n\n\tpublic NumberDataValue times(NumberDataValue left,\n\t\t\t\t\t\t\tNumberDataValue right,\n\t\t\t\t\t\t\tNumberDataValue result)\n\t\t\t\tthrows StandardException\n\t{\n\t\tif (result == null)\n\t\t{\n\t\t\tresult = new SQLInteger();\n\t\t}\n\n\t\tif (left.isNull() || right.isNull())\n\t\t{\n\t\t\tresult.setToNull();\n\t\t\treturn result;\n\t\t}\n\n\t\t/*\n\t\t** Java does not check for overflow with integral types. We have to\n\t\t** check the result ourselves.\n\t\t**\n\t\t** We can't use sign checking tricks like we do for '+' and '-' since\n\t\t** the product of 2 integers can wrap around multiple times.  So, we\n\t\t** do long arithmetic and then verify that the result is within the \n\t\t** range of an int, throwing an error if it isn't.\n\t\t*/\n\t\tlong tempResult = left.getLong() * right.getLong();\n\n\t\tresult.setValue(tempResult);\n\t\treturn result;\n\t}\n\n\n\t/**\n\t\tmod(int, int)\n\t*/\n\tpublic NumberDataValue mod(NumberDataValue dividend,\n\t\t\t\t\t\t\t\tNumberDataValue divisor,\n\t\t\t\t\t\t\t\tNumberDataValue result)\n\t\t\t\t\t\t\t\tthrows StandardException {\n\t\tif (result == null)\n\t\t{\n\t\t\tresult = new SQLInteger();\n\t\t}\n\n\t\tif (dividend.isNull() || divisor.isNull())\n\t\t{\n\t\t\tresult.setToNull();\n\t\t\treturn result;\n\t\t}\n\n\t\t/* Catch divide by 0 */\n\t\tint intDivisor = divisor.getInt();\n\t\tif (intDivisor == 0)\n\t\t{\n\t\t\tthrow StandardException.newException(SQLState.LANG_DIVIDE_BY_ZERO);\n\t\t}\n\n\t\tresult.setValue(dividend.getInt() % intDivisor);\n\t\treturn result;\n\t}\n\t/**\n\t * This method implements the unary minus operator for int.\n\t *\n\t * @param result\tThe result of a previous call to this method, null\n\t *\t\t\t\t\tif not called yet\n\t *\n\t * @return\tA SQLInteger containing the result of the division\n\t *\n\t * @exception StandardException\t\tThrown on error\n\t */\n\n\tpublic NumberDataValue minus(NumberDataValue result)\n\t\t\t\t\t\t\t\t\tthrows StandardException\n\t{\n\t\tint\t\toperandValue;\n\n\t\tif (result == null)\n\t\t{\n\t\t\tresult = new SQLInteger();\n\t\t}\n\n\t\tif (this.isNull())\n\t\t{\n\t\t\tresult.setToNull();\n\t\t\treturn result;\n\t\t}\n\n\t\toperandValue = this.getInt();\n\n\t\t/*\n\t\t** In two's complement arithmetic, the minimum value for a number\n\t\t** can't be negated, since there is no representation for its\n\t\t** positive value.  For integers, the minimum value is -2147483648,\n\t\t** and the maximum value is 2147483647.\n\t\t*/\n\t\tif (operandValue == Integer.MIN_VALUE)\n\t\t{\n\t\t\tthrow outOfRange();\n\t\t}\n\n\t\tresult.setValue(-operandValue);\n\t\treturn result;\n\t}\n\n    /**\n     * This method implements the isNegative method.\n     *\n     * @return  A boolean.  If this.value is negative, return true.\n     *          For positive values or null, return false.\n     */\n\n    protected boolean isNegative()\n    {\n        return !isNull() && value < 0;\n    }\n\n\t/*\n\t * String display of value\n\t */\n\n\tpublic String toString()\n\t{\n\t\tif (isNull())\n\t\t\treturn \"NULL\";\n\t\telse\n\t\t\treturn Integer.toString(value);\n\t}\n\n\t/*\n\t * Hash code\n\t */\n\tpublic int hashCode()\n\t{\n\t\treturn value;\n\t}\n\n\t/*\n\t * useful constants...\n\t */\n\tstatic final int INTEGER_LENGTH\t\t= 4; // must match the number of bytes written by DataOutput.writeInt()\n\n    private static final int BASE_MEMORY_USAGE = ClassSize.estimateBaseFromCatalog( SQLInteger.class);\n\n    public int estimateMemoryUsage()\n    {\n        return BASE_MEMORY_USAGE;\n    }\n\n\t/**\n\t * Returns TRUE if the row was been updated within the transaction,\n\t * otherwise returns FALSE\n\t *\n\t * @return True if the row has been deleted, otherwise false\n\t *\n\t * @param scrollInsensitiveResultSet TODO\n\t * @exception StandardException on error\n\t */\n\tpublic boolean isUpdated(ScrollInsensitiveResultSet scrollInsensitiveResultSet) throws StandardException {\n\t\tif (scrollInsensitiveResultSet.currentPosition <= scrollInsensitiveResultSet.positionInSource && scrollInsensitiveResultSet.currentPosition > 0) {\n\t\t\tsetValue(scrollInsensitiveResultSet.currentPosition);\n\t\t\tDataValueDescriptor[] hashRowArray = (DataValueDescriptor[]) \n\t\t\t\t\tscrollInsensitiveResultSet.ht.get(this);\n\t\t\treturn hashRowArray[ScrollInsensitiveResultSet.POS_ROWUPDATED].getBoolean();\n\t\t}\n\t\treturn false;\n\t}\n\n\t/*\n\t * object state\n\t */\n\tprivate int\t\tvalue;\n\tprivate boolean\tisnull;\n}"
+            },
+            "candidatesTelemetryData": {
+                "numberOfSuggestions": 1,
+                "candidates": [
+                    {
+                        "lineStart": 697,
+                        "lineEnd": 714,
+                        "refactoringType": "MyMoveMethodRefactoring",
+                        "description": "Move method to org.apache.derby.impl.sql.execute.ScrollInsensitiveResultSet\nRationale: The method isUpdated() directly operates on the properties of the ScrollInsensitiveResultSet instance, such as currentPosition and positionInSource, making it more appropriate for this class.",
+                        "couldCreateRefObject": true,
+                        "applied": false,
+                        "undone": false
+                    }
+                ]
+            },
+            "processingTime": {
+                "llmResponseTime": -1,
+                "pluginProcessingTime": -1,
+                "totalTime": 5410
+            },
+            "iterationData": [
+                {
+                    "iteration_num": 1,
+                    "suggested_method_names": [
+                        "isUpdated"
+                    ],
+                    "llm_response_time": 1511
+                },
+                {
+                    "iteration_num": 2,
+                    "suggested_method_names": [
+                        "isUpdated"
+                    ],
+                    "llm_response_time": 1919
+                },
+                {
+                    "iteration_num": 3,
+                    "suggested_method_names": [
+                        "isUpdated"
+                    ],
+                    "llm_response_time": 1349
+                },
+                {
+                    "iteration_num": -1,
+                    "suggested_method_names": [
+                        "isUpdated"
+                    ],
+                    "llm_response_time": 0
+                }
+            ],
+            "llmMethodPriority": {
+                "priority_method_names": [
+                    "isUpdated"
+                ],
+                "llm_response_time": 496
+            },
+            "targetClassMap": {
+                "isUpdated": {
+                    "target_classes": [
+                        {
+                            "class_name": "ScrollInsensitiveResultSet",
+                            "similarity_score": 0.7233257139898187
+                        }
+                    ],
+                    "target_classes_sorted_by_llm": [
+                        "ScrollInsensitiveResultSet"
+                    ],
+                    "llm_response_time": 809,
+                    "similarity_computation_time": 5,
+                    "similarity_metric": "cosine"
+                }
+            }
+        }
+    },
+    {
+        "oracle": "- method org.apache.derby.vti.Restriction::getFloat(int):float need move to org.apache.derbyTesting.functionTests.tests.lang.RestrictedTableVTI",
+        "class_name": "org.apache.derby.vti.Restriction",
+        "telemetry": {
+            "id": "c295c641-a4b0-48a1-b95f-c2d76ffed9b6",
+            "hostFunctionTelemetryData": {
+                "hostFunctionSize": 242,
+                "lineStart": 29,
+                "lineEnd": 270,
+                "bodyLineStart": 29,
+                "language": "java",
+                "sourceCode": "/**\n   <p>\n * An expression to be pushed into a Table Function so that the Table Function\n * can short-circuit its processing and return fewer rows. A restriction is represented\n * as a binary tree. The non-leaf nodes are ANDs and ORs. The leaf nodes\n * are ColumnQualifiers. A ColumnQualifier\n * is a simple expression comparing a constant value to a column in\n * the Table Function.\n * </p>\n */\npublic abstract class Restriction implements Serializable\n{\n    /**\n     * Turn this Restriction into a string suitable for use in a WHERE clause.\n     */\n    public abstract String toSQL();\n\n    /** Utility method to parenthesize an expression */\n    protected String parenthesize( String raw ) { return \"( \" + raw + \" )\"; }\n    \n    public  float \tgetFloat(RestrictedTableVTI restrictedTableVTI, int i) throws SQLException\n\t{ return restrictedTableVTI._resultSet.getFloat( restrictedTableVTI.mapColumnNumber( i ) ); }\n\n\t/** An AND of two Restrictions */\n    public static class AND extends Restriction\n    {\n        /** Derby serializes these objects in PreparedStatements */\n        public static final long serialVersionUID = -8205388794606605844L;\n        \n        private Restriction _leftChild;\n        private Restriction _rightChild;\n\n        /** AND together two other Restrictions */\n        public AND( Restriction leftChild, Restriction rightChild )\n        {\n            _leftChild = leftChild;\n            _rightChild = rightChild;\n        }\n\n        /** Get the left Restriction */\n        public Restriction getLeftChild() { return _leftChild; }\n\n        /** Get the right Restriction */\n        public Restriction getRightChild() { return _rightChild; }\n        \n        public String toSQL()\n        {\n            return parenthesize( _leftChild.toSQL() ) + \" AND \" + parenthesize( _rightChild.toSQL() );\n        }\n    }\n\n    /** An OR of two Restrictions */\n    public static class OR extends Restriction\n    {\n        /** Derby serializes these objects in PreparedStatements */\n        public static final long serialVersionUID = -8205388794606605844L;\n        \n        private Restriction _leftChild;\n        private Restriction _rightChild;\n\n        /** OR together two other Restrictions */\n        public OR( Restriction leftChild, Restriction rightChild )\n        {\n            _leftChild = leftChild;\n            _rightChild = rightChild;\n        }\n\n        /** Get the left Restriction */\n        public Restriction getLeftChild() { return _leftChild; }\n\n        /** Get the right Restriction */\n        public Restriction getRightChild() { return _rightChild; }\n\n        public String toSQL()\n        {\n            return parenthesize( _leftChild.toSQL() ) + \" OR \" + parenthesize( _rightChild.toSQL() );\n        }\n    }\n\n    /**\n       <p>\n       * A simple comparison of a column to a constant value. The comparison\n       * has the form:\n       * </p>\n       *\n       * <blockquote><pre>\n       * column OP constant\n       * </pre></blockquote>\n       *\n       * <p>\n       * where OP is one of the following:\n       * </p>\n       *\n       * <blockquote><pre>\n       *  <     =     <=     >      >=    IS NULL    IS NOT NULL\n       * </pre></blockquote>\n       */\n    public static class ColumnQualifier extends Restriction\n    {\n        ////////////////////////////////////////////////////////////////////////////////////////\n        //\n        // CONSTANTS\n        //\n        ////////////////////////////////////////////////////////////////////////////////////////\n\n        /** Derby serializes these objects in PreparedStatements */\n        public static final long serialVersionUID = -8205388794606605844L;\n        \n        /**\t Ordering operation constant representing '<' **/\n        public static final int ORDER_OP_LESSTHAN = 0;\n\n        /**\t Ordering operation constant representing '=' **/\n        public static final int ORDER_OP_EQUALS = 1;\n\n        /**\t Ordering operation constant representing '<=' **/\n        public static final int ORDER_OP_LESSOREQUALS = 2;\n\n        /**\t Ordering operation constant representing '>' **/\n        public static final int ORDER_OP_GREATERTHAN = 3;\n\n        /**\t Ordering operation constant representing '>=' **/\n        public static final int ORDER_OP_GREATEROREQUALS = 4;\n\n        /**\t Ordering operation constant representing 'IS NULL' **/\n        public static final int ORDER_OP_ISNULL = 5;\n\n        /**\t Ordering operation constant representing 'IS NOT NULL' **/\n        public static final int ORDER_OP_ISNOTNULL = 6;\n\n        /**\t Ordering operation constant representing '!=' **/\n        public static final int ORDER_OP_NOT_EQUALS = 7;\n\n        // Visible forms of the constants above\n        private String[] OPERATOR_SYMBOLS = new String[] {  \"<\", \"=\", \"<=\", \">\", \">=\", \"IS NULL\", \"IS NOT NULL\", \"!=\" };\n\n        ////////////////////////////////////////////////////////////////////////////////////////\n        //\n        // STATE\n        //\n        ////////////////////////////////////////////////////////////////////////////////////////\n\n        /** name of column being restricted */\n        private String _columnName;\n\n        /** comparison operator, one of the ORDER_OP constants */\n        private int     _comparisonOperator;\n\n        /** value to compare the column to */\n        private Object _constantOperand;\n        \n        ////////////////////////////////////////////////////////////////////////////////////////\n        //\n        // CONSTRUCTORS\n        //\n        ////////////////////////////////////////////////////////////////////////////////////////\n\n        /**\n         * <p>\n         * Construct from pieces.\n         * </p>\n         *\n         * @param columnName Name of column as declared in the CREATE FUNCTION statement.\n         * @param comparisonOperator One of the ORDER_OP constants.\n         * @param constantOperand Constant value to which the column should be compared.\n         */\n        public ColumnQualifier\n            (\n             String columnName,\n             int comparisonOperator,\n             Object constantOperand\n             )\n        {\n            _columnName = columnName;\n            _comparisonOperator = comparisonOperator;\n            _constantOperand = constantOperand;\n        }\n        \n        ////////////////////////////////////////////////////////////////////////////////////////\n        //\n        // ACCESSORS\n        //\n        ////////////////////////////////////////////////////////////////////////////////////////\n        \n        /**\n         * <p>\n         * The name of the column being compared.\n         * </p>\n         */\n        public String getColumnName() { return _columnName; }\n\n        /**\n         * <p>\n         * The type of comparison to perform. This is one of the ORDER_OP constants\n         * defined above.\n         * </p>\n         */\n        public int getComparisonOperator() { return _comparisonOperator; }\n\n        /**\n         * <p>\n         * Get the constant value to which the column should be compared. The\n         * constant value must be an Object of the Java type which corresponds to\n         * the SQL type of the column. The column's SQL type was declared in the CREATE FUNCTION statement.\n         * The mapping of SQL types to Java types is defined in table 4 of chapter 14\n         * of the original JDBC 1 specification (dated 1996). Bascially, these are the Java\n         * wrapper values you would expect. For instance, SQL INT maps to java.lang.Integer, SQL CHAR\n         * maps to java.lang.String, etc.. This object will be null if the\n         * comparison operator is ORDER_OP_ISNULL or ORDER_OP_ISNOTNULL.\n         * </p>\n         */\n        public Object getConstantOperand() { return _constantOperand; }\n        \n        public String toSQL()\n        {\n            StringBuffer buffer = new StringBuffer();\n\n            buffer.append( IdUtil.normalToDelimited( _columnName ) );\n            buffer.append( \" \" + OPERATOR_SYMBOLS[ _comparisonOperator ] + \" \" );\n            if ( _constantOperand != null ) { buffer.append( toEscapedString( _constantOperand ) ); }\n\n            return buffer.toString();\n        }\n\n        protected String toEscapedString(Object o) {\n            if (o instanceof java.sql.Timestamp) {\n                return \"TIMESTAMP('\" + o.toString() + \"')\";\n            } else if (o instanceof java.sql.Date) {\n                return \"DATE('\" + o.toString() + \"')\";\n            } else if (o instanceof java.sql.Time) {\n                return \"TIME('\" + o.toString() + \"')\";\n            } else if (o instanceof String) {\n                return \"\\'\" + o.toString() + \"\\'\";\n            } else if (o instanceof byte[]) {\n                byte[] b = (byte[]) o;\n                return \"X\\'\" + org.apache.derby.iapi.util.StringUtil.toHexString(b, 0, b.length) + \"\\'\" ;\n            } else {\n                return o.toString();\n            }\n        }\n    }\n    \n}"
+            },
+            "candidatesTelemetryData": {
+                "numberOfSuggestions": 0,
+                "candidates": []
+            },
+            "processingTime": {
+                "llmResponseTime": -1,
+                "pluginProcessingTime": -1,
+                "totalTime": 7356
+            },
+            "iterationData": [
+                {
+                    "iteration_num": 1,
+                    "suggested_method_names": [
+                        "getFloat",
+                        "toEscapedString"
+                    ],
+                    "llm_response_time": 1968
+                },
+                {
+                    "iteration_num": 2,
+                    "suggested_method_names": [
+                        "getFloat",
+                        "toEscapedString"
+                    ],
+                    "llm_response_time": 2246
+                },
+                {
+                    "iteration_num": 3,
+                    "suggested_method_names": [
+                        "getFloat",
+                        "toEscapedString"
+                    ],
+                    "llm_response_time": 2084
+                },
+                {
+                    "iteration_num": -1,
+                    "suggested_method_names": [
+                        "getFloat",
+                        "toEscapedString"
+                    ],
+                    "llm_response_time": 0
+                }
+            ],
+            "llmMethodPriority": {
+                "priority_method_names": [
+                    "toEscapedString",
+                    "getFloat"
+                ],
+                "llm_response_time": 984
+            },
+            "targetClassMap": {
+                "toEscapedString": {
+                    "target_classes": [],
+                    "target_classes_sorted_by_llm": [],
+                    "llm_response_time": 1581,
+                    "similarity_computation_time": 0,
+                    "similarity_metric": "cosine"
+                },
+                "getFloat": {
+                    "target_classes": [],
+                    "target_classes_sorted_by_llm": [],
+                    "llm_response_time": 1114,
+                    "similarity_computation_time": 0,
+                    "similarity_metric": "cosine"
+                }
+            }
+        }
+    },
+    {
+        "oracle": "method org.apache.derby.iapi.sql.dictionary.PermDescriptor::getUncachedGenericPermDescriptor(PermDescriptor):PermDescriptor need move to org.apache.derby.impl.sql.catalog.DataDictionaryImpl",
+        "class_name": "org.apache.derby.iapi.sql.dictionary.PermDescriptor",
+        "telemetry": {
+            "id": "792445e5-082f-4c2c-880b-558f3189c3d5",
+            "hostFunctionTelemetryData": {
+                "hostFunctionSize": 213,
+                "lineStart": 35,
+                "lineEnd": 247,
+                "bodyLineStart": 35,
+                "language": "java",
+                "sourceCode": "/**\n * This class describes rows in the SYS.SYSPERMS system table, which keeps track of the\n * permissions that have been granted but not revoked.\n */\npublic class PermDescriptor extends PermissionsDescriptor\n        implements Provider\n{\n    // object types\n    public static final String SEQUENCE_TYPE = \"SEQUENCE\";\n    public static final String UDT_TYPE = \"TYPE\";\n\n    // permissions\n    public static final String USAGE_PRIV = \"USAGE\";\n\n    // state\n    \n    private String objectType;\n    private UUID permObjectId;\n    private String permission;\n    private boolean grantable;\n\n    /**\n     * Constructor\n     *\n     * @param dataDictionary data dictionary\n     * @param permUUID       unique identification in time and space of this perm descriptor\n     * @param objectType     E.g., SEQUENCE_TYPE\n     * @param permObjectId   Unique id of the object being protected\n     * @param permission     E.g., USAGE_PRIV\n     * @param grantor        Authorization id which confers the privilege\n     * @param grantee        Authorization id which receives the privilege\n     * @param isGrantable    True if the privilege can be granted onwards\n     */\n\n    public PermDescriptor(DataDictionary dataDictionary, UUID permUUID, String objectType,\n                          UUID permObjectId, String permission, String grantor,\n                          String grantee, boolean isGrantable) {\n        super(dataDictionary, grantee, grantor);\n        setUUID(permUUID);\n        this.objectType = objectType;\n        this.permObjectId = permObjectId;\n        this.permission = permission;\n        this.grantable = isGrantable;\n    }\n\n    public PermDescriptor(DataDictionary dd, UUID permUUID)\n            throws StandardException {\n        /*\n    TODO When merging all permisions catalogs to this master catalog at a future date,\n    this pattern which uses a partially initialised key descriptor should be cleaned up.\n     */\n        this(dd, permUUID, null, null, null, null, null, false);\n    }\n\n    public String getObjectType() {\n        return objectType;\n    }\n\n    public UUID getPermObjectId() {\n        return permObjectId;\n    }\n\n    public String getPermission() {\n        return permission;\n    }\n\n    public boolean isGrantable() {\n        return grantable;\n    }\n\n    public int getCatalogNumber() {\n        return DataDictionary.SYSPERMS_CATALOG_NUM;\n    }\n\n    public String toString() {\n        if (SanityManager.DEBUG) {\n            return \"permUUID: \" + oid + \"\\n\" +\n                    \"objectType: \" + objectType + \"\\n\" +\n                    \"permObjectId: \" + permObjectId + \"\\n\" +\n                    \"permission: \" + permission + \"\\n\" +\n                    \"grantable: \" + grantable + \"\\n\";\n        } else {\n            return \"\";\n        }\n    }\n\n    /**\n     * @return true iff the key part of this perm descriptor equals the key part of another perm\n     *         descriptor.\n     */\n    public boolean equals(Object other) {\n        if (!(other instanceof PermDescriptor))\n            return false;\n        PermDescriptor otherPerm = (PermDescriptor) other;\n        return super.keyEquals(otherPerm) &&\n                permObjectId.equals(otherPerm.permObjectId);\n    }\n\n    /**\n     * @return the hashCode for the key part of this permissions descriptor\n     */\n    public int hashCode() {\n        return super.keyHashCode() + permObjectId.hashCode();\n    }\n\n    /**\n     * @see PermissionsDescriptor#checkOwner\n     */\n    public boolean checkOwner( String authorizationId ) throws StandardException\n    {\n        DataDictionary dd = getDataDictionary();\n        PrivilegedSQLObject pso = getProtectedObject( dd, permObjectId, objectType );\n        \n        return pso.getSchemaDescriptor().getAuthorizationId().equals(authorizationId);\n    }\n\n    /**\n     * Get the protected object.\n     *\n     * @param dd Metadata\n     * @param objectID Unique handle on the protected object\n     * @param objectType Type of the object\n     */\n    public static PrivilegedSQLObject getProtectedObject\n        ( DataDictionary dd, UUID objectID, String objectType ) throws StandardException\n    {\n        if ( PermDescriptor.SEQUENCE_TYPE.equals( objectType ) )\n        {\n            return dd.getSequenceDescriptor( objectID );\n        }\n        else if ( PermDescriptor.UDT_TYPE.equals( objectType ) )\n        {\n            return dd.getAliasDescriptor( objectID );\n        }\n        else\n        {\n            // oops, still need to implement support for this kind\n            // of privileged object\n            throw StandardException.newException( SQLState.BTREE_UNIMPLEMENTED_FEATURE );\n        }\n    }\n\n    //////////////////////////////////////////////\n    //\n    // PROVIDER INTERFACE\n    //\n    //////////////////////////////////////////////\n\n    /**\n     * Return the name of this Provider.  (Useful for errors.)\n     *\n     * @return String   The name of this provider.\n     */\n    public String getObjectName()\n    {\n        try {\n            DataDictionary dd = getDataDictionary();\n            PrivilegedSQLObject pso = getProtectedObject( dd, permObjectId, objectType );\n        \n            return pso.getName();\n        } catch (StandardException se) { return objectType; }\n    }\n\n    /**\n     * Get the provider's type.\n     *\n     * @return char         The provider's type.\n     */\n    public String getClassType() {\n        return Dependable.PERM;\n    }\n\n    /**\n     * @return the stored form of this provider\n     * @see Dependable#getDependableFinder\n     */\n    public DependableFinder getDependableFinder() {\n        return getDependableFinder(\n                StoredFormatIds.PERM_DESCRIPTOR_FINDER_V01_ID);\n    }\n\n\t/**\n\t * Get an object's permission descriptor from the system tables, without going through the cache.\n\t * This method is called to fill the permissions cache.\n\t *\n\t * @param dataDictionaryImpl TODO\n\t * @return a PermDescriptor that describes the table permissions granted to the grantee on an objcet\n\t * , null if no table-level permissions have been granted to him on the table.\n\t * @throws StandardException\n\t */\n\tpublic PermDescriptor getUncachedGenericPermDescriptor(DataDictionaryImpl dataDictionaryImpl)\n\t        throws StandardException\n\t{\n\t\tif (getObjectID() == null)\n\t\t{\n\t\t\t//the PERMISSSIONID for SYSRPERMS is not known, so use the id of the\n\t\t\t//protected object plus the\n\t\t\t//grantor and granteee to find a PermDescriptor\n\t        return (PermDescriptor)\n\t            dataDictionaryImpl.getUncachedPermissionsDescriptor(DataDictionary.SYSPERMS_CATALOG_NUM,\n\t                    SYSPERMSRowFactory.GRANTEE_OBJECTID_GRANTOR_INDEX_NUM, this);\n\t\t} else\n\t\t{\n\t\t\t//we know the PERMISSIONID for SYSPERMS, so use that to\n\t\t\t//find a PermDescriptor from the sytem table\n\t\t\treturn (PermDescriptor)\n\t\t\tdataDictionaryImpl.getUncachedPermissionsDescriptor(DataDictionary.SYSPERMS_CATALOG_NUM,\n\t\t\t\t\tSYSPERMSRowFactory.PERMS_UUID_IDX_NUM,this);\n\t\t}\n\t\n\t}\n\n}"
+            },
+            "candidatesTelemetryData": {
+                "numberOfSuggestions": 2,
+                "candidates": [
+                    {
+                        "lineStart": 150,
+                        "lineEnd": 174,
+                        "refactoringType": "MyMoveStaticMethodRefactoring",
+                        "description": "move method to org.apache.derby.iapi.sql.dictionary.DataDictionary\nRationale: The method getProtectedObject() interacts directly with the DataDictionary instance to retrieve various descriptors based on the object type, making it a logical fit within the DataDictionary class.",
+                        "couldCreateRefObject": true,
+                        "applied": false,
+                        "undone": false
+                    },
+                    {
+                        "lineStart": 215,
+                        "lineEnd": 244,
+                        "refactoringType": "MyMoveMethodRefactoring",
+                        "description": "Move method to org.apache.derby.impl.sql.catalog.DataDictionaryImpl\nRationale: The method getUncachedGenericPermDescriptor interacts directly with the DataDictionaryImpl to retrieve permission descriptors, making it more appropriate for this method to reside within the DataDictionaryImpl class.",
+                        "couldCreateRefObject": true,
+                        "applied": false,
+                        "undone": false
+                    }
+                ]
+            },
+            "processingTime": {
+                "llmResponseTime": -1,
+                "pluginProcessingTime": -1,
+                "totalTime": 6861
+            },
+            "iterationData": [
+                {
+                    "iteration_num": 1,
+                    "suggested_method_names": [
+                        "getProtectedObject",
+                        "getUncachedGenericPermDescriptor"
+                    ],
+                    "llm_response_time": 2064
+                },
+                {
+                    "iteration_num": 2,
+                    "suggested_method_names": [
+                        "getProtectedObject",
+                        "getUncachedGenericPermDescriptor"
+                    ],
+                    "llm_response_time": 2068
+                },
+                {
+                    "iteration_num": 3,
+                    "suggested_method_names": [
+                        "getProtectedObject",
+                        "getUncachedGenericPermDescriptor"
+                    ],
+                    "llm_response_time": 2043
+                },
+                {
+                    "iteration_num": -1,
+                    "suggested_method_names": [
+                        "getProtectedObject",
+                        "getUncachedGenericPermDescriptor"
+                    ],
+                    "llm_response_time": 0
+                }
+            ],
+            "llmMethodPriority": {
+                "priority_method_names": [
+                    "getProtectedObject",
+                    "getUncachedGenericPermDescriptor"
+                ],
+                "llm_response_time": 586
+            },
+            "targetClassMap": {
+                "getProtectedObject": {
+                    "target_classes": [
+                        {
+                            "class_name": "DDUtils",
+                            "similarity_score": 0.34476364527372316
+                        },
+                        {
+                            "class_name": "ConsInfo",
+                            "similarity_score": 0.4069380491904754
+                        },
+                        {
+                            "class_name": "IndexLister",
+                            "similarity_score": 0.5354278283078433
+                        },
+                        {
+                            "class_name": "SystemColumn",
+                            "similarity_score": 0.4476436382078131
+                        },
+                        {
+                            "class_name": "SPSDescriptor",
+                            "similarity_score": 0.5681867714898452
+                        },
+                        {
+                            "class_name": "DataDictionary",
+                            "similarity_score": 0.48407393643142327
+                        },
+                        {
+                            "class_name": "PasswordHasher",
+                            "similarity_score": 0.5828552712030761
+                        },
+                        {
+                            "class_name": "UserDescriptor",
+                            "similarity_score": 0.5565479932556289
+                        },
+                        {
+                            "class_name": "ViewDescriptor",
+                            "similarity_score": 0.5546693401883078
+                        },
+                        {
+                            "class_name": "AliasDescriptor",
+                            "similarity_score": 0.5913637548962182
+                        },
+                        {
+                            "class_name": "TableDescriptor",
+                            "similarity_score": 0.5953239549424705
+                        },
+                        {
+                            "class_name": "TupleDescriptor",
+                            "similarity_score": 0.4961254305093957
+                        },
+                        {
+                            "class_name": "ColumnDescriptor",
+                            "similarity_score": 0.5445995726634105
+                        },
+                        {
+                            "class_name": "SchemaDescriptor",
+                            "similarity_score": 0.49632606889740233
+                        },
+                        {
+                            "class_name": "CatalogRowFactory",
+                            "similarity_score": 0.5632476833010795
+                        },
+                        {
+                            "class_name": "DefaultDescriptor",
+                            "similarity_score": 0.578309028561338
+                        },
+                        {
+                            "class_name": "IndexRowGenerator",
+                            "similarity_score": 0.5644178873380827
+                        },
+                        {
+                            "class_name": "TriggerDescriptor",
+                            "similarity_score": 0.5714926076324647
+                        },
+                        {
+                            "class_name": "ColPermsDescriptor",
+                            "similarity_score": 0.4970969206169967
+                        },
+                        {
+                            "class_name": "FileInfoDescriptor",
+                            "similarity_score": 0.5415473521053148
+                        },
+                        {
+                            "class_name": "SequenceDescriptor",
+                            "similarity_score": 0.56144134476775
+                        },
+                        {
+                            "class_name": "PrivilegedSQLObject",
+                            "similarity_score": 0.3886648790538205
+                        },
+                        {
+                            "class_name": "RoleClosureIterator",
+                            "similarity_score": 0.3627469251921502
+                        },
+                        {
+                            "class_name": "RoleGrantDescriptor",
+                            "similarity_score": 0.515774732998989
+                        },
+                        {
+                            "class_name": "StatementPermission",
+                            "similarity_score": 0.6254475246408319
+                        },
+                        {
+                            "class_name": "ColumnDescriptorList",
+                            "similarity_score": 0.5476890265503752
+                        },
+                        {
+                            "class_name": "ConstraintDescriptor",
+                            "similarity_score": 0.5635008908290536
+                        },
+                        {
+                            "class_name": "DependencyDescriptor",
+                            "similarity_score": 0.5050239839885948
+                        },
+                        {
+                            "class_name": "StatisticsDescriptor",
+                            "similarity_score": 0.37285355877477233
+                        },
+                        {
+                            "class_name": "TablePermsDescriptor",
+                            "similarity_score": 0.42602626903504054
+                        },
+                        {
+                            "class_name": "GenericDescriptorList",
+                            "similarity_score": 0.5107594431951689
+                        },
+                        {
+                            "class_name": "PermissionsDescriptor",
+                            "similarity_score": 0.5642938528863058
+                        },
+                        {
+                            "class_name": "UniqueTupleDescriptor",
+                            "similarity_score": 0.43519315983152607
+                        },
+                        {
+                            "class_name": "ConglomerateDescriptor",
+                            "similarity_score": 0.5226762391430421
+                        },
+                        {
+                            "class_name": "RoutinePermsDescriptor",
+                            "similarity_score": 0.5220513800195468
+                        },
+                        {
+                            "class_name": "DataDescriptorGenerator",
+                            "similarity_score": 0.5553990488462598
+                        },
+                        {
+                            "class_name": "KeyConstraintDescriptor",
+                            "similarity_score": 0.5603106781690812
+                        },
+                        {
+                            "class_name": "StatementRolePermission",
+                            "similarity_score": 0.525889107644878
+                        },
+                        {
+                            "class_name": "SubConstraintDescriptor",
+                            "similarity_score": 0.5346285212971208
+                        },
+                        {
+                            "class_name": "ConstraintDescriptorList",
+                            "similarity_score": 0.516071106142787
+                        },
+                        {
+                            "class_name": "StatementTablePermission",
+                            "similarity_score": 0.5530971771973152
+                        },
+                        {
+                            "class_name": "CheckConstraintDescriptor",
+                            "similarity_score": 0.5840742501911904
+                        },
+                        {
+                            "class_name": "StatementColumnPermission",
+                            "similarity_score": 0.507031004618424
+                        },
+                        {
+                            "class_name": "StatementSchemaPermission",
+                            "similarity_score": 0.5086539387587125
+                        },
+                        {
+                            "class_name": "UniqueSQLObjectDescriptor",
+                            "similarity_score": 0.4168619120190003
+                        },
+                        {
+                            "class_name": "ConglomerateDescriptorList",
+                            "similarity_score": 0.5007058834578131
+                        },
+                        {
+                            "class_name": "StatementGenericPermission",
+                            "similarity_score": 0.6017917222918001
+                        },
+                        {
+                            "class_name": "StatementRoutinePermission",
+                            "similarity_score": 0.5306097533544236
+                        },
+                        {
+                            "class_name": "SubKeyConstraintDescriptor",
+                            "similarity_score": 0.509519044987291
+                        },
+                        {
+                            "class_name": "SubCheckConstraintDescriptor",
+                            "similarity_score": 0.5324964848972417
+                        },
+                        {
+                            "class_name": "ForeignKeyConstraintDescriptor",
+                            "similarity_score": 0.5814573959222743
+                        },
+                        {
+                            "class_name": "ReferencedKeyConstraintDescriptor",
+                            "similarity_score": 0.6148203829880943
+                        },
+                        {
+                            "class_name": "DDUtils",
+                            "similarity_score": 0.23764391084886888
+                        },
+                        {
+                            "class_name": "ConsInfo",
+                            "similarity_score": 0.13089673940283172
+                        },
+                        {
+                            "class_name": "IndexLister",
+                            "similarity_score": 0.24337542436688384
+                        },
+                        {
+                            "class_name": "SystemColumn",
+                            "similarity_score": 0.20507577810739896
+                        },
+                        {
+                            "class_name": "SPSDescriptor",
+                            "similarity_score": 0.23763021521056593
+                        },
+                        {
+                            "class_name": "DataDictionary",
+                            "similarity_score": 0.041550659727129
+                        },
+                        {
+                            "class_name": "PasswordHasher",
+                            "similarity_score": 0.2294677249418128
+                        },
+                        {
+                            "class_name": "UserDescriptor",
+                            "similarity_score": 0.2398370230736339
+                        },
+                        {
+                            "class_name": "ViewDescriptor",
+                            "similarity_score": 0.25275033364605626
+                        },
+                        {
+                            "class_name": "AliasDescriptor",
+                            "similarity_score": 0.25083915862396433
+                        },
+                        {
+                            "class_name": "TableDescriptor",
+                            "similarity_score": 0.2607516470715711
+                        },
+                        {
+                            "class_name": "TupleDescriptor",
+                            "similarity_score": 0.2769753643616176
+                        },
+                        {
+                            "class_name": "ColumnDescriptor",
+                            "similarity_score": 0.24704585718136104
+                        },
+                        {
+                            "class_name": "SchemaDescriptor",
+                            "similarity_score": 0.19623664285981013
+                        },
+                        {
+                            "class_name": "CatalogRowFactory",
+                            "similarity_score": 0.27034954159032343
+                        },
+                        {
+                            "class_name": "DefaultDescriptor",
+                            "similarity_score": 0.2546124050132244
+                        },
+                        {
+                            "class_name": "IndexRowGenerator",
+                            "similarity_score": 0.26040340038751186
+                        },
+                        {
+                            "class_name": "TriggerDescriptor",
+                            "similarity_score": 0.2525277336536766
+                        },
+                        {
+                            "class_name": "ColPermsDescriptor",
+                            "similarity_score": 0.25498979919755793
+                        },
+                        {
+                            "class_name": "FileInfoDescriptor",
+                            "similarity_score": 0.24837776257146407
+                        },
+                        {
+                            "class_name": "SequenceDescriptor",
+                            "similarity_score": 0.25248766157155056
+                        },
+                        {
+                            "class_name": "PrivilegedSQLObject",
+                            "similarity_score": 0.21616885058355848
+                        },
+                        {
+                            "class_name": "RoleClosureIterator",
+                            "similarity_score": 0.22786197567488775
+                        },
+                        {
+                            "class_name": "RoleGrantDescriptor",
+                            "similarity_score": 0.24770593549539927
+                        },
+                        {
+                            "class_name": "StatementPermission",
+                            "similarity_score": 0.2515528099612026
+                        },
+                        {
+                            "class_name": "ColumnDescriptorList",
+                            "similarity_score": 0.2573194209133315
+                        },
+                        {
+                            "class_name": "ConstraintDescriptor",
+                            "similarity_score": 0.25290503587643975
+                        },
+                        {
+                            "class_name": "DependencyDescriptor",
+                            "similarity_score": 0.23380026520164254
+                        },
+                        {
+                            "class_name": "StatisticsDescriptor",
+                            "similarity_score": 0.24032251073771518
+                        },
+                        {
+                            "class_name": "TablePermsDescriptor",
+                            "similarity_score": 0.2350576170119895
+                        },
+                        {
+                            "class_name": "GenericDescriptorList",
+                            "similarity_score": 0.2673248717548622
+                        },
+                        {
+                            "class_name": "PermissionsDescriptor",
+                            "similarity_score": 0.26982150878387134
+                        },
+                        {
+                            "class_name": "UniqueTupleDescriptor",
+                            "similarity_score": 0.23253407519796082
+                        },
+                        {
+                            "class_name": "ConglomerateDescriptor",
+                            "similarity_score": 0.251086017404896
+                        },
+                        {
+                            "class_name": "RoutinePermsDescriptor",
+                            "similarity_score": 0.2587772688254878
+                        },
+                        {
+                            "class_name": "DataDescriptorGenerator",
+                            "similarity_score": 0.19384758584933376
+                        },
+                        {
+                            "class_name": "KeyConstraintDescriptor",
+                            "similarity_score": 0.25234079421150896
+                        },
+                        {
+                            "class_name": "StatementRolePermission",
+                            "similarity_score": 0.25940262070027015
+                        },
+                        {
+                            "class_name": "SubConstraintDescriptor",
+                            "similarity_score": 0.2600424535798635
+                        },
+                        {
+                            "class_name": "ConstraintDescriptorList",
+                            "similarity_score": 0.2598525822191908
+                        },
+                        {
+                            "class_name": "StatementTablePermission",
+                            "similarity_score": 0.2738084458935384
+                        },
+                        {
+                            "class_name": "CheckConstraintDescriptor",
+                            "similarity_score": 0.2538234175596303
+                        },
+                        {
+                            "class_name": "StatementColumnPermission",
+                            "similarity_score": 0.2543836930064561
+                        },
+                        {
+                            "class_name": "StatementSchemaPermission",
+                            "similarity_score": 0.24733069438997185
+                        },
+                        {
+                            "class_name": "UniqueSQLObjectDescriptor",
+                            "similarity_score": 0.18959262392869294
+                        },
+                        {
+                            "class_name": "ConglomerateDescriptorList",
+                            "similarity_score": 0.26457982006258907
+                        },
+                        {
+                            "class_name": "StatementGenericPermission",
+                            "similarity_score": 0.2584808572764259
+                        },
+                        {
+                            "class_name": "StatementRoutinePermission",
+                            "similarity_score": 0.26599595767154216
+                        },
+                        {
+                            "class_name": "SubKeyConstraintDescriptor",
+                            "similarity_score": 0.2416964527694345
+                        },
+                        {
+                            "class_name": "SubCheckConstraintDescriptor",
+                            "similarity_score": 0.2540650080866609
+                        },
+                        {
+                            "class_name": "ForeignKeyConstraintDescriptor",
+                            "similarity_score": 0.23216140122640666
+                        },
+                        {
+                            "class_name": "ReferencedKeyConstraintDescriptor",
+                            "similarity_score": 0.24644597785706907
+                        }
+                    ],
+                    "target_classes_sorted_by_llm": [
+                        "DataDictionary",
+                        "PrivilegedSQLObject",
+                        "StatementPermission",
+                        "ReferencedKeyConstraintDescriptor",
+                        "StatementGenericPermission",
+                        "TableDescriptor",
+                        "AliasDescriptor",
+                        "CheckConstraintDescriptor",
+                        "PasswordHasher",
+                        "ForeignKeyConstraintDescriptor",
+                        "DefaultDescriptor",
+                        "TriggerDescriptor",
+                        "SPSDescriptor",
+                        "IndexRowGenerator",
+                        "PermissionsDescriptor",
+                        "ConstraintDescriptor",
+                        "CatalogRowFactory",
+                        "SequenceDescriptor",
+                        "KeyConstraintDescriptor",
+                        "UserDescriptor",
+                        "DataDescriptorGenerator",
+                        "ViewDescriptor",
+                        "StatementTablePermission",
+                        "ColumnDescriptorList",
+                        "ColumnDescriptor",
+                        "FileInfoDescriptor",
+                        "IndexLister",
+                        "SubConstraintDescriptor",
+                        "SubCheckConstraintDescriptor",
+                        "StatementRoutinePermission",
+                        "StatementRolePermission",
+                        "ConglomerateDescriptor",
+                        "RoutinePermsDescriptor",
+                        "ConstraintDescriptorList",
+                        "RoleGrantDescriptor",
+                        "GenericDescriptorList",
+                        "SubKeyConstraintDescriptor",
+                        "StatementSchemaPermission",
+                        "StatementColumnPermission",
+                        "DependencyDescriptor",
+                        "ConglomerateDescriptorList",
+                        "ColPermsDescriptor",
+                        "SchemaDescriptor",
+                        "TupleDescriptor",
+                        "SystemColumn",
+                        "UniqueTupleDescriptor",
+                        "TablePermsDescriptor",
+                        "UniqueSQLObjectDescriptor",
+                        "ConsInfo",
+                        "StatisticsDescriptor",
+                        "RoleClosureIterator",
+                        "DDUtils"
+                    ],
+                    "llm_response_time": 1041,
+                    "similarity_computation_time": 101,
+                    "similarity_metric": "cosine"
+                },
+                "getUncachedGenericPermDescriptor": {
+                    "target_classes": [
+                        {
+                            "class_name": "DataDictionaryImpl",
+                            "similarity_score": 0.6965975774014387
+                        },
+                        {
+                            "class_name": "UUID",
+                            "similarity_score": 0.33625000750973877
+                        }
+                    ],
+                    "target_classes_sorted_by_llm": [
+                        "DataDictionaryImpl",
+                        "UUID"
+                    ],
+                    "llm_response_time": 1166,
+                    "similarity_computation_time": 14,
+                    "similarity_metric": "cosine"
+                }
+            }
+        }
+    },
+    {
+        "oracle": "- method org.apache.derby.iapi.sql.dictionary.GenericDescriptorList::setRefActionInfo(long, int[], String, boolean):void need move to org.apache.derby.impl.sql.compile.DMLModStatementNode",
+        "class_name": "org.apache.derby.iapi.sql.dictionary.GenericDescriptorList",
+        "telemetry": {
+            "id": "71d4b660-5cfe-46e8-b2a4-609a127863d3",
+            "hostFunctionTelemetryData": {
+                "hostFunctionSize": 57,
+                "lineStart": 30,
+                "lineEnd": 86,
+                "bodyLineStart": 30,
+                "language": "java",
+                "sourceCode": "public class GenericDescriptorList extends ArrayList\n{\n\tprivate boolean scanned;\n\n\t/**\n\t * Mark whether or not the underlying system table has\n\t * been scanned.  (If a table does not have any\n\t * constraints then the size of its CDL will always\n\t * be 0.  We used these get/set methods to determine\n\t * when we need to scan the table.\n\t *\n\t * @param scanned\tWhether or not the underlying system table has been scanned.\n\t */\n\tpublic void setScanned(boolean scanned)\n\t{\n\t\tthis.scanned = scanned;\n\t}\n\n\t/**\n\t * Return whether or not the underlying system table has been scanned.\n\t *\n\t * @return\t\tWhere or not the underlying system table has been scanned.\n\t */\n\tpublic boolean getScanned()\n\t{\n\t\treturn scanned;\n\t}\n\n\t/**\n\t * Get the UniqueTupleDescriptor that matches the \n\t * input uuid.\n\t *\n\t * @param uuid\t\tThe UUID for the object\n\t *\n\t * @return The matching UniqueTupleDescriptor.\n\t */\n\tpublic UniqueTupleDescriptor getUniqueTupleDescriptor(UUID uuid)\n\t{\n\t\tfor (Iterator iterator = iterator(); iterator.hasNext(); )\n\t\t{\n\t\t\tUniqueTupleDescriptor ud = (UniqueTupleDescriptor) iterator.next();\n\t\t\tif (ud.getUUID().equals(uuid))\n\t\t\t{\n\t\t\t\treturn ud;\n\t\t\t}\n\t\t}\n\t\treturn null;\n\t}\n\n\tpublic void setRefActionInfo(DMLModStatementNode dmlModStatementNode, long fkIndexConglomId, int[] fkColArray, String parentResultSetId, boolean dependentScan)\n\t{\n\t\tdmlModStatementNode.resultSet.setRefActionInfo(fkIndexConglomId,\n\t\t\t\t\t\t\t\t   fkColArray,\n\t\t\t\t\t\t\t\t   parentResultSetId,\n\t\t\t\t\t\t\t\t   dependentScan);\n\t}\n}"
+            },
+            "candidatesTelemetryData": {
+                "numberOfSuggestions": 0,
+                "candidates": []
+            },
+            "processingTime": {
+                "llmResponseTime": -1,
+                "pluginProcessingTime": -1,
+                "totalTime": 12034
+            },
+            "iterationData": [
+                {
+                    "iteration_num": 1,
+                    "suggested_method_names": [
+                        "setScanned",
+                        "getScanned",
+                        "setRefActionInfo"
+                    ],
+                    "llm_response_time": 2908
+                },
+                {
+                    "iteration_num": 2,
+                    "suggested_method_names": [
+                        "setScanned",
+                        "getScanned",
+                        "setRefActionInfo"
+                    ],
+                    "llm_response_time": 4316
+                },
+                {
+                    "iteration_num": 3,
+                    "suggested_method_names": [
+                        "setScanned",
+                        "getScanned",
+                        "setRefActionInfo"
+                    ],
+                    "llm_response_time": 4197
+                },
+                {
+                    "iteration_num": -1,
+                    "suggested_method_names": [
+                        "setScanned",
+                        "getScanned",
+                        "setRefActionInfo"
+                    ],
+                    "llm_response_time": 0
+                }
+            ],
+            "llmMethodPriority": {
+                "priority_method_names": [
+                    "setRefActionInfo",
+                    "setScanned",
+                    "getScanned"
+                ],
+                "llm_response_time": 550
+            },
+            "targetClassMap": {
+                "setRefActionInfo": {
+                    "target_classes": [],
+                    "target_classes_sorted_by_llm": [],
+                    "llm_response_time": 1755,
+                    "similarity_computation_time": 0,
+                    "similarity_metric": "cosine"
+                },
+                "setScanned": {
+                    "target_classes": [],
+                    "target_classes_sorted_by_llm": [],
+                    "llm_response_time": 1223,
+                    "similarity_computation_time": 0,
+                    "similarity_metric": "cosine"
+                },
+                "getScanned": {
+                    "target_classes": [],
+                    "target_classes_sorted_by_llm": [],
+                    "llm_response_time": 1673,
+                    "similarity_computation_time": 0,
+                    "similarity_metric": "cosine"
+                }
+            }
+        }
+    },
+    {
+        "oracle": "- method org.apache.derby.impl.sql.compile.SubqueryList::setSharedState(String, java.io.Serializable):void need move to org.apache.derby.impl.sql.compile.FromVTI",
+        "class_name": "org.apache.derby.impl.sql.compile.SubqueryList",
+        "telemetry": {
+            "id": "a2d529ea-60bc-4b9c-8492-b9fabf994c71",
+            "hostFunctionTelemetryData": {
+                "hostFunctionSize": 231,
+                "lineStart": 31,
+                "lineEnd": 261,
+                "bodyLineStart": 31,
+                "language": "java",
+                "sourceCode": "/**\n * A SubqueryList represents a list of subquerys within a specific clause \n * (select, where or having) in a DML statement.  It extends QueryTreeNodeVector.\n *\n */\n\npublic class SubqueryList extends QueryTreeNodeVector\n{\n\t/**\n\t * Add a subquery to the list.\n\t *\n\t * @param subqueryNode\tA SubqueryNode to add to the list\n\t *\n\t */\n\n\tpublic void addSubqueryNode(SubqueryNode subqueryNode) throws StandardException\n\t{\n\t\taddElement(subqueryNode);\n\t}\n\n\t/**\n\t * Preprocess a SubqueryList.  For now, we just preprocess each SubqueryNode\n\t * in the list.\n\t *\n\t * @param\tnumTables\t\t\tNumber of tables in the DML Statement\n\t * @param\touterFromList\t\tFromList from outer query block\n\t * @param\touterSubqueryList\tSubqueryList from outer query block\n\t * @param\touterPredicateList\tPredicateList from outer query block\n\t *\n\t * @exception StandardException\t\tThrown on error\n\t */\n\tpublic void preprocess(int numTables,\n\t\t\t\t\t\t\tFromList outerFromList,\n\t\t\t\t\t\t\tSubqueryList outerSubqueryList,\n\t\t\t\t\t\t\tPredicateList outerPredicateList) \n\t\t\t\tthrows StandardException\n\t{\n\t\tSubqueryNode\tsubqueryNode;\n\n\t\tint size = size();\n\t\tfor (int index = 0; index < size; index++)\n\t\t{\n\t\t\tsubqueryNode = (SubqueryNode) elementAt(index);\n\t\t\tsubqueryNode.preprocess(numTables, outerFromList,\n\t\t\t\t\t\t\t\t\touterSubqueryList,\n\t\t\t\t\t\t\t\t\touterPredicateList);\n\t\t}\n\t}\n\n\t/**\n\t * Optimize the subqueries in this list.  \n\t *\n\t * @param dataDictionary\tThe data dictionary to use for optimization\n\t * @param outerRows\t\t\tThe optimizer's estimate of the number of\n\t *\t\t\t\t\t\t\ttimes this subquery will be executed.\n\t *\n\t * @exception StandardException\t\tThrown on error\n\t */\n\n\tpublic void optimize(DataDictionary dataDictionary, double outerRows)\n\t\t\tthrows StandardException\n\t{\n\t\tint size = size();\n\t\tfor (int index = 0; index < size; index++)\n\t\t{\n\t\t\tSubqueryNode\tsubqueryNode;\n\t\t\tsubqueryNode = (SubqueryNode) elementAt(index);\n\t\t\tsubqueryNode.optimize(dataDictionary, outerRows);\n\t\t}\n\t}\n\n\t/**\n\t * Modify the access paths for all subqueries in this list.\n\t *\n\t * @see ResultSetNode#modifyAccessPaths\n\t *\n\t * @exception StandardException\t\tThrown on error\n\t */\n\tpublic void modifyAccessPaths()\n\t\t\tthrows StandardException\n\t{\n\t\tint size = size();\n\t\tfor (int index = 0; index < size; index++)\n\t\t{\n\t\t\tSubqueryNode\tsubqueryNode;\n\t\t\tsubqueryNode = (SubqueryNode) elementAt(index);\n\t\t\tsubqueryNode.modifyAccessPaths();\n\t\t}\n\t}\n\n\t/**\n\t * Search to see if a query references the specifed table name.\n\t *\n\t * @param name\t\tTable name (String) to search for.\n\t * @param baseTable\tWhether or not name is for a base table\n\t *\n\t * @return\ttrue if found, else false\n\t *\n\t * @exception StandardException\t\tThrown on error\n\t */\n\tpublic boolean referencesTarget(String name, boolean baseTable)\n\t\tthrows StandardException\n\t{\n\t\tint size = size();\n\t\tfor (int index = 0; index < size; index++)\n\t\t{\n\t\t\tSubqueryNode\tsubqueryNode;\n\n\t\t\tsubqueryNode = (SubqueryNode) elementAt(index);\n\t\t\tif (subqueryNode.isMaterializable())\n\t\t\t{\n\t\t\t\tcontinue;\n\t\t\t}\n\n\t\t\tif (subqueryNode.getResultSet().referencesTarget(name, baseTable))\n\t\t\t{\n\t\t\t\treturn true;\n\t\t\t}\n\t\t}\n\n\t\treturn false;\n\t}\n\n\t/**\n\t * Return true if the node references SESSION schema tables (temporary or permanent)\n\t *\n\t * @return\ttrue if references SESSION schema tables, else false\n\t *\n\t * @exception StandardException\t\tThrown on error\n\t */\n\tpublic boolean referencesSessionSchema()\n\t\tthrows StandardException\n\t{\n\t\tint size = size();\n\t\tfor (int index = 0; index < size; index++)\n\t\t{\n\t\t\tSubqueryNode\tsubqueryNode;\n\n\t\t\tsubqueryNode = (SubqueryNode) elementAt(index);\n\n\t\t\tif (subqueryNode.getResultSet().referencesSessionSchema())\n\t\t\t{\n\t\t\t\treturn true;\n\t\t\t}\n\t\t}\n\n\t\treturn false;\n\t}\n\n\t/**\n\t * Set the point of attachment in all subqueries in this list.\n\t *\n\t * @param pointOfAttachment\t\tThe point of attachment\n\t *\n\t * @exception StandardException\t\t\tThrown on error\n\t */\n\tpublic void setPointOfAttachment(int pointOfAttachment)\n\t\tthrows StandardException\n\t{\n\t\tint size = size();\n\n\t\tfor (int index = 0; index < size; index++)\n\t\t{\n\t\t\tSubqueryNode\tsubqueryNode;\n\n\t\t\tsubqueryNode = (SubqueryNode) elementAt(index);\n\t\t\tsubqueryNode.setPointOfAttachment(pointOfAttachment);\n\t\t}\n\t}\n\n\t/**\n\t * Decrement (query block) level (0-based) for \n\t * all of the tables in this subquery list.\n\t * This is useful when flattening a subquery.\n\t *\n\t * @param decrement\tThe amount to decrement by.\n\t */\n\tvoid decrementLevel(int decrement)\n\t{\n\t\tint size = size();\n\n\t\tfor (int index = 0; index < size; index++)\n\t\t{\n\t\t\t((SubqueryNode) elementAt(index)).getResultSet().decrementLevel(decrement);\n\t\t}\n\t}\n\n\t/**\n     * Mark all of the subqueries in this \n     * list as being part of a having clause,\n     * so we can avoid flattenning later.\n\t * \n\t */\n\tpublic void markHavingSubqueries() {\n\t    int size = size();\n\t    \n\t    for (int index = 0; index < size; index++)\n\t    {\n\t        SubqueryNode    subqueryNode;\n\n\t        subqueryNode = (SubqueryNode) elementAt(index);\n\t        subqueryNode.setHavingSubquery(true);\n\t    }\n\t}\n\n\t/**\n\t * Mark all of the subqueries in this list as being part of a where clause\n\t * so we can avoid flattening later if needed.\n\t */\n\tpublic void markWhereSubqueries() {\n\t\tint size = size();\n\t\tfor (int index = 0; index < size; index++)\n\t\t{\n\t\t\tSubqueryNode    subqueryNode;\n\n\t\t\tsubqueryNode = (SubqueryNode) elementAt(index);\n\t\t\tsubqueryNode.setWhereSubquery(true);\n\t\t}\n\t}\n\n\tpublic void setSharedState(FromVTI fromVTI, String key, Serializable value) {\n\t\n\t\tif (key == null)\n\t\t\treturn;\n\t\n\t\tif (fromVTI.compileTimeConstants == null)\n\t\t\tfromVTI.compileTimeConstants = new FormatableHashtable();\n\t\n\t\tfromVTI.compileTimeConstants.put(key, value);\n\t}\n}"
+            },
+            "candidatesTelemetryData": {
+                "numberOfSuggestions": 0,
+                "candidates": []
+            },
+            "processingTime": {
+                "llmResponseTime": -1,
+                "pluginProcessingTime": -1,
+                "totalTime": 5731
+            },
+            "iterationData": [
+                {
+                    "iteration_num": 1,
+                    "suggested_method_names": [
+                        "setSharedState"
+                    ],
+                    "llm_response_time": 1307
+                },
+                {
+                    "iteration_num": 2,
+                    "suggested_method_names": [
+                        "decrementLevel",
+                        "setSharedState"
+                    ],
+                    "llm_response_time": 1959
+                },
+                {
+                    "iteration_num": 3,
+                    "suggested_method_names": [
+                        "setSharedState"
+                    ],
+                    "llm_response_time": 1408
+                },
+                {
+                    "iteration_num": -1,
+                    "suggested_method_names": [
+                        "setSharedState",
+                        "decrementLevel"
+                    ],
+                    "llm_response_time": 0
+                }
+            ],
+            "llmMethodPriority": {
+                "priority_method_names": [
+                    "decrementLevel",
+                    "setSharedState"
+                ],
+                "llm_response_time": 925
+            },
+            "targetClassMap": {
+                "decrementLevel": {
+                    "target_classes": [],
+                    "target_classes_sorted_by_llm": [],
+                    "llm_response_time": 1554,
+                    "similarity_computation_time": 0,
+                    "similarity_metric": "cosine"
+                },
+                "setSharedState": {
+                    "target_classes": [],
+                    "target_classes_sorted_by_llm": [],
+                    "llm_response_time": 983,
+                    "similarity_computation_time": 0,
+                    "similarity_metric": "cosine"
+                }
+            }
+        }
+    }
+]

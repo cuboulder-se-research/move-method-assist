@@ -17,7 +17,12 @@ class MoveInstanceMethodProcessorAutoValidator(project: Project,
                                                oldClassParameterNames: Map<PsiClass, String> ):
     MoveInstanceMethodProcessor(project, method, targetVariable, newVisibility, oldClassParameterNames) {
     override fun showConflicts(conflicts: MultiMap<PsiElement, String>, usages: Array<out UsageInfo>?): Boolean {
-        return conflicts.isEmpty
+        if (conflicts.isEmpty) return true
+        return conflicts.toHashMap()
+            .map { it -> it.value.filter { message -> !(message.contains("is already defined in the class") && message.contains("Method")) } }
+            .reduce { acc, strings -> acc + strings }
+            .isEmpty()
+//        return conflicts.isEmpty
     }
 
     override fun findUsages(): Array<UsageInfo> { // To make reflection work

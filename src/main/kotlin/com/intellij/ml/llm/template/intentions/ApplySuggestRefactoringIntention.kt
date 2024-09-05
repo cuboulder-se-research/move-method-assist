@@ -24,6 +24,7 @@ import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiClass
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
+import com.intellij.psi.impl.source.PsiJavaFileImpl
 import dev.langchain4j.data.message.ChatMessage
 import dev.langchain4j.model.chat.ChatLanguageModel
 import org.jetbrains.kotlin.util.capitalizeDecapitalize.toLowerCaseAsciiOnly
@@ -43,6 +44,7 @@ abstract class ApplySuggestRefactoringIntention(
     var llmResponseCache = mutableMapOf<String, LLMBaseResponse>()
     var apiResponseCache = mutableMapOf<String, MutableMap<String, LLMBaseResponse>>()
     val MAX_REFACTORINGS = 10
+    var finishedBackgroundTask: Boolean? = null
 
     open var prompter: MethodPromptBase = SuggestRefactoringPrompt();
 
@@ -62,9 +64,10 @@ abstract class ApplySuggestRefactoringIntention(
 
         if (editor == null || file == null) return
         val selectionModel = editor.selectionModel
-        val namedElement =
-            PsiUtils.getParentFunctionOrNull(editor, file.language)
-                ?: PsiUtils.getParentClassOrNull(editor, file.language)
+//        val namedElement =
+//            PsiUtils.getParentFunctionOrNull(editor, file.language)
+//                ?: PsiUtils.getParentClassOrNull(editor, file.language)
+        val namedElement = (file as PsiJavaFileImpl).classes[0]
         if (namedElement != null) {
 
             telemetryDataManager.newSession()
@@ -103,9 +106,16 @@ fun getPromptAndRunBackgroundable(text: String, project: Project, editor: Editor
             project, LLMBundle.message("intentions.request.extract.function.background.process.title")
         ) {
             override fun run(indicator: ProgressIndicator) {
+                finishedBackgroundTask = false
                 invokeLLM(project, messageList, editor, file)
             }
+
+            override fun onFinished() {
+                finishedBackgroundTask = true
+                super.onFinished()
+            }
         }
+        finishedBackgroundTask = false
         ProgressManager.getInstance().runProcessWithProgressAsynchronously(task, BackgroundableProcessIndicator(task))
     }
 

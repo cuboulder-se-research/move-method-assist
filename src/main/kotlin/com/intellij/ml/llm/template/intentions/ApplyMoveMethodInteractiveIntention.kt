@@ -7,7 +7,6 @@ import com.google.gson.annotations.SerializedName
 import com.intellij.codeInsight.unwrap.ScopeHighlighter
 import com.intellij.ml.llm.template.LLMBundle
 import com.intellij.ml.llm.template.models.LLMBaseResponse
-import com.intellij.ml.llm.template.models.grazie.GrazieResponse
 import com.intellij.ml.llm.template.models.sendChatRequest
 import com.intellij.ml.llm.template.prompts.MethodPromptBase
 import com.intellij.ml.llm.template.prompts.MoveMethodRefactoringPrompt
@@ -42,7 +41,7 @@ import kotlin.math.min
 import kotlin.system.measureTimeMillis
 
 
-class ApplyMoveMethodInteractiveIntention: ApplySuggestRefactoringIntention() {
+open class ApplyMoveMethodInteractiveIntention : ApplySuggestRefactoringIntention() {
     var MAX_ITERS = RefAgentSettingsManager.getInstance().getNumberOfIterations()
     override var prompter: MethodPromptBase = MoveMethodRefactoringPrompt()
     lateinit var currentEditor: Editor
@@ -50,6 +49,7 @@ class ApplyMoveMethodInteractiveIntention: ApplySuggestRefactoringIntention() {
     lateinit var currentProject: Project
     val SUGGESTIONS4USER = 3
     val logger = Logger.getInstance(this::class.java)
+    var showSuggestions = true
 
     data class MoveSuggestionList(
         val suggestionList: List<MoveMethodSuggestion>
@@ -202,7 +202,10 @@ class ApplyMoveMethodInteractiveIntention: ApplySuggestRefactoringIntention() {
                     candidatesApplicationTelemetryObserver.getData()
                 )
             )
-            showRefactoringOptionsPopup(currentProject, currentEditor, currentFile, refObjs, codeTransformer)
+            if(showSuggestions)
+                showRefactoringOptionsPopup(currentProject, currentEditor, currentFile, refObjs, codeTransformer)
+            else
+                sendTelemetryData()
         }
 
     }

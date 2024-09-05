@@ -9,9 +9,12 @@ import com.intellij.ml.llm.template.refactoringobjects.extractfunction.EFSuggest
 import com.intellij.ml.llm.template.suggestrefactoring.RefactoringSuggestion
 import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.editor.Editor
+import com.intellij.openapi.fileEditor.FileEditorManager
+import com.intellij.openapi.fileEditor.OpenFileDescriptor
+import com.intellij.openapi.project.Project
 import com.intellij.openapi.util.TextRange
+import com.intellij.openapi.vfs.LocalFileSystem
 import com.intellij.psi.*
-import com.intellij.refactoring.extractMethod.newImpl.ExtractMethodHelper
 import com.intellij.refactoring.extractMethod.newImpl.ExtractMethodPipeline.findAllOptionsToExtract
 import com.intellij.refactoring.extractMethod.newImpl.ExtractSelector
 import com.intellij.refactoring.suggested.endOffset
@@ -22,6 +25,9 @@ import org.jetbrains.kotlin.idea.refactoring.introduce.extractFunction.ExtractKo
 import org.jetbrains.kotlin.idea.refactoring.introduce.extractionEngine.*
 import org.jetbrains.kotlin.psi.*
 import org.jetbrains.kotlin.psi.psiUtil.elementsInRange
+import java.nio.file.Files
+import java.nio.file.Path
+import java.nio.file.Paths
 
 
 fun addLineNumbersToCodeSnippet(codeSnippet: String, startIndex: Int): String {
@@ -282,6 +288,53 @@ private fun selectionIsEntireBodyFunctionJava(efCandidate: EFCandidate, file: Ps
 
     val statementsOffsetRange = statements.first().startOffset to statements.last().endOffset
     return efCandidate.offsetStart <= statementsOffsetRange.first && efCandidate.offsetEnd >= statementsOffsetRange.second
+}
+
+fun openFile(filePath: String, project: Project): Pair<Editor, PsiFile> {
+    var ret : Pair<Editor, PsiFile>? = null
+    val vfile = LocalFileSystem.getInstance().refreshAndFindFileByPath(project.basePath + "/" + filePath)
+        ?: throw Exception("file not found - ${project.basePath+"/"+filePath}")
+    val newEditor = FileEditorManager.getInstance(project).openTextEditor(
+        OpenFileDescriptor(
+            project,
+            vfile
+        ),
+        false // request focus to editor
+    )!!
+    val psiFile = PsiManager.getInstance(project).findFile(vfile)!!
+
+    ret = Pair(newEditor, psiFile)
+
+    return ret!!
+}
+
+fun openFileFromQualifiedName(qualifiedName: String, project: Project): Pair<Editor, PsiFile> {
+    var ret : Pair<Editor, PsiFile>? = null
+    val clazz = PsiUtils.findClassFromQualifier(qualifiedName, project)
+
+    if (clazz==null){
+        throw Exception("no such class $qualifiedName")
+    }
+    val vfile = clazz.containingFile.originalFile.virtualFile
+    val newEditor = FileEditorManager.getInstance(project).openTextEditor(
+        OpenFileDescriptor(
+            project,
+            vfile
+        ),
+        false // request focus to editor
+    )!!
+    val psiFile = PsiManager.getInstance(project).findFile(vfile)!!
+
+    ret = Pair(newEditor, psiFile)
+
+    return ret!!
+}
+fun findAllFilesWithExtension(basePath: String, extension: String): List<Path>{
+    val projectDirAbsolutePath = Paths.get(basePath).toAbsolutePath()
+    return Files.walk(projectDirAbsolutePath)
+        .filter { item -> Files.isRegularFile(item) }
+        .filter { item -> item.toString().endsWith(extension) }
+        .toList()
 }
 
 
