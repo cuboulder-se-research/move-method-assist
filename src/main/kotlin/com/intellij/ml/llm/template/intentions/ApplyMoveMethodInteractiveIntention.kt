@@ -51,10 +51,6 @@ open class ApplyMoveMethodInteractiveIntention : ApplySuggestRefactoringIntentio
     val logger = Logger.getInstance(this::class.java)
     var showSuggestions = true
 
-    data class MoveSuggestionList(
-        val suggestionList: List<MoveMethodSuggestion>
-    )
-
     data class MoveMethodSuggestion(
         @SerializedName("method_name")
         val methodName:String,
@@ -75,8 +71,14 @@ open class ApplyMoveMethodInteractiveIntention : ApplySuggestRefactoringIntentio
     }
 
     override fun invokeLLM(project: Project, messageList: MutableList<ChatMessage>, editor: Editor, file: PsiFile) {
-        val totalPluginTime = measureTimeMillis{ invokeMoveMethodPlugin(project, messageList, editor, file) }
-        telemetryDataManager.setTotalTime(totalPluginTime)
+        try{
+            val totalPluginTime = measureTimeMillis { invokeMoveMethodPlugin(project, messageList, editor, file) }
+            telemetryDataManager.setTotalTime(totalPluginTime)
+        } catch (e: Exception){
+            telemetryDataManager.addCandidatesTelemetryData(buildCandidatesTelemetryData(0, emptyList()))
+            telemetryDataManager.setRefactoringObjects(emptyList())
+            sendTelemetryData()
+        }
     }
     private fun invokeMoveMethodPlugin(project: Project, messageList: MutableList<ChatMessage>, editor: Editor, file: PsiFile) {
 
@@ -335,7 +337,7 @@ open class ApplyMoveMethodInteractiveIntention : ApplySuggestRefactoringIntentio
         log2fileAndViewer(logMessage = "LLM took $llmRequestTime ms to respond", logger = logger)
         telemetryDataManager.addMovesSuggestedInIteration(
             iter,
-            moveMethodSuggestions.map{it.methodName},
+            moveMethodSuggestions,
             llmRequestTime
         )
     }

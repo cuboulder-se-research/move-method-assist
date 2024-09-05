@@ -1,6 +1,7 @@
 package com.intellij.ml.llm.template.telemetry
 
 import com.google.gson.annotations.SerializedName
+import com.intellij.ml.llm.template.intentions.ApplyMoveMethodInteractiveIntention
 import com.intellij.ml.llm.template.refactoringobjects.AbstractRefactoring
 import com.intellij.ml.llm.template.refactoringobjects.UncreatableRefactoring
 import com.intellij.ml.llm.template.refactoringobjects.extractfunction.EfCandidateType
@@ -171,8 +172,8 @@ data class MoveMethodIterationData(
     @SerializedName("iteration_num")
     var iterationNum: Int,
 
-    @SerializedName("suggested_method_names")
-    var methodNames: List<String>,
+    @SerializedName("suggested_move_methods")
+    var suggestedMoveMethods: List<ApplyMoveMethodInteractiveIntention.MoveMethodSuggestion>,
 
     @SerializedName("llm_response_time")
     var llmResponseTime: Long
@@ -325,13 +326,14 @@ class EFTelemetryDataManager {
         return anonClassName
     }
 
-    fun addMovesSuggestedInIteration(iter: Int, methodNames: List<String>, llmResponseTime: Long) {
+    fun addMovesSuggestedInIteration(iter: Int, moveSuggestions: List<ApplyMoveMethodInteractiveIntention.MoveMethodSuggestion>, llmResponseTime: Long) {
         val transformedMethodNames = if (anonimizeTelemetry) {
-            methodNames.map {
-                val anonMethodName = getAndSetAnonMethodName(it)
-                anonMethodName
+            moveSuggestions.map {
+                ApplyMoveMethodInteractiveIntention.MoveMethodSuggestion(
+                    getAndSetAnonMethodName(it.methodName), "", getAndSetAnonClassName(it.targetClass), "")
+
             }
-        }else{ methodNames}
+        }else{ moveSuggestions}
         currentTelemetryData.iterationData.add(MoveMethodIterationData(iter, transformedMethodNames, llmResponseTime))
     }
 
