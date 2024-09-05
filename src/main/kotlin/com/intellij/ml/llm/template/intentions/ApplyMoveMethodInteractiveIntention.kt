@@ -144,6 +144,8 @@ class ApplyMoveMethodInteractiveIntention: ApplySuggestRefactoringIntention() {
             if (priority!=null){
                 logPriority(priority)
                 if (priority.size==0) {
+                    telemetryDataManager.addCandidatesTelemetryData(buildCandidatesTelemetryData(0, emptyList()))
+                    telemetryDataManager.setRefactoringObjects(emptyList())
                     invokeLater { showEFNotification(
                         project,
                         LLMBundle.message("notification.extract.function.with.llm.no.suggestions.message"),
@@ -159,6 +161,8 @@ class ApplyMoveMethodInteractiveIntention: ApplySuggestRefactoringIntention() {
                     )
                 }
             }else{
+                telemetryDataManager.addCandidatesTelemetryData(buildCandidatesTelemetryData(0, emptyList()))
+                telemetryDataManager.setRefactoringObjects(emptyList())
                 log2fileAndViewer("No methods are important to move.", logger)
                 invokeLater { showEFNotification(
                     project,
