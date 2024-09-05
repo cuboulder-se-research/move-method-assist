@@ -159,6 +159,8 @@ open class ApplyMoveMethodInteractiveIntention : ApplySuggestRefactoringIntentio
                     )
                 }
             }else{
+                telemetryDataManager.addCandidatesTelemetryData(buildCandidatesTelemetryData(0, emptyList()))
+                telemetryDataManager.setRefactoringObjects(emptyList())
                 log2fileAndViewer("No methods are important to move.", logger)
                 invokeLater { showEFNotification(
                     project,
