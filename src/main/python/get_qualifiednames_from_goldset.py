@@ -1,10 +1,10 @@
 import json
 
 
-project_name = "derby"
+project_name = "drjava"
 size = "small"
 
-gold_file = f"dataset-tse/gold_sets/{project_name}/{size}.txt"
+gold_file = f"/Users/abhiram/Documents/TBE/jmove/dataset-tse/gold_sets/{project_name}/{size}.txt"
 dest_file = f"comparison_{project_name}_{size}"
 dest_file = f"/Users/abhiram/Documents/TBE/RefactoringAgentProject/llm-guide-refactorings/data/{dest_file}.json"
 with open(gold_file) as f:
