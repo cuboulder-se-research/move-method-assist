@@ -34,7 +34,8 @@ files = [
     'comparison_mvnforum_small.json',
     'comparison_tapestry_large.json',
     'comparison_tapestry_small.json',
-     # lucene missing
+    'comparison_lucene_small.json',
+    'comparison_lucene_large.json',
 ]
 
 combined_data = []

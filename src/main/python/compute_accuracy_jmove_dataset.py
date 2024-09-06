@@ -28,7 +28,8 @@ plugin_outfiles = [
     'comparison_mvnforum_small.json',
     'comparison_tapestry_large.json',
     'comparison_tapestry_small.json',
-     # lucene missing
+    'comparison_lucene_small.json',
+    'comparison_lucene_large.json',
 ]
 
 combined_output = []
@@ -81,6 +82,8 @@ recall_method_2 = len([i for i in combined_output if i['recall_method_position']
 recall_method_and_class_all = len([i for i in combined_output if
                                  i['recall_method_position']!=-1 and i['recall_method_class_position'] !=-1]) / len(combined_output)
 recall_method_all = len([i for i in combined_output if i['recall_method_position'] !=-1]) / len(combined_output)
+
+print(f"dataset size = {len(combined_output)}")
 
 print(f"recall method @1 = {recall_method_1}")
 print(f"recall method&class @1 = {recall_method_and_class_1}")
