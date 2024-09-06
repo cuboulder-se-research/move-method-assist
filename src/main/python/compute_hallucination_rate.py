@@ -40,7 +40,7 @@ files = [
 
 combined_data = []
 for fname in files:
-    with open(f"../../../data/{fname}") as f:
+    with open(f"../../../data/synthetic_corpus_comparison/{fname}") as f:
         combined_data += json.load(f)
 
 combined_data = [i for i in combined_data if len(i['telemetry'].keys())]

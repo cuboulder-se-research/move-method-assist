@@ -6,7 +6,7 @@ size = "large"
 
 gold_file = f"/Users/abhiram/Documents/TBE/jmove/dataset-tse/gold_sets/{project_name}/{size}.txt"
 dest_file = f"comparison_{project_name}_{size}"
-dest_file = f"/Users/abhiram/Documents/TBE/RefactoringAgentProject/llm-guide-refactorings/data/{dest_file}.json"
+dest_file = f"/Users/abhiram/Documents/TBE/RefactoringAgentProject/llm-guide-refactorings/data/synthetic_corpus_comparison/{dest_file}.json"
 with open(gold_file) as f:
     ant_small = f.read()
 

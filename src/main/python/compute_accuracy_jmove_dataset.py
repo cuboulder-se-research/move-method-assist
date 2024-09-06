@@ -34,7 +34,7 @@ plugin_outfiles = [
 
 combined_output = []
 for file_name in plugin_outfiles:
-    with open(f'../../../data/{file_name}') as f:
+    with open(f'../../../data/synthetic_corpus_comparison/{file_name}') as f:
         data = json.load(f)
     combined_output += data
 combined_output = [i for i in combined_output if len(i['telemetry'].keys())]
