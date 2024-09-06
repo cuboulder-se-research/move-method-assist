@@ -1,7 +1,7 @@
 import json
 
 
-project_name = "drjava"
+project_name = "jtopen"
 size = "small"
 
 gold_file = f"/Users/abhiram/Documents/TBE/jmove/dataset-tse/gold_sets/{project_name}/{size}.txt"

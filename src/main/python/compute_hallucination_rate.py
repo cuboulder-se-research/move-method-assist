@@ -15,7 +15,18 @@ class MoveMethodSuggestion:
 
 
 files = [
-    'comparison_drjava_small.json'
+    'comparison_drjava_small.json',
+    'comparison_jfreechart_large.json',
+    'comparison_jfreechart_small.json',
+    "comparison_jgroups_large.json",
+    "comparison_jgroups_small.json",
+    "comparison_jhotdraw_large.json",
+    'comparison_jhotdraw_small.json',
+    'comparison_jtopen_large.json',
+    'comparison_junit_large.json',
+    'comparison_junit_small.json',
+    'comparison_mvnforum_large.json',
+    'comparison_mvnforum_small.json'
 ]
 
 combined_data = []
@@ -51,3 +62,5 @@ for data in combined_data:
 plausible_rate = plausible_suggestions/total_suggestions
 print(f"{plausible_rate=}")
 print(f"{1-plausible_rate=}")
+print(f"{plausible_suggestions=}")
+print(f"{total_suggestions=}")
