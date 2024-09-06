@@ -23,7 +23,7 @@ dependencies {
     implementation("org.testcontainers:testcontainers:1.19.1")
 
     implementation("org.eclipse.jgit:org.eclipse.jgit:6.4.0.202211300538-r")
-
+    implementation("com.github.javaparser:javaparser-symbol-solver-core:3.26.2")
 
     testImplementation(kotlin("test"))
 }
