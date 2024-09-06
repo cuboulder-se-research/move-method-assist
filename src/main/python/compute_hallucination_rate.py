@@ -15,18 +15,26 @@ class MoveMethodSuggestion:
 
 
 files = [
+    'comparison_ant_large.json',
+    'comparison_ant_small.json',
+    'comparison_derby_large.json',
+    'comparison_derby_small.json',
+    'comparison_drjava_large.json',
     'comparison_drjava_small.json',
     'comparison_jfreechart_large.json',
     'comparison_jfreechart_small.json',
-    "comparison_jgroups_large.json",
-    "comparison_jgroups_small.json",
-    "comparison_jhotdraw_large.json",
+    'comparison_jgroups_large.json',
+    'comparison_jgroups_small.json',
+    'comparison_jhotdraw_large.json',
     'comparison_jhotdraw_small.json',
-    'comparison_jtopen_large.json',
+    'comparison_jtopen_large.json', #incomplete
     'comparison_junit_large.json',
     'comparison_junit_small.json',
     'comparison_mvnforum_large.json',
-    'comparison_mvnforum_small.json'
+    'comparison_mvnforum_small.json',
+    'comparison_tapestry_large.json',
+    'comparison_tapestry_small.json',
+     # lucene missing
 ]
 
 combined_data = []
@@ -34,7 +42,7 @@ for fname in files:
     with open(f"../../../data/{fname}") as f:
         combined_data += json.load(f)
 
-
+combined_data = [i for i in combined_data if len(i['telemetry'].keys())]
 total_suggestions = 0
 plausible_suggestions = 0
 
@@ -51,7 +59,10 @@ for data in combined_data:
             )
 
 
-    priority_methods = telemetry["llmMethodPriority"]["priority_method_names"]
+    try:
+        priority_methods = telemetry["llmMethodPriority"]["priority_method_names"]
+    except:
+        continue
     vanilla_suggestions_priority = [i for i in vanilla_suggestions
                                     if (i.method_name in priority_methods and i.method_name in telemetry["targetClassMap"])]
     total_suggestions += len(vanilla_suggestions_priority)

@@ -3,7 +3,7 @@
         "oracle": "method org.apache.tools.ant.filters.FixCrLfFilter::setDestdir(File):void need move to org.apache.tools.ant.taskdefs.FixCRLF",
         "class_name": "org.apache.tools.ant.filters.FixCrLfFilter",
         "telemetry": {
-            "id": "88b84e6b-4ccb-49af-a734-48c87ebf4c53",
+            "id": "3a21aac9-82d9-4a8b-bc85-e559d6e140cc",
             "hostFunctionTelemetryData": {
                 "hostFunctionSize": 993,
                 "lineStart": 29,
@@ -29,34 +29,54 @@
             "processingTime": {
                 "llmResponseTime": -1,
                 "pluginProcessingTime": -1,
-                "totalTime": 7786
+                "totalTime": 6099
             },
             "iterationData": [
                 {
                     "iteration_num": 1,
-                    "suggested_method_names": [
-                        "setDestdir"
+                    "suggested_move_methods": [
+                        {
+                            "method_name": "setDestdir",
+                            "method_signature": "public void setDestdir(FixCRLF fixCRLF, File destDir)",
+                            "target_class": "FixCRLF",
+                            "rationale": "The setDestdir method is related to setting the destination directory for fixed files, which is more relevant to the FixCRLF class than the FixCrLfFilter class."
+                        }
                     ],
-                    "llm_response_time": 1855
+                    "llm_response_time": 1627
                 },
                 {
                     "iteration_num": 2,
-                    "suggested_method_names": [
-                        "setDestdir"
+                    "suggested_move_methods": [
+                        {
+                            "method_name": "setDestdir",
+                            "method_signature": "public void setDestdir(FixCRLF fixCRLF, File destDir)",
+                            "target_class": "FixCRLF",
+                            "rationale": "The setDestdir method is related to setting the destination directory for fixed files, which is more relevant to the FixCRLF class than the FixCrLfFilter class."
+                        }
                     ],
-                    "llm_response_time": 1581
+                    "llm_response_time": 1969
                 },
                 {
                     "iteration_num": 3,
-                    "suggested_method_names": [
-                        "setDestdir"
+                    "suggested_move_methods": [
+                        {
+                            "method_name": "setDestdir",
+                            "method_signature": "public void setDestdir(FixCRLF fixCRLF, File destDir)",
+                            "target_class": "FixCRLF",
+                            "rationale": "The setDestdir method is related to the configuration of the FixCRLF process, and it would be more appropriate for it to reside within the FixCRLF class rather than the FixCrLfFilter class."
+                        }
                     ],
-                    "llm_response_time": 3408
+                    "llm_response_time": 1447
                 },
                 {
                     "iteration_num": -1,
-                    "suggested_method_names": [
-                        "setDestdir"
+                    "suggested_move_methods": [
+                        {
+                            "method_name": "setDestdir",
+                            "method_signature": "public void setDestdir(FixCRLF fixCRLF, File destDir)",
+                            "target_class": "FixCRLF",
+                            "rationale": "The setDestdir method is related to setting the destination directory for fixed files, which is more relevant to the FixCRLF class than the FixCrLfFilter class."
+                        }
                     ],
                     "llm_response_time": 0
                 }
@@ -65,7 +85,7 @@
                 "priority_method_names": [
                     "setDestdir"
                 ],
-                "llm_response_time": 813
+                "llm_response_time": 969
             },
             "targetClassMap": {
                 "setDestdir": {
@@ -93,8 +113,8 @@
                         "AddAsisRemove",
                         "CrLf"
                     ],
-                    "llm_response_time": 1430,
-                    "similarity_computation_time": 4,
+                    "llm_response_time": 1938,
+                    "similarity_computation_time": 1,
                     "similarity_metric": "cosine"
                 }
             }
@@ -104,7 +124,7 @@
         "oracle": "method org.apache.tools.ant.taskdefs.Parallel::setFailureMessage(String):void need move to org.apache.tools.ant.taskdefs.optional.testing.Funtest",
         "class_name": "org.apache.tools.ant.taskdefs.Parallel",
         "telemetry": {
-            "id": "21a701c1-9f81-4c10-b095-1b12a1eca7fe",
+            "id": "ffd46f46-ba8d-4500-9f4f-5a9da1de245a",
             "hostFunctionTelemetryData": {
                 "hostFunctionSize": 449,
                 "lineStart": 33,
@@ -120,7 +140,7 @@
                         "lineStart": 410,
                         "lineEnd": 417,
                         "refactoringType": "MyMoveMethodRefactoring",
-                        "description": "Move method to org.apache.tools.ant.taskdefs.optional.testing.Funtest\nRationale: The method directly modifies the 'failureMessage' attribute of the Funtest class, making it logical for the method to reside within the Funtest class itself.",
+                        "description": "Move method to org.apache.tools.ant.taskdefs.optional.testing.Funtest\nRationale: The method setFailureMessage directly modifies the failureMessage attribute of the Funtest class, making it logical for the method to reside within the Funtest class itself.",
                         "couldCreateRefObject": true,
                         "applied": false,
                         "undone": false
@@ -130,34 +150,54 @@
             "processingTime": {
                 "llmResponseTime": -1,
                 "pluginProcessingTime": -1,
-                "totalTime": 5093
+                "totalTime": 3923
             },
             "iterationData": [
                 {
                     "iteration_num": 1,
-                    "suggested_method_names": [
-                        "setFailureMessage"
+                    "suggested_move_methods": [
+                        {
+                            "method_name": "setFailureMessage",
+                            "method_signature": "public void setFailureMessage(Funtest funtest, String failureMessage)",
+                            "target_class": "Funtest",
+                            "rationale": "The setFailureMessage method directly manipulates the failureMessage attribute of the Funtest class, indicating that it is more appropriate for this method to reside within the Funtest class."
+                        }
                     ],
-                    "llm_response_time": 1213
+                    "llm_response_time": 1228
                 },
                 {
                     "iteration_num": 2,
-                    "suggested_method_names": [
-                        "setFailureMessage"
+                    "suggested_move_methods": [
+                        {
+                            "method_name": "setFailureMessage",
+                            "method_signature": "public void setFailureMessage(Funtest funtest, String failureMessage)",
+                            "target_class": "Funtest",
+                            "rationale": "The setFailureMessage method directly manipulates the failureMessage attribute of the Funtest class, indicating that it is more appropriate for this method to reside within the Funtest class."
+                        }
                     ],
-                    "llm_response_time": 1375
+                    "llm_response_time": 1082
                 },
                 {
                     "iteration_num": 3,
-                    "suggested_method_names": [
-                        "setFailureMessage"
+                    "suggested_move_methods": [
+                        {
+                            "method_name": "setFailureMessage",
+                            "method_signature": "public void setFailureMessage(Funtest funtest, String failureMessage)",
+                            "target_class": "Funtest",
+                            "rationale": "The setFailureMessage method directly manipulates the failureMessage attribute of the Funtest class, indicating that it is more appropriate for this method to reside within the Funtest class."
+                        }
                     ],
-                    "llm_response_time": 1389
+                    "llm_response_time": 1054
                 },
                 {
                     "iteration_num": -1,
-                    "suggested_method_names": [
-                        "setFailureMessage"
+                    "suggested_move_methods": [
+                        {
+                            "method_name": "setFailureMessage",
+                            "method_signature": "public void setFailureMessage(Funtest funtest, String failureMessage)",
+                            "target_class": "Funtest",
+                            "rationale": "The setFailureMessage method directly manipulates the failureMessage attribute of the Funtest class, indicating that it is more appropriate for this method to reside within the Funtest class."
+                        }
                     ],
                     "llm_response_time": 0
                 }
@@ -166,7 +206,7 @@
                 "priority_method_names": [
                     "setFailureMessage"
                 ],
-                "llm_response_time": 1018
+                "llm_response_time": 492
             },
             "targetClassMap": {
                 "setFailureMessage": {
@@ -189,8 +229,8 @@
                         "TaskList",
                         "Location"
                     ],
-                    "llm_response_time": 1410,
-                    "similarity_computation_time": 4,
+                    "llm_response_time": 1398,
+                    "similarity_computation_time": 1,
                     "similarity_metric": "cosine"
                 }
             }
@@ -200,7 +240,7 @@
         "oracle": "method org.apache.tools.ant.types.Environment::setOutputproperty(String):void need move to org.apache.tools.ant.taskdefs.Java",
         "class_name": "org.apache.tools.ant.types.Environment",
         "telemetry": {
-            "id": "8e94f30a-77f4-496a-9f8b-a5cc0562b5ab",
+            "id": "00027bc2-25d0-45fe-a8bb-d65eda0b9d18",
             "hostFunctionTelemetryData": {
                 "hostFunctionSize": 166,
                 "lineStart": 26,
@@ -226,34 +266,54 @@
             "processingTime": {
                 "llmResponseTime": -1,
                 "pluginProcessingTime": -1,
-                "totalTime": 3584
+                "totalTime": 4674
             },
             "iterationData": [
                 {
                     "iteration_num": 1,
-                    "suggested_method_names": [
-                        "setOutputproperty"
+                    "suggested_move_methods": [
+                        {
+                            "method_name": "setOutputproperty",
+                            "method_signature": "public void setOutputproperty(Java java, String outputProp)",
+                            "target_class": "Java",
+                            "rationale": "The setOutputproperty method directly interacts with the Java class, specifically modifying its properties. It would be more appropriate for this method to reside within the Java class to maintain cohesion and encapsulation."
+                        }
                     ],
-                    "llm_response_time": 1034
+                    "llm_response_time": 1256
                 },
                 {
                     "iteration_num": 2,
-                    "suggested_method_names": [
-                        "setOutputproperty"
+                    "suggested_move_methods": [
+                        {
+                            "method_name": "setOutputproperty",
+                            "method_signature": "public void setOutputproperty(Java java, String outputProp)",
+                            "target_class": "Java",
+                            "rationale": "The setOutputproperty method directly interacts with the Java class, specifically modifying its properties. It would be more appropriate for this method to reside within the Java class to maintain cohesion and encapsulation."
+                        }
                     ],
-                    "llm_response_time": 1024
+                    "llm_response_time": 1103
                 },
                 {
                     "iteration_num": 3,
-                    "suggested_method_names": [
-                        "setOutputproperty"
+                    "suggested_move_methods": [
+                        {
+                            "method_name": "setOutputproperty",
+                            "method_signature": "public void setOutputproperty(Java java, String outputProp)",
+                            "target_class": "Java",
+                            "rationale": "The setOutputproperty method directly interacts with the Java class, suggesting it is more appropriate for it to reside within the Java class itself."
+                        }
                     ],
-                    "llm_response_time": 1024
+                    "llm_response_time": 1737
                 },
                 {
                     "iteration_num": -1,
-                    "suggested_method_names": [
-                        "setOutputproperty"
+                    "suggested_move_methods": [
+                        {
+                            "method_name": "setOutputproperty",
+                            "method_signature": "public void setOutputproperty(Java java, String outputProp)",
+                            "target_class": "Java",
+                            "rationale": "The setOutputproperty method directly interacts with the Java class, specifically modifying its properties. It would be more appropriate for this method to reside within the Java class to maintain cohesion and encapsulation."
+                        }
                     ],
                     "llm_response_time": 0
                 }
@@ -262,7 +322,7 @@
                 "priority_method_names": [
                     "setOutputproperty"
                 ],
-                "llm_response_time": 366
+                "llm_response_time": 507
             },
             "targetClassMap": {
                 "setOutputproperty": {
@@ -275,8 +335,8 @@
                     "target_classes_sorted_by_llm": [
                         "Java"
                     ],
-                    "llm_response_time": 829,
-                    "similarity_computation_time": 5,
+                    "llm_response_time": 809,
+                    "similarity_computation_time": 2,
                     "similarity_metric": "cosine"
                 }
             }
@@ -286,7 +346,7 @@
         "oracle": "method org.apache.tools.ant.types.RegularExpression::addRegexp(RegularExpression):void need move to org.apache.tools.ant.taskdefs.condition.Matches",
         "class_name": "org.apache.tools.ant.types.RegularExpression",
         "telemetry": {
-            "id": "a8287849-de42-4758-afab-fef9b7a9f355",
+            "id": "f99b4a0a-f579-4f40-aaf4-6d1225bb31d5",
             "hostFunctionTelemetryData": {
                 "hostFunctionSize": 132,
                 "lineStart": 26,
@@ -312,34 +372,54 @@
             "processingTime": {
                 "llmResponseTime": -1,
                 "pluginProcessingTime": -1,
-                "totalTime": 3668
+                "totalTime": 3778
             },
             "iterationData": [
                 {
                     "iteration_num": 1,
-                    "suggested_method_names": [
-                        "addRegexp"
+                    "suggested_move_methods": [
+                        {
+                            "method_name": "addRegexp",
+                            "method_signature": "public void addRegexp(Matches matches)",
+                            "target_class": "Matches",
+                            "rationale": "The addRegexp method is responsible for associating a RegularExpression instance with a Matches instance. This functionality is more relevant to the Matches class, as it deals with the context of matching regular expressions."
+                        }
                     ],
-                    "llm_response_time": 1237
+                    "llm_response_time": 1076
                 },
                 {
                     "iteration_num": 2,
-                    "suggested_method_names": [
-                        "addRegexp"
+                    "suggested_move_methods": [
+                        {
+                            "method_name": "addRegexp",
+                            "method_signature": "public void addRegexp(Matches matches)",
+                            "target_class": "Matches",
+                            "rationale": "The addRegexp method is responsible for adding a RegularExpression to a Matches instance, which indicates that it is more closely related to the Matches class than to RegularExpression itself."
+                        }
                     ],
-                    "llm_response_time": 1123
+                    "llm_response_time": 1227
                 },
                 {
                     "iteration_num": 3,
-                    "suggested_method_names": [
-                        "addRegexp"
+                    "suggested_move_methods": [
+                        {
+                            "method_name": "addRegexp",
+                            "method_signature": "public void addRegexp(Matches matches)",
+                            "target_class": "Matches",
+                            "rationale": "The addRegexp method is responsible for associating a RegularExpression instance with a Matches instance. This functionality is more relevant to the Matches class, as it deals with the context of matching regular expressions."
+                        }
                     ],
-                    "llm_response_time": 919
+                    "llm_response_time": 965
                 },
                 {
                     "iteration_num": -1,
-                    "suggested_method_names": [
-                        "addRegexp"
+                    "suggested_move_methods": [
+                        {
+                            "method_name": "addRegexp",
+                            "method_signature": "public void addRegexp(Matches matches)",
+                            "target_class": "Matches",
+                            "rationale": "The addRegexp method is responsible for associating a RegularExpression instance with a Matches instance. This functionality is more relevant to the Matches class, as it deals with the context of matching regular expressions."
+                        }
                     ],
                     "llm_response_time": 0
                 }
@@ -348,7 +428,7 @@
                 "priority_method_names": [
                     "addRegexp"
                 ],
-                "llm_response_time": 301
+                "llm_response_time": 445
             },
             "targetClassMap": {
                 "addRegexp": {
@@ -371,8 +451,8 @@
                         "Matches",
                         "RegexpFactory"
                     ],
-                    "llm_response_time": 1598,
-                    "similarity_computation_time": 2,
+                    "llm_response_time": 1488,
+                    "similarity_computation_time": 1,
                     "similarity_metric": "cosine"
                 }
             }
@@ -382,7 +462,7 @@
         "oracle": "method org.apache.tools.ant.util.ClasspathUtils.Delegate::getLoaderId():String need move to org.apache.tools.ant.taskdefs.DefBase",
         "class_name": "org.apache.tools.ant.util.ClasspathUtils.Delegate",
         "telemetry": {
-            "id": "cc7a530e-aa38-4dc9-9c3e-c72042154240",
+            "id": "2f4e8507-7f4c-4462-abe4-9fd047cb96d7",
             "hostFunctionTelemetryData": {
                 "hostFunctionSize": 443,
                 "lineStart": 31,
@@ -392,7 +472,7 @@
                 "sourceCode": "/**\n * Offers some helper methods on the Path structure in ant.\n *\n * <p>The basic idea behind this utility class is to use it from inside the\n * different Ant objects (and user defined objects) that need classLoading\n * for their operation.\n * Normally those would have a setClasspathRef() {for the @classpathref}\n * and/or a createClasspath() {for the nested &lt;classpath&gt;}\n * Typically one would have in your Ant Task or DataType</p>\n *\n * <pre><code>\n * ClasspathUtils.Delegate cpDelegate;\n *\n * public void init() {\n *     this.cpDelegate = ClasspathUtils.getDelegate(this);\n *     super.init();\n * }\n *\n * public void setClasspathRef(Reference r) {\n *     this.cpDelegate.setClasspathRef(r);\n * }\n *\n * public Path createClasspath() {\n *     return this.cpDelegate.createClasspath();\n * }\n *\n * public void setClassname(String fqcn) {\n *     this.cpDelegate.setClassname(fqcn);\n * }\n * </code></pre>\n *\n * <p>At execution time, when you actually need the classloading\n * you can just:</p>\n *\n * <pre><code>\n *     Object o = this.cpDelegate.newInstance();\n * </code></pre>\n *\n * @since Ant 1.6\n */\npublic class ClasspathUtils {\n\n    /**\n     * Name of the magic property that controls classloader reuse in Ant 1.4.\n     */\n    public static final String REUSE_LOADER_REF = MagicNames.REFID_CLASSPATH_REUSE_LOADER;\n\n    /**\n     * Convenience overloaded version of {@link\n     * #getClassLoaderForPath(Project, Reference, boolean)}.\n     *\n     * <p>Assumes the logical 'false' for the reverseLoader.</p>\n     *\n     * @param p the project\n     * @param ref the reference\n     * @return The class loader\n     */\n    public static ClassLoader getClassLoaderForPath(Project p, Reference ref) {\n        return getClassLoaderForPath(p, ref, false);\n    }\n\n    /**\n     * Convenience overloaded version of {@link #getClassLoaderForPath(Project, Path,\n     * String, boolean)}.\n     *\n     * <p>Delegates to the other one after extracting the referenced\n     * Path from the Project. This checks also that the passed\n     * Reference is pointing to a Path all right.</p>\n     * @param p current Ant project\n     * @param ref Reference to Path structure\n     * @param reverseLoader if set to true this new loader will take\n     * precedence over its parent (which is contra the regular\n     * classloader behaviour)\n     * @return The class loader\n     */\n    public static ClassLoader getClassLoaderForPath(\n        Project p, Reference ref, boolean reverseLoader) {\n        String pathId = ref.getRefId();\n        Object path = p.getReference(pathId);\n        if (!(path instanceof Path)) {\n            throw new BuildException(\"The specified classpathref \" + pathId\n                    + \" does not reference a Path.\");\n        }\n        String loaderId = MagicNames.REFID_CLASSPATH_LOADER_PREFIX + pathId;\n        return getClassLoaderForPath(p, (Path) path, loaderId, reverseLoader);\n    }\n\n    /**\n     * Convenience overloaded version of {@link\n     * #getClassLoaderForPath(Project, Path, String, boolean)}.\n     *\n     * <p>Assumes the logical 'false' for the reverseLoader.</p>\n     *\n     * @param p current Ant project\n     * @param path the path\n     * @param loaderId the loader id string\n     * @return The class loader\n     */\n    public static ClassLoader getClassLoaderForPath(Project p, Path path, String loaderId) {\n        return getClassLoaderForPath(p, path, loaderId, false);\n    }\n\n    /**\n     * Convenience overloaded version of {@link\n     * #getClassLoaderForPath(Project, Path, String, boolean, boolean)}.\n     *\n     * <p>Sets value for 'reuseLoader' to true if the magic property\n     * has been set.</p>\n     *\n     * @param p the project\n     * @param path the path\n     * @param loaderId the loader id string\n     * @param reverseLoader if set to true this new loader will take\n     * precedence over its parent (which is contra the regular\n     * classloader behaviour)\n     * @return The class loader\n     */\n    public static ClassLoader getClassLoaderForPath(\n            Project p, Path path, String loaderId, boolean reverseLoader) {\n        return getClassLoaderForPath(p, path, loaderId, reverseLoader, isMagicPropertySet(p));\n    }\n\n    /**\n     * Gets a classloader that loads classes from the classpath\n     * defined in the path argument.\n     *\n     * <p>Based on the setting of the magic property\n     * 'ant.reuse.loader' this will try to reuse the previously\n     * created loader with that id, and of course store it there upon\n     * creation.</p>\n     * @param p             Ant Project where the handled components are living in.\n     * @param path          Path object to be used as classpath for this classloader\n     * @param loaderId      identification for this Loader,\n     * @param reverseLoader if set to true this new loader will take\n     *                      precedence over its parent (which is contra the regular\n     *                      classloader behaviour)\n     * @param reuseLoader   if true reuse the loader if it is found\n     * @return              ClassLoader that uses the Path as its classpath.\n     */\n    public static ClassLoader getClassLoaderForPath(\n            Project p, Path path, String loaderId, boolean reverseLoader, boolean reuseLoader) {\n        ClassLoader cl = null;\n\n        // magic property\n        if (loaderId != null && reuseLoader) {\n            Object reusedLoader = p.getReference(loaderId);\n            if (reusedLoader != null && !(reusedLoader instanceof ClassLoader)) {\n                throw new BuildException(\"The specified loader id \" + loaderId\n                        + \" does not reference a class loader\");\n            }\n            cl = (ClassLoader) reusedLoader;\n        }\n        if (cl == null) {\n            cl = getUniqueClassLoaderForPath(p, path, reverseLoader);\n            if (loaderId != null && reuseLoader) {\n                p.addReference(loaderId, cl);\n            }\n        }\n        return cl;\n    }\n\n    /**\n     * Gets a fresh, different, previously unused classloader that uses the\n     * passed path as its classpath.\n     *\n     * <p>This method completely ignores the ant.reuse.loader magic\n     * property and should be used with caution.</p>\n     * @param p             Ant Project where the handled components are living in.\n     * @param path          the classpath for this loader\n     * @param reverseLoader if set to true this new loader will take\n     *                      precedence over its parent (which is contra the regular\n     *                      classloader behaviour)\n     * @return The fresh, different, previously unused class loader.\n     */\n    public static ClassLoader getUniqueClassLoaderForPath(Project p, Path path,\n            boolean reverseLoader) {\n        AntClassLoader acl = p.createClassLoader(path);\n        if (reverseLoader) {\n            acl.setParentFirst(false);\n            acl.addJavaLibraries();\n        }\n        return acl;\n    }\n\n    /**\n     * Creates a fresh object instance of the specified classname.\n     *\n     * <p> This uses the userDefinedLoader to load the specified class,\n     * and then makes an instance using the default no-argument constructor.\n     * </p>\n     *\n     * @param className the full qualified class name to load.\n     * @param userDefinedLoader the classloader to use.\n     * @return The fresh object instance\n     * @throws BuildException when loading or instantiation failed.\n     */\n    public static Object newInstance(String className, ClassLoader userDefinedLoader) {\n        return newInstance(className, userDefinedLoader, Object.class);\n    }\n\n    /**\n     * Creates a fresh object instance of the specified classname.\n     *\n     * <p> This uses the userDefinedLoader to load the specified class,\n     * and then makes an instance using the default no-argument constructor.\n     * </p>\n     *\n     * @param className the full qualified class name to load.\n     * @param userDefinedLoader the classloader to use.\n     * @param expectedType the Class that the result should be assignment\n     * compatible with. (No ClassCastException will be thrown in case\n     * the result of this method is casted to the expectedType)\n     * @return The fresh object instance\n     * @throws BuildException when loading or instantiation failed.\n     * @since Ant 1.7\n     */\n    public static Object newInstance(String className, ClassLoader userDefinedLoader,\n            Class expectedType) {\n        try {\n            Class clazz = Class.forName(className, true, userDefinedLoader);\n            Object o = clazz.newInstance();\n            if (!expectedType.isInstance(o)) {\n                throw new BuildException(\"Class of unexpected Type: \" + className + \" expected :\"\n                        + expectedType);\n            }\n            return o;\n        } catch (ClassNotFoundException e) {\n            throw new BuildException(\"Class not found: \" + className, e);\n        } catch (InstantiationException e) {\n            throw new BuildException(\"Could not instantiate \" + className\n                    + \". Specified class should have a no \" + \"argument constructor.\", e);\n        } catch (IllegalAccessException e) {\n            throw new BuildException(\"Could not instantiate \" + className\n                    + \". Specified class should have a \" + \"public constructor.\", e);\n        } catch (LinkageError e) {\n            throw new BuildException(\"Class \" + className\n                    + \" could not be loaded because of an invalid dependency.\", e);\n        }\n    }\n\n    /**\n     * Obtains a delegate that helps out with classic classpath configuration.\n     *\n     * @param component your projectComponent that needs the assistence\n     * @return the helper, delegate.\n     * @see ClasspathUtils.Delegate\n     */\n    public static Delegate getDelegate(ProjectComponent component) {\n        return new Delegate(component);\n    }\n\n    /**\n     * Checks for the magic property that enables class loader reuse\n     * for <taskdef> and <typedef> in Ant 1.5 and earlier.\n     */\n    private static boolean isMagicPropertySet(Project p) {\n        return p.getProperty(REUSE_LOADER_REF) != null;\n    }\n\n    /**\n     * Delegate that helps out any specific ProjectComponent that needs\n     * dynamic classloading.\n     *\n     * <p>Ant ProjectComponents that need a to be able to dynamically load\n     * Classes and instantiate them often expose the following ant syntax\n     * sugar: </p>\n     *\n     * <ul><li> nested &lt;classpath&gt; </li>\n     * <li> attribute @classpathref </li>\n     * <li> attribute @classname </li></ul>\n     *\n     * <p> This class functions as a delegate handling the configuration\n     * issues for this recurring pattern.  Its usage pattern, as the name\n     * suggests, is delegation rather than inheritance. </p>\n     *\n     * @since Ant 1.6\n     */\n    public static class Delegate {\n        private final ProjectComponent component;\n        private Path classpath;\n        private String classpathId;\n        private String className;\n        private String loaderId;\n        private boolean reverseLoader = false;\n\n        /**\n         * Construct a Delegate\n         * @param component the ProjectComponent this delegate is for.\n         */\n        Delegate(ProjectComponent component) {\n            this.component = component;\n        }\n\n        /**\n         * This method is a Delegate method handling the @classpath attribute.\n         *\n         * <p>This attribute can set a path to add to the classpath.</p>\n         *\n         * @param classpath the path to use for the classpath.\n         */\n        public void setClasspath(Path classpath) {\n            if (this.classpath == null) {\n                this.classpath = classpath;\n            } else {\n                this.classpath.append(classpath);\n            }\n        }\n\n        /**\n         * Delegate method handling the &lt;classpath&gt; tag.\n         *\n         * <p>This nested path-like structure can set a path to add to the\n         * classpath.</p>\n         *\n         * @return the created path.\n         */\n        public Path createClasspath() {\n            if (this.classpath == null) {\n                this.classpath = new Path(component.getProject());\n            }\n            return this.classpath.createPath();\n        }\n\n        /**\n         * Delegate method handling the @classname attribute.\n         *\n         * <p>This attribute sets the full qualified class name of the class\n         * to load and instantiate.</p>\n         *\n         * @param fcqn the name of the class to load.\n         */\n        public void setClassname(String fcqn) {\n            this.className = fcqn;\n        }\n\n        /**\n         * Delegate method handling the @classpathref attribute.\n         *\n         * <p>This attribute can add a referenced path-like structure to the\n         * classpath.</p>\n         *\n         * @param r the reference to the classpath.\n         */\n        public void setClasspathref(Reference r) {\n            this.classpathId = r.getRefId();\n            createClasspath().setRefid(r);\n        }\n\n        /**\n         * Delegate method handling the @reverseLoader attribute.\n         *\n         * <p>This attribute can set a boolean indicating that the used\n         * classloader should NOT follow the classical parent-first scheme.\n         * </p>\n         *\n         * <p>By default this is supposed to be false.</p>\n         *\n         * <p>Caution: this behaviour is contradictory to the normal way\n         * classloaders work.  Do not let your ProjectComponent use it if\n         * you are not really sure.</p>\n         *\n         * @param reverseLoader if true reverse the order of looking up a class.\n         */\n        public void setReverseLoader(boolean reverseLoader) {\n            this.reverseLoader = reverseLoader;\n        }\n\n        /**\n         * Sets the loaderRef.\n         * @param r the reference to the loader.\n         */\n        public void setLoaderRef(Reference r) {\n            this.loaderId = r.getRefId();\n        }\n\n\n        /**\n         * Finds or creates the classloader for this object.\n         * @return The class loader.\n         */\n        public ClassLoader getClassLoader() {\n            return getClassLoaderForPath(getContextProject(), classpath, getClassLoadId(),\n                    reverseLoader, loaderId != null || isMagicPropertySet(getContextProject()));\n        }\n\n        /**\n         * The project of the ProjectComponent we are working for.\n         */\n        private Project getContextProject() {\n            return component.getProject();\n        }\n\n        /**\n         * Computes the loaderId based on the configuration of the component.\n         * @return a loader identifier.\n         */\n        public String getClassLoadId() {\n            if (loaderId == null && classpathId != null) {\n                return MagicNames.REFID_CLASSPATH_LOADER_PREFIX + classpathId;\n            } else {\n                return loaderId;\n            }\n        }\n\n        /**\n         * Helper method obtaining a fresh instance of the class specified\n         * in the @classname and using the specified classpath.\n         *\n         * @return the fresh instantiated object.\n         */\n        public Object newInstance() {\n            return ClasspathUtils.newInstance(this.className, getClassLoader());\n        }\n\n        /**\n         * The classpath.\n         * @return the classpath.\n         */\n        public Path getClasspath() {\n            return classpath;\n        }\n\n        /**\n         * Get the reverseLoader setting.\n         * @return true if looking up in reverse order.\n         */\n        public boolean isReverseLoader() {\n            return reverseLoader;\n        }\n\n\t\t/**\n\t\t * Returns the loader id of the class path Delegate.\n\t\t * @param defBase TODO\n\t\t * @return the loader id\n\t\t */\n\t\tpublic String getLoaderId(DefBase defBase) {\n\t\t    return defBase.getDelegate().getClassLoadId();\n\t\t}\n\n        //TODO no methods yet for getClassname\n        //TODO no method for newInstance using a reverse-classloader\n    }\n}"
             },
             "candidatesTelemetryData": {
-                "numberOfSuggestions": 2,
+                "numberOfSuggestions": 3,
                 "candidates": [
                     {
                         "lineStart": 152,
@@ -411,52 +491,159 @@
                         "couldCreateRefObject": true,
                         "applied": false,
                         "undone": false
+                    },
+                    {
+                        "lineStart": 270,
+                        "lineEnd": 279,
+                        "refactoringType": "MyMoveStaticMethodRefactoring",
+                        "description": "move method to org.apache.tools.ant.util.LoaderUtils\nRationale: The method getDelegate() is related to classpath configuration, which aligns with the responsibilities typically associated with loading resources and managing classpaths, making LoaderUtils the most appropriate target class.",
+                        "couldCreateRefObject": true,
+                        "applied": false,
+                        "undone": false
                     }
                 ]
             },
             "processingTime": {
                 "llmResponseTime": -1,
                 "pluginProcessingTime": -1,
-                "totalTime": 11079
+                "totalTime": 15758
             },
             "iterationData": [
                 {
                     "iteration_num": 1,
-                    "suggested_method_names": [
-                        "newInstance",
-                        "getClassLoaderForPath",
-                        "getUniqueClassLoaderForPath",
-                        "getDelegate"
+                    "suggested_move_methods": [
+                        {
+                            "method_name": "newInstance",
+                            "method_signature": "public static Object newInstance(String className, ClassLoader userDefinedLoader)",
+                            "target_class": "ClassLoaderFactory",
+                            "rationale": "The newInstance method is responsible for creating new instances of classes using a specified ClassLoader. It would be more appropriate to move this method to a dedicated class that handles class loading and instance creation, such as ClassLoaderFactory."
+                        },
+                        {
+                            "method_name": "getClassLoaderForPath",
+                            "method_signature": "public static ClassLoader getClassLoaderForPath(Project p, Path path, String loaderId, boolean reverseLoader, boolean reuseLoader)",
+                            "target_class": "ClassLoaderFactory",
+                            "rationale": "The getClassLoaderForPath method is focused on obtaining ClassLoaders based on project and path configurations. This functionality should be encapsulated within a dedicated class that manages class loading, such as ClassLoaderFactory."
+                        },
+                        {
+                            "method_name": "getUniqueClassLoaderForPath",
+                            "method_signature": "public static ClassLoader getUniqueClassLoaderForPath(Project p, Path path, boolean reverseLoader)",
+                            "target_class": "ClassLoaderFactory",
+                            "rationale": "The getUniqueClassLoaderForPath method is specifically designed to create unique ClassLoaders. It should be moved to a class that specializes in ClassLoader creation and management, such as ClassLoaderFactory."
+                        },
+                        {
+                            "method_name": "getDelegate",
+                            "method_signature": "public static Delegate getDelegate(ProjectComponent component)",
+                            "target_class": "DelegateFactory",
+                            "rationale": "The getDelegate method is responsible for creating instances of the Delegate class. It would be more appropriate to move this method to a dedicated factory class, such as DelegateFactory, that handles the creation of Delegate instances."
+                        }
                     ],
-                    "llm_response_time": 3444
+                    "llm_response_time": 4298
                 },
                 {
                     "iteration_num": 2,
-                    "suggested_method_names": [
-                        "newInstance",
-                        "getClassLoaderForPath",
-                        "getUniqueClassLoaderForPath",
-                        "getDelegate"
+                    "suggested_move_methods": [
+                        {
+                            "method_name": "newInstance",
+                            "method_signature": "public static Object newInstance(String className, ClassLoader userDefinedLoader)",
+                            "target_class": "ClassLoaderFactory",
+                            "rationale": "The newInstance method is responsible for creating new object instances using a specified class loader. This functionality is more aligned with a factory pattern, which is typically encapsulated in a dedicated factory class, such as ClassLoaderFactory."
+                        },
+                        {
+                            "method_name": "newInstance",
+                            "method_signature": "public static Object newInstance(String className, ClassLoader userDefinedLoader, Class expectedType)",
+                            "target_class": "ClassLoaderFactory",
+                            "rationale": "Similar to the previous method, this overloaded newInstance method also deals with object instantiation using a class loader. It should be moved to a ClassLoaderFactory class to better adhere to the single responsibility principle."
+                        },
+                        {
+                            "method_name": "getClassLoaderForPath",
+                            "method_signature": "public static ClassLoader getClassLoaderForPath(Project p, Reference ref)",
+                            "target_class": "ClassLoaderFactory",
+                            "rationale": "This method is focused on obtaining a class loader based on a project and a reference. It should be moved to a ClassLoaderFactory class, which can centralize all class loader-related functionalities."
+                        },
+                        {
+                            "method_name": "getClassLoaderForPath",
+                            "method_signature": "public static ClassLoader getClassLoaderForPath(Project p, Reference ref, boolean reverseLoader)",
+                            "target_class": "ClassLoaderFactory",
+                            "rationale": "This method also deals with class loader retrieval and should be part of a ClassLoaderFactory class to maintain a clear separation of concerns."
+                        },
+                        {
+                            "method_name": "getClassLoaderForPath",
+                            "method_signature": "public static ClassLoader getClassLoaderForPath(Project p, Path path, String loaderId)",
+                            "target_class": "ClassLoaderFactory",
+                            "rationale": "This method is responsible for obtaining a class loader based on a path and loader ID. It should be moved to a ClassLoaderFactory class to encapsulate all class loader-related logic."
+                        },
+                        {
+                            "method_name": "getClassLoaderForPath",
+                            "method_signature": "public static ClassLoader getClassLoaderForPath(Project p, Path path, String loaderId, boolean reverseLoader)",
+                            "target_class": "ClassLoaderFactory",
+                            "rationale": "This method is another variant for obtaining a class loader and should be part of a ClassLoaderFactory class to keep class loader management centralized."
+                        },
+                        {
+                            "method_name": "getUniqueClassLoaderForPath",
+                            "method_signature": "public static ClassLoader getUniqueClassLoaderForPath(Project p, Path path, boolean reverseLoader)",
+                            "target_class": "ClassLoaderFactory",
+                            "rationale": "This method creates a unique class loader and should be moved to a ClassLoaderFactory class to maintain a clear focus on class loader creation and management."
+                        }
                     ],
-                    "llm_response_time": 3040
+                    "llm_response_time": 6825
                 },
                 {
                     "iteration_num": 3,
-                    "suggested_method_names": [
-                        "newInstance",
-                        "getClassLoaderForPath",
-                        "getUniqueClassLoaderForPath",
-                        "getDelegate"
+                    "suggested_move_methods": [
+                        {
+                            "method_name": "newInstance",
+                            "method_signature": "public static Object newInstance(String className, ClassLoader userDefinedLoader)",
+                            "target_class": "ClassLoaderFactory",
+                            "rationale": "The newInstance method is responsible for creating new object instances using a class loader. It would be more appropriate to move this method to a dedicated class that handles class loading and instance creation, such as ClassLoaderFactory."
+                        },
+                        {
+                            "method_name": "getClassLoaderForPath",
+                            "method_signature": "public static ClassLoader getClassLoaderForPath(Project p, Path path, String loaderId, boolean reverseLoader, boolean reuseLoader)",
+                            "target_class": "ClassLoaderFactory",
+                            "rationale": "The getClassLoaderForPath method is focused on obtaining class loaders based on project and path configurations. It should be moved to a dedicated class that manages class loading logic, such as ClassLoaderFactory."
+                        },
+                        {
+                            "method_name": "getUniqueClassLoaderForPath",
+                            "method_signature": "public static ClassLoader getUniqueClassLoaderForPath(Project p, Path path, boolean reverseLoader)",
+                            "target_class": "ClassLoaderFactory",
+                            "rationale": "The getUniqueClassLoaderForPath method is specifically about creating unique class loaders. It should be moved to a dedicated class that handles class loading, such as ClassLoaderFactory."
+                        },
+                        {
+                            "method_name": "getDelegate",
+                            "method_signature": "public static Delegate getDelegate(ProjectComponent component)",
+                            "target_class": "DelegateFactory",
+                            "rationale": "The getDelegate method is responsible for creating instances of the Delegate class. It would be more appropriate to move this method to a dedicated factory class, such as DelegateFactory, that handles the creation of delegate instances."
+                        }
                     ],
-                    "llm_response_time": 3635
+                    "llm_response_time": 3770
                 },
                 {
                     "iteration_num": -1,
-                    "suggested_method_names": [
-                        "newInstance",
-                        "getClassLoaderForPath",
-                        "getUniqueClassLoaderForPath",
-                        "getDelegate"
+                    "suggested_move_methods": [
+                        {
+                            "method_name": "newInstance",
+                            "method_signature": "public static Object newInstance(String className, ClassLoader userDefinedLoader)",
+                            "target_class": "ClassLoaderFactory",
+                            "rationale": "The newInstance method is responsible for creating new instances of classes using a specified ClassLoader. It would be more appropriate to move this method to a dedicated class that handles class loading and instance creation, such as ClassLoaderFactory."
+                        },
+                        {
+                            "method_name": "getClassLoaderForPath",
+                            "method_signature": "public static ClassLoader getClassLoaderForPath(Project p, Path path, String loaderId, boolean reverseLoader, boolean reuseLoader)",
+                            "target_class": "ClassLoaderFactory",
+                            "rationale": "The getClassLoaderForPath method is focused on obtaining ClassLoaders based on project and path configurations. This functionality should be encapsulated within a dedicated class that manages class loading, such as ClassLoaderFactory."
+                        },
+                        {
+                            "method_name": "getUniqueClassLoaderForPath",
+                            "method_signature": "public static ClassLoader getUniqueClassLoaderForPath(Project p, Path path, boolean reverseLoader)",
+                            "target_class": "ClassLoaderFactory",
+                            "rationale": "The getUniqueClassLoaderForPath method is specifically designed to create unique ClassLoaders. It should be moved to a class that specializes in ClassLoader creation and management, such as ClassLoaderFactory."
+                        },
+                        {
+                            "method_name": "getDelegate",
+                            "method_signature": "public static Delegate getDelegate(ProjectComponent component)",
+                            "target_class": "DelegateFactory",
+                            "rationale": "The getDelegate method is responsible for creating instances of the Delegate class. It would be more appropriate to move this method to a dedicated factory class, such as DelegateFactory, that handles the creation of Delegate instances."
+                        }
                     ],
                     "llm_response_time": 0
                 }
@@ -468,7 +655,7 @@
                     "newInstance",
                     "getDelegate"
                 ],
-                "llm_response_time": 808
+                "llm_response_time": 797
             },
             "targetClassMap": {
                 "getClassLoaderForPath": {
@@ -819,23 +1006,23 @@
                         },
                         {
                             "class_name": "ScriptRunner",
-                            "similarity_score": 0.2832507796989734
+                            "similarity_score": 0.20067540595872985
                         },
                         {
                             "class_name": "Watchdog",
-                            "similarity_score": 0.169119005366349
+                            "similarity_score": 0.2947857279950189
                         },
                         {
                             "class_name": "DateUtils",
-                            "similarity_score": 0.16049904945462487
+                            "similarity_score": 0.2800348153416038
                         },
                         {
                             "class_name": "FileUtils",
-                            "similarity_score": 0.1844224329595655
+                            "similarity_score": 0.3792543361882651
                         },
                         {
                             "class_name": "JAXPUtils",
-                            "similarity_score": 0.15378014050223104
+                            "similarity_score": 0.298720753779629
                         },
                         {
                             "class_name": "Retryable",
@@ -843,87 +1030,87 @@
                         },
                         {
                             "class_name": "Tokenizer",
-                            "similarity_score": 0.10553531401233374
+                            "similarity_score": 0.12472355292366714
                         },
                         {
                             "class_name": "UUEncoder",
-                            "similarity_score": 0.15582064149401378
+                            "similarity_score": 0.244395284009242
                         },
                         {
                             "class_name": "VectorSet",
-                            "similarity_score": 0.16581573099147665
+                            "similarity_score": 0.30892028167236174
                         },
                         {
                             "class_name": "WorkerAnt",
-                            "similarity_score": 0.16909635540612564
+                            "similarity_score": 0.30460384954008574
                         },
                         {
                             "class_name": "ProxySetup",
-                            "similarity_score": 0.13012991624946502
+                            "similarity_score": 0.22002901053724994
                         },
                         {
                             "class_name": "TaskLogger",
-                            "similarity_score": 0.1602679915348237
+                            "similarity_score": 0.18806152329846684
                         },
                         {
                             "class_name": "LoaderUtils",
-                            "similarity_score": 0.17574889350279654
+                            "similarity_score": 0.3018083370485677
                         },
                         {
                             "class_name": "ReflectUtil",
-                            "similarity_score": 0.15731235559041137
+                            "similarity_score": 0.28807677340394694
                         },
                         {
                             "class_name": "StringUtils",
-                            "similarity_score": 0.16781008222497687
+                            "similarity_score": 0.2876960874616529
                         },
                         {
                             "class_name": "XMLFragment",
-                            "similarity_score": 0.16316831918498367
+                            "similarity_score": 0.309121403386313
                         },
                         {
                             "class_name": "DeweyDecimal",
-                            "similarity_score": 0.17609031665906835
+                            "similarity_score": 0.29005974146116476
                         },
                         {
                             "class_name": "JavaEnvUtils",
-                            "similarity_score": 0.16422100634941036
+                            "similarity_score": 0.29665606662235294
                         },
                         {
                             "class_name": "RetryHandler",
-                            "similarity_score": 0.15907417236906057
+                            "similarity_score": 0.23617044691372963
                         },
                         {
                             "class_name": "XmlConstants",
-                            "similarity_score": 0.12299489991722296
+                            "similarity_score": 0.13705884936666718
                         },
                         {
                             "class_name": "ChainedMapper",
-                            "similarity_score": 0.18096165192201147
+                            "similarity_score": 0.3195915763490956
                         },
                         {
                             "class_name": "FileTokenizer",
-                            "similarity_score": 0.17230995806825714
+                            "similarity_score": 0.21024041221381545
                         },
                         {
                             "class_name": "IdentityStack",
-                            "similarity_score": 0.17628014882142942
+                            "similarity_score": 0.2942333804519657
                         },
                         {
                             "class_name": "LazyHashtable",
-                            "similarity_score": 0.17984653936276662
+                            "similarity_score": 0.24853594493736733
                         },
                         {
                             "class_name": "LineTokenizer",
-                            "similarity_score": 0.1735774595106514
+                            "similarity_score": 0.33389164903088275
                         },
                         {
                             "class_name": "MergingMapper",
-                            "similarity_score": 0.1693260101998182
+                            "similarity_score": 0.2363278938783388
                         },
                         {
                             "class_name": "ResourceUtils",
-                            "similarity_score": 0.1671460080840496
+                            "similarity_score": 0.39197477338173187
                         },
                         {
                             "class_name": "FileNameMapper",
@@ -931,39 +1118,39 @@
                         },
                         {
                             "class_name": "IdentityMapper",
-                            "similarity_score": 0.17300336110350403
+                            "similarity_score": 0.2184526031233369
                         },
                         {
                             "class_name": "ReflectWrapper",
-                            "similarity_score": 0.15352868045515786
+                            "similarity_score": 0.24668753429066
                         },
                         {
                             "class_name": "Base64Converter",
-                            "similarity_score": 0.13319300251880503
+                            "similarity_score": 0.1865013528431539
                         },
                         {
                             "class_name": "CollectionUtils",
-                            "similarity_score": 0.21106978483593977
+                            "similarity_score": 0.341544045831795
                         },
                         {
                             "class_name": "CompositeMapper",
-                            "similarity_score": 0.18096165192201147
+                            "similarity_score": 0.28904844084509673
                         },
                         {
                             "class_name": "ContainerMapper",
-                            "similarity_score": 0.16669395003109092
+                            "similarity_score": 0.28272870166627495
                         },
                         {
                             "class_name": "LinkedHashtable",
-                            "similarity_score": 0.16518584086718527
+                            "similarity_score": 0.23812578244831867
                         },
                         {
                             "class_name": "StringTokenizer",
-                            "similarity_score": 0.17230995806825714
+                            "similarity_score": 0.33810257523205767
                         },
                         {
                             "class_name": "TeeOutputStream",
-                            "similarity_score": 0.148559290778426
+                            "similarity_score": 0.19915052109422327
                         },
                         {
                             "class_name": "TimeoutObserver",
@@ -971,111 +1158,111 @@
                         },
                         {
                             "class_name": "DOMElementWriter",
-                            "similarity_score": 0.16963548826613983
+                            "similarity_score": 0.3506179340465083
                         },
                         {
                             "class_name": "FirstMatchMapper",
-                            "similarity_score": 0.18096165192201147
+                            "similarity_score": 0.31799393507401064
                         },
                         {
                             "class_name": "ScriptFixBSFPath",
-                            "similarity_score": 0.1589409965664253
+                            "similarity_score": 0.3503363896490855
                         },
                         {
                             "class_name": "ScriptRunnerBase",
-                            "similarity_score": 0.16099039469123944
+                            "similarity_score": 0.3384531392682901
                         },
                         {
                             "class_name": "SplitClassLoader",
-                            "similarity_score": 0.17798202367027322
+                            "similarity_score": 0.3387420078425106
                         },
                         {
                             "class_name": "WeakishReference",
-                            "similarity_score": 0.25837874248346526
+                            "similarity_score": 0.2450880948966307
                         },
                         {
                             "class_name": "GlobPatternMapper",
-                            "similarity_score": 0.1611365768649071
+                            "similarity_score": 0.33559637407111015
                         },
                         {
                             "class_name": "PackageNameMapper",
-                            "similarity_score": 0.1832686812295857
+                            "similarity_score": 0.21897518549566897
                         },
                         {
                             "class_name": "ReaderInputStream",
-                            "similarity_score": 0.15815114788370968
+                            "similarity_score": 0.34836416471086895
                         },
                         {
                             "class_name": "SourceFileScanner",
-                            "similarity_score": 0.13798555843279686
+                            "similarity_score": 0.22550085690488433
                         },
                         {
                             "class_name": "SymbolicLinkUtils",
-                            "similarity_score": 0.16891316930351458
+                            "similarity_score": 0.3738252520547144
                         },
                         {
                             "class_name": "FlatFileNameMapper",
-                            "similarity_score": 0.17300336110350403
+                            "similarity_score": 0.21729981089119202
                         },
                         {
                             "class_name": "ScriptRunnerHelper",
-                            "similarity_score": 0.1593808636201464
+                            "similarity_score": 0.3251735218189513
                         },
                         {
                             "class_name": "LeadPipeInputStream",
-                            "similarity_score": 0.16734575767687856
+                            "similarity_score": 0.31461527649277227
                         },
                         {
                             "class_name": "RegexpPatternMapper",
-                            "similarity_score": 0.17090822681523307
+                            "similarity_score": 0.35480476203756245
                         },
                         {
                             "class_name": "ScriptRunnerCreator",
-                            "similarity_score": 0.11771636613972951
+                            "similarity_score": 0.34237333703944783
                         },
                         {
                             "class_name": "UnPackageNameMapper",
-                            "similarity_score": 0.1832686812295857
+                            "similarity_score": 0.21897518549566897
                         },
                         {
                             "class_name": "KeepAliveInputStream",
-                            "similarity_score": 0.17859913545433417
+                            "similarity_score": 0.21817678664325454
                         },
                         {
                             "class_name": "LazyFileOutputStream",
-                            "similarity_score": 0.16566886779114606
+                            "similarity_score": 0.28372491560840074
                         },
                         {
                             "class_name": "OutputStreamFunneler",
-                            "similarity_score": 0.16102329561381637
+                            "similarity_score": 0.2844087008209834
                         },
                         {
                             "class_name": "PropertyOutputStream",
-                            "similarity_score": 0.1720129082952213
+                            "similarity_score": 0.29255289117931177
                         },
                         {
                             "class_name": "ConcatFileInputStream",
-                            "similarity_score": 0.15737865559571096
+                            "similarity_score": 0.3174782599898059
                         },
                         {
                             "class_name": "KeepAliveOutputStream",
-                            "similarity_score": 0.17516080848786073
+                            "similarity_score": 0.22060576525007516
                         },
                         {
                             "class_name": "LineOrientedOutputStream",
-                            "similarity_score": 0.15637374303478926
+                            "similarity_score": 0.2986919488630276
                         },
                         {
                             "class_name": "ConcatResourceInputStream",
-                            "similarity_score": 0.16623561604665277
+                            "similarity_score": 0.3237046623788467
                         },
                         {
                             "class_name": "LayoutPreservingProperties",
-                            "similarity_score": 0.16995334280700988
+                            "similarity_score": 0.3637742374530791
                         },
                         {
                             "class_name": "DOMUtils",
-                            "similarity_score": 0.1567014408537804
+                            "similarity_score": 0.2181168337987939
                         }
                     ],
                     "target_classes_sorted_by_llm": [
@@ -1166,8 +1353,8 @@
                         "XMLFragmentTest",
                         "CollectionUtilsTest"
                     ],
-                    "llm_response_time": 847,
-                    "similarity_computation_time": 214,
+                    "llm_response_time": 884,
+                    "similarity_computation_time": 914,
                     "similarity_metric": "cosine"
                 },
                 "getUniqueClassLoaderForPath": {
@@ -1518,23 +1705,23 @@
                         },
                         {
                             "class_name": "ScriptRunner",
-                            "similarity_score": 0.28204060142600534
+                            "similarity_score": 0.1704048141552498
                         },
                         {
                             "class_name": "Watchdog",
-                            "similarity_score": 0.1367444577131574
+                            "similarity_score": 0.1820356177418498
                         },
                         {
                             "class_name": "DateUtils",
-                            "similarity_score": 0.14439429712500274
+                            "similarity_score": 0.20035640309007577
                         },
                         {
                             "class_name": "FileUtils",
-                            "similarity_score": 0.15989305340529925
+                            "similarity_score": 0.21870038887942606
                         },
                         {
                             "class_name": "JAXPUtils",
-                            "similarity_score": 0.13452959885856106
+                            "similarity_score": 0.19595744074053587
                         },
                         {
                             "class_name": "Retryable",
@@ -1546,83 +1733,83 @@
                         },
                         {
                             "class_name": "UUEncoder",
-                            "similarity_score": 0.11785239841651363
+                            "similarity_score": 0.12935121684307782
                         },
                         {
                             "class_name": "VectorSet",
-                            "similarity_score": 0.13459623486056893
+                            "similarity_score": 0.1983306452889665
                         },
                         {
                             "class_name": "WorkerAnt",
-                            "similarity_score": 0.13708740031987068
+                            "similarity_score": 0.18998527906638463
                         },
                         {
                             "class_name": "ProxySetup",
-                            "similarity_score": 0.10698339467130023
+                            "similarity_score": 0.13849608065242888
                         },
                         {
                             "class_name": "TaskLogger",
-                            "similarity_score": 0.13085826712033732
+                            "similarity_score": 0.13857094777459875
                         },
                         {
                             "class_name": "LoaderUtils",
-                            "similarity_score": 0.15105091647038363
+                            "similarity_score": 0.2084303579593064
                         },
                         {
                             "class_name": "ReflectUtil",
-                            "similarity_score": 0.13568133853231432
+                            "similarity_score": 0.19766785161827932
                         },
                         {
                             "class_name": "StringUtils",
-                            "similarity_score": 0.14107009679555968
+                            "similarity_score": 0.18024518756619648
                         },
                         {
                             "class_name": "XMLFragment",
-                            "similarity_score": 0.13117673819595133
+                            "similarity_score": 0.18387653820886274
                         },
                         {
                             "class_name": "DeweyDecimal",
-                            "similarity_score": 0.14377714148660992
+                            "similarity_score": 0.18122856757189798
                         },
                         {
                             "class_name": "JavaEnvUtils",
-                            "similarity_score": 0.14272447696444118
+                            "similarity_score": 0.1915464134571992
                         },
                         {
                             "class_name": "RetryHandler",
-                            "similarity_score": 0.1298835178532457
+                            "similarity_score": 0.11724207635210986
                         },
                         {
                             "class_name": "XmlConstants",
-                            "similarity_score": 0.10042491525396041
+                            "similarity_score": 0.09847911206651935
                         },
                         {
                             "class_name": "ChainedMapper",
-                            "similarity_score": 0.14775457007335563
+                            "similarity_score": 0.1824793212463908
                         },
                         {
                             "class_name": "FileTokenizer",
-                            "similarity_score": 0.1406904916225318
+                            "similarity_score": 0.1611507464548804
                         },
                         {
                             "class_name": "IdentityStack",
-                            "similarity_score": 0.14393213879812786
+                            "similarity_score": 0.19717856391173397
                         },
                         {
                             "class_name": "LazyHashtable",
-                            "similarity_score": 0.14570575824509285
+                            "similarity_score": 0.18690805854644924
                         },
                         {
                             "class_name": "LineTokenizer",
-                            "similarity_score": 0.13961009770587263
+                            "similarity_score": 0.18849821811381925
                         },
                         {
                             "class_name": "MergingMapper",
-                            "similarity_score": 0.13825410839028482
+                            "similarity_score": 0.17097802801349352
                         },
                         {
                             "class_name": "ResourceUtils",
-                            "similarity_score": 0.1425709271868342
+                            "similarity_score": 0.21104688207433814
                         },
                         {
                             "class_name": "FileNameMapper",
@@ -1630,39 +1817,39 @@
                         },
                         {
                             "class_name": "IdentityMapper",
-                            "similarity_score": 0.14125665283001582
+                            "similarity_score": 0.16929635590708642
                         },
                         {
                             "class_name": "ReflectWrapper",
-                            "similarity_score": 0.12388087039932319
+                            "similarity_score": 0.15999281681029281
                         },
                         {
                             "class_name": "Base64Converter",
-                            "similarity_score": 0.10121438939653087
+                            "similarity_score": 0.11093078717106865
                         },
                         {
                             "class_name": "CollectionUtils",
-                            "similarity_score": 0.19481659561078637
+                            "similarity_score": 0.2183397217941566
                         },
                         {
                             "class_name": "CompositeMapper",
-                            "similarity_score": 0.14775457007335563
+                            "similarity_score": 0.1737011988629685
                         },
                         {
                             "class_name": "ContainerMapper",
-                            "similarity_score": 0.1348563701675787
+                            "similarity_score": 0.17757462941588353
                         },
                         {
                             "class_name": "LinkedHashtable",
-                            "similarity_score": 0.13487367428572822
+                            "similarity_score": 0.18146696138647228
                         },
                         {
                             "class_name": "StringTokenizer",
-                            "similarity_score": 0.1383456500954896
+                            "similarity_score": 0.1980547807843301
                         },
                         {
                             "class_name": "TeeOutputStream",
-                            "similarity_score": 0.12129815298563272
+                            "similarity_score": 0.13981052523208934
                         },
                         {
                             "class_name": "TimeoutObserver",
@@ -1670,111 +1857,111 @@
                         },
                         {
                             "class_name": "DOMElementWriter",
-                            "similarity_score": 0.14044395416174643
+                            "similarity_score": 0.20247978137571862
                         },
                         {
                             "class_name": "FirstMatchMapper",
-                            "similarity_score": 0.14775457007335563
+                            "similarity_score": 0.19023199103992616
                         },
                         {
                             "class_name": "ScriptFixBSFPath",
-                            "similarity_score": 0.12027906463653182
+                            "similarity_score": 0.19008381822756976
                         },
                         {
                             "class_name": "ScriptRunnerBase",
-                            "similarity_score": 0.13058331665110476
+                            "similarity_score": 0.20063975315390845
                         },
                         {
                             "class_name": "SplitClassLoader",
-                            "similarity_score": 0.1397324171090151
+                            "similarity_score": 0.2188338655806616
                         },
                         {
                             "class_name": "WeakishReference",
-                            "similarity_score": 0.24842649848216355
+                            "similarity_score": 0.19775931396202212
                         },
                         {
                             "class_name": "GlobPatternMapper",
-                            "similarity_score": 0.12925926294851378
+                            "similarity_score": 0.17573299011928026
                         },
                         {
                             "class_name": "PackageNameMapper",
-                            "similarity_score": 0.14536287299751605
+                            "similarity_score": 0.15197361672544404
                         },
                         {
                             "class_name": "ReaderInputStream",
-                            "similarity_score": 0.12811310087497924
+                            "similarity_score": 0.20228823313217936
                         },
                         {
                             "class_name": "SourceFileScanner",
-                            "similarity_score": 0.11399020416810844
+                            "similarity_score": 0.14909284223127972
                         },
                         {
                             "class_name": "SymbolicLinkUtils",
-                            "similarity_score": 0.13997548827282139
+                            "similarity_score": 0.21417626208336876
                         },
                         {
                             "class_name": "FlatFileNameMapper",
-                            "similarity_score": 0.14125665283001582
+                            "similarity_score": 0.16840296520709128
                         },
                         {
                             "class_name": "ScriptRunnerHelper",
-                            "similarity_score": 0.12831810792914156
+                            "similarity_score": 0.20234374844845104
                         },
                         {
                             "class_name": "LeadPipeInputStream",
-                            "similarity_score": 0.13554414106412366
+                            "similarity_score": 0.19039511466506734
                         },
                         {
                             "class_name": "RegexpPatternMapper",
-                            "similarity_score": 0.13680978710495895
+                            "similarity_score": 0.20055937506960822
                         },
                         {
                             "class_name": "ScriptRunnerCreator",
-                            "similarity_score": 0.08521537010948446
+                            "similarity_score": 0.19725314821430767
                         },
                         {
                             "class_name": "UnPackageNameMapper",
-                            "similarity_score": 0.14536287299751605
+                            "similarity_score": 0.15197361672544404
                         },
                         {
                             "class_name": "KeepAliveInputStream",
-                            "similarity_score": 0.14880161577052214
+                            "similarity_score": 0.1745050778762599
                         },
                         {
                             "class_name": "LazyFileOutputStream",
-                            "similarity_score": 0.13441732157601788
+                            "similarity_score": 0.1818963325402688
                         },
                         {
                             "class_name": "OutputStreamFunneler",
-                            "similarity_score": 0.1279215927422227
+                            "similarity_score": 0.18223443078979895
                         },
                         {
                             "class_name": "PropertyOutputStream",
-                            "similarity_score": 0.14564972747990798
+                            "similarity_score": 0.1683453735118453
                         },
                         {
                             "class_name": "ConcatFileInputStream",
-                            "similarity_score": 0.12435400084345175
+                            "similarity_score": 0.17731655341406394
                         },
                         {
                             "class_name": "KeepAliveOutputStream",
-                            "similarity_score": 0.14688355803322245
+                            "similarity_score": 0.18012385305963097
                         },
                         {
                             "class_name": "LineOrientedOutputStream",
-                            "similarity_score": 0.1225714814733852
+                            "similarity_score": 0.16864988074389645
                         },
                         {
                             "class_name": "ConcatResourceInputStream",
-                            "similarity_score": 0.13185278892677746
+                            "similarity_score": 0.19289020199561385
                         },
                         {
                             "class_name": "LayoutPreservingProperties",
-                            "similarity_score": 0.1347147518353902
+                            "similarity_score": 0.2024474164484843
                         },
                         {
                             "class_name": "DOMUtils",
-                            "similarity_score": 0.13547243719435767
+                            "similarity_score": 0.14928270581251898
                         }
                     ],
                     "target_classes_sorted_by_llm": [
@@ -1865,15 +2052,714 @@
                         "DOMElementWriterTest",
                         "XMLFragmentTest"
                     ],
-                    "llm_response_time": 1147,
-                    "similarity_computation_time": 32,
+                    "llm_response_time": 1274,
+                    "similarity_computation_time": 20,
                     "similarity_metric": "cosine"
                 },
                 "newInstance": {
                     "target_classes": [],
                     "target_classes_sorted_by_llm": [],
-                    "llm_response_time": 1072,
+                    "llm_response_time": 1210,
                     "similarity_computation_time": 0,
+                    "similarity_metric": "cosine"
+                },
+                "getDelegate": {
+                    "target_classes": [
+                        {
+                            "class_name": "DOMUtils",
+                            "similarity_score": 0.6781103013159587
+                        },
+                        {
+                            "class_name": "Watchdog",
+                            "similarity_score": 0.5757211783119721
+                        },
+                        {
+                            "class_name": "DateUtils",
+                            "similarity_score": 0.6643850101533303
+                        },
+                        {
+                            "class_name": "FileUtils",
+                            "similarity_score": 0.6488905105265456
+                        },
+                        {
+                            "class_name": "JAXPUtils",
+                            "similarity_score": 0.6446859081762027
+                        },
+                        {
+                            "class_name": "Retryable",
+                            "similarity_score": 0.49479531084051126
+                        },
+                        {
+                            "class_name": "Tokenizer",
+                            "similarity_score": 0.594817521311057
+                        },
+                        {
+                            "class_name": "UUEncoder",
+                            "similarity_score": 0.5028891503413762
+                        },
+                        {
+                            "class_name": "VectorSet",
+                            "similarity_score": 0.3394485719394789
+                        },
+                        {
+                            "class_name": "WorkerAnt",
+                            "similarity_score": 0.6451002671125483
+                        },
+                        {
+                            "class_name": "ProxySetup",
+                            "similarity_score": 0.4140220901485213
+                        },
+                        {
+                            "class_name": "TaskLogger",
+                            "similarity_score": 0.494360268138681
+                        },
+                        {
+                            "class_name": "LoaderUtils",
+                            "similarity_score": 0.6669002950391661
+                        },
+                        {
+                            "class_name": "ReflectUtil",
+                            "similarity_score": 0.5828266199491356
+                        },
+                        {
+                            "class_name": "StringUtils",
+                            "similarity_score": 0.6112641403926252
+                        },
+                        {
+                            "class_name": "XMLFragment",
+                            "similarity_score": 0.6090347134757171
+                        },
+                        {
+                            "class_name": "DeweyDecimal",
+                            "similarity_score": 0.5407747469717481
+                        },
+                        {
+                            "class_name": "JavaEnvUtils",
+                            "similarity_score": 0.5569124287813446
+                        },
+                        {
+                            "class_name": "RetryHandler",
+                            "similarity_score": 0.4785505335757432
+                        },
+                        {
+                            "class_name": "ScriptRunner",
+                            "similarity_score": 0.4418597245003651
+                        },
+                        {
+                            "class_name": "XmlConstants",
+                            "similarity_score": 0.3032338164783691
+                        },
+                        {
+                            "class_name": "ChainedMapper",
+                            "similarity_score": 0.399876395010063
+                        },
+                        {
+                            "class_name": "FileTokenizer",
+                            "similarity_score": 0.5909985150587376
+                        },
+                        {
+                            "class_name": "IdentityStack",
+                            "similarity_score": 0.6309665326135684
+                        },
+                        {
+                            "class_name": "LazyHashtable",
+                            "similarity_score": 0.6209635787076386
+                        },
+                        {
+                            "class_name": "LineTokenizer",
+                            "similarity_score": 0.5033329934746247
+                        },
+                        {
+                            "class_name": "MergingMapper",
+                            "similarity_score": 0.6272082524151404
+                        },
+                        {
+                            "class_name": "ResourceUtils",
+                            "similarity_score": 0.5983246392606334
+                        },
+                        {
+                            "class_name": "FileNameMapper",
+                            "similarity_score": 0.6071413399235785
+                        },
+                        {
+                            "class_name": "IdentityMapper",
+                            "similarity_score": 0.6440965016111279
+                        },
+                        {
+                            "class_name": "ReflectWrapper",
+                            "similarity_score": 0.5485396033051384
+                        },
+                        {
+                            "class_name": "Base64Converter",
+                            "similarity_score": 0.22225840600873292
+                        },
+                        {
+                            "class_name": "CollectionUtils",
+                            "similarity_score": 0.60939568845023
+                        },
+                        {
+                            "class_name": "CompositeMapper",
+                            "similarity_score": 0.3006479263478145
+                        },
+                        {
+                            "class_name": "ContainerMapper",
+                            "similarity_score": 0.6281640296644517
+                        },
+                        {
+                            "class_name": "LinkedHashtable",
+                            "similarity_score": 0.37564594862220096
+                        },
+                        {
+                            "class_name": "StringTokenizer",
+                            "similarity_score": 0.470739040908779
+                        },
+                        {
+                            "class_name": "TeeOutputStream",
+                            "similarity_score": 0.5399325086396521
+                        },
+                        {
+                            "class_name": "TimeoutObserver",
+                            "similarity_score": 0.6567929276699618
+                        },
+                        {
+                            "class_name": "DOMElementWriter",
+                            "similarity_score": 0.5803023240744527
+                        },
+                        {
+                            "class_name": "FirstMatchMapper",
+                            "similarity_score": 0.4534364673376703
+                        },
+                        {
+                            "class_name": "ScriptFixBSFPath",
+                            "similarity_score": 0.48327471480759304
+                        },
+                        {
+                            "class_name": "ScriptRunnerBase",
+                            "similarity_score": 0.6152066560210032
+                        },
+                        {
+                            "class_name": "SplitClassLoader",
+                            "similarity_score": 0.32458523544031886
+                        },
+                        {
+                            "class_name": "WeakishReference",
+                            "similarity_score": 0.6546205989638808
+                        },
+                        {
+                            "class_name": "GlobPatternMapper",
+                            "similarity_score": 0.5935312869223582
+                        },
+                        {
+                            "class_name": "PackageNameMapper",
+                            "similarity_score": 0.6236868653643426
+                        },
+                        {
+                            "class_name": "ReaderInputStream",
+                            "similarity_score": 0.5627722405616693
+                        },
+                        {
+                            "class_name": "SourceFileScanner",
+                            "similarity_score": 0.5901872544746335
+                        },
+                        {
+                            "class_name": "SymbolicLinkUtils",
+                            "similarity_score": 0.6307090714615774
+                        },
+                        {
+                            "class_name": "FlatFileNameMapper",
+                            "similarity_score": 0.6374624694036221
+                        },
+                        {
+                            "class_name": "ScriptRunnerHelper",
+                            "similarity_score": 0.6379902193101189
+                        },
+                        {
+                            "class_name": "LeadPipeInputStream",
+                            "similarity_score": 0.601839211657393
+                        },
+                        {
+                            "class_name": "RegexpPatternMapper",
+                            "similarity_score": 0.5738008192052999
+                        },
+                        {
+                            "class_name": "ScriptRunnerCreator",
+                            "similarity_score": 0.41925787426089584
+                        },
+                        {
+                            "class_name": "UnPackageNameMapper",
+                            "similarity_score": 0.6323457593118503
+                        },
+                        {
+                            "class_name": "KeepAliveInputStream",
+                            "similarity_score": 0.6692889967674874
+                        },
+                        {
+                            "class_name": "LazyFileOutputStream",
+                            "similarity_score": 0.6094755765426682
+                        },
+                        {
+                            "class_name": "OutputStreamFunneler",
+                            "similarity_score": 0.49609514631310164
+                        },
+                        {
+                            "class_name": "PropertyOutputStream",
+                            "similarity_score": 0.5445513630407882
+                        },
+                        {
+                            "class_name": "ConcatFileInputStream",
+                            "similarity_score": 0.5277875021399222
+                        },
+                        {
+                            "class_name": "KeepAliveOutputStream",
+                            "similarity_score": 0.6777727111890566
+                        },
+                        {
+                            "class_name": "LineOrientedOutputStream",
+                            "similarity_score": 0.5196345532490505
+                        },
+                        {
+                            "class_name": "ConcatResourceInputStream",
+                            "similarity_score": 0.5341619028294501
+                        },
+                        {
+                            "class_name": "LayoutPreservingProperties",
+                            "similarity_score": 0.556456063748611
+                        },
+                        {
+                            "class_name": "DateUtilsTest",
+                            "similarity_score": 0.16579223944062696
+                        },
+                        {
+                            "class_name": "FileUtilsTest",
+                            "similarity_score": 0.36683474958641915
+                        },
+                        {
+                            "class_name": "JAXPUtilsTest",
+                            "similarity_score": 0.2221262624660095
+                        },
+                        {
+                            "class_name": "VectorSetTest",
+                            "similarity_score": 0.17532669221856637
+                        },
+                        {
+                            "class_name": "LoaderUtilsTest",
+                            "similarity_score": 0.25448171065407577
+                        },
+                        {
+                            "class_name": "StringUtilsTest",
+                            "similarity_score": 0.22190629912194443
+                        },
+                        {
+                            "class_name": "XMLFragmentTest",
+                            "similarity_score": 0.09072433136716586
+                        },
+                        {
+                            "class_name": "JavaEnvUtilsTest",
+                            "similarity_score": 0.21294657740987324
+                        },
+                        {
+                            "class_name": "SymlinkUtilsTest",
+                            "similarity_score": 0.16161498378886352
+                        },
+                        {
+                            "class_name": "ResourceUtilsTest",
+                            "similarity_score": 0.25498024506446443
+                        },
+                        {
+                            "class_name": "ClasspathUtilsTest",
+                            "similarity_score": 0.24184132172250203
+                        },
+                        {
+                            "class_name": "CollectionUtilsTest",
+                            "similarity_score": 0.15777144072174173
+                        },
+                        {
+                            "class_name": "LinkedHashtableTest",
+                            "similarity_score": 0.1784144237255207
+                        },
+                        {
+                            "class_name": "DOMElementWriterTest",
+                            "similarity_score": 0.11496492594239267
+                        },
+                        {
+                            "class_name": "GlobPatternMapperTest",
+                            "similarity_score": 0.13677916738371537
+                        },
+                        {
+                            "class_name": "PackageNameMapperTest",
+                            "similarity_score": 0.17126030981362614
+                        },
+                        {
+                            "class_name": "ReaderInputStreamTest",
+                            "similarity_score": 0.17664334310723712
+                        },
+                        {
+                            "class_name": "UnPackageNameMapperTest",
+                            "similarity_score": 0.16294616675459325
+                        },
+                        {
+                            "class_name": "LazyFileOutputStreamTest",
+                            "similarity_score": 0.20165465906023194
+                        },
+                        {
+                            "class_name": "LineOrientedOutputStreamTest",
+                            "similarity_score": 0.1610139785175969
+                        },
+                        {
+                            "class_name": "LayoutPreservingPropertiesTest",
+                            "similarity_score": 0.19796081935011395
+                        },
+                        {
+                            "class_name": "ScriptRunner",
+                            "similarity_score": 0.2185433458832612
+                        },
+                        {
+                            "class_name": "Watchdog",
+                            "similarity_score": 0.1770403445039846
+                        },
+                        {
+                            "class_name": "DateUtils",
+                            "similarity_score": 0.23197426877920221
+                        },
+                        {
+                            "class_name": "FileUtils",
+                            "similarity_score": 0.20337614546091518
+                        },
+                        {
+                            "class_name": "JAXPUtils",
+                            "similarity_score": 0.23026019491525962
+                        },
+                        {
+                            "class_name": "Retryable",
+                            "similarity_score": 0.10165112213575457
+                        },
+                        {
+                            "class_name": "Tokenizer",
+                            "similarity_score": 0.09795347226725087
+                        },
+                        {
+                            "class_name": "UUEncoder",
+                            "similarity_score": 0.1084874994660381
+                        },
+                        {
+                            "class_name": "VectorSet",
+                            "similarity_score": 0.19730477166961188
+                        },
+                        {
+                            "class_name": "WorkerAnt",
+                            "similarity_score": 0.19796984752906172
+                        },
+                        {
+                            "class_name": "ProxySetup",
+                            "similarity_score": 0.16065443638057916
+                        },
+                        {
+                            "class_name": "TaskLogger",
+                            "similarity_score": 0.1639075094124459
+                        },
+                        {
+                            "class_name": "LoaderUtils",
+                            "similarity_score": 0.2398140944771917
+                        },
+                        {
+                            "class_name": "ReflectUtil",
+                            "similarity_score": 0.21863299773717473
+                        },
+                        {
+                            "class_name": "StringUtils",
+                            "similarity_score": 0.18086409493051556
+                        },
+                        {
+                            "class_name": "XMLFragment",
+                            "similarity_score": 0.18075884224742989
+                        },
+                        {
+                            "class_name": "DeweyDecimal",
+                            "similarity_score": 0.17811527900247007
+                        },
+                        {
+                            "class_name": "JavaEnvUtils",
+                            "similarity_score": 0.20678428109966987
+                        },
+                        {
+                            "class_name": "RetryHandler",
+                            "similarity_score": 0.10930950284511519
+                        },
+                        {
+                            "class_name": "XmlConstants",
+                            "similarity_score": 0.13060462968966785
+                        },
+                        {
+                            "class_name": "ChainedMapper",
+                            "similarity_score": 0.1673306224148236
+                        },
+                        {
+                            "class_name": "FileTokenizer",
+                            "similarity_score": 0.2190306226217134
+                        },
+                        {
+                            "class_name": "IdentityStack",
+                            "similarity_score": 0.2125504621241746
+                        },
+                        {
+                            "class_name": "LazyHashtable",
+                            "similarity_score": 0.2114572968571407
+                        },
+                        {
+                            "class_name": "LineTokenizer",
+                            "similarity_score": 0.15259096863924235
+                        },
+                        {
+                            "class_name": "MergingMapper",
+                            "similarity_score": 0.20361574059384205
+                        },
+                        {
+                            "class_name": "ResourceUtils",
+                            "similarity_score": 0.18775489477465107
+                        },
+                        {
+                            "class_name": "FileNameMapper",
+                            "similarity_score": 0.07813983916059347
+                        },
+                        {
+                            "class_name": "IdentityMapper",
+                            "similarity_score": 0.21421387293963187
+                        },
+                        {
+                            "class_name": "ReflectWrapper",
+                            "similarity_score": 0.17267105743562985
+                        },
+                        {
+                            "class_name": "Base64Converter",
+                            "similarity_score": 0.09457601623092787
+                        },
+                        {
+                            "class_name": "CollectionUtils",
+                            "similarity_score": 0.24328438319314372
+                        },
+                        {
+                            "class_name": "CompositeMapper",
+                            "similarity_score": 0.16526213996422534
+                        },
+                        {
+                            "class_name": "ContainerMapper",
+                            "similarity_score": 0.19032440068091563
+                        },
+                        {
+                            "class_name": "LinkedHashtable",
+                            "similarity_score": 0.22897039438852518
+                        },
+                        {
+                            "class_name": "StringTokenizer",
+                            "similarity_score": 0.16602515285845618
+                        },
+                        {
+                            "class_name": "TeeOutputStream",
+                            "similarity_score": 0.15835476546193133
+                        },
+                        {
+                            "class_name": "TimeoutObserver",
+                            "similarity_score": 0.129580263837204
+                        },
+                        {
+                            "class_name": "DOMElementWriter",
+                            "similarity_score": 0.17798318807735844
+                        },
+                        {
+                            "class_name": "FirstMatchMapper",
+                            "similarity_score": 0.18215447450786834
+                        },
+                        {
+                            "class_name": "ScriptFixBSFPath",
+                            "similarity_score": 0.15768880871909946
+                        },
+                        {
+                            "class_name": "ScriptRunnerBase",
+                            "similarity_score": 0.195859365433731
+                        },
+                        {
+                            "class_name": "SplitClassLoader",
+                            "similarity_score": 0.17102314669888585
+                        },
+                        {
+                            "class_name": "WeakishReference",
+                            "similarity_score": 0.2649479195923092
+                        },
+                        {
+                            "class_name": "GlobPatternMapper",
+                            "similarity_score": 0.14378199092502197
+                        },
+                        {
+                            "class_name": "PackageNameMapper",
+                            "similarity_score": 0.1676759904239872
+                        },
+                        {
+                            "class_name": "ReaderInputStream",
+                            "similarity_score": 0.1880285149937063
+                        },
+                        {
+                            "class_name": "SourceFileScanner",
+                            "similarity_score": 0.1647177765278581
+                        },
+                        {
+                            "class_name": "SymbolicLinkUtils",
+                            "similarity_score": 0.20916153323377282
+                        },
+                        {
+                            "class_name": "FlatFileNameMapper",
+                            "similarity_score": 0.21308344883292962
+                        },
+                        {
+                            "class_name": "ScriptRunnerHelper",
+                            "similarity_score": 0.1998787540081015
+                        },
+                        {
+                            "class_name": "LeadPipeInputStream",
+                            "similarity_score": 0.18265112110919432
+                        },
+                        {
+                            "class_name": "RegexpPatternMapper",
+                            "similarity_score": 0.18886354072533112
+                        },
+                        {
+                            "class_name": "ScriptRunnerCreator",
+                            "similarity_score": 0.16495820933465075
+                        },
+                        {
+                            "class_name": "UnPackageNameMapper",
+                            "similarity_score": 0.1676759904239872
+                        },
+                        {
+                            "class_name": "KeepAliveInputStream",
+                            "similarity_score": 0.22729881908468086
+                        },
+                        {
+                            "class_name": "LazyFileOutputStream",
+                            "similarity_score": 0.16808347900907386
+                        },
+                        {
+                            "class_name": "OutputStreamFunneler",
+                            "similarity_score": 0.18446773053452642
+                        },
+                        {
+                            "class_name": "PropertyOutputStream",
+                            "similarity_score": 0.1422328176935953
+                        },
+                        {
+                            "class_name": "ConcatFileInputStream",
+                            "similarity_score": 0.16893137328781374
+                        },
+                        {
+                            "class_name": "KeepAliveOutputStream",
+                            "similarity_score": 0.24349488312081963
+                        },
+                        {
+                            "class_name": "LineOrientedOutputStream",
+                            "similarity_score": 0.15161690823918456
+                        },
+                        {
+                            "class_name": "ConcatResourceInputStream",
+                            "similarity_score": 0.1810506035900283
+                        },
+                        {
+                            "class_name": "LayoutPreservingProperties",
+                            "similarity_score": 0.17464140997556396
+                        },
+                        {
+                            "class_name": "DOMUtils",
+                            "similarity_score": 0.17466010384559424
+                        }
+                    ],
+                    "target_classes_sorted_by_llm": [
+                        "LoaderUtils",
+                        "DOMUtils",
+                        "KeepAliveOutputStream",
+                        "KeepAliveInputStream",
+                        "DateUtils",
+                        "TimeoutObserver",
+                        "WeakishReference",
+                        "FileUtils",
+                        "WorkerAnt",
+                        "JAXPUtils",
+                        "IdentityMapper",
+                        "ScriptRunnerHelper",
+                        "FlatFileNameMapper",
+                        "UnPackageNameMapper",
+                        "IdentityStack",
+                        "SymbolicLinkUtils",
+                        "ContainerMapper",
+                        "MergingMapper",
+                        "PackageNameMapper",
+                        "LazyHashtable",
+                        "ScriptRunnerBase",
+                        "StringUtils",
+                        "LazyFileOutputStream",
+                        "CollectionUtils",
+                        "XMLFragment",
+                        "FileNameMapper",
+                        "LeadPipeInputStream",
+                        "ResourceUtils",
+                        "Tokenizer",
+                        "GlobPatternMapper",
+                        "FileTokenizer",
+                        "SourceFileScanner",
+                        "ReflectUtil",
+                        "DOMElementWriter",
+                        "Watchdog",
+                        "RegexpPatternMapper",
+                        "ReaderInputStream",
+                        "JavaEnvUtils",
+                        "LayoutPreservingProperties",
+                        "ReflectWrapper",
+                        "PropertyOutputStream",
+                        "DeweyDecimal",
+                        "TeeOutputStream",
+                        "ConcatResourceInputStream",
+                        "ConcatFileInputStream",
+                        "LineOrientedOutputStream",
+                        "LineTokenizer",
+                        "UUEncoder",
+                        "OutputStreamFunneler",
+                        "Retryable",
+                        "TaskLogger",
+                        "ScriptFixBSFPath",
+                        "RetryHandler",
+                        "StringTokenizer",
+                        "FirstMatchMapper",
+                        "ScriptRunner",
+                        "ScriptRunnerCreator",
+                        "ProxySetup",
+                        "ChainedMapper",
+                        "LinkedHashtable",
+                        "FileUtilsTest",
+                        "VectorSet",
+                        "SplitClassLoader",
+                        "XmlConstants",
+                        "CompositeMapper",
+                        "ResourceUtilsTest",
+                        "LoaderUtilsTest",
+                        "ClasspathUtilsTest",
+                        "Base64Converter",
+                        "JAXPUtilsTest",
+                        "StringUtilsTest",
+                        "JavaEnvUtilsTest",
+                        "LazyFileOutputStreamTest",
+                        "LayoutPreservingPropertiesTest",
+                        "LinkedHashtableTest",
+                        "ReaderInputStreamTest",
+                        "VectorSetTest",
+                        "PackageNameMapperTest",
+                        "DateUtilsTest",
+                        "UnPackageNameMapperTest",
+                        "SymlinkUtilsTest",
+                        "LineOrientedOutputStreamTest",
+                        "CollectionUtilsTest",
+                        "GlobPatternMapperTest",
+                        "DOMElementWriterTest",
+                        "XMLFragmentTest"
+                    ],
+                    "llm_response_time": 1530,
+                    "similarity_computation_time": 18,
                     "similarity_metric": "cosine"
                 }
             }
@@ -1883,7 +2769,7 @@
         "oracle": "method org.apache.tools.ant.filters.StripLineBreaks::addStripLineBreaks(StripLineBreaks):void need move to org.apache.tools.ant.types.FilterChain",
         "class_name": "org.apache.tools.ant.filters.StripLineBreaks",
         "telemetry": {
-            "id": "fe6ce2b7-ed5d-4b7f-b3ee-ec0046955939",
+            "id": "b1f54fe0-1fa4-446e-bb53-3565838856ad",
             "hostFunctionTelemetryData": {
                 "hostFunctionSize": 143,
                 "lineStart": 26,
@@ -1909,55 +2795,65 @@
             "processingTime": {
                 "llmResponseTime": -1,
                 "pluginProcessingTime": -1,
-                "totalTime": 4663
+                "totalTime": 4568
             },
             "iterationData": [
                 {
                     "iteration_num": 1,
-                    "suggested_method_names": [
-                        "addStripLineBreaks",
-                        "initialize"
+                    "suggested_move_methods": [
+                        {
+                            "method_name": "addStripLineBreaks",
+                            "method_signature": "public void addStripLineBreaks(FilterChain filterChain)",
+                            "target_class": "FilterChain",
+                            "rationale": "The addStripLineBreaks method is responsible for adding a StripLineBreaks filter to a FilterChain, which indicates that it is more related to the FilterChain's functionality than to the StripLineBreaks class itself."
+                        }
                     ],
-                    "llm_response_time": 1843
+                    "llm_response_time": 1173
                 },
                 {
                     "iteration_num": 2,
-                    "suggested_method_names": [
-                        "addStripLineBreaks"
+                    "suggested_move_methods": [
+                        {
+                            "method_name": "addStripLineBreaks",
+                            "method_signature": "public void addStripLineBreaks(FilterChain filterChain)",
+                            "target_class": "FilterChain",
+                            "rationale": "The addStripLineBreaks method is responsible for adding a StripLineBreaks filter to a FilterChain, which indicates that it is more related to the FilterChain's functionality than to the StripLineBreaks class itself."
+                        }
                     ],
-                    "llm_response_time": 1212
+                    "llm_response_time": 1467
                 },
                 {
                     "iteration_num": 3,
-                    "suggested_method_names": [
-                        "addStripLineBreaks"
+                    "suggested_move_methods": [
+                        {
+                            "method_name": "addStripLineBreaks",
+                            "method_signature": "public void addStripLineBreaks(FilterChain filterChain)",
+                            "target_class": "FilterChain",
+                            "rationale": "The addStripLineBreaks method is responsible for adding a StripLineBreaks filter to a FilterChain, which indicates that it is more related to the FilterChain's functionality than to the StripLineBreaks class itself."
+                        }
                     ],
-                    "llm_response_time": 1044
+                    "llm_response_time": 1327
                 },
                 {
                     "iteration_num": -1,
-                    "suggested_method_names": [
-                        "addStripLineBreaks",
-                        "initialize"
+                    "suggested_move_methods": [
+                        {
+                            "method_name": "addStripLineBreaks",
+                            "method_signature": "public void addStripLineBreaks(FilterChain filterChain)",
+                            "target_class": "FilterChain",
+                            "rationale": "The addStripLineBreaks method is responsible for adding a StripLineBreaks filter to a FilterChain, which indicates that it is more related to the FilterChain's functionality than to the StripLineBreaks class itself."
+                        }
                     ],
                     "llm_response_time": 0
                 }
             ],
             "llmMethodPriority": {
                 "priority_method_names": [
-                    "initialize",
                     "addStripLineBreaks"
                 ],
-                "llm_response_time": 476
+                "llm_response_time": 530
             },
             "targetClassMap": {
-                "initialize": {
-                    "target_classes": [],
-                    "target_classes_sorted_by_llm": [],
-                    "llm_response_time": 1012,
-                    "similarity_computation_time": 0,
-                    "similarity_metric": "cosine"
-                },
                 "addStripLineBreaks": {
                     "target_classes": [
                         {
@@ -1968,8 +2864,8 @@
                     "target_classes_sorted_by_llm": [
                         "FilterChain"
                     ],
-                    "llm_response_time": 791,
-                    "similarity_computation_time": 3,
+                    "llm_response_time": 630,
+                    "similarity_computation_time": 7,
                     "similarity_metric": "cosine"
                 }
             }
@@ -1979,7 +2875,7 @@
         "oracle": "method org.apache.tools.ant.types.ZipScanner::setUpdate(boolean):void need move to org.apache.tools.ant.taskdefs.Zip",
         "class_name": "org.apache.tools.ant.types.ZipScanner",
         "telemetry": {
-            "id": "50cdf062-0cda-4163-b817-8bac2ea36a30",
+            "id": "1a881a42-78f8-4599-bb09-19b5e861a27f",
             "hostFunctionTelemetryData": {
                 "hostFunctionSize": 78,
                 "lineStart": 34,
@@ -2005,34 +2901,54 @@
             "processingTime": {
                 "llmResponseTime": -1,
                 "pluginProcessingTime": -1,
-                "totalTime": 4527
+                "totalTime": 3751
             },
             "iterationData": [
                 {
                     "iteration_num": 1,
-                    "suggested_method_names": [
-                        "setUpdate"
+                    "suggested_move_methods": [
+                        {
+                            "method_name": "setUpdate",
+                            "method_signature": "public void setUpdate(Zip zip, boolean c)",
+                            "target_class": "Zip",
+                            "rationale": "The setUpdate method directly manipulates properties of the Zip class, indicating that it is more appropriate for this method to reside within the Zip class itself."
+                        }
                     ],
-                    "llm_response_time": 964
+                    "llm_response_time": 1044
                 },
                 {
                     "iteration_num": 2,
-                    "suggested_method_names": [
-                        "setUpdate"
+                    "suggested_move_methods": [
+                        {
+                            "method_name": "setUpdate",
+                            "method_signature": "public void setUpdate(Zip zip, boolean c)",
+                            "target_class": "Zip",
+                            "rationale": "The setUpdate method directly manipulates properties of the Zip class, indicating that it is more appropriate for this method to reside within the Zip class itself."
+                        }
                     ],
-                    "llm_response_time": 921
+                    "llm_response_time": 1008
                 },
                 {
                     "iteration_num": 3,
-                    "suggested_method_names": [
-                        "setUpdate"
+                    "suggested_move_methods": [
+                        {
+                            "method_name": "setUpdate",
+                            "method_signature": "public void setUpdate(Zip zip, boolean c)",
+                            "target_class": "Zip",
+                            "rationale": "The setUpdate method directly manipulates properties of the Zip class, indicating that it is more appropriate for this method to reside within the Zip class itself."
+                        }
                     ],
-                    "llm_response_time": 2147
+                    "llm_response_time": 1224
                 },
                 {
                     "iteration_num": -1,
-                    "suggested_method_names": [
-                        "setUpdate"
+                    "suggested_move_methods": [
+                        {
+                            "method_name": "setUpdate",
+                            "method_signature": "public void setUpdate(Zip zip, boolean c)",
+                            "target_class": "Zip",
+                            "rationale": "The setUpdate method directly manipulates properties of the Zip class, indicating that it is more appropriate for this method to reside within the Zip class itself."
+                        }
                     ],
                     "llm_response_time": 0
                 }
@@ -2041,7 +2957,7 @@
                 "priority_method_names": [
                     "setUpdate"
                 ],
-                "llm_response_time": 406
+                "llm_response_time": 409
             },
             "targetClassMap": {
                 "setUpdate": {
@@ -2054,8 +2970,8 @@
                     "target_classes_sorted_by_llm": [
                         "Zip"
                     ],
-                    "llm_response_time": 796,
-                    "similarity_computation_time": 10,
+                    "llm_response_time": 806,
+                    "similarity_computation_time": 33,
                     "similarity_metric": "cosine"
                 }
             }
@@ -2065,7 +2981,7 @@
         "oracle": "method org.apache.tools.ant.types.Comparison::setValue(long):void need move to org.apache.tools.ant.types.selectors.SizeSelector",
         "class_name": "org.apache.tools.ant.types.Comparison",
         "telemetry": {
-            "id": "a14f6686-ca09-467d-ab3b-0f39c01b3f78",
+            "id": "d875a8e4-92d9-4129-ab78-33bbf3d8d2ec",
             "hostFunctionTelemetryData": {
                 "hostFunctionSize": 86,
                 "lineStart": 25,
@@ -2091,34 +3007,54 @@
             "processingTime": {
                 "llmResponseTime": -1,
                 "pluginProcessingTime": -1,
-                "totalTime": 3982
+                "totalTime": 5977
             },
             "iterationData": [
                 {
                     "iteration_num": 1,
-                    "suggested_method_names": [
-                        "setValue"
+                    "suggested_move_methods": [
+                        {
+                            "method_name": "setValue",
+                            "method_signature": "public void setValue(SizeSelector sizeSelector, long size)",
+                            "target_class": "SizeSelector",
+                            "rationale": "The setValue method directly manipulates the properties of SizeSelector, indicating that it is more appropriate for this method to reside within the SizeSelector class."
+                        }
                     ],
-                    "llm_response_time": 1042
+                    "llm_response_time": 1068
                 },
                 {
                     "iteration_num": 2,
-                    "suggested_method_names": [
-                        "setValue"
+                    "suggested_move_methods": [
+                        {
+                            "method_name": "setValue",
+                            "method_signature": "public void setValue(SizeSelector sizeSelector, long size)",
+                            "target_class": "SizeSelector",
+                            "rationale": "The setValue method directly manipulates the properties of SizeSelector, indicating that it is more appropriate for this method to reside within the SizeSelector class."
+                        }
                     ],
-                    "llm_response_time": 1485
+                    "llm_response_time": 1536
                 },
                 {
                     "iteration_num": 3,
-                    "suggested_method_names": [
-                        "setValue"
+                    "suggested_move_methods": [
+                        {
+                            "method_name": "setValue",
+                            "method_signature": "public void setValue(SizeSelector sizeSelector, long size)",
+                            "target_class": "SizeSelector",
+                            "rationale": "The setValue method directly manipulates the properties of SizeSelector, indicating that it is more appropriate for this method to reside within the SizeSelector class."
+                        }
                     ],
-                    "llm_response_time": 912
+                    "llm_response_time": 1126
                 },
                 {
                     "iteration_num": -1,
-                    "suggested_method_names": [
-                        "setValue"
+                    "suggested_move_methods": [
+                        {
+                            "method_name": "setValue",
+                            "method_signature": "public void setValue(SizeSelector sizeSelector, long size)",
+                            "target_class": "SizeSelector",
+                            "rationale": "The setValue method directly manipulates the properties of SizeSelector, indicating that it is more appropriate for this method to reside within the SizeSelector class."
+                        }
                     ],
                     "llm_response_time": 0
                 }
@@ -2127,7 +3063,7 @@
                 "priority_method_names": [
                     "setValue"
                 ],
-                "llm_response_time": 412
+                "llm_response_time": 2145
             },
             "targetClassMap": {
                 "setValue": {
@@ -2140,8 +3076,8 @@
                     "target_classes_sorted_by_llm": [
                         "SizeSelector"
                     ],
-                    "llm_response_time": 740,
-                    "similarity_computation_time": 1,
+                    "llm_response_time": 874,
+                    "similarity_computation_time": 0,
                     "similarity_metric": "cosine"
                 }
             }
@@ -2151,7 +3087,7 @@
         "oracle": "- method org.apache.tools.ant.util.LineTokenizer::chain(Reader):Reader need move to org.apache.tools.ant.filters.HeadFilter",
         "class_name": "org.apache.tools.ant.util.LineTokenizer",
         "telemetry": {
-            "id": "6013f8ce-dced-4d37-aa2c-e48e4a1737d4",
+            "id": "c6620a0c-5dd3-4080-8529-21dc0bac6c26",
             "hostFunctionTelemetryData": {
                 "hostFunctionSize": 108,
                 "lineStart": 26,
@@ -2161,40 +3097,70 @@
                 "sourceCode": "/**\n * class to tokenize the input as lines seperated\n * by \\r (mac style), \\r\\n (dos/windows style) or \\n (unix style)\n * @since Ant 1.6\n */\npublic class LineTokenizer extends ProjectComponent\n    implements Tokenizer {\n    private static final int NOT_A_CHAR = -2;\n    private String  lineEnd = \"\";\n    private int     pushed = NOT_A_CHAR;\n    private boolean includeDelims = false;\n\n    /**\n     * attribute includedelims - whether to include\n     * the line ending with the line, or to return\n     * it in the posttoken\n     * default false\n     * @param includeDelims if true include /r and /n in the line\n     */\n\n    public void setIncludeDelims(boolean includeDelims) {\n        this.includeDelims = includeDelims;\n    }\n\n    /**\n     * get the next line from the input\n     *\n     * @param in the input reader\n     * @return the line excluding /r or /n, unless includedelims is set\n     * @exception IOException if an error occurs reading\n     */\n    public String getToken(Reader in) throws IOException {\n        int ch = -1;\n        if (pushed != NOT_A_CHAR) {\n            ch = pushed;\n            pushed = NOT_A_CHAR;\n        } else {\n            ch = in.read();\n        }\n        if (ch == -1) {\n            return null;\n        }\n\n        lineEnd = \"\";\n        StringBuffer line = new StringBuffer();\n\n        int state = 0;\n        while (ch != -1) {\n            if (state == 0) {\n                if (ch == '\\r') {\n                    state = 1;\n                } else if (ch == '\\n') {\n                    lineEnd = \"\\n\";\n                    break;\n                } else {\n                    line.append((char) ch);\n                }\n            } else {\n                state = 0;\n                if (ch == '\\n') {\n                    lineEnd = \"\\r\\n\";\n                } else {\n                    pushed = ch;\n                    lineEnd = \"\\r\";\n                }\n                break;\n            }\n            ch = in.read();\n        }\n        if (ch == -1 && state == 1) {\n            lineEnd = \"\\r\";\n        }\n\n        if (includeDelims) {\n            line.append(lineEnd);\n        }\n        return line.toString();\n    }\n\n    /**\n     * @return the line ending character(s) for the current line\n     */\n    public String getPostToken() {\n        if (includeDelims) {\n            return \"\";\n        }\n        return lineEnd;\n    }\n\n\t/**\n\t * Creates a new HeadFilter using the passed in\n\t * Reader for instantiation.\n\t *\n\t * @param headFilter TODO\n\t * @param rdr A Reader object providing the underlying stream.\n\t *            Must not be <code>null</code>.\n\t * @return a new filter based on this configuration, but filtering\n\t *         the specified reader\n\t */\n\tpublic Reader chain(HeadFilter headFilter, final Reader rdr) {\n\t    HeadFilter newFilter = new HeadFilter(rdr);\n\t    newFilter.setLines(headFilter.getLines());\n\t    newFilter.setSkip(headFilter.getSkip());\n\t    newFilter.setInitialized(true);\n\t    return newFilter;\n\t}\n\n}"
             },
             "candidatesTelemetryData": {
-                "numberOfSuggestions": 0,
-                "candidates": []
+                "numberOfSuggestions": 1,
+                "candidates": [
+                    {
+                        "lineStart": 114,
+                        "lineEnd": 130,
+                        "refactoringType": "MyMoveMethodRefactoring",
+                        "description": "Move method to org.apache.tools.ant.filters.HeadFilter\nRationale: The method 'chain' is responsible for creating a new instance of HeadFilter and configuring it based on another HeadFilter's properties. This functionality is closely related to the HeadFilter class, making it logical to move the method there.",
+                        "couldCreateRefObject": true,
+                        "applied": false,
+                        "undone": false
+                    }
+                ]
             },
             "processingTime": {
                 "llmResponseTime": -1,
                 "pluginProcessingTime": -1,
-                "totalTime": 5356
+                "totalTime": 3831
             },
             "iterationData": [
                 {
                     "iteration_num": 1,
-                    "suggested_method_names": [
-                        "chain"
+                    "suggested_move_methods": [
+                        {
+                            "method_name": "chain",
+                            "method_signature": "public Reader chain(HeadFilter headFilter, final Reader rdr)",
+                            "target_class": "HeadFilter",
+                            "rationale": "The chain() method is responsible for creating and configuring a HeadFilter instance, which suggests that it is more closely related to the HeadFilter class than to LineTokenizer."
+                        }
                     ],
-                    "llm_response_time": 2197
+                    "llm_response_time": 1319
                 },
                 {
                     "iteration_num": 2,
-                    "suggested_method_names": [
-                        "chain"
+                    "suggested_move_methods": [
+                        {
+                            "method_name": "chain",
+                            "method_signature": "public Reader chain(HeadFilter headFilter, final Reader rdr)",
+                            "target_class": "HeadFilter",
+                            "rationale": "The chain() method creates and configures a HeadFilter instance, which suggests that it is more appropriate for this method to reside within the HeadFilter class itself."
+                        }
                     ],
-                    "llm_response_time": 1262
+                    "llm_response_time": 908
                 },
                 {
                     "iteration_num": 3,
-                    "suggested_method_names": [
-                        "chain"
+                    "suggested_move_methods": [
+                        {
+                            "method_name": "chain",
+                            "method_signature": "public Reader chain(HeadFilter headFilter, final Reader rdr)",
+                            "target_class": "HeadFilter",
+                            "rationale": "The chain() method creates and configures a HeadFilter instance, which suggests that it is more related to the HeadFilter class than the LineTokenizer class. Moving it to HeadFilter would improve cohesion."
+                        }
                     ],
-                    "llm_response_time": 1392
+                    "llm_response_time": 1056
                 },
                 {
                     "iteration_num": -1,
-                    "suggested_method_names": [
-                        "chain"
+                    "suggested_move_methods": [
+                        {
+                            "method_name": "chain",
+                            "method_signature": "public Reader chain(HeadFilter headFilter, final Reader rdr)",
+                            "target_class": "HeadFilter",
+                            "rationale": "The chain() method is responsible for creating and configuring a HeadFilter instance, which suggests that it is more closely related to the HeadFilter class than to LineTokenizer."
+                        }
                     ],
                     "llm_response_time": 0
                 }
@@ -2203,14 +3169,21 @@
                 "priority_method_names": [
                     "chain"
                 ],
-                "llm_response_time": 412
+                "llm_response_time": 472
             },
             "targetClassMap": {
                 "chain": {
-                    "target_classes": [],
-                    "target_classes_sorted_by_llm": [],
-                    "llm_response_time": 1272,
-                    "similarity_computation_time": 0,
+                    "target_classes": [
+                        {
+                            "class_name": "HeadFilter",
+                            "similarity_score": 0.632866127544804
+                        }
+                    ],
+                    "target_classes_sorted_by_llm": [
+                        "HeadFilter"
+                    ],
+                    "llm_response_time": 953,
+                    "similarity_computation_time": 1,
                     "similarity_metric": "cosine"
                 }
             }
@@ -2220,7 +3193,7 @@
         "oracle": "method org.apache.tools.ant.types.RedirectorElement::setSpawn(boolean):void need move to org.apache.tools.ant.taskdefs.ExecTask",
         "class_name": "org.apache.tools.ant.types.RedirectorElement",
         "telemetry": {
-            "id": "369c10c2-8cde-4d71-959f-41e7f1820ebd",
+            "id": "f04a65b1-7dfc-4717-bb68-904e4849f646",
             "hostFunctionTelemetryData": {
                 "hostFunctionSize": 594,
                 "lineStart": 31,
@@ -2246,34 +3219,54 @@
             "processingTime": {
                 "llmResponseTime": -1,
                 "pluginProcessingTime": -1,
-                "totalTime": 5213
+                "totalTime": 4738
             },
             "iterationData": [
                 {
                     "iteration_num": 1,
-                    "suggested_method_names": [
-                        "setSpawn"
+                    "suggested_move_methods": [
+                        {
+                            "method_name": "setSpawn",
+                            "method_signature": "public void setSpawn(ExecTask execTask, boolean spawn)",
+                            "target_class": "ExecTask",
+                            "rationale": "The setSpawn method directly manipulates the state of the ExecTask instance, which suggests that it is more appropriate for this method to reside within the ExecTask class."
+                        }
                     ],
-                    "llm_response_time": 1059
+                    "llm_response_time": 1680
                 },
                 {
                     "iteration_num": 2,
-                    "suggested_method_names": [
-                        "setSpawn"
+                    "suggested_move_methods": [
+                        {
+                            "method_name": "setSpawn",
+                            "method_signature": "public void setSpawn(ExecTask execTask, boolean spawn)",
+                            "target_class": "ExecTask",
+                            "rationale": "The setSpawn method directly manipulates the state of the ExecTask instance, which suggests that it belongs within the ExecTask class rather than the RedirectorElement class."
+                        }
                     ],
-                    "llm_response_time": 1844
+                    "llm_response_time": 1133
                 },
                 {
                     "iteration_num": 3,
-                    "suggested_method_names": [
-                        "setSpawn"
+                    "suggested_move_methods": [
+                        {
+                            "method_name": "setSpawn",
+                            "method_signature": "public void setSpawn(ExecTask execTask, boolean spawn)",
+                            "target_class": "ExecTask",
+                            "rationale": "The setSpawn method directly manipulates the state of the ExecTask instance, which suggests that it belongs in the ExecTask class rather than the RedirectorElement class."
+                        }
                     ],
-                    "llm_response_time": 1733
+                    "llm_response_time": 1132
                 },
                 {
                     "iteration_num": -1,
-                    "suggested_method_names": [
-                        "setSpawn"
+                    "suggested_move_methods": [
+                        {
+                            "method_name": "setSpawn",
+                            "method_signature": "public void setSpawn(ExecTask execTask, boolean spawn)",
+                            "target_class": "ExecTask",
+                            "rationale": "The setSpawn method directly manipulates the state of the ExecTask instance, which suggests that it is more appropriate for this method to reside within the ExecTask class."
+                        }
                     ],
                     "llm_response_time": 0
                 }
@@ -2282,7 +3275,7 @@
                 "priority_method_names": [
                     "setSpawn"
                 ],
-                "llm_response_time": 501
+                "llm_response_time": 710
             },
             "targetClassMap": {
                 "setSpawn": {
@@ -2310,8 +3303,8 @@
                         "Mapper",
                         "Mapper"
                     ],
-                    "llm_response_time": 1208,
-                    "similarity_computation_time": 4,
+                    "llm_response_time": 1191,
+                    "similarity_computation_time": 2,
                     "similarity_metric": "cosine"
                 }
             }

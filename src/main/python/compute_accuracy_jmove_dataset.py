@@ -9,9 +9,10 @@ def myindex(list, ele):
 
 
 plugin_outfiles = [
-    'comparison_derby_small.json',
+    'comparison_ant_large.json',
     'comparison_ant_small.json',
-    'comparison.json',
+    'comparison_derby_large.json',
+    'comparison_derby_small.json',
     'comparison_drjava_large.json',
     'comparison_drjava_small.json',
     'comparison_jfreechart_large.json',
@@ -20,12 +21,14 @@ plugin_outfiles = [
     'comparison_jgroups_small.json',
     'comparison_jhotdraw_large.json',
     'comparison_jhotdraw_small.json',
-    'comparison_jtopen_large.json',
+    'comparison_jtopen_large.json', #incomplete
     'comparison_junit_large.json',
     'comparison_junit_small.json',
     'comparison_mvnforum_large.json',
-    'comparison_mvnforum_small.json'
-
+    'comparison_mvnforum_small.json',
+    'comparison_tapestry_large.json',
+    'comparison_tapestry_small.json',
+     # lucene missing
 ]
 
 combined_output = []
@@ -82,6 +85,8 @@ recall_method_all = len([i for i in combined_output if i['recall_method_position
 print(f"recall method @1 = {recall_method_1}")
 print(f"recall method&class @1 = {recall_method_and_class_1}")
 
-print(f"recall method @2 = {recall_method_1}")
-print(f"recall method&class @2 = {recall_method_and_class_1}")
-print(combined_output)
+print(f"recall method @2 = {recall_method_2}")
+print(f"recall method&class @2 = {recall_method_and_class_2}")
+
+print(f"recall method @inf = {recall_method_all}")
+print(f"recall method&class @inf = {recall_method_and_class_all}")

@@ -3,7 +3,7 @@
         "oracle": "method org.apache.derby.client.net.NetConnectionReply::getInputStream():java.io.InputStream need move to org.apache.derby.client.net.NetAgent",
         "class_name": "org.apache.derby.client.net.NetConnectionReply",
         "telemetry": {
-            "id": "a8813be1-45ea-4da1-ad68-3162f946b6f1",
+            "id": "79acf767-451f-457e-900e-2595980b0db6",
             "hostFunctionTelemetryData": {
                 "hostFunctionSize": 3357,
                 "lineStart": 44,
@@ -16,151 +16,284 @@
                 "numberOfSuggestions": 0,
                 "candidates": []
             },
-            "processingTime": {
-                "llmResponseTime": -1,
-                "pluginProcessingTime": -1,
-                "totalTime": 62504
-            },
             "iterationData": [
                 {
                     "iteration_num": 1,
-                    "suggested_method_names": [
-                        "parseEXCSATreply",
-                        "parseDummyEXCSATreply",
-                        "parseACCSECreply",
-                        "parseSECCHKreply",
-                        "parseACCRDBreply",
-                        "parseRDBNACRM",
-                        "parseRDBNFNRM",
-                        "parseRDBATHRM",
-                        "parseRDBAFLRM",
-                        "parseMGRLVLRM",
-                        "parseCMDCHKRM"
+                    "suggested_move_methods": [
+                        {
+                            "method_name": "parseMGRLVLLS",
+                            "method_signature": "private void parseMGRLVLLS(NetConnection netConnection) throws DisconnectException",
+                            "target_class": "ManagerLevelParser",
+                            "rationale": "The method parseMGRLVLLS is responsible for parsing manager-level information, which is a distinct concern that could be better encapsulated in a separate class dedicated to managing and parsing manager-level data."
+                        },
+                        {
+                            "method_name": "parseEXCSATRD",
+                            "method_signature": "private void parseEXCSATRD(NetConnection netConnection) throws DisconnectException",
+                            "target_class": "ServerAttributesParser",
+                            "rationale": "The method parseEXCSATRD handles the parsing of server attributes, which is a specific responsibility that can be moved to a dedicated class focused on server attribute parsing."
+                        },
+                        {
+                            "method_name": "parseACCSECRD",
+                            "method_signature": "private void parseACCSECRD(NetConnection netConnection, int securityMechanism) throws DisconnectException",
+                            "target_class": "AccessSecurityParser",
+                            "rationale": "The method parseACCSECRD is specifically focused on parsing access security data, which can be better managed in a separate class dedicated to access security parsing."
+                        },
+                        {
+                            "method_name": "parseSQLCARD",
+                            "method_signature": "protected NetSqlca parseSQLCARD(Sqlca[] rowsetSqlca) throws DisconnectException",
+                            "target_class": "SqlCardParser",
+                            "rationale": "The method parseSQLCARD is responsible for parsing SQLCARD data, which is a specific functionality that can be encapsulated in a dedicated class for SQLCARD parsing."
+                        },
+                        {
+                            "method_name": "parseSQLDIAGGRP",
+                            "method_signature": "private long parseSQLDIAGGRP(Sqlca[] rowsetSqlca) throws DisconnectException",
+                            "target_class": "SqlDiagnosticsParser",
+                            "rationale": "The method parseSQLDIAGGRP is focused on parsing SQL diagnostics data, which can be better organized in a separate class dedicated to SQL diagnostics parsing."
+                        },
+                        {
+                            "method_name": "parseSQLCAGRP",
+                            "method_signature": "private NetSqlca parseSQLCAGRP(Sqlca[] rowsetSqlca) throws DisconnectException",
+                            "target_class": "SqlcaGroupParser",
+                            "rationale": "The method parseSQLCAGRP is responsible for parsing SQL communications area data, which can be encapsulated in a dedicated class for better organization and separation of concerns."
+                        },
+                        {
+                            "method_name": "doMgrlvlrmSemantics",
+                            "method_signature": "private void doMgrlvlrmSemantics(String manager, String level) throws DisconnectException",
+                            "target_class": "ManagerLevelSemanticsHandler",
+                            "rationale": "The method doMgrlvlrmSemantics handles the semantics related to manager levels, which can be better managed in a separate class dedicated to handling manager level semantics."
+                        },
+                        {
+                            "method_name": "doValnsprmSemantics",
+                            "method_signature": "void doValnsprmSemantics(int codePoint, String value) throws DisconnectException",
+                            "target_class": "ValidationSemanticsHandler",
+                            "rationale": "The method doValnsprmSemantics is focused on handling validation semantics, which can be better organized in a dedicated class for validation handling."
+                        }
                     ],
-                    "llm_response_time": 20797
+                    "llm_response_time": 17614
                 },
                 {
                     "iteration_num": 2,
-                    "suggested_method_names": [
-                        "parseMGRLVLLS",
-                        "parseEXCSATRD",
-                        "parseACCSECRD",
-                        "parseSQLCARD",
-                        "parseSQLDIAGGRP",
-                        "parseSQLCAGRP",
-                        "doMgrlvlrmSemantics",
-                        "doValnsprmSemantics"
+                    "suggested_move_methods": [
+                        {
+                            "method_name": "parseMGRLVLLS",
+                            "method_signature": "private void parseMGRLVLLS(NetConnection netConnection) throws DisconnectException",
+                            "target_class": "ManagerLevelParser",
+                            "rationale": "The method parseMGRLVLLS is responsible for parsing manager-level information, which is a distinct concern that could be encapsulated in a separate class dedicated to managing and parsing manager-level data."
+                        },
+                        {
+                            "method_name": "parseEXCSATRD",
+                            "method_signature": "private void parseEXCSATRD(NetConnection netConnection) throws DisconnectException",
+                            "target_class": "ServerAttributesParser",
+                            "rationale": "The method parseEXCSATRD deals specifically with parsing server attributes, which can be logically separated into a dedicated class for better organization and single responsibility."
+                        },
+                        {
+                            "method_name": "parseACCSECRD",
+                            "method_signature": "private void parseACCSECRD(NetConnection netConnection, int securityMechanism) throws DisconnectException",
+                            "target_class": "AccessSecurityParser",
+                            "rationale": "The method parseACCSECRD is focused on parsing access security data, which should be handled by a dedicated class that manages security-related parsing operations."
+                        },
+                        {
+                            "method_name": "parseSQLCARD",
+                            "method_signature": "protected NetSqlca parseSQLCARD(Sqlca[] rowsetSqlca) throws DisconnectException",
+                            "target_class": "SqlCardParser",
+                            "rationale": "The method parseSQLCARD is specifically responsible for parsing SQLCARD data, which can be encapsulated in a dedicated class to improve code organization and maintainability."
+                        },
+                        {
+                            "method_name": "parseSQLDIAGSTT",
+                            "method_signature": "private long parseSQLDIAGSTT(Sqlca[] rowsetSqlca) throws DisconnectException",
+                            "target_class": "SqlDiagnosticsParser",
+                            "rationale": "The method parseSQLDIAGSTT is focused on parsing SQL diagnostics data, which can be logically separated into a dedicated class for better organization and adherence to the single responsibility principle."
+                        },
+                        {
+                            "method_name": "parseSQLCNGRP",
+                            "method_signature": "private void parseSQLCNGRP() throws DisconnectException",
+                            "target_class": "SqlConnectionParser",
+                            "rationale": "The method parseSQLCNGRP is responsible for parsing connection-related data, which can be encapsulated in a dedicated class that manages connection parsing operations."
+                        },
+                        {
+                            "method_name": "parseSQLDCGRP",
+                            "method_signature": "private int parseSQLDCGRP(Sqlca[] rowsetSqlca, int lastRow) throws DisconnectException",
+                            "target_class": "SqlDiagnosticsConditionParser",
+                            "rationale": "The method parseSQLDCGRP is focused on parsing SQL diagnostics condition data, which should be handled by a dedicated class that manages condition-related parsing operations."
+                        },
+                        {
+                            "method_name": "parseSQLTOKGRP",
+                            "method_signature": "private void parseSQLTOKGRP() throws DisconnectException",
+                            "target_class": "SqlTokenParser",
+                            "rationale": "The method parseSQLTOKGRP is responsible for parsing SQL token data, which can be logically separated into a dedicated class for better organization and maintainability."
+                        },
+                        {
+                            "method_name": "parseSQLCAGRP",
+                            "method_signature": "private NetSqlca parseSQLCAGRP(Sqlca[] rowsetSqlca) throws DisconnectException",
+                            "target_class": "SqlCommunicationsAreaParser",
+                            "rationale": "The method parseSQLCAGRP is specifically responsible for parsing SQL communications area data, which can be encapsulated in a dedicated class to improve code organization and maintainability."
+                        }
                     ],
-                    "llm_response_time": 15776
+                    "llm_response_time": 15531
                 },
                 {
                     "iteration_num": 3,
-                    "suggested_method_names": [
-                        "parseMGRLVLLS",
-                        "parseSQLCARD",
-                        "parseSQLCAGRP",
-                        "parseSQLDIAGGRP",
-                        "parseSQLDCGRP",
-                        "parseSQLCNGRP",
-                        "parseSQLTOKGRP",
-                        "parseSQLDIAGSTT",
-                        "parseSQLCNROW",
-                        "parseSQLTOKROW"
+                    "suggested_move_methods": [
+                        {
+                            "method_name": "parseMGRLVLLS",
+                            "method_signature": "private void parseMGRLVLLS(NetConnection netConnection) throws DisconnectException",
+                            "target_class": "ManagerLevelParser",
+                            "rationale": "The method parseMGRLVLLS is responsible for parsing manager-level information, which is a distinct concern that could be encapsulated in a separate class dedicated to managing and parsing manager-level data."
+                        },
+                        {
+                            "method_name": "parseEXCSATRD",
+                            "method_signature": "private void parseEXCSATRD(NetConnection netConnection) throws DisconnectException",
+                            "target_class": "ServerAttributesParser",
+                            "rationale": "The method parseEXCSATRD deals specifically with parsing server attributes, which can be logically separated into a dedicated class for better organization and single responsibility."
+                        },
+                        {
+                            "method_name": "parseACCSECRD",
+                            "method_signature": "private void parseACCSECRD(NetConnection netConnection, int securityMechanism) throws DisconnectException",
+                            "target_class": "AccessSecurityParser",
+                            "rationale": "The method parseACCSECRD is focused on parsing access security data, which can be encapsulated in a separate class that handles all access security-related parsing."
+                        },
+                        {
+                            "method_name": "parseSQLCARD",
+                            "method_signature": "protected NetSqlca parseSQLCARD(Sqlca[] rowsetSqlca) throws DisconnectException",
+                            "target_class": "SqlCardParser",
+                            "rationale": "The method parseSQLCARD is specifically responsible for parsing SQLCARD data, which can be better managed in a dedicated class that focuses on SQLCARD parsing."
+                        },
+                        {
+                            "method_name": "parseSQLDIAGSTT",
+                            "method_signature": "private long parseSQLDIAGSTT(Sqlca[] rowsetSqlca) throws DisconnectException",
+                            "target_class": "SqlDiagnosticsParser",
+                            "rationale": "The method parseSQLDIAGSTT is focused on parsing SQL diagnostics data, which can be logically separated into a dedicated class for better organization and clarity."
+                        },
+                        {
+                            "method_name": "parseSQLDIAGCI",
+                            "method_signature": "private void parseSQLDIAGCI(Sqlca[] rowsetSqlca) throws DisconnectException",
+                            "target_class": "SqlDiagnosticsParser",
+                            "rationale": "The method parseSQLDIAGCI is also related to SQL diagnostics and should be grouped with other SQL diagnostics parsing methods in a dedicated class."
+                        },
+                        {
+                            "method_name": "parseSQLCNGRP",
+                            "method_signature": "private void parseSQLCNGRP() throws DisconnectException",
+                            "target_class": "SqlConnectionParser",
+                            "rationale": "The method parseSQLCNGRP is responsible for parsing connection-related data and can be moved to a dedicated class that handles all connection parsing."
+                        },
+                        {
+                            "method_name": "parseSQLCAGRP",
+                            "method_signature": "private NetSqlca parseSQLCAGRP(Sqlca[] rowsetSqlca) throws DisconnectException",
+                            "target_class": "SqlCardGroupParser",
+                            "rationale": "The method parseSQLCAGRP is focused on parsing SQL communications area data and should be encapsulated in a dedicated class for better organization."
+                        },
+                        {
+                            "method_name": "parseSQLTOKGRP",
+                            "method_signature": "private void parseSQLTOKGRP() throws DisconnectException",
+                            "target_class": "SqlTokenParser",
+                            "rationale": "The method parseSQLTOKGRP is responsible for parsing SQL token data and can be logically separated into a dedicated class for clarity and organization."
+                        },
+                        {
+                            "method_name": "parseSQLDCGRP",
+                            "method_signature": "private int parseSQLDCGRP(Sqlca[] rowsetSqlca, int lastRow) throws DisconnectException",
+                            "target_class": "SqlDiagnosticsGroupParser",
+                            "rationale": "The method parseSQLDCGRP is focused on parsing SQL diagnostics condition data and should be moved to a dedicated class that handles all diagnostics group parsing."
+                        }
                     ],
-                    "llm_response_time": 19581
+                    "llm_response_time": 18647
                 },
                 {
                     "iteration_num": -1,
-                    "suggested_method_names": [
-                        "parseEXCSATreply",
-                        "parseDummyEXCSATreply",
-                        "parseACCSECreply",
-                        "parseSECCHKreply",
-                        "parseACCRDBreply",
-                        "parseRDBNACRM",
-                        "parseRDBNFNRM",
-                        "parseRDBATHRM",
-                        "parseRDBAFLRM",
-                        "parseMGRLVLRM",
-                        "parseCMDCHKRM",
-                        "parseMGRLVLLS",
-                        "parseEXCSATRD",
-                        "parseACCSECRD",
-                        "parseSQLCARD",
-                        "parseSQLDIAGGRP",
-                        "parseSQLCAGRP",
-                        "doMgrlvlrmSemantics",
-                        "doValnsprmSemantics",
-                        "parseSQLDCGRP",
-                        "parseSQLCNGRP",
-                        "parseSQLTOKGRP",
-                        "parseSQLDIAGSTT",
-                        "parseSQLCNROW",
-                        "parseSQLTOKROW"
+                    "suggested_move_methods": [
+                        {
+                            "method_name": "parseMGRLVLLS",
+                            "method_signature": "private void parseMGRLVLLS(NetConnection netConnection) throws DisconnectException",
+                            "target_class": "ManagerLevelParser",
+                            "rationale": "The method parseMGRLVLLS is responsible for parsing manager-level information, which is a distinct concern that could be better encapsulated in a separate class dedicated to managing and parsing manager-level data."
+                        },
+                        {
+                            "method_name": "parseEXCSATRD",
+                            "method_signature": "private void parseEXCSATRD(NetConnection netConnection) throws DisconnectException",
+                            "target_class": "ServerAttributesParser",
+                            "rationale": "The method parseEXCSATRD handles the parsing of server attributes, which is a specific responsibility that can be moved to a dedicated class focused on server attribute parsing."
+                        },
+                        {
+                            "method_name": "parseACCSECRD",
+                            "method_signature": "private void parseACCSECRD(NetConnection netConnection, int securityMechanism) throws DisconnectException",
+                            "target_class": "AccessSecurityParser",
+                            "rationale": "The method parseACCSECRD is specifically focused on parsing access security data, which can be better managed in a separate class dedicated to access security parsing."
+                        },
+                        {
+                            "method_name": "parseSQLCARD",
+                            "method_signature": "protected NetSqlca parseSQLCARD(Sqlca[] rowsetSqlca) throws DisconnectException",
+                            "target_class": "SqlCardParser",
+                            "rationale": "The method parseSQLCARD is responsible for parsing SQLCARD data, which is a specific functionality that can be encapsulated in a dedicated class for SQLCARD parsing."
+                        },
+                        {
+                            "method_name": "parseSQLDIAGGRP",
+                            "method_signature": "private long parseSQLDIAGGRP(Sqlca[] rowsetSqlca) throws DisconnectException",
+                            "target_class": "SqlDiagnosticsParser",
+                            "rationale": "The method parseSQLDIAGGRP is focused on parsing SQL diagnostics data, which can be better organized in a separate class dedicated to SQL diagnostics parsing."
+                        },
+                        {
+                            "method_name": "parseSQLCAGRP",
+                            "method_signature": "private NetSqlca parseSQLCAGRP(Sqlca[] rowsetSqlca) throws DisconnectException",
+                            "target_class": "SqlcaGroupParser",
+                            "rationale": "The method parseSQLCAGRP is responsible for parsing SQL communications area data, which can be encapsulated in a dedicated class for better organization and separation of concerns."
+                        },
+                        {
+                            "method_name": "doMgrlvlrmSemantics",
+                            "method_signature": "private void doMgrlvlrmSemantics(String manager, String level) throws DisconnectException",
+                            "target_class": "ManagerLevelSemanticsHandler",
+                            "rationale": "The method doMgrlvlrmSemantics handles the semantics related to manager levels, which can be better managed in a separate class dedicated to handling manager level semantics."
+                        },
+                        {
+                            "method_name": "doValnsprmSemantics",
+                            "method_signature": "void doValnsprmSemantics(int codePoint, String value) throws DisconnectException",
+                            "target_class": "ValidationSemanticsHandler",
+                            "rationale": "The method doValnsprmSemantics is focused on handling validation semantics, which can be better organized in a dedicated class for validation handling."
+                        },
+                        {
+                            "method_name": "parseSQLDIAGSTT",
+                            "method_signature": "private long parseSQLDIAGSTT(Sqlca[] rowsetSqlca) throws DisconnectException",
+                            "target_class": "SqlDiagnosticsParser",
+                            "rationale": "The method parseSQLDIAGSTT is focused on parsing SQL diagnostics data, which can be logically separated into a dedicated class for better organization and adherence to the single responsibility principle."
+                        },
+                        {
+                            "method_name": "parseSQLCNGRP",
+                            "method_signature": "private void parseSQLCNGRP() throws DisconnectException",
+                            "target_class": "SqlConnectionParser",
+                            "rationale": "The method parseSQLCNGRP is responsible for parsing connection-related data, which can be encapsulated in a dedicated class that manages connection parsing operations."
+                        },
+                        {
+                            "method_name": "parseSQLDCGRP",
+                            "method_signature": "private int parseSQLDCGRP(Sqlca[] rowsetSqlca, int lastRow) throws DisconnectException",
+                            "target_class": "SqlDiagnosticsConditionParser",
+                            "rationale": "The method parseSQLDCGRP is focused on parsing SQL diagnostics condition data, which should be handled by a dedicated class that manages condition-related parsing operations."
+                        },
+                        {
+                            "method_name": "parseSQLTOKGRP",
+                            "method_signature": "private void parseSQLTOKGRP() throws DisconnectException",
+                            "target_class": "SqlTokenParser",
+                            "rationale": "The method parseSQLTOKGRP is responsible for parsing SQL token data, which can be logically separated into a dedicated class for better organization and maintainability."
+                        },
+                        {
+                            "method_name": "parseSQLDIAGCI",
+                            "method_signature": "private void parseSQLDIAGCI(Sqlca[] rowsetSqlca) throws DisconnectException",
+                            "target_class": "SqlDiagnosticsParser",
+                            "rationale": "The method parseSQLDIAGCI is also related to SQL diagnostics and should be grouped with other SQL diagnostics parsing methods in a dedicated class."
+                        }
                     ],
                     "llm_response_time": 0
                 }
             ],
             "llmMethodPriority": {
-                "priority_method_names": [
-                    "parseEXCSATreply",
-                    "parseACCSECreply",
-                    "parseSECCHKreply",
-                    "parseACCRDBreply",
-                    "parseRDBNACRM",
-                    "parseRDBNFNRM",
-                    "parseRDBATHRM",
-                    "parseRDBAFLRM",
-                    "parseMGRLVLRM",
-                    "parseCMDCHKRM",
-                    "parseMGRLVLLS",
-                    "parseEXCSATRD",
-                    "parseACCSECRD",
-                    "parseSQLCARD",
-                    "parseSQLCAGRP",
-                    "parseSQLDIAGGRP",
-                    "parseSQLDIAGSTT",
-                    "doValnsprmSemantics",
-                    "doMgrlvlrmSemantics",
-                    "parseSQLCNGRP",
-                    "parseSQLTOKGRP",
-                    "parseSQLCNROW",
-                    "parseSQLTOKROW",
-                    "parseDummyEXCSATreply",
-                    "parseSQLDCGRP"
-                ],
-                "llm_response_time": 6171
+                "explanation": "Based on the provided Java class and the context of move-method refactoring, the following ranking prioritizes methods that are likely to be more cohesive with their respective classes or that could benefit from being moved to improve encapsulation and maintainability. Here\u2019s the JSON list of the ranked move-method suggestions:\n\n```json\n[\n    \"parseSQLCARD\",\n    \"parseEXCSATRD\",\n    \"parseACCSECRD\",\n    \"parseSQLDIAGGRP\",\n    \"parseSQLCAGRP\",\n    \"parseSQLDIAGSTT\",\n    \"parseSQLCNGRP\",\n    \"parseSQLDCGRP\",\n    \"parseSQLTOKGRP\",\n    \"parseSQLDIAGCI\",\n    \"parseMGRLVLLS\",\n    \"doMgrlvlrmSemantics\",\n    \"doValnsprmSemantics\"\n]\n```\n\n### Explanation:\n1. **parseSQLCARD**: This method is fundamental for parsing SQLCARD data and is likely to be used in various contexts, making it a strong candidate for encapsulation.\n2. **parseEXCSATRD**: This method deals with server attributes and is closely related to connection management, making it important to keep it cohesive.\n3. **parseACCSECRD**: This method handles access security data, which is critical for connection security and should be encapsulated.\n4. **parseSQLDIAGGRP**: This method is responsible for parsing SQL diagnostics, which is essential for error handling and should be kept cohesive.\n5. **parseSQLCAGRP**: Similar to SQLCARD, this method deals with SQL communications area parsing, making it important for encapsulation.\n6. **parseSQLDIAGSTT**: This method is related to SQL diagnostics and should be kept cohesive with other diagnostic methods.\n7. **parseSQLCNGRP**: This method deals with connection diagnostics, which is important for maintaining connection integrity.\n8. **parseSQLDCGRP**: This method is related to diagnostics and should be kept cohesive with other diagnostic methods.\n9. **parseSQLTOKGRP**: This method handles token parsing, which is relevant for diagnostics and should be kept cohesive.\n10. **parseSQLDIAGCI**: This method is related to diagnostics and should be kept cohesive with other diagnostic methods.\n11. **parseMGRLVLLS**: This method deals with manager-level parsing, which is important but less critical than the others.\n12. **doMgrlvlrmSemantics**: This method handles manager-level error semantics, which is important but can be less critical than the parsing methods.\n13. **doValnsprmSemantics**: This method handles parameter value error semantics, which is also important but less critical than the parsing methods. \n\nThe ranking reflects the importance of maintaining cohesion and encapsulation in the context of the class's responsibilities.",
+                "llm_response_time": 13074
             },
-            "targetClassMap": {
-                "parseEXCSATreply": {
-                    "target_classes": [],
-                    "target_classes_sorted_by_llm": [],
-                    "llm_response_time": 1173,
-                    "similarity_computation_time": 0,
-                    "similarity_metric": "cosine"
-                },
-                "parseACCSECreply": {
-                    "target_classes": [],
-                    "target_classes_sorted_by_llm": [],
-                    "llm_response_time": 1691,
-                    "similarity_computation_time": 0,
-                    "similarity_metric": "cosine"
-                },
-                "parseSECCHKreply": {
-                    "target_classes": [],
-                    "target_classes_sorted_by_llm": [],
-                    "llm_response_time": 1908,
-                    "similarity_computation_time": 0,
-                    "similarity_metric": "cosine"
-                }
-            }
+            "targetClassMap": {}
         }
     },
     {
         "oracle": "- method org.apache.derby.impl.store.access.btree.OpenBTree::lockScanRow(OpenBTree, BTree, BTreeRowPosition, FetchDescriptor, DataValueDescriptor[], RowLocation, boolean, boolean, int):boolean need move to org.apache.derby.impl.store.access.btree.index.B2IRowLocking1",
         "class_name": "org.apache.derby.impl.store.access.btree.OpenBTree",
         "telemetry": {
-            "id": "aa0e1e9e-99a2-4288-a121-bc144f5a42d4",
+            "id": "8af2eb59-e1a9-4a6f-8fbc-ad2478d81f1c",
             "hostFunctionTelemetryData": {
                 "hostFunctionSize": 678,
                 "lineStart": 43,
@@ -170,13 +303,31 @@
                 "sourceCode": "/**\n\n  An open b-tree contains fields and methods common to scans and controllers.\n  <P>\n  <B>Concurrency Notes</B>\n  <P>\n  An instance of an open b-tree is owned by a single context.  The b-tree code\n  assumes that the context ensures that only one thread at a time is using\n  the open b-tree.  The open b-tree itself does not enforce or check this.\n\n**/\n\npublic class OpenBTree \n{\n\t/*\n\t** Fields of OpenBTree\n\t*/\n\n    /**\n     * The following group of fields are all basic input parameters which are\n     * provided by the calling code when doing any sort of operation requiring\n     * an open conglomerate (openScan(), open(), openCostController(), ...).\n     * These are just saved values from what was initially input.\n     **/\n    private BTree                           init_conglomerate;\n\n    /**\n    The TransactionManager that open'd this btree.  In the case of Internal\n    transactions used by split this will be the internal transaction, and \n    init_open_user_scans will be the user transaction that began the internal\n    transaction.\n    **/\n    private TransactionManager              init_xact_manager;\n\n    private Transaction                     init_rawtran;\n\n\t/**\n\tThe ContainerHandle mode the container is opened with.  Remember this so\n\tthat if the BTree needs to do SMO with another transaction, it would open\n\tthe container with the same mode.\n\t**/\n    private int                             init_openmode;\n\n    /**\n    Table or page locking?\n    **/\n    protected int                           init_lock_level;\n\n    private boolean                         init_hold;\n\n    /**\n    The Locking Policy to use for for access to this btree.\n    **/\n    private BTreeLockingPolicy              init_btree_locking_policy;\n\n\t\n\t/**\n\tThe (open) container which contains the b-tree.\n\t**/\n\tprotected ContainerHandle container;\n\n    /**\n    The conglomerate containerid for error reporting.\n    **/\n    protected long  err_containerid;\n\n    /** The user transaction that opened this B-tree. */\n    protected TransactionManager init_open_user_scans = null;\n\n\n    protected LogicalUndo btree_undo = null;\n\n    /**\n     * scratch space used for stuff like templates, export rows, ...\n     **/\n    protected OpenConglomerateScratchSpace  runtime_mem;\n\n    /**************************************************************************\n     * Public Accessors of This class:\n     **************************************************************************\n     */\n    public final TransactionManager getXactMgr()\n    {\n        return(init_xact_manager);\n    }\n\n    public final Transaction getRawTran()\n    {\n        return(init_rawtran);\n    }\n    public final int getLockLevel()\n    {\n        return(init_lock_level);\n    }\n\n    public final ContainerHandle getContainer()\n    {\n        return(container);\n    }\n\n    public final int getOpenMode()\n    {\n        return(init_openmode);\n    }\n    \n    public final BTree getConglomerate()\n    {\n        return(init_conglomerate);\n    }\n\n    public final boolean getHold()\n    {\n        return(init_hold);\n    }\n    public final BTreeLockingPolicy getLockingPolicy()\n    {\n        return(init_btree_locking_policy);\n    }\n    public final void setLockingPolicy(BTreeLockingPolicy policy)\n    {\n        init_btree_locking_policy = policy;\n    }\n\n\n    public final boolean isClosed()\n    {\n        return(container == null);\n    }\n\n    public final OpenConglomerateScratchSpace getRuntimeMem()\n    {\n        return(runtime_mem);\n    }\n\n    /**************************************************************************\n     * Public Methods of RowCountable class:\n     **************************************************************************\n     */\n\n    /**\n     * Get the total estimated number of rows in the container.\n     * <p>\n     * The number is a rough estimate and may be grossly off.  In general\n     * the server will cache the row count and then occasionally write\n     * the count unlogged to a backing store.  If the system happens to \n     * shutdown before the store gets a chance to update the row count it\n     * may wander from reality.\n     * <p>\n     * This call is currently only supported on Heap conglomerates, it\n     * will throw an exception if called on btree conglomerates.\n     *\n\t * @return The total estimated number of rows in the conglomerate.\n     *\n\t * @exception  StandardException  Standard exception policy.\n     **/\n    public long getEstimatedRowCount()\n\t\tthrows StandardException\n    {\n        if (container == null)\n            reopen();\n\n        // Don't return 0 rows (return 1 instead), as this often leads the \n        // optimizer to produce plans which don't use indexes because of the 0 \n        // row edge case.\n        //\n        // Eventually the plan is recompiled when rows are added, but we\n        // have seen multiple customer cases of deadlocks and timeouts \n        // because of these 0 row based plans.  \n        long row_count = \n            this.container.getEstimatedRowCount(/* unused flag */ 0);\n\n        return(row_count == 0 ? 1 : row_count);\n    }\n\n    /**\n     * Set the total estimated number of rows in the container.\n     * <p>\n     * Often, after a scan, the client of RawStore has a much better estimate\n     * of the number of rows in the container than what store has.  For \n     * instance if we implement some sort of update statistics command, or\n     * just after a create index a complete scan will have been done of the\n     * table.  In this case this interface allows the client to set the\n     * estimated row count for the container, and store will use that number\n     * for all future references.\n     * <p>\n     * This call is currently only supported on Heap conglomerates, it\n     * will throw an exception if called on btree conglomerates.\n     *\n     * @param count the estimated number of rows in the container.\n     *\n\t * @exception  StandardException  Standard exception policy.\n     **/\n    public void setEstimatedRowCount(long count)\n\t\tthrows StandardException\n    {\n        if (container == null)\n            reopen();\n\n        this.container.setEstimatedRowCount(count, /* unused flag */ 0);\n    }\n\n\n    /**************************************************************************\n     * Public Methods of ConglomerateController interface:\n     **************************************************************************\n     */\n\n    /**\n     * Check consistency of a btree.\n     * <p>\n     * Read in root and check consistency of entire tree.  Currently raises\n     * sanity check errors.\n     * <p>\n     * RESOLVE (mikem) if this is to be supported in non-sanity servers what \n     * should it do?\n     *\n\t * @exception  StandardException  Standard exception policy.\n     **/\n    public void checkConsistency()\n\t\tthrows StandardException\n    {\n\t\tControlRow root = null;\n\n        try\n        {\n            if (this.container == null)\n            {\n                throw(StandardException.newException(\n                        SQLState.BTREE_IS_CLOSED, new Long(err_containerid)));\n            }\n\n            if (SanityManager.DEBUG)\n                SanityManager.ASSERT(this.init_conglomerate.format_ids != null);\n\n            root = ControlRow.get(this, BTree.ROOTPAGEID);\n\n            int actualpages = root.checkConsistency(this, null, true);\n\n            // RESOLVE (mikem) - anything useful to assert about number of pages\n            // in the tree?\n        }\n        finally\n        {\n            if (root != null)\n                root.release();\n        }\n    }\n\n    /**************************************************************************\n     * Public Methods of ScanController interface:\n     **************************************************************************\n     */\n\n    /**\n     * is the open btree table locked?\n     **/\n    public boolean isTableLocked()\n    {\n        return(init_lock_level == TransactionController.MODE_TABLE);\n    }\n\n\n\t/*\n\t** Methods of OpenBTree\n\t*/\n\n\t/**\n\tInitialize the open conglomerate.\n\n    If container is null, open the container, otherwise use the container\n    passed in.\n\n    @exception StandardException standard exception policy.\n\t**/\n    /**\n     * Initialize the open conglomerate.\n     * <p>\n     * If container is null, open the container, otherwise use the container\n     * passed in.  The container is always opened with no locking, it is up\n     * to the caller to make the appropriate container locking call.\n     * <p>\n     *\n     * @param open_user_scans The user transaction which opened this btree.\n     * @param xact_manager    The current transaction, usually the same as\n     *                        \"open_user_scans\", but in the case of split it\n     *                        is the internal xact nested below the user xact.\n     * @param input_container The open container holding the index, if it is\n     *                        already open, else null which will mean this\n     *                        routine will open it.\n     * @param rawtran         The current raw store transaction.\n     * @param open_mode       The opening mode for the ContainerHandle.\n     * @param conglomerate    Readonly description of the conglomerate.\n     * @param undo            Logical undo object to associate with all updates\n     *                        done on this open btree.\n     *\n     *\n\t * @exception  StandardException  Standard exception policy.\n     **/\n\tpublic void init(\n    TransactionManager              open_user_scans,\n    TransactionManager              xact_manager,\n    ContainerHandle                 input_container,\n    Transaction                     rawtran,\n    boolean                         hold,\n\tint                             open_mode,\n    int                             lock_level,\n    BTreeLockingPolicy              btree_locking_policy,\n    BTree                           conglomerate,\n    LogicalUndo                     undo,\n    DynamicCompiledOpenConglomInfo  dynamic_info)\n        throws StandardException\n\t{\n\t\t// If the b-tree is already open, close it.\n\t\tif (this.container != null)\n        {\n            if (SanityManager.DEBUG)\n                SanityManager.ASSERT(false, \"why is the container open?\");\n\t\t\tclose();\n        }\n        err_containerid = conglomerate.id.getContainerId();\n\n        // Locking policy to pass back to concrete implementation lock calls\n        this.init_btree_locking_policy = btree_locking_policy;\n\n\t\t// if the conglomerate is temporary, open with IS_KEPT set.\n\t\t// RESOLVE(mikem): track 1825\n\t\t// don't want to open temp cantainer with IS_KEPT always.\n\t\tif (conglomerate.isTemporary())\n\t\t\topen_mode |= ContainerHandle.MODE_TEMP_IS_KEPT;\n\n        // now open the container if it wasn't already opened by the client.\n        // No locks will be requested by raw store on this open.\n        if (input_container == null)\n        {\n            // Open the container. \n            this.container = \n                rawtran.openContainer(\n                    conglomerate.id, \n                    (LockingPolicy) null /* get no locks on btree */,\n\t\t\t\t\topen_mode);\n        }\n        else\n        {\n            // Use the open container passed in.\n            this.container = input_container;\n\n\t\t\t// RESOLVE (sku) - ContainerHandle should have an interface to\n\t\t\t// verify that it is opened with open_mode\n        }\n\n\t\tif (this.container == null)\n        {\n            throw StandardException.newException(\n                    SQLState.BTREE_CONTAINER_NOT_FOUND,\n                    new Long(err_containerid));\n        }\n\n\t\t// Remember the conglomerate so its properties can be found.\n        init_conglomerate   = conglomerate;\n\n        // Remember the transaction manager so commit() can be called\n        init_xact_manager   = xact_manager;\n\n        init_rawtran        = rawtran;\n\n        init_openmode       = open_mode;\n\n        // Isolation level of this btree.\n        init_lock_level     = lock_level;\n\n        init_hold           = hold;\n\n\n        this.init_open_user_scans = open_user_scans;\n\n        // Logical undo class to pass to raw store, on inserts/deletes.\n        this.btree_undo = undo;\n\n        // either use passed in \"compiled\" runtime scratch space, or create\n        // new space.\n        this.runtime_mem    = \n            (dynamic_info != null ? \n             ((OpenConglomerateScratchSpace) dynamic_info) : \n              (OpenConglomerateScratchSpace)\n                conglomerate.getDynamicCompiledConglomInfo());\n\n\t}\n\n    /**\n     * Open the container after it has been closed previously.\n     * <p>\n     * Open the container, obtaining necessary locks.  Most work is actually\n     * done by RawStore.openContainer().  Will only reopen() if the container\n     * is not already open.\n     *\n\t * @exception  StandardException  Standard exception policy.\n     **/\n    public ContainerHandle reopen()\n        throws StandardException\n    {\n        // reget transaction from context manager, in the case of XA\n        // transaction this may have changed.\n        //\n        /* TODO - XA transactions my change the current transaction on the \n         * context stack.  Will want to something like:\n         *\n         * init_rawtran = context_manager.getcurrenttransaction()\n         */\n\n\t\t// If the b-tree is already open, close it.\n\n        /*\n\t\tif (this.container != null)\n        {\n\t\t\tclose();\n        }\n        */\n\n        if (SanityManager.DEBUG)\n        {\n            SanityManager.ASSERT(init_xact_manager != null);\n            SanityManager.ASSERT(init_xact_manager.getRawStoreXact() != null);\n            SanityManager.ASSERT(init_conglomerate != null);\n        }\n     \n        if (container == null)\n        {\n            // Open the container. \n            this.container = \n                init_xact_manager.getRawStoreXact().openContainer(\n                    init_conglomerate.id, \n                    (LockingPolicy) null /* get no locks on btree */,\n                    init_openmode);\n        }\n\n        return(this.container);\n    }\n\n    /**\n    Close the open conglomerate.\n    **/\n    public void close()\n        throws StandardException\n\t{\n\t\tif (container != null)\n\t\t\tcontainer.close();\n\t\tcontainer = null;\n\t}\n\n    /**\n    Check if all the \n    columns are Indexable and Storable.  Eventually this routine could\n    check whether all the types were right also.\n\n    @exception StandardException Standard Exception Policy.\n    **/\n    void isIndexableRowConsistent(DataValueDescriptor[] row)\n        throws StandardException\n    {\n        if (SanityManager.DEBUG)\n        {\n            DataValueDescriptor[] template = \n                this.init_conglomerate.createTemplate(getRawTran());\n\n            for (int i = 0; i < row.length; i++)\n            {\n                // Compare class's rather than format id's to pick up \n                // different problems with wrong collation implementation.\n\t\t\t\tif (!row[i].getClass().equals(template[i].getClass()))\n                {\n                    SanityManager.THROWASSERT(\n                        \"type of inserted column[\" + i + \"] = \" + \n                        row[i].getClass().getName()                +\n                        \"type of template column[\" + i + \"] = \" +\n                        template[i].getClass().getName());\n                }\n            }\n        }\n    }\n\n    /**\n     * Return the container handle.\n     * <p>\n\t * @return The open container handle of the btree.\n     **/\n    public ContainerHandle getContainerHandle()\n    {\n        return(container);\n    }\n\t\n\t/**\n     * get height of the tree.\n     * <p>\n     * Read in root and return the height (number of levels) of the tree.\n     * The level of a tree is 0 in the leaf and increases by 1 for each\n     * level of the tree as you go up the tree.  \n     *\n\t * @exception  StandardException  Standard exception policy.\n     **/\n    public int getHeight()\n\t\tthrows StandardException\n    {\n\t\t// container.checkConsistency();\n\n\t\tControlRow root = null;\n\n        try\n        {\n            root = ControlRow.get(this, BTree.ROOTPAGEID);\n\n            int height = root.getLevel() + 1;\n\n            return(height);\n        }\n        finally\n        {\n            if (root != null)\n                root.release();\n        }\n    }\n\n    /**\n     * Dump information about tree into the log.\n     * <p>\n     * Traverse the tree dumping info about tree into the log.\n     *\n\t * @exception  StandardException  Standard exception policy.\n     **/\n    public void debugConglomerate()\n\t\tthrows StandardException\n    {\n\t\t// container.checkConsistency();\n\n\t\tControlRow root = null;\n\n        try\n        {\n            if (SanityManager.DEBUG)\n            {\n                SanityManager.DEBUG_PRINT(\n                    \"p_tree\", \"BTREE Dump: containerId \" + container.getId());\n                SanityManager.DEBUG_PRINT(\n                    \"p_tree\", \"BTREE Dump: btree \" + this.init_conglomerate);\n            }\n\n            root = ControlRow.get(this, BTree.ROOTPAGEID);\n            root.printTree(this);\n        }\n        finally\n        {\n            if (root != null)\n                root.release();\n        }\n    }\n\n    /**\n     * Testing infrastructure to cause unusual paths through the code.\n     * <p>\n     * Through the use of debug flags allow test code to cause otherwise\n     * hard to cause paths through the code.  \n     * <p>\n     *\n     * @param pos the current scan position if the condition simulated by\n     * this call would have resulted in the position being saved\n\t * @return whether the latch has been released by this routine.\n     *\n\t * @exception  StandardException  Standard exception policy.\n     **/\n    public static boolean test_errors(\n    OpenBTree           open_btree,\n    String              debug_string,\n    BTreeRowPosition    pos,\n    BTreeLockingPolicy  btree_locking_policy,\n    LeafControlRow      leaf,\n    boolean             input_latch_released)\n        throws StandardException\n    {\n        boolean latch_released = input_latch_released;\n\n        // special test to see if latch release code works\n        if (SanityManager.DEBUG)\n        {\n            String debug_lost_latch = debug_string + \"1\";\n\n            if (SanityManager.DEBUG_ON(debug_lost_latch))\n            {\n                // Simulate a lost latch because of a wait for a lock.\n                if (!latch_released)\n                {\n                    if (pos != null) {\n                        SanityManager.ASSERT(pos.current_leaf == leaf);\n                        pos.saveMeAndReleasePage();\n                    } else {\n                        leaf.release();\n                    }\n\n                    latch_released = true;\n                    SanityManager.DEBUG_PRINT(\n                        debug_lost_latch, debug_lost_latch);\n                    SanityManager.DEBUG_CLEAR(debug_lost_latch);\n                }\n            }\n\n            String debug_deadlock = debug_string + \"2\";\n\n            if (SanityManager.DEBUG_ON(debug_deadlock))\n            {\n                SanityManager.DEBUG_PRINT(debug_deadlock, debug_deadlock);\n                SanityManager.DEBUG_CLEAR(debug_deadlock);\n\n                // Simulate a deadlock error.\n                StandardException se = \n                    StandardException.newException(\n                        SQLState.DEADLOCK, \"fake deadlock\", \"fake victim\");\n\n\t\t\t\tse.setReport(StandardException.REPORT_ALWAYS);\n\t\t\t\tthrow se;\n            }\n        }\n\n        return(latch_released);\n    }\n\n    public SpaceInfo getSpaceInfo()\n        throws StandardException\n    {\n        return container.getSpaceInfo();\n    }\n\n\t// return column Sort order information\n\tpublic boolean[] getColumnSortOrderInfo()\n\t\tthrows\tStandardException\n\t{\n\t\treturn init_conglomerate.ascDescInfo;\n\t}\n\n\t/**\n\t * Lock a row as part of doing the scan.\n\t * <p>\n\t * Lock the row at the given slot (or the previous row if slot is 0).\n\t * <p>\n\t * If this routine returns true all locks were acquired while maintaining\n\t * the latch on leaf.  If this routine returns false, locks may or may\n\t * not have been acquired, and the routine should be called again after\n\t * the client has researched the tree to reget the latch on the \n\t * appropriate page.\n\t *\n\t * @param b2iRowLocking1 TODO\n\t * @param btree             the conglomerate info.\n\t * @param pos               The position of the row to lock.\n\t * @param lock_fetch_desc TODO\n\t * @param lock_template     A scratch area to use to read in rows.\n\t * @param lock_row_loc TODO\n\t * @param previous_key_lock Is this a previous key lock call?\n\t * @param forUpdate         Is the scan for update or for read only.\n\t * @param lock_operation TODO\n\t * @return Whether locks were acquired without releasing latch on leaf.\n\t *\n\t * @exception  StandardException  Standard exception policy.\n\t **/\n\tpublic boolean lockScanRow(\n\tB2IRowLocking1 b2iRowLocking1, BTree btree, BTreeRowPosition pos, FetchDescriptor lock_fetch_desc, DataValueDescriptor[] lock_template, RowLocation lock_row_loc, boolean previous_key_lock, boolean forUpdate, int lock_operation)\n\t\tthrows StandardException\n\t{\n\t    // only get the row lock if it is not a previous key lock and iff\n\t    // it is an update lock.\n\t    return(\n\t        b2iRowLocking1._lockScanRow(\n\t             this,\n\t             btree,\n\t             pos,\n\t             (forUpdate && !previous_key_lock), // only get update row lock\n\t             lock_fetch_desc, lock_template, lock_row_loc,\n\t             previous_key_lock,\n\t             forUpdate,\n\t             lock_operation));\n\t}\n}"
             },
             "candidatesTelemetryData": {
-                "numberOfSuggestions": 3,
+                "numberOfSuggestions": 7,
                 "candidates": [
                     {
                         "lineStart": 249,
                         "lineEnd": 288,
                         "refactoringType": "MyMoveMethodRefactoring",
                         "description": "Move method to org.apache.derby.impl.store.access.btree.BTree\nRationale: The checkConsistency() method is directly related to the structure and integrity of the B-tree, making it most appropriate to reside within the BTree class.",
+                        "couldCreateRefObject": true,
+                        "applied": false,
+                        "undone": false
+                    },
+                    {
+                        "lineStart": 181,
+                        "lineEnd": 214,
+                        "refactoringType": "MyMoveMethodRefactoring",
+                        "description": "Move method to org.apache.derby.iapi.store.raw.ContainerHandle\nRationale: The method getEstimatedRowCount() directly interacts with the container to retrieve the estimated row count, making it more appropriate for the ContainerHandle class, which likely manages the container's state and operations.",
+                        "couldCreateRefObject": true,
+                        "applied": false,
+                        "undone": false
+                    },
+                    {
+                        "lineStart": 216,
+                        "lineEnd": 241,
+                        "refactoringType": "MyMoveMethodRefactoring",
+                        "description": "Move method to org.apache.derby.iapi.store.raw.ContainerHandle\nRationale: The method setEstimatedRowCount() directly interacts with the container's estimated row count, making it more appropriate to reside within the ContainerHandle class, which likely manages the state and behavior of the container.",
                         "couldCreateRefObject": true,
                         "applied": false,
                         "undone": false
@@ -191,10 +342,28 @@
                         "undone": false
                     },
                     {
-                        "lineStart": 181,
-                        "lineEnd": 214,
+                        "lineStart": 563,
+                        "lineEnd": 595,
                         "refactoringType": "MyMoveMethodRefactoring",
-                        "description": "Move method to org.apache.derby.iapi.store.raw.ContainerHandle\nRationale: The method getEstimatedRowCount() is directly related to the management and estimation of rows within a container, making ContainerHandle the most appropriate class for this method.",
+                        "description": "Move method to org.apache.derby.impl.store.access.btree.BTree\nRationale: The method debugConglomerate() is specifically designed to dump information about the B-tree structure, which is directly related to the BTree class. It involves traversing the tree and printing its details, making it a natural fit for this class.",
+                        "couldCreateRefObject": true,
+                        "applied": false,
+                        "undone": false
+                    },
+                    {
+                        "lineStart": 491,
+                        "lineEnd": 520,
+                        "refactoringType": "MyMoveMethodRefactoring",
+                        "description": "Move method to org.apache.derby.impl.store.access.btree.BTree\nRationale: The method isIndexableRowConsistent checks the consistency of rows in terms of indexability and storage, which is directly related to the functionality of B-trees in database indexing.",
+                        "couldCreateRefObject": true,
+                        "applied": false,
+                        "undone": false
+                    },
+                    {
+                        "lineStart": 678,
+                        "lineEnd": 718,
+                        "refactoringType": "MyMoveMethodRefactoring",
+                        "description": "Move method to org.apache.derby.impl.store.access.btree.index.B2IRowLocking1\nRationale: The method lockScanRow directly interacts with the B2IRowLocking1 instance and is responsible for acquiring locks on rows, which aligns with the functionality of the B2IRowLocking1 class.",
                         "couldCreateRefObject": true,
                         "applied": false,
                         "undone": false
@@ -204,54 +373,198 @@
             "processingTime": {
                 "llmResponseTime": -1,
                 "pluginProcessingTime": -1,
-                "totalTime": 17448
+                "totalTime": 20742
             },
             "iterationData": [
                 {
                     "iteration_num": 1,
-                    "suggested_method_names": [
-                        "getEstimatedRowCount",
-                        "setEstimatedRowCount",
-                        "checkConsistency",
-                        "getHeight",
-                        "debugConglomerate",
-                        "lockScanRow"
+                    "suggested_move_methods": [
+                        {
+                            "method_name": "getEstimatedRowCount",
+                            "method_signature": "public long getEstimatedRowCount() throws StandardException",
+                            "target_class": "ContainerHandle",
+                            "rationale": "The method getEstimatedRowCount() directly interacts with the container to retrieve row count information, making it more appropriate for the ContainerHandle class."
+                        },
+                        {
+                            "method_name": "setEstimatedRowCount",
+                            "method_signature": "public void setEstimatedRowCount(long count) throws StandardException",
+                            "target_class": "ContainerHandle",
+                            "rationale": "The method setEstimatedRowCount() modifies the estimated row count of the container, which aligns with the responsibilities of the ContainerHandle class."
+                        },
+                        {
+                            "method_name": "checkConsistency",
+                            "method_signature": "public void checkConsistency() throws StandardException",
+                            "target_class": "ControlRow",
+                            "rationale": "The checkConsistency() method is primarily concerned with the integrity of the B-tree structure, which is more relevant to the ControlRow class that represents the nodes of the B-tree."
+                        },
+                        {
+                            "method_name": "getHeight",
+                            "method_signature": "public int getHeight() throws StandardException",
+                            "target_class": "ControlRow",
+                            "rationale": "The getHeight() method calculates the height of the B-tree based on the root node, which is a responsibility that fits better within the ControlRow class."
+                        },
+                        {
+                            "method_name": "debugConglomerate",
+                            "method_signature": "public void debugConglomerate() throws StandardException",
+                            "target_class": "ControlRow",
+                            "rationale": "The debugConglomerate() method traverses the B-tree and prints information about it, which is more aligned with the responsibilities of the ControlRow class."
+                        },
+                        {
+                            "method_name": "isIndexableRowConsistent",
+                            "method_signature": "void isIndexableRowConsistent(DataValueDescriptor[] row) throws StandardException",
+                            "target_class": "BTree",
+                            "rationale": "The isIndexableRowConsistent() method checks the consistency of row types against the B-tree's template, which is a core function of the BTree class."
+                        },
+                        {
+                            "method_name": "lockScanRow",
+                            "method_signature": "public boolean lockScanRow(B2IRowLocking1 b2iRowLocking1, BTree btree, BTreeRowPosition pos, FetchDescriptor lock_fetch_desc, DataValueDescriptor[] lock_template, RowLocation lock_row_loc, boolean previous_key_lock, boolean forUpdate, int lock_operation) throws StandardException",
+                            "target_class": "B2IRowLocking1",
+                            "rationale": "The lockScanRow() method is primarily concerned with row locking during scans, which is a responsibility that fits better within the B2IRowLocking1 class."
+                        }
                     ],
-                    "llm_response_time": 6237
+                    "llm_response_time": 6339
                 },
                 {
                     "iteration_num": 2,
-                    "suggested_method_names": [
-                        "getEstimatedRowCount",
-                        "setEstimatedRowCount",
-                        "checkConsistency",
-                        "getHeight",
-                        "debugConglomerate",
-                        "lockScanRow"
+                    "suggested_move_methods": [
+                        {
+                            "method_name": "getEstimatedRowCount",
+                            "method_signature": "public long getEstimatedRowCount() throws StandardException",
+                            "target_class": "ContainerHandle",
+                            "rationale": "The method getEstimatedRowCount() directly interacts with the container to retrieve the estimated row count, making it more appropriate for the ContainerHandle class."
+                        },
+                        {
+                            "method_name": "setEstimatedRowCount",
+                            "method_signature": "public void setEstimatedRowCount(long count) throws StandardException",
+                            "target_class": "ContainerHandle",
+                            "rationale": "The method setEstimatedRowCount() modifies the estimated row count of the container, which aligns with the responsibilities of the ContainerHandle class."
+                        },
+                        {
+                            "method_name": "checkConsistency",
+                            "method_signature": "public void checkConsistency() throws StandardException",
+                            "target_class": "ControlRow",
+                            "rationale": "The checkConsistency() method is primarily concerned with the integrity of the B-tree structure, which is more relevant to the ControlRow class that manages the rows within the B-tree."
+                        },
+                        {
+                            "method_name": "getHeight",
+                            "method_signature": "public int getHeight() throws StandardException",
+                            "target_class": "ControlRow",
+                            "rationale": "The getHeight() method calculates the height of the B-tree based on the root ControlRow, making it more suitable for the ControlRow class."
+                        },
+                        {
+                            "method_name": "debugConglomerate",
+                            "method_signature": "public void debugConglomerate() throws StandardException",
+                            "target_class": "ControlRow",
+                            "rationale": "The debugConglomerate() method traverses the B-tree and prints information about it, which is more aligned with the responsibilities of the ControlRow class."
+                        },
+                        {
+                            "method_name": "isIndexableRowConsistent",
+                            "method_signature": "void isIndexableRowConsistent(DataValueDescriptor[] row) throws StandardException",
+                            "target_class": "BTree",
+                            "rationale": "The isIndexableRowConsistent() method checks the consistency of a row against the B-tree's template, which is more relevant to the BTree class."
+                        },
+                        {
+                            "method_name": "lockScanRow",
+                            "method_signature": "public boolean lockScanRow(B2IRowLocking1 b2iRowLocking1, BTree btree, BTreeRowPosition pos, FetchDescriptor lock_fetch_desc, DataValueDescriptor[] lock_template, RowLocation lock_row_loc, boolean previous_key_lock, boolean forUpdate, int lock_operation) throws StandardException",
+                            "target_class": "B2IRowLocking1",
+                            "rationale": "The lockScanRow() method is primarily concerned with row locking during scans, which is a responsibility that fits better within the B2IRowLocking1 class."
+                        }
                     ],
-                    "llm_response_time": 5069
+                    "llm_response_time": 5631
                 },
                 {
                     "iteration_num": 3,
-                    "suggested_method_names": [
-                        "getEstimatedRowCount",
-                        "setEstimatedRowCount",
-                        "checkConsistency",
-                        "getHeight",
-                        "debugConglomerate",
-                        "lockScanRow"
+                    "suggested_move_methods": [
+                        {
+                            "method_name": "getEstimatedRowCount",
+                            "method_signature": "public long getEstimatedRowCount() throws StandardException",
+                            "target_class": "ContainerHandle",
+                            "rationale": "The method getEstimatedRowCount() directly interacts with the container to retrieve the estimated row count, making it more appropriate for the ContainerHandle class."
+                        },
+                        {
+                            "method_name": "setEstimatedRowCount",
+                            "method_signature": "public void setEstimatedRowCount(long count) throws StandardException",
+                            "target_class": "ContainerHandle",
+                            "rationale": "The method setEstimatedRowCount() modifies the estimated row count of the container, which aligns with the responsibilities of the ContainerHandle class."
+                        },
+                        {
+                            "method_name": "checkConsistency",
+                            "method_signature": "public void checkConsistency() throws StandardException",
+                            "target_class": "ControlRow",
+                            "rationale": "The checkConsistency() method is primarily concerned with the integrity of the B-tree structure, which is more relevant to the ControlRow class that represents the nodes of the B-tree."
+                        },
+                        {
+                            "method_name": "getHeight",
+                            "method_signature": "public int getHeight() throws StandardException",
+                            "target_class": "ControlRow",
+                            "rationale": "The getHeight() method calculates the height of the B-tree based on the ControlRow, making it more suitable for the ControlRow class."
+                        },
+                        {
+                            "method_name": "debugConglomerate",
+                            "method_signature": "public void debugConglomerate() throws StandardException",
+                            "target_class": "ControlRow",
+                            "rationale": "The debugConglomerate() method traverses the B-tree and prints information about it, which is more aligned with the responsibilities of the ControlRow class."
+                        },
+                        {
+                            "method_name": "isIndexableRowConsistent",
+                            "method_signature": "void isIndexableRowConsistent(DataValueDescriptor[] row) throws StandardException",
+                            "target_class": "ControlRow",
+                            "rationale": "The isIndexableRowConsistent() method checks the consistency of a row against the B-tree's template, which is more relevant to the ControlRow class."
+                        },
+                        {
+                            "method_name": "lockScanRow",
+                            "method_signature": "public boolean lockScanRow(B2IRowLocking1 b2iRowLocking1, BTree btree, BTreeRowPosition pos, FetchDescriptor lock_fetch_desc, DataValueDescriptor[] lock_template, RowLocation lock_row_loc, boolean previous_key_lock, boolean forUpdate, int lock_operation) throws StandardException",
+                            "target_class": "B2IRowLocking1",
+                            "rationale": "The lockScanRow() method is primarily concerned with row locking during scans, which is a responsibility that fits better within the B2IRowLocking1 class."
+                        }
                     ],
-                    "llm_response_time": 5151
+                    "llm_response_time": 7781
                 },
                 {
                     "iteration_num": -1,
-                    "suggested_method_names": [
-                        "getEstimatedRowCount",
-                        "setEstimatedRowCount",
-                        "checkConsistency",
-                        "getHeight",
-                        "debugConglomerate",
-                        "lockScanRow"
+                    "suggested_move_methods": [
+                        {
+                            "method_name": "getEstimatedRowCount",
+                            "method_signature": "public long getEstimatedRowCount() throws StandardException",
+                            "target_class": "ContainerHandle",
+                            "rationale": "The method getEstimatedRowCount() directly interacts with the container to retrieve row count information, making it more appropriate for the ContainerHandle class."
+                        },
+                        {
+                            "method_name": "setEstimatedRowCount",
+                            "method_signature": "public void setEstimatedRowCount(long count) throws StandardException",
+                            "target_class": "ContainerHandle",
+                            "rationale": "The method setEstimatedRowCount() modifies the estimated row count of the container, which aligns with the responsibilities of the ContainerHandle class."
+                        },
+                        {
+                            "method_name": "checkConsistency",
+                            "method_signature": "public void checkConsistency() throws StandardException",
+                            "target_class": "ControlRow",
+                            "rationale": "The checkConsistency() method is primarily concerned with the integrity of the B-tree structure, which is more relevant to the ControlRow class that represents the nodes of the B-tree."
+                        },
+                        {
+                            "method_name": "getHeight",
+                            "method_signature": "public int getHeight() throws StandardException",
+                            "target_class": "ControlRow",
+                            "rationale": "The getHeight() method calculates the height of the B-tree based on the root node, which is a responsibility that fits better within the ControlRow class."
+                        },
+                        {
+                            "method_name": "debugConglomerate",
+                            "method_signature": "public void debugConglomerate() throws StandardException",
+                            "target_class": "ControlRow",
+                            "rationale": "The debugConglomerate() method traverses the B-tree and prints information about it, which is more aligned with the responsibilities of the ControlRow class."
+                        },
+                        {
+                            "method_name": "isIndexableRowConsistent",
+                            "method_signature": "void isIndexableRowConsistent(DataValueDescriptor[] row) throws StandardException",
+                            "target_class": "BTree",
+                            "rationale": "The isIndexableRowConsistent() method checks the consistency of row types against the B-tree's template, which is a core function of the BTree class."
+                        },
+                        {
+                            "method_name": "lockScanRow",
+                            "method_signature": "public boolean lockScanRow(B2IRowLocking1 b2iRowLocking1, BTree btree, BTreeRowPosition pos, FetchDescriptor lock_fetch_desc, DataValueDescriptor[] lock_template, RowLocation lock_row_loc, boolean previous_key_lock, boolean forUpdate, int lock_operation) throws StandardException",
+                            "target_class": "B2IRowLocking1",
+                            "rationale": "The lockScanRow() method is primarily concerned with row locking during scans, which is a responsibility that fits better within the B2IRowLocking1 class."
+                        }
                     ],
                     "llm_response_time": 0
                 }
@@ -259,13 +572,14 @@
             "llmMethodPriority": {
                 "priority_method_names": [
                     "checkConsistency",
-                    "getHeight",
                     "getEstimatedRowCount",
                     "setEstimatedRowCount",
+                    "getHeight",
                     "debugConglomerate",
+                    "isIndexableRowConsistent",
                     "lockScanRow"
                 ],
-                "llm_response_time": 867
+                "llm_response_time": 913
             },
             "targetClassMap": {
                 "checkConsistency": {
@@ -308,52 +622,8 @@
                         "Transaction",
                         "LogicalUndo"
                     ],
-                    "llm_response_time": 1560,
-                    "similarity_computation_time": 14,
-                    "similarity_metric": "cosine"
-                },
-                "getHeight": {
-                    "target_classes": [
-                        {
-                            "class_name": "BTree",
-                            "similarity_score": 0.7491076386797721
-                        },
-                        {
-                            "class_name": "TransactionManager",
-                            "similarity_score": 0.6180579499830451
-                        },
-                        {
-                            "class_name": "Transaction",
-                            "similarity_score": 0.5769686246128918
-                        },
-                        {
-                            "class_name": "BTreeLockingPolicy",
-                            "similarity_score": 0.6424776531260166
-                        },
-                        {
-                            "class_name": "ContainerHandle",
-                            "similarity_score": 0.509807097858621
-                        },
-                        {
-                            "class_name": "TransactionManager",
-                            "similarity_score": 0.6180579499830451
-                        },
-                        {
-                            "class_name": "LogicalUndo",
-                            "similarity_score": 0.44079106725227596
-                        }
-                    ],
-                    "target_classes_sorted_by_llm": [
-                        "BTree",
-                        "ContainerHandle",
-                        "BTreeLockingPolicy",
-                        "TransactionManager",
-                        "TransactionManager",
-                        "Transaction",
-                        "LogicalUndo"
-                    ],
-                    "llm_response_time": 1716,
-                    "similarity_computation_time": 9,
+                    "llm_response_time": 1281,
+                    "similarity_computation_time": 7,
                     "similarity_metric": "cosine"
                 },
                 "getEstimatedRowCount": {
@@ -396,8 +666,258 @@
                         "BTreeLockingPolicy",
                         "LogicalUndo"
                     ],
-                    "llm_response_time": 2793,
-                    "similarity_computation_time": 9,
+                    "llm_response_time": 2703,
+                    "similarity_computation_time": 3,
+                    "similarity_metric": "cosine"
+                },
+                "setEstimatedRowCount": {
+                    "target_classes": [
+                        {
+                            "class_name": "BTree",
+                            "similarity_score": 0.7661516404350539
+                        },
+                        {
+                            "class_name": "TransactionManager",
+                            "similarity_score": 0.7820775439788572
+                        },
+                        {
+                            "class_name": "Transaction",
+                            "similarity_score": 0.6859455166243447
+                        },
+                        {
+                            "class_name": "BTreeLockingPolicy",
+                            "similarity_score": 0.8000368408189973
+                        },
+                        {
+                            "class_name": "ContainerHandle",
+                            "similarity_score": 0.5711069334927642
+                        },
+                        {
+                            "class_name": "TransactionManager",
+                            "similarity_score": 0.7820775439788572
+                        },
+                        {
+                            "class_name": "LogicalUndo",
+                            "similarity_score": 0.48193410077172366
+                        }
+                    ],
+                    "target_classes_sorted_by_llm": [
+                        "ContainerHandle",
+                        "BTree",
+                        "TransactionManager",
+                        "TransactionManager",
+                        "BTreeLockingPolicy",
+                        "LogicalUndo",
+                        "Transaction"
+                    ],
+                    "llm_response_time": 3520,
+                    "similarity_computation_time": 3,
+                    "similarity_metric": "cosine"
+                },
+                "getHeight": {
+                    "target_classes": [
+                        {
+                            "class_name": "BTree",
+                            "similarity_score": 0.7491076386797721
+                        },
+                        {
+                            "class_name": "TransactionManager",
+                            "similarity_score": 0.6180579499830451
+                        },
+                        {
+                            "class_name": "Transaction",
+                            "similarity_score": 0.5769686246128918
+                        },
+                        {
+                            "class_name": "BTreeLockingPolicy",
+                            "similarity_score": 0.6424776531260166
+                        },
+                        {
+                            "class_name": "ContainerHandle",
+                            "similarity_score": 0.509807097858621
+                        },
+                        {
+                            "class_name": "TransactionManager",
+                            "similarity_score": 0.6180579499830451
+                        },
+                        {
+                            "class_name": "LogicalUndo",
+                            "similarity_score": 0.44079106725227596
+                        }
+                    ],
+                    "target_classes_sorted_by_llm": [
+                        "BTree",
+                        "ContainerHandle",
+                        "BTreeLockingPolicy",
+                        "TransactionManager",
+                        "TransactionManager",
+                        "Transaction",
+                        "LogicalUndo"
+                    ],
+                    "llm_response_time": 1255,
+                    "similarity_computation_time": 3,
+                    "similarity_metric": "cosine"
+                },
+                "debugConglomerate": {
+                    "target_classes": [
+                        {
+                            "class_name": "BTree",
+                            "similarity_score": 0.5350615533415635
+                        },
+                        {
+                            "class_name": "TransactionManager",
+                            "similarity_score": 0.4656587436945069
+                        },
+                        {
+                            "class_name": "Transaction",
+                            "similarity_score": 0.3466340698273532
+                        },
+                        {
+                            "class_name": "BTreeLockingPolicy",
+                            "similarity_score": 0.4480622885775513
+                        },
+                        {
+                            "class_name": "ContainerHandle",
+                            "similarity_score": 0.28228539784035545
+                        },
+                        {
+                            "class_name": "TransactionManager",
+                            "similarity_score": 0.4656587436945069
+                        },
+                        {
+                            "class_name": "LogicalUndo",
+                            "similarity_score": 0.20675261873202447
+                        }
+                    ],
+                    "target_classes_sorted_by_llm": [
+                        "BTree",
+                        "ContainerHandle",
+                        "TransactionManager",
+                        "TransactionManager",
+                        "BTreeLockingPolicy",
+                        "Transaction",
+                        "LogicalUndo"
+                    ],
+                    "llm_response_time": 1086,
+                    "similarity_computation_time": 4,
+                    "similarity_metric": "cosine"
+                },
+                "isIndexableRowConsistent": {
+                    "target_classes": [
+                        {
+                            "class_name": "BTree",
+                            "similarity_score": 0.39742075749265343
+                        },
+                        {
+                            "class_name": "TransactionManager",
+                            "similarity_score": 0.14996693200408565
+                        },
+                        {
+                            "class_name": "Transaction",
+                            "similarity_score": 0.2227425730037262
+                        },
+                        {
+                            "class_name": "BTreeLockingPolicy",
+                            "similarity_score": 0.1712056727003004
+                        },
+                        {
+                            "class_name": "ContainerHandle",
+                            "similarity_score": 0.24922073679318235
+                        },
+                        {
+                            "class_name": "TransactionManager",
+                            "similarity_score": 0.14996693200408565
+                        },
+                        {
+                            "class_name": "LogicalUndo",
+                            "similarity_score": 0.16461037954031715
+                        }
+                    ],
+                    "target_classes_sorted_by_llm": [
+                        "BTree",
+                        "ContainerHandle",
+                        "Transaction",
+                        "BTreeLockingPolicy",
+                        "LogicalUndo",
+                        "TransactionManager",
+                        "TransactionManager"
+                    ],
+                    "llm_response_time": 3134,
+                    "similarity_computation_time": 2,
+                    "similarity_metric": "cosine"
+                },
+                "lockScanRow": {
+                    "target_classes": [
+                        {
+                            "class_name": "B2IRowLocking1",
+                            "similarity_score": 0.9047436464015224
+                        },
+                        {
+                            "class_name": "BTree",
+                            "similarity_score": 0.7078477805261186
+                        },
+                        {
+                            "class_name": "BTreeRowPosition",
+                            "similarity_score": 0.6302448401128763
+                        },
+                        {
+                            "class_name": "FetchDescriptor",
+                            "similarity_score": 0.5735664027449904
+                        },
+                        {
+                            "class_name": "RowLocation",
+                            "similarity_score": 0.3434182842192855
+                        },
+                        {
+                            "class_name": "BTree",
+                            "similarity_score": 0.7078477805261186
+                        },
+                        {
+                            "class_name": "TransactionManager",
+                            "similarity_score": 0.7855213488863625
+                        },
+                        {
+                            "class_name": "Transaction",
+                            "similarity_score": 0.6553279192431722
+                        },
+                        {
+                            "class_name": "BTreeLockingPolicy",
+                            "similarity_score": 0.8996411487420506
+                        },
+                        {
+                            "class_name": "ContainerHandle",
+                            "similarity_score": 0.5359105964981707
+                        },
+                        {
+                            "class_name": "TransactionManager",
+                            "similarity_score": 0.7855213488863625
+                        },
+                        {
+                            "class_name": "LogicalUndo",
+                            "similarity_score": 0.467395816553093
+                        },
+                        {
+                            "class_name": "OpenConglomerateScratchSpace",
+                            "similarity_score": 0.777350348065479
+                        }
+                    ],
+                    "target_classes_sorted_by_llm": [
+                        "B2IRowLocking1",
+                        "BTreeLockingPolicy",
+                        "BTree",
+                        "BTree",
+                        "TransactionManager",
+                        "TransactionManager",
+                        "OpenConglomerateScratchSpace",
+                        "Transaction",
+                        "BTreeRowPosition",
+                        "FetchDescriptor",
+                        "ContainerHandle",
+                        "LogicalUndo",
+                        "RowLocation"
+                    ],
+                    "llm_response_time": 1604,
+                    "similarity_computation_time": 5,
                     "similarity_metric": "cosine"
                 }
             }
@@ -407,7 +927,7 @@
         "oracle": "method org.apache.derby.iapi.sql.dictionary.IndexRowGenerator::setConglomerateNumber(long):void need move to org.apache.derby.impl.sql.catalog.IndexInfoImpl",
         "class_name": "org.apache.derby.iapi.sql.dictionary.IndexRowGenerator",
         "telemetry": {
-            "id": "e9f54da8-e97c-4fce-8a5f-310ac9c10d34",
+            "id": "1786a01d-4234-40e7-a321-c032ead83e40",
             "hostFunctionTelemetryData": {
                 "hostFunctionSize": 412,
                 "lineStart": 45,
@@ -442,38 +962,78 @@
             "processingTime": {
                 "llmResponseTime": -1,
                 "pluginProcessingTime": -1,
-                "totalTime": 7536
+                "totalTime": 6318
             },
             "iterationData": [
                 {
                     "iteration_num": 1,
-                    "suggested_method_names": [
-                        "getExecutionFactory",
-                        "setConglomerateNumber"
+                    "suggested_move_methods": [
+                        {
+                            "method_name": "setConglomerateNumber",
+                            "method_signature": "public void setConglomerateNumber(IndexInfoImpl indexInfoImpl, long conglomerateNumber)",
+                            "target_class": "IndexInfoImpl",
+                            "rationale": "The method setConglomerateNumber directly modifies the conglomerateNumber field of IndexInfoImpl, indicating that it is more appropriate for this method to reside within the IndexInfoImpl class."
+                        },
+                        {
+                            "method_name": "getExecutionFactory",
+                            "method_signature": "private ExecutionFactory getExecutionFactory()",
+                            "target_class": "ExecutionFactory",
+                            "rationale": "The method getExecutionFactory is responsible for obtaining an instance of ExecutionFactory, which suggests that it may be more appropriate to move this method to the ExecutionFactory class to encapsulate its functionality."
+                        }
                     ],
-                    "llm_response_time": 2349
+                    "llm_response_time": 2036
                 },
                 {
                     "iteration_num": 2,
-                    "suggested_method_names": [
-                        "getExecutionFactory",
-                        "setConglomerateNumber"
+                    "suggested_move_methods": [
+                        {
+                            "method_name": "getExecutionFactory",
+                            "method_signature": "private ExecutionFactory getExecutionFactory()",
+                            "target_class": "ExecutionFactory",
+                            "rationale": "The getExecutionFactory() method is responsible for obtaining an instance of ExecutionFactory, which is a separate concern. Moving it to the ExecutionFactory class would better encapsulate its functionality."
+                        },
+                        {
+                            "method_name": "setConglomerateNumber",
+                            "method_signature": "public void setConglomerateNumber(IndexInfoImpl indexInfoImpl, long conglomerateNumber)",
+                            "target_class": "IndexInfoImpl",
+                            "rationale": "The setConglomerateNumber method directly modifies the state of IndexInfoImpl. It should be moved to the IndexInfoImpl class to maintain encapsulation and adhere to the Single Responsibility Principle."
+                        }
                     ],
-                    "llm_response_time": 2540
+                    "llm_response_time": 1941
                 },
                 {
                     "iteration_num": 3,
-                    "suggested_method_names": [
-                        "setConglomerateNumber",
-                        "getExecutionFactory"
+                    "suggested_move_methods": [
+                        {
+                            "method_name": "getExecutionFactory",
+                            "method_signature": "private ExecutionFactory getExecutionFactory()",
+                            "target_class": "ExecutionFactory",
+                            "rationale": "The method getExecutionFactory() is responsible for obtaining an instance of ExecutionFactory, which is a separate concern. Moving it to the ExecutionFactory class would better encapsulate its functionality."
+                        },
+                        {
+                            "method_name": "setConglomerateNumber",
+                            "method_signature": "public void setConglomerateNumber(IndexInfoImpl indexInfoImpl, long conglomerateNumber)",
+                            "target_class": "IndexInfoImpl",
+                            "rationale": "The method setConglomerateNumber() directly modifies the state of IndexInfoImpl. It should be moved to the IndexInfoImpl class to maintain encapsulation and adhere to the Single Responsibility Principle."
+                        }
                     ],
-                    "llm_response_time": 1971
+                    "llm_response_time": 1642
                 },
                 {
                     "iteration_num": -1,
-                    "suggested_method_names": [
-                        "getExecutionFactory",
-                        "setConglomerateNumber"
+                    "suggested_move_methods": [
+                        {
+                            "method_name": "setConglomerateNumber",
+                            "method_signature": "public void setConglomerateNumber(IndexInfoImpl indexInfoImpl, long conglomerateNumber)",
+                            "target_class": "IndexInfoImpl",
+                            "rationale": "The method setConglomerateNumber directly modifies the conglomerateNumber field of IndexInfoImpl, indicating that it is more appropriate for this method to reside within the IndexInfoImpl class."
+                        },
+                        {
+                            "method_name": "getExecutionFactory",
+                            "method_signature": "private ExecutionFactory getExecutionFactory()",
+                            "target_class": "ExecutionFactory",
+                            "rationale": "The method getExecutionFactory is responsible for obtaining an instance of ExecutionFactory, which suggests that it may be more appropriate to move this method to the ExecutionFactory class to encapsulate its functionality."
+                        }
                     ],
                     "llm_response_time": 0
                 }
@@ -483,7 +1043,7 @@
                     "getExecutionFactory",
                     "setConglomerateNumber"
                 ],
-                "llm_response_time": 601
+                "llm_response_time": 637
             },
             "targetClassMap": {
                 "getExecutionFactory": {
@@ -501,8 +1061,8 @@
                         "ExecutionFactory",
                         "IndexDescriptor"
                     ],
-                    "llm_response_time": 1117,
-                    "similarity_computation_time": 2,
+                    "llm_response_time": 1171,
+                    "similarity_computation_time": 3,
                     "similarity_metric": "cosine"
                 },
                 "setConglomerateNumber": {
@@ -525,8 +1085,8 @@
                         "IndexDescriptor",
                         "ExecutionFactory"
                     ],
-                    "llm_response_time": 2995,
-                    "similarity_computation_time": 2,
+                    "llm_response_time": 2584,
+                    "similarity_computation_time": 1,
                     "similarity_metric": "cosine"
                 }
             }
@@ -536,7 +1096,7 @@
         "oracle": "method org.apache.derby.jdbc.ClientConnectionPoolDataSource40::getParentLogger():Logger need move to org.apache.derbyTesting.functionTests.tests.jdbc4.Wrapper41DataSource",
         "class_name": "org.apache.derby.jdbc.ClientConnectionPoolDataSource40",
         "telemetry": {
-            "id": "dbd10ded-af25-4b92-8f2c-4916b96f178f",
+            "id": "6c46b8f3-0627-405e-86cb-b9b6e798f0f3",
             "hostFunctionTelemetryData": {
                 "hostFunctionSize": 77,
                 "lineStart": 35,
@@ -562,36 +1122,72 @@
             "processingTime": {
                 "llmResponseTime": -1,
                 "pluginProcessingTime": -1,
-                "totalTime": 5230
+                "totalTime": 6652
             },
             "iterationData": [
                 {
                     "iteration_num": 1,
-                    "suggested_method_names": [
-                        "getParentLogger",
-                        "getParentLogger"
+                    "suggested_move_methods": [
+                        {
+                            "method_name": "getParentLogger",
+                            "method_signature": "public Logger getParentLogger() throws SQLFeatureNotSupportedException",
+                            "target_class": "LoggerProvider",
+                            "rationale": "The method getParentLogger() is responsible for retrieving a Logger instance, which is a concern that should be handled by a dedicated LoggerProvider class. This separation of concerns will improve maintainability and clarity."
+                        },
+                        {
+                            "method_name": "getParentLogger",
+                            "method_signature": "public Logger getParentLogger(Wrapper41DataSource wrapper41DataSource) throws SQLException",
+                            "target_class": "LoggerProvider",
+                            "rationale": "Similar to the previous method, this overloaded version of getParentLogger() is also focused on retrieving a Logger instance based on a Wrapper41DataSource. Moving it to a LoggerProvider class will enhance the organization of logging-related functionality."
+                        }
                     ],
-                    "llm_response_time": 1737
+                    "llm_response_time": 1806
                 },
                 {
                     "iteration_num": 2,
-                    "suggested_method_names": [
-                        "getParentLogger"
+                    "suggested_move_methods": [
+                        {
+                            "method_name": "getParentLogger",
+                            "method_signature": "public Logger getParentLogger() throws SQLFeatureNotSupportedException",
+                            "target_class": "LoggerProvider",
+                            "rationale": "The getParentLogger() method is responsible for retrieving a Logger instance, which is more related to logging functionality than to the connection pool data source. Moving it to a dedicated LoggerProvider class would improve separation of concerns."
+                        },
+                        {
+                            "method_name": "getParentLogger",
+                            "method_signature": "public Logger getParentLogger(Wrapper41DataSource wrapper41DataSource) throws SQLException",
+                            "target_class": "LoggerProvider",
+                            "rationale": "Similar to the previous method, this overloaded version of getParentLogger() is also focused on logging and should be moved to a LoggerProvider class to enhance modularity and maintainability."
+                        }
                     ],
-                    "llm_response_time": 1303
+                    "llm_response_time": 2317
                 },
                 {
                     "iteration_num": 3,
-                    "suggested_method_names": [
-                        "getParentLogger",
-                        "getParentLogger"
+                    "suggested_move_methods": [
+                        {
+                            "method_name": "getParentLogger",
+                            "method_signature": "public Logger getParentLogger() throws SQLFeatureNotSupportedException",
+                            "target_class": "LoggerProvider",
+                            "rationale": "The method getParentLogger() is responsible for retrieving a Logger instance, which is a concern that should be handled by a dedicated LoggerProvider class. This separation of concerns will improve maintainability and clarity."
+                        },
+                        {
+                            "method_name": "getParentLogger",
+                            "method_signature": "public Logger getParentLogger(Wrapper41DataSource wrapper41DataSource) throws SQLException",
+                            "target_class": "LoggerProvider",
+                            "rationale": "Similar to the previous method, this overloaded version of getParentLogger() is also focused on retrieving a Logger instance based on a Wrapper41DataSource. Moving it to a LoggerProvider class will enhance the organization of logging-related functionality."
+                        }
                     ],
-                    "llm_response_time": 1555
+                    "llm_response_time": 1941
                 },
                 {
                     "iteration_num": -1,
-                    "suggested_method_names": [
-                        "getParentLogger"
+                    "suggested_move_methods": [
+                        {
+                            "method_name": "getParentLogger",
+                            "method_signature": "public Logger getParentLogger() throws SQLFeatureNotSupportedException",
+                            "target_class": "LoggerProvider",
+                            "rationale": "The method getParentLogger() is responsible for retrieving a Logger instance, which is a concern that should be handled by a dedicated LoggerProvider class. This separation of concerns will improve maintainability and clarity."
+                        }
                     ],
                     "llm_response_time": 0
                 }
@@ -613,8 +1209,8 @@
                     "target_classes_sorted_by_llm": [
                         "Wrapper41DataSource"
                     ],
-                    "llm_response_time": 966,
-                    "similarity_computation_time": 0,
+                    "llm_response_time": 1915,
+                    "similarity_computation_time": 1,
                     "similarity_metric": "cosine"
                 }
             }
@@ -624,7 +1220,7 @@
         "oracle": "- method org.apache.derby.client.net.NetPackageReply::resetAgent_(org.apache.derby.client.am.LogWriter, int, String, int):void need move to org.apache.derby.client.net.NetAgent",
         "class_name": "org.apache.derby.client.net.NetPackageReply",
         "telemetry": {
-            "id": "934bc8af-a18c-4037-be7c-99e8fa9419f9",
+            "id": "4f65b78c-9eed-4742-bf03-4a2e5e15c475",
             "hostFunctionTelemetryData": {
                 "hostFunctionSize": 209,
                 "lineStart": 30,
@@ -634,52 +1230,142 @@
                 "sourceCode": "public class NetPackageReply extends NetConnectionReply {\n    NetPackageReply(NetAgent netAgent, int bufferSize) {\n        super(netAgent, bufferSize);\n    }\n\n\n    NetSqlca parseSqlErrorCondition() throws DisconnectException {\n        parseSQLERRRM();\n        parseTypdefsOrMgrlvlovrs();\n        NetSqlca netSqlca = parseSQLCARD(null);\n        return netSqlca;\n    }\n\n\n    // Also called by NetStatementReply\n    void parseDTAMCHRM() throws DisconnectException {\n        boolean svrcodReceived = false;\n        int svrcod = CodePoint.SVRCOD_INFO;\n        boolean rdbnamReceived = false;\n        String rdbnam = null;\n\n        parseLengthAndMatchCodePoint(CodePoint.DTAMCHRM);\n        pushLengthOnCollectionStack();\n        int peekCP = peekCodePoint();\n\n        while (peekCP != Reply.END_OF_COLLECTION) {\n\n            boolean foundInPass = false;\n\n            if (peekCP == CodePoint.SVRCOD) {\n                foundInPass = true;\n                svrcodReceived = checkAndGetReceivedFlag(svrcodReceived);\n                svrcod = parseSVRCOD(CodePoint.SVRCOD_ERROR, CodePoint.SVRCOD_ERROR);\n                peekCP = peekCodePoint();\n            }\n\n            if (peekCP == CodePoint.RDBNAM) {\n                foundInPass = true;\n                rdbnamReceived = checkAndGetReceivedFlag(rdbnamReceived);\n                rdbnam = parseRDBNAM(true);\n                peekCP = peekCodePoint();\n            }\n\n            if (!foundInPass) {\n                doPrmnsprmSemantics(peekCP);\n            }\n\n        }\n        popCollectionStack();\n        checkRequiredObjects(svrcodReceived, rdbnamReceived);\n\n        netAgent_.setSvrcod(svrcod);\n        doDtamchrmSemantics();\n    }\n\n    // RDB Update Reply Message indicates that a DDM command resulted\n    // in an update at the target relational database.  If a command\n    // generated multiple reply messages including an RDBUPDRM, then\n    // the RDBUPDRM must be the first reply message for the command.\n    // For each target server, the RDBUPDRM  must be returned the first\n    // time an update is made to the target RDB within a unit of work.\n    // The target server may optionally return the RDBUPDRM after subsequent\n    // updates within the UOW.  If multiple target RDBs are involved with\n    // the current UOW and updates are made with any of them, then the RDBUPDRM\n    // must be returned in response to the first update at each of them.\n    protected void parseRDBUPDRM() throws DisconnectException {\n        boolean svrcodReceived = false;\n        int svrcod = CodePoint.SVRCOD_INFO;\n        boolean rdbnamReceived = false;\n        String rdbnam = null;\n\n        parseLengthAndMatchCodePoint(CodePoint.RDBUPDRM);\n        pushLengthOnCollectionStack();\n\n        // in XA Global transaction we need to know if we have a read-only\n        //  transaction, if we get a RDBUPDRM this is NOT a read-only transaction\n        //  currently only XAConnections care about read-only transactions, if\n        //  non-XA wants this information they will need to initialize the flag\n        //  at start of UOW\n        netAgent_.netConnection_.setReadOnlyTransactionFlag(false);\n\n        int peekCP = peekCodePoint();\n\n        while (peekCP != Reply.END_OF_COLLECTION) {\n\n            boolean foundInPass = false;\n\n            if (peekCP == CodePoint.SVRCOD) {\n                foundInPass = true;\n                svrcodReceived = checkAndGetReceivedFlag(svrcodReceived);\n                svrcod = parseSVRCOD(CodePoint.SVRCOD_INFO, CodePoint.SVRCOD_INFO);\n                peekCP = peekCodePoint();\n            }\n\n            if (peekCP == CodePoint.RDBNAM) {\n                foundInPass = true;\n                rdbnamReceived = checkAndGetReceivedFlag(rdbnamReceived);\n                rdbnam = parseRDBNAM(true);\n                peekCP = peekCodePoint();\n            }\n\n            if (!foundInPass) {\n                doPrmnsprmSemantics(peekCP);\n            }\n\n        }\n        popCollectionStack();\n        checkRequiredObjects(svrcodReceived, rdbnamReceived);\n\n        // call an event to indicate the server has been updated\n        netAgent_.setSvrcod(svrcod);\n\n    }\n\n    // SQL Error Condition Reply Message indicates that an SQL error\n    // has occurred.  It may be sent even though no reply message\n    // precedes the SQLCARD object that is the normal\n    // response to a command when an exception occurs.\n    // The SQLERRM is also used when a BNDSQLSTT command is terminated\n    // by an INTRRDBRQS command.\n    // This reply message must precede an SQLCARD object.\n    // The SQLSTATE is returned in the SQLCARD.\n    //\n    // Returned from Server:\n    // SVRCOD - required  (8 - ERROR)\n    // RDBNAM - optional\n    //\n    // Also called by NetResultSetReply and NetStatementReply\n    void parseSQLERRRM() throws DisconnectException {\n        boolean svrcodReceived = false;\n        int svrcod = CodePoint.SVRCOD_INFO;\n        boolean rdbnamReceived = false;\n        String rdbnam = null;\n\n        parseLengthAndMatchCodePoint(CodePoint.SQLERRRM);\n        pushLengthOnCollectionStack();\n        int peekCP = peekCodePoint();\n\n        while (peekCP != Reply.END_OF_COLLECTION) {\n\n            boolean foundInPass = false;\n\n            if (peekCP == CodePoint.SVRCOD) {\n                foundInPass = true;\n                svrcodReceived = checkAndGetReceivedFlag(svrcodReceived);\n                svrcod = parseSVRCOD(CodePoint.SVRCOD_ERROR, CodePoint.SVRCOD_ERROR);\n                peekCP = peekCodePoint();\n            }\n\n            if (peekCP == CodePoint.RDBNAM) {\n                foundInPass = true;\n                rdbnamReceived = checkAndGetReceivedFlag(rdbnamReceived);\n                rdbnam = parseRDBNAM(true);\n                peekCP = peekCodePoint();\n            }\n\n            if (!foundInPass) {\n                doPrmnsprmSemantics(peekCP);\n            }\n\n        }\n        popCollectionStack();\n        checkRequiredObjects(svrcodReceived);\n\n        // move into a method\n        netAgent_.setSvrcod(svrcod);\n    }\n\n    //--------------------- parse DDM Reply Data--------------------------------------\n\n    //------------------------parse DDM Scalars-----------------------------\n\n    // RDB Package Name and Consistency token Scalar Object specifies the\n    // fully qualified name of a relational database package and its\n    // consistency token.\n    protected Object parsePKGNAMCT(boolean skip) throws DisconnectException {\n        parseLengthAndMatchCodePoint(CodePoint.PKGNAMCT);\n        if (skip) {\n            skipBytes();\n            return null;\n        }\n        agent_.accumulateChainBreakingReadExceptionAndThrow(new DisconnectException(agent_,\n                new ClientMessageId(SQLState.DRDA_COMMAND_NOT_IMPLEMENTED),\n                \"parsePKGNAMCT\"));\n        return null; // to make compiler happy\n    }\n\n\n\tprotected void resetAgent_(NetAgent netAgent, LogWriter netLogWriter, int loginTimeout, String server, int port) throws SqlException {\n\t    \n\t    netAgent.exceptionConvertingRdbnam = null;\n\t    // most properties will remain unchanged on connect reset.\n\t    netAgent.targetTypdef_ = netAgent.originalTargetTypdef_;\n\t    netAgent.svrcod_ = 0;\n\t\n\t    // Set TCP/IP Socket Properties\n\t    try {\n\t        netAgent.socket_.setSoTimeout(loginTimeout * 1000);\n\t    } catch (java.net.SocketException e) {\n\t        try {\n\t            netAgent.socket_.close();\n\t        } catch (java.io.IOException doNothing) {\n\t        }\n\t        throw new SqlException(netAgent.logWriter_, \n\t            new ClientMessageId(SQLState.SOCKET_EXCEPTION),\n\t            e.getMessage(), e);\n\t    }\n\t}\n}"
             },
             "candidatesTelemetryData": {
-                "numberOfSuggestions": 0,
-                "candidates": []
+                "numberOfSuggestions": 1,
+                "candidates": [
+                    {
+                        "lineStart": 217,
+                        "lineEnd": 236,
+                        "refactoringType": "MyMoveMethodRefactoring",
+                        "description": "Move method to org.apache.derby.client.net.NetAgent\nRationale: The method 'resetAgent_' directly manipulates properties of the NetAgent instance, such as 'exceptionConvertingRdbnam', 'targetTypdef_', and 'svrcod_'. It also interacts with the socket associated with the NetAgent, making it logical for this method to reside within the NetAgent class.",
+                        "couldCreateRefObject": true,
+                        "applied": false,
+                        "undone": false
+                    }
+                ]
             },
             "processingTime": {
                 "llmResponseTime": -1,
                 "pluginProcessingTime": -1,
-                "totalTime": 10565
+                "totalTime": 10438
             },
             "iterationData": [
                 {
                     "iteration_num": 1,
-                    "suggested_method_names": [
-                        "parseDTAMCHRM",
-                        "parseRDBUPDRM",
-                        "parseSQLERRRM",
-                        "resetAgent_"
+                    "suggested_move_methods": [
+                        {
+                            "method_name": "parseDTAMCHRM",
+                            "method_signature": "void parseDTAMCHRM() throws DisconnectException",
+                            "target_class": "NetAgent",
+                            "rationale": "The method parseDTAMCHRM interacts closely with the NetAgent's state and properties, making it more appropriate for it to reside within the NetAgent class."
+                        },
+                        {
+                            "method_name": "parseRDBUPDRM",
+                            "method_signature": "protected void parseRDBUPDRM() throws DisconnectException",
+                            "target_class": "NetAgent",
+                            "rationale": "The method parseRDBUPDRM is heavily dependent on the NetAgent's properties and methods, suggesting it should be moved to the NetAgent class for better cohesion."
+                        },
+                        {
+                            "method_name": "parseSQLERRRM",
+                            "method_signature": "void parseSQLERRRM() throws DisconnectException",
+                            "target_class": "NetAgent",
+                            "rationale": "The method parseSQLERRRM interacts with the NetAgent's state and is called by other classes that also depend on NetAgent, indicating it should be part of the NetAgent class."
+                        },
+                        {
+                            "method_name": "resetAgent_",
+                            "method_signature": "protected void resetAgent_(NetAgent netAgent, LogWriter netLogWriter, int loginTimeout, String server, int port) throws SqlException",
+                            "target_class": "NetAgent",
+                            "rationale": "The resetAgent_ method is directly manipulating the state of the NetAgent and should logically belong to the NetAgent class to maintain encapsulation."
+                        }
                     ],
-                    "llm_response_time": 3019
+                    "llm_response_time": 3248
                 },
                 {
                     "iteration_num": 2,
-                    "suggested_method_names": [
-                        "parseDTAMCHRM",
-                        "parseRDBUPDRM",
-                        "parseSQLERRRM",
-                        "resetAgent_"
+                    "suggested_move_methods": [
+                        {
+                            "method_name": "parseDTAMCHRM",
+                            "method_signature": "void parseDTAMCHRM() throws DisconnectException",
+                            "target_class": "NetAgent",
+                            "rationale": "The method parseDTAMCHRM interacts closely with the NetAgent's state and properties, making it more appropriate for it to reside within the NetAgent class."
+                        },
+                        {
+                            "method_name": "parseRDBUPDRM",
+                            "method_signature": "protected void parseRDBUPDRM() throws DisconnectException",
+                            "target_class": "NetAgent",
+                            "rationale": "The method parseRDBUPDRM is heavily dependent on the NetAgent's state and operations, suggesting it should be moved to the NetAgent class for better encapsulation."
+                        },
+                        {
+                            "method_name": "parseSQLERRRM",
+                            "method_signature": "void parseSQLERRRM() throws DisconnectException",
+                            "target_class": "NetAgent",
+                            "rationale": "The method parseSQLERRRM directly manipulates the NetAgent's state and is called by other classes that also interact with NetAgent, indicating it should be part of the NetAgent class."
+                        },
+                        {
+                            "method_name": "resetAgent_",
+                            "method_signature": "protected void resetAgent_(NetAgent netAgent, LogWriter netLogWriter, int loginTimeout, String server, int port) throws SqlException",
+                            "target_class": "NetAgent",
+                            "rationale": "The resetAgent_ method is primarily concerned with resetting the state of the NetAgent, making it logical to move this method into the NetAgent class."
+                        }
                     ],
-                    "llm_response_time": 3276
+                    "llm_response_time": 3403
                 },
                 {
                     "iteration_num": 3,
-                    "suggested_method_names": [
-                        "parseDTAMCHRM",
-                        "parseRDBUPDRM",
-                        "parseSQLERRRM",
-                        "resetAgent_"
+                    "suggested_move_methods": [
+                        {
+                            "method_name": "parseDTAMCHRM",
+                            "method_signature": "void parseDTAMCHRM() throws DisconnectException",
+                            "target_class": "NetAgent",
+                            "rationale": "The method parseDTAMCHRM interacts closely with the NetAgent's state and properties, making it more appropriate for it to reside within the NetAgent class."
+                        },
+                        {
+                            "method_name": "parseRDBUPDRM",
+                            "method_signature": "protected void parseRDBUPDRM() throws DisconnectException",
+                            "target_class": "NetAgent",
+                            "rationale": "The method parseRDBUPDRM is heavily dependent on the NetAgent's state and operations, suggesting it should be moved to the NetAgent class for better encapsulation."
+                        },
+                        {
+                            "method_name": "parseSQLERRRM",
+                            "method_signature": "void parseSQLERRRM() throws DisconnectException",
+                            "target_class": "NetAgent",
+                            "rationale": "The method parseSQLERRRM directly manipulates the NetAgent's state and is called by other NetAgent-related classes, indicating it should be part of the NetAgent class."
+                        },
+                        {
+                            "method_name": "resetAgent_",
+                            "method_signature": "protected void resetAgent_(NetAgent netAgent, LogWriter netLogWriter, int loginTimeout, String server, int port) throws SqlException",
+                            "target_class": "NetAgent",
+                            "rationale": "The resetAgent_ method is primarily concerned with resetting the state of a NetAgent instance, making it a better fit within the NetAgent class."
+                        }
                     ],
-                    "llm_response_time": 3440
+                    "llm_response_time": 2984
                 },
                 {
                     "iteration_num": -1,
-                    "suggested_method_names": [
-                        "parseDTAMCHRM",
-                        "parseRDBUPDRM",
-                        "parseSQLERRRM",
-                        "resetAgent_"
+                    "suggested_move_methods": [
+                        {
+                            "method_name": "parseDTAMCHRM",
+                            "method_signature": "void parseDTAMCHRM() throws DisconnectException",
+                            "target_class": "NetAgent",
+                            "rationale": "The method parseDTAMCHRM interacts closely with the NetAgent's state and properties, making it more appropriate for it to reside within the NetAgent class."
+                        },
+                        {
+                            "method_name": "parseRDBUPDRM",
+                            "method_signature": "protected void parseRDBUPDRM() throws DisconnectException",
+                            "target_class": "NetAgent",
+                            "rationale": "The method parseRDBUPDRM is heavily dependent on the NetAgent's properties and methods, suggesting it should be moved to the NetAgent class for better cohesion."
+                        },
+                        {
+                            "method_name": "parseSQLERRRM",
+                            "method_signature": "void parseSQLERRRM() throws DisconnectException",
+                            "target_class": "NetAgent",
+                            "rationale": "The method parseSQLERRRM interacts with the NetAgent's state and is called by other classes that also depend on NetAgent, indicating it should be part of the NetAgent class."
+                        },
+                        {
+                            "method_name": "resetAgent_",
+                            "method_signature": "protected void resetAgent_(NetAgent netAgent, LogWriter netLogWriter, int loginTimeout, String server, int port) throws SqlException",
+                            "target_class": "NetAgent",
+                            "rationale": "The resetAgent_ method is directly manipulating the state of the NetAgent and should logically belong to the NetAgent class to maintain encapsulation."
+                        }
                     ],
                     "llm_response_time": 0
                 }
@@ -691,28 +1377,42 @@
                     "parseRDBUPDRM",
                     "resetAgent_"
                 ],
-                "llm_response_time": 712
+                "llm_response_time": 740
             },
             "targetClassMap": {
                 "parseSQLERRRM": {
                     "target_classes": [],
                     "target_classes_sorted_by_llm": [],
-                    "llm_response_time": 1724,
+                    "llm_response_time": 1122,
                     "similarity_computation_time": 0,
                     "similarity_metric": "cosine"
                 },
                 "parseDTAMCHRM": {
                     "target_classes": [],
                     "target_classes_sorted_by_llm": [],
-                    "llm_response_time": 1299,
+                    "llm_response_time": 4828,
                     "similarity_computation_time": 0,
                     "similarity_metric": "cosine"
                 },
                 "parseRDBUPDRM": {
                     "target_classes": [],
                     "target_classes_sorted_by_llm": [],
-                    "llm_response_time": 1252,
+                    "llm_response_time": 1926,
                     "similarity_computation_time": 0,
+                    "similarity_metric": "cosine"
+                },
+                "resetAgent_": {
+                    "target_classes": [
+                        {
+                            "class_name": "NetAgent",
+                            "similarity_score": 0.7224728767083547
+                        }
+                    ],
+                    "target_classes_sorted_by_llm": [
+                        "NetAgent"
+                    ],
+                    "llm_response_time": 1300,
+                    "similarity_computation_time": 1,
                     "similarity_metric": "cosine"
                 }
             }
@@ -722,7 +1422,7 @@
         "oracle": "method org.apache.derby.iapi.types.SQLInteger::isUpdated():boolean need move to org.apache.derby.impl.sql.execute.ScrollInsensitiveResultSet",
         "class_name": "org.apache.derby.iapi.types.SQLInteger",
         "telemetry": {
-            "id": "b2b9b472-e5fd-4a89-9c7a-759885f4b2e0",
+            "id": "8423dd57-20ce-4d40-9cf1-7ff691ac409a",
             "hostFunctionTelemetryData": {
                 "hostFunctionSize": 677,
                 "lineStart": 46,
@@ -748,34 +1448,54 @@
             "processingTime": {
                 "llmResponseTime": -1,
                 "pluginProcessingTime": -1,
-                "totalTime": 5907
+                "totalTime": 5398
             },
             "iterationData": [
                 {
                     "iteration_num": 1,
-                    "suggested_method_names": [
-                        "isUpdated"
+                    "suggested_move_methods": [
+                        {
+                            "method_name": "isUpdated",
+                            "method_signature": "public boolean isUpdated(ScrollInsensitiveResultSet scrollInsensitiveResultSet) throws StandardException",
+                            "target_class": "ScrollInsensitiveResultSet",
+                            "rationale": "The isUpdated() method operates directly on the ScrollInsensitiveResultSet and modifies its state, making it more appropriate for this method to reside within the ScrollInsensitiveResultSet class."
+                        }
                     ],
-                    "llm_response_time": 1453
+                    "llm_response_time": 1610
                 },
                 {
                     "iteration_num": 2,
-                    "suggested_method_names": [
-                        "isUpdated"
+                    "suggested_move_methods": [
+                        {
+                            "method_name": "isUpdated",
+                            "method_signature": "public boolean isUpdated(ScrollInsensitiveResultSet scrollInsensitiveResultSet) throws StandardException",
+                            "target_class": "ScrollInsensitiveResultSet",
+                            "rationale": "The isUpdated() method operates directly on the ScrollInsensitiveResultSet and modifies its state, making it more appropriate for this method to reside within the ScrollInsensitiveResultSet class."
+                        }
                     ],
-                    "llm_response_time": 2561
+                    "llm_response_time": 1423
                 },
                 {
                     "iteration_num": 3,
-                    "suggested_method_names": [
-                        "isUpdated"
+                    "suggested_move_methods": [
+                        {
+                            "method_name": "isUpdated",
+                            "method_signature": "public boolean isUpdated(ScrollInsensitiveResultSet scrollInsensitiveResultSet) throws StandardException",
+                            "target_class": "ScrollInsensitiveResultSet",
+                            "rationale": "The isUpdated() method operates directly on the ScrollInsensitiveResultSet and modifies its state, making it more appropriate for this method to reside within the ScrollInsensitiveResultSet class."
+                        }
                     ],
-                    "llm_response_time": 1257
+                    "llm_response_time": 1713
                 },
                 {
                     "iteration_num": -1,
-                    "suggested_method_names": [
-                        "isUpdated"
+                    "suggested_move_methods": [
+                        {
+                            "method_name": "isUpdated",
+                            "method_signature": "public boolean isUpdated(ScrollInsensitiveResultSet scrollInsensitiveResultSet) throws StandardException",
+                            "target_class": "ScrollInsensitiveResultSet",
+                            "rationale": "The isUpdated() method operates directly on the ScrollInsensitiveResultSet and modifies its state, making it more appropriate for this method to reside within the ScrollInsensitiveResultSet class."
+                        }
                     ],
                     "llm_response_time": 0
                 }
@@ -784,7 +1504,7 @@
                 "priority_method_names": [
                     "isUpdated"
                 ],
-                "llm_response_time": 548
+                "llm_response_time": 589
             },
             "targetClassMap": {
                 "isUpdated": {
@@ -797,8 +1517,8 @@
                     "target_classes_sorted_by_llm": [
                         "ScrollInsensitiveResultSet"
                     ],
-                    "llm_response_time": 1028,
-                    "similarity_computation_time": 6,
+                    "llm_response_time": 922,
+                    "similarity_computation_time": 4,
                     "similarity_metric": "cosine"
                 }
             }
@@ -808,7 +1528,7 @@
         "oracle": "- method org.apache.derby.vti.Restriction::getFloat(int):float need move to org.apache.derbyTesting.functionTests.tests.lang.RestrictedTableVTI",
         "class_name": "org.apache.derby.vti.Restriction",
         "telemetry": {
-            "id": "61349697-0f1d-4e53-9852-674c1a3215a6",
+            "id": "bda4c4cb-0902-4aa6-8cdd-937eb55880d2",
             "hostFunctionTelemetryData": {
                 "hostFunctionSize": 242,
                 "lineStart": 29,
@@ -824,7 +1544,7 @@
                         "lineStart": 48,
                         "lineEnd": 49,
                         "refactoringType": "MyMoveMethodRefactoring",
-                        "description": "Move method to org.apache.derbyTesting.functionTests.tests.lang.RestrictedTableVTI\nRationale: The method directly interacts with the RestrictedTableVTI instance and its properties, making it logical for it to reside within the same class.",
+                        "description": "Move method to org.apache.derbyTesting.functionTests.tests.lang.RestrictedTableVTI\nRationale: The method getFloat() directly operates on the RestrictedTableVTI instance and its properties, making it logical for it to reside within the same class.",
                         "couldCreateRefObject": true,
                         "applied": false,
                         "undone": false
@@ -834,38 +1554,78 @@
             "processingTime": {
                 "llmResponseTime": -1,
                 "pluginProcessingTime": -1,
-                "totalTime": 6610
+                "totalTime": 6138
             },
             "iterationData": [
                 {
                     "iteration_num": 1,
-                    "suggested_method_names": [
-                        "getFloat",
-                        "toEscapedString"
+                    "suggested_move_methods": [
+                        {
+                            "method_name": "getFloat",
+                            "method_signature": "public float getFloat(RestrictedTableVTI restrictedTableVTI, int i) throws SQLException",
+                            "target_class": "RestrictedTableVTI",
+                            "rationale": "The getFloat method directly interacts with the RestrictedTableVTI class, making it more appropriate for it to reside within that class."
+                        },
+                        {
+                            "method_name": "toEscapedString",
+                            "method_signature": "protected String toEscapedString(Object o)",
+                            "target_class": "SQLUtils",
+                            "rationale": "The toEscapedString method is a utility function for converting various objects to their SQL string representations, which would be better suited in a utility class like SQLUtils."
+                        }
                     ],
-                    "llm_response_time": 2415
+                    "llm_response_time": 2095
                 },
                 {
                     "iteration_num": 2,
-                    "suggested_method_names": [
-                        "getFloat",
-                        "toEscapedString"
+                    "suggested_move_methods": [
+                        {
+                            "method_name": "getFloat",
+                            "method_signature": "public float getFloat(RestrictedTableVTI restrictedTableVTI, int i) throws SQLException",
+                            "target_class": "RestrictedTableVTI",
+                            "rationale": "The getFloat method directly interacts with the RestrictedTableVTI class, making it more appropriate for it to reside within that class."
+                        },
+                        {
+                            "method_name": "toEscapedString",
+                            "method_signature": "protected String toEscapedString(Object o)",
+                            "target_class": "SQLUtils",
+                            "rationale": "The toEscapedString method is a utility function for converting various objects to their SQL string representations, which would be better suited in a dedicated utility class like SQLUtils."
+                        }
                     ],
-                    "llm_response_time": 1856
+                    "llm_response_time": 1593
                 },
                 {
                     "iteration_num": 3,
-                    "suggested_method_names": [
-                        "getFloat",
-                        "toEscapedString"
+                    "suggested_move_methods": [
+                        {
+                            "method_name": "getFloat",
+                            "method_signature": "public float getFloat(RestrictedTableVTI restrictedTableVTI, int i) throws SQLException",
+                            "target_class": "RestrictedTableVTI",
+                            "rationale": "The getFloat method operates directly on the RestrictedTableVTI instance and accesses its result set, making it more appropriate for it to reside within the RestrictedTableVTI class."
+                        },
+                        {
+                            "method_name": "toEscapedString",
+                            "method_signature": "protected String toEscapedString(Object o)",
+                            "target_class": "SQLUtils",
+                            "rationale": "The toEscapedString method is a utility function for converting various objects to their SQL string representations. It would be better placed in a utility class like SQLUtils to promote reusability and separation of concerns."
+                        }
                     ],
-                    "llm_response_time": 1724
+                    "llm_response_time": 1829
                 },
                 {
                     "iteration_num": -1,
-                    "suggested_method_names": [
-                        "getFloat",
-                        "toEscapedString"
+                    "suggested_move_methods": [
+                        {
+                            "method_name": "getFloat",
+                            "method_signature": "public float getFloat(RestrictedTableVTI restrictedTableVTI, int i) throws SQLException",
+                            "target_class": "RestrictedTableVTI",
+                            "rationale": "The getFloat method directly interacts with the RestrictedTableVTI class, making it more appropriate for it to reside within that class."
+                        },
+                        {
+                            "method_name": "toEscapedString",
+                            "method_signature": "protected String toEscapedString(Object o)",
+                            "target_class": "SQLUtils",
+                            "rationale": "The toEscapedString method is a utility function for converting various objects to their SQL string representations, which would be better suited in a utility class like SQLUtils."
+                        }
                     ],
                     "llm_response_time": 0
                 }
@@ -875,13 +1635,13 @@
                     "toEscapedString",
                     "getFloat"
                 ],
-                "llm_response_time": 477
+                "llm_response_time": 504
             },
             "targetClassMap": {
                 "toEscapedString": {
                     "target_classes": [],
                     "target_classes_sorted_by_llm": [],
-                    "llm_response_time": 1349,
+                    "llm_response_time": 1583,
                     "similarity_computation_time": 0,
                     "similarity_metric": "cosine"
                 },
@@ -895,8 +1655,8 @@
                     "target_classes_sorted_by_llm": [
                         "RestrictedTableVTI"
                     ],
-                    "llm_response_time": 714,
-                    "similarity_computation_time": 1,
+                    "llm_response_time": 823,
+                    "similarity_computation_time": 0,
                     "similarity_metric": "cosine"
                 }
             }
@@ -906,7 +1666,7 @@
         "oracle": "method org.apache.derby.iapi.sql.dictionary.PermDescriptor::getUncachedGenericPermDescriptor(PermDescriptor):PermDescriptor need move to org.apache.derby.impl.sql.catalog.DataDictionaryImpl",
         "class_name": "org.apache.derby.iapi.sql.dictionary.PermDescriptor",
         "telemetry": {
-            "id": "669768c6-eabb-484a-a580-b2ac2fc453c6",
+            "id": "bfe118b2-dcd1-423f-9221-9d0c4acfb287",
             "hostFunctionTelemetryData": {
                 "hostFunctionSize": 213,
                 "lineStart": 35,
@@ -922,7 +1682,7 @@
                         "lineStart": 150,
                         "lineEnd": 174,
                         "refactoringType": "MyMoveStaticMethodRefactoring",
-                        "description": "move method to org.apache.derby.iapi.sql.dictionary.DataDictionary\nRationale: The method getProtectedObject() interacts directly with the DataDictionary to retrieve various descriptors based on the object type, making it logical to place this method within the DataDictionary class.",
+                        "description": "move method to org.apache.derby.iapi.sql.dictionary.DataDictionary\nRationale: The method getProtectedObject() interacts directly with the DataDictionary instance to retrieve various descriptors based on the object type, making it a logical fit within the DataDictionary class.",
                         "couldCreateRefObject": true,
                         "applied": false,
                         "undone": false
@@ -931,7 +1691,7 @@
                         "lineStart": 215,
                         "lineEnd": 244,
                         "refactoringType": "MyMoveMethodRefactoring",
-                        "description": "Move method to org.apache.derby.impl.sql.catalog.DataDictionaryImpl\nRationale: The method interacts directly with the DataDictionaryImpl to retrieve permission descriptors, making it more appropriate for this method to reside within the DataDictionaryImpl class.",
+                        "description": "Move method to org.apache.derby.impl.sql.catalog.DataDictionaryImpl\nRationale: The method getUncachedGenericPermDescriptor interacts directly with the DataDictionaryImpl to retrieve permission descriptors, making it more appropriate for this method to reside within the DataDictionaryImpl class.",
                         "couldCreateRefObject": true,
                         "applied": false,
                         "undone": false
@@ -941,38 +1701,78 @@
             "processingTime": {
                 "llmResponseTime": -1,
                 "pluginProcessingTime": -1,
-                "totalTime": 7615
+                "totalTime": 10372
             },
             "iterationData": [
                 {
                     "iteration_num": 1,
-                    "suggested_method_names": [
-                        "getProtectedObject",
-                        "getUncachedGenericPermDescriptor"
+                    "suggested_move_methods": [
+                        {
+                            "method_name": "getProtectedObject",
+                            "method_signature": "public static PrivilegedSQLObject getProtectedObject(DataDictionary dd, UUID objectID, String objectType) throws StandardException",
+                            "target_class": "DataDictionary",
+                            "rationale": "The method getProtectedObject() is responsible for retrieving a protected object based on its type and ID, which aligns more closely with the responsibilities of the DataDictionary class."
+                        },
+                        {
+                            "method_name": "getUncachedGenericPermDescriptor",
+                            "method_signature": "public PermDescriptor getUncachedGenericPermDescriptor(DataDictionaryImpl dataDictionaryImpl) throws StandardException",
+                            "target_class": "DataDictionaryImpl",
+                            "rationale": "The method getUncachedGenericPermDescriptor() interacts directly with the DataDictionaryImpl to retrieve permission descriptors, making it more appropriate for this method to reside within the DataDictionaryImpl class."
+                        }
                     ],
-                    "llm_response_time": 1974
+                    "llm_response_time": 2222
                 },
                 {
                     "iteration_num": 2,
-                    "suggested_method_names": [
-                        "getProtectedObject",
-                        "getUncachedGenericPermDescriptor"
+                    "suggested_move_methods": [
+                        {
+                            "method_name": "getProtectedObject",
+                            "method_signature": "public static PrivilegedSQLObject getProtectedObject(DataDictionary dd, UUID objectID, String objectType) throws StandardException",
+                            "target_class": "DataDictionary",
+                            "rationale": "The method getProtectedObject is primarily responsible for retrieving protected objects based on their type and ID, which aligns more closely with the responsibilities of the DataDictionary class."
+                        },
+                        {
+                            "method_name": "getUncachedGenericPermDescriptor",
+                            "method_signature": "public PermDescriptor getUncachedGenericPermDescriptor(DataDictionaryImpl dataDictionaryImpl) throws StandardException",
+                            "target_class": "DataDictionaryImpl",
+                            "rationale": "The method getUncachedGenericPermDescriptor deals with fetching permission descriptors from the system tables, which is a core responsibility of the DataDictionaryImpl class."
+                        }
                     ],
-                    "llm_response_time": 2189
+                    "llm_response_time": 5614
                 },
                 {
                     "iteration_num": 3,
-                    "suggested_method_names": [
-                        "getProtectedObject",
-                        "getUncachedGenericPermDescriptor"
+                    "suggested_move_methods": [
+                        {
+                            "method_name": "getProtectedObject",
+                            "method_signature": "public static PrivilegedSQLObject getProtectedObject(DataDictionary dd, UUID objectID, String objectType) throws StandardException",
+                            "target_class": "DataDictionary",
+                            "rationale": "The method getProtectedObject is primarily responsible for retrieving protected objects based on their type and ID, which aligns more closely with the responsibilities of the DataDictionary class."
+                        },
+                        {
+                            "method_name": "getUncachedGenericPermDescriptor",
+                            "method_signature": "public PermDescriptor getUncachedGenericPermDescriptor(DataDictionaryImpl dataDictionaryImpl) throws StandardException",
+                            "target_class": "DataDictionaryImpl",
+                            "rationale": "This method deals with fetching permission descriptors from the system tables, which is a core responsibility of the DataDictionaryImpl class. Moving it there would enhance cohesion."
+                        }
                     ],
-                    "llm_response_time": 2266
+                    "llm_response_time": 1904
                 },
                 {
                     "iteration_num": -1,
-                    "suggested_method_names": [
-                        "getProtectedObject",
-                        "getUncachedGenericPermDescriptor"
+                    "suggested_move_methods": [
+                        {
+                            "method_name": "getProtectedObject",
+                            "method_signature": "public static PrivilegedSQLObject getProtectedObject(DataDictionary dd, UUID objectID, String objectType) throws StandardException",
+                            "target_class": "DataDictionary",
+                            "rationale": "The method getProtectedObject() is responsible for retrieving a protected object based on its type and ID, which aligns more closely with the responsibilities of the DataDictionary class."
+                        },
+                        {
+                            "method_name": "getUncachedGenericPermDescriptor",
+                            "method_signature": "public PermDescriptor getUncachedGenericPermDescriptor(DataDictionaryImpl dataDictionaryImpl) throws StandardException",
+                            "target_class": "DataDictionaryImpl",
+                            "rationale": "The method getUncachedGenericPermDescriptor() interacts directly with the DataDictionaryImpl to retrieve permission descriptors, making it more appropriate for this method to reside within the DataDictionaryImpl class."
+                        }
                     ],
                     "llm_response_time": 0
                 }
@@ -982,7 +1782,7 @@
                     "getProtectedObject",
                     "getUncachedGenericPermDescriptor"
                 ],
-                "llm_response_time": 1116
+                "llm_response_time": 562
             },
             "targetClassMap": {
                 "getProtectedObject": {
@@ -1197,211 +1997,211 @@
                         },
                         {
                             "class_name": "DDUtils",
-                            "similarity_score": 0.23764391084886888
+                            "similarity_score": 0.33440299961870495
                         },
                         {
                             "class_name": "ConsInfo",
-                            "similarity_score": 0.13089673940283172
+                            "similarity_score": 0.14279644298490732
                         },
                         {
                             "class_name": "IndexLister",
-                            "similarity_score": 0.24337542436688384
+                            "similarity_score": 0.32492689967043625
                         },
                         {
                             "class_name": "SystemColumn",
-                            "similarity_score": 0.20507577810739896
-                        },
-                        {
-                            "class_name": "SPSDescriptor",
-                            "similarity_score": 0.23763021521056593
-                        },
-                        {
-                            "class_name": "DataDictionary",
-                            "similarity_score": 0.041550659727129
-                        },
-                        {
-                            "class_name": "PasswordHasher",
-                            "similarity_score": 0.2294677249418128
-                        },
-                        {
-                            "class_name": "UserDescriptor",
-                            "similarity_score": 0.2398370230736339
-                        },
-                        {
-                            "class_name": "ViewDescriptor",
-                            "similarity_score": 0.25275033364605626
-                        },
-                        {
-                            "class_name": "AliasDescriptor",
-                            "similarity_score": 0.25083915862396433
-                        },
-                        {
-                            "class_name": "TableDescriptor",
-                            "similarity_score": 0.2607516470715711
-                        },
-                        {
-                            "class_name": "TupleDescriptor",
-                            "similarity_score": 0.2769753643616176
-                        },
-                        {
-                            "class_name": "ColumnDescriptor",
-                            "similarity_score": 0.24704585718136104
-                        },
-                        {
-                            "class_name": "SchemaDescriptor",
-                            "similarity_score": 0.19623664285981013
-                        },
-                        {
-                            "class_name": "CatalogRowFactory",
-                            "similarity_score": 0.27034954159032343
-                        },
-                        {
-                            "class_name": "DefaultDescriptor",
-                            "similarity_score": 0.2546124050132244
-                        },
-                        {
-                            "class_name": "IndexRowGenerator",
-                            "similarity_score": 0.26040340038751186
-                        },
-                        {
-                            "class_name": "TriggerDescriptor",
-                            "similarity_score": 0.2525277336536766
-                        },
-                        {
-                            "class_name": "ColPermsDescriptor",
-                            "similarity_score": 0.25498979919755793
-                        },
-                        {
-                            "class_name": "FileInfoDescriptor",
-                            "similarity_score": 0.24837776257146407
-                        },
-                        {
-                            "class_name": "SequenceDescriptor",
-                            "similarity_score": 0.25248766157155056
-                        },
-                        {
-                            "class_name": "PrivilegedSQLObject",
-                            "similarity_score": 0.21616885058355848
-                        },
-                        {
-                            "class_name": "RoleClosureIterator",
                             "similarity_score": 0.22786197567488775
                         },
                         {
+                            "class_name": "SPSDescriptor",
+                            "similarity_score": 0.3192103483271384
+                        },
+                        {
+                            "class_name": "DataDictionary",
+                            "similarity_score": 0.05156809845830013
+                        },
+                        {
+                            "class_name": "PasswordHasher",
+                            "similarity_score": 0.33024368897470713
+                        },
+                        {
+                            "class_name": "UserDescriptor",
+                            "similarity_score": 0.33131454902114305
+                        },
+                        {
+                            "class_name": "ViewDescriptor",
+                            "similarity_score": 0.16488535568832544
+                        },
+                        {
+                            "class_name": "AliasDescriptor",
+                            "similarity_score": 0.3718596053839908
+                        },
+                        {
+                            "class_name": "TableDescriptor",
+                            "similarity_score": 0.3652784450099457
+                        },
+                        {
+                            "class_name": "TupleDescriptor",
+                            "similarity_score": 0.39648407212986936
+                        },
+                        {
+                            "class_name": "ColumnDescriptor",
+                            "similarity_score": 0.3279403350712109
+                        },
+                        {
+                            "class_name": "SchemaDescriptor",
+                            "similarity_score": 0.2999513453168983
+                        },
+                        {
+                            "class_name": "CatalogRowFactory",
+                            "similarity_score": 0.3651023987069076
+                        },
+                        {
+                            "class_name": "DefaultDescriptor",
+                            "similarity_score": 0.3346578898119944
+                        },
+                        {
+                            "class_name": "IndexRowGenerator",
+                            "similarity_score": 0.3651817349040076
+                        },
+                        {
+                            "class_name": "TriggerDescriptor",
+                            "similarity_score": 0.3609872994222845
+                        },
+                        {
+                            "class_name": "ColPermsDescriptor",
+                            "similarity_score": 0.3923432366782153
+                        },
+                        {
+                            "class_name": "FileInfoDescriptor",
+                            "similarity_score": 0.35639141869650254
+                        },
+                        {
+                            "class_name": "SequenceDescriptor",
+                            "similarity_score": 0.3243174311438242
+                        },
+                        {
+                            "class_name": "PrivilegedSQLObject",
+                            "similarity_score": 0.2377857356419143
+                        },
+                        {
+                            "class_name": "RoleClosureIterator",
+                            "similarity_score": 0.25064817324237654
+                        },
+                        {
                             "class_name": "RoleGrantDescriptor",
-                            "similarity_score": 0.24770593549539927
+                            "similarity_score": 0.277051738461695
                         },
                         {
                             "class_name": "StatementPermission",
-                            "similarity_score": 0.2515528099612026
+                            "similarity_score": 0.36978393663580456
                         },
                         {
                             "class_name": "ColumnDescriptorList",
-                            "similarity_score": 0.2573194209133315
+                            "similarity_score": 0.28088072785154833
                         },
                         {
                             "class_name": "ConstraintDescriptor",
-                            "similarity_score": 0.25290503587643975
+                            "similarity_score": 0.3561086947994769
                         },
                         {
                             "class_name": "DependencyDescriptor",
-                            "similarity_score": 0.23380026520164254
+                            "similarity_score": 0.26686222372750734
                         },
                         {
                             "class_name": "StatisticsDescriptor",
-                            "similarity_score": 0.24032251073771518
+                            "similarity_score": 0.3152300723193802
                         },
                         {
                             "class_name": "TablePermsDescriptor",
-                            "similarity_score": 0.2350576170119895
+                            "similarity_score": 0.32913071697502067
                         },
                         {
                             "class_name": "GenericDescriptorList",
-                            "similarity_score": 0.2673248717548622
+                            "similarity_score": 0.34867166786946374
                         },
                         {
                             "class_name": "PermissionsDescriptor",
-                            "similarity_score": 0.26982150878387134
+                            "similarity_score": 0.3940684702712485
                         },
                         {
                             "class_name": "UniqueTupleDescriptor",
-                            "similarity_score": 0.23253407519796082
+                            "similarity_score": 0.2583711946644009
                         },
                         {
                             "class_name": "ConglomerateDescriptor",
-                            "similarity_score": 0.251086017404896
+                            "similarity_score": 0.3650054461566354
                         },
                         {
                             "class_name": "RoutinePermsDescriptor",
-                            "similarity_score": 0.2587772688254878
+                            "similarity_score": 0.3816055523835155
                         },
                         {
                             "class_name": "DataDescriptorGenerator",
-                            "similarity_score": 0.19384758584933376
+                            "similarity_score": 0.2631498398325919
                         },
                         {
                             "class_name": "KeyConstraintDescriptor",
-                            "similarity_score": 0.25234079421150896
+                            "similarity_score": 0.3556209227560834
                         },
                         {
                             "class_name": "StatementRolePermission",
-                            "similarity_score": 0.25940262070027015
+                            "similarity_score": 0.32918080916265946
                         },
                         {
                             "class_name": "SubConstraintDescriptor",
-                            "similarity_score": 0.2600424535798635
+                            "similarity_score": 0.32243906211659445
                         },
                         {
                             "class_name": "ConstraintDescriptorList",
-                            "similarity_score": 0.2598525822191908
+                            "similarity_score": 0.28595941990937407
                         },
                         {
                             "class_name": "StatementTablePermission",
-                            "similarity_score": 0.2738084458935384
+                            "similarity_score": 0.37089101623890847
                         },
                         {
                             "class_name": "CheckConstraintDescriptor",
-                            "similarity_score": 0.2538234175596303
+                            "similarity_score": 0.37365069247717414
                         },
                         {
                             "class_name": "StatementColumnPermission",
-                            "similarity_score": 0.2543836930064561
+                            "similarity_score": 0.3483166178119174
                         },
                         {
                             "class_name": "StatementSchemaPermission",
-                            "similarity_score": 0.24733069438997185
+                            "similarity_score": 0.3381848334952776
                         },
                         {
                             "class_name": "UniqueSQLObjectDescriptor",
-                            "similarity_score": 0.18959262392869294
+                            "similarity_score": 0.20855188632156224
                         },
                         {
                             "class_name": "ConglomerateDescriptorList",
-                            "similarity_score": 0.26457982006258907
+                            "similarity_score": 0.2928254795056196
                         },
                         {
                             "class_name": "StatementGenericPermission",
-                            "similarity_score": 0.2584808572764259
+                            "similarity_score": 0.4085544288906096
                         },
                         {
                             "class_name": "StatementRoutinePermission",
-                            "similarity_score": 0.26599595767154216
+                            "similarity_score": 0.40002430626390784
                         },
                         {
                             "class_name": "SubKeyConstraintDescriptor",
-                            "similarity_score": 0.2416964527694345
+                            "similarity_score": 0.2788209888194253
                         },
                         {
                             "class_name": "SubCheckConstraintDescriptor",
-                            "similarity_score": 0.2540650080866609
+                            "similarity_score": 0.319023041385069
                         },
                         {
                             "class_name": "ForeignKeyConstraintDescriptor",
-                            "similarity_score": 0.23216140122640666
+                            "similarity_score": 0.3691997831802727
                         },
                         {
                             "class_name": "ReferencedKeyConstraintDescriptor",
-                            "similarity_score": 0.24644597785706907
+                            "similarity_score": 0.4031787917055518
                         }
                     ],
                     "target_classes_sorted_by_llm": [
@@ -1458,8 +2258,8 @@
                         "RoleClosureIterator",
                         "DDUtils"
                     ],
-                    "llm_response_time": 1408,
-                    "similarity_computation_time": 146,
+                    "llm_response_time": 1331,
+                    "similarity_computation_time": 749,
                     "similarity_metric": "cosine"
                 },
                 "getUncachedGenericPermDescriptor": {
@@ -1477,8 +2277,8 @@
                         "DataDictionaryImpl",
                         "UUID"
                     ],
-                    "llm_response_time": 1679,
-                    "similarity_computation_time": 20,
+                    "llm_response_time": 1028,
+                    "similarity_computation_time": 12,
                     "similarity_metric": "cosine"
                 }
             }
@@ -1488,7 +2288,7 @@
         "oracle": "- method org.apache.derby.iapi.sql.dictionary.GenericDescriptorList::setRefActionInfo(long, int[], String, boolean):void need move to org.apache.derby.impl.sql.compile.DMLModStatementNode",
         "class_name": "org.apache.derby.iapi.sql.dictionary.GenericDescriptorList",
         "telemetry": {
-            "id": "def83c7f-684f-44b2-89a5-8efe59de34af",
+            "id": "60397d6d-5d93-42e8-b284-9ba512f75b7e",
             "hostFunctionTelemetryData": {
                 "hostFunctionSize": 57,
                 "lineStart": 30,
@@ -1514,42 +2314,102 @@
             "processingTime": {
                 "llmResponseTime": -1,
                 "pluginProcessingTime": -1,
-                "totalTime": 8899
+                "totalTime": 17096
             },
             "iterationData": [
                 {
                     "iteration_num": 1,
-                    "suggested_method_names": [
-                        "setScanned",
-                        "getScanned",
-                        "setRefActionInfo"
+                    "suggested_move_methods": [
+                        {
+                            "method_name": "setScanned",
+                            "method_signature": "public void setScanned(boolean scanned)",
+                            "target_class": "TableScanStatus",
+                            "rationale": "The setScanned method is related to the scanning status of a table, which is more relevant to a class that manages table scanning operations rather than a list of descriptors."
+                        },
+                        {
+                            "method_name": "getScanned",
+                            "method_signature": "public boolean getScanned()",
+                            "target_class": "TableScanStatus",
+                            "rationale": "The getScanned method is also related to the scanning status of a table, and should be moved to a class that encapsulates the scanning logic and status."
+                        },
+                        {
+                            "method_name": "setRefActionInfo",
+                            "method_signature": "public void setRefActionInfo(DMLModStatementNode dmlModStatementNode, long fkIndexConglomId, int[] fkColArray, String parentResultSetId, boolean dependentScan)",
+                            "target_class": "DMLModStatementNode",
+                            "rationale": "The setRefActionInfo method directly manipulates the DMLModStatementNode, indicating that it should belong to that class to maintain better cohesion and encapsulation."
+                        }
                     ],
-                    "llm_response_time": 3039
+                    "llm_response_time": 7755
                 },
                 {
                     "iteration_num": 2,
-                    "suggested_method_names": [
-                        "setScanned",
-                        "getScanned",
-                        "setRefActionInfo"
+                    "suggested_move_methods": [
+                        {
+                            "method_name": "setScanned",
+                            "method_signature": "public void setScanned(boolean scanned)",
+                            "target_class": "TableScanStatus",
+                            "rationale": "The setScanned method is related to the scanning status of a table, which is more relevant to a class that manages table scanning operations rather than a list of descriptors."
+                        },
+                        {
+                            "method_name": "getScanned",
+                            "method_signature": "public boolean getScanned()",
+                            "target_class": "TableScanStatus",
+                            "rationale": "The getScanned method retrieves the scanning status of a table, which should logically belong to a class that encapsulates the scanning behavior of tables."
+                        },
+                        {
+                            "method_name": "setRefActionInfo",
+                            "method_signature": "public void setRefActionInfo(DMLModStatementNode dmlModStatementNode, long fkIndexConglomId, int[] fkColArray, String parentResultSetId, boolean dependentScan)",
+                            "target_class": "DMLModStatementNode",
+                            "rationale": "The setRefActionInfo method operates on a DMLModStatementNode, indicating that it is more appropriate for this method to reside within the DMLModStatementNode class, which should handle its own reference action information."
+                        }
                     ],
-                    "llm_response_time": 2639
+                    "llm_response_time": 5759
                 },
                 {
                     "iteration_num": 3,
-                    "suggested_method_names": [
-                        "setScanned",
-                        "getScanned",
-                        "setRefActionInfo"
+                    "suggested_move_methods": [
+                        {
+                            "method_name": "setScanned",
+                            "method_signature": "public void setScanned(boolean scanned)",
+                            "target_class": "TableScanStatus",
+                            "rationale": "The setScanned method is related to the scanning status of a table, which is a concern that should be encapsulated in a class that manages table scanning status rather than in a list class."
+                        },
+                        {
+                            "method_name": "getScanned",
+                            "method_signature": "public boolean getScanned()",
+                            "target_class": "TableScanStatus",
+                            "rationale": "The getScanned method is related to the scanning status of a table, which is a concern that should be encapsulated in a class that manages table scanning status rather than in a list class."
+                        },
+                        {
+                            "method_name": "setRefActionInfo",
+                            "method_signature": "public void setRefActionInfo(DMLModStatementNode dmlModStatementNode, long fkIndexConglomId, int[] fkColArray, String parentResultSetId, boolean dependentScan)",
+                            "target_class": "DMLModStatementNode",
+                            "rationale": "The setRefActionInfo method directly manipulates the DMLModStatementNode, indicating that it is more appropriate for this method to reside within the DMLModStatementNode class."
+                        }
                     ],
-                    "llm_response_time": 2559
+                    "llm_response_time": 2829
                 },
                 {
                     "iteration_num": -1,
-                    "suggested_method_names": [
-                        "setScanned",
-                        "getScanned",
-                        "setRefActionInfo"
+                    "suggested_move_methods": [
+                        {
+                            "method_name": "setScanned",
+                            "method_signature": "public void setScanned(boolean scanned)",
+                            "target_class": "TableScanStatus",
+                            "rationale": "The setScanned method is related to the scanning status of a table, which is more relevant to a class that manages table scanning operations rather than a list of descriptors."
+                        },
+                        {
+                            "method_name": "getScanned",
+                            "method_signature": "public boolean getScanned()",
+                            "target_class": "TableScanStatus",
+                            "rationale": "The getScanned method is also related to the scanning status of a table, and should be moved to a class that encapsulates the scanning logic and status."
+                        },
+                        {
+                            "method_name": "setRefActionInfo",
+                            "method_signature": "public void setRefActionInfo(DMLModStatementNode dmlModStatementNode, long fkIndexConglomId, int[] fkColArray, String parentResultSetId, boolean dependentScan)",
+                            "target_class": "DMLModStatementNode",
+                            "rationale": "The setRefActionInfo method directly manipulates the DMLModStatementNode, indicating that it should belong to that class to maintain better cohesion and encapsulation."
+                        }
                     ],
                     "llm_response_time": 0
                 }
@@ -1560,7 +2420,7 @@
                     "setScanned",
                     "getScanned"
                 ],
-                "llm_response_time": 549
+                "llm_response_time": 613
             },
             "targetClassMap": {
                 "setRefActionInfo": {
@@ -1573,21 +2433,21 @@
                     "target_classes_sorted_by_llm": [
                         "DMLModStatementNode"
                     ],
-                    "llm_response_time": 972,
-                    "similarity_computation_time": 8,
+                    "llm_response_time": 1297,
+                    "similarity_computation_time": 3,
                     "similarity_metric": "cosine"
                 },
                 "setScanned": {
                     "target_classes": [],
                     "target_classes_sorted_by_llm": [],
-                    "llm_response_time": 1528,
+                    "llm_response_time": 1181,
                     "similarity_computation_time": 0,
                     "similarity_metric": "cosine"
                 },
                 "getScanned": {
                     "target_classes": [],
                     "target_classes_sorted_by_llm": [],
-                    "llm_response_time": 1403,
+                    "llm_response_time": 1109,
                     "similarity_computation_time": 0,
                     "similarity_metric": "cosine"
                 }
@@ -1598,7 +2458,7 @@
         "oracle": "- method org.apache.derby.impl.sql.compile.SubqueryList::setSharedState(String, java.io.Serializable):void need move to org.apache.derby.impl.sql.compile.FromVTI",
         "class_name": "org.apache.derby.impl.sql.compile.SubqueryList",
         "telemetry": {
-            "id": "12ad6756-75a3-4e45-9fdd-06d7395b1679",
+            "id": "8408cc2d-bea8-4bdb-8792-914b96a29521",
             "hostFunctionTelemetryData": {
                 "hostFunctionSize": 231,
                 "lineStart": 31,
@@ -1624,34 +2484,54 @@
             "processingTime": {
                 "llmResponseTime": -1,
                 "pluginProcessingTime": -1,
-                "totalTime": 6288
+                "totalTime": 5681
             },
             "iterationData": [
                 {
                     "iteration_num": 1,
-                    "suggested_method_names": [
-                        "setSharedState"
+                    "suggested_move_methods": [
+                        {
+                            "method_name": "setSharedState",
+                            "method_signature": "public void setSharedState(FromVTI fromVTI, String key, Serializable value)",
+                            "target_class": "FromVTI",
+                            "rationale": "The setSharedState method directly manipulates the state of the FromVTI class, making it more appropriate for this method to reside within the FromVTI class itself."
+                        }
                     ],
-                    "llm_response_time": 3137
+                    "llm_response_time": 1621
                 },
                 {
                     "iteration_num": 2,
-                    "suggested_method_names": [
-                        "setSharedState"
+                    "suggested_move_methods": [
+                        {
+                            "method_name": "setSharedState",
+                            "method_signature": "public void setSharedState(FromVTI fromVTI, String key, Serializable value)",
+                            "target_class": "FromVTI",
+                            "rationale": "The setSharedState method is directly manipulating the state of the FromVTI class, which suggests that it belongs in the FromVTI class rather than the SubqueryList class."
+                        }
                     ],
-                    "llm_response_time": 1331
+                    "llm_response_time": 1983
                 },
                 {
                     "iteration_num": 3,
-                    "suggested_method_names": [
-                        "setSharedState"
+                    "suggested_move_methods": [
+                        {
+                            "method_name": "setSharedState",
+                            "method_signature": "public void setSharedState(FromVTI fromVTI, String key, Serializable value)",
+                            "target_class": "FromVTI",
+                            "rationale": "The setSharedState method is directly manipulating the state of the FromVTI class, which suggests it should be part of that class instead of SubqueryList."
+                        }
                     ],
-                    "llm_response_time": 1219
+                    "llm_response_time": 1480
                 },
                 {
                     "iteration_num": -1,
-                    "suggested_method_names": [
-                        "setSharedState"
+                    "suggested_move_methods": [
+                        {
+                            "method_name": "setSharedState",
+                            "method_signature": "public void setSharedState(FromVTI fromVTI, String key, Serializable value)",
+                            "target_class": "FromVTI",
+                            "rationale": "The setSharedState method directly manipulates the state of the FromVTI class, making it more appropriate for this method to reside within the FromVTI class itself."
+                        }
                     ],
                     "llm_response_time": 0
                 }
@@ -1660,7 +2540,7 @@
                 "priority_method_names": [
                     "setSharedState"
                 ],
-                "llm_response_time": 502
+                "llm_response_time": 531
             },
             "targetClassMap": {
                 "setSharedState": {
@@ -1673,8 +2553,8 @@
                     "target_classes_sorted_by_llm": [
                         "FromVTI"
                     ],
-                    "llm_response_time": 841,
-                    "similarity_computation_time": 4,
+                    "llm_response_time": 827,
+                    "similarity_computation_time": 3,
                     "similarity_metric": "cosine"
                 }
             }
