@@ -5,7 +5,10 @@ files = [
 'mboulay_ref_telemetry_data.jsonl',
 'ref_telemetry_data.jsonl',
 'ref_telemetry_data-2.jsonl',
-'ref_telemetry_data-3.jsonl'
+'ref_telemetry_data-3.jsonl',
+'ref_telemetry_data-4.jsonl',
+    'ref_telemetry_data-5.jsonl',
+'ref_telemetry_data-6.jsonl'
 ]
 all_user_data = []
 for f in files:
@@ -23,5 +26,6 @@ for telemetry in all_user_data:
         if 'userRating' in candidate:
             ratings.append(candidate['userRating'])
 print(Counter(ratings))
-print(len(ratings))
-print(applied_candidates_count)
+print(f"{len(ratings)=}")
+print(f"{applied_candidates_count=}")
+print()
