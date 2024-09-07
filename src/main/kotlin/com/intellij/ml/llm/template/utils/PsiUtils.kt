@@ -16,6 +16,7 @@ import com.intellij.psi.util.childrenOfType
 import org.jetbrains.kotlin.idea.KotlinLanguage
 import org.jetbrains.kotlin.idea.base.psi.getLineNumber
 import org.jetbrains.kotlin.idea.base.util.projectScope
+import org.jetbrains.kotlin.j2k.accessModifier
 import org.jetbrains.kotlin.psi.*
 import org.jetbrains.kotlin.psi.psiUtil.startOffset
 import kotlin.math.sqrt
@@ -370,6 +371,56 @@ class PsiUtils {
             val vectorB = vectorize(termFrequency(tokensB), vocabulary)
 
             return cosineSimilarity(vectorA, vectorB)
+        }
+        fun getMethodWithSignatureFromClass(outerClass: PsiElement?, signature: MethodSignature): PsiMethod? {
+            var match: PsiMethod? = null
+            class MethodFinder: JavaRecursiveElementVisitor() {
+                override fun visitMethod(method: PsiMethod) {
+                    super.visitMethod(method)
+                    if (method.name == signature.methodName &&
+                        method.accessModifier()==signature.modifier &&
+                        method.returnType.toString().split(":")[1]==signature.returnType &&
+                        matchMethodParams(method, signature.paramsList)
+                    )
+                        match = method
+                }
+
+            }
+            if (outerClass != null) {
+                outerClass.accept(MethodFinder())
+            }
+            return match
+        }
+
+        fun matchMethodParams(psiMethod: PsiMethod, paramsList: List<Parameter>): Boolean{
+            if (psiMethod.parameterList.parameters.size!=paramsList.size)
+                return false
+            for (param in paramsList.withIndex()){
+                if (param.index >= psiMethod.parameterList.parameters.size)
+                    return false
+                if (psiMethod.parameterList.parameters[param.index].name != param.value.name)
+                    return false
+                if (psiMethod.parameterList.parameters[param.index].type.toString()
+                    .split(":")[1].replace(" ", "") != param.value.type) {
+                    if (!psiMethod.parameterList.parameters[param.index].type.canonicalText.endsWith(param.value.type))
+                        return false
+                }
+            }
+            return true
+        }
+
+        fun getMethodParameter(methodPsi: PsiMethod, parameterToFind: Parameter): PsiParameter? {
+            var match: PsiParameter? = null
+            class MethodFinder: JavaRecursiveElementVisitor() {
+                override fun visitParameter(parameter: PsiParameter) {
+                    if (parameter.name == parameterToFind.name &&
+                        parameter.type.toString().split(":")[1] == parameterToFind.type)
+                        match = parameter
+                }
+
+            }
+            methodPsi.accept(MethodFinder())
+            return match
         }
 
     }

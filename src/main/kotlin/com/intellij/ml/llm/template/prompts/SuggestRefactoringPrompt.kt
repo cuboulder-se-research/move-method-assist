@@ -8,19 +8,24 @@ import dev.langchain4j.data.message.UserMessage
 class SuggestRefactoringPrompt: MethodPromptBase() {
 
     companion object{
+        val refactoringOptions = listOf(
+            "Extract Method",
+            "Rename Variable",
+            "Move Method",
+//            "Use Enhanced For Loop",
+//            "Convert For Loop to While Loop" ,
+//            "Convert For loop to use Java Streams",
+//            "Use Enhanced Switch Statement",
+//            "Convert If Statement to Switch Statement (and vice versa)",
+//            "Convert If Statement to Ternary Operator (and vice versa)",
+//            "Use String Builder"
+        )
+        val refactoringOptionsString = refactoringOptions.mapIndexed{ind, it -> "${ind+1}. $it"}.toList().joinToString("\n")
         val systemMessageText = "You are an expert programmer performing refactoring operations."
         val suggestionAskText = """Please provide suggestions to improve the following Java method/class. 
-                    Only provide suggestions that are: 
-                    1. Extract Method. 
-                    2. Rename Variable 
-                    3. Use Enhanced For Loop
-                    4. Convert For Loop to While Loop
-                    5. Convert For loop to use Java Streams 
-                    6. Use Enhanced Switch Statement
-                    7. Convert If Statement to Switch Statement (and vice versa)
-                    8. Convert If Statement to Ternary Operator (and vice versa)
-                    9. Use String Builder
-                    10. Move Method"""
+                    Only provide suggestions that are:
+${refactoringOptionsString.prependIndent("                    ")}
+                    """
     }
 
 

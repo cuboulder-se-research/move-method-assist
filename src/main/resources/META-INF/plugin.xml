@@ -37,18 +37,12 @@
             <bundleName>messages.LLMBundle</bundleName>
             <categoryKey>intention.category.suggest.refactoring</categoryKey>
         </intentionAction>
-<!--        <intentionAction>-->
-<!--            <language>JAVA</language>-->
-<!--            <className>com.intellij.ml.llm.template.intentions.ApplySuggestRefactoringOnCommitIntention</className>-->
-<!--            <bundleName>messages.LLMBundle</bundleName>-->
-<!--            <categoryKey>intention.category.suggest.refactoring</categoryKey>-->
-<!--        </intentionAction>-->
-<!--        <intentionAction>-->
-<!--            <language>JAVA</language>-->
-<!--            <className>com.intellij.ml.llm.template.intentions.ApplySuggestRefactoringInteractiveIntention</className>-->
-<!--            <bundleName>messages.LLMBundle</bundleName>-->
-<!--            <categoryKey>intention.category.suggest.refactoring</categoryKey>-->
-<!--        </intentionAction>-->
+        <intentionAction>
+            <language>JAVA</language>
+            <className>com.intellij.ml.llm.template.intentions.CreateBenchmarkIntention</className>
+            <bundleName>messages.LLMBundle</bundleName>
+            <categoryKey>intention.category.suggest.refactoring</categoryKey>
+        </intentionAction>
 
         <registryKey defaultValue="false"
                      description="If enabled, emulates requests instead of using OpenAI API. Used for debug purposes."

@@ -27,6 +27,7 @@ import com.intellij.psi.PsiFile
 import com.intellij.psi.impl.source.PsiJavaFileImpl
 import dev.langchain4j.data.message.ChatMessage
 import dev.langchain4j.model.chat.ChatLanguageModel
+import okhttp3.internal.wait
 import org.jetbrains.kotlin.util.capitalizeDecapitalize.toLowerCaseAsciiOnly
 import java.util.concurrent.TimeUnit
 
@@ -89,7 +90,8 @@ abstract class ApplySuggestRefactoringIntention(
                     codeSnippet = codeSnippet,
                     lineStart = startLineNumber,
                     bodyLineStart = bodyLineStart,
-                    language = file.language.id.toLowerCaseAsciiOnly()
+                    language = file.language.id.toLowerCaseAsciiOnly(),
+                    filePath = file.virtualFile.path
                 )
             )
 

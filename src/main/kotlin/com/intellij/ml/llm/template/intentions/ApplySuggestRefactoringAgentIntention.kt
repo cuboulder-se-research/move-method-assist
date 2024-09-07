@@ -127,7 +127,8 @@ open class ApplySuggestRefactoringAgentIntention(
                 codeSnippet = functionSrc,
                 lineStart = functionPsiElement.startLine(editor.document),
                 bodyLineStart = functionPsiElement.endLine(editor.document),
-                language = file.language.id.toLowerCaseAsciiOnly()
+                language = file.language.id.toLowerCaseAsciiOnly(),
+                filePath = file.virtualFile.path
             )
         )
 

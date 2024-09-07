@@ -324,12 +324,7 @@ class MoveMethodFactory {
                     methodToMove.containingFile, targetClassName
                 )
                 if (qualifiedClassName!=null){
-                    return listOf(
-                        MyMoveStaticMethodRefactoring(
-                            methodToMove.startLine(editor.document),
-                            methodToMove.endLine(editor.document),
-                            methodToMove, qualifiedClassName)
-                    )
+                    return createStaticMove(methodToMove, editor, qualifiedClassName)
                 }
             }else{
                 val variableOfType = PsiUtils.getVariableOfType(methodToMove, targetClassName)
@@ -339,6 +334,20 @@ class MoveMethodFactory {
             }
 
             return listOf()
+        }
+
+        fun createStaticMove(
+            methodToMove: PsiMethod,
+            editor: Editor,
+            qualifiedClassName: String
+        ): List<MyMoveStaticMethodRefactoring> {
+            return listOf(
+                MyMoveStaticMethodRefactoring(
+                    methodToMove.startLine(editor.document),
+                    methodToMove.endLine(editor.document),
+                    methodToMove, qualifiedClassName
+                )
+            )
         }
 
         override val logicalName: String

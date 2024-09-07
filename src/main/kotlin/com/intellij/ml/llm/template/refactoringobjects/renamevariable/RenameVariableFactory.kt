@@ -2,6 +2,8 @@ package com.intellij.ml.llm.template.refactoringobjects.renamevariable
 
 import com.intellij.ml.llm.template.refactoringobjects.AbstractRefactoring
 import com.intellij.ml.llm.template.refactoringobjects.MyRefactoringFactory
+import com.intellij.ml.llm.template.utils.MethodSignature
+import com.intellij.ml.llm.template.utils.Parameter
 import com.intellij.ml.llm.template.utils.PsiUtils
 import com.intellij.openapi.application.runReadAction
 import com.intellij.openapi.editor.Editor
@@ -9,6 +11,7 @@ import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiClass
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
+import com.intellij.psi.PsiMethod
 import org.jetbrains.kotlin.idea.base.psi.getLineNumber
 import org.jetbrains.kotlin.psi.psiUtil.getChildOfType
 
@@ -66,6 +69,51 @@ class RenameVariableFactory {
                     runReadAction{ varPsi.getLineNumber() },
                     oldName, newName, varPsi,
                     outerPsiElement)
+            return null
+        }
+
+        fun fromMethodOldNewName(
+            project: Project,
+            outerClass: PsiClass,
+            methodName: String,
+            oldName: String,
+            newName: String
+        ): AbstractRefactoring?{
+            val outerPsiElement: PsiMethod = PsiUtils.getMethodNameFromClass(outerClass, methodName) ?: return null
+            val varPsi = runReadAction { PsiUtils.getVariableFromPsi(outerPsiElement, oldName) }
+            if (varPsi!=null)
+                return RenameVariable(
+                    runReadAction{ varPsi.getLineNumber() },
+                    runReadAction{ varPsi.getLineNumber() },
+                    oldName, newName, varPsi,
+                    outerPsiElement)
+            return null
+        }
+
+        fun renameMethod(methodName: String, outerClass: PsiClass,
+                         newName: String, oldMethodSignature: MethodSignature): AbstractRefactoring?{
+            val methodPsi = PsiUtils.getMethodWithSignatureFromClass(outerClass, oldMethodSignature)
+            if (methodPsi!=null){
+                return RenameVariable(
+                    runReadAction{ methodPsi.getLineNumber() },
+                    runReadAction{ methodPsi.getLineNumber() },
+                    methodName, newName, methodPsi, outerClass
+                )
+            }
+            return null
+        }
+
+        fun renameParameter(methodSignature: MethodSignature, outerClass: PsiClass, oldParameter: Parameter, newParameter: Parameter): AbstractRefactoring?{
+            val methodPsi = PsiUtils.getMethodWithSignatureFromClass(outerClass, methodSignature)
+            if (methodPsi!=null){
+                val oldParamPsi = PsiUtils.getMethodParameter(methodPsi, oldParameter)
+                if (oldParamPsi!=null)
+                    return RenameVariable(
+                        runReadAction{ methodPsi.getLineNumber() },
+                        runReadAction{ methodPsi.getLineNumber() },
+                        oldParameter.name, newParameter.name, oldParamPsi, outerClass
+                    )
+            }
             return null
         }
 

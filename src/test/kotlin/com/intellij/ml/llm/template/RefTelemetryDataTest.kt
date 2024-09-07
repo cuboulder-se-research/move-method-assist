@@ -30,7 +30,8 @@ class RefTelemetryDataTest : LightPlatformCodeInsightTestCase() {
             lineEnd = 14,
             bodyLineStart = 6,
             language = "java",
-            sourceCode = "" // TODO: Add in the source code.
+            sourceCode = "", // TODO: Add in the source code.
+            filePath = ""
         )
         val efAppTelemetryObserver = EFCandidatesApplicationTelemetryObserver()
         TODO("Update line below")
@@ -116,7 +117,8 @@ class RefTelemetryDataTest : LightPlatformCodeInsightTestCase() {
             lineEnd = 12,
             bodyLineStart = 6,
             language = "java",
-            sourceCode = ""
+            sourceCode = "",
+            filePath = ""
         )
         TestCase.assertEquals(
             expectedHostFunctionTelemetryData,
@@ -124,7 +126,8 @@ class RefTelemetryDataTest : LightPlatformCodeInsightTestCase() {
                 codeSnippet = codeSnippet,
                 lineStart = 5,
                 bodyLineStart = 6,
-                language = "java"
+                language = "java",
+                filePath = ""
             )
         )
     }

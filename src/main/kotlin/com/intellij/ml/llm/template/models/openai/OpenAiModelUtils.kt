@@ -10,6 +10,7 @@ fun getOpenAiModel(modelName:String, apiKey:String, temperature: Double): OpenAi
         .apiKey(apiKey)
         .modelName(modelName)
         .temperature(temperature)
+//        .responseFormat()
         .build()
 }
 

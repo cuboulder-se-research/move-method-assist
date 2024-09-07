@@ -62,6 +62,9 @@ data class HostFunctionTelemetryData(
     @SerializedName("language")
     var language: String,
 
+    @SerializedName("filePath")
+    var filePath: String,
+
     @SerializedName("sourceCode")
     var sourceCode: String
 )
@@ -83,6 +86,9 @@ data class RefCandidateTelemetryData(
 
     @SerializedName("refactoringType")
     var refactoringType: String,
+
+    @SerializedName("refactoringInfo")
+    var refactoringInformation: String,
 
     @SerializedName("description")
     var description: String,
@@ -297,6 +303,7 @@ class EFTelemetryDataManager {
             RefCandidateTelemetryData(
                 it.startLoc, it.endLoc,
                 it::class.simpleName.toString(),
+                it.getRefactoringPreview(),
                 if(anonimizeTelemetry) "Anonymous" else it.description,
                 couldCreateRefObject = it !is UncreatableRefactoring,
                 valid = it.isValid,
@@ -434,7 +441,8 @@ class EFTelemetryDataUtils {
             codeSnippet: String,
             lineStart: Int,
             bodyLineStart: Int,
-            language: String
+            language: String,
+            filePath: String
         ): HostFunctionTelemetryData {
             val functionSize = codeSnippet.lines().size
             return HostFunctionTelemetryData(
@@ -443,7 +451,8 @@ class EFTelemetryDataUtils {
                 hostFunctionSize = functionSize,
                 bodyLineStart = bodyLineStart,
                 language = language,
-                sourceCode = if (RefAgentSettingsManager.getInstance().getAnonymizeTelemetry()) "" else codeSnippet
+                sourceCode = if (RefAgentSettingsManager.getInstance().getAnonymizeTelemetry()) "" else codeSnippet,
+                filePath = filePath
             )
         }
 
@@ -460,6 +469,7 @@ class EFTelemetryDataUtils {
 //                reason = candidateApplicationPayload.reason,
                 description = if(anonymizeDescription) "Anonymized." else candidate.description,
                 refactoringType = candidate::class.java.toString(),
+                refactoringInformation = candidate.getRefactoringPreview()
 //
             )
         }
