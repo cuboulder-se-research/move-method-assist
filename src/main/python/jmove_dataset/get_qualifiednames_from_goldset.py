@@ -1,8 +1,8 @@
 import json
 
 
-project_name = "lucene"
-size = "large"
+project_name = "jtopen"
+size = "small"
 
 gold_file = f"/Users/abhiram/Documents/TBE/jmove/dataset-tse/gold_sets/{project_name}/{size}.txt"
 dest_file = f"comparison_{project_name}_{size}"
@@ -17,7 +17,7 @@ for i in ant_small.split("\n"):
     class_names.append(i.split('::')[0].split(' ')[-1])
 
 print("\n".join(class_names))
-with open("../../../data/qualified_classes.txt", "w") as f:
+with open("../../../../data/qualified_classes.txt", "w") as f:
     f.write("\n".join(class_names))
 
 

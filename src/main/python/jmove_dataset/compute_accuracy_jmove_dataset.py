@@ -21,7 +21,8 @@ plugin_outfiles = [
     'comparison_jgroups_small.json',
     'comparison_jhotdraw_large.json',
     'comparison_jhotdraw_small.json',
-    'comparison_jtopen_large.json', #incomplete
+    'comparison_jtopen_large.json',
+    'comparison_jtopen_small.json',
     'comparison_junit_large.json',
     'comparison_junit_small.json',
     'comparison_mvnforum_large.json',
@@ -34,7 +35,7 @@ plugin_outfiles = [
 
 combined_output = []
 for file_name in plugin_outfiles:
-    with open(f'../../../data/synthetic_corpus_comparison/{file_name}') as f:
+    with open(f'../../../../data/synthetic_corpus_comparison/{file_name}') as f:
         data = json.load(f)
     combined_output += data
 combined_output = [i for i in combined_output if len(i['telemetry'].keys())]
@@ -84,6 +85,9 @@ recall_method_and_class_all = len([i for i in combined_output if
 recall_method_all = len([i for i in combined_output if i['recall_method_position'] !=-1]) / len(combined_output)
 
 print(f"dataset size = {len(combined_output)}")
+oracle_size = 235
+print(f"{oracle_size=}")
+
 
 print(f"recall method @1 = {recall_method_1}")
 print(f"recall method&class @1 = {recall_method_and_class_1}")
