@@ -1,5 +1,7 @@
 package com.intellij.ml.llm.template.utils
 
+import com.github.javaparser.ast.body.CallableDeclaration
+import com.github.javaparser.ast.type.Type
 import java.util.regex.Pattern
 
 data class Parameter(val name: String, val type: String)
@@ -30,6 +32,15 @@ data class MethodSignature(val methodName: String, val paramsList: List<Paramete
                     Parameter(nameAndType[0], nameAndType[1])
                 }
         }
+    }
+
+    fun compare(signature: CallableDeclaration.Signature): Boolean{
+        if (this.methodName != signature.name) return false
+        if (signature.parameterTypes.isEmpty()) return this.paramsList.isEmpty()
+        return signature.parameterTypes
+
+                    .mapIndexed { index: Int, type: Type -> this.paramsList.getOrNull(index)?.type == type.asString() }
+                    .reduce { acc, parameter -> acc && parameter  }
     }
 
 }

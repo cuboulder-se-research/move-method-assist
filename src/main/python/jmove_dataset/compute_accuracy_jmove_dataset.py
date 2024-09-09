@@ -75,10 +75,12 @@ recall_method_and_class_1 = len(
 recall_method_1 = len([i for i in combined_output if i['recall_method_position'] == 0]) / len(combined_output)
 
 recall_method_and_class_2 = len([i for i in combined_output if
-                                 i['recall_method_position'] in [0, 1] and i['recall_method_class_position'] in [
-                                     0]]) / len(combined_output)
+                                 i['recall_method_position'] in [0, 1] and i['recall_method_class_position'] == 0]) / len(combined_output)
 recall_method_2 = len([i for i in combined_output if i['recall_method_position'] in [0, 1]]) / len(combined_output)
 
+recall_method_and_class_3 = len([i for i in combined_output if
+                                 i['recall_method_position'] in [0, 1, 2] and i['recall_method_class_position'] == 0]) / len(combined_output)
+recall_method_3 = len([i for i in combined_output if i['recall_method_position'] in [0, 1, 2]]) / len(combined_output)
 
 recall_method_and_class_all = len([i for i in combined_output if
                                  i['recall_method_position']!=-1 and i['recall_method_class_position'] !=-1]) / len(combined_output)
@@ -88,12 +90,27 @@ print(f"dataset size = {len(combined_output)}")
 oracle_size = 235
 print(f"{oracle_size=}")
 
-
-print(f"recall method @1 = {recall_method_1}")
+print("recalling the correct MoveMethod:")
 print(f"recall method&class @1 = {recall_method_and_class_1}")
-
-print(f"recall method @2 = {recall_method_2}")
 print(f"recall method&class @2 = {recall_method_and_class_2}")
-
-print(f"recall method @inf = {recall_method_all}")
+print(f"recall method&class @3 = {recall_method_and_class_3}")
 print(f"recall method&class @inf = {recall_method_and_class_all}")
+print()
+
+print("recalling the correct method only (identifying method out of place)")
+print(f"recall method @1 = {recall_method_1}")
+print(f"recall method @2 = {recall_method_2}")
+print(f"recall method @3 = {recall_method_3}")
+print(f"recall method @inf = {recall_method_all}")
+print()
+
+recalled_methods = [i for i in combined_output if i['recall_method_position'] != -1]
+recall_class_1 = len([i for i in recalled_methods if i['recall_method_class_position'] == 0]) / len(recalled_methods)
+recall_class_2 = len([i for i in recalled_methods if i['recall_method_class_position'] in [0, 1]]) / len(recalled_methods)
+recall_class_3 = len([i for i in recalled_methods if i['recall_method_class_position'] in [0, 1, 2]]) / len(recalled_methods)
+recall_class_inf = len([i for i in recalled_methods if i['recall_method_class_position'] != -1]) / len(recalled_methods)
+print(f"recall of class for a recalled method. there were {len(recalled_methods)} recalled at any position.")
+print(f"recall class @1 = {recall_class_1}")
+print(f"recall class @2 = {recall_class_2}")
+print(f"recall class @3 = {recall_class_3}")
+print(f"recall class @inf = {recall_class_inf}")
