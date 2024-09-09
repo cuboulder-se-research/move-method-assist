@@ -1,0 +1,18 @@
+Refactoring Type	Source Method	Target Class	Similarity Indice
+Move Method	com.mvnforum.db.PostBean::deletePost(GenericRequest, PostWebHandler):void	com.mvnforum.user.PostWebHandler	0.9787322908893389
+Move Method	net.myvietnam.mvncore.configuration.ConfigurationFactory.ConfigurationBuilder::createAdditionalConfiguration(Collection):Configuration	net.myvietnam.mvncore.configuration.CompositeConfiguration	0.5389952107218443
+Move Method	com.mvnforum.admin.importexport.mvnforum.MvnForumThreadXML::addThreadWatch(String, String, String, String, String, String, String):void	com.mvnforum.admin.ThreadXML	0.43326060294732954
+Move Method	com.mvnforum.user.ThreadWebHandler::deleteSuccessForRender(GenericRequest, GenericResponse):void	com.mvnforum.service.CategoryService	0.9420823318372734
+Move Method	com.mvnforum.admin.CategoryWebHandler::prepareAdd(GenericRequest, GenericResponse):void	com.mvnforum.service.CategoryService	0.8767318484819838
+Move Method	com.mvnforum.db.MemberBean::createWatchMessageBean(WatchMail, Collection):void	com.mvnforum.user.WatchMail	0.4551277672050618
+Move Method	com.mvnforum.common.ForumIconLegend::drawForum2(CategoryTreeListenerImpl, CategoryTreeEvent):String	com.mvnforum.categorytree.impl.CategoryTreeListenerImpl	1.0
+Move Method	com.mvnforum.categorytree.CategoryTreeEvent::drawForum2(RSSImpl):String	com.mvnforum.categorytree.impl.RSSImpl	0.5768537018537019
+Move Method	com.mvnforum.admin.importexport.mvnforum.MvnForumMemberXML::addGlobalWatch(String, String, String, String, String, String):void	com.mvnforum.admin.MemberXML	0.43529370250839666
+Move Method	net.myvietnam.mvncore.interceptor.InterceptorService::prepareAdd(PostWebHandler, GenericRequest, GenericResponse):void	com.mvnforum.user.PostWebHandler	1.0
+Move Method	com.mvnforum.db.CategoryBean::drawForum2(ListForums, CategoryTreeEvent):String	com.mvnforum.categorytree.impl.ListForums	1.0
+Move Method	com.mvnforum.db.WatchBean::appendWatch2(WatchMail):void	com.mvnforum.user.WatchMail	0.3902056711695266
+Move Method	com.mvnforum.admin.importexport.jive.JiveUserXML::updateAdmin(String, String, String, String, String, String, String, String, String, String, String):void	com.mvnforum.admin.MemberXML	0.6143454246639937
+Move Method	com.mvnforum.admin.importexport.mvnforum.MvnForumCategoryXML::addCategoryWatch(String, String, String, String, String, String, String):void	com.mvnforum.admin.CategoryXML	0.3953006904228242
+Move Method	com.mvnforum.admin.importexport.jive.JiveThreadXML::updateAddedPost(PostXML, String, Timestamp):void	com.mvnforum.admin.ThreadXML	0.5946928659002962
+Move Method	com.mvnforum.admin.importexport.mvnforum.MvnForumThreadXML::addFavoriteThread(String, String, String, String, String):void	com.mvnforum.admin.ThreadXML	0.43326060294732954
+Move Method	com.mvnforum.admin.importexport.mvnforum.MvnForumMemberXML::addMessageFolder(String, String, String, String):void	com.mvnforum.admin.MemberXML	0.43529370250839666

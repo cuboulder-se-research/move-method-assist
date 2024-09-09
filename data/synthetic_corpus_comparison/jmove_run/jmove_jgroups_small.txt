@@ -1,0 +1,53 @@
+Refactoring Type	Source Method	Target Class	Similarity Indice
+Move Method	org.jgroups.tests.VirtualSynchronyTest.GroupMemberThread::gotMessage(Object):void	org.jgroups.View	0.5652184363657816
+Move Method	org.jgroups.blocks.VotingAdapter::vote(Object, int, long, VoteResponseProcessor):boolean	org.jgroups.blocks.RpcDispatcher	0.6272055024438925
+Move Method	org.jgroups.stack.Configurator.ProtocolConfiguration::createLayer(ProtocolStack):Protocol	org.jgroups.stack.ProtocolStack	0.6239929330855487
+Move Method	org.jgroups.demos.Draw.DrawPanel::drawPoint(DrawCommand):void	org.jgroups.demos.DrawCommand	0.9280724859084444
+Move Method	org.jgroups.protocols.pbcast.CoordGmsImpl::sendLeaveResponses(Collection<Address>):void	org.jgroups.protocols.pbcast.GMS	0.374720253291682
+Move Method	org.jgroups.tests.UnicastTestRpcDist::removeAllConnections():void	org.jgroups.JChannel	0.6732063414954792
+Move Method	org.jgroups.protocols.pbcast.STABLE::updateLocalDigest(Digest, Address):boolean	org.jgroups.util.MutableDigest	1.0
+Move Method	org.jgroups.protocols.NAKACK_Delivery_Test::send(Address, long, int, boolean):void	org.jgroups.protocols.pbcast.NAKACK	0.8473840973840973
+Move Method	org.jgroups.protocols.NAKACK_SET_DIGEST_Test::testSetDigest():void	org.jgroups.protocols.pbcast.NAKACK	0.43976139601139586
+Move Method	org.jgroups.blocks.ReplicatedTree::fetchState(long):void	org.jgroups.JChannel	1.0
+Move Method	org.jgroups.tests.SharedTransportTest::createSharedChannel(String):JChannel	org.jgroups.JChannel	0.6818601872039
+Move Method	org.jgroups.protocols.NAKACK_Delivery_Test::testSendingOfRandomMessages():void	org.jgroups.protocols.pbcast.NAKACK	0.3742245687947045
+Move Method	org.jgroups.blocks.ReplicatedHashMap::sendViewChangeNotifications(View, Vector<Address>, Vector<Address>):void	org.jgroups.View	0.8851436442345535
+Move Method	org.jgroups.blocks.MuxRpcDispatcherTest::verifyResponse(Map<Address,Rsp>, Channel, Object):void	org.jgroups.Channel	0.2681371329019413
+Move Method	org.jgroups.tests.TransportThreadPoolTest::testThreadPoolReplacement():void	org.jgroups.JChannel	0.22010853701907943
+Move Method	org.jgroups.tests.UNICAST_Test::tearDown():void	org.jgroups.debug.Simulator	0.568983268983269
+Move Method	org.jgroups.protocols.FRAG::handleViewChange(View):void	org.jgroups.View	0.9243586991520877
+Move Method	org.jgroups.protocols.pbcast.Merger::handleDigestResponse(Address, Digest):void	org.jgroups.util.ResponseCollector	1.0
+Move Method	org.jgroups.protocols.pbcast.GMS::sendJoinResponse(JoinRsp, Address):void	org.jgroups.protocols.pbcast.Merger	0.3170278485694307
+Move Method	org.jgroups.protocols.pbcast.GmsImpl::sendMergeRejectedResponse(Address, MergeId):void	org.jgroups.protocols.pbcast.Merger	0.8830535683983959
+Move Method	org.jgroups.blocks.MultiRequest::sendRequest(List<Address>, long, RequestOptions):void	org.jgroups.Transport	0.8571428571428571
+Move Method	org.jgroups.blocks.RequestCorrelator::sendRequest(long, Message, RspCollector):void	org.jgroups.blocks.RequestHandler	0.6666666666666666
+Move Method	org.jgroups.tests.VirtualSynchronyTest.GroupMemberThread::gotView(Object):void	org.jgroups.JChannel	0.7390923321005405
+Move Method	org.jgroups.tests.RpcDispatcherBlocking::sendGroupRpc():RspList	org.jgroups.blocks.RpcDispatcher	0.6306238206238204
+Move Method	org.jgroups.demos.DistributedTreeDemo::populateTable(Properties):void	org.jgroups.blocks.DistributedTree	1.0
+Move Method	org.jgroups.tests.UnicastTestRpcDist::removeConnection():void	org.jgroups.JChannel	0.6620868908306937
+Move Method	org.jgroups.blocks.DistributedLockManager::checkResponse(Rsp):int	org.jgroups.util.Rsp	0.521978021978022
+Move Method	org.jgroups.protocols.pbcast.GMS::makeView(Vector<Address>):View	org.jgroups.View	1.0
+Move Method	org.jgroups.protocols.pbcast.FLUSH::onFlushReconcileOK(Message):void	org.jgroups.util.Promise	0.8935100548446069
+Move Method	org.jgroups.protocols.Discovery::makeView(Vector<Address>):View	org.jgroups.View	1.0
+Move Method	org.jgroups.demos.ReplicatedHashMapDemo::_setTitle():void	org.jgroups.blocks.ReplicatedHashMap	0.8191329796963591
+Move Method	org.jgroups.tests.DeadlockTest::cast_call(Method, boolean):void	org.jgroups.blocks.RpcDispatcher	1.0
+Move Method	org.jgroups.protocols.pbcast.GMS::castViewChangeWithDest(View, Digest, JoinRsp, Collection<Address>):void	org.jgroups.protocols.pbcast.Merger	0.944470331040204
+Move Method	org.jgroups.tests.EncryptMessageOrderTestCase::tearDown():void	org.jgroups.JChannel	0.5849106818081884
+Move Method	org.jgroups.protocols.pbcast.GmsImpl::iWouldBeCoordinator(Vector<Address>):boolean	org.jgroups.protocols.pbcast.GMS	0.4640384315099548
+Move Method	org.jgroups.util.MutableDigest::testImmutability4(DigestTest):void	org.jgroups.tests.DigestTest	1.0
+Move Method	org.jgroups.protocols.FRAG2::handleViewChange(View):void	org.jgroups.View	0.9081289081289079
+Move Method	org.jgroups.protocols.pbcast.GMS::stopFlush(List<Address>):void	org.jgroups.protocols.pbcast.Merger	0.7285104476671929
+Move Method	org.jgroups.protocols.pbcast.GMS::stopFlush():void	org.jgroups.protocols.pbcast.Merger	0.5386587550380655
+Move Method	org.jgroups.protocols.FD_SOCK::sendIHaveSockMessage(Address, Address, IpAddress):void	org.jgroups.stack.IpAddress	0.31554311228224274
+Move Method	org.jgroups.protocols.VIEW_SYNC::handleView(View, Address):void	org.jgroups.View	0.5691000918273647
+Move Method	org.jgroups.protocols.FRAG2_Test::tearDown():void	org.jgroups.debug.Simulator	0.568983268983269
+Move Method	org.jgroups.blocks.GroupRequest::sendRequest(Collection<Address>, long):void	org.jgroups.Transport	0.875
+Move Method	org.jgroups.protocols.FILE_PING::handleView(View):void	org.jgroups.View	0.5839846942995017
+Move Method	org.jgroups.protocols.pbcast.STABLE::handleStableMessage(Address, Digest):void	org.jgroups.util.MutableDigest	1.0
+Move Method	org.jgroups.demos.Draw2Channels.DrawPanel::drawPoint(DrawCommand):void	org.jgroups.demos.DrawCommand	1.0
+Move Method	org.jgroups.protocols.pbcast.GMS::_startFlush(View, int, long, long):boolean	org.jgroups.protocols.pbcast.Merger	0.8188373774073571
+Move Method	org.jgroups.tests.FCTest::tearDown():void	org.jgroups.debug.Simulator	0.568983268983269
+Move Method	org.jgroups.protocols.pbcast.ParticipantGmsImpl::sendLeaveMessage(Address, Address):void	org.jgroups.protocols.pbcast.GMS	0.374720253291682
+Move Method	org.jgroups.tests.SimulatorTest::createSimulator(Simulator[], View, Address[], DELAY[], Protocol[][], int):void	org.jgroups.View	0.913780663780664
+Move Method	org.jgroups.blocks.RpcDispatcher::setNumMessages(UnicastTestRpc):void	org.jgroups.tests.UnicastTestRpc	0.7656441537010844
+Move Method	org.jgroups.protocols.pbcast.GMS::sendViewAck(Address):void	org.jgroups.protocols.pbcast.Merger	0.29878789792582894
