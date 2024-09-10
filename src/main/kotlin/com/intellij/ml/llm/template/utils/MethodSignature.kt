@@ -39,7 +39,8 @@ data class MethodSignature(val methodName: String, val paramsList: List<Paramete
         if (signature.parameterTypes.isEmpty()) return this.paramsList.isEmpty()
         return signature.parameterTypes
 
-                    .mapIndexed { index: Int, type: Type -> this.paramsList.getOrNull(index)?.type == type.asString() }
+                    .mapIndexed { index: Int, type: Type ->
+                        this.paramsList.getOrNull(index)?.type == type.tokenRange.get().toString().replace("\\s".toRegex(), "") }
                     .reduce { acc, parameter -> acc && parameter  }
     }
 

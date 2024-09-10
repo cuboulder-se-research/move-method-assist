@@ -6,11 +6,20 @@ class Parameter:
         self.param_name = param_name
 
 class MethodSignature:
-    def __init__(self, method_name: str, params: list[Parameter], return_type: str, modifier: str):
+    def __init__(self,
+                 original_signature: str,
+                 method_name: str,
+                 params: list[Parameter],
+                 return_type: str,
+                 modifier: str):
+        self.original_signature = original_signature
         self.method_name = method_name
         self.params = params
         self.return_type = return_type
         self.modifier = modifier
+
+    def __str__(self):
+        return self.original_signature
 
     @staticmethod
     def get_method_signature_parts(method_signature: str):
@@ -23,6 +32,7 @@ class MethodSignature:
             method_params = m.group(3)
             return_type = m.group(4)
             return MethodSignature(
+                method_signature,
                 method_name,
                 MethodSignature.get_params_list(method_params),
                 return_type,

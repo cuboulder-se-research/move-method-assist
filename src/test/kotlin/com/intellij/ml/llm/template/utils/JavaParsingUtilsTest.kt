@@ -17,6 +17,26 @@ class JavaParsingUtilsTest{
     }
 
     @Test
+    fun testIsStatic2(){
+        val filePath = "/Users/abhiram/Documents/TBE/evaluation_projects/flink/flink-runtime/src/main/java/org/apache/flink/runtime/clusterframework/BootstrapTools.java"
+        val signature = "public getTaskManagerShellCommand(flinkConfig Configuration, tmParams ContaineredTaskManagerParameters, configDirectory String, logDirectory String, hasLogback boolean, hasLog4j boolean, hasKrb5 boolean, mainClass Class<?>, mainArgs String) : String"
+        assertTrue(
+            JavaParsingUtils.isMethodStatic(Path(filePath), signature)
+        )
+
+    }
+
+    @Test
+    fun testIsStatic3(){
+        val filePath = "/Users/abhiram/Documents/TBE/evaluation_projects/flink/flink-runtime/src/main/java/org/apache/flink/runtime/clusterframework/BootstrapTools.java"
+        val signature = "public getStartCommand(template String, startCommandValues Map<String,String>) : String"
+        assertTrue(
+            JavaParsingUtils.isMethodStatic(Path(filePath), signature)
+        )
+
+    }
+
+    @Test
     fun testFindFields(){
         val filePath = "/Users/abhiram/Documents/TBE/RefactoringMiner/src/main/java/org/refactoringminer/util/AstUtils.java"
         assertTrue(
