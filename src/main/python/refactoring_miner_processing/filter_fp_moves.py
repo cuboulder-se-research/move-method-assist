@@ -1,7 +1,7 @@
 import json
 import os
 import re
-import subprocess
+import traceback
 
 from MethodSignature import MethodSignature
 from MoveMethodValidator import MoveMethodValidator
@@ -26,7 +26,8 @@ def filter_fp_moves(data, project_path):
         try:
             tp_moves += MoveMethodValidator(commit, project_path).get_valid_moves()
         except Exception as e:
-            print("failed to process commit")
+            print(f"failed to process commit: {e}")
+            print(traceback.format_exc())
         if i%100==0:
             with open(os.path.join(filtered_path, fname), "w") as f:
                 json.dump(tp_moves, f, indent=4)
@@ -39,17 +40,21 @@ if __name__ == '__main__':
     mm_path = "../../../../data/refminer_data/contains_a_mm"
     evaluation_dir = "/Users/abhiram/Documents/TBE/evaluation_projects"
     project_basepath_map = {
-        'vue_pro_res.json': '',
-        'flink_res.json': '',
-        'halo_res.json': '',
-        'elastic_res.json': '',
-        'redisson_res.json': '',
-        'spring_framework_res.json': '',
-        'springboot_res.json': '',
-        'stirling_res.json': '',
-        'selenium_res.json': '',
-        'ghidra_res.json': 'ghidra',
-        'dbeaver_res.json': ''}
+        # 'vue_pro_res.json': 'ruoyi-vue-pro',
+        # 'flink_res.json': 'flink',
+        # 'halo_res.json': 'halo',
+        # 'elastic_res.json': 'elasticsearch',
+        # 'redisson_res.json': 'redisson',
+        # 'spring_framework_res.json': 'spring-framework',
+        # 'springboot_res.json': 'spring-boot',
+        # 'stirling_res.json': 'Stirling-PDF',
+        # 'selenium_res.json': 'selenium',
+        # 'ghidra_res.json': 'ghidra',
+        # 'dbeaver_res.json': 'dbeaver',
+        # 'kafka_res.json': 'kafka',
+        "graal_res.json": 'graal',
+        'dataease_res.json': 'dataease'
+    }
     files = [i for i in os.listdir(mm_path) if i.endswith(".json")]
     for fname in files:
         print(fname)

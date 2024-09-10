@@ -298,6 +298,8 @@ class MoveMethodFactory {
                 && MoveMembersPreConditions.checkPreconditions(project, arrayOf(methodToMove), null, null)){
                 return (PsiUtils.fetchClassesInPackage(methodToMove.containingClass!!, project) + PsiUtils.fetchImportsInFile(file, project))
                     .map { MovePivot(it, null) }
+//                val potentialTargets = (PsiUtils.fetchClassesInPackage(methodToMove.containingClass!!, project) + PsiUtils.fetchImportsInFile(file, project))
+//                return potentialTargets.subList(0, min(potentialTargets.size, 30)).map { MovePivot(it,null) }
             }else{
                 val handler = MoveInstanceMethodHandlerForPlugin()
                 handler.invoke(project, arrayOf(methodToMove), null)

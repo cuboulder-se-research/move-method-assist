@@ -75,9 +75,9 @@ class CreateMoveMethodBenchmark(filename: String,
 
                 if (param.type.canonicalText == currentQualifiedClass){
                     println("found move from parameter.")
-                    undoMoves.addAll(
-                        MoveMethodFactory.createInstanceMoveMethodRefactorings(param, project, movedMethod, movedEditor)
-                    )
+//                    undoMoves.addAll(
+//                        MoveMethodFactory.createInstanceMoveMethodRefactorings(param, project, movedMethod, movedEditor)
+//                    )
                 }
             }
 
@@ -85,9 +85,9 @@ class CreateMoveMethodBenchmark(filename: String,
             for (field in allFields){
                 if (field.type.canonicalText == currentQualifiedClass){
                     println("found move from field")
-                    undoMoves.addAll(
-                        MoveMethodFactory.createInstanceMoveMethodRefactorings(field, project, movedMethod, movedEditor)
-                    )
+//                    undoMoves.addAll(
+//                        MoveMethodFactory.createInstanceMoveMethodRefactorings(field, project, movedMethod, movedEditor)
+//                    )
                 }
             }
             return undoMoves
