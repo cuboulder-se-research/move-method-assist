@@ -58,7 +58,7 @@ class MoveMethodValidator:
 
     def preconditions(self, moveref: MoveMethodRef):
         # checkout before after
-        self.repo.git.checkout(self.commit_after)
+        self.repo.git.checkout(self.commit_after, force=True)
         both_files_exist = os.path.exists(
             os.path.join(self.project_basepath, moveref.right_file_path)
         ) and os.path.exists(
@@ -68,7 +68,7 @@ class MoveMethodValidator:
             return False
 
         # checkout before before
-        self.repo.git.checkout(self.commit_before)
+        self.repo.git.checkout(self.commit_before, force=True)
         return os.path.exists(
             os.path.join(self.project_basepath, moveref.right_file_path)
         ) and os.path.exists(
@@ -102,7 +102,7 @@ class MoveMethodValidator:
         return self.tp_moves
 
     def isStaticMove(self, ref: MoveMethodRef):
-        self.repo.git.checkout(self.commit_before)
+        self.repo.git.checkout(self.commit_before, force=True)
         outputpath = "/Users/abhiram/Documents/TBE/RefactoringAgentProject/llm-guide-refactorings/data/refminer_data/isStaticOut.txt"
         filepath = os.path.join(self.project_basepath, ref.left_file_path)
         result = subprocess.run([
@@ -161,8 +161,8 @@ class MoveMethodValidator:
         return new_data
 
     def find_field_types(self, left_file_path, original_class):
-        self.repo.git.checkout(self.commit_before)
-        outputpath = "/Users/abhiram/Documents/TBE/RefactoringAgentProject/llm-guide-refactorings/data/refminer_data/isStaticOut.txt"
+        self.repo.git.checkout(self.commit_before, force=True)
+        outputpath = "/Users/abhiram/Documents/TBE/RefactoringAgentProject/llm-guide-refactorings/data/refminer_data/fieldTypes.json"
         filepath = os.path.join(self.project_basepath, left_file_path)
         result = subprocess.run([
             MoveMethodValidator.gradle_path,
