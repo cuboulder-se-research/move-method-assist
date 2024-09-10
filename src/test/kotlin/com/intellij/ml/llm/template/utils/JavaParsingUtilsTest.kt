@@ -54,4 +54,14 @@ class JavaParsingUtilsTest{
             fields.isNotEmpty()
         )
     }
+
+    @Test
+    fun testFindFields3(){
+        val filePath = "/Users/abhiram/Documents/TBE/evaluation_projects/flink/flink-java/src/main/java/org/apache/flink/api/java/operators/PartitionOperator.java"
+        val fields = JavaParsingUtils.findFieldTypes(Path(filePath), "org.apache.flink.api.java.operators.PartitionOperator")
+        print(fields)
+        assertTrue(
+            fields.isNotEmpty()
+        )
+    }
 }
