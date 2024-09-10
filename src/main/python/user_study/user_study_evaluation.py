@@ -15,20 +15,26 @@ def betterRating(rating1, rating2):
 
 
 files = [
-    'mboulay_ref_telemetry_data.jsonl',
-    'ref_telemetry_data.jsonl',
+    'ref_telemetry_data-1.jsonl',
     'ref_telemetry_data-2.jsonl',
     'ref_telemetry_data-3.jsonl',
     'ref_telemetry_data-4.jsonl',
     'ref_telemetry_data-5.jsonl',
     'ref_telemetry_data-6.jsonl',
     'ref_telemetry_data-7.jsonl',
-    'ref_telemetry_data-8.jsonl'
+    'ref_telemetry_data-8.jsonl',
+    'ref_telemetry_data-9.jsonl',
+    'ref_telemetry_data-10.jsonl',
+    'ref_telemetry_data-11.jsonl',
 ]
 all_user_data = []
+raw_texts = set()
 for f in files:
     with open(f'../../../../data/user_study/{f}') as f1:
         all_user_data += [json.loads(s) for s in f1.read().split('\n') if s != '']
+    with open(f'../../../../data/user_study/{f}') as f1:
+        raw_texts.add(f1.read())
+print(f"{len(raw_texts)=}")
 
 applied_candidates_count = 0
 total_candidates = 0
