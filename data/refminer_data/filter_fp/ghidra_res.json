@@ -1,6 +1,142 @@
 [
     {
         "repository": "https://github.com/NationalSecurityAgency/ghidra.git",
+        "sha1": "bca2fe139afa6fafc2a29c12b493b70cbe4d42fd",
+        "url": "https://github.com/NationalSecurityAgency/ghidra/commit/bca2fe139afa6fafc2a29c12b493b70cbe4d42fd",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public builder(owner Plugin) : ToggleActionBuilder from class ghidra.app.plugin.core.debug.gui.DebuggerResources.LimitToCurrentSnapAction to public builder(owner Plugin) : ToggleActionBuilder from class ghidra.app.plugin.core.debug.gui.modules.DebuggerModulesProvider.ShowSectionsTableAction",
+            "leftSideLocations": [
+                {
+                    "filePath": "Ghidra/Debug/Debugger/src/main/java/ghidra/app/plugin/core/debug/gui/DebuggerResources.java",
+                    "startLine": 1873,
+                    "endLine": 1880,
+                    "startColumn": 3,
+                    "endColumn": 4,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public builder(owner Plugin) : ToggleActionBuilder"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "Ghidra/Debug/Debugger/src/main/java/ghidra/app/plugin/core/debug/gui/modules/DebuggerModulesProvider.java",
+                    "startLine": 262,
+                    "endLine": 269,
+                    "startColumn": 3,
+                    "endColumn": 4,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public builder(owner Plugin) : ToggleActionBuilder"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/NationalSecurityAgency/ghidra.git",
+        "sha1": "bca2fe139afa6fafc2a29c12b493b70cbe4d42fd",
+        "url": "https://github.com/NationalSecurityAgency/ghidra/commit/bca2fe139afa6fafc2a29c12b493b70cbe4d42fd",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public builder(owner Plugin) : ToggleActionBuilder from class ghidra.app.plugin.core.debug.gui.DebuggerResources.ShowHiddenAction to public builder(owner Plugin) : ToggleActionBuilder from class ghidra.app.plugin.core.debug.gui.modules.DebuggerModulesProvider.ShowSectionsTableAction",
+            "leftSideLocations": [
+                {
+                    "filePath": "Ghidra/Debug/Debugger/src/main/java/ghidra/app/plugin/core/debug/gui/DebuggerResources.java",
+                    "startLine": 1889,
+                    "endLine": 1896,
+                    "startColumn": 3,
+                    "endColumn": 4,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public builder(owner Plugin) : ToggleActionBuilder"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "Ghidra/Debug/Debugger/src/main/java/ghidra/app/plugin/core/debug/gui/modules/DebuggerModulesProvider.java",
+                    "startLine": 262,
+                    "endLine": 269,
+                    "startColumn": 3,
+                    "endColumn": 4,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public builder(owner Plugin) : ToggleActionBuilder"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/NationalSecurityAgency/ghidra.git",
+        "sha1": "bca2fe139afa6fafc2a29c12b493b70cbe4d42fd",
+        "url": "https://github.com/NationalSecurityAgency/ghidra/commit/bca2fe139afa6fafc2a29c12b493b70cbe4d42fd",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public builder(owner Plugin) : ToggleActionBuilder from class ghidra.app.plugin.core.debug.gui.DebuggerResources.ShowMethodsInTreeAction to public builder(owner Plugin) : ToggleActionBuilder from class ghidra.app.plugin.core.debug.gui.modules.DebuggerModulesProvider.ShowSectionsTableAction",
+            "leftSideLocations": [
+                {
+                    "filePath": "Ghidra/Debug/Debugger/src/main/java/ghidra/app/plugin/core/debug/gui/DebuggerResources.java",
+                    "startLine": 1921,
+                    "endLine": 1928,
+                    "startColumn": 3,
+                    "endColumn": 4,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public builder(owner Plugin) : ToggleActionBuilder"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "Ghidra/Debug/Debugger/src/main/java/ghidra/app/plugin/core/debug/gui/modules/DebuggerModulesProvider.java",
+                    "startLine": 262,
+                    "endLine": 269,
+                    "startColumn": 3,
+                    "endColumn": 4,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public builder(owner Plugin) : ToggleActionBuilder"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/NationalSecurityAgency/ghidra.git",
+        "sha1": "bca2fe139afa6fafc2a29c12b493b70cbe4d42fd",
+        "url": "https://github.com/NationalSecurityAgency/ghidra/commit/bca2fe139afa6fafc2a29c12b493b70cbe4d42fd",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public builder(owner Plugin) : ToggleActionBuilder from class ghidra.app.plugin.core.debug.gui.DebuggerResources.ShowPrimitivesInTreeAction to public builder(owner Plugin) : ToggleActionBuilder from class ghidra.app.plugin.core.debug.gui.modules.DebuggerModulesProvider.ShowSectionsTableAction",
+            "leftSideLocations": [
+                {
+                    "filePath": "Ghidra/Debug/Debugger/src/main/java/ghidra/app/plugin/core/debug/gui/DebuggerResources.java",
+                    "startLine": 1905,
+                    "endLine": 1912,
+                    "startColumn": 3,
+                    "endColumn": 4,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public builder(owner Plugin) : ToggleActionBuilder"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "Ghidra/Debug/Debugger/src/main/java/ghidra/app/plugin/core/debug/gui/modules/DebuggerModulesProvider.java",
+                    "startLine": 262,
+                    "endLine": 269,
+                    "startColumn": 3,
+                    "endColumn": 4,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public builder(owner Plugin) : ToggleActionBuilder"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/NationalSecurityAgency/ghidra.git",
         "sha1": "a4f7bb24b909485d9a62b651f74f45641733cd9f",
         "url": "https://github.com/NationalSecurityAgency/ghidra/commit/a4f7bb24b909485d9a62b651f74f45641733cd9f",
         "move_method_refactoring": {
@@ -30,7 +166,6 @@
                     "codeElement": "package getSymbol(func Function, tokenAtCursor ClangToken) : Symbol"
                 }
             ],
-            "refID": 94328,
             "isStatic": true
         }
     },
@@ -65,7 +200,6 @@
                     "codeElement": "private resolveSymbolsToLibrary(extLib ExtLibInfo) : void"
                 }
             ],
-            "refID": 95571,
             "isStatic": true
         }
     },
@@ -100,7 +234,108 @@
                     "codeElement": "private getUnresolvedExternalFunctionIds() : List<Long>"
                 }
             ],
-            "refID": 95575,
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/NationalSecurityAgency/ghidra.git",
+        "sha1": "f9bea7720a033bec7cb438c5fe25158005e8728d",
+        "url": "https://github.com/NationalSecurityAgency/ghidra/commit/f9bea7720a033bec7cb438c5fe25158005e8728d",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method package checkSavedConfig(userData ProgramUserData, propName String) : ConfigLast from class ghidra.app.plugin.core.debug.gui.tracermi.launcher.LaunchAction to protected checkSavedConfig(program Program, userData ProgramUserData, propName String) : ConfigLast from class ghidra.app.plugin.core.debug.gui.tracermi.launcher.TraceRmiLauncherServicePlugin",
+            "leftSideLocations": [
+                {
+                    "filePath": "Ghidra/Debug/Debugger-rmi-trace/src/main/java/ghidra/app/plugin/core/debug/gui/tracermi/launcher/LaunchAction.java",
+                    "startLine": 66,
+                    "endLine": 87,
+                    "startColumn": 2,
+                    "endColumn": 3,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "package checkSavedConfig(userData ProgramUserData, propName String) : ConfigLast"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "Ghidra/Debug/Debugger-rmi-trace/src/main/java/ghidra/app/plugin/core/debug/gui/tracermi/launcher/TraceRmiLauncherServicePlugin.java",
+                    "startLine": 334,
+                    "endLine": 351,
+                    "startColumn": 2,
+                    "endColumn": 3,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "protected checkSavedConfig(program Program, userData ProgramUserData, propName String) : ConfigLast"
+                }
+            ],
+            "isStatic": false
+        }
+    },
+    {
+        "repository": "https://github.com/NationalSecurityAgency/ghidra.git",
+        "sha1": "f9bea7720a033bec7cb438c5fe25158005e8728d",
+        "url": "https://github.com/NationalSecurityAgency/ghidra/commit/f9bea7720a033bec7cb438c5fe25158005e8728d",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method protected findOffer(last ConfigLast) : TraceRmiLaunchOffer from class ghidra.app.plugin.core.debug.gui.tracermi.launcher.LaunchAction to protected findOffer(last ConfigLast) : TraceRmiLaunchOffer from class ghidra.app.plugin.core.debug.gui.tracermi.launcher.TraceRmiLauncherServicePlugin",
+            "leftSideLocations": [
+                {
+                    "filePath": "Ghidra/Debug/Debugger-rmi-trace/src/main/java/ghidra/app/plugin/core/debug/gui/tracermi/launcher/LaunchAction.java",
+                    "startLine": 199,
+                    "endLine": 209,
+                    "startColumn": 2,
+                    "endColumn": 3,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "protected findOffer(last ConfigLast) : TraceRmiLaunchOffer"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "Ghidra/Debug/Debugger-rmi-trace/src/main/java/ghidra/app/plugin/core/debug/gui/tracermi/launcher/TraceRmiLauncherServicePlugin.java",
+                    "startLine": 377,
+                    "endLine": 387,
+                    "startColumn": 2,
+                    "endColumn": 3,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "protected findOffer(last ConfigLast) : TraceRmiLaunchOffer"
+                }
+            ],
+            "isStatic": false
+        }
+    },
+    {
+        "repository": "https://github.com/NationalSecurityAgency/ghidra.git",
+        "sha1": "624a3c4e9e9e55db903296eba544fa696cc1ecaf",
+        "url": "https://github.com/NationalSecurityAgency/ghidra/commit/624a3c4e9e9e55db903296eba544fa696cc1ecaf",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method package testForAutoParameterThis(var HighVariable, f Function) : boolean from class ghidra.app.plugin.core.decompile.actions.CreateStructureVariableAction to public testForAutoParameterThis(var HighVariable, function Function) : boolean from class ghidra.app.decompiler.component.DecompilerUtils",
+            "leftSideLocations": [
+                {
+                    "filePath": "Ghidra/Features/Decompiler/src/main/java/ghidra/app/plugin/core/decompile/actions/CreateStructureVariableAction.java",
+                    "startLine": 50,
+                    "endLine": 60,
+                    "startColumn": 2,
+                    "endColumn": 3,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "package testForAutoParameterThis(var HighVariable, f Function) : boolean"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "Ghidra/Features/Decompiler/src/main/java/ghidra/app/decompiler/component/DecompilerUtils.java",
+                    "startLine": 277,
+                    "endLine": 294,
+                    "startColumn": 2,
+                    "endColumn": 3,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public testForAutoParameterThis(var HighVariable, function Function) : boolean"
+                }
+            ],
             "isStatic": true
         }
     },
@@ -135,7 +370,6 @@
                     "codeElement": "private activateObjectSelectedInTree() : void"
                 }
             ],
-            "refID": 107346,
             "isStatic": false
         }
     },
@@ -170,8 +404,41 @@
                     "codeElement": "private logDifferentKeyBindingsWarnigMessage(newAction DockingActionIf, existingAction DockingActionIf, existingDefaultTrigger ActionTrigger) : void"
                 }
             ],
-            "refID": 108134,
             "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/NationalSecurityAgency/ghidra.git",
+        "sha1": "ddd2f22c28a6980d16dd949509c59baa57d0b7aa",
+        "url": "https://github.com/NationalSecurityAgency/ghidra/commit/ddd2f22c28a6980d16dd949509c59baa57d0b7aa",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method private createActions() : void from class ghidra.app.plugin.core.functionwindow.FunctionWindowPlugin to private createActions() : void from class ghidra.app.plugin.core.functionwindow.FunctionWindowProvider",
+            "leftSideLocations": [
+                {
+                    "filePath": "Ghidra/Features/Base/src/main/java/ghidra/app/plugin/core/functionwindow/FunctionWindowPlugin.java",
+                    "startLine": 178,
+                    "endLine": 187,
+                    "startColumn": 2,
+                    "endColumn": 3,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "private createActions() : void"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "Ghidra/Features/Base/src/main/java/ghidra/app/plugin/core/functionwindow/FunctionWindowProvider.java",
+                    "startLine": 75,
+                    "endLine": 78,
+                    "startColumn": 2,
+                    "endColumn": 3,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "private createActions() : void"
+                }
+            ],
+            "isStatic": false
         }
     }
 ]

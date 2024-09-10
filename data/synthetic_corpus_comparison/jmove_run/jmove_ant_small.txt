@@ -1,0 +1,139 @@
+Refactoring Type	Source Method	Target Class	Similarity Indice
+Move Method	org.apache.tools.ant.taskdefs.AbstractJarSignerTask::declareSysProperty(ExecTask, Environment.Variable):void	org.apache.tools.ant.types.Environment	0.8461538461538461
+Move Method	org.apache.tools.ant.taskdefs.optional.Cab::createListFile(Vector):File	org.apache.tools.ant.util.FileUtils	1.0
+Move Method	org.apache.tools.ant.taskdefs.optional.sos.SOS::run(Commandline):int	org.apache.tools.ant.types.Commandline	0.37566557154186025
+Move Method	org.apache.tools.ant.Project::fireMessageLogged(Target, String, Throwable, int):void	org.apache.tools.ant.Target	0.6691128506197
+Move Method	org.apache.tools.ant.taskdefs.Rmic::isValidRmiRemote(String):boolean	org.apache.tools.ant.AntClassLoader	0.5982678934871098
+Move Method	org.apache.tools.ant.taskdefs.Zip::zipDir(File, ZipOutputStream, String, int):void	org.apache.tools.zip.ZipOutputStream	0.7728738551168459
+Move Method	org.apache.tools.ant.types.ResourceOutputTest::testoutput(Resource):void	org.apache.tools.ant.types.Resource	0.33413486839078615
+Move Method	org.apache.tools.ant.taskdefs.Javadoc::setHelpfile(File):void	org.apache.tools.ant.types.Commandline	0.694074776024428
+Move Method	org.apache.tools.ant.taskdefs.Zip::addResources(ResourceCollection, Resource[], ZipOutputStream):void	org.apache.tools.ant.types.ZipScanner	0.65
+Move Method	org.apache.tools.ant.taskdefs.Zip::renameFile():File	org.apache.tools.ant.util.FileUtils	0.575171760246387
+Move Method	org.apache.tools.ant.taskdefs.Javac::checkParameters():void	org.apache.tools.ant.types.Path	0.5599154135338347
+Move Method	org.apache.tools.ant.taskdefs.Tar::tarFile(File, TarOutputStream, String, TarFileSet):void	org.apache.tools.tar.TarOutputStream	0.653611111111111
+Move Method	org.apache.tools.ant.taskdefs.AbstractJarSignerTask::bindToKeystore(ExecTask):void	org.apache.tools.ant.taskdefs.ExecTask	0.6829780361757106
+Move Method	org.apache.tools.ant.taskdefs.optional.sound.AntSoundPlayer::play(Project, File, int, Long):void	org.apache.tools.ant.Project	0.4722910472994028
+Move Method	org.apache.tools.ant.taskdefs.DependSet::logFuture(ResourceCollection, ResourceSelector):void	org.apache.tools.ant.types.resources.Union	0.5153061224489797
+Move Method	org.apache.tools.ant.types.resources.ResourceList::parse(String):Resource	org.apache.tools.ant.types.resources.Union	0.07936507936507936
+Move Method	org.apache.tools.ant.taskdefs.optional.ejb.WeblogicDeploymentTool::getClassLoaderFromJar(File):ClassLoader	org.apache.tools.ant.util.FileUtils	0.5784089613859835
+Move Method	org.apache.tools.ant.taskdefs.Copy::doFileOperations():void	org.apache.tools.ant.util.FileUtils	0.5213305132093541
+Move Method	org.apache.tools.ant.taskdefs.Zip::createEmptyZip(File):boolean	org.apache.tools.ant.util.FileUtils	0.608049129744109
+Move Method	org.apache.tools.ant.taskdefs.optional.junit.JUnitTask::addClasspathResource(String):boolean	org.apache.tools.ant.types.Path	0.5453486657821026
+Move Method	org.apache.tools.ant.taskdefs.Rmic::moveGeneratedFile(File, File, String, RmicAdapter):void	org.apache.tools.ant.util.FileUtils	0.7518004383676024
+Move Method	org.apache.tools.ant.taskdefs.optional.ejb.WebsphereDeploymentTool::getClassLoaderFromJar(File):ClassLoader	org.apache.tools.ant.util.FileUtils	0.5784089613859835
+Move Method	org.apache.tools.ant.filters.LineContainsTest::testLineContains():void	org.apache.tools.ant.util.FileUtils	0.4013475162541547
+Move Method	org.apache.tools.ant.Project::fireMessageLoggedEvent(BuildEvent, String, int):void	org.apache.tools.ant.BuildEvent	0.895804195804196
+Move Method	org.apache.tools.ant.taskdefs.JavaTest::testSpawn():void	org.apache.tools.ant.util.FileUtils	0.39838873812754394
+Move Method	org.apache.tools.ant.taskdefs.Javac::generateMissingPackageInfoClasses():void	org.apache.tools.ant.util.FileUtils	0.4470682302771854
+Move Method	org.apache.tools.ant.ComponentHelper::createComponent(UnknownElement, String, String):Object	org.apache.tools.ant.UnknownElement	0.5590420332355815
+Move Method	org.apache.tools.ant.taskdefs.optional.junit.JUnitTask::getOutput(FormatterElement, JUnitTest):File	org.apache.tools.ant.taskdefs.optional.junit.JUnitTest	0.5217948717948719
+Move Method	org.apache.tools.ant.taskdefs.XSLTProcess::setLiaisonDynamicFileParameters(XSLTLiaison, File):void	org.apache.tools.ant.util.FileUtils	0.7050639658848613
+Move Method	org.apache.tools.ant.Project::fireTargetFinished(Target, Throwable):void	org.apache.tools.ant.Target	0.6783588435374153
+Move Method	org.apache.tools.ant.AntClassLoader::defineClassFromData(File, byte[], String):Class	org.apache.tools.ant.util.FileUtils	0.48999547715965597
+Move Method	org.apache.tools.ant.taskdefs.optional.net.FTP::getFile(FTPClient, String, String):void	org.apache.tools.ant.util.FileUtils	0.5965013103632559
+Move Method	org.apache.tools.ant.taskdefs.Zip::getNonFileSetResourcesToAdd(ResourceCollection[], File, boolean):ArchiveState	org.apache.tools.ant.types.ZipScanner	0.8343434343434343
+Move Method	org.apache.tools.ant.types.resources.AbstractClasspathResource::getClassLoader():ClassLoaderWithFlag	org.apache.tools.ant.types.Reference	0.5687500000000001
+Move Method	org.apache.tools.ant.taskdefs.optional.ejb.WebsphereDeploymentTool::getWebsphereDescriptorHandler(File):DescriptorHandler	org.apache.tools.ant.util.FileUtils	0.36724672192999863
+Move Method	org.apache.tools.ant.taskdefs.Zip::zipFile(InputStream, ZipOutputStream, String, long, File, int):void	org.apache.tools.ant.types.ZipScanner	0.5568181818181819
+Move Method	org.apache.tools.ant.taskdefs.optional.junit.JUnitTask::addAssertions(Assertions):void	org.apache.tools.ant.types.CommandlineJava	0.8210678210678211
+Move Method	org.apache.tools.ant.taskdefs.optional.TraXLiaison::resourceToURI(Resource):String	org.apache.tools.ant.util.FileUtils	0.3959221748400852
+Move Method	org.apache.tools.ant.taskdefs.email.EmailTask::setFiles(String):void	org.apache.tools.ant.types.Path	0.7097222222222225
+Move Method	org.apache.tools.ant.filters.ReplaceTokens::getProperties(Resource):Properties	org.apache.tools.ant.types.Resource	0.296979006656426
+Move Method	org.apache.tools.ant.taskdefs.optional.AbstractXSLTLiaisonTest::getFile(String):File	org.apache.tools.ant.util.FileUtils	0.5531938521677326
+Move Method	org.apache.tools.ant.types.DataType::getCheckedRef(Class, String, Project):Object	org.apache.tools.ant.types.Reference	0.8749999999999999
+Move Method	org.apache.tools.ant.taskdefs.Javadoc::doSourceAndPackageNames(Commandline, Vector, Vector, boolean, File, BufferedWriter):void	org.apache.tools.ant.types.Commandline	0.6354788069073786
+Move Method	org.apache.tools.ant.taskdefs.optional.XMLValidateTask::doValidate(File):boolean	org.apache.tools.ant.util.FileUtils	0.5064716378149213
+Move Method	org.apache.tools.ant.AntClassLoader::getCertificates(File, String):Certificate[]	org.apache.tools.ant.util.FileUtils	0.6064145228463821
+Move Method	org.apache.tools.ant.IntrospectionHelperTest::assertAttrMethod(String, String, Class, Object, Object):void	org.apache.tools.ant.IntrospectionHelper	0.9967789111101211
+Move Method	org.apache.tools.ant.taskdefs.SignJar::isSigned(File):boolean	org.apache.tools.ant.util.FileUtils	0.5904980591547754
+Move Method	org.apache.tools.ant.taskdefs.optional.ssh.Scp::createDirectory(FileSet):Directory	org.apache.tools.ant.types.FileSet	0.5252669039145907
+Move Method	org.apache.tools.ant.taskdefs.optional.depend.DependTest::getResultFiles():Hashtable	org.apache.tools.ant.Project	0.5131166064049583
+Move Method	org.apache.tools.ant.taskdefs.Expand::extractFile(FileUtils, File, File, InputStream, String, Date, boolean, FileNameMapper):void	org.apache.tools.ant.util.FileUtils	0.6537550343520495
+Move Method	org.apache.tools.ant.taskdefs.Property::loadProperties(Properties, InputStream, boolean):void	org.apache.tools.ant.Project	0.11154203869047624
+Move Method	org.apache.tools.ant.taskdefs.optional.ReplaceRegExp::doReplace(File, int):void	org.apache.tools.ant.util.FileUtils	0.5597047231375586
+Move Method	org.apache.tools.ant.taskdefs.Javadoc::setAccess(AccessType):void	org.apache.tools.ant.types.Commandline	0.771186440677966
+Move Method	org.apache.tools.ant.taskdefs.Javadoc::parsePackages(Vector, Path):void	org.apache.tools.ant.types.Path	0.5329453441295549
+Move Method	org.apache.tools.ant.taskdefs.UnzipTest::assertLogoUncorrupted():void	org.apache.tools.ant.util.FileUtils	0.4491180461329713
+Move Method	org.apache.tools.ant.taskdefs.AbstractCvsTask::configureCommandline(Commandline):void	org.apache.tools.ant.types.Commandline	0.771186440677966
+Move Method	org.apache.tools.ant.listener.MailLogger::sendMimeMail(Project, Values, String):void	org.apache.tools.ant.Project	0.4379725743006989
+Move Method	org.apache.tools.ant.taskdefs.Redirector::handleInput(byte[], int, int):int	org.apache.tools.ant.ProjectComponent	0.7691609977324263
+Move Method	org.apache.tools.ant.taskdefs.Delete::isDanglingSymlink(File):boolean	org.apache.tools.ant.util.SymbolicLinkUtils	1.0
+Move Method	org.apache.tools.ant.taskdefs.email.MimeMailer::didntReach(Address, String, MessagingException):void	org.apache.tools.ant.Task	0.3755479969765683
+Move Method	org.apache.tools.ant.taskdefs.SignJar::signOneJar(File, File):void	org.apache.tools.ant.util.FileUtils	0.6241915422885571
+Move Method	org.apache.tools.ant.Project::setFileLastModified(File, long):void	org.apache.tools.ant.util.FileUtils	0.509417199715707
+Move Method	org.apache.tools.ant.filters.ConcatFilterTest::testFilterReaderNoArgs():void	org.apache.tools.ant.util.FileUtils	0.4013475162541547
+Move Method	org.apache.tools.ant.taskdefs.ConcatTest::getFileString(String):String	org.apache.tools.ant.util.FileUtils	0.4402349952365828
+Move Method	org.apache.tools.ant.types.resources.TarResourceTest::testUncompressSource():void	org.apache.tools.ant.util.FileUtils	0.29702355275644887
+Move Method	org.apache.tools.ant.taskdefs.optional.ejb.IPlanetEjbcTask::executeEjbc(SAXParser):void	org.apache.tools.ant.types.Path	0.9011629452418922
+Move Method	org.apache.tools.ant.taskdefs.Zip::addParentDirs(File, String, ZipOutputStream, String, int):void	org.apache.tools.zip.ZipOutputStream	0.7728738551168459
+Move Method	org.apache.tools.ant.taskdefs.Touch::touch(File, long):void	org.apache.tools.ant.util.FileUtils	0.5976933514246946
+Move Method	org.apache.tools.ant.DirectoryScanner::causesIllegalSymlinkLoop(String, File, LinkedList):boolean	org.apache.tools.ant.util.SymbolicLinkUtils	0.6813492063492064
+Move Method	org.apache.tools.ant.taskdefs.TouchTest::getTargetTime():long	org.apache.tools.ant.util.FileUtils	0.28437574034588964
+Move Method	org.apache.tools.ant.filters.ConcatFilterTest::read(String):String	org.apache.tools.ant.util.FileUtils	0.5598715586884496
+Move Method	org.apache.tools.ant.taskdefs.Zip::zipDir(Resource, ZipOutputStream, String, int, ZipExtraField[]):void	org.apache.tools.zip.ZipOutputStream	0.889673297877289
+Move Method	org.apache.tools.ant.taskdefs.optional.unix.Symlink::delete():void	org.apache.tools.ant.util.SymbolicLinkUtils	1.0
+Move Method	org.apache.tools.ant.taskdefs.Expand::expandFile(FileUtils, File, File):void	org.apache.tools.ant.util.FileUtils	0.606267037326928
+Move Method	org.apache.tools.ant.taskdefs.optional.ejb.WebsphereDeploymentTool::isRebuildRequired(File, File):boolean	org.apache.tools.ant.util.FileUtils	0.4838345361106555
+Move Method	org.apache.tools.ant.taskdefs.Available::checkResource(String):boolean	org.apache.tools.ant.AntClassLoader	0.7251796236171234
+Move Method	org.apache.tools.ant.taskdefs.Available::setFile(File):void	org.apache.tools.ant.util.FileUtils	0.8644071310116086
+Move Method	org.apache.tools.ant.taskdefs.XmlPropertyTest::doTest(String, boolean, boolean, boolean, boolean, boolean):void	org.apache.tools.ant.util.FileUtils	0.5640313583597163
+Move Method	org.apache.tools.ant.types.selectors.ModifiedSelectorTest::doTest(Algorithm):void	org.apache.tools.ant.util.FileUtils	0.4975361288794127
+Move Method	org.apache.tools.ant.types.resolver.ApacheCatalogResolver::parseCatalog(String):void	org.apache.tools.ant.types.XMLCatalog	0.17613572262695068
+Move Method	org.apache.tools.ant.taskdefs.ManifestTask::addConfiguredSection(Manifest.Section):void	org.apache.tools.ant.taskdefs.Manifest	1.0
+Move Method	org.apache.tools.ant.taskdefs.optional.net.FTP::sendFile(FTPClient, String, String):void	org.apache.tools.ant.util.FileUtils	0.4269128259799902
+Move Method	org.apache.tools.ant.taskdefs.optional.extension.JarLibManifestTask::toExtensions(ArrayList):ArrayList	org.apache.tools.ant.taskdefs.optional.extension.Extension	0.5944805194805195
+Move Method	org.apache.tools.ant.taskdefs.Truncate::shouldProcess(File):boolean	org.apache.tools.ant.util.FileUtils	0.5121090076313956
+Move Method	org.apache.tools.ant.AntClassLoader::getResourceURL(File, String):URL	org.apache.tools.ant.util.FileUtils	0.4285300768882857
+Move Method	org.apache.tools.ant.taskdefs.optional.vss.MSVSS::run(Commandline):int	org.apache.tools.ant.types.Commandline	0.3515194681861349
+Move Method	org.apache.tools.ant.taskdefs.Javadoc::doGroups(Commandline):void	org.apache.tools.ant.types.Commandline	0.5065213002220879
+Move Method	org.apache.tools.ant.taskdefs.optional.net.FTP::transferFiles(FTPClient, FileSet):int	org.apache.tools.ant.util.FileUtils	0.7333857672422204
+Move Method	org.apache.tools.ant.taskdefs.Javadoc::writeExternalArgs(Commandline):void	org.apache.tools.ant.util.FileUtils	0.3904821828266112
+Move Method	org.apache.tools.ant.taskdefs.optional.net.FTP::findFileName(FTPClient):File	org.apache.tools.ant.util.FileUtils	0.6241915422885571
+Move Method	org.apache.tools.ant.taskdefs.Zip::getUnixMode(Resource, ZipFile, int):int	org.apache.tools.ant.types.ZipScanner	1.0
+Move Method	org.apache.tools.ant.taskdefs.UntarTest::testDocumentationClaimsOnCopy():void	org.apache.tools.ant.util.FileUtils	0.22655553401822057
+Move Method	org.apache.tools.ant.Project::fireMessageLogged(Task, String, Throwable, int):void	org.apache.tools.ant.Task	0.6032879818594105
+Move Method	org.apache.tools.ant.taskdefs.cvslib.ChangeLogWriterTest::testNonUTF8Characters():void	org.apache.tools.ant.taskdefs.cvslib.ChangeLogWriter	1.0
+Move Method	org.apache.tools.ant.taskdefs.email.EmailTask::logBuildException(String, BuildException):void	org.apache.tools.ant.BuildException	0.35
+Move Method	org.apache.tools.ant.IntrospectionHelperTest::assertMethod(Method, String, Class, Object, Object):void	org.apache.tools.ant.IntrospectionHelper	0.22912479187479187
+Move Method	org.apache.tools.ant.Project::fireTargetStarted(Target):void	org.apache.tools.ant.Target	0.7722567287784682
+Move Method	org.apache.tools.ant.ProjectTest::testNullThrowableMessageLog():void	org.apache.tools.ant.Project	0.46026785714285673
+Move Method	org.apache.tools.ant.taskdefs.Execute::execute():int	org.apache.tools.ant.taskdefs.ProcessDestroyer	0.5526260504201681
+Move Method	org.apache.tools.ant.taskdefs.optional.clearcase.ClearCase::run(Commandline):int	org.apache.tools.ant.types.Commandline	0.37566557154186025
+Move Method	org.apache.tools.ant.taskdefs.optional.ejb.GenericDeploymentTool::parseEjbFiles(String, SAXParser):Hashtable	org.apache.tools.ant.taskdefs.optional.ejb.DescriptorHandler	0.8620823620823621
+Move Method	org.apache.tools.ant.taskdefs.ExecTask::resolveExecutable(String, boolean):String	org.apache.tools.ant.util.FileUtils	0.7682270465852552
+Move Method	org.apache.tools.ant.taskdefs.Redirector::setPropertyFromBAOS(ByteArrayOutputStream, String):void	org.apache.tools.ant.ProjectComponent	0.644219977553311
+Move Method	org.apache.tools.ant.taskdefs.Replace::getProperties(Resource):Properties	org.apache.tools.ant.util.FileUtils	0.34920634920634935
+Move Method	org.apache.tools.ant.ProjectHelper::parseAntlibDescriptor(Project, Resource):UnknownElement	org.apache.tools.ant.Project	0.524238196699134
+Move Method	org.apache.tools.ant.taskdefs.Javac::lookForPackageInfos(File, File[]):void	org.apache.tools.ant.util.FileUtils	0.7938432835820897
+Move Method	org.apache.tools.ant.taskdefs.Checksum::generateChecksums():boolean	org.apache.tools.ant.util.FileUtils	0.44726709147899063
+Move Method	org.apache.tools.ant.taskdefs.optional.net.FTP::getTimeDiff(FTPClient):long	org.apache.tools.ant.util.FileUtils	0.41650032181748586
+Move Method	org.apache.tools.ant.taskdefs.Checksum::readChecksum(File):String	org.apache.tools.ant.util.FileUtils	0.6241915422885571
+Move Method	org.apache.tools.ant.taskdefs.Recorder::getRecorder(String, Project):RecorderEntry	org.apache.tools.ant.Project	0.5140819466991341
+Move Method	org.apache.tools.ant.types.selectors.ModifiedSelectorTest::testCreatePropertiesCacheViaCustomSelector():void	org.apache.tools.ant.util.FileUtils	0.7756838560422666
+Move Method	org.apache.tools.ant.filters.EscapeUnicodeTest::testEscapeUnicode():void	org.apache.tools.ant.util.FileUtils	0.4013475162541547
+Move Method	org.apache.tools.ant.taskdefs.optional.junit.JUnitTask::createTempPropertiesFile(String):File	org.apache.tools.ant.util.FileUtils	0.8644071310116086
+Move Method	org.apache.tools.ant.taskdefs.Zip::addResources(FileSet, Resource[], ZipOutputStream):void	org.apache.tools.ant.types.ZipScanner	0.8343434343434343
+Move Method	org.apache.tools.ant.taskdefs.JavaTest::testReleasedInput():void	org.apache.tools.ant.Project	0.3844683961871459
+Move Method	org.apache.tools.ant.taskdefs.optional.ejb.WeblogicDeploymentTool::isRebuildRequired(File, File):boolean	org.apache.tools.ant.util.FileUtils	0.4838345361106555
+Move Method	org.apache.tools.ant.taskdefs.optional.Javah::logAndAddFilesToCompile(Commandline):void	org.apache.tools.ant.types.Commandline	0.4444444444444446
+Move Method	org.apache.tools.ant.taskdefs.InitializeClassTest::testAll():void	org.apache.tools.ant.util.FileUtils	0.3145971526092197
+Move Method	org.apache.tools.ant.taskdefs.Tar::asTarFileSet(ArchiveFileSet):TarFileSet	org.apache.tools.ant.types.ArchiveFileSet	0.8326317469226496
+Move Method	org.apache.tools.ant.taskdefs.Delete::delete(File):boolean	org.apache.tools.ant.util.FileUtils	1.0
+Move Method	org.apache.tools.ant.taskdefs.Javadoc::setStylesheetfile(File):void	org.apache.tools.ant.types.Commandline	0.694074776024428
+Move Method	org.apache.tools.ant.filters.StripJavaCommentsTest::testStripJavaComments():void	org.apache.tools.ant.util.FileUtils	0.4013475162541547
+Move Method	org.apache.tools.ant.taskdefs.Javadoc::setOverview(File):void	org.apache.tools.ant.types.Commandline	0.694074776024428
+Move Method	org.apache.tools.ant.AntClassLoader::findClassInComponents(String):Class	org.apache.tools.ant.util.FileUtils	0.7157055630936224
+Move Method	org.apache.tools.ant.taskdefs.SubAntTest::testBaseDirs(String, String[]):void	org.apache.tools.ant.Project	0.3857424223635157
+Move Method	org.apache.tools.ant.taskdefs.Javadoc::doLinks(Commandline):void	org.apache.tools.ant.util.FileUtils	0.4240019665986791
+Move Method	org.apache.tools.ant.filters.util.ChainReaderHelper::expandReader(AntFilterReader, Reader, List):Reader	org.apache.tools.ant.types.AntFilterReader	0.6891025641025641
+Move Method	org.apache.tools.ant.taskdefs.XSLTProcess::processResources(Resource):void	org.apache.tools.ant.util.FileUtils	0.3120634202723755
+Move Method	org.apache.tools.ant.types.FlexIntegerTest::execute():void	org.apache.tools.ant.Project	0.5140819466991341
+Move Method	org.apache.tools.ant.taskdefs.Replace::processFile(File):void	org.apache.tools.ant.util.FileUtils	0.7815834155333834
+Move Method	org.apache.tools.ant.taskdefs.optional.i18n.Translate::translateOneFile(File, File):void	org.apache.tools.ant.util.FileUtils	0.7062345614584422
+Move Method	org.apache.tools.ant.taskdefs.optional.ReplaceRegExp::doReplace(RegularExpression, Substitution, String, int):String	org.apache.tools.ant.types.RegularExpression	0.6984126984126985
+Move Method	org.apache.tools.ant.taskdefs.optional.pvcs.Pvcs::runCmd(Commandline, ExecuteStreamHandler):int	org.apache.tools.ant.types.Commandline	0.3635870302536969
+Move Method	org.apache.tools.ant.types.selectors.TokenizedPath::isSymlink(File):boolean	org.apache.tools.ant.util.SymbolicLinkUtils	0.623015873015873
+Move Method	org.apache.tools.ant.taskdefs.StyleTest::getFileString(String):String	org.apache.tools.ant.util.FileUtils	0.4402349952365828
+Move Method	org.apache.tools.ant.types.selectors.ModifiedSelectorTest::testSeldirs():void	org.apache.tools.ant.util.FileUtils	0.4975361288794127
+Move Method	org.apache.tools.ant.taskdefs.optional.junit.JUnitTask::execute(List):void	org.apache.tools.ant.util.FileUtils	0.547641526453149
+Move Method	org.apache.tools.ant.AntClassLoader::definePackage(File, String, Manifest):void	org.apache.tools.ant.util.FileUtils	0.6370735607675906

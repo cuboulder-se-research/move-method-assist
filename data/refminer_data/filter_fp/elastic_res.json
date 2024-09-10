@@ -1,6 +1,244 @@
 [
     {
         "repository": "https://github.com/elastic/elasticsearch.git",
+        "sha1": "1d525752af4f4c768d3a13604f13e5d3005d284a",
+        "url": "https://github.com/elastic/elasticsearch/commit/1d525752af4f4c768d3a13604f13e5d3005d284a",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method private assertNotSuccess(shardState ShardState) : ShardState from class org.elasticsearch.cluster.SnapshotsInProgress.ShardSnapshotStatus to private assertNotSuccess(shardState ShardState) : ShardState from class org.elasticsearch.cluster.SnapshotsInProgress",
+            "leftSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/cluster/SnapshotsInProgress.java",
+                    "startLine": 514,
+                    "endLine": 517,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "private assertNotSuccess(shardState ShardState) : ShardState"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/cluster/SnapshotsInProgress.java",
+                    "startLine": 634,
+                    "endLine": 637,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "private assertNotSuccess(shardState ShardState) : ShardState"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/elastic/elasticsearch.git",
+        "sha1": "1d525752af4f4c768d3a13604f13e5d3005d284a",
+        "url": "https://github.com/elastic/elasticsearch/commit/1d525752af4f4c768d3a13604f13e5d3005d284a",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public success(nodeId String, shardSnapshotResult ShardSnapshotResult) : ShardSnapshotStatus from class org.elasticsearch.cluster.SnapshotsInProgress.ShardSnapshotStatus to public success(nodeId String, shardSnapshotResult ShardSnapshotResult) : ShardSnapshotStatus from class org.elasticsearch.cluster.SnapshotsInProgress",
+            "leftSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/cluster/SnapshotsInProgress.java",
+                    "startLine": 519,
+                    "endLine": 522,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public success(nodeId String, shardSnapshotResult ShardSnapshotResult) : ShardSnapshotStatus"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/cluster/SnapshotsInProgress.java",
+                    "startLine": 639,
+                    "endLine": 642,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public success(nodeId String, shardSnapshotResult ShardSnapshotResult) : ShardSnapshotStatus"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/elastic/elasticsearch.git",
+        "sha1": "1d525752af4f4c768d3a13604f13e5d3005d284a",
+        "url": "https://github.com/elastic/elasticsearch/commit/1d525752af4f4c768d3a13604f13e5d3005d284a",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public readFrom(in StreamInput) : ShardSnapshotStatus from class org.elasticsearch.cluster.SnapshotsInProgress.ShardSnapshotStatus to public readFrom(in StreamInput) : ShardSnapshotStatus from class org.elasticsearch.cluster.SnapshotsInProgress",
+            "leftSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/cluster/SnapshotsInProgress.java",
+                    "startLine": 551,
+                    "endLine": 562,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public readFrom(in StreamInput) : ShardSnapshotStatus"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/cluster/SnapshotsInProgress.java",
+                    "startLine": 672,
+                    "endLine": 683,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public readFrom(in StreamInput) : ShardSnapshotStatus"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/elastic/elasticsearch.git",
+        "sha1": "1d525752af4f4c768d3a13604f13e5d3005d284a",
+        "url": "https://github.com/elastic/elasticsearch/commit/1d525752af4f4c768d3a13604f13e5d3005d284a",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public diff(previousState ByRepo) : Diff<ByRepo> from class org.elasticsearch.cluster.SnapshotsInProgress.ByRepo to public diff(previousState ByRepo) : Diff<ByRepo> from class org.elasticsearch.cluster.SnapshotInProgressDiff",
+            "leftSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/cluster/SnapshotsInProgress.java",
+                    "startLine": 1614,
+                    "endLine": 1625,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public diff(previousState ByRepo) : Diff<ByRepo>"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/cluster/SnapshotsInProgress.java",
+                    "startLine": 1751,
+                    "endLine": 1762,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public diff(previousState ByRepo) : Diff<ByRepo>"
+                }
+            ],
+            "isStatic": false
+        }
+    },
+    {
+        "repository": "https://github.com/elastic/elasticsearch.git",
+        "sha1": "1d525752af4f4c768d3a13604f13e5d3005d284a",
+        "url": "https://github.com/elastic/elasticsearch/commit/1d525752af4f4c768d3a13604f13e5d3005d284a",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public toPositionMap(part ByRepo) : Map<String,Integer> from class org.elasticsearch.cluster.SnapshotsInProgress.ByRepo to public toPositionMap(part ByRepo) : Map<String,Integer> from class org.elasticsearch.cluster.SnapshotInProgressDiff",
+            "leftSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/cluster/SnapshotsInProgress.java",
+                    "startLine": 1627,
+                    "endLine": 1635,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public toPositionMap(part ByRepo) : Map<String,Integer>"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/cluster/SnapshotsInProgress.java",
+                    "startLine": 1764,
+                    "endLine": 1772,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public toPositionMap(part ByRepo) : Map<String,Integer>"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/elastic/elasticsearch.git",
+        "sha1": "1d525752af4f4c768d3a13604f13e5d3005d284a",
+        "url": "https://github.com/elastic/elasticsearch/commit/1d525752af4f4c768d3a13604f13e5d3005d284a",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public toMapByUUID(part ByRepo) : Map<String,Entry> from class org.elasticsearch.cluster.SnapshotsInProgress.ByRepo to public toMapByUUID(part ByRepo) : Map<String,Entry> from class org.elasticsearch.cluster.SnapshotInProgressDiff",
+            "leftSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/cluster/SnapshotsInProgress.java",
+                    "startLine": 1637,
+                    "endLine": 1645,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public toMapByUUID(part ByRepo) : Map<String,Entry>"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/cluster/SnapshotsInProgress.java",
+                    "startLine": 1774,
+                    "endLine": 1782,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public toMapByUUID(part ByRepo) : Map<String,Entry>"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/elastic/elasticsearch.git",
+        "sha1": "5a4f02670e85dcac55ffd2898b297258794248a4",
+        "url": "https://github.com/elastic/elasticsearch/commit/5a4f02670e85dcac55ffd2898b297258794248a4",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method package parseVersionRanges(rawRanges String) : List<VersionRange> from class org.elasticsearch.test.rest.yaml.section.SkipSection to package parseVersionRanges(rawRanges String) : List<VersionRange> from class org.elasticsearch.test.rest.yaml.section.VersionRange",
+            "leftSideLocations": [
+                {
+                    "filePath": "test/yaml-rest-runner/src/main/java/org/elasticsearch/test/rest/yaml/section/SkipSection.java",
+                    "startLine": 173,
+                    "endLine": 197,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "package parseVersionRanges(rawRanges String) : List<VersionRange>"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "test/yaml-rest-runner/src/main/java/org/elasticsearch/test/rest/yaml/section/VersionRange.java",
+                    "startLine": 28,
+                    "endLine": 52,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "package parseVersionRanges(rawRanges String) : List<VersionRange>"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/elastic/elasticsearch.git",
         "sha1": "abccea00d11aef2815e48cfadf786b1ae5e50c4e",
         "url": "https://github.com/elastic/elasticsearch/commit/abccea00d11aef2815e48cfadf786b1ae5e50c4e",
         "move_method_refactoring": {
@@ -30,7 +268,6 @@
                     "codeElement": "private parseIndexEntry(parser XContentParser, indexToSettings Map<String,Settings>, indexToDefaultSettings Map<String,Settings>) : void"
                 }
             ],
-            "refID": 7518,
             "isStatic": true
         }
     },
@@ -65,7 +302,6 @@
                     "codeElement": "private parseSettingsField(parser XContentParser, currentIndexName String, indexToSettings Map<String,Settings>, indexToDefaultSettings Map<String,Settings>) : void"
                 }
             ],
-            "refID": 7519,
             "isStatic": true
         }
     },
@@ -100,7 +336,6 @@
                     "codeElement": "private fromXContent(parser XContentParser) : BulkResponse"
                 }
             ],
-            "refID": 7523,
             "isStatic": true
         }
     },
@@ -135,7 +370,6 @@
                     "codeElement": "private parseItem(parser XContentParser) : MultiGetItemResponse"
                 }
             ],
-            "refID": 7645,
             "isStatic": true
         }
     },
@@ -170,7 +404,6 @@
                     "codeElement": "private parseFailure(parser XContentParser) : Object"
                 }
             ],
-            "refID": 7647,
             "isStatic": true
         }
     },
@@ -205,7 +438,74 @@
                     "codeElement": "private errorFromXContent(parser XContentParser) : ElasticsearchStatusException"
                 }
             ],
-            "refID": 7649,
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/elastic/elasticsearch.git",
+        "sha1": "eb8c73f4fbf340f58144bd5d60460d9f02f7ca3f",
+        "url": "https://github.com/elastic/elasticsearch/commit/eb8c73f4fbf340f58144bd5d60460d9f02f7ca3f",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method private buildUri(accountUri URI) : URI from class org.elasticsearch.xpack.inference.external.request.openai.OpenAiEmbeddingsRequest to public buildUri(accountUri URI, service String, uriBuilder CheckedSupplier<URI,URISyntaxException>) : URI from class org.elasticsearch.xpack.inference.external.request.RequestUtils",
+            "leftSideLocations": [
+                {
+                    "filePath": "x-pack/plugin/inference/src/main/java/org/elasticsearch/xpack/inference/external/request/openai/OpenAiEmbeddingsRequest.java",
+                    "startLine": 53,
+                    "endLine": 59,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "private buildUri(accountUri URI) : URI"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "x-pack/plugin/inference/src/main/java/org/elasticsearch/xpack/inference/external/request/RequestUtils.java",
+                    "startLine": 28,
+                    "endLine": 35,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public buildUri(accountUri URI, service String, uriBuilder CheckedSupplier<URI,URISyntaxException>) : URI"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/elastic/elasticsearch.git",
+        "sha1": "eb8c73f4fbf340f58144bd5d60460d9f02f7ca3f",
+        "url": "https://github.com/elastic/elasticsearch/commit/eb8c73f4fbf340f58144bd5d60460d9f02f7ca3f",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method private createOptionalUri(url String) : URI from class org.elasticsearch.xpack.inference.services.openai.OpenAiServiceSettings to public createOptionalUri(url String) : URI from class org.elasticsearch.xpack.inference.services.ServiceUtils",
+            "leftSideLocations": [
+                {
+                    "filePath": "x-pack/plugin/inference/src/main/java/org/elasticsearch/xpack/inference/services/openai/OpenAiServiceSettings.java",
+                    "startLine": 103,
+                    "endLine": 109,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "private createOptionalUri(url String) : URI"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "x-pack/plugin/inference/src/main/java/org/elasticsearch/xpack/inference/services/ServiceUtils.java",
+                    "startLine": 147,
+                    "endLine": 153,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public createOptionalUri(url String) : URI"
+                }
+            ],
             "isStatic": true
         }
     },
@@ -240,7 +540,6 @@
                     "codeElement": "public toReleaseVersion() : String"
                 }
             ],
-            "refID": 8672,
             "isStatic": true
         }
     },
@@ -275,7 +574,6 @@
                     "codeElement": "public toReleaseVersion() : String"
                 }
             ],
-            "refID": 8675,
             "isStatic": true
         }
     },
@@ -310,7 +608,6 @@
                     "codeElement": "public toReleaseVersion() : String"
                 }
             ],
-            "refID": 10277,
             "isStatic": true
         }
     },
@@ -345,7 +642,6 @@
                     "codeElement": "public toReleaseVersion() : String"
                 }
             ],
-            "refID": 10280,
             "isStatic": true
         }
     },
@@ -380,7 +676,6 @@
                     "codeElement": "public translateFieldSortBuilders(fieldSortBuilders List<FieldSortBuilder>, searchSourceBuilder SearchSourceBuilder, visitor Consumer<String>) : void"
                 }
             ],
-            "refID": 14614,
             "isStatic": true
         }
     },
@@ -415,7 +710,6 @@
                     "codeElement": "public exposeQualifiedExportsAndOpens(target Module, qualifiedExports Map<String,List<ModuleQualifiedExportsService>>) : void"
                 }
             ],
-            "refID": 16105,
             "isStatic": true
         }
     },
@@ -450,7 +744,74 @@
                     "codeElement": "public addExportsService(qualifiedExports Map<String,List<ModuleQualifiedExportsService>>, exportsService ModuleQualifiedExportsService, moduleName String) : void"
                 }
             ],
-            "refID": 16107,
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/elastic/elasticsearch.git",
+        "sha1": "5c8006499a0a430125e2a65e9edc69fae7fa8621",
+        "url": "https://github.com/elastic/elasticsearch/commit/5c8006499a0a430125e2a65e9edc69fae7fa8621",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method private parseMetricDetail(parser XContentParser) : MetricDetail from class org.elasticsearch.index.rankeval.EvalQueryQuality to private parseMetricDetail(parser XContentParser) : MetricDetail from class org.elasticsearch.index.rankeval.EvalQueryQualityTests",
+            "leftSideLocations": [
+                {
+                    "filePath": "modules/rank-eval/src/main/java/org/elasticsearch/index/rankeval/EvalQueryQuality.java",
+                    "startLine": 136,
+                    "endLine": 142,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "private parseMetricDetail(parser XContentParser) : MetricDetail"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "modules/rank-eval/src/test/java/org/elasticsearch/index/rankeval/EvalQueryQualityTests.java",
+                    "startLine": 71,
+                    "endLine": 77,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "private parseMetricDetail(parser XContentParser) : MetricDetail"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/elastic/elasticsearch.git",
+        "sha1": "f1aae380d97616b5ffc5fabb59ca0d3e2a28e411",
+        "url": "https://github.com/elastic/elasticsearch/commit/f1aae380d97616b5ffc5fabb59ca0d3e2a28e411",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public toXContent(states EnumSet<WildcardStates>, builder XContentBuilder) : XContentBuilder from class org.elasticsearch.action.support.IndicesOptions.WildcardStates to public toXContent(builder XContentBuilder, params Params) : XContentBuilder from class org.elasticsearch.action.support.IndicesOptions.WildcardOptions",
+            "leftSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/action/support/IndicesOptions.java",
+                    "startLine": 62,
+                    "endLine": 74,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public toXContent(states EnumSet<WildcardStates>, builder XContentBuilder) : XContentBuilder"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/action/support/IndicesOptions.java",
+                    "startLine": 121,
+                    "endLine": 124,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public toXContent(builder XContentBuilder, params Params) : XContentBuilder"
+                }
+            ],
             "isStatic": true
         }
     },
@@ -485,7 +846,6 @@
                     "codeElement": "public addListener(future Future<Void>, listener ActionListener<Void>) : void"
                 }
             ],
-            "refID": 17968,
             "isStatic": true
         }
     },
@@ -520,7 +880,414 @@
                     "codeElement": "protected getSecureString(parser XContentParser) : SecureString"
                 }
             ],
-            "refID": 17977,
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/elastic/elasticsearch.git",
+        "sha1": "b95cb8c40dc701cbce18308cdcd5538fd60facb9",
+        "url": "https://github.com/elastic/elasticsearch/commit/b95cb8c40dc701cbce18308cdcd5538fd60facb9",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method private maybeFilterRepositories(repositories List<RepositoryMetadata>, sortBy GetSnapshotsRequest.SortBy, order SortOrder, fromSortValue String) : List<RepositoryMetadata> from class org.elasticsearch.action.admin.cluster.snapshots.get.TransportGetSnapshotsAction to private maybeFilterRepositories() : List<RepositoryMetadata> from class org.elasticsearch.action.admin.cluster.snapshots.get.TransportGetSnapshotsAction.GetSnapshotsOperation",
+            "leftSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/action/admin/cluster/snapshots/get/TransportGetSnapshotsAction.java",
+                    "startLine": 132,
+                    "endLine": 150,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "private maybeFilterRepositories(repositories List<RepositoryMetadata>, sortBy GetSnapshotsRequest.SortBy, order SortOrder, fromSortValue String) : List<RepositoryMetadata>"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/action/admin/cluster/snapshots/get/TransportGetSnapshotsAction.java",
+                    "startLine": 211,
+                    "endLine": 224,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "private maybeFilterRepositories() : List<RepositoryMetadata>"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/elastic/elasticsearch.git",
+        "sha1": "b95cb8c40dc701cbce18308cdcd5538fd60facb9",
+        "url": "https://github.com/elastic/elasticsearch/commit/b95cb8c40dc701cbce18308cdcd5538fd60facb9",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method private currentSnapshots(snapshotsInProgress SnapshotsInProgress, repositoryName String) : List<SnapshotInfo> from class org.elasticsearch.action.admin.cluster.snapshots.get.TransportGetSnapshotsAction to private currentSnapshots(repositoryName String) : List<SnapshotInfo> from class org.elasticsearch.action.admin.cluster.snapshots.get.TransportGetSnapshotsAction.GetSnapshotsOperation",
+            "leftSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/action/admin/cluster/snapshots/get/TransportGetSnapshotsAction.java",
+                    "startLine": 288,
+                    "endLine": 306,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "private currentSnapshots(snapshotsInProgress SnapshotsInProgress, repositoryName String) : List<SnapshotInfo>"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/action/admin/cluster/snapshots/get/TransportGetSnapshotsAction.java",
+                    "startLine": 290,
+                    "endLine": 307,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "private currentSnapshots(repositoryName String) : List<SnapshotInfo>"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/elastic/elasticsearch.git",
+        "sha1": "b95cb8c40dc701cbce18308cdcd5538fd60facb9",
+        "url": "https://github.com/elastic/elasticsearch/commit/b95cb8c40dc701cbce18308cdcd5538fd60facb9",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method private isCurrentSnapshotsOnly(snapshots String[]) : boolean from class org.elasticsearch.action.admin.cluster.snapshots.get.TransportGetSnapshotsAction to private isCurrentSnapshotsOnly() : boolean from class org.elasticsearch.action.admin.cluster.snapshots.get.TransportGetSnapshotsAction.GetSnapshotsOperation",
+            "leftSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/action/admin/cluster/snapshots/get/TransportGetSnapshotsAction.java",
+                    "startLine": 494,
+                    "endLine": 496,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "private isCurrentSnapshotsOnly(snapshots String[]) : boolean"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/action/admin/cluster/snapshots/get/TransportGetSnapshotsAction.java",
+                    "startLine": 457,
+                    "endLine": 459,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "private isCurrentSnapshotsOnly() : boolean"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/elastic/elasticsearch.git",
+        "sha1": "b95cb8c40dc701cbce18308cdcd5538fd60facb9",
+        "url": "https://github.com/elastic/elasticsearch/commit/b95cb8c40dc701cbce18308cdcd5538fd60facb9",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method private buildSimpleSnapshotInfos(toResolve Set<Snapshot>, repoName String, repositoryData RepositoryData, currentSnapshots List<SnapshotInfo>, sortBy GetSnapshotsRequest.SortBy, after GetSnapshotsRequest.After, order SortOrder, indices boolean) : SnapshotsInRepo from class org.elasticsearch.action.admin.cluster.snapshots.get.TransportGetSnapshotsAction to private buildSimpleSnapshotInfos(toResolve Set<Snapshot>, repoName String, repositoryData RepositoryData, currentSnapshots List<SnapshotInfo>) : SnapshotsInRepo from class org.elasticsearch.action.admin.cluster.snapshots.get.TransportGetSnapshotsAction.GetSnapshotsOperation",
+            "leftSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/action/admin/cluster/snapshots/get/TransportGetSnapshotsAction.java",
+                    "startLine": 498,
+                    "endLine": 536,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "private buildSimpleSnapshotInfos(toResolve Set<Snapshot>, repoName String, repositoryData RepositoryData, currentSnapshots List<SnapshotInfo>, sortBy GetSnapshotsRequest.SortBy, after GetSnapshotsRequest.After, order SortOrder, indices boolean) : SnapshotsInRepo"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/action/admin/cluster/snapshots/get/TransportGetSnapshotsAction.java",
+                    "startLine": 461,
+                    "endLine": 495,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "private buildSimpleSnapshotInfos(toResolve Set<Snapshot>, repoName String, repositoryData RepositoryData, currentSnapshots List<SnapshotInfo>) : SnapshotsInRepo"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/elastic/elasticsearch.git",
+        "sha1": "b95cb8c40dc701cbce18308cdcd5538fd60facb9",
+        "url": "https://github.com/elastic/elasticsearch/commit/b95cb8c40dc701cbce18308cdcd5538fd60facb9",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method private buildAfterPredicate(sortBy GetSnapshotsRequest.SortBy, after GetSnapshotsRequest.After, order SortOrder) : Predicate<SnapshotInfo> from class org.elasticsearch.action.admin.cluster.snapshots.get.TransportGetSnapshotsAction to private buildAfterPredicate() : Predicate<SnapshotInfo> from class org.elasticsearch.action.admin.cluster.snapshots.get.TransportGetSnapshotsAction.GetSnapshotsOperation",
+            "leftSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/action/admin/cluster/snapshots/get/TransportGetSnapshotsAction.java",
+                    "startLine": 639,
+                    "endLine": 672,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "private buildAfterPredicate(sortBy GetSnapshotsRequest.SortBy, after GetSnapshotsRequest.After, order SortOrder) : Predicate<SnapshotInfo>"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/action/admin/cluster/snapshots/get/TransportGetSnapshotsAction.java",
+                    "startLine": 551,
+                    "endLine": 586,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "private buildAfterPredicate() : Predicate<SnapshotInfo>"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/elastic/elasticsearch.git",
+        "sha1": "b95cb8c40dc701cbce18308cdcd5538fd60facb9",
+        "url": "https://github.com/elastic/elasticsearch/commit/b95cb8c40dc701cbce18308cdcd5538fd60facb9",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method private filterByLongOffset(extractor ToLongFunction<SnapshotInfo>, after long, snapshotName String, repoName String, order SortOrder) : Predicate<SnapshotInfo> from class org.elasticsearch.action.admin.cluster.snapshots.get.TransportGetSnapshotsAction to private filterByLongOffset(extractor ToLongFunction<SnapshotInfo>, after long, snapshotName String, repoName String, order SortOrder) : Predicate<SnapshotInfo> from class org.elasticsearch.action.admin.cluster.snapshots.get.TransportGetSnapshotsAction.GetSnapshotsOperation",
+            "leftSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/action/admin/cluster/snapshots/get/TransportGetSnapshotsAction.java",
+                    "startLine": 674,
+                    "endLine": 688,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "private filterByLongOffset(extractor ToLongFunction<SnapshotInfo>, after long, snapshotName String, repoName String, order SortOrder) : Predicate<SnapshotInfo>"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/action/admin/cluster/snapshots/get/TransportGetSnapshotsAction.java",
+                    "startLine": 588,
+                    "endLine": 602,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "private filterByLongOffset(extractor ToLongFunction<SnapshotInfo>, after long, snapshotName String, repoName String, order SortOrder) : Predicate<SnapshotInfo>"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/elastic/elasticsearch.git",
+        "sha1": "b95cb8c40dc701cbce18308cdcd5538fd60facb9",
+        "url": "https://github.com/elastic/elasticsearch/commit/b95cb8c40dc701cbce18308cdcd5538fd60facb9",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method private compareRepositoryName(name String, repoName String, info SnapshotInfo) : int from class org.elasticsearch.action.admin.cluster.snapshots.get.TransportGetSnapshotsAction to private compareRepositoryName(name String, repoName String, info SnapshotInfo) : int from class org.elasticsearch.action.admin.cluster.snapshots.get.TransportGetSnapshotsAction.GetSnapshotsOperation",
+            "leftSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/action/admin/cluster/snapshots/get/TransportGetSnapshotsAction.java",
+                    "startLine": 690,
+                    "endLine": 696,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "private compareRepositoryName(name String, repoName String, info SnapshotInfo) : int"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/action/admin/cluster/snapshots/get/TransportGetSnapshotsAction.java",
+                    "startLine": 604,
+                    "endLine": 610,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "private compareRepositoryName(name String, repoName String, info SnapshotInfo) : int"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/elastic/elasticsearch.git",
+        "sha1": "b95cb8c40dc701cbce18308cdcd5538fd60facb9",
+        "url": "https://github.com/elastic/elasticsearch/commit/b95cb8c40dc701cbce18308cdcd5538fd60facb9",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method private compareName(name String, repoName String, info SnapshotInfo) : int from class org.elasticsearch.action.admin.cluster.snapshots.get.TransportGetSnapshotsAction to private compareName(name String, repoName String, info SnapshotInfo) : int from class org.elasticsearch.action.admin.cluster.snapshots.get.TransportGetSnapshotsAction.GetSnapshotsOperation",
+            "leftSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/action/admin/cluster/snapshots/get/TransportGetSnapshotsAction.java",
+                    "startLine": 698,
+                    "endLine": 704,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "private compareName(name String, repoName String, info SnapshotInfo) : int"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/action/admin/cluster/snapshots/get/TransportGetSnapshotsAction.java",
+                    "startLine": 612,
+                    "endLine": 618,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "private compareName(name String, repoName String, info SnapshotInfo) : int"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/elastic/elasticsearch.git",
+        "sha1": "b95cb8c40dc701cbce18308cdcd5538fd60facb9",
+        "url": "https://github.com/elastic/elasticsearch/commit/b95cb8c40dc701cbce18308cdcd5538fd60facb9",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method private getDuration(snapshotId SnapshotId, repositoryData RepositoryData) : long from class org.elasticsearch.action.admin.cluster.snapshots.get.TransportGetSnapshotsAction to private getDuration(snapshotId SnapshotId, repositoryData RepositoryData) : long from class org.elasticsearch.action.admin.cluster.snapshots.get.TransportGetSnapshotsAction.SnapshotPredicates",
+            "leftSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/action/admin/cluster/snapshots/get/TransportGetSnapshotsAction.java",
+                    "startLine": 559,
+                    "endLine": 573,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "private getDuration(snapshotId SnapshotId, repositoryData RepositoryData) : long"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/action/admin/cluster/snapshots/get/TransportGetSnapshotsAction.java",
+                    "startLine": 800,
+                    "endLine": 814,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "private getDuration(snapshotId SnapshotId, repositoryData RepositoryData) : long"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/elastic/elasticsearch.git",
+        "sha1": "b95cb8c40dc701cbce18308cdcd5538fd60facb9",
+        "url": "https://github.com/elastic/elasticsearch/commit/b95cb8c40dc701cbce18308cdcd5538fd60facb9",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method private getStartTime(snapshotId SnapshotId, repositoryData RepositoryData) : long from class org.elasticsearch.action.admin.cluster.snapshots.get.TransportGetSnapshotsAction to private getStartTime(snapshotId SnapshotId, repositoryData RepositoryData) : long from class org.elasticsearch.action.admin.cluster.snapshots.get.TransportGetSnapshotsAction.SnapshotPredicates",
+            "leftSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/action/admin/cluster/snapshots/get/TransportGetSnapshotsAction.java",
+                    "startLine": 575,
+                    "endLine": 578,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "private getStartTime(snapshotId SnapshotId, repositoryData RepositoryData) : long"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/action/admin/cluster/snapshots/get/TransportGetSnapshotsAction.java",
+                    "startLine": 816,
+                    "endLine": 819,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "private getStartTime(snapshotId SnapshotId, repositoryData RepositoryData) : long"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/elastic/elasticsearch.git",
+        "sha1": "b95cb8c40dc701cbce18308cdcd5538fd60facb9",
+        "url": "https://github.com/elastic/elasticsearch/commit/b95cb8c40dc701cbce18308cdcd5538fd60facb9",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method private indexCount(snapshotId SnapshotId, repositoryData RepositoryData) : int from class org.elasticsearch.action.admin.cluster.snapshots.get.TransportGetSnapshotsAction to private indexCount(snapshotId SnapshotId, repositoryData RepositoryData) : int from class org.elasticsearch.action.admin.cluster.snapshots.get.TransportGetSnapshotsAction.SnapshotPredicates",
+            "leftSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/action/admin/cluster/snapshots/get/TransportGetSnapshotsAction.java",
+                    "startLine": 580,
+                    "endLine": 589,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "private indexCount(snapshotId SnapshotId, repositoryData RepositoryData) : int"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/action/admin/cluster/snapshots/get/TransportGetSnapshotsAction.java",
+                    "startLine": 821,
+                    "endLine": 830,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "private indexCount(snapshotId SnapshotId, repositoryData RepositoryData) : int"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/elastic/elasticsearch.git",
+        "sha1": "b95cb8c40dc701cbce18308cdcd5538fd60facb9",
+        "url": "https://github.com/elastic/elasticsearch/commit/b95cb8c40dc701cbce18308cdcd5538fd60facb9",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method private sortSnapshots(infos Stream<SnapshotInfo>, totalCount int, sortBy GetSnapshotsRequest.SortBy, after GetSnapshotsRequest.After, offset int, size int, order SortOrder) : SnapshotsInRepo from class org.elasticsearch.action.admin.cluster.snapshots.get.TransportGetSnapshotsAction to private sortSnapshots(infos Stream<SnapshotInfo>, totalCount int, offset int, size int) : SnapshotsInRepo from class org.elasticsearch.action.admin.cluster.snapshots.get.TransportGetSnapshotsAction.GetSnapshotsOperation",
+            "leftSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/action/admin/cluster/snapshots/get/TransportGetSnapshotsAction.java",
+                    "startLine": 602,
+                    "endLine": 637,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "private sortSnapshots(infos Stream<SnapshotInfo>, totalCount int, sortBy GetSnapshotsRequest.SortBy, after GetSnapshotsRequest.After, offset int, size int, order SortOrder) : SnapshotsInRepo"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/action/admin/cluster/snapshots/get/TransportGetSnapshotsAction.java",
+                    "startLine": 522,
+                    "endLine": 549,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "private sortSnapshots(infos Stream<SnapshotInfo>, totalCount int, offset int, size int) : SnapshotsInRepo"
+                }
+            ],
             "isStatic": true
         }
     },
@@ -555,7 +1322,6 @@
                     "codeElement": "public getIndicesWithinMaxAgeRange(dataStream DataStream, indexProvider Function<Index,IndexMetadata>, maxIndexAge TimeValue, nowSupplier LongSupplier) : List<Index>"
                 }
             ],
-            "refID": 21735,
             "isStatic": false
         }
     },
@@ -590,7 +1356,6 @@
                     "codeElement": "public isFinite() : Matcher<Double>"
                 }
             ],
-            "refID": 22691,
             "isStatic": true
         }
     },
@@ -625,7 +1390,142 @@
                     "codeElement": "private compareName(name String, repoName String, info SnapshotInfo) : int"
                 }
             ],
-            "refID": 22700,
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/elastic/elasticsearch.git",
+        "sha1": "f617694e102c6e7503814a865daab3dbfd1dd038",
+        "url": "https://github.com/elastic/elasticsearch/commit/f617694e102c6e7503814a865daab3dbfd1dd038",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public getFieldAttribute(name String) : FieldAttribute from class org.elasticsearch.xpack.esql.optimizer.LogicalPlanOptimizerTests to public getFieldAttribute(name String) : FieldAttribute from class org.elasticsearch.xpack.ql.TestUtils",
+            "leftSideLocations": [
+                {
+                    "filePath": "x-pack/plugin/esql/src/test/java/org/elasticsearch/xpack/esql/optimizer/LogicalPlanOptimizerTests.java",
+                    "startLine": 3446,
+                    "endLine": 3448,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public getFieldAttribute(name String) : FieldAttribute"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "x-pack/plugin/ql/test-fixtures/src/main/java/org/elasticsearch/xpack/ql/TestUtils.java",
+                    "startLine": 449,
+                    "endLine": 451,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public getFieldAttribute(name String) : FieldAttribute"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/elastic/elasticsearch.git",
+        "sha1": "f617694e102c6e7503814a865daab3dbfd1dd038",
+        "url": "https://github.com/elastic/elasticsearch/commit/f617694e102c6e7503814a865daab3dbfd1dd038",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method private getFieldAttribute(name String, dataType DataType) : FieldAttribute from class org.elasticsearch.xpack.esql.optimizer.LogicalPlanOptimizerTests to public getFieldAttribute(name String, dataType DataType) : FieldAttribute from class org.elasticsearch.xpack.ql.TestUtils",
+            "leftSideLocations": [
+                {
+                    "filePath": "x-pack/plugin/esql/src/test/java/org/elasticsearch/xpack/esql/optimizer/LogicalPlanOptimizerTests.java",
+                    "startLine": 3450,
+                    "endLine": 3452,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "private getFieldAttribute(name String, dataType DataType) : FieldAttribute"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "x-pack/plugin/ql/test-fixtures/src/main/java/org/elasticsearch/xpack/ql/TestUtils.java",
+                    "startLine": 453,
+                    "endLine": 455,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public getFieldAttribute(name String, dataType DataType) : FieldAttribute"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/elastic/elasticsearch.git",
+        "sha1": "f617694e102c6e7503814a865daab3dbfd1dd038",
+        "url": "https://github.com/elastic/elasticsearch/commit/f617694e102c6e7503814a865daab3dbfd1dd038",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method private getFieldAttribute(name String) : FieldAttribute from class org.elasticsearch.xpack.ql.optimizer.OptimizerRulesTests to public getFieldAttribute(name String) : FieldAttribute from class org.elasticsearch.xpack.ql.TestUtils",
+            "leftSideLocations": [
+                {
+                    "filePath": "x-pack/plugin/ql/src/test/java/org/elasticsearch/xpack/ql/optimizer/OptimizerRulesTests.java",
+                    "startLine": 163,
+                    "endLine": 165,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "private getFieldAttribute(name String) : FieldAttribute"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "x-pack/plugin/ql/test-fixtures/src/main/java/org/elasticsearch/xpack/ql/TestUtils.java",
+                    "startLine": 449,
+                    "endLine": 451,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public getFieldAttribute(name String) : FieldAttribute"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/elastic/elasticsearch.git",
+        "sha1": "f617694e102c6e7503814a865daab3dbfd1dd038",
+        "url": "https://github.com/elastic/elasticsearch/commit/f617694e102c6e7503814a865daab3dbfd1dd038",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method private getFieldAttribute(name String, dataType DataType) : FieldAttribute from class org.elasticsearch.xpack.ql.optimizer.OptimizerRulesTests to public getFieldAttribute(name String, dataType DataType) : FieldAttribute from class org.elasticsearch.xpack.ql.TestUtils",
+            "leftSideLocations": [
+                {
+                    "filePath": "x-pack/plugin/ql/src/test/java/org/elasticsearch/xpack/ql/optimizer/OptimizerRulesTests.java",
+                    "startLine": 167,
+                    "endLine": 169,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "private getFieldAttribute(name String, dataType DataType) : FieldAttribute"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "x-pack/plugin/ql/test-fixtures/src/main/java/org/elasticsearch/xpack/ql/TestUtils.java",
+                    "startLine": 453,
+                    "endLine": 455,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public getFieldAttribute(name String, dataType DataType) : FieldAttribute"
+                }
+            ],
             "isStatic": true
         }
     },
@@ -660,7 +1560,6 @@
                     "codeElement": "private getExplanationsParser() : ConstructingObjectParser<Explanation,Boolean>"
                 }
             ],
-            "refID": 23342,
             "isStatic": true
         }
     },
@@ -695,7 +1594,6 @@
                     "codeElement": "public parseXContentFields(parser XContentParser, context UpdateResponse.Builder) : void"
                 }
             ],
-            "refID": 23344,
             "isStatic": true
         }
     },
@@ -730,7 +1628,6 @@
                     "codeElement": "private setupParser(name String, ctor TriFunction<List<TaskInfo>,List<TaskOperationFailure>,List<ElasticsearchException>,T>) : ConstructingObjectParser<T,Void>"
                 }
             ],
-            "refID": 23354,
             "isStatic": true
         }
     },
@@ -765,7 +1662,6 @@
                     "codeElement": "private parseProfileResultsEntry(parser XContentParser, searchProfileResults Map<String,SearchProfileShardResult>) : void"
                 }
             ],
-            "refID": 23356,
             "isStatic": true
         }
     },
@@ -800,7 +1696,6 @@
                     "codeElement": "public parseInnerToXContent(parser XContentParser, context DocWriteResponse.Builder) : void"
                 }
             ],
-            "refID": 27297,
             "isStatic": true
         }
     },
@@ -835,7 +1730,6 @@
                     "codeElement": "public declareBroadcastFields(PARSER ConstructingObjectParser<T,Void>) : void"
                 }
             ],
-            "refID": 27300,
             "isStatic": true
         }
     },
@@ -870,7 +1764,6 @@
                     "codeElement": "private parseContexts(parser XContentParser) : Map<String,Set<String>>"
                 }
             ],
-            "refID": 28867,
             "isStatic": true
         }
     },
@@ -905,7 +1798,6 @@
                     "codeElement": "private parseEntries(parser XContentParser, suggestion Suggestion<E>, entryParser CheckedFunction<XContentParser,E,IOException>) : void"
                 }
             ],
-            "refID": 28871,
             "isStatic": true
         }
     },
@@ -940,7 +1832,6 @@
                     "codeElement": "public declareInnerHitsParseFields(parser ObjectParser<Map<String,Object>,Void>) : void"
                 }
             ],
-            "refID": 28891,
             "isStatic": true
         }
     },
@@ -975,7 +1866,6 @@
                     "codeElement": "private parseScore(parser XContentParser) : float"
                 }
             ],
-            "refID": 28892,
             "isStatic": true
         }
     },
@@ -1010,7 +1900,6 @@
                     "codeElement": "private parseSourceBytes(parser XContentParser) : BytesReference"
                 }
             ],
-            "refID": 28893,
             "isStatic": true
         }
     },
@@ -1045,7 +1934,6 @@
                     "codeElement": "private parseFields(parser XContentParser) : Map<String,DocumentField>"
                 }
             ],
-            "refID": 28894,
             "isStatic": true
         }
     },
@@ -1080,7 +1968,6 @@
                     "codeElement": "private parseInnerHits(parser XContentParser) : Map<String,SearchHits>"
                 }
             ],
-            "refID": 28895,
             "isStatic": true
         }
     },
@@ -1115,7 +2002,6 @@
                     "codeElement": "private parseHighlightFields(parser XContentParser) : Map<String,HighlightField>"
                 }
             ],
-            "refID": 28896,
             "isStatic": true
         }
     },
@@ -1150,7 +2036,6 @@
                     "codeElement": "private parseExplanation(parser XContentParser) : Explanation"
                 }
             ],
-            "refID": 28897,
             "isStatic": true
         }
     },
@@ -1185,7 +2070,6 @@
                     "codeElement": "private get(key String, map Map<String,Object>, defaultValue T) : T"
                 }
             ],
-            "refID": 28906,
             "isStatic": true
         }
     },
@@ -1220,7 +2104,6 @@
                     "codeElement": "public getFailureStoreRefreshInterval(settings Settings) : TimeValue"
                 }
             ],
-            "refID": 29562,
             "isStatic": true
         }
     },
@@ -1255,7 +2138,142 @@
                     "codeElement": "public fromXContent(parser XContentParser) : GrantApiKeyRequest"
                 }
             ],
-            "refID": 30684,
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/elastic/elasticsearch.git",
+        "sha1": "e1d902d33ba3773123d651e2f60b51b0e9e95670",
+        "url": "https://github.com/elastic/elasticsearch/commit/e1d902d33ba3773123d651e2f60b51b0e9e95670",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method private syntheticSourceDelegate(fieldType FieldType, multiFields MultiFields) : KeywordFieldMapper.KeywordFieldType from class org.elasticsearch.index.mapper.TextFieldMapper.Builder to public syntheticSourceDelegate(fieldType FieldType, multiFields MultiFields) : KeywordFieldMapper.KeywordFieldType from class org.elasticsearch.index.mapper.TextFieldMapper.SyntheticSourceHelper",
+            "leftSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/index/mapper/TextFieldMapper.java",
+                    "startLine": 405,
+                    "endLine": 414,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "private syntheticSourceDelegate(fieldType FieldType, multiFields MultiFields) : KeywordFieldMapper.KeywordFieldType"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/index/mapper/TextFieldMapper.java",
+                    "startLine": 1482,
+                    "endLine": 1491,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public syntheticSourceDelegate(fieldType FieldType, multiFields MultiFields) : KeywordFieldMapper.KeywordFieldType"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/elastic/elasticsearch.git",
+        "sha1": "a6a29d0946e8344da4847fcd31c60ae0e9f630f3",
+        "url": "https://github.com/elastic/elasticsearch/commit/a6a29d0946e8344da4847fcd31c60ae0e9f630f3",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public read(in StreamInput) : Retention from class org.elasticsearch.cluster.metadata.DataStreamLifecycle to public read(in StreamInput) : Retention from class org.elasticsearch.cluster.metadata.DataStreamLifecycle.Retention",
+            "leftSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/cluster/metadata/DataStreamLifecycle.java",
+                    "startLine": 381,
+                    "endLine": 383,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public read(in StreamInput) : Retention"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/cluster/metadata/DataStreamLifecycle.java",
+                    "startLine": 417,
+                    "endLine": 419,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public read(in StreamInput) : Retention"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/elastic/elasticsearch.git",
+        "sha1": "a6a29d0946e8344da4847fcd31c60ae0e9f630f3",
+        "url": "https://github.com/elastic/elasticsearch/commit/a6a29d0946e8344da4847fcd31c60ae0e9f630f3",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public read(in StreamInput) : Downsampling from class org.elasticsearch.cluster.metadata.DataStreamLifecycle to public read(in StreamInput) : Downsampling from class org.elasticsearch.cluster.metadata.DataStreamLifecycle.Downsampling",
+            "leftSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/cluster/metadata/DataStreamLifecycle.java",
+                    "startLine": 500,
+                    "endLine": 502,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public read(in StreamInput) : Downsampling"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/cluster/metadata/DataStreamLifecycle.java",
+                    "startLine": 536,
+                    "endLine": 538,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public read(in StreamInput) : Downsampling"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/elastic/elasticsearch.git",
+        "sha1": "a6a29d0946e8344da4847fcd31c60ae0e9f630f3",
+        "url": "https://github.com/elastic/elasticsearch/commit/a6a29d0946e8344da4847fcd31c60ae0e9f630f3",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public fromXContent(parser XContentParser, context Void) : Round from class org.elasticsearch.cluster.metadata.DataStreamLifecycle to public fromXContent(parser XContentParser, context Void) : Round from class org.elasticsearch.cluster.metadata.DataStreamLifecycle.Downsampling.Round",
+            "leftSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/cluster/metadata/DataStreamLifecycle.java",
+                    "startLine": 457,
+                    "endLine": 459,
+                    "startColumn": 13,
+                    "endColumn": 14,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public fromXContent(parser XContentParser, context Void) : Round"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/cluster/metadata/DataStreamLifecycle.java",
+                    "startLine": 493,
+                    "endLine": 495,
+                    "startColumn": 13,
+                    "endColumn": 14,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public fromXContent(parser XContentParser, context Void) : Round"
+                }
+            ],
             "isStatic": true
         }
     },
@@ -1290,7 +2308,6 @@
                     "codeElement": "protected mb(bytes long) : int"
                 }
             ],
-            "refID": 31322,
             "isStatic": true
         }
     },
@@ -1325,7 +2342,210 @@
                     "codeElement": "protected mb(bytes long, toLowerMultipleOfMb int) : int"
                 }
             ],
-            "refID": 31324,
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/elastic/elasticsearch.git",
+        "sha1": "6ef486519549f37be893b39b7248b49b9518a9d5",
+        "url": "https://github.com/elastic/elasticsearch/commit/6ef486519549f37be893b39b7248b49b9518a9d5",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method package dotProduct(a MemorySegment, b MemorySegment, length int) : int from class org.elasticsearch.nativeaccess.jdk.JdkVectorLibrary to package dotProduct(a MemorySegment, b MemorySegment, length int) : int from class org.elasticsearch.nativeaccess.jdk.JdkVectorLibrary.JdkVectorSimilarityFunctions",
+            "leftSideLocations": [
+                {
+                    "filePath": "libs/native/src/main21/java/org/elasticsearch/nativeaccess/jdk/JdkVectorLibrary.java",
+                    "startLine": 50,
+                    "endLine": 77,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "package dotProduct(a MemorySegment, b MemorySegment, length int) : int"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "libs/native/src/main21/java/org/elasticsearch/nativeaccess/jdk/JdkVectorLibrary.java",
+                    "startLine": 72,
+                    "endLine": 100,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "package dotProduct(a MemorySegment, b MemorySegment, length int) : int"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/elastic/elasticsearch.git",
+        "sha1": "6ef486519549f37be893b39b7248b49b9518a9d5",
+        "url": "https://github.com/elastic/elasticsearch/commit/6ef486519549f37be893b39b7248b49b9518a9d5",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method package squareDistance(a MemorySegment, b MemorySegment, length int) : int from class org.elasticsearch.nativeaccess.jdk.JdkVectorLibrary to package squareDistance(a MemorySegment, b MemorySegment, length int) : int from class org.elasticsearch.nativeaccess.jdk.JdkVectorLibrary.JdkVectorSimilarityFunctions",
+            "leftSideLocations": [
+                {
+                    "filePath": "libs/native/src/main21/java/org/elasticsearch/nativeaccess/jdk/JdkVectorLibrary.java",
+                    "startLine": 79,
+                    "endLine": 107,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "package squareDistance(a MemorySegment, b MemorySegment, length int) : int"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "libs/native/src/main21/java/org/elasticsearch/nativeaccess/jdk/JdkVectorLibrary.java",
+                    "startLine": 102,
+                    "endLine": 131,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "package squareDistance(a MemorySegment, b MemorySegment, length int) : int"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/elastic/elasticsearch.git",
+        "sha1": "6ef486519549f37be893b39b7248b49b9518a9d5",
+        "url": "https://github.com/elastic/elasticsearch/commit/6ef486519549f37be893b39b7248b49b9518a9d5",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method private dot8Stride() : int from class org.elasticsearch.nativeaccess.jdk.JdkVectorLibrary to private dot8Stride() : int from class org.elasticsearch.nativeaccess.jdk.JdkVectorLibrary.JdkVectorSimilarityFunctions",
+            "leftSideLocations": [
+                {
+                    "filePath": "libs/native/src/main21/java/org/elasticsearch/nativeaccess/jdk/JdkVectorLibrary.java",
+                    "startLine": 109,
+                    "endLine": 115,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "private dot8Stride() : int"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "libs/native/src/main21/java/org/elasticsearch/nativeaccess/jdk/JdkVectorLibrary.java",
+                    "startLine": 133,
+                    "endLine": 139,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "private dot8Stride() : int"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/elastic/elasticsearch.git",
+        "sha1": "6ef486519549f37be893b39b7248b49b9518a9d5",
+        "url": "https://github.com/elastic/elasticsearch/commit/6ef486519549f37be893b39b7248b49b9518a9d5",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method private sqr8Stride() : int from class org.elasticsearch.nativeaccess.jdk.JdkVectorLibrary to private sqr8Stride() : int from class org.elasticsearch.nativeaccess.jdk.JdkVectorLibrary.JdkVectorSimilarityFunctions",
+            "leftSideLocations": [
+                {
+                    "filePath": "libs/native/src/main21/java/org/elasticsearch/nativeaccess/jdk/JdkVectorLibrary.java",
+                    "startLine": 117,
+                    "endLine": 123,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "private sqr8Stride() : int"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "libs/native/src/main21/java/org/elasticsearch/nativeaccess/jdk/JdkVectorLibrary.java",
+                    "startLine": 141,
+                    "endLine": 147,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "private sqr8Stride() : int"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/elastic/elasticsearch.git",
+        "sha1": "6ef486519549f37be893b39b7248b49b9518a9d5",
+        "url": "https://github.com/elastic/elasticsearch/commit/6ef486519549f37be893b39b7248b49b9518a9d5",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method private dot8s(a MemorySegment, b MemorySegment, length int) : int from class org.elasticsearch.nativeaccess.jdk.JdkVectorLibrary to private dot8s(a MemorySegment, b MemorySegment, length int) : int from class org.elasticsearch.nativeaccess.jdk.JdkVectorLibrary.JdkVectorSimilarityFunctions",
+            "leftSideLocations": [
+                {
+                    "filePath": "libs/native/src/main21/java/org/elasticsearch/nativeaccess/jdk/JdkVectorLibrary.java",
+                    "startLine": 125,
+                    "endLine": 131,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "private dot8s(a MemorySegment, b MemorySegment, length int) : int"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "libs/native/src/main21/java/org/elasticsearch/nativeaccess/jdk/JdkVectorLibrary.java",
+                    "startLine": 149,
+                    "endLine": 155,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "private dot8s(a MemorySegment, b MemorySegment, length int) : int"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/elastic/elasticsearch.git",
+        "sha1": "6ef486519549f37be893b39b7248b49b9518a9d5",
+        "url": "https://github.com/elastic/elasticsearch/commit/6ef486519549f37be893b39b7248b49b9518a9d5",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method private sqr8s(a MemorySegment, b MemorySegment, length int) : int from class org.elasticsearch.nativeaccess.jdk.JdkVectorLibrary to private sqr8s(a MemorySegment, b MemorySegment, length int) : int from class org.elasticsearch.nativeaccess.jdk.JdkVectorLibrary.JdkVectorSimilarityFunctions",
+            "leftSideLocations": [
+                {
+                    "filePath": "libs/native/src/main21/java/org/elasticsearch/nativeaccess/jdk/JdkVectorLibrary.java",
+                    "startLine": 133,
+                    "endLine": 139,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "private sqr8s(a MemorySegment, b MemorySegment, length int) : int"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "libs/native/src/main21/java/org/elasticsearch/nativeaccess/jdk/JdkVectorLibrary.java",
+                    "startLine": 157,
+                    "endLine": 163,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "private sqr8s(a MemorySegment, b MemorySegment, length int) : int"
+                }
+            ],
             "isStatic": true
         }
     },
@@ -1360,7 +2580,6 @@
                     "codeElement": "private maskIpAddress(ipAddress BytesRef, subnetMask BytesRef, subnet BytesRef) : void"
                 }
             ],
-            "refID": 33865,
             "isStatic": true
         }
     },
@@ -1395,7 +2614,6 @@
                     "codeElement": "package rlimitToString(value long) : String"
                 }
             ],
-            "refID": 35449,
             "isStatic": true
         }
     },
@@ -1430,7 +2648,6 @@
                     "codeElement": "private sourceText(query String, line int, column int, length int) : String"
                 }
             ],
-            "refID": 38575,
             "isStatic": true
         }
     },
@@ -1465,7 +2682,6 @@
                     "codeElement": "private textOffset(query String, line int, column int) : int"
                 }
             ],
-            "refID": 38576,
             "isStatic": true
         }
     },
@@ -1500,7 +2716,6 @@
                     "codeElement": "public equalsOf(left Expression, right Expression) : Equals"
                 }
             ],
-            "refID": 45094,
             "isStatic": true
         }
     },
@@ -1535,7 +2750,6 @@
                     "codeElement": "public lessThanOf(left Expression, right Expression) : LessThan"
                 }
             ],
-            "refID": 45096,
             "isStatic": true
         }
     },
@@ -1570,7 +2784,6 @@
                     "codeElement": "public greaterThanOf(left Expression, right Expression) : GreaterThan"
                 }
             ],
-            "refID": 45097,
             "isStatic": true
         }
     },
@@ -1605,7 +2818,6 @@
                     "codeElement": "public notEqualsOf(left Expression, right Expression) : NotEquals"
                 }
             ],
-            "refID": 45098,
             "isStatic": true
         }
     },
@@ -1640,7 +2852,6 @@
                     "codeElement": "public lessThanOrEqualOf(left Expression, right Expression) : LessThanOrEqual"
                 }
             ],
-            "refID": 45099,
             "isStatic": true
         }
     },
@@ -1675,7 +2886,6 @@
                     "codeElement": "public greaterThanOrEqualOf(left Expression, right Expression) : GreaterThanOrEqual"
                 }
             ],
-            "refID": 45100,
             "isStatic": true
         }
     },
@@ -1710,7 +2920,6 @@
                     "codeElement": "public getFieldAttribute() : FieldAttribute"
                 }
             ],
-            "refID": 45102,
             "isStatic": true
         }
     },
@@ -1745,7 +2954,6 @@
                     "codeElement": "private mapFromLiteralValue(out StreamOutput, dataType DataType, value Object) : Object"
                 }
             ],
-            "refID": 45375,
             "isStatic": true
         }
     },
@@ -1780,7 +2988,6 @@
                     "codeElement": "private mapToLiteralValue(in StreamInput, dataType DataType, value Object) : Object"
                 }
             ],
-            "refID": 45377,
             "isStatic": true
         }
     },
@@ -1815,7 +3022,6 @@
                     "codeElement": "private longAsWKB(dataType DataType, encoded long) : BytesRef"
                 }
             ],
-            "refID": 45378,
             "isStatic": true
         }
     },
@@ -1850,7 +3056,6 @@
                     "codeElement": "private wkbAsLong(dataType DataType, wkb BytesRef) : long"
                 }
             ],
-            "refID": 45379,
             "isStatic": true
         }
     },
@@ -1885,7 +3090,6 @@
                     "codeElement": "public fromNameOrAlias(typeName String) : DataType"
                 }
             ],
-            "refID": 45524,
             "isStatic": true
         }
     },
@@ -1920,7 +3124,6 @@
                     "codeElement": "private replaceDefaultJavaParserClassCsm() : void"
                 }
             ],
-            "refID": 48313,
             "isStatic": true
         }
     },
@@ -1955,7 +3158,6 @@
                     "codeElement": "package writeOutNewContents(file Path, unit CompilationUnit) : void"
                 }
             ],
-            "refID": 48314,
             "isStatic": true
         }
     },
@@ -1990,7 +3192,6 @@
                     "codeElement": "public writeAggregate(out PlanStreamOutput, aggregate Aggregate) : void"
                 }
             ],
-            "refID": 48413,
             "isStatic": true
         }
     },
@@ -2025,7 +3226,6 @@
                     "codeElement": "package longestCtor(clazz Class<T>) : Constructor<T>"
                 }
             ],
-            "refID": 49815,
             "isStatic": true
         }
     },
@@ -2060,7 +3260,6 @@
                     "codeElement": "public subclassesOf(clazz Class<T>) : Set<Class<? extends T>>"
                 }
             ],
-            "refID": 49816,
             "isStatic": true
         }
     },
@@ -2095,7 +3294,6 @@
                     "codeElement": "public subclassesOf(clazz Class<T>, classNameFilter Predicate<String>) : Set<Class<? extends T>>"
                 }
             ],
-            "refID": 49818,
             "isStatic": true
         }
     },
@@ -2130,7 +3328,6 @@
                     "codeElement": "private jarStream(path Path) : JarInputStream"
                 }
             ],
-            "refID": 49819,
             "isStatic": true
         }
     },
@@ -2165,7 +3362,6 @@
                     "codeElement": "protected testClassFor(nodeSubclass Class<?>) : Class<?>"
                 }
             ],
-            "refID": 49821,
             "isStatic": true
         }
     },
@@ -2200,7 +3396,6 @@
                     "codeElement": "private randomValueOtherThanManyMaxTries(input Predicate<T>, randomSupplier Supplier<T>, maxTries int) : T"
                 }
             ],
-            "refID": 49822,
             "isStatic": true
         }
     },
@@ -2235,8 +3430,517 @@
                     "codeElement": "public randomValueOtherThanMaxTries(input T, randomSupplier Supplier<T>, maxTries int) : T"
                 }
             ],
-            "refID": 49823,
             "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/elastic/elasticsearch.git",
+        "sha1": "5d26c67d22c5ecd9abd635908c8436d6cc85ef29",
+        "url": "https://github.com/elastic/elasticsearch/commit/5d26c67d22c5ecd9abd635908c8436d6cc85ef29",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method package verifyChecksum(in BufferedChecksumStreamInput) : void from class org.elasticsearch.index.translog.Translog to package verifyChecksum(in BufferedChecksumStreamInput) : void from class org.elasticsearch.index.translog.Durability",
+            "leftSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/index/translog/Translog.java",
+                    "startLine": 1539,
+                    "endLine": 1552,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "package verifyChecksum(in BufferedChecksumStreamInput) : void"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/index/translog/Translog.java",
+                    "startLine": 1501,
+                    "endLine": 1514,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "package verifyChecksum(in BufferedChecksumStreamInput) : void"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/elastic/elasticsearch.git",
+        "sha1": "5d26c67d22c5ecd9abd635908c8436d6cc85ef29",
+        "url": "https://github.com/elastic/elasticsearch/commit/5d26c67d22c5ecd9abd635908c8436d6cc85ef29",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public readOperations(input StreamInput, source String) : List<Operation> from class org.elasticsearch.index.translog.Translog to public readOperations(input StreamInput, source String) : List<Operation> from class org.elasticsearch.index.translog.Durability",
+            "leftSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/index/translog/Translog.java",
+                    "startLine": 1554,
+                    "endLine": 1573,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public readOperations(input StreamInput, source String) : List<Operation>"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/index/translog/Translog.java",
+                    "startLine": 1516,
+                    "endLine": 1535,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public readOperations(input StreamInput, source String) : List<Operation>"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/elastic/elasticsearch.git",
+        "sha1": "5d26c67d22c5ecd9abd635908c8436d6cc85ef29",
+        "url": "https://github.com/elastic/elasticsearch/commit/5d26c67d22c5ecd9abd635908c8436d6cc85ef29",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public readOperation(in BufferedChecksumStreamInput) : Translog.Operation from class org.elasticsearch.index.translog.Translog to public readOperation(in BufferedChecksumStreamInput) : Translog.Operation from class org.elasticsearch.index.translog.Durability",
+            "leftSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/index/translog/Translog.java",
+                    "startLine": 1575,
+                    "endLine": 1599,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public readOperation(in BufferedChecksumStreamInput) : Translog.Operation"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/index/translog/Translog.java",
+                    "startLine": 1537,
+                    "endLine": 1561,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public readOperation(in BufferedChecksumStreamInput) : Translog.Operation"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/elastic/elasticsearch.git",
+        "sha1": "5d26c67d22c5ecd9abd635908c8436d6cc85ef29",
+        "url": "https://github.com/elastic/elasticsearch/commit/5d26c67d22c5ecd9abd635908c8436d6cc85ef29",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public writeOperations(outStream StreamOutput, toWrite List<Operation>) : void from class org.elasticsearch.index.translog.Translog to public writeOperations(outStream StreamOutput, toWrite List<Operation>) : void from class org.elasticsearch.index.translog.Durability",
+            "leftSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/index/translog/Translog.java",
+                    "startLine": 1601,
+                    "endLine": 1619,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public writeOperations(outStream StreamOutput, toWrite List<Operation>) : void"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/index/translog/Translog.java",
+                    "startLine": 1563,
+                    "endLine": 1581,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public writeOperations(outStream StreamOutput, toWrite List<Operation>) : void"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/elastic/elasticsearch.git",
+        "sha1": "5d26c67d22c5ecd9abd635908c8436d6cc85ef29",
+        "url": "https://github.com/elastic/elasticsearch/commit/5d26c67d22c5ecd9abd635908c8436d6cc85ef29",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method private writeOperationsToStreamLegacyFormat(outStream StreamOutput, toWrite List<Operation>) : void from class org.elasticsearch.index.translog.Translog to private writeOperationsToStreamLegacyFormat(outStream StreamOutput, toWrite List<Operation>) : void from class org.elasticsearch.index.translog.Durability",
+            "leftSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/index/translog/Translog.java",
+                    "startLine": 1621,
+                    "endLine": 1630,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "private writeOperationsToStreamLegacyFormat(outStream StreamOutput, toWrite List<Operation>) : void"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/index/translog/Translog.java",
+                    "startLine": 1583,
+                    "endLine": 1592,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "private writeOperationsToStreamLegacyFormat(outStream StreamOutput, toWrite List<Operation>) : void"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/elastic/elasticsearch.git",
+        "sha1": "5d26c67d22c5ecd9abd635908c8436d6cc85ef29",
+        "url": "https://github.com/elastic/elasticsearch/commit/5d26c67d22c5ecd9abd635908c8436d6cc85ef29",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public writeOperationNoSize(out BufferedChecksumStreamOutput, op Translog.Operation) : void from class org.elasticsearch.index.translog.Translog to public writeOperationNoSize(out BufferedChecksumStreamOutput, op Translog.Operation) : void from class org.elasticsearch.index.translog.Durability",
+            "leftSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/index/translog/Translog.java",
+                    "startLine": 1632,
+                    "endLine": 1640,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public writeOperationNoSize(out BufferedChecksumStreamOutput, op Translog.Operation) : void"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/index/translog/Translog.java",
+                    "startLine": 1594,
+                    "endLine": 1602,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public writeOperationNoSize(out BufferedChecksumStreamOutput, op Translog.Operation) : void"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/elastic/elasticsearch.git",
+        "sha1": "5d26c67d22c5ecd9abd635908c8436d6cc85ef29",
+        "url": "https://github.com/elastic/elasticsearch/commit/5d26c67d22c5ecd9abd635908c8436d6cc85ef29",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public writeOperationWithSize(out BytesStreamOutput, op Translog.Operation) : void from class org.elasticsearch.index.translog.Translog to public writeOperationWithSize(out BytesStreamOutput, op Translog.Operation) : void from class org.elasticsearch.index.translog.Durability",
+            "leftSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/index/translog/Translog.java",
+                    "startLine": 1642,
+                    "endLine": 1651,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public writeOperationWithSize(out BytesStreamOutput, op Translog.Operation) : void"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/index/translog/Translog.java",
+                    "startLine": 1604,
+                    "endLine": 1613,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public writeOperationWithSize(out BytesStreamOutput, op Translog.Operation) : void"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/elastic/elasticsearch.git",
+        "sha1": "5d26c67d22c5ecd9abd635908c8436d6cc85ef29",
+        "url": "https://github.com/elastic/elasticsearch/commit/5d26c67d22c5ecd9abd635908c8436d6cc85ef29",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method private minGenerationForSeqNo(seqNo long, writer TranslogWriter, readers List<TranslogReader>) : long from class org.elasticsearch.index.translog.Translog to private minGenerationForSeqNo(seqNo long, writer TranslogWriter, readers List<TranslogReader>) : long from class org.elasticsearch.index.translog.Durability",
+            "leftSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/index/translog/Translog.java",
+                    "startLine": 1669,
+                    "endLine": 1677,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "private minGenerationForSeqNo(seqNo long, writer TranslogWriter, readers List<TranslogReader>) : long"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/index/translog/Translog.java",
+                    "startLine": 1631,
+                    "endLine": 1639,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "private minGenerationForSeqNo(seqNo long, writer TranslogWriter, readers List<TranslogReader>) : long"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/elastic/elasticsearch.git",
+        "sha1": "5d26c67d22c5ecd9abd635908c8436d6cc85ef29",
+        "url": "https://github.com/elastic/elasticsearch/commit/5d26c67d22c5ecd9abd635908c8436d6cc85ef29",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method package readCheckpoint(location Path) : Checkpoint from class org.elasticsearch.index.translog.Translog to package readCheckpoint(location Path) : Checkpoint from class org.elasticsearch.index.translog.Durability",
+            "leftSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/index/translog/Translog.java",
+                    "startLine": 1863,
+                    "endLine": 1866,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "package readCheckpoint(location Path) : Checkpoint"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/index/translog/Translog.java",
+                    "startLine": 1816,
+                    "endLine": 1819,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "package readCheckpoint(location Path) : Checkpoint"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/elastic/elasticsearch.git",
+        "sha1": "5d26c67d22c5ecd9abd635908c8436d6cc85ef29",
+        "url": "https://github.com/elastic/elasticsearch/commit/5d26c67d22c5ecd9abd635908c8436d6cc85ef29",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public readGlobalCheckpoint(location Path, expectedTranslogUUID String) : long from class org.elasticsearch.index.translog.Translog to public readGlobalCheckpoint(location Path, expectedTranslogUUID String) : long from class org.elasticsearch.index.translog.Durability",
+            "leftSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/index/translog/Translog.java",
+                    "startLine": 1868,
+                    "endLine": 1880,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public readGlobalCheckpoint(location Path, expectedTranslogUUID String) : long"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/index/translog/Translog.java",
+                    "startLine": 1821,
+                    "endLine": 1833,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public readGlobalCheckpoint(location Path, expectedTranslogUUID String) : long"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/elastic/elasticsearch.git",
+        "sha1": "5d26c67d22c5ecd9abd635908c8436d6cc85ef29",
+        "url": "https://github.com/elastic/elasticsearch/commit/5d26c67d22c5ecd9abd635908c8436d6cc85ef29",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method private readCheckpoint(location Path, expectedTranslogUUID String) : Checkpoint from class org.elasticsearch.index.translog.Translog to private readCheckpoint(location Path, expectedTranslogUUID String) : Checkpoint from class org.elasticsearch.index.translog.Durability",
+            "leftSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/index/translog/Translog.java",
+                    "startLine": 1882,
+                    "endLine": 1894,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "private readCheckpoint(location Path, expectedTranslogUUID String) : Checkpoint"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/index/translog/Translog.java",
+                    "startLine": 1835,
+                    "endLine": 1847,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "private readCheckpoint(location Path, expectedTranslogUUID String) : Checkpoint"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/elastic/elasticsearch.git",
+        "sha1": "5d26c67d22c5ecd9abd635908c8436d6cc85ef29",
+        "url": "https://github.com/elastic/elasticsearch/commit/5d26c67d22c5ecd9abd635908c8436d6cc85ef29",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public createEmptyTranslog(location Path, initialGlobalCheckpoint long, shardId ShardId, primaryTerm long) : String from class org.elasticsearch.index.translog.Translog to public createEmptyTranslog(location Path, initialGlobalCheckpoint long, shardId ShardId, primaryTerm long) : String from class org.elasticsearch.index.translog.Durability",
+            "leftSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/index/translog/Translog.java",
+                    "startLine": 1929,
+                    "endLine": 1937,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public createEmptyTranslog(location Path, initialGlobalCheckpoint long, shardId ShardId, primaryTerm long) : String"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/index/translog/Translog.java",
+                    "startLine": 1882,
+                    "endLine": 1890,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public createEmptyTranslog(location Path, initialGlobalCheckpoint long, shardId ShardId, primaryTerm long) : String"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/elastic/elasticsearch.git",
+        "sha1": "5d26c67d22c5ecd9abd635908c8436d6cc85ef29",
+        "url": "https://github.com/elastic/elasticsearch/commit/5d26c67d22c5ecd9abd635908c8436d6cc85ef29",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method package createEmptyTranslog(location Path, initialGlobalCheckpoint long, shardId ShardId, channelFactory ChannelFactory, primaryTerm long) : String from class org.elasticsearch.index.translog.Translog to package createEmptyTranslog(location Path, initialGlobalCheckpoint long, shardId ShardId, channelFactory ChannelFactory, primaryTerm long) : String from class org.elasticsearch.index.translog.Durability",
+            "leftSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/index/translog/Translog.java",
+                    "startLine": 1939,
+                    "endLine": 1947,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "package createEmptyTranslog(location Path, initialGlobalCheckpoint long, shardId ShardId, channelFactory ChannelFactory, primaryTerm long) : String"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/index/translog/Translog.java",
+                    "startLine": 1892,
+                    "endLine": 1900,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "package createEmptyTranslog(location Path, initialGlobalCheckpoint long, shardId ShardId, channelFactory ChannelFactory, primaryTerm long) : String"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/elastic/elasticsearch.git",
+        "sha1": "5d26c67d22c5ecd9abd635908c8436d6cc85ef29",
+        "url": "https://github.com/elastic/elasticsearch/commit/5d26c67d22c5ecd9abd635908c8436d6cc85ef29",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public createEmptyTranslog(location Path, shardId ShardId, initialGlobalCheckpoint long, primaryTerm long, translogUUID String, factory ChannelFactory) : String from class org.elasticsearch.index.translog.Translog to public createEmptyTranslog(location Path, shardId ShardId, initialGlobalCheckpoint long, primaryTerm long, translogUUID String, factory ChannelFactory) : String from class org.elasticsearch.index.translog.Durability",
+            "leftSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/index/translog/Translog.java",
+                    "startLine": 1949,
+                    "endLine": 2011,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public createEmptyTranslog(location Path, shardId ShardId, initialGlobalCheckpoint long, primaryTerm long, translogUUID String, factory ChannelFactory) : String"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/index/translog/Translog.java",
+                    "startLine": 1902,
+                    "endLine": 1964,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public createEmptyTranslog(location Path, shardId ShardId, initialGlobalCheckpoint long, primaryTerm long, translogUUID String, factory ChannelFactory) : String"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/elastic/elasticsearch.git",
+        "sha1": "5d26c67d22c5ecd9abd635908c8436d6cc85ef29",
+        "url": "https://github.com/elastic/elasticsearch/commit/5d26c67d22c5ecd9abd635908c8436d6cc85ef29",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public compareTo(o Location) : int from class org.elasticsearch.index.translog.Translog.Location to public compareTo(o Location) : int from class org.elasticsearch.index.translog.Translog",
+            "leftSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/index/translog/Translog.java",
+                    "startLine": 986,
+                    "endLine": 992,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public compareTo(o Location) : int"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/index/translog/Translog.java",
+                    "startLine": 976,
+                    "endLine": 983,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public compareTo(o Location) : int"
+                }
+            ],
+            "isStatic": false
         }
     },
     {
@@ -2270,7 +3974,6 @@
                     "codeElement": "package valuesToPage(blockFactory BlockFactory, columns List<ColumnInfoImpl>, values List<List<Object>>) : Page"
                 }
             ],
-            "refID": 57033,
             "isStatic": true
         }
     },
@@ -2305,7 +4008,6 @@
                     "codeElement": "public temporaryName(inner Expression, outer Expression, suffix int) : String"
                 }
             ],
-            "refID": 57042,
             "isStatic": true
         }
     },
@@ -2340,7 +4042,6 @@
                     "codeElement": "public rawTemporaryName(inner String, outer String, suffix String) : String"
                 }
             ],
-            "refID": 57043,
             "isStatic": true
         }
     },
@@ -2375,7 +4076,6 @@
                     "codeElement": "package toString(ex Expression) : String"
                 }
             ],
-            "refID": 57044,
             "isStatic": true
         }
     },
@@ -2410,7 +4110,6 @@
                     "codeElement": "package extractString(ex Expression) : String"
                 }
             ],
-            "refID": 57045,
             "isStatic": true
         }
     },
@@ -2445,7 +4144,6 @@
                     "codeElement": "package limitToString(string String) : String"
                 }
             ],
-            "refID": 57046,
             "isStatic": true
         }
     },
@@ -2480,7 +4178,6 @@
                     "codeElement": "public referenceAttribute(name String, type DataType) : ReferenceAttribute"
                 }
             ],
-            "refID": 57048,
             "isStatic": true
         }
     },
@@ -2515,7 +4212,6 @@
                     "codeElement": "private supportingEsSourceOptions(version TransportVersion) : boolean"
                 }
             ],
-            "refID": 57442,
             "isStatic": true
         }
     },
@@ -2550,7 +4246,6 @@
                     "codeElement": "public randomLiteral(type DataType) : Literal"
                 }
             ],
-            "refID": 57702,
             "isStatic": true
         }
     },
@@ -2585,7 +4280,6 @@
                     "codeElement": "package randomVersion() : Version"
                 }
             ],
-            "refID": 57703,
             "isStatic": true
         }
     },
@@ -2620,7 +4314,6 @@
                     "codeElement": "public readIndexMode(in StreamInput) : IndexMode"
                 }
             ],
-            "refID": 57992,
             "isStatic": true
         }
     },
@@ -2655,7 +4348,6 @@
                     "codeElement": "public writeIndexMode(out StreamOutput, indexMode IndexMode) : void"
                 }
             ],
-            "refID": 57993,
             "isStatic": true
         }
     },
@@ -2690,7 +4382,6 @@
                     "codeElement": "public rawTemporaryName(inner String, outer String, suffix String) : String"
                 }
             ],
-            "refID": 58244,
             "isStatic": true
         }
     }

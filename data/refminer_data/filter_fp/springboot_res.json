@@ -1,0 +1,70 @@
+[
+    {
+        "repository": "https://github.com/spring-projects/spring-boot.git",
+        "sha1": "9110b1298c0e192fac3f8f35d38c5182916621ca",
+        "url": "https://github.com/spring-projects/spring-boot/commit/9110b1298c0e192fac3f8f35d38c5182916621ca",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public determineAsyncTaskExecutor(taskExecutors Map<String,AsyncTaskExecutor>) : AsyncTaskExecutor from class org.springframework.boot.autoconfigure.task.TaskExecutionAutoConfiguration to private determineAsyncTaskExecutor(taskExecutors Map<String,AsyncTaskExecutor>) : AsyncTaskExecutor from class org.springframework.boot.autoconfigure.websocket.servlet.WebSocketMessagingAutoConfiguration.WebSocketMessageConverterConfiguration",
+            "leftSideLocations": [
+                {
+                    "filePath": "spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/task/TaskExecutionAutoConfiguration.java",
+                    "startLine": 53,
+                    "endLine": 58,
+                    "startColumn": 2,
+                    "endColumn": 3,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public determineAsyncTaskExecutor(taskExecutors Map<String,AsyncTaskExecutor>) : AsyncTaskExecutor"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/websocket/servlet/WebSocketMessagingAutoConfiguration.java",
+                    "startLine": 75,
+                    "endLine": 80,
+                    "startColumn": 3,
+                    "endColumn": 4,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "private determineAsyncTaskExecutor(taskExecutors Map<String,AsyncTaskExecutor>) : AsyncTaskExecutor"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/spring-projects/spring-boot.git",
+        "sha1": "e8391f121e2d3512c1b8461655d28d25ce13c605",
+        "url": "https://github.com/spring-projects/spring-boot/commit/e8391f121e2d3512c1b8461655d28d25ce13c605",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method private describeTriggerTask(triggerTask TriggerTask) : TaskDescriptor from class org.springframework.boot.actuate.scheduling.ScheduledTasksEndpoint.TaskDescriptor to private describeTriggerTask(scheduledTask ScheduledTask) : TaskDescriptor from class org.springframework.boot.actuate.scheduling.ScheduledTasksEndpoint.TaskType",
+            "leftSideLocations": [
+                {
+                    "filePath": "spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/scheduling/ScheduledTasksEndpoint.java",
+                    "startLine": 142,
+                    "endLine": 154,
+                    "startColumn": 3,
+                    "endColumn": 4,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "private describeTriggerTask(triggerTask TriggerTask) : TaskDescriptor"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/scheduling/ScheduledTasksEndpoint.java",
+                    "startLine": 256,
+                    "endLine": 269,
+                    "startColumn": 3,
+                    "endColumn": 4,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "private describeTriggerTask(scheduledTask ScheduledTask) : TaskDescriptor"
+                }
+            ],
+            "isStatic": true
+        }
+    }
+]
