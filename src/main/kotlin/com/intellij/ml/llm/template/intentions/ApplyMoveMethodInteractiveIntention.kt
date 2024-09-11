@@ -48,6 +48,7 @@ open class ApplyMoveMethodInteractiveIntention : ApplySuggestRefactoringIntentio
     lateinit var currentFile: PsiFile
     lateinit var currentProject: Project
     val SUGGESTIONS4USER = 20
+    val tokenLimit = 128000
     val logger = Logger.getInstance(this::class.java)
     var showSuggestions = true
 

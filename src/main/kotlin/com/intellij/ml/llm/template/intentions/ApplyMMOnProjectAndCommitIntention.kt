@@ -37,7 +37,7 @@ class ApplyMMOnProjectAndCommitIntention: ApplyMoveMethodOnProjectIntention() {
                     gitRepo.checkout().setName(commitHash).setForced(true).call()
                     project.getBaseDir().refresh(false, true)
                     VfsUtil.markDirtyAndRefresh(false, true, true, project.baseDir)
-                    Thread.sleep(500)
+                    Thread.sleep(5000)
                     var newFile: PsiFile? = null
                     var newEditor: Editor? = null
                     DumbService.getInstance(project).smartInvokeLater {
@@ -50,7 +50,7 @@ class ApplyMMOnProjectAndCommitIntention: ApplyMoveMethodOnProjectIntention() {
                         invokeLaterFinished = true
                     }
                     runBlocking{
-                        waitForBackgroundFinish(5 * 60 * 1000, 1000)
+                        waitForBackgroundFinish(30 * 60 * 1000, 1000)
                         invokeLaterFinished = false
                         invokeLater {
                             if (newFile != null)
