@@ -47,7 +47,7 @@ open class ApplyMoveMethodInteractiveIntention : ApplySuggestRefactoringIntentio
     lateinit var currentEditor: Editor
     lateinit var currentFile: PsiFile
     lateinit var currentProject: Project
-    val SUGGESTIONS4USER = 20
+    val SUGGESTIONS4USER = 5
     val logger = Logger.getInstance(this::class.java)
     var showSuggestions = true
 
