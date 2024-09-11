@@ -1,0 +1,3732 @@
+[
+  {
+    "source_class": "org.apache.derby.impl.sql.compile.SQLParser",
+    "source_method": "normalizeDelimitedID",
+    "target_class": "org.apache.derby.iapi.util.StringUtil"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.compile.SQLParser",
+    "source_method": "commonDatatypeName",
+    "target_class": "boolean):boolean \t org.apache.derby.impl.sql.compile.Token"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.compile.SQLParser",
+    "source_method": "tableOrIndex",
+    "target_class": "org.apache.derby.impl.sql.compile.Token"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.compile.SQLParser",
+    "source_method": "callStatement",
+    "target_class": "org.apache.derby.impl.sql.compile.Token"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.compile.SQLParser",
+    "source_method": "primaryExpression",
+    "target_class": "org.apache.derby.impl.sql.compile.Token"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.compile.SQLParser",
+    "source_method": "tableElement",
+    "target_class": "org.apache.derby.impl.sql.compile.Token"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.compile.SQLParser",
+    "source_method": "xmlDocOrContent",
+    "target_class": "org.apache.derby.impl.sql.compile.Token"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.compile.SQLParser",
+    "source_method": "qualifiedName",
+    "target_class": "int):org.apache.derby.impl.sql.compile.TableName \t org.apache.derby.impl.sql.compile.Token"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.compile.SQLParser",
+    "source_method": "queryExpression",
+    "target_class": "int):org.apache.derby.impl.sql.compile.ResultSetNode \t org.apache.derby.impl.sql.compile.Token"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.compile.SQLParser",
+    "source_method": "nonJoinQueryTerm",
+    "target_class": "int):org.apache.derby.impl.sql.compile.ResultSetNode \t org.apache.derby.impl.sql.compile.Token"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.compile.SQLParser",
+    "source_method": "orExpression",
+    "target_class": "org.apache.derby.impl.sql.compile.Token"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.compile.SQLParser",
+    "source_method": "andExpression",
+    "target_class": "org.apache.derby.impl.sql.compile.Token"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.compile.SQLParser",
+    "source_method": "remainingNegatablePredicate",
+    "target_class": "org.apache.derby.impl.sql.compile.Token"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.compile.SQLParser",
+    "source_method": "multiplicativeExpression",
+    "target_class": "int):org.apache.derby.impl.sql.compile.ValueNode \t org.apache.derby.impl.sql.compile.Token"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.compile.SQLParser",
+    "source_method": "escapedSYSFUNFunction",
+    "target_class": "org.apache.derby.impl.sql.compile.Token"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.compile.SQLParser",
+    "source_method": "timestampArithmeticFuncion",
+    "target_class": "org.apache.derby.impl.sql.compile.Token"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.compile.SQLParser",
+    "source_method": "dataTypeScalarFunction",
+    "target_class": "org.apache.derby.impl.sql.compile.Token"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.compile.SQLParser",
+    "source_method": "xqVariable",
+    "target_class": "org.apache.derby.impl.sql.compile.Token"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.compile.SQLParser",
+    "source_method": "booleanLiteral",
+    "target_class": "org.apache.derby.impl.sql.compile.Token"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.compile.SQLParser",
+    "source_method": "rowValueConstructorElement",
+    "target_class": "org.apache.derby.impl.sql.compile.Token"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.compile.SQLParser",
+    "source_method": "castOperand",
+    "target_class": "org.apache.derby.impl.sql.compile.Token"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.compile.SQLParser",
+    "source_method": "whereClause",
+    "target_class": "org.apache.derby.impl.sql.compile.Token"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.compile.SQLParser",
+    "source_method": "parameterStyle",
+    "target_class": "org.apache.derby.impl.sql.compile.Token"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.compile.SQLParser",
+    "source_method": "inoutParameter",
+    "target_class": "org.apache.derby.impl.sql.compile.Token"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.compile.SQLParser",
+    "source_method": "numericLiteral",
+    "target_class": "org.apache.derby.impl.sql.compile.Token"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.compile.SQLParser",
+    "source_method": "hexLiteral",
+    "target_class": "org.apache.derby.impl.sql.compile.Token"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.compile.SQLParser",
+    "source_method": "levelOfIsolationRead",
+    "target_class": "org.apache.derby.impl.sql.compile.Token"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.compile.SQLParser",
+    "source_method": "referencesSpecification",
+    "target_class": "int[]):org.apache.derby.impl.sql.compile.TableName \t org.apache.derby.impl.sql.compile.Token"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.compile.SQLParser",
+    "source_method": "referencedTableAndColumns",
+    "target_class": "org.apache.derby.impl.sql.compile.Token"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.compile.SQLParser",
+    "source_method": "sequentialCompress",
+    "target_class": "org.apache.derby.impl.sql.compile.Token"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.compile.SQLParser",
+    "source_method": "dropTableConstraintDefinition",
+    "target_class": "org.apache.derby.impl.sql.compile.Token"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.compile.SQLParser",
+    "source_method": "revokeStatement",
+    "target_class": "org.apache.derby.impl.sql.compile.Token"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.compile.SQLParser",
+    "source_method": "internalIdentifier",
+    "target_class": "boolean):java.lang.String \t org.apache.derby.impl.sql.compile.Token"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.compile.SQLParser",
+    "source_method": "caseSensitiveIdentifier",
+    "target_class": "org.apache.derby.impl.sql.compile.Token"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.compile.SQLParser",
+    "source_method": "jj_3R_237",
+    "target_class": "org.apache.derby.impl.sql.compile.Token"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.compile.SQLParserTokenManager",
+    "source_method": "jjMoveNfa_3",
+    "target_class": "int):int \t org.apache.derby.impl.sql.compile.CharStream"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.compile.SQLParserTokenManager",
+    "source_method": "jjMoveNfa_5",
+    "target_class": "int):int \t org.apache.derby.impl.sql.compile.CharStream"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.compile.SQLParserTokenManager",
+    "source_method": "jjFillToken",
+    "target_class": "org.apache.derby.impl.sql.compile.CharStream"
+  },
+  {
+    "source_class": "org.apache.derby.impl.tools.ij.ij",
+    "source_method": "showConnectionsMethod",
+    "target_class": "org.apache.derby.impl.tools.ij.Session"
+  },
+  {
+    "source_class": "org.apache.derby.impl.tools.ij.ij",
+    "source_method": "ProtocolStatement",
+    "target_class": "org.apache.derby.impl.tools.ij.Token"
+  },
+  {
+    "source_class": "org.apache.derby.impl.tools.ij.ij",
+    "source_method": "dynamicConnection",
+    "target_class": "org.apache.derby.impl.tools.ij.Token"
+  },
+  {
+    "source_class": "org.apache.derby.impl.tools.ij.ij",
+    "source_method": "DisconnectStatement",
+    "target_class": "org.apache.derby.impl.tools.ij.Token"
+  },
+  {
+    "source_class": "org.apache.derby.impl.tools.ij.ij",
+    "source_method": "holdType",
+    "target_class": "org.apache.derby.impl.tools.ij.Token"
+  },
+  {
+    "source_class": "org.apache.derby.impl.tools.ij.ij",
+    "source_method": "RunStatement",
+    "target_class": "org.apache.derby.impl.tools.ij.utilMain"
+  },
+  {
+    "source_class": "org.apache.derby.impl.tools.ij.ij",
+    "source_method": "AutocommitStatement",
+    "target_class": "org.apache.derby.impl.tools.ij.Token"
+  },
+  {
+    "source_class": "org.apache.derby.impl.tools.ij.ij",
+    "source_method": "LocalizedDisplay",
+    "target_class": "org.apache.derby.impl.tools.ij.Token"
+  },
+  {
+    "source_class": "org.apache.derby.impl.tools.ij.ij",
+    "source_method": "ElapsedTimeStatement",
+    "target_class": "org.apache.derby.impl.tools.ij.Token"
+  },
+  {
+    "source_class": "org.apache.derby.impl.tools.ij.ij",
+    "source_method": "ExpectStatement",
+    "target_class": "org.apache.derby.impl.tools.ij.Token"
+  },
+  {
+    "source_class": "org.apache.derby.impl.tools.ij.ij",
+    "source_method": "caIdentifier",
+    "target_class": "org.apache.derby.impl.tools.ij.Token"
+  },
+  {
+    "source_class": "org.apache.derby.impl.tools.ij.ij",
+    "source_method": "intLiteral",
+    "target_class": "org.apache.derby.impl.tools.ij.Token"
+  },
+  {
+    "source_class": "org.apache.derby.impl.tools.ij.ij",
+    "source_method": "methodLeg",
+    "target_class": "org.apache.derby.impl.tools.ij.Token"
+  },
+  {
+    "source_class": "org.apache.derby.impl.tools.ij.ij",
+    "source_method": "staticMethodArgs",
+    "target_class": "org.apache.derby.impl.tools.ij.Token"
+  },
+  {
+    "source_class": "org.apache.derby.impl.tools.ij.ij",
+    "source_method": "oneStaticArg",
+    "target_class": "org.apache.derby.impl.tools.ij.Token"
+  },
+  {
+    "source_class": "org.apache.derby.impl.tools.ij.ij",
+    "source_method": "sign",
+    "target_class": "org.apache.derby.impl.tools.ij.Token"
+  },
+  {
+    "source_class": "org.apache.derby.impl.tools.ij.ij",
+    "source_method": "XA_DataSourceStatement",
+    "target_class": "org.apache.derby.impl.tools.ij.xaAbstractHelper"
+  },
+  {
+    "source_class": "org.apache.derby.impl.tools.ij.ij",
+    "source_method": "XA_ConnectStatement",
+    "target_class": "org.apache.derby.impl.tools.ij.xaAbstractHelper"
+  },
+  {
+    "source_class": "org.apache.derby.impl.tools.ij.ij",
+    "source_method": "XA_DisconnectStatement",
+    "target_class": "org.apache.derby.impl.tools.ij.xaAbstractHelper"
+  },
+  {
+    "source_class": "org.apache.derby.impl.tools.ij.ij",
+    "source_method": "XA_CommitStatement",
+    "target_class": "org.apache.derby.impl.tools.ij.xaAbstractHelper"
+  },
+  {
+    "source_class": "org.apache.derby.impl.tools.ij.ij",
+    "source_method": "XA_EndStatement",
+    "target_class": "org.apache.derby.impl.tools.ij.xaAbstractHelper"
+  },
+  {
+    "source_class": "org.apache.derby.impl.tools.ij.ij",
+    "source_method": "XA_ForgetStatement",
+    "target_class": "org.apache.derby.impl.tools.ij.xaAbstractHelper"
+  },
+  {
+    "source_class": "org.apache.derby.impl.tools.ij.ij",
+    "source_method": "XA_GetConnectionStatement",
+    "target_class": "org.apache.derby.impl.tools.ij.xaAbstractHelper"
+  },
+  {
+    "source_class": "org.apache.derby.impl.tools.ij.ij",
+    "source_method": "XA_PrepareStatement",
+    "target_class": "org.apache.derby.impl.tools.ij.xaAbstractHelper"
+  },
+  {
+    "source_class": "org.apache.derby.impl.tools.ij.ij",
+    "source_method": "XA_RecoverStatement",
+    "target_class": "org.apache.derby.impl.tools.ij.xaAbstractHelper"
+  },
+  {
+    "source_class": "org.apache.derby.impl.tools.ij.ij",
+    "source_method": "XA_RollbackStatement",
+    "target_class": "org.apache.derby.impl.tools.ij.xaAbstractHelper"
+  },
+  {
+    "source_class": "org.apache.derby.impl.tools.ij.ij",
+    "source_method": "xatmflag",
+    "target_class": "org.apache.derby.impl.tools.ij.Token"
+  },
+  {
+    "source_class": "org.apache.derby.impl.tools.ij.ij",
+    "source_method": "DataSourceStatement",
+    "target_class": "org.apache.derby.impl.tools.ij.xaAbstractHelper"
+  },
+  {
+    "source_class": "org.apache.derby.impl.tools.ij.ij",
+    "source_method": "CP_DataSourceStatement",
+    "target_class": "org.apache.derby.impl.tools.ij.xaAbstractHelper"
+  },
+  {
+    "source_class": "org.apache.derby.impl.tools.ij.ij",
+    "source_method": "CP_ConnectStatement",
+    "target_class": "org.apache.derby.impl.tools.ij.xaAbstractHelper"
+  },
+  {
+    "source_class": "org.apache.derby.impl.tools.ij.ij",
+    "source_method": "CP_GetConnectionStatement",
+    "target_class": "org.apache.derby.impl.tools.ij.xaAbstractHelper"
+  },
+  {
+    "source_class": "org.apache.derby.impl.tools.ij.ij",
+    "source_method": "CP_DisconnectStatement",
+    "target_class": "org.apache.derby.impl.tools.ij.xaAbstractHelper"
+  },
+  {
+    "source_class": "org.apache.derby.impl.tools.ij.ij",
+    "source_method": "caseSensitiveIdentifier",
+    "target_class": "org.apache.derby.impl.tools.ij.Token"
+  },
+  {
+    "source_class": "org.apache.derby.impl.tools.ij.ij",
+    "source_method": "ReInit",
+    "target_class": "org.apache.derby.impl.tools.ij.Token"
+  },
+  {
+    "source_class": "org.apache.derby.impl.tools.ij.ij",
+    "source_method": "ReInit",
+    "target_class": "org.apache.derby.impl.tools.ij.Token"
+  },
+  {
+    "source_class": "org.apache.derby.impl.tools.ij.ij",
+    "source_method": "jj_consume_token",
+    "target_class": "org.apache.derby.impl.tools.ij.Token"
+  },
+  {
+    "source_class": "org.apache.derby.impl.tools.ij.ij",
+    "source_method": "jj_scan_token",
+    "target_class": "org.apache.derby.impl.tools.ij.Token"
+  },
+  {
+    "source_class": "org.apache.derby.impl.tools.ij.ij",
+    "source_method": "getToken",
+    "target_class": "org.apache.derby.impl.tools.ij.Token"
+  },
+  {
+    "source_class": "org.apache.derby.impl.tools.ij.ijTokenManager",
+    "source_method": "jjMoveStringLiteralDfa1_0",
+    "target_class": "long):int \t org.apache.derby.impl.tools.ij.CharStream"
+  },
+  {
+    "source_class": "org.apache.derby.impl.tools.ij.ijTokenManager",
+    "source_method": "jjMoveStringLiteralDfa2_0",
+    "target_class": "long, long, long):int \t org.apache.derby.impl.tools.ij.CharStream"
+  },
+  {
+    "source_class": "org.apache.derby.impl.tools.ij.ijTokenManager",
+    "source_method": "jjMoveStringLiteralDfa3_0",
+    "target_class": "long, long, long):int \t org.apache.derby.impl.tools.ij.CharStream"
+  },
+  {
+    "source_class": "org.apache.derby.impl.tools.ij.ijTokenManager",
+    "source_method": "jjMoveStringLiteralDfa4_0",
+    "target_class": "long, long, long):int \t org.apache.derby.impl.tools.ij.CharStream"
+  },
+  {
+    "source_class": "org.apache.derby.impl.tools.ij.ijTokenManager",
+    "source_method": "jjMoveStringLiteralDfa5_0",
+    "target_class": "long, long, long):int \t org.apache.derby.impl.tools.ij.CharStream"
+  },
+  {
+    "source_class": "org.apache.derby.impl.tools.ij.ijTokenManager",
+    "source_method": "jjMoveStringLiteralDfa6_0",
+    "target_class": "long, long, long):int \t org.apache.derby.impl.tools.ij.CharStream"
+  },
+  {
+    "source_class": "org.apache.derby.impl.tools.ij.ijTokenManager",
+    "source_method": "jjMoveStringLiteralDfa7_0",
+    "target_class": "long, long, long):int \t org.apache.derby.impl.tools.ij.CharStream"
+  },
+  {
+    "source_class": "org.apache.derby.impl.tools.ij.ijTokenManager",
+    "source_method": "jjMoveStringLiteralDfa8_0",
+    "target_class": "long, long, long):int \t org.apache.derby.impl.tools.ij.CharStream"
+  },
+  {
+    "source_class": "org.apache.derby.impl.tools.ij.ijTokenManager",
+    "source_method": "jjMoveStringLiteralDfa9_0",
+    "target_class": "long, long, long):int \t org.apache.derby.impl.tools.ij.CharStream"
+  },
+  {
+    "source_class": "org.apache.derby.impl.tools.ij.ijTokenManager",
+    "source_method": "jjMoveStringLiteralDfa10_0",
+    "target_class": "long, long, long):int \t org.apache.derby.impl.tools.ij.CharStream"
+  },
+  {
+    "source_class": "org.apache.derby.impl.tools.ij.ijTokenManager",
+    "source_method": "jjMoveStringLiteralDfa11_0",
+    "target_class": "long, long, long):int \t org.apache.derby.impl.tools.ij.CharStream"
+  },
+  {
+    "source_class": "org.apache.derby.impl.tools.ij.ijTokenManager",
+    "source_method": "jjMoveStringLiteralDfa12_0",
+    "target_class": "long, long, long):int \t org.apache.derby.impl.tools.ij.CharStream"
+  },
+  {
+    "source_class": "org.apache.derby.impl.tools.ij.ijTokenManager",
+    "source_method": "jjMoveStringLiteralDfa13_0",
+    "target_class": "long, long, long):int \t org.apache.derby.impl.tools.ij.CharStream"
+  },
+  {
+    "source_class": "org.apache.derby.impl.tools.ij.ijTokenManager",
+    "source_method": "jjMoveStringLiteralDfa14_0",
+    "target_class": "long, long, long):int \t org.apache.derby.impl.tools.ij.CharStream"
+  },
+  {
+    "source_class": "org.apache.derby.impl.tools.ij.ijTokenManager",
+    "source_method": "jjMoveStringLiteralDfa15_0",
+    "target_class": "long, long, long):int \t org.apache.derby.impl.tools.ij.CharStream"
+  },
+  {
+    "source_class": "org.apache.derby.impl.tools.ij.ijTokenManager",
+    "source_method": "jjMoveStringLiteralDfa16_0",
+    "target_class": "long, long, long):int \t org.apache.derby.impl.tools.ij.CharStream"
+  },
+  {
+    "source_class": "org.apache.derby.impl.tools.ij.ijTokenManager",
+    "source_method": "jjMoveStringLiteralDfa17_0",
+    "target_class": "long):int \t org.apache.derby.impl.tools.ij.CharStream"
+  },
+  {
+    "source_class": "org.apache.derby.impl.tools.ij.ijTokenManager",
+    "source_method": "jjMoveStringLiteralDfa18_0",
+    "target_class": "long):int \t org.apache.derby.impl.tools.ij.CharStream"
+  },
+  {
+    "source_class": "org.apache.derby.impl.tools.ij.ijTokenManager",
+    "source_method": "jjMoveStringLiteralDfa1_2",
+    "target_class": "org.apache.derby.impl.tools.ij.CharStream"
+  },
+  {
+    "source_class": "org.apache.derby.impl.tools.ij.ijTokenManager",
+    "source_method": "jjMoveStringLiteralDfa1_1",
+    "target_class": "org.apache.derby.impl.tools.ij.CharStream"
+  },
+  {
+    "source_class": "org.apache.derby.impl.tools.ij.ijTokenManager",
+    "source_method": "jjFillToken",
+    "target_class": "org.apache.derby.impl.tools.ij.CharStream"
+  },
+  {
+    "source_class": "org.apache.derby.impl.tools.ij.ijTokenManager",
+    "source_method": "getNextToken",
+    "target_class": "org.apache.derby.impl.tools.ij.Token"
+  },
+  {
+    "source_class": "org.apache.derby.impl.tools.ij.mtGrammarTokenManager",
+    "source_method": "jjFillToken",
+    "target_class": "org.apache.derby.impl.tools.ij.Token"
+  },
+  {
+    "source_class": "org.apache.derby.impl.tools.ij.mtGrammarTokenManager",
+    "source_method": "getNextToken",
+    "target_class": "org.apache.derby.impl.tools.ij.Token"
+  },
+  {
+    "source_class": "org.apache.derby.impl.tools.ij.mtGrammar",
+    "source_method": "grammarStatement",
+    "target_class": "org.apache.derby.impl.tools.ij.Token"
+  },
+  {
+    "source_class": "org.apache.derby.impl.tools.ij.mtGrammar",
+    "source_method": "numThreads",
+    "target_class": "org.apache.derby.impl.tools.ij.Token"
+  },
+  {
+    "source_class": "org.apache.derby.impl.tools.ij.mtGrammar",
+    "source_method": "cases",
+    "target_class": "org.apache.derby.impl.tools.ij.Token"
+  },
+  {
+    "source_class": "org.apache.derby.impl.tools.ij.mtGrammar",
+    "source_method": "init",
+    "target_class": "org.apache.derby.impl.tools.ij.Token"
+  },
+  {
+    "source_class": "org.apache.derby.impl.tools.ij.mtGrammar",
+    "source_method": "last",
+    "target_class": "org.apache.derby.impl.tools.ij.Token"
+  },
+  {
+    "source_class": "org.apache.derby.impl.tools.ij.mtGrammar",
+    "source_method": "lastCase",
+    "target_class": "org.apache.derby.impl.tools.ij.Token"
+  },
+  {
+    "source_class": "org.apache.derby.impl.tools.ij.mtGrammar",
+    "source_method": "scriptFile",
+    "target_class": "org.apache.derby.impl.tools.ij.Token"
+  },
+  {
+    "source_class": "org.apache.derby.impl.tools.ij.mtGrammar",
+    "source_method": "weight",
+    "target_class": "org.apache.derby.impl.tools.ij.Token"
+  },
+  {
+    "source_class": "org.apache.derby.impl.tools.ij.mtGrammar",
+    "source_method": "ignoreErrors",
+    "target_class": "org.apache.derby.impl.tools.ij.Token"
+  },
+  {
+    "source_class": "org.apache.derby.impl.tools.ij.mtGrammar",
+    "source_method": "word_or_int",
+    "target_class": "org.apache.derby.impl.tools.ij.Token"
+  },
+  {
+    "source_class": "org.apache.derby.impl.tools.ij.mtGrammar",
+    "source_method": "time",
+    "target_class": "org.apache.derby.impl.tools.ij.Token"
+  },
+  {
+    "source_class": "org.apache.derby.impl.tools.ij.mtGrammar",
+    "source_method": "ReInit",
+    "target_class": "java.lang.String):void \t org.apache.derby.impl.tools.ij.mtGrammarTokenManager"
+  },
+  {
+    "source_class": "org.apache.derby.impl.tools.ij.mtGrammar",
+    "source_method": "ReInit",
+    "target_class": "org.apache.derby.impl.tools.ij.Token"
+  },
+  {
+    "source_class": "org.apache.derby.impl.tools.ij.mtGrammar",
+    "source_method": "ReInit",
+    "target_class": "org.apache.derby.impl.tools.ij.Token"
+  },
+  {
+    "source_class": "org.apache.derby.impl.tools.ij.mtGrammar",
+    "source_method": "jj_consume_token",
+    "target_class": "org.apache.derby.impl.tools.ij.Token"
+  },
+  {
+    "source_class": "org.apache.derby.impl.tools.ij.mtGrammar",
+    "source_method": "jj_scan_token",
+    "target_class": "org.apache.derby.impl.tools.ij.Token"
+  },
+  {
+    "source_class": "org.apache.derby.impl.tools.ij.mtGrammar",
+    "source_method": "getNextToken",
+    "target_class": "org.apache.derby.impl.tools.ij.Token"
+  },
+  {
+    "source_class": "nserverdemo.NsSample",
+    "source_method": "startSample",
+    "target_class": "nserverdemo.NetworkServerUtil"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.unitTests.junit.ReaderToUTF8StreamTest",
+    "source_method": "testMarkReset1",
+    "target_class": "org.apache.derbyTesting.unitTests.junit.ReaderToUTF8StreamTest.StreamUtil"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.unitTests.junit.ReaderToUTF8StreamTest",
+    "source_method": "testMarkReset2_Internal",
+    "target_class": "org.apache.derbyTesting.unitTests.junit.ReaderToUTF8StreamTest.StreamUtil"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.unitTests.store.T_QualifierTest",
+    "source_method": "t_scanFetchNext",
+    "target_class": "long, org.apache.derby.iapi.types.DataValueDescriptor[], org.apache.derby.iapi.types.DataValueDescriptor[], org.apache.derby.iapi.types.DataValueDescriptor[], int, org.apache.derby.iapi.store.access.Qualifier[][], org.apache.derby.iapi.types.DataValueDescriptor[], int, int, int, int):boolean \t org.apache.derby.iapi.store.access.TransactionController"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.unitTests.store.T_QualifierTest",
+    "source_method": "t_scanFetchNextPartial",
+    "target_class": "long, org.apache.derby.iapi.types.DataValueDescriptor[], org.apache.derby.iapi.types.DataValueDescriptor[], int, org.apache.derby.iapi.store.access.Qualifier[][], org.apache.derby.iapi.types.DataValueDescriptor[], int, int, int, int):boolean \t org.apache.derby.iapi.store.access.RowUtil"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.unitTests.store.T_QualifierTest",
+    "source_method": "t_testqual",
+    "target_class": "org.apache.derby.iapi.store.access.ConglomerateController"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.unitTests.store.T_Util",
+    "source_method": "t_checkPageNumber",
+    "target_class": "long):void \t org.apache.derbyTesting.unitTests.harness.T_Fail"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.unitTests.store.T_Util",
+    "source_method": "t_checkRecordCount",
+    "target_class": "int, int):void \t org.apache.derbyTesting.unitTests.harness.T_Fail"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.unitTests.store.T_Util",
+    "source_method": "t_checkFieldCount",
+    "target_class": "int, int):void \t org.apache.derbyTesting.unitTests.harness.T_Fail"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.unitTests.store.T_Util",
+    "source_method": "t_checkFetchCol",
+    "target_class": "org.apache.derby.iapi.store.raw.RecordHandle, int, int, java.lang.String):void \t org.apache.derby.iapi.store.raw.Page"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.unitTests.store.T_Util",
+    "source_method": "t_checkFetchNext",
+    "target_class": "org.apache.derby.iapi.store.raw.RecordHandle, java.lang.String):org.apache.derby.iapi.store.raw.RecordHandle \t org.apache.derbyTesting.unitTests.harness.T_Fail"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.unitTests.store.T_Util",
+    "source_method": "t_checkFetchPrevious",
+    "target_class": "org.apache.derby.iapi.store.raw.RecordHandle, java.lang.String):org.apache.derby.iapi.store.raw.RecordHandle \t org.apache.derby.iapi.store.raw.Page"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.unitTests.store.T_Util",
+    "source_method": "t_checkFetchLast",
+    "target_class": "java.lang.String):org.apache.derby.iapi.store.raw.RecordHandle \t org.apache.derbyTesting.unitTests.harness.T_Fail"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.unitTests.store.T_Util",
+    "source_method": "t_checkFetchBySlot",
+    "target_class": "int, java.lang.String, boolean, boolean):void \t org.apache.derby.iapi.store.raw.Page"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.unitTests.store.T_Util",
+    "source_method": "t_checkInvalidSavePoint",
+    "target_class": "java.lang.String):void \t org.apache.derbyTesting.unitTests.harness.T_Fail"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.unitTests.store.T_Util",
+    "source_method": "t_checkInvalidSavePoint",
+    "target_class": "java.lang.String):void \t org.apache.derbyTesting.unitTests.store.T_TWC"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.unitTests.store.T_Util",
+    "source_method": "t_startGlobalTransaction",
+    "target_class": "byte[], byte[]):org.apache.derby.iapi.store.raw.Transaction \t org.apache.derby.iapi.store.raw.RawStoreFactory"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.unitTests.store.T_Util",
+    "source_method": "t_startInternalTransaction",
+    "target_class": "org.apache.derby.iapi.store.raw.RawStoreFactory"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.unitTests.store.T_Util",
+    "source_method": "t_insert",
+    "target_class": "org.apache.derbyTesting.unitTests.store.T_RawStoreRow):org.apache.derby.iapi.store.raw.RecordHandle \t org.apache.derby.iapi.store.raw.Page"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.unitTests.store.T_AccessFactory",
+    "source_method": "deletetest",
+    "target_class": "long, int, int):boolean \t org.apache.derby.iapi.store.access.ConglomerateController"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.unitTests.store.T_AccessFactory",
+    "source_method": "insertAndUpdate",
+    "target_class": "long, int, int):boolean \t org.apache.derby.iapi.store.access.ConglomerateController"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.unitTests.store.T_AccessFactory",
+    "source_method": "createAConglom",
+    "target_class": "int, boolean):long \t org.apache.derby.iapi.store.access.ConglomerateController"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.unitTests.store.T_AccessFactory",
+    "source_method": "createBtree",
+    "target_class": "long, boolean):long \t org.apache.derby.iapi.store.access.ScanController"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.unitTests.store.T_FileSystemData",
+    "source_method": "commonContainer",
+    "target_class": "org.apache.derbyTesting.unitTests.store.T_Util"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.unitTests.store.T_RawStoreFactory",
+    "source_method": "P703Helper",
+    "target_class": "org.apache.derby.iapi.store.raw.RecordHandle, int, java.lang.String, java.lang.String):void \t org.apache.derbyTesting.unitTests.store.T_Util"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.unitTests.store.T_RawStoreFactory",
+    "source_method": "populateTempTable",
+    "target_class": "org.apache.derbyTesting.unitTests.store.T_Util"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.unitTests.store.T_StreamFile",
+    "source_method": "commonContainer",
+    "target_class": "org.apache.derbyTesting.unitTests.store.T_Util"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.unitTests.services.T_Diagnosticable",
+    "source_method": "t_001",
+    "target_class": "org.apache.derby.iapi.services.diag.Diagnosticable"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.junit.JDBC",
+    "source_method": "checkPlan",
+    "target_class": "java.lang.String[]):void \t org.apache.derbyTesting.junit.RuntimeStatisticsParser"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.junit.J2EEDataSource",
+    "source_method": "getConnectionPoolDataSource",
+    "target_class": "java.util.HashMap):javax.sql.ConnectionPoolDataSource \t org.apache.derbyTesting.junit.TestConfiguration"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.junit.Utilities",
+    "source_method": "getSysinfoFromServer",
+    "target_class": "org.apache.derby.drda.NetworkServerControl"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.junit.NetworkServerTestSetup",
+    "source_method": "startWithCommand",
+    "target_class": "org.apache.derby.drda.NetworkServerControl"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.junit.BaseJDBCTestCase",
+    "source_method": "fetchAndDiscardAllResults",
+    "target_class": "boolean):void \t org.apache.derbyTesting.junit.JDBC"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.system.mailjdbc.utils.DbTasks",
+    "source_method": "setSystemProperty",
+    "target_class": "java.lang.String):void \t org.apache.derbyTesting.system.mailjdbc.MailJdbc"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.system.mailjdbc.utils.ThreadUtils",
+    "source_method": "isThreadRunning",
+    "target_class": "org.apache.derbyTesting.system.mailjdbc.tasks.Refresh"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.system.oe.client.Submitter",
+    "source_method": "runNewOrder",
+    "target_class": "boolean):void \t org.apache.derbyTesting.system.oe.client.Operations"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.system.oe.client.Submitter",
+    "source_method": "runOrderStatus",
+    "target_class": "boolean):void \t org.apache.derbyTesting.system.oe.client.Operations"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.system.optimizer.utils.DataUtils",
+    "source_method": "dropObjects",
+    "target_class": "boolean):void \t org.apache.derbyTesting.system.optimizer.StaticValues"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.system.optimizer.utils.DataUtils",
+    "source_method": "createObjects",
+    "target_class": "boolean):void \t org.apache.derbyTesting.system.optimizer.StaticValues"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.system.sttest.Sttest",
+    "source_method": "sttTop",
+    "target_class": "org.apache.derbyTesting.system.sttest.utils.Datatypes"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.functionTests.harness.GenerateReport",
+    "source_method": "CollectProperties",
+    "target_class": "org.apache.derbyTesting.functionTests.harness.PropertyUtil"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.functionTests.tests.lang.maxMemPerTab",
+    "source_method": "createTablesAndInsertData",
+    "target_class": "org.apache.derbyTesting.functionTests.util.Formatters"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.functionTests.tests.lang.IntegerArrayVTI",
+    "source_method": "getLastRestriction",
+    "target_class": "org.apache.derby.vti.Restriction"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.functionTests.tests.lang.CastingTest",
+    "source_method": "getShortTypeName",
+    "target_class": "org.apache.derbyTesting.junit.SQLUtilities"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.functionTests.tests.jdbcapi.SURDataModelSetup",
+    "source_method": "createDataModel",
+    "target_class": "java.sql.Connection, int):void \t org.apache.derbyTesting.junit.BaseJDBCTestCase"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.functionTests.tests.jdbcapi.ResultSetMiscTest",
+    "source_method": "baseSuite",
+    "target_class": "org.apache.derbyTesting.junit.Utilities"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.functionTests.tests.jdbcapi.LargeDataLocksTest",
+    "source_method": "baseSuite",
+    "target_class": "org.apache.derbyTesting.junit.Utilities"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.functionTests.tests.jdbcapi.J2EEDataSourceTest",
+    "source_method": "suite",
+    "target_class": "org.apache.derbyTesting.functionTests.util.TestRoutines"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.functionTests.tests.jdbcapi.J2EEDataSourceTest",
+    "source_method": "testClientMessageTextConnectionAttribute",
+    "target_class": "org.apache.derby.jdbc.ClientXADataSource"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.functionTests.tests.jdbcapi.XATest",
+    "source_method": "baseSuite",
+    "target_class": "org.apache.derbyTesting.junit.XATestUtil"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.functionTests.tests.upgradeTests.helpers.DisposableIndexStatistics",
+    "source_method": "getAllRelevantStats",
+    "target_class": "org.apache.derbyTesting.junit.IndexStatsUtil"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.functionTests.tests.upgradeTests.UpgradeClassLoader",
+    "source_method": "getOldJarURLLocation",
+    "target_class": "org.apache.derbyTesting.functionTests.tests.upgradeTests._Suite"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.functionTests.tests.replicationTests.ReplicationRun",
+    "source_method": "showCurrentState",
+    "target_class": "long, java.lang.String, java.lang.String, int):java.lang.String \t org.apache.derbyTesting.functionTests.tests.replicationTests.Utils"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.functionTests.tests.replicationTests.ReplicationRun",
+    "source_method": "startServerMonitor",
+    "target_class": "org.apache.derbyTesting.functionTests.tests.replicationTests.Utils"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.functionTests.tests.replicationTests.ReplicationRun",
+    "source_method": "runTest",
+    "target_class": "java.lang.String, java.lang.String, java.lang.String, int, java.lang.String):void \t org.apache.derbyTesting.functionTests.tests.replicationTests.Utils"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.functionTests.tests.replicationTests.ReplicationRun",
+    "source_method": "runTestOnSlave",
+    "target_class": "java.lang.String, java.lang.String, java.lang.String, int, java.lang.String):void \t org.apache.derbyTesting.functionTests.tests.replicationTests.Utils"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.functionTests.tests.replicationTests.ReplicationRun",
+    "source_method": "runLoad",
+    "target_class": "java.lang.String, java.lang.String, java.lang.String, int, java.lang.String):void \t org.apache.derbyTesting.functionTests.tests.replicationTests.Utils"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.functionTests.tests.replicationTests.ReplicationRun",
+    "source_method": "startMaster_ij",
+    "target_class": "java.lang.String, java.lang.String, int):void \t org.apache.derbyTesting.functionTests.tests.replicationTests.Utils"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.functionTests.tests.replicationTests.ReplicationRun",
+    "source_method": "failOver_ij",
+    "target_class": "java.lang.String, java.lang.String):void \t org.apache.derbyTesting.functionTests.tests.replicationTests.Utils"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.functionTests.tests.replicationTests.ReplicationRun",
+    "source_method": "failOver_direct",
+    "target_class": "org.apache.derbyTesting.functionTests.tests.replicationTests.Utils"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.functionTests.tests.replicationTests.ReplicationRun",
+    "source_method": "xFindServerPID",
+    "target_class": "int):int \t org.apache.derbyTesting.functionTests.tests.replicationTests.Utils"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.functionTests.tests.replicationTests.ReplicationRun",
+    "source_method": "xStopServer",
+    "target_class": "int):void \t org.apache.derbyTesting.functionTests.tests.replicationTests.Utils"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.functionTests.tests.replicationTests.ReplicationRun",
+    "source_method": "verifySlave",
+    "target_class": "org.apache.derbyTesting.functionTests.tests.replicationTests.Utils"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.functionTests.tests.replicationTests.ReplicationRun",
+    "source_method": "verifyMaster",
+    "target_class": "org.apache.derbyTesting.functionTests.tests.replicationTests.Utils"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.functionTests.tests.replicationTests.ReplicationRun",
+    "source_method": "simpleVerify",
+    "target_class": "org.apache.derbyTesting.functionTests.tests.replicationTests.Utils"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.functionTests.tests.replicationTests.ReplicationRun",
+    "source_method": "runSlaveVerificationCLient",
+    "target_class": "java.lang.String, java.lang.String, java.lang.String, int):void \t org.apache.derbyTesting.functionTests.tests.replicationTests.Utils"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.functionTests.tests.replicationTests.ReplicationRun",
+    "source_method": "runMasterVerificationCLient",
+    "target_class": "java.lang.String, java.lang.String, java.lang.String, int):void \t org.apache.derbyTesting.functionTests.tests.replicationTests.Utils"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.functionTests.tests.replicationTests.ReplicationRun",
+    "source_method": "runUserCommand",
+    "target_class": "org.apache.derbyTesting.functionTests.tests.replicationTests.Utils"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.functionTests.tests.replicationTests.ReplicationRun",
+    "source_method": "runUserCommand",
+    "target_class": "java.lang.String):java.lang.String \t org.apache.derbyTesting.functionTests.tests.replicationTests.Utils"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.functionTests.tests.replicationTests.ReplicationRun",
+    "source_method": "runUserCommandLocally",
+    "target_class": "java.lang.String, java.lang.String):void \t org.apache.derbyTesting.functionTests.tests.replicationTests.Utils"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.functionTests.tests.replicationTests.ReplicationRun",
+    "source_method": "runUserCommandRemotely",
+    "target_class": "java.lang.String, java.lang.String):java.lang.String \t org.apache.derbyTesting.functionTests.tests.replicationTests.Utils"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.functionTests.tests.replicationTests.ReplicationRun",
+    "source_method": "runUserCommandRemotely",
+    "target_class": "java.lang.String, java.lang.String, java.lang.String):java.lang.String \t org.apache.derbyTesting.functionTests.tests.replicationTests.Utils"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.functionTests.tests.replicationTests.ReplicationRun",
+    "source_method": "runUserCommandInThread",
+    "target_class": "java.lang.String, java.lang.String, java.lang.String):void \t org.apache.derbyTesting.functionTests.tests.replicationTests.Utils"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.functionTests.tests.replicationTests.ReplicationRun",
+    "source_method": "runUserCommandInThreadRemotely",
+    "target_class": "java.lang.String, java.lang.String, java.lang.String):void \t org.apache.derbyTesting.functionTests.tests.replicationTests.Utils"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.functionTests.tests.replicationTests.ReplicationRun",
+    "source_method": "initEnvironment",
+    "target_class": "org.apache.derbyTesting.functionTests.tests.replicationTests.Utils"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.functionTests.tests.replicationTests.ReplicationRun",
+    "source_method": "initMaster",
+    "target_class": "java.lang.String):void \t org.apache.derbyTesting.functionTests.tests.replicationTests.Utils"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.functionTests.tests.replicationTests.ReplicationRun",
+    "source_method": "removeSlaveDBfiles",
+    "target_class": "java.lang.String):void \t org.apache.derbyTesting.functionTests.tests.replicationTests.Utils"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.functionTests.tests.replicationTests.ReplicationRun",
+    "source_method": "initSlave",
+    "target_class": "java.lang.String, java.lang.String):void \t org.apache.derbyTesting.functionTests.tests.replicationTests.Utils"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.functionTests.tests.replicationTests.ReplicationRun",
+    "source_method": "startServer",
+    "target_class": "java.lang.String, java.lang.String, java.lang.String, int, java.lang.String):void \t org.apache.derbyTesting.functionTests.tests.replicationTests.Utils"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.functionTests.tests.replicationTests.ReplicationRun",
+    "source_method": "killMaster",
+    "target_class": "int):void \t org.apache.derbyTesting.functionTests.tests.replicationTests.Utils"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.functionTests.tests.replicationTests.ReplicationRun",
+    "source_method": "killSlave",
+    "target_class": "int):void \t org.apache.derbyTesting.functionTests.tests.replicationTests.Utils"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.functionTests.tests.replicationTests.ReplicationRun",
+    "source_method": "stopServer",
+    "target_class": "java.lang.String, java.lang.String, int):void \t org.apache.derbyTesting.functionTests.tests.replicationTests.Utils"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.functionTests.tests.replicationTests.ReplicationRun",
+    "source_method": "processOutput",
+    "target_class": "org.apache.derbyTesting.functionTests.tests.replicationTests.Utils"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.functionTests.tests.replicationTests.ReplicationRun",
+    "source_method": "processOutput",
+    "target_class": "java.lang.Process):java.lang.String \t org.apache.derbyTesting.functionTests.tests.replicationTests.Utils"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.functionTests.tests.replicationTests.ReplicationRun",
+    "source_method": "processDEBUGOutput",
+    "target_class": "java.lang.Process):void \t org.apache.derbyTesting.functionTests.tests.replicationTests.Utils"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.functionTests.tests.replicationTests.ReplicationRun",
+    "source_method": "startLoad",
+    "target_class": "java.lang.String, java.lang.String, boolean, java.lang.String, java.lang.String, int):void \t org.apache.derbyTesting.functionTests.tests.replicationTests.Utils"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.functionTests.tests.replicationTests.ReplicationRun",
+    "source_method": "cleanAllTestHosts",
+    "target_class": "org.apache.derbyTesting.functionTests.tests.replicationTests.Utils"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.functionTests.tests.replicationTests.ReplicationRun",
+    "source_method": "_verifyDatabase",
+    "target_class": "int, java.lang.String, int):void \t org.apache.derbyTesting.functionTests.tests.replicationTests.Utils"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.functionTests.tests.replicationTests.ReplicationRun",
+    "source_method": "getConnection",
+    "target_class": "int, java.lang.String, java.lang.String, java.lang.String):java.sql.Connection \t org.apache.derbyTesting.functionTests.tests.replicationTests.Utils"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.functionTests.tests.replicationTests.ReplicationRun_Local_StateTest_part2",
+    "source_method": "_testPostStoppedSlaveServer",
+    "target_class": "org.apache.derbyTesting.functionTests.tests.replicationTests.Utils"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.functionTests.tests.replicationTests.ReplicationRun_Local_StateTest_part2",
+    "source_method": "_testPostStoppedMaster",
+    "target_class": "org.apache.derbyTesting.functionTests.tests.replicationTests.Utils"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.functionTests.tests.jdbc4.Wrapper41",
+    "source_method": "getObject",
+    "target_class": "java.lang.Class<T>):T \t org.apache.derby.iapi.jdbc.BrokeredCallableStatement40"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.functionTests.tests.jdbc4.Wrapper41",
+    "source_method": "getObject",
+    "target_class": "java.lang.Class<T>):T \t org.apache.derby.iapi.jdbc.BrokeredCallableStatement40"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.functionTests.tests.jdbc4.ResultSetTest",
+    "source_method": "decorateTestSuite",
+    "target_class": "org.apache.derbyTesting.junit.BaseJDBCTestSetup"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.functionTests.tests.jdbc4.Wrapper41Conn",
+    "source_method": "abort",
+    "target_class": "org.apache.derby.client.am.LogicalConnection40"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.functionTests.tests.jdbc4.Wrapper41Conn",
+    "source_method": "setNetworkTimeout",
+    "target_class": "int):void \t org.apache.derby.client.am.LogicalConnection40"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.functionTests.util.T_ConsistencyChecker",
+    "source_method": "reinsertFirstHeapRow",
+    "target_class": "java.lang.String):void \t org.apache.derby.iapi.store.access.ConglomerateController"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.functionTests.util.T_ConsistencyChecker",
+    "source_method": "openUnqualifiedIndexScan",
+    "target_class": "org.apache.derby.iapi.store.access.TransactionController"
+  },
+  {
+    "source_class": "org.apache.derbyTesting.functionTests.util.T_ConsistencyChecker",
+    "source_method": "countOpens",
+    "target_class": "org.apache.derby.iapi.store.access.TransactionController"
+  },
+  {
+    "source_class": "org.apache.derby.jdbc.ClientConnectionPoolDataSource",
+    "source_method": "validateState",
+    "target_class": "org.apache.derby.shared.common.i18n.MessageUtil"
+  },
+  {
+    "source_class": "org.apache.derby.jdbc.ClientBaseDataSource",
+    "source_method": "computeDncLogWriter",
+    "target_class": "java.io.PrintWriter, java.lang.String, java.lang.String, boolean, java.lang.String, int, int):org.apache.derby.client.am.LogWriter \t org.apache.derby.client.am.Connection"
+  },
+  {
+    "source_class": "org.apache.derby.jdbc.ClientDriver",
+    "source_method": "registerMe",
+    "target_class": "org.apache.derby.client.am.Utils"
+  },
+  {
+    "source_class": "org.apache.derby.client.net.NetConnection",
+    "source_method": "flowKeyExchange",
+    "target_class": "byte[]):void \t org.apache.derby.client.net.NetAgent"
+  },
+  {
+    "source_class": "org.apache.derby.client.net.NetConnection",
+    "source_method": "flowSeedExchange",
+    "target_class": "byte[]):void \t org.apache.derby.client.net.NetAgent"
+  },
+  {
+    "source_class": "org.apache.derby.client.net.NetConnection",
+    "source_method": "checkSecmgrForSecmecSupport",
+    "target_class": "org.apache.derby.client.am.Agent"
+  },
+  {
+    "source_class": "org.apache.derby.client.net.NetConnection",
+    "source_method": "mapSecchkcd",
+    "target_class": "org.apache.derby.shared.common.i18n.MessageUtil"
+  },
+  {
+    "source_class": "org.apache.derby.client.net.NetConnection",
+    "source_method": "constructCrrtkn",
+    "target_class": "org.apache.derby.client.net.NetAgent"
+  },
+  {
+    "source_class": "org.apache.derby.client.net.NetConnection",
+    "source_method": "encryptedPasswordForUSRENCPWD",
+    "target_class": "org.apache.derby.client.net.NetAgent"
+  },
+  {
+    "source_class": "org.apache.derby.client.net.NetConnection",
+    "source_method": "passwordSubstituteForUSRSSBPWD",
+    "target_class": "org.apache.derby.client.am.EncryptionManager"
+  },
+  {
+    "source_class": "org.apache.derby.client.net.Request",
+    "source_method": "writeTimestamp",
+    "target_class": "org.apache.derby.client.net.NetAgent"
+  },
+  {
+    "source_class": "org.apache.derby.client.am.LogicalConnection",
+    "source_method": "newLogicalDatabaseMetaData",
+    "target_class": "org.apache.derby.client.am.Connection"
+  },
+  {
+    "source_class": "org.apache.derby.client.am.ResultSet",
+    "source_method": "getObject",
+    "target_class": "java.util.Map):java.lang.Object \t org.apache.derby.client.am.Agent"
+  },
+  {
+    "source_class": "org.apache.derby.client.am.ResultSet",
+    "source_method": "delete",
+    "target_class": "org.apache.derby.client.am.Agent"
+  },
+  {
+    "source_class": "org.apache.derby.client.am.ResultSet",
+    "source_method": "checkForValidColumnIndex",
+    "target_class": "org.apache.derby.client.am.Agent"
+  },
+  {
+    "source_class": "org.apache.derby.client.am.ResultSet",
+    "source_method": "checkForUpdatableResultSet",
+    "target_class": "org.apache.derby.client.am.Agent"
+  },
+  {
+    "source_class": "org.apache.derby.client.am.ResultSet",
+    "source_method": "checkForValidCursorPosition",
+    "target_class": "org.apache.derby.client.am.Agent"
+  },
+  {
+    "source_class": "org.apache.derby.client.am.ResultSet",
+    "source_method": "checkThatResultSetTypeIsScrollable",
+    "target_class": "org.apache.derby.client.am.Agent"
+  },
+  {
+    "source_class": "org.apache.derby.client.am.ResultSet",
+    "source_method": "checkThatResultSetIsNotDynamic",
+    "target_class": "org.apache.derby.client.am.Agent"
+  },
+  {
+    "source_class": "org.apache.derby.client.am.ResultSet",
+    "source_method": "checkAndThrowReceivedQueryTerminatingException",
+    "target_class": "org.apache.derby.client.am.Agent"
+  },
+  {
+    "source_class": "org.apache.derby.client.am.ResultSet",
+    "source_method": "getRowCount",
+    "target_class": "org.apache.derby.client.am.Agent"
+  },
+  {
+    "source_class": "org.apache.derby.client.am.ResultSet",
+    "source_method": "jdbc3MethodNotSupported",
+    "target_class": "org.apache.derby.client.am.Agent"
+  },
+  {
+    "source_class": "org.apache.derby.client.am.CrossConverters",
+    "source_method": "setStringFromReader",
+    "target_class": "int):java.lang.String \t org.apache.derby.client.am.Agent"
+  },
+  {
+    "source_class": "org.apache.derby.client.am.CrossConverters",
+    "source_method": "setObjectFromBinaryStream",
+    "target_class": "java.io.InputStream, int):java.lang.Object \t org.apache.derby.client.am.Agent"
+  },
+  {
+    "source_class": "org.apache.derby.client.am.CrossConverters",
+    "source_method": "setBytesFromStream",
+    "target_class": "int):byte[] \t org.apache.derby.client.am.Agent"
+  },
+  {
+    "source_class": "org.apache.derby.client.am.CrossConverters",
+    "source_method": "getByteFromShort",
+    "target_class": "org.apache.derby.client.am.Agent"
+  },
+  {
+    "source_class": "org.apache.derby.client.am.CrossConverters",
+    "source_method": "getByteFromDouble",
+    "target_class": "org.apache.derby.client.am.Agent"
+  },
+  {
+    "source_class": "org.apache.derby.client.am.CrossConverters",
+    "source_method": "getShortFromInt",
+    "target_class": "org.apache.derby.client.am.Agent"
+  },
+  {
+    "source_class": "org.apache.derby.client.am.CrossConverters",
+    "source_method": "getShortFromDouble",
+    "target_class": "org.apache.derby.client.am.Agent"
+  },
+  {
+    "source_class": "org.apache.derby.client.am.CrossConverters",
+    "source_method": "getShortFromString",
+    "target_class": "org.apache.derby.client.am.Agent"
+  },
+  {
+    "source_class": "org.apache.derby.client.am.CrossConverters",
+    "source_method": "getIntFromFloat",
+    "target_class": "org.apache.derby.client.am.Agent"
+  },
+  {
+    "source_class": "org.apache.derby.client.am.CrossConverters",
+    "source_method": "getIntFromDouble",
+    "target_class": "org.apache.derby.client.am.Agent"
+  },
+  {
+    "source_class": "org.apache.derby.client.am.CrossConverters",
+    "source_method": "getBigDecimalFromString",
+    "target_class": "org.apache.derby.client.am.Agent"
+  },
+  {
+    "source_class": "org.apache.derby.client.am.CrossConverters",
+    "source_method": "getTimeFromString",
+    "target_class": "java.util.Calendar):java.sql.Time \t org.apache.derby.client.am.Agent"
+  },
+  {
+    "source_class": "org.apache.derby.client.am.CrossConverters",
+    "source_method": "getTimestampFromString",
+    "target_class": "java.util.Calendar):java.sql.Timestamp \t org.apache.derby.client.am.Agent"
+  },
+  {
+    "source_class": "org.apache.derby.client.am.Connection",
+    "source_method": "downgradeResultSetType",
+    "target_class": "org.apache.derby.client.am.Agent"
+  },
+  {
+    "source_class": "org.apache.derby.client.am.PreparedStatement",
+    "source_method": "checkForValidParameterIndex",
+    "target_class": "org.apache.derby.client.am.Agent"
+  },
+  {
+    "source_class": "org.apache.derby.client.am.Lob",
+    "source_method": "checkValidity",
+    "target_class": "org.apache.derby.client.am.Agent"
+  },
+  {
+    "source_class": "org.apache.derby.client.am.Cursor",
+    "source_method": "getDoubleFromDECIMAL",
+    "target_class": "org.apache.derby.client.am.Agent"
+  },
+  {
+    "source_class": "org.apache.derby.client.am.Cursor",
+    "source_method": "getLongFromDECIMAL",
+    "target_class": "java.lang.String):long \t org.apache.derby.client.am.Agent"
+  },
+  {
+    "source_class": "org.apache.derby.client.am.Cursor",
+    "source_method": "getBinaryStream",
+    "target_class": "org.apache.derby.client.am.Agent"
+  },
+  {
+    "source_class": "org.apache.derby.client.am.Cursor",
+    "source_method": "getCharacterStream",
+    "target_class": "org.apache.derby.client.am.Agent"
+  },
+  {
+    "source_class": "org.apache.derby.client.am.Types",
+    "source_method": "mapDERBYTypeToDriverType",
+    "target_class": "int, long, int):int \t org.apache.derby.client.am.Utils"
+  },
+  {
+    "source_class": "org.apache.derby.client.am.DatabaseMetaData",
+    "source_method": "getTableTypesX",
+    "target_class": "org.apache.derby.client.am.Connection"
+  },
+  {
+    "source_class": "org.apache.derby.client.am.DatabaseMetaData",
+    "source_method": "getBestRowIdentifierX",
+    "target_class": "java.lang.String, java.lang.String, int, boolean):org.apache.derby.client.am.ResultSet \t org.apache.derby.client.am.Agent"
+  },
+  {
+    "source_class": "org.apache.derby.client.am.DatabaseMetaData",
+    "source_method": "getVersionColumnsX",
+    "target_class": "java.lang.String, java.lang.String):org.apache.derby.client.am.ResultSet \t org.apache.derby.client.am.PreparedStatement"
+  },
+  {
+    "source_class": "org.apache.derby.client.am.DatabaseMetaData",
+    "source_method": "getCrossReferenceX",
+    "target_class": "java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String):org.apache.derby.client.am.ResultSet \t org.apache.derby.client.am.PreparedStatement"
+  },
+  {
+    "source_class": "org.apache.derby.client.am.DatabaseMetaData",
+    "source_method": "getIndexInfoX",
+    "target_class": "java.lang.String, java.lang.String, boolean, boolean):org.apache.derby.client.am.ResultSet \t org.apache.derby.client.am.Agent"
+  },
+  {
+    "source_class": "org.apache.derby.client.am.DatabaseMetaData",
+    "source_method": "getSuperTypesX",
+    "target_class": "org.apache.derby.client.am.Connection"
+  },
+  {
+    "source_class": "org.apache.derby.client.am.DatabaseMetaData",
+    "source_method": "getSuperTablesX",
+    "target_class": "org.apache.derby.client.am.PreparedStatement"
+  },
+  {
+    "source_class": "org.apache.derby.client.am.DatabaseMetaData",
+    "source_method": "getClientInfoPropertiesX",
+    "target_class": "org.apache.derby.client.am.PreparedStatement"
+  },
+  {
+    "source_class": "org.apache.derby.client.am.DatabaseMetaData",
+    "source_method": "checkForClosedConnectionX",
+    "target_class": "org.apache.derby.client.am.Agent"
+  },
+  {
+    "source_class": "org.apache.derby.client.am.Utils",
+    "source_method": "computeBigDecimalPrecision",
+    "target_class": "org.apache.derby.shared.common.i18n.MessageUtil"
+  },
+  {
+    "source_class": "org.apache.derby.client.am.ExceptionFormatter",
+    "source_method": "printTrace",
+    "target_class": "java.io.PrintWriter, java.lang.String, boolean):void \t org.apache.derby.client.am.Utils"
+  },
+  {
+    "source_class": "org.apache.derby.client.am.ExceptionFormatter",
+    "source_method": "printTrace",
+    "target_class": "java.io.PrintWriter, java.lang.String):void \t org.apache.derby.client.am.Utils"
+  },
+  {
+    "source_class": "org.apache.derby.client.am.DateTime",
+    "source_method": "dateBytesToDate",
+    "target_class": "int, java.util.Calendar, java.lang.String):java.sql.Date \t org.apache.derby.shared.common.i18n.MessageUtil"
+  },
+  {
+    "source_class": "org.apache.derby.client.am.DateTime",
+    "source_method": "timestampToTimestampBytes",
+    "target_class": "int, org.apache.derby.client.am.DateTimeValue, boolean):int \t org.apache.derby.client.net.Typdef"
+  },
+  {
+    "source_class": "org.apache.derby.client.am.BlobLocatorInputStream",
+    "source_method": "readBytes",
+    "target_class": "org.apache.derby.client.am.Connection"
+  },
+  {
+    "source_class": "org.apache.derby.client.am.CallableLocatorProcedures",
+    "source_method": "blobGetPositionFromBytes",
+    "target_class": "long, byte[], int, int):long \t org.apache.derby.client.am.CallableStatement"
+  },
+  {
+    "source_class": "org.apache.derby.client.am.CallableLocatorProcedures",
+    "source_method": "blobGetBytes",
+    "target_class": "long, int):byte[] \t org.apache.derby.client.am.CallableStatement"
+  },
+  {
+    "source_class": "org.apache.derby.client.am.CallableLocatorProcedures",
+    "source_method": "clobGetPositionFromString",
+    "target_class": "long, java.lang.String, int, int):long \t org.apache.derby.client.am.Connection"
+  },
+  {
+    "source_class": "org.apache.derby.client.am.CallableLocatorProcedures",
+    "source_method": "clobGetPositionFromLocator",
+    "target_class": "int, long):long \t org.apache.derby.client.am.Connection"
+  },
+  {
+    "source_class": "org.apache.derby.client.am.CallableLocatorProcedures",
+    "source_method": "clobGetLength",
+    "target_class": "org.apache.derby.client.am.CallableStatement"
+  },
+  {
+    "source_class": "org.apache.derby.client.am.CallableLocatorProcedures",
+    "source_method": "clobGetSubString",
+    "target_class": "long, int):java.lang.String \t org.apache.derby.client.am.CallableStatement"
+  },
+  {
+    "source_class": "org.apache.derby.client.am.Statement",
+    "source_method": "setupCursorNameCacheAndMappings",
+    "target_class": "org.apache.derby.client.am.Agent"
+  },
+  {
+    "source_class": "org.apache.derby.client.am.Statement",
+    "source_method": "resultSetCommitting",
+    "target_class": "boolean):boolean \t org.apache.derby.client.am.ResultSet"
+  },
+  {
+    "source_class": "org.apache.derby.client.am.Statement",
+    "source_method": "jdbc3FeatureNotSupported",
+    "target_class": "org.apache.derby.client.am.Agent"
+  },
+  {
+    "source_class": "org.apache.derby.client.am.Statement",
+    "source_method": "isOpen",
+    "target_class": "org.apache.derby.client.am.ResultSet"
+  },
+  {
+    "source_class": "org.apache.derby.client.am.ClobLocatorInputStream",
+    "source_method": "readBytes",
+    "target_class": "org.apache.derby.client.am.Connection"
+  },
+  {
+    "source_class": "org.apache.derby.client.am.UpdateSensitiveLOBLocatorInputStream",
+    "source_method": "identifyAndReplaceObseleteStream",
+    "target_class": "org.apache.derby.client.am.Lob"
+  },
+  {
+    "source_class": "org.apache.derby.drda.NetworkServerControl",
+    "source_method": "installSecurityManager",
+    "target_class": "org.apache.derby.iapi.services.property.PropertyUtil"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAProtocolException",
+    "source_method": "newAgentError",
+    "target_class": "int, java.lang.String, java.lang.String):org.apache.derby.impl.drda.DRDAProtocolException \t org.apache.derby.impl.drda.DRDAConnThread"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAProtocolException",
+    "source_method": "write",
+    "target_class": "org.apache.derby.impl.drda.DRDAConnThread"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAXAProtocol",
+    "source_method": "parseSYNCCTL",
+    "target_class": "org.apache.derby.impl.drda.DRDAConnThread"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAXAProtocol",
+    "source_method": "commitLocalTransaction",
+    "target_class": "org.apache.derby.impl.drda.DRDAConnThread"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAXAProtocol",
+    "source_method": "commitXATransaction",
+    "target_class": "int):void \t org.apache.derby.impl.drda.DRDAConnThread"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAXAProtocol",
+    "source_method": "rollbackLocalTransaction",
+    "target_class": "org.apache.derby.impl.drda.DRDAConnThread"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAXAProtocol",
+    "source_method": "rollbackXATransaction",
+    "target_class": "boolean):void \t org.apache.derby.impl.drda.DRDAConnThread"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAXAProtocol",
+    "source_method": "prepareXATransaction",
+    "target_class": "org.apache.derby.impl.drda.DRDAConnThread"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAXAProtocol",
+    "source_method": "forgetXATransaction",
+    "target_class": "org.apache.derby.impl.drda.DRDAConnThread"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAXAProtocol",
+    "source_method": "writeSYNCCRD",
+    "target_class": "int, javax.transaction.xa.Xid[]):void \t org.apache.derby.impl.drda.DDMWriter"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAXAProtocol",
+    "source_method": "writePRPHRCLST",
+    "target_class": "org.apache.derby.impl.drda.DDMWriter"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAXAProtocol",
+    "source_method": "processXAException",
+    "target_class": "org.apache.derby.impl.drda.DRDAConnThread"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DDMReader",
+    "source_method": "readLOBContinuationStream",
+    "target_class": "org.apache.derby.impl.drda.DRDAConnThread"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DDMReader",
+    "source_method": "readDSSContinuationHeader",
+    "target_class": "org.apache.derby.impl.drda.DRDAConnThread"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DDMReader",
+    "source_method": "readString",
+    "target_class": "int, boolean):void \t org.apache.derby.impl.drda.CcsidManager"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DDMReader",
+    "source_method": "convertBytes",
+    "target_class": "org.apache.derby.impl.drda.CcsidManager"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DDMWriter",
+    "source_method": "writeScalarPaddedString",
+    "target_class": "int):void \t org.apache.derby.impl.drda.CcsidManager"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DDMWriter",
+    "source_method": "writeUDT",
+    "target_class": "int):void \t org.apache.derby.impl.drda.DRDAConnThread"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DDMWriter",
+    "source_method": "finalizeChain",
+    "target_class": "java.io.OutputStream):void \t org.apache.derby.impl.drda.DRDAConnThread"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAConnThread",
+    "source_method": "getDbName",
+    "target_class": "org.apache.derby.impl.drda.Database"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAConnThread",
+    "source_method": "writeRDBNAM",
+    "target_class": "org.apache.derby.impl.drda.CcsidManager"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAConnThread",
+    "source_method": "sessionInitialState",
+    "target_class": "org.apache.derby.impl.drda.NetworkServerControlImpl"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAConnThread",
+    "source_method": "cleanUpAndCloseResultSet",
+    "target_class": "java.sql.SQLException, int):void \t org.apache.derby.impl.drda.DRDAStatement"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAConnThread",
+    "source_method": "processCommands",
+    "target_class": "org.apache.derby.impl.drda.DRDAResultSet"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAConnThread",
+    "source_method": "parseDRDAConnection",
+    "target_class": "org.apache.derby.impl.drda.NetworkServerControlImpl"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAConnThread",
+    "source_method": "writeRDBfailure",
+    "target_class": "org.apache.derby.impl.drda.Database"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAConnThread",
+    "source_method": "writeEXCSATRD",
+    "target_class": "org.apache.derby.impl.drda.NetworkServerControlImpl"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAConnThread",
+    "source_method": "writeMGRLEVELS",
+    "target_class": "org.apache.derby.impl.drda.NetworkServerControlImpl"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAConnThread",
+    "source_method": "parseACCSEC",
+    "target_class": "org.apache.derby.impl.drda.Database"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAConnThread",
+    "source_method": "parseOPNQRY",
+    "target_class": "org.apache.derby.impl.drda.DRDAStatement"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAConnThread",
+    "source_method": "writeQRYPOPRM",
+    "target_class": "org.apache.derby.impl.drda.DDMWriter"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAConnThread",
+    "source_method": "writeQRYNOPRM",
+    "target_class": "org.apache.derby.impl.drda.DDMWriter"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAConnThread",
+    "source_method": "writePKGNAMCSN",
+    "target_class": "org.apache.derby.impl.drda.DDMWriter"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAConnThread",
+    "source_method": "parseCNTQRY",
+    "target_class": "org.apache.derby.impl.drda.DRDAStatement"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAConnThread",
+    "source_method": "parseOUTOVR",
+    "target_class": "org.apache.derby.impl.drda.DRDAStatement"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAConnThread",
+    "source_method": "writePBSD",
+    "target_class": "org.apache.derby.impl.drda.Database"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAConnThread",
+    "source_method": "writeOPNQRYRM",
+    "target_class": "org.apache.derby.impl.drda.DRDAStatement):void \t org.apache.derby.impl.drda.DRDAStatement"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAConnThread",
+    "source_method": "writeABNUOWRM",
+    "target_class": "org.apache.derby.impl.drda.Database"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAConnThread",
+    "source_method": "writeACCSECRD",
+    "target_class": "org.apache.derby.impl.drda.Database"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAConnThread",
+    "source_method": "parseSECCHK",
+    "target_class": "org.apache.derby.impl.drda.DecryptionManager"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAConnThread",
+    "source_method": "writeSECCHKRM",
+    "target_class": "org.apache.derby.impl.drda.DDMWriter"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAConnThread",
+    "source_method": "parseACCRDB",
+    "target_class": "org.apache.derby.impl.drda.Database"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAConnThread",
+    "source_method": "writeACCRDBRM",
+    "target_class": "org.apache.derby.impl.drda.NetworkServerControlImpl"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAConnThread",
+    "source_method": "writeTYPDEFOVR",
+    "target_class": "org.apache.derby.impl.drda.NetworkServerControlImpl"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAConnThread",
+    "source_method": "parseTYPDEFOVR",
+    "target_class": "org.apache.derby.impl.drda.DRDAStatement"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAConnThread",
+    "source_method": "parsePRPSQLSTT",
+    "target_class": "org.apache.derby.impl.drda.DRDAStatement"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAConnThread",
+    "source_method": "parseSQLATTR",
+    "target_class": "org.apache.derby.impl.drda.DRDAStatement"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAConnThread",
+    "source_method": "writeSQLCINRD",
+    "target_class": "org.apache.derby.impl.drda.DRDAStatement"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAConnThread",
+    "source_method": "writeSQLRSLRD",
+    "target_class": "org.apache.derby.impl.drda.DRDAStatement"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAConnThread",
+    "source_method": "parseSQLDTA_work",
+    "target_class": "org.apache.derby.impl.drda.DRDAStatement"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAConnThread",
+    "source_method": "getByteOrder",
+    "target_class": "org.apache.derby.impl.drda.DRDAStatement"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAConnThread",
+    "source_method": "readUDT",
+    "target_class": "org.apache.derby.impl.drda.DDMReader"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAConnThread",
+    "source_method": "readAndSetExtParam",
+    "target_class": "org.apache.derby.impl.drda.DRDAStatement, int, int, boolean):void \t org.apache.derby.impl.drda.DRDAStatement"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAConnThread",
+    "source_method": "parsePKGNAMCSN",
+    "target_class": "org.apache.derby.impl.drda.Database"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAConnThread",
+    "source_method": "parseCcsidMBC",
+    "target_class": "org.apache.derby.impl.drda.DRDAStatement"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAConnThread",
+    "source_method": "parseCcsidSBC",
+    "target_class": "org.apache.derby.impl.drda.DRDAStatement"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAConnThread",
+    "source_method": "parseCLSQRY",
+    "target_class": "org.apache.derby.impl.drda.DRDAStatement"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAConnThread",
+    "source_method": "writeSQLCARD",
+    "target_class": "int, int, long):void \t org.apache.derby.impl.drda.NetworkServerControlImpl"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAConnThread",
+    "source_method": "writeNullSQLCARDobject",
+    "target_class": "org.apache.derby.impl.drda.DDMWriter"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAConnThread",
+    "source_method": "writeSQLERRRM",
+    "target_class": "org.apache.derby.impl.drda.DDMWriter"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAConnThread",
+    "source_method": "writeCMDCHKRM",
+    "target_class": "org.apache.derby.impl.drda.DDMWriter"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAConnThread",
+    "source_method": "writeSQLCAGRP",
+    "target_class": "int, long):void \t org.apache.derby.impl.drda.NetworkServerControlImpl"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAConnThread",
+    "source_method": "writeSQLCAGRP",
+    "target_class": "int, int, long):void \t org.apache.derby.impl.drda.NetworkServerControlImpl"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAConnThread",
+    "source_method": "writeSQLCAXGRP",
+    "target_class": "long, java.lang.String, java.sql.SQLException):void \t org.apache.derby.impl.drda.DDMWriter"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAConnThread",
+    "source_method": "writeSQLCAERRWARN",
+    "target_class": "long):void \t org.apache.derby.impl.drda.DDMWriter"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAConnThread",
+    "source_method": "writeSQLDIAGGRP",
+    "target_class": "org.apache.derby.impl.drda.DDMWriter"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAConnThread",
+    "source_method": "writeSQLDIAGSTT",
+    "target_class": "org.apache.derby.impl.drda.DDMWriter"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAConnThread",
+    "source_method": "writeSQLNUMGRP",
+    "target_class": "org.apache.derby.impl.drda.DDMWriter"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAConnThread",
+    "source_method": "writeSQLDCGRP",
+    "target_class": "int, java.lang.String, java.lang.String, java.lang.String):void \t org.apache.derby.impl.drda.DDMWriter"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAConnThread",
+    "source_method": "writeSQLDIAGCN",
+    "target_class": "org.apache.derby.impl.drda.DDMWriter"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAConnThread",
+    "source_method": "writeSQLDARD",
+    "target_class": "boolean, java.sql.SQLException):void \t org.apache.derby.impl.drda.DRDAStatement"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAConnThread",
+    "source_method": "writeQRYDSC",
+    "target_class": "boolean):void \t org.apache.derby.impl.drda.DDMWriter"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAConnThread",
+    "source_method": "writeSQLDTAGRP",
+    "target_class": "java.sql.ResultSetMetaData, java.sql.ParameterMetaData, int, int, boolean):void \t org.apache.derby.impl.drda.DRDAStatement"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAConnThread",
+    "source_method": "writeSQLDHROW",
+    "target_class": "org.apache.derby.impl.drda.DDMWriter"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAConnThread",
+    "source_method": "writeQRYDTA",
+    "target_class": "org.apache.derby.impl.drda.DDMWriter"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAConnThread",
+    "source_method": "writeFDODTA",
+    "target_class": "org.apache.derby.impl.drda.DDMWriter"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAConnThread",
+    "source_method": "splitQRYDTA",
+    "target_class": "int):void \t org.apache.derby.impl.drda.DRDAStatement"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAConnThread",
+    "source_method": "writeSQLDAGRP",
+    "target_class": "java.sql.ParameterMetaData, int, boolean):void \t org.apache.derby.impl.drda.DDMWriter"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAConnThread",
+    "source_method": "writeVCMorVCS",
+    "target_class": "org.apache.derby.impl.drda.DDMWriter"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAConnThread",
+    "source_method": "writeSQLDXGRP",
+    "target_class": "java.sql.ParameterMetaData, int, boolean):void \t org.apache.derby.impl.drda.DDMWriter"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAConnThread",
+    "source_method": "handleException",
+    "target_class": "org.apache.derby.impl.drda.NetworkServerControlImpl"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAConnThread",
+    "source_method": "sendProtocolException",
+    "target_class": "org.apache.derby.impl.drda.DRDAProtocolException"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAConnThread",
+    "source_method": "sendUnexpectedException",
+    "target_class": "org.apache.derby.impl.drda.DRDAProtocolException"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAConnThread",
+    "source_method": "closeStream",
+    "target_class": "org.apache.derby.impl.jdbc.Util"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAConnThread",
+    "source_method": "convertAsByteArrayInputStream",
+    "target_class": "org.apache.derby.impl.drda.StandardEXTDTAReaderInputStream"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAConnThread",
+    "source_method": "setAsBinaryStream",
+    "target_class": "int, org.apache.derby.impl.drda.EXTDTAReaderInputStream, boolean):void \t org.apache.derby.impl.drda.StandardEXTDTAReaderInputStream"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAStatement",
+    "source_method": "setOPNQRYOptions",
+    "target_class": "int, int, int, int, int):void \t org.apache.derby.impl.drda.DRDAResultSet"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAStatement",
+    "source_method": "setQueryOptions",
+    "target_class": "boolean, long, boolean, int, int, int, boolean, boolean, boolean, int, int):void \t org.apache.derby.impl.drda.DRDAResultSet"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAStatement",
+    "source_method": "getQryrownbr",
+    "target_class": "org.apache.derby.impl.drda.DRDAResultSet"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAStatement",
+    "source_method": "getQryrowset",
+    "target_class": "org.apache.derby.impl.drda.DRDAResultSet"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAStatement",
+    "source_method": "setScrollType",
+    "target_class": "org.apache.derby.impl.drda.DRDAResultSet"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAStatement",
+    "source_method": "getScrollType",
+    "target_class": "org.apache.derby.impl.drda.DRDAResultSet"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAStatement",
+    "source_method": "setConcurType",
+    "target_class": "org.apache.derby.impl.drda.DRDAResultSet"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAStatement",
+    "source_method": "getConcurType",
+    "target_class": "org.apache.derby.impl.drda.DRDAResultSet"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAStatement",
+    "source_method": "getDrdaResultSet",
+    "target_class": "org.apache.derby.impl.drda.DRDAResultSet"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAStatement",
+    "source_method": "addResultSet",
+    "target_class": "int):org.apache.derby.impl.drda.ConsistencyToken \t org.apache.derby.impl.drda.DRDAResultSet"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAStatement",
+    "source_method": "reset",
+    "target_class": "org.apache.derby.impl.drda.DRDAResultSet"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAStatement",
+    "source_method": "rsIsClosed",
+    "target_class": "org.apache.derby.impl.drda.DRDAResultSet"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAStatement",
+    "source_method": "rsSuspend",
+    "target_class": "org.apache.derby.impl.drda.DRDAResultSet"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAStatement",
+    "source_method": "getResultSetCursorName",
+    "target_class": "org.apache.derby.impl.drda.DRDAResultSet"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAStatement",
+    "source_method": "calculateResultSetPkgcnstkn",
+    "target_class": "org.apache.derby.impl.drda.ConsistencyToken"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.DRDAStatement",
+    "source_method": "isRSCloseImplicit",
+    "target_class": "org.apache.derby.impl.drda.DRDAResultSet"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.NetworkServerControlImpl",
+    "source_method": "start",
+    "target_class": "org.apache.derby.iapi.jdbc.DRDAServerStarter"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.NetworkServerControlImpl",
+    "source_method": "checkShutdownPrivileges",
+    "target_class": "org.apache.derby.iapi.jdbc.AuthenticationService"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.NetworkServerControlImpl",
+    "source_method": "sendSQLMessage",
+    "target_class": "java.sql.SQLException, int):void \t org.apache.derby.impl.drda.Session"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.NetworkServerControlImpl",
+    "source_method": "getNetSysInfo",
+    "target_class": "org.apache.derby.iapi.tools.i18n.LocalizedResource"
+  },
+  {
+    "source_class": "org.apache.derby.impl.drda.NetworkServerControlImpl",
+    "source_method": "buildRuntimeInfo",
+    "target_class": "org.apache.derby.iapi.tools.i18n.LocalizedResource"
+  },
+  {
+    "source_class": "org.apache.derby.impl.tools.dblook.DB_Roles",
+    "source_method": "generateRoleDefinitions",
+    "target_class": "org.apache.derby.impl.tools.dblook.Logs"
+  },
+  {
+    "source_class": "org.apache.derby.impl.tools.ij.util",
+    "source_method": "getResourceAsStream",
+    "target_class": "org.apache.derby.impl.tools.ij.utilMain"
+  },
+  {
+    "source_class": "org.apache.derby.impl.tools.ij.Main",
+    "source_method": "mainCore",
+    "target_class": "org.apache.derby.impl.tools.ij.Main):void \t org.apache.derby.impl.tools.ij.util"
+  },
+  {
+    "source_class": "org.apache.derby.impl.tools.ij.URLCheck",
+    "source_method": "checkForDuplicate",
+    "target_class": "org.apache.derby.iapi.tools.i18n.LocalizedResource"
+  },
+  {
+    "source_class": "org.apache.derby.impl.tools.ij.utilMain",
+    "source_method": "supportIJProperties",
+    "target_class": "org.apache.derby.impl.tools.ij.ij"
+  },
+  {
+    "source_class": "org.apache.derby.impl.tools.ij.utilMain",
+    "source_method": "runScriptGuts",
+    "target_class": "org.apache.derby.impl.tools.ij.UCode_CharStream"
+  },
+  {
+    "source_class": "org.apache.derby.impl.tools.ij.ijException",
+    "source_method": "notAvailableForDriver",
+    "target_class": "org.apache.derby.iapi.tools.i18n.LocalizedResource"
+  },
+  {
+    "source_class": "org.apache.derby.tools.SignatureChecker",
+    "source_method": "makeReadableSignature",
+    "target_class": "org.apache.derby.tools.SignatureChecker.SQLRoutine"
+  },
+  {
+    "source_class": "org.apache.derby.tools.SignatureChecker",
+    "source_method": "countProcedureArgs",
+    "target_class": "org.apache.derby.tools.SignatureChecker.SQLRoutine"
+  },
+  {
+    "source_class": "org.apache.derby.tools.dblook",
+    "source_method": "getColumnListFromDescription",
+    "target_class": "java.lang.String):java.lang.String \t org.apache.derby.impl.tools.dblook.Logs"
+  },
+  {
+    "source_class": "org.apache.derby.tools.dblook",
+    "source_method": "lookupMessage",
+    "target_class": "java.lang.String[]):java.lang.String \t org.apache.derby.iapi.tools.i18n.LocalizedResource"
+  },
+  {
+    "source_class": "org.apache.derbyDemo.vtis.core.XmlVTI",
+    "source_method": "registerXMLRowVTIs",
+    "target_class": "org.apache.derbyDemo.vtis.core.VTIHelper"
+  },
+  {
+    "source_class": "org.apache.derbyDemo.vtis.core.XmlVTI",
+    "source_method": "registerVTI",
+    "target_class": "org.apache.derbyDemo.vtis.core.VTIHelper"
+  },
+  {
+    "source_class": "org.apache.derbyDemo.vtis.core.QueryVTIHelper",
+    "source_method": "instantiateVTI",
+    "target_class": "java.lang.String, java.lang.String, java.lang.String[]):java.sql.ResultSet \t org.apache.derbyDemo.vtis.core.VTIHelper"
+  },
+  {
+    "source_class": "org.apache.derbyDemo.vtis.snapshot.Subscription",
+    "source_method": "dropVTIAndTable",
+    "target_class": "org.apache.derbyDemo.vtis.core.VTIHelper"
+  },
+  {
+    "source_class": "org.apache.derbyDemo.vtis.snapshot.Subscription",
+    "source_method": "registerRefreshProcedure",
+    "target_class": "org.apache.derbyDemo.vtis.core.VTIHelper"
+  },
+  {
+    "source_class": "org.apache.derbyDemo.vtis.snapshot.Subscription",
+    "source_method": "unregisterRefreshProcedure",
+    "target_class": "org.apache.derbyDemo.vtis.core.VTIHelper"
+  },
+  {
+    "source_class": "org.apache.derbyDemo.vtis.snapshot.Subscription",
+    "source_method": "truncateTables",
+    "target_class": "org.apache.derbyDemo.vtis.core.VTIHelper"
+  },
+  {
+    "source_class": "org.apache.derbyDemo.vtis.snapshot.Subscription",
+    "source_method": "getTableName",
+    "target_class": "org.apache.derbyDemo.vtis.core.VTIHelper"
+  },
+  {
+    "source_class": "org.apache.derbyDemo.vtis.snapshot.Subscription",
+    "source_method": "getFunctionName",
+    "target_class": "org.apache.derbyDemo.vtis.core.VTIHelper"
+  },
+  {
+    "source_class": "org.apache.derbyDemo.vtis.example.VTIs",
+    "source_method": "countryLanguage",
+    "target_class": "org.apache.derbyDemo.vtis.core.QueryVTIHelper"
+  },
+  {
+    "source_class": "org.apache.derbyDemo.scores.proc.Procedures",
+    "source_method": "ScoreTestTaking",
+    "target_class": "org.apache.derbyDemo.scores.util.Utils"
+  },
+  {
+    "source_class": "org.apache.derbyDemo.scores.proc.Functions",
+    "source_method": "vetChoice",
+    "target_class": "int):int \t org.apache.derbyDemo.scores.util.Utils"
+  },
+  {
+    "source_class": "org.apache.derbyDemo.scores.proc.Functions",
+    "source_method": "getMedianTestScore",
+    "target_class": "org.apache.derbyDemo.scores.util.Utils"
+  },
+  {
+    "source_class": "org.apache.derby.jdbc.AutoloadedDriver",
+    "source_method": "getDriverModule",
+    "target_class": "org.apache.derby.impl.jdbc.Util"
+  },
+  {
+    "source_class": "org.apache.derby.diag.SpaceTable",
+    "source_method": "getSpaceInfo",
+    "target_class": "org.apache.derby.iapi.store.access.ConglomerateController"
+  },
+  {
+    "source_class": "org.apache.derby.impl.jdbc.TransactionResourceImpl",
+    "source_method": "wrapInSQLException",
+    "target_class": "org.apache.derby.impl.jdbc.Util"
+  },
+  {
+    "source_class": "org.apache.derby.impl.jdbc.authentication.AuthenticationServiceBase",
+    "source_method": "getDatabaseProperty",
+    "target_class": "org.apache.derby.iapi.store.access.TransactionController"
+  },
+  {
+    "source_class": "org.apache.derby.impl.jdbc.TemporaryClob",
+    "source_method": "getBytePosition",
+    "target_class": "org.apache.derby.impl.jdbc.TemporaryClob.CharToBytePositionCache"
+  },
+  {
+    "source_class": "org.apache.derby.impl.jdbc.Util",
+    "source_method": "ASSERT",
+    "target_class": "boolean, java.lang.String):void \t org.apache.derby.shared.common.sanity.SanityManager"
+  },
+  {
+    "source_class": "org.apache.derby.impl.jdbc.Util",
+    "source_method": "THROWASSERT",
+    "target_class": "java.lang.String):void \t org.apache.derby.impl.jdbc.EmbedConnection"
+  },
+  {
+    "source_class": "org.apache.derby.impl.jdbc.EmbedConnection",
+    "source_method": "stripSubSubProtocolPrefix",
+    "target_class": "org.apache.derby.iapi.services.property.PropertyUtil"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.GenericPreparedStatement",
+    "source_method": "setCacheHolder",
+    "target_class": "org.apache.derby.iapi.sql.conn.LanguageConnectionContext"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.depend.BasicDependencyManager",
+    "source_method": "dropDependency",
+    "target_class": "org.apache.derby.iapi.sql.depend.Dependent, org.apache.derby.iapi.sql.depend.Provider):void \t org.apache.derby.iapi.sql.dictionary.DataDictionary"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.GenericStatement",
+    "source_method": "walkAST",
+    "target_class": "org.apache.derby.iapi.sql.compile.Visitable, int):void \t org.apache.derby.iapi.sql.compile.Visitable"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.compile.FromBaseTable",
+    "source_method": "supersetOfUniqueIndex",
+    "target_class": "org.apache.derby.iapi.sql.dictionary.ConglomerateDescriptor"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.compile.FromBaseTable",
+    "source_method": "supersetOfUniqueIndex",
+    "target_class": "org.apache.derby.catalog.IndexDescriptor"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.compile.FromBaseTable",
+    "source_method": "isOrdered",
+    "target_class": "org.apache.derby.iapi.sql.dictionary.ConglomerateDescriptor):boolean \t org.apache.derby.iapi.sql.dictionary.ConglomerateDescriptor"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.compile.FromBaseTable",
+    "source_method": "isStrictlyOrdered",
+    "target_class": "org.apache.derby.iapi.sql.dictionary.ConglomerateDescriptor):boolean \t org.apache.derby.iapi.sql.dictionary.ConglomerateDescriptor"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.compile.TypeCompilerFactoryImpl",
+    "source_method": "staticGetTypeCompiler",
+    "target_class": "org.apache.derby.impl.sql.compile.BaseTypeCompiler"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.compile.SubqueryNode",
+    "source_method": "flattenToExistsJoin",
+    "target_class": "org.apache.derby.impl.sql.compile.FromList, org.apache.derby.impl.sql.compile.SubqueryList, org.apache.derby.impl.sql.compile.PredicateList, boolean):org.apache.derby.impl.sql.compile.ValueNode \t org.apache.derby.impl.sql.compile.SelectNode"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.compile.SubqueryNode",
+    "source_method": "generateMaterialization",
+    "target_class": "org.apache.derby.iapi.services.compiler.MethodBuilder, java.lang.String):org.apache.derby.iapi.services.compiler.LocalField \t org.apache.derby.iapi.services.compiler.MethodBuilder"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.compile.SubqueryNode",
+    "source_method": "isWhereExistsAnyInWithWhereSubquery",
+    "target_class": "org.apache.derby.impl.sql.compile.SelectNode"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.compile.OptimizerImpl",
+    "source_method": "rewindJoinOrder",
+    "target_class": "org.apache.derby.iapi.sql.compile.OptimizableList"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.compile.OptimizerImpl",
+    "source_method": "recoverCostFromProposedJoinOrder",
+    "target_class": "org.apache.derby.iapi.sql.compile.OptimizableList"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.compile.OptimizerImpl",
+    "source_method": "ruleBasedCostOptimizable",
+    "target_class": "org.apache.derby.iapi.sql.dictionary.TableDescriptor, org.apache.derby.iapi.sql.dictionary.ConglomerateDescriptor, org.apache.derby.iapi.sql.compile.OptimizablePredicateList, org.apache.derby.iapi.sql.compile.CostEstimate):void \t org.apache.derby.iapi.sql.dictionary.ConglomerateDescriptor"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.compile.OptimizerImpl",
+    "source_method": "costBasedCostOptimizable",
+    "target_class": "org.apache.derby.iapi.sql.dictionary.TableDescriptor, org.apache.derby.iapi.sql.dictionary.ConglomerateDescriptor, org.apache.derby.iapi.sql.compile.OptimizablePredicateList, org.apache.derby.iapi.sql.compile.CostEstimate):void \t org.apache.derby.iapi.sql.compile.AccessPath"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.compile.OrderByColumn",
+    "source_method": "remapColumnReferencesToExpressions",
+    "target_class": "org.apache.derby.impl.sql.compile.ResultColumn"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.compile.FromTable",
+    "source_method": "getPerRowUsage",
+    "target_class": "org.apache.derby.iapi.sql.dictionary.ConglomerateDescriptor"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.compile.HashJoinStrategy",
+    "source_method": "nonBasePredicateSelectivity",
+    "target_class": "org.apache.derby.iapi.sql.compile.OptimizablePredicateList):double \t org.apache.derby.iapi.sql.compile.OptimizablePredicateList"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.compile.HashJoinStrategy",
+    "source_method": "divideUpPredicateLists",
+    "target_class": "org.apache.derby.iapi.sql.compile.OptimizablePredicateList, org.apache.derby.iapi.sql.compile.OptimizablePredicateList, org.apache.derby.iapi.sql.compile.OptimizablePredicateList, org.apache.derby.iapi.sql.compile.OptimizablePredicateList, org.apache.derby.iapi.sql.dictionary.DataDictionary):void \t org.apache.derby.iapi.sql.compile.OptimizablePredicateList"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.compile.PredicateList.PredicateWrapperList",
+    "source_method": "removeElementAt",
+    "target_class": "org.apache.derby.impl.sql.compile.PredicateList.PredicateWrapper"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.compile.PredicateList.PredicateWrapperList",
+    "source_method": "insert",
+    "target_class": "org.apache.derby.impl.sql.compile.PredicateList.PredicateWrapper"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.compile.ResultSetNode",
+    "source_method": "setTableConstructorTypes",
+    "target_class": "org.apache.derby.impl.sql.compile.ResultColumn"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.compile.NestedLoopJoinStrategy",
+    "source_method": "getBasePredicates",
+    "target_class": "org.apache.derby.iapi.sql.compile.OptimizablePredicateList, org.apache.derby.iapi.sql.compile.Optimizable):org.apache.derby.iapi.sql.compile.OptimizablePredicateList \t org.apache.derby.iapi.sql.compile.OptimizablePredicateList"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.compile.NestedLoopJoinStrategy",
+    "source_method": "putBasePredicates",
+    "target_class": "org.apache.derby.iapi.sql.compile.OptimizablePredicateList):void \t org.apache.derby.iapi.sql.compile.OptimizablePredicateList"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.compile.NestedLoopJoinStrategy",
+    "source_method": "divideUpPredicateLists",
+    "target_class": "org.apache.derby.iapi.sql.compile.OptimizablePredicateList, org.apache.derby.iapi.sql.compile.OptimizablePredicateList, org.apache.derby.iapi.sql.compile.OptimizablePredicateList, org.apache.derby.iapi.sql.compile.OptimizablePredicateList, org.apache.derby.iapi.sql.dictionary.DataDictionary):void \t org.apache.derby.iapi.sql.compile.OptimizablePredicateList"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.compile.QueryTreeNode",
+    "source_method": "generateAuthorizeCheck",
+    "target_class": "org.apache.derby.iapi.services.compiler.MethodBuilder, int):void \t org.apache.derby.iapi.services.compiler.MethodBuilder"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.compile.InsertNode",
+    "source_method": "getStatementType",
+    "target_class": "org.apache.derby.iapi.util.StringUtil"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.compile.ExpressionClassBuilder",
+    "source_method": "pushGetResultSetFactoryExpression",
+    "target_class": "org.apache.derby.iapi.services.compiler.MethodBuilder"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.compile.ConcatenationOperatorNode",
+    "source_method": "clobBlobHandling",
+    "target_class": "org.apache.derby.iapi.types.DataTypeDescriptor):int \t org.apache.derby.iapi.types.DataTypeDescriptor"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.compile.ValueNode",
+    "source_method": "getTypeId",
+    "target_class": "org.apache.derby.iapi.types.DataTypeDescriptor"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.compile.BaseJoinStrategy",
+    "source_method": "fillInScanArgs2",
+    "target_class": "org.apache.derby.iapi.sql.compile.Optimizable, int, int, int, int, boolean, int):void \t org.apache.derby.iapi.sql.compile.Optimizable"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.compile.DefaultNode",
+    "source_method": "parseDefault",
+    "target_class": "org.apache.derby.iapi.sql.conn.LanguageConnectionContext, org.apache.derby.iapi.sql.compile.CompilerContext):org.apache.derby.impl.sql.compile.ValueNode \t org.apache.derby.iapi.sql.compile.Parser"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.compile.Level2OptimizerImpl",
+    "source_method": "dumpConglomerateDescriptor",
+    "target_class": "org.apache.derby.iapi.sql.dictionary.IndexRowGenerator"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.compile.Predicate",
+    "source_method": "generateOrderableVariantType",
+    "target_class": "org.apache.derby.iapi.sql.compile.Optimizable):void \t org.apache.derby.iapi.services.compiler.MethodBuilder"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.compile.CompilerContextImpl",
+    "source_method": "closeStoreCostControllers",
+    "target_class": "org.apache.derby.iapi.store.access.StoreCostController"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.compile.StaticMethodCallNode",
+    "source_method": "generateSetupNestedSessionContext",
+    "target_class": "org.apache.derby.iapi.services.compiler.MethodBuilder, boolean, java.lang.String):void \t org.apache.derby.iapi.services.compiler.MethodBuilder"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.compile.WindowFunctionNode",
+    "source_method": "definedWindow",
+    "target_class": "java.lang.String):org.apache.derby.impl.sql.compile.WindowDefinitionNode \t org.apache.derby.impl.sql.compile.WindowNode"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.compile.DMLModStatementNode",
+    "source_method": "generateCheckConstraints",
+    "target_class": "org.apache.derby.impl.sql.compile.ExpressionClassBuilder, org.apache.derby.iapi.services.compiler.MethodBuilder):void \t org.apache.derby.iapi.services.compiler.MethodBuilder"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.compile.DMLModStatementNode",
+    "source_method": "generateCheckConstraints",
+    "target_class": "org.apache.derby.impl.sql.compile.ExpressionClassBuilder):org.apache.derby.iapi.services.compiler.MethodBuilder \t org.apache.derby.iapi.services.compiler.MethodBuilder"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.compile.DMLModStatementNode",
+    "source_method": "generateGenerationClauses",
+    "target_class": "int, boolean, org.apache.derby.impl.sql.compile.ExpressionClassBuilder, org.apache.derby.iapi.services.compiler.MethodBuilder):void \t org.apache.derby.iapi.services.compiler.MethodBuilder"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.compile.DMLModStatementNode",
+    "source_method": "generateGenerationClauses",
+    "target_class": "int, boolean, org.apache.derby.impl.sql.compile.ExpressionClassBuilder):org.apache.derby.iapi.services.compiler.MethodBuilder \t org.apache.derby.iapi.services.compiler.MethodBuilder"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.compile.DMLModStatementNode",
+    "source_method": "getXAffectedIndexes",
+    "target_class": "org.apache.derby.impl.sql.compile.ResultColumnList, org.apache.derby.iapi.services.io.FormatableBitSet, java.util.Vector):void \t org.apache.derby.iapi.sql.dictionary.ConglomerateDescriptor"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.compile.DMLModStatementNode",
+    "source_method": "remapReferencedColumns",
+    "target_class": "int[]):int[] \t org.apache.derby.iapi.sql.dictionary.ConstraintDescriptor"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.conn.GenericAuthorizer",
+    "source_method": "externalRoutineException",
+    "target_class": "int):org.apache.derby.iapi.error.StandardException \t org.apache.derby.iapi.error.StandardException"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.conn.GenericLanguageConnectionContext",
+    "source_method": "tempTablesXApostCommit",
+    "target_class": "org.apache.derby.iapi.store.access.TransactionController"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.conn.GenericLanguageConnectionContext",
+    "source_method": "dropAllDeclaredGlobalTempTables",
+    "target_class": "org.apache.derby.iapi.store.access.TransactionController"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.conn.GenericLanguageConnectionContext",
+    "source_method": "tempTablesAndRollback",
+    "target_class": "org.apache.derby.iapi.store.access.TransactionController"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.conn.GenericLanguageConnectionContext",
+    "source_method": "lookupStatement",
+    "target_class": "org.apache.derby.iapi.services.loader.GeneratedClass"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.conn.GenericLanguageConnectionContext",
+    "source_method": "doCommit",
+    "target_class": "boolean, int, boolean):void \t org.apache.derby.iapi.store.access.TransactionController"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.conn.GenericLanguageConnectionContext",
+    "source_method": "cleanupTempTableOnCommitOrRollback",
+    "target_class": "boolean):org.apache.derby.iapi.sql.dictionary.TableDescriptor \t org.apache.derby.iapi.store.access.TransactionController"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.catalog.TabInfoImpl",
+    "source_method": "insertRowListImpl",
+    "target_class": "org.apache.derby.iapi.store.access.TransactionController, org.apache.derby.iapi.types.RowLocation[]):int \t org.apache.derby.iapi.store.access.ConglomerateController"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.catalog.TabInfoImpl",
+    "source_method": "getRowInternal",
+    "target_class": "org.apache.derby.iapi.store.access.ConglomerateController, org.apache.derby.iapi.sql.execute.ExecIndexRow, int, org.apache.derby.iapi.types.RowLocation[]):org.apache.derby.iapi.sql.execute.ExecRow \t org.apache.derby.iapi.store.access.ConglomerateController"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.catalog.DataDictionaryImpl",
+    "source_method": "isSchemaReferenced",
+    "target_class": "org.apache.derby.impl.sql.catalog.TabInfoImpl, int, int, org.apache.derby.iapi.types.DataValueDescriptor):boolean \t org.apache.derby.iapi.store.access.ScanController"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.catalog.DataDictionaryImpl",
+    "source_method": "upgradeCLOBGETSUBSTRING_10_6",
+    "target_class": "org.apache.derby.iapi.store.access.TransactionController"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.catalog.DataDictionaryImpl",
+    "source_method": "rewriteSYSCOLPERMSforAlterTable",
+    "target_class": "org.apache.derby.iapi.store.access.TransactionController, org.apache.derby.iapi.sql.dictionary.ColumnDescriptor):void \t org.apache.derby.iapi.sql.dictionary.ColumnDescriptor"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.catalog.DataDictionaryImpl",
+    "source_method": "removePermEntryInCache",
+    "target_class": "org.apache.derby.iapi.services.cache.CacheManager"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.catalog.DataDictionaryImpl",
+    "source_method": "getRoleGrantGraph",
+    "target_class": "boolean):java.util.HashMap \t org.apache.derby.iapi.store.access.ScanController"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.catalog.DataDictionaryImpl",
+    "source_method": "visitPermsByGrantee",
+    "target_class": "org.apache.derby.iapi.store.access.TransactionController, int, int, int, int):boolean \t org.apache.derby.iapi.store.access.ConglomerateController"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.catalog.DataDictionaryImpl",
+    "source_method": "clearSPSPlans",
+    "target_class": "org.apache.derby.iapi.store.access.ScanController"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.catalog.DataDictionaryImpl",
+    "source_method": "genColumnReferenceSQL",
+    "target_class": "java.lang.String, java.lang.String, boolean, int):java.lang.String \t org.apache.derby.iapi.sql.dictionary.TableDescriptor"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.catalog.DataDictionaryImpl",
+    "source_method": "getConstraintDescriptorViaIndex",
+    "target_class": "org.apache.derby.iapi.sql.execute.ExecIndexRow, org.apache.derby.impl.sql.catalog.TabInfoImpl, org.apache.derby.iapi.sql.dictionary.TableDescriptor, org.apache.derby.iapi.sql.dictionary.ConstraintDescriptorList, boolean):org.apache.derby.iapi.sql.dictionary.ConstraintDescriptor \t org.apache.derby.iapi.store.access.ConglomerateController"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.catalog.DataDictionaryImpl",
+    "source_method": "getConstraints",
+    "target_class": "int, int):java.util.List \t org.apache.derby.iapi.store.access.ConglomerateController"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.catalog.DataDictionaryImpl",
+    "source_method": "dropSubCheckConstraint",
+    "target_class": "org.apache.derby.iapi.store.access.TransactionController):void \t org.apache.derby.impl.sql.catalog.TabInfoImpl"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.catalog.DataDictionaryImpl",
+    "source_method": "updateSystemSchemaAuthorization",
+    "target_class": "org.apache.derby.iapi.store.access.TransactionController):void \t org.apache.derby.iapi.sql.dictionary.SchemaDescriptor"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.catalog.DataDictionaryImpl",
+    "source_method": "updateSchemaAuth",
+    "target_class": "java.lang.String, org.apache.derby.iapi.store.access.TransactionController):void \t org.apache.derby.impl.sql.catalog.SYSSCHEMASRowFactory"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.catalog.DataDictionaryImpl",
+    "source_method": "loadDictionaryTables",
+    "target_class": "org.apache.derby.iapi.sql.dictionary.DataDescriptorGenerator, java.util.Properties):void \t org.apache.derby.impl.sql.catalog.DD_Version"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.catalog.DataDictionaryImpl",
+    "source_method": "upgradeFixSystemColumnDefinition",
+    "target_class": "int, org.apache.derby.iapi.store.access.TransactionController):void \t org.apache.derby.iapi.sql.dictionary.ColumnDescriptor"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.catalog.DataDictionaryImpl",
+    "source_method": "upgrade_initSystemTableCols",
+    "target_class": "boolean, int, org.apache.derby.iapi.services.io.FormatableBitSet, org.apache.derby.iapi.types.DataValueDescriptor[]):void \t org.apache.derby.iapi.store.access.TransactionController"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.catalog.DataDictionaryImpl",
+    "source_method": "bootstrapOneIndex",
+    "target_class": "org.apache.derby.iapi.store.access.TransactionController, org.apache.derby.iapi.sql.dictionary.DataDescriptorGenerator, org.apache.derby.impl.sql.catalog.TabInfoImpl, int, long):org.apache.derby.iapi.sql.dictionary.ConglomerateDescriptor \t org.apache.derby.iapi.sql.dictionary.CatalogRowFactory"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.catalog.DataDictionaryImpl",
+    "source_method": "addSystemTableToDictionary",
+    "target_class": "org.apache.derby.iapi.sql.dictionary.SchemaDescriptor, org.apache.derby.iapi.store.access.TransactionController, org.apache.derby.iapi.sql.dictionary.DataDescriptorGenerator):void \t org.apache.derby.iapi.sql.dictionary.CatalogRowFactory"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.catalog.DataDictionaryImpl",
+    "source_method": "createConglomerate",
+    "target_class": "org.apache.derby.iapi.store.access.TransactionController, org.apache.derby.iapi.sql.execute.ExecRow, java.util.Properties):long \t org.apache.derby.iapi.store.access.TransactionController"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.catalog.DataDictionaryImpl",
+    "source_method": "getDescriptorViaIndexMinion",
+    "target_class": "org.apache.derby.iapi.sql.execute.ExecIndexRow, org.apache.derby.iapi.sql.execute.ScanQualifier[][], org.apache.derby.impl.sql.catalog.TabInfoImpl, org.apache.derby.iapi.sql.dictionary.TupleDescriptor, java.util.List, boolean, int, org.apache.derby.iapi.store.access.TransactionController):org.apache.derby.iapi.sql.dictionary.TupleDescriptor \t org.apache.derby.iapi.sql.dictionary.CatalogRowFactory"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.catalog.DataDictionaryImpl",
+    "source_method": "debugGenerateInfo",
+    "target_class": "org.apache.derby.iapi.store.access.TransactionController, org.apache.derby.iapi.store.access.ConglomerateController, org.apache.derby.impl.sql.catalog.TabInfoImpl, int):void \t org.apache.derby.iapi.store.access.ConglomerateController"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.catalog.DataDictionaryImpl",
+    "source_method": "faultInTabInfo",
+    "target_class": "org.apache.derby.iapi.sql.dictionary.ConglomerateDescriptor"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.catalog.DataDictionaryImpl",
+    "source_method": "computeRowLocation",
+    "target_class": "org.apache.derby.iapi.sql.dictionary.TableDescriptor, java.lang.String):org.apache.derby.iapi.types.RowLocation \t org.apache.derby.impl.sql.catalog.TabInfoImpl"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.catalog.DataDictionaryImpl",
+    "source_method": "computeSequenceRowLocation",
+    "target_class": "java.lang.String, org.apache.derby.iapi.types.RowLocation[], org.apache.derby.iapi.sql.dictionary.SequenceDescriptor[]):void \t org.apache.derby.iapi.store.access.TransactionController"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.catalog.DataDictionaryImpl",
+    "source_method": "updateCurrentSequenceValue",
+    "target_class": "org.apache.derby.iapi.types.RowLocation, boolean, java.lang.Long, java.lang.Long):boolean \t org.apache.derby.impl.sql.catalog.TabInfoImpl"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.catalog.DataDictionaryImpl",
+    "source_method": "addTableDescriptorToOtherCache",
+    "target_class": "org.apache.derby.iapi.services.cache.Cacheable):void \t org.apache.derby.iapi.services.cache.CacheManager"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.catalog.DataDictionaryImpl",
+    "source_method": "createSPSSet",
+    "target_class": "boolean, org.apache.derby.catalog.UUID):void \t org.apache.derby.iapi.sql.dictionary.SPSDescriptor"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.catalog.DataDictionaryImpl",
+    "source_method": "create_SYSCS_procedures",
+    "target_class": "java.util.HashSet):void \t org.apache.derby.catalog.TypeDescriptor"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.catalog.DataDictionaryImpl",
+    "source_method": "create_SYSIBM_procedures",
+    "target_class": "java.util.HashSet):void \t org.apache.derby.iapi.sql.dictionary.SchemaDescriptor"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.catalog.DD_Version",
+    "source_method": "dropSystemCatalog",
+    "target_class": "org.apache.derby.iapi.sql.dictionary.CatalogRowFactory):void \t org.apache.derby.impl.sql.catalog.DataDictionaryImpl"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.execute.TemporaryRowHolderResultSet",
+    "source_method": "setupPositionBasedScan",
+    "target_class": "org.apache.derby.impl.sql.execute.TemporaryRowHolderImpl"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.execute.xplain.XPLAINSystemTableVisitor",
+    "source_method": "addArraysToSystemCatalogs",
+    "target_class": "org.apache.derby.impl.sql.catalog.XPLAINResultSetTimingsDescriptor"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.execute.BaseActivation",
+    "source_method": "materializeResultSetIfPossible",
+    "target_class": "org.apache.derby.iapi.sql.execute.ExecRow"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.execute.GroupedAggregateResultSet",
+    "source_method": "initializeDistinctMaps",
+    "target_class": "boolean):void \t org.apache.derby.iapi.types.DataValueDescriptor"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.execute.SortResultSet",
+    "source_method": "filterRow",
+    "target_class": "org.apache.derby.iapi.sql.execute.ExecRow):boolean \t org.apache.derby.iapi.types.DataValueDescriptor"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.execute.DDLSingleTableConstantAction",
+    "source_method": "loadIndexProperties",
+    "target_class": "org.apache.derby.iapi.sql.dictionary.ConglomerateDescriptor, java.util.Properties):void \t org.apache.derby.iapi.store.access.ConglomerateController"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.execute.DeleteResultSet",
+    "source_method": "fireAfterTriggers",
+    "target_class": "org.apache.derby.impl.sql.execute.TriggerEventActivator"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.execute.DeleteResultSet",
+    "source_method": "deleteDeferredRows",
+    "target_class": "org.apache.derby.iapi.store.access.TransactionController"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.execute.NoPutResultSetImpl",
+    "source_method": "rowLocation",
+    "target_class": "org.apache.derby.iapi.sql.execute.TargetResultSet"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.execute.RIBulkChecker",
+    "source_method": "failure",
+    "target_class": "org.apache.derby.iapi.store.access.ConglomerateController"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.execute.AlterTableConstantAction",
+    "source_method": "truncateEnd",
+    "target_class": "org.apache.derby.iapi.sql.dictionary.ConglomerateDescriptor"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.execute.AlterTableConstantAction",
+    "source_method": "defragmentRows",
+    "target_class": "org.apache.derby.iapi.store.access.ConglomerateController"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.execute.AlterTableConstantAction",
+    "source_method": "setup_indexes",
+    "target_class": "org.apache.derby.iapi.sql.dictionary.TableDescriptor, int[][], org.apache.derby.iapi.store.access.ScanController[], org.apache.derby.iapi.store.access.ConglomerateController[], org.apache.derby.iapi.types.DataValueDescriptor[][]):void \t org.apache.derby.iapi.sql.dictionary.ConglomerateDescriptor"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.execute.AlterTableConstantAction",
+    "source_method": "fixIndex",
+    "target_class": "org.apache.derby.iapi.types.DataValueDescriptor[], org.apache.derby.iapi.types.RowLocation, org.apache.derby.iapi.types.RowLocation, org.apache.derby.iapi.store.access.ConglomerateController, org.apache.derby.iapi.store.access.ScanController, int[]):void \t org.apache.derby.iapi.store.access.RowUtil"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.execute.AlterTableConstantAction",
+    "source_method": "purgeRows",
+    "target_class": "org.apache.derby.iapi.store.access.TransactionController"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.execute.AlterTableConstantAction",
+    "source_method": "columnDroppedAndTriggerDependencies",
+    "target_class": "boolean, java.lang.String):void \t org.apache.derby.impl.sql.compile.CollectNodesVisitor"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.execute.AlterTableConstantAction",
+    "source_method": "modifyColumnDefault",
+    "target_class": "org.apache.derby.iapi.sql.dictionary.ColumnDescriptor"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.execute.AlterTableConstantAction",
+    "source_method": "compressTable",
+    "target_class": "org.apache.derby.iapi.sql.depend.DependencyManager"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.execute.AlterTableConstantAction",
+    "source_method": "truncateTable",
+    "target_class": "org.apache.derby.iapi.store.access.TransactionController"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.execute.AlterTableConstantAction",
+    "source_method": "updateIndex",
+    "target_class": "org.apache.derby.iapi.sql.dictionary.DataDictionary, int, long[]):void \t org.apache.derby.iapi.store.access.ConglomerateController"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.execute.AlterTableConstantAction",
+    "source_method": "setUpAllSorts",
+    "target_class": "org.apache.derby.iapi.types.RowLocation):void \t org.apache.derby.iapi.sql.execute.ExecRow"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.execute.AlterTableConstantAction",
+    "source_method": "cleanUp",
+    "target_class": "org.apache.derby.iapi.store.access.TransactionController"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.execute.AlterTableConstantAction",
+    "source_method": "updateNewColumnToDefault",
+    "target_class": "org.apache.derby.iapi.sql.dictionary.ColumnDescriptor"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.execute.NoRowsResultSetImpl",
+    "source_method": "evaluateACheckConstraint",
+    "target_class": "java.lang.String, long, org.apache.derby.iapi.sql.Activation):void \t org.apache.derby.iapi.services.loader.GeneratedMethod"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.execute.NoRowsResultSetImpl",
+    "source_method": "evaluateGenerationClauses",
+    "target_class": "org.apache.derby.iapi.sql.Activation, org.apache.derby.iapi.sql.execute.NoPutResultSet, org.apache.derby.iapi.sql.execute.ExecRow, boolean):void \t org.apache.derby.iapi.services.loader.GeneratedMethod"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.execute.NoRowsResultSetImpl",
+    "source_method": "setupGeneratedColumns",
+    "target_class": "org.apache.derby.impl.sql.execute.ValueRow):void \t org.apache.derby.iapi.sql.ResultColumnDescriptor"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.execute.NoRowsResultSetImpl",
+    "source_method": "evaluateCheckConstraints",
+    "target_class": "org.apache.derby.iapi.sql.Activation):void \t org.apache.derby.iapi.services.loader.GeneratedMethod"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.execute.TemporaryRowHolderImpl",
+    "source_method": "isRowAlreadyExist",
+    "target_class": "org.apache.derby.iapi.store.access.ConglomerateController"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.execute.TemporaryRowHolderImpl",
+    "source_method": "insertToPositionIndex",
+    "target_class": "org.apache.derby.iapi.types.RowLocation):void \t org.apache.derby.iapi.store.access.ConglomerateController"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.execute.RenameConstantAction",
+    "source_method": "execGutsRenameIndex",
+    "target_class": "org.apache.derby.iapi.sql.Activation):void \t org.apache.derby.iapi.sql.dictionary.ConglomerateDescriptor"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.execute.SetConstraintsConstantAction",
+    "source_method": "executeConstantAction",
+    "target_class": "org.apache.derby.iapi.sql.dictionary.ConstraintDescriptor"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.execute.SetConstraintsConstantAction",
+    "source_method": "validateFKConstraint",
+    "target_class": "org.apache.derby.iapi.sql.dictionary.DataDictionary, org.apache.derby.iapi.store.access.TransactionController, org.apache.derby.iapi.services.context.ContextManager):void \t org.apache.derby.iapi.sql.dictionary.TableDescriptor"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.execute.SetConstraintsConstantAction",
+    "source_method": "getRowLocation",
+    "target_class": "org.apache.derby.iapi.sql.dictionary.TableDescriptor, org.apache.derby.iapi.store.access.TransactionController):org.apache.derby.iapi.types.RowLocation \t org.apache.derby.iapi.store.access.ConglomerateController"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.execute.NormalizeResultSet",
+    "source_method": "normalizeColumn",
+    "target_class": "org.apache.derby.iapi.sql.execute.ExecRow, int, org.apache.derby.iapi.types.DataValueDescriptor, org.apache.derby.iapi.sql.ResultDescription):org.apache.derby.iapi.types.DataValueDescriptor \t org.apache.derby.iapi.types.DataTypeDescriptor"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.execute.ConstraintConstantAction",
+    "source_method": "validateConstraint",
+    "target_class": "java.lang.String, org.apache.derby.iapi.sql.dictionary.TableDescriptor, org.apache.derby.iapi.sql.conn.LanguageConnectionContext, boolean):boolean \t org.apache.derby.iapi.error.StandardException"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.execute.DDLConstantAction",
+    "source_method": "lockTableForDDL",
+    "target_class": "long, boolean):void \t org.apache.derby.iapi.store.access.ConglomerateController"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.execute.DDLConstantAction",
+    "source_method": "findRoleUsage",
+    "target_class": "org.apache.derby.iapi.sql.dictionary.StatementPermission):org.apache.derby.iapi.sql.dictionary.PermissionsDescriptor \t org.apache.derby.iapi.sql.dictionary.StatementPermission"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.execute.DDLConstantAction",
+    "source_method": "storeViewTriggerDependenciesOnPrivileges",
+    "target_class": "org.apache.derby.iapi.sql.depend.Dependent):void \t org.apache.derby.iapi.sql.dictionary.StatementColumnPermission"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.execute.JarUtil",
+    "source_method": "notifyLoader",
+    "target_class": "org.apache.derby.iapi.services.loader.ClassFactory"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.execute.JarUtil",
+    "source_method": "upgradeJar",
+    "target_class": "org.apache.derby.iapi.sql.dictionary.FileInfoDescriptor):void \t org.apache.derby.iapi.services.io.FileUtil"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.execute.UpdateResultSet",
+    "source_method": "saveLastCusorKey",
+    "target_class": "org.apache.derby.iapi.sql.execute.ExecRow):void \t org.apache.derby.impl.sql.execute.TableScanResultSet"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.execute.UpdateResultSet",
+    "source_method": "fireAfterTriggers",
+    "target_class": "org.apache.derby.impl.sql.execute.TriggerEventActivator"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.execute.IndexChanger",
+    "source_method": "setOurUpdatedIndexRow",
+    "target_class": "org.apache.derby.iapi.types.RowLocation):void \t org.apache.derby.iapi.sql.dictionary.IndexRowGenerator"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.execute.IndexChanger",
+    "source_method": "setScan",
+    "target_class": "org.apache.derby.iapi.store.access.ConglomerateController"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.execute.IndexChanger",
+    "source_method": "closeIndexCC",
+    "target_class": "org.apache.derby.iapi.store.access.ConglomerateController"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.execute.IndexChanger",
+    "source_method": "insertAndCheckDups",
+    "target_class": "org.apache.derby.iapi.store.access.ConglomerateController"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.execute.InsertResultSet",
+    "source_method": "verifyAutoGeneratedColumnsNames",
+    "target_class": "org.apache.derby.iapi.sql.dictionary.ColumnDescriptor"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.execute.InsertResultSet",
+    "source_method": "setUpAllSorts",
+    "target_class": "org.apache.derby.iapi.types.RowLocation):void \t org.apache.derby.iapi.sql.dictionary.ConglomerateDescriptor"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.execute.InsertResultSet",
+    "source_method": "updateAllIndexes",
+    "target_class": "org.apache.derby.impl.sql.execute.InsertConstantAction, org.apache.derby.iapi.sql.dictionary.TableDescriptor, org.apache.derby.iapi.sql.dictionary.DataDictionary, org.apache.derby.iapi.sql.execute.ExecRow):void \t org.apache.derby.iapi.store.access.ConglomerateController"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.execute.RowUtil",
+    "source_method": "copyCloneColumns",
+    "target_class": "org.apache.derby.iapi.sql.execute.ExecRow, int):void \t org.apache.derby.iapi.sql.Row"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.execute.RowUtil",
+    "source_method": "copyRefColumns",
+    "target_class": "int, org.apache.derby.iapi.sql.execute.ExecRow, int, int):void \t org.apache.derby.iapi.sql.Row"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.execute.RowUtil",
+    "source_method": "copyRefColumns",
+    "target_class": "org.apache.derby.iapi.sql.execute.ExecRow, int[]):void \t org.apache.derby.iapi.sql.Row"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.execute.RowUtil",
+    "source_method": "copyRefColumns",
+    "target_class": "org.apache.derby.iapi.sql.execute.ExecRow, org.apache.derby.iapi.services.io.FormatableBitSet):void \t org.apache.derby.iapi.sql.Row"
+  },
+  {
+    "source_class": "org.apache.derby.impl.sql.execute.RowUtil",
+    "source_method": "copyRefColumns",
+    "target_class": "org.apache.derby.iapi.sql.Row"
+  },
+  {
+    "source_class": "org.apache.derby.impl.load.ImportAbstract",
+    "source_method": "destringifyObject",
+    "target_class": "org.apache.derby.iapi.util.StringUtil"
+  },
+  {
+    "source_class": "org.apache.derby.impl.load.ExportAbstract",
+    "source_method": "stringifyObject",
+    "target_class": "org.apache.derby.iapi.util.StringUtil"
+  },
+  {
+    "source_class": "org.apache.derby.impl.load.Import",
+    "source_method": "quoteStringArgument",
+    "target_class": "org.apache.derby.iapi.util.StringUtil"
+  },
+  {
+    "source_class": "org.apache.derby.impl.store.raw.data.AllocPage",
+    "source_method": "createExtent",
+    "target_class": "int, int, int):org.apache.derby.impl.store.raw.data.AllocExtent \t org.apache.derby.impl.store.raw.data.AllocExtent"
+  },
+  {
+    "source_class": "org.apache.derby.impl.store.raw.data.AllocPage",
+    "source_method": "readExtent",
+    "target_class": "org.apache.derby.impl.store.raw.data.AllocExtent"
+  },
+  {
+    "source_class": "org.apache.derby.impl.store.raw.data.RAFContainer",
+    "source_method": "privRemoveFile",
+    "target_class": "org.apache.derby.impl.store.raw.data.BaseDataFileFactory"
+  },
+  {
+    "source_class": "org.apache.derby.impl.store.raw.data.BaseContainer",
+    "source_method": "latchPage",
+    "target_class": "org.apache.derby.impl.store.raw.data.BasePage, boolean):org.apache.derby.impl.store.raw.data.BasePage \t org.apache.derby.impl.store.raw.data.BasePage"
+  },
+  {
+    "source_class": "org.apache.derby.impl.store.raw.data.D_DiagnosticUtil",
+    "source_method": "diag_conglomid",
+    "target_class": "long):java.lang.String \t org.apache.derby.iapi.services.diag.DiagnosticUtil"
+  },
+  {
+    "source_class": "org.apache.derby.impl.store.raw.data.D_DiagnosticUtil",
+    "source_method": "diag_conglomid_to_containerid",
+    "target_class": "long):long \t org.apache.derby.iapi.store.access.AccessFactory"
+  },
+  {
+    "source_class": "org.apache.derby.impl.store.raw.data.BasePage",
+    "source_method": "findRecordById",
+    "target_class": "int):int \t org.apache.derby.iapi.store.raw.RecordHandle"
+  },
+  {
+    "source_class": "org.apache.derby.impl.store.raw.data.BasePage",
+    "source_method": "slotTableToString",
+    "target_class": "org.apache.derby.impl.store.raw.data.StoredRecordHeader"
+  },
+  {
+    "source_class": "org.apache.derby.impl.store.raw.data.CachedPage",
+    "source_method": "readPage",
+    "target_class": "org.apache.derby.iapi.store.raw.PageKey):void \t org.apache.derby.impl.store.raw.data.BaseDataFileFactory"
+  },
+  {
+    "source_class": "org.apache.derby.impl.store.raw.data.FileContainer",
+    "source_method": "writeAtOffset",
+    "target_class": "byte[], long):void \t org.apache.derby.io.StorageRandomAccessFile"
+  },
+  {
+    "source_class": "org.apache.derby.impl.store.raw.data.FileContainer",
+    "source_method": "findLastAllocPage",
+    "target_class": "org.apache.derby.iapi.store.raw.xact.RawTransaction):org.apache.derby.impl.store.raw.data.AllocPage \t org.apache.derby.impl.store.raw.data.AllocPage"
+  },
+  {
+    "source_class": "org.apache.derby.impl.store.raw.data.FileContainer",
+    "source_method": "getLatchedPage",
+    "target_class": "long):org.apache.derby.impl.store.raw.data.BasePage \t org.apache.derby.iapi.services.cache.CacheManager"
+  },
+  {
+    "source_class": "org.apache.derby.impl.store.raw.data.StreamFileContainer",
+    "source_method": "getFileName",
+    "target_class": "boolean, boolean):org.apache.derby.io.StorageFile \t org.apache.derby.impl.store.raw.data.BaseDataFileFactory"
+  },
+  {
+    "source_class": "org.apache.derby.impl.store.raw.data.StoredPage",
+    "source_method": "validateChecksum",
+    "target_class": "org.apache.derby.impl.store.raw.data.BaseDataFileFactory"
+  },
+  {
+    "source_class": "org.apache.derby.impl.store.raw.data.StoredPage",
+    "source_method": "spaceForCopy",
+    "target_class": "int):boolean \t org.apache.derby.impl.store.raw.data.StoredRecordHeader"
+  },
+  {
+    "source_class": "org.apache.derby.impl.store.raw.data.StoredPage",
+    "source_method": "updateRecordPortionLength",
+    "target_class": "int, int):void \t org.apache.derby.iapi.services.io.ArrayOutputStream"
+  },
+  {
+    "source_class": "org.apache.derby.impl.store.raw.data.StoredPage",
+    "source_method": "qualifyRecordFromSlot",
+    "target_class": "int, org.apache.derby.iapi.store.raw.FetchDescriptor, org.apache.derby.impl.store.raw.data.StoredRecordHeader, org.apache.derby.iapi.store.raw.RecordHandle):boolean \t org.apache.derby.iapi.store.raw.FetchDescriptor"
+  },
+  {
+    "source_class": "org.apache.derby.impl.store.raw.data.StoredPage",
+    "source_method": "readRecordFromArray",
+    "target_class": "int, int[], int[], org.apache.derby.iapi.services.io.ArrayInputStream, org.apache.derby.impl.store.raw.data.StoredRecordHeader, org.apache.derby.iapi.store.raw.RecordHandle):boolean \t org.apache.derby.impl.store.raw.data.StoredRecordHeader"
+  },
+  {
+    "source_class": "org.apache.derby.impl.store.raw.data.StoredPage",
+    "source_method": "pagedataToHexDump",
+    "target_class": "org.apache.derby.iapi.util.StringUtil"
+  },
+  {
+    "source_class": "org.apache.derby.impl.store.raw.data.StoredPage",
+    "source_method": "checkRowReservedSpace",
+    "target_class": "org.apache.derby.impl.store.raw.data.StoredRecordHeader"
+  },
+  {
+    "source_class": "org.apache.derby.impl.store.raw.data.ReclaimSpaceHelper",
+    "source_method": "openContainerNW",
+    "target_class": "org.apache.derby.iapi.store.raw.LockingPolicy, org.apache.derby.iapi.store.raw.ContainerKey):org.apache.derby.iapi.store.raw.ContainerHandle \t org.apache.derby.iapi.error.StandardException"
+  },
+  {
+    "source_class": "org.apache.derby.impl.store.raw.log.LogToFile",
+    "source_method": "createLogDirectory",
+    "target_class": "org.apache.derby.iapi.error.StandardException"
+  },
+  {
+    "source_class": "org.apache.derby.impl.store.raw.log.LogToFile",
+    "source_method": "getLogFileAtPosition",
+    "target_class": "org.apache.derby.io.StorageRandomAccessFile"
+  },
+  {
+    "source_class": "org.apache.derby.impl.store.raw.log.LogToFile",
+    "source_method": "logtest_appendPartialLogRecord",
+    "target_class": "int, int, byte[], int, int):long \t org.apache.derby.iapi.error.StandardException"
+  },
+  {
+    "source_class": "org.apache.derby.impl.store.raw.log.LogToFile",
+    "source_method": "backupLogFiles",
+    "target_class": "long):void \t org.apache.derby.iapi.error.StandardException"
+  },
+  {
+    "source_class": "org.apache.derby.impl.store.raw.log.LogToFile",
+    "source_method": "initializeReplicationSlaveRole",
+    "target_class": "org.apache.derby.io.StorageRandomAccessFile"
+  },
+  {
+    "source_class": "org.apache.derby.impl.store.raw.RawStore",
+    "source_method": "getSlaveFactoryModule",
+    "target_class": "org.apache.derby.iapi.store.replication.slave.SlaveFactory"
+  },
+  {
+    "source_class": "org.apache.derby.impl.store.replication.master.MasterController",
+    "source_method": "handleExceptions",
+    "target_class": "org.apache.derby.iapi.store.raw.log.LogFactory"
+  },
+  {
+    "source_class": "org.apache.derby.impl.store.access.btree.BranchControlRow",
+    "source_method": "growRoot",
+    "target_class": "org.apache.derby.iapi.types.DataValueDescriptor[], org.apache.derby.impl.store.access.btree.BranchControlRow):void \t org.apache.derby.impl.store.access.btree.OpenBTree"
+  },
+  {
+    "source_class": "org.apache.derby.impl.store.access.btree.BTreeScan",
+    "source_method": "savePositionAndReleasePage",
+    "target_class": "int[]):void \t org.apache.derby.impl.store.access.btree.BTreeRowPosition"
+  },
+  {
+    "source_class": "org.apache.derby.impl.store.access.btree.LeafControlRow",
+    "source_method": "growRoot",
+    "target_class": "org.apache.derby.iapi.types.DataValueDescriptor[], org.apache.derby.impl.store.access.btree.LeafControlRow):void \t org.apache.derby.impl.store.access.btree.OpenBTree"
+  },
+  {
+    "source_class": "org.apache.derby.impl.store.access.btree.ControlRow",
+    "source_method": "getConglom",
+    "target_class": "org.apache.derby.iapi.store.raw.FetchDescriptor"
+  },
+  {
+    "source_class": "org.apache.derby.impl.store.access.btree.ControlRow",
+    "source_method": "searchForEntry",
+    "target_class": "org.apache.derby.impl.store.access.btree.BTree"
+  },
+  {
+    "source_class": "org.apache.derby.impl.store.access.btree.ControlRow",
+    "source_method": "searchForEntryBackward",
+    "target_class": "org.apache.derby.impl.store.access.btree.BTree"
+  },
+  {
+    "source_class": "org.apache.derby.impl.store.access.btree.ControlRow",
+    "source_method": "compareRowsOnSiblings",
+    "target_class": "org.apache.derby.impl.store.access.btree.ControlRow, org.apache.derby.impl.store.access.btree.ControlRow):boolean \t org.apache.derby.impl.store.access.btree.BTree"
+  },
+  {
+    "source_class": "org.apache.derby.impl.store.access.btree.OpenBTree",
+    "source_method": "getHeight",
+    "target_class": "org.apache.derby.impl.store.access.btree.BTree"
+  },
+  {
+    "source_class": "org.apache.derby.impl.store.access.btree.index.B2IRowLocking3",
+    "source_method": "searchLeftAndLockPreviousKey",
+    "target_class": "org.apache.derby.impl.store.access.btree.LeafControlRow, int, org.apache.derby.iapi.store.raw.FetchDescriptor, org.apache.derby.iapi.types.DataValueDescriptor[], org.apache.derby.iapi.types.RowLocation, org.apache.derby.impl.store.access.btree.OpenBTree, int, int):boolean \t org.apache.derby.impl.store.access.btree.LeafControlRow"
+  },
+  {
+    "source_class": "org.apache.derby.impl.store.access.btree.D_BTreeController",
+    "source_method": "diag_page",
+    "target_class": "org.apache.derby.impl.store.access.btree.ControlRow, java.util.Properties, org.apache.derby.impl.store.access.btree.LevelInfo[]):void \t org.apache.derby.iapi.services.diag.DiagnosticUtil"
+  },
+  {
+    "source_class": "org.apache.derby.impl.store.access.btree.D_BTreeController",
+    "source_method": "diag_level",
+    "target_class": "org.apache.derby.impl.store.access.btree.ControlRow, java.util.Properties, org.apache.derby.impl.store.access.btree.LevelInfo[]):void \t org.apache.derby.impl.store.access.btree.ControlRow"
+  },
+  {
+    "source_class": "org.apache.derby.impl.store.access.btree.BTreePostCommit",
+    "source_method": "purgeRowLevelCommittedDeletes",
+    "target_class": "org.apache.derby.impl.store.access.btree.OpenBTree"
+  },
+  {
+    "source_class": "org.apache.derby.impl.store.access.RAMAccessManager",
+    "source_method": "conglomCacheFind",
+    "target_class": "long):org.apache.derby.iapi.store.access.conglomerate.Conglomerate \t org.apache.derby.iapi.services.cache.CacheManager"
+  },
+  {
+    "source_class": "org.apache.derby.impl.store.access.RAMAccessManager",
+    "source_method": "conglomCacheInvalidate",
+    "target_class": "org.apache.derby.iapi.services.cache.CacheManager"
+  },
+  {
+    "source_class": "org.apache.derby.impl.store.access.RAMAccessManager",
+    "source_method": "addPropertySetNotification",
+    "target_class": "org.apache.derby.iapi.store.access.TransactionController):void \t org.apache.derby.impl.store.access.PropertyConglomerate"
+  },
+  {
+    "source_class": "org.apache.derby.impl.store.access.RAMTransaction",
+    "source_method": "determine_lock_level",
+    "target_class": "org.apache.derby.impl.store.access.RAMAccessManager"
+  },
+  {
+    "source_class": "org.apache.derby.impl.store.access.RAMTransaction",
+    "source_method": "findExistingConglomerate",
+    "target_class": "org.apache.derby.impl.store.access.RAMAccessManager"
+  },
+  {
+    "source_class": "org.apache.derby.impl.store.access.RAMTransaction",
+    "source_method": "findConglomerate",
+    "target_class": "org.apache.derby.impl.store.access.RAMAccessManager"
+  },
+  {
+    "source_class": "org.apache.derby.impl.store.access.RAMTransaction",
+    "source_method": "addColumnToConglomerate",
+    "target_class": "int, org.apache.derby.iapi.services.io.Storable, int):void \t org.apache.derby.iapi.store.access.ConglomerateController"
+  },
+  {
+    "source_class": "org.apache.derby.impl.store.access.RAMTransaction",
+    "source_method": "dropConglomerate",
+    "target_class": "org.apache.derby.iapi.store.access.conglomerate.Conglomerate"
+  },
+  {
+    "source_class": "org.apache.derby.impl.store.access.RAMTransaction",
+    "source_method": "openCompiledConglomerate",
+    "target_class": "int, int, int, org.apache.derby.iapi.store.access.StaticCompiledOpenConglomInfo, org.apache.derby.iapi.store.access.DynamicCompiledOpenConglomInfo):org.apache.derby.iapi.store.access.ConglomerateController \t org.apache.derby.iapi.store.access.StaticCompiledOpenConglomInfo"
+  },
+  {
+    "source_class": "org.apache.derby.impl.store.access.RAMTransaction",
+    "source_method": "defragmentConglomerate",
+    "target_class": "boolean, boolean, int, int, int):org.apache.derby.iapi.store.access.GroupFetchScanController \t org.apache.derby.iapi.store.access.conglomerate.Conglomerate"
+  },
+  {
+    "source_class": "org.apache.derby.impl.store.access.RAMTransaction",
+    "source_method": "openCompiledScan",
+    "target_class": "int, int, int, org.apache.derby.iapi.services.io.FormatableBitSet, org.apache.derby.iapi.types.DataValueDescriptor[], int, org.apache.derby.iapi.store.access.Qualifier[][], org.apache.derby.iapi.types.DataValueDescriptor[], int, org.apache.derby.iapi.store.access.StaticCompiledOpenConglomInfo, org.apache.derby.iapi.store.access.DynamicCompiledOpenConglomInfo):org.apache.derby.iapi.store.access.ScanController \t org.apache.derby.iapi.store.access.StaticCompiledOpenConglomInfo"
+  },
+  {
+    "source_class": "org.apache.derby.impl.store.access.RAMTransaction",
+    "source_method": "openStoreCost",
+    "target_class": "org.apache.derby.iapi.store.access.conglomerate.Conglomerate"
+  },
+  {
+    "source_class": "org.apache.derby.impl.store.access.RAMTransaction",
+    "source_method": "getProperty",
+    "target_class": "org.apache.derby.impl.store.access.RAMAccessManager"
+  },
+  {
+    "source_class": "org.apache.derby.impl.store.access.RAMTransaction",
+    "source_method": "setProperty",
+    "target_class": "java.io.Serializable, boolean):void \t org.apache.derby.impl.store.access.RAMAccessManager"
+  },
+  {
+    "source_class": "org.apache.derby.impl.store.access.RAMTransaction",
+    "source_method": "propertyDefaultIsVisible",
+    "target_class": "org.apache.derby.impl.store.access.RAMAccessManager"
+  },
+  {
+    "source_class": "org.apache.derby.impl.store.access.RAMTransaction",
+    "source_method": "getProperties",
+    "target_class": "org.apache.derby.impl.store.access.RAMAccessManager"
+  },
+  {
+    "source_class": "org.apache.derby.impl.store.access.RAMTransaction",
+    "source_method": "openSortCostController",
+    "target_class": "org.apache.derby.impl.store.access.RAMAccessManager"
+  },
+  {
+    "source_class": "org.apache.derby.impl.store.access.RAMTransaction",
+    "source_method": "abort",
+    "target_class": "org.apache.derby.impl.store.access.RAMAccessManager"
+  },
+  {
+    "source_class": "org.apache.derby.impl.store.access.heap.HeapCompressScan",
+    "source_method": "positionAfterThisPage",
+    "target_class": "org.apache.derby.impl.store.access.conglomerate.RowPosition"
+  },
+  {
+    "source_class": "org.apache.derby.impl.store.access.heap.D_HeapController",
+    "source_method": "diag_page",
+    "target_class": "java.util.Properties, org.apache.derby.impl.store.access.heap.TableStats):void \t org.apache.derby.iapi.services.diag.DiagnosticUtil"
+  },
+  {
+    "source_class": "org.apache.derby.impl.store.access.heap.HeapController",
+    "source_method": "doInsert",
+    "target_class": "org.apache.derby.impl.store.access.conglomerate.OpenConglomerate"
+  },
+  {
+    "source_class": "org.apache.derby.impl.store.access.heap.HeapController",
+    "source_method": "lockRow",
+    "target_class": "int, boolean, int):boolean \t org.apache.derby.impl.store.access.conglomerate.OpenConglomerate"
+  },
+  {
+    "source_class": "org.apache.derby.impl.store.access.heap.HeapController",
+    "source_method": "getUserPageWait",
+    "target_class": "org.apache.derby.impl.store.access.conglomerate.OpenConglomerate"
+  },
+  {
+    "source_class": "org.apache.derby.impl.store.access.heap.HeapController",
+    "source_method": "removePage",
+    "target_class": "org.apache.derby.impl.store.access.conglomerate.OpenConglomerate"
+  },
+  {
+    "source_class": "org.apache.derby.impl.store.access.conglomerate.TemplateRow",
+    "source_method": "checkColumnTypes",
+    "target_class": "int[], int[], org.apache.derby.iapi.types.DataValueDescriptor[]):boolean \t org.apache.derby.iapi.services.io.ArrayUtil"
+  },
+  {
+    "source_class": "org.apache.derby.impl.store.access.conglomerate.GenericScanController",
+    "source_method": "repositionScanForUpateOper",
+    "target_class": "org.apache.derby.impl.store.access.conglomerate.OpenConglomerate"
+  },
+  {
+    "source_class": "org.apache.derby.impl.store.access.conglomerate.GenericScanController",
+    "source_method": "positionAtInitScan",
+    "target_class": "int, org.apache.derby.iapi.store.access.Qualifier[][], org.apache.derby.iapi.types.DataValueDescriptor[], int, org.apache.derby.impl.store.access.conglomerate.RowPosition):void \t org.apache.derby.impl.store.access.conglomerate.OpenConglomerate"
+  },
+  {
+    "source_class": "org.apache.derby.impl.store.access.conglomerate.GenericScanController",
+    "source_method": "positionAtStartForForwardScan",
+    "target_class": "org.apache.derby.impl.store.access.conglomerate.OpenConglomerate"
+  },
+  {
+    "source_class": "org.apache.derby.impl.store.access.conglomerate.GenericScanController",
+    "source_method": "positionAtNextPage",
+    "target_class": "org.apache.derby.impl.store.access.conglomerate.OpenConglomerate"
+  },
+  {
+    "source_class": "org.apache.derby.impl.store.access.conglomerate.GenericScanController",
+    "source_method": "positionAtDoneScan",
+    "target_class": "org.apache.derby.impl.store.access.conglomerate.OpenConglomerate"
+  },
+  {
+    "source_class": "org.apache.derby.impl.store.access.conglomerate.GenericScanController",
+    "source_method": "reopenAfterEndTransaction",
+    "target_class": "org.apache.derby.impl.store.access.conglomerate.OpenConglomerate"
+  },
+  {
+    "source_class": "org.apache.derby.impl.store.access.conglomerate.GenericScanController",
+    "source_method": "replace",
+    "target_class": "org.apache.derby.iapi.services.io.FormatableBitSet):boolean \t org.apache.derby.impl.store.access.conglomerate.OpenConglomerate"
+  },
+  {
+    "source_class": "org.apache.derby.impl.store.access.conglomerate.GenericScanController",
+    "source_method": "doesCurrentPositionQualify",
+    "target_class": "org.apache.derby.impl.store.access.conglomerate.OpenConglomerate"
+  },
+  {
+    "source_class": "org.apache.derby.impl.store.access.conglomerate.GenericScanController",
+    "source_method": "fetch",
+    "target_class": "boolean):void \t org.apache.derby.impl.store.access.conglomerate.OpenConglomerate"
+  },
+  {
+    "source_class": "org.apache.derby.impl.store.access.conglomerate.GenericScanController",
+    "source_method": "isCurrentPositionDeleted",
+    "target_class": "org.apache.derby.impl.store.access.conglomerate.RowPosition"
+  },
+  {
+    "source_class": "org.apache.derby.impl.store.access.conglomerate.ConglomerateUtil",
+    "source_method": "createUserRawStorePropertySet",
+    "target_class": "org.apache.derby.iapi.store.raw.RawStoreFactory"
+  },
+  {
+    "source_class": "org.apache.derby.impl.store.access.conglomerate.ConglomerateUtil",
+    "source_method": "readFormatIdArray",
+    "target_class": "java.io.ObjectInput):int[] \t org.apache.derby.iapi.services.io.FormatIdUtil"
+  },
+  {
+    "source_class": "org.apache.derby.impl.store.access.conglomerate.ConglomerateUtil",
+    "source_method": "writeFormatIdArray",
+    "target_class": "java.io.ObjectOutput):void \t org.apache.derby.iapi.services.io.FormatIdUtil"
+  },
+  {
+    "source_class": "org.apache.derby.impl.store.access.conglomerate.ConglomerateUtil",
+    "source_method": "debugPage",
+    "target_class": "int, boolean, org.apache.derby.iapi.types.DataValueDescriptor[]):java.lang.String \t org.apache.derby.iapi.store.access.RowUtil"
+  },
+  {
+    "source_class": "org.apache.derby.impl.store.access.conglomerate.OpenConglomerate",
+    "source_method": "latchPageAndRepositionScan",
+    "target_class": "org.apache.derby.impl.store.access.conglomerate.RowPosition"
+  },
+  {
+    "source_class": "org.apache.derby.impl.store.access.conglomerate.OpenConglomerate",
+    "source_method": "debugConglomerate",
+    "target_class": "org.apache.derby.impl.store.access.conglomerate.OpenConglomerateScratchSpace"
+  },
+  {
+    "source_class": "org.apache.derby.impl.store.access.conglomerate.OpenConglomerate",
+    "source_method": "init",
+    "target_class": "org.apache.derby.iapi.store.access.conglomerate.Conglomerate, int[], int[], org.apache.derby.iapi.store.access.conglomerate.TransactionManager, org.apache.derby.iapi.store.raw.Transaction, boolean, int, int, org.apache.derby.iapi.store.raw.LockingPolicy, org.apache.derby.iapi.store.access.DynamicCompiledOpenConglomInfo):org.apache.derby.iapi.store.raw.ContainerHandle \t org.apache.derby.iapi.store.access.conglomerate.Conglomerate"
+  },
+  {
+    "source_class": "org.apache.derby.impl.store.access.conglomerate.OpenConglomerate",
+    "source_method": "reopen",
+    "target_class": "org.apache.derby.iapi.store.access.conglomerate.Conglomerate"
+  },
+  {
+    "source_class": "org.apache.derby.impl.store.access.conglomerate.GenericController",
+    "source_method": "getEstimatedRowCount",
+    "target_class": "org.apache.derby.impl.store.access.conglomerate.OpenConglomerate"
+  },
+  {
+    "source_class": "org.apache.derby.impl.services.bytecode.CodeChunk",
+    "source_method": "splitCodeIntoSubMethod",
+    "target_class": "org.apache.derby.iapi.services.classfile.ClassHolder, org.apache.derby.impl.services.bytecode.BCMethod, int, int):int \t org.apache.derby.impl.services.bytecode.BCClass"
+  },
+  {
+    "source_class": "org.apache.derby.impl.services.bytecode.BCMethod",
+    "source_method": "growStack",
+    "target_class": "org.apache.derby.impl.services.bytecode.Type):void \t org.apache.derby.impl.services.bytecode.Type"
+  },
+  {
+    "source_class": "org.apache.derby.impl.services.bytecode.BCMethod",
+    "source_method": "popStack",
+    "target_class": "org.apache.derby.impl.services.bytecode.Type"
+  },
+  {
+    "source_class": "org.apache.derby.impl.services.bytecode.BCMethod",
+    "source_method": "callSubMethod",
+    "target_class": "org.apache.derby.iapi.services.classfile.ClassHolder"
+  },
+  {
+    "source_class": "org.apache.derby.impl.services.reflect.DatabaseClasses",
+    "source_method": "WriteClassFile",
+    "target_class": "org.apache.derby.iapi.util.ByteArray, java.lang.Throwable):void \t org.apache.derby.iapi.services.io.FileUtil"
+  },
+  {
+    "source_class": "org.apache.derby.impl.services.reflect.DatabaseClasses",
+    "source_method": "buildSpecificFactory",
+    "target_class": "java.lang.String):org.apache.derby.iapi.util.ByteArray \t org.apache.derby.iapi.services.compiler.ClassBuilder"
+  },
+  {
+    "source_class": "org.apache.derby.impl.services.monitor.BaseMonitor",
+    "source_method": "report",
+    "target_class": "org.apache.derby.iapi.services.stream.InfoStreams"
+  },
+  {
+    "source_class": "org.apache.derby.impl.services.monitor.BaseMonitor",
+    "source_method": "reportException",
+    "target_class": "org.apache.derby.iapi.services.stream.InfoStreams"
+  },
+  {
+    "source_class": "org.apache.derby.impl.services.monitor.TopService",
+    "source_method": "isPotentialService",
+    "target_class": "org.apache.derby.impl.services.monitor.ProtocolKey"
+  },
+  {
+    "source_class": "org.apache.derby.impl.services.monitor.StorageFactoryService",
+    "source_method": "resolveServicePropertiesFiles",
+    "target_class": "org.apache.derby.io.StorageFile):void \t org.apache.derby.impl.services.monitor.StorageFactoryService.FileOperationHelper"
+  },
+  {
+    "source_class": "org.apache.derby.impl.services.cache.ClockPolicy",
+    "source_method": "rotateClock",
+    "target_class": "boolean):org.apache.derby.impl.services.cache.ClockPolicy.Holder \t org.apache.derby.impl.services.cache.BackgroundCleaner"
+  },
+  {
+    "source_class": "org.apache.derby.impl.services.daemon.IndexStatisticsDaemonImpl",
+    "source_method": "writeUpdatedStats",
+    "target_class": "org.apache.derby.iapi.sql.dictionary.TableDescriptor, org.apache.derby.catalog.UUID, long, long[], boolean):void \t org.apache.derby.iapi.sql.dictionary.ConglomerateDescriptor"
+  },
+  {
+    "source_class": "org.apache.derby.impl.db.BasicDatabase",
+    "source_method": "getAllDatabaseProperties",
+    "target_class": "org.apache.derby.iapi.store.access.TransactionController"
+  },
+  {
+    "source_class": "org.apache.derby.catalog.types.TypeDescriptorImpl",
+    "source_method": "isStringType",
+    "target_class": "org.apache.derby.catalog.types.BaseTypeIdImpl"
+  },
+  {
+    "source_class": "org.apache.derby.catalog.types.TypeDescriptorImpl",
+    "source_method": "writeExternal",
+    "target_class": "org.apache.derby.catalog.types.BaseTypeIdImpl"
+  },
+  {
+    "source_class": "org.apache.derby.catalog.SystemProcedures",
+    "source_method": "getDefaultConn",
+    "target_class": "org.apache.derby.impl.jdbc.Util"
+  },
+  {
+    "source_class": "org.apache.derby.catalog.SystemProcedures",
+    "source_method": "SYSCS_GET_DATABASE_PROPERTY",
+    "target_class": "org.apache.derby.iapi.sql.conn.ConnectionUtil"
+  },
+  {
+    "source_class": "org.apache.derby.catalog.SystemProcedures",
+    "source_method": "SYSCS_UPDATE_STATISTICS",
+    "target_class": "java.lang.String, java.lang.String):void \t org.apache.derby.iapi.util.IdUtil"
+  },
+  {
+    "source_class": "org.apache.derby.catalog.SystemProcedures",
+    "source_method": "SYSCS_DROP_STATISTICS",
+    "target_class": "java.lang.String, java.lang.String):void \t org.apache.derby.iapi.util.IdUtil"
+  },
+  {
+    "source_class": "org.apache.derby.catalog.SystemProcedures",
+    "source_method": "SYSCS_COMPRESS_TABLE",
+    "target_class": "java.lang.String, short):void \t org.apache.derby.iapi.util.IdUtil"
+  },
+  {
+    "source_class": "org.apache.derby.catalog.SystemProcedures",
+    "source_method": "SYSCS_FREEZE_DATABASE",
+    "target_class": "org.apache.derby.database.Database"
+  },
+  {
+    "source_class": "org.apache.derby.catalog.SystemProcedures",
+    "source_method": "SYSCS_UNFREEZE_DATABASE",
+    "target_class": "org.apache.derby.database.Database"
+  },
+  {
+    "source_class": "org.apache.derby.catalog.SystemProcedures",
+    "source_method": "SYSCS_CHECKPOINT_DATABASE",
+    "target_class": "org.apache.derby.database.Database"
+  },
+  {
+    "source_class": "org.apache.derby.catalog.SystemProcedures",
+    "source_method": "SYSCS_BACKUP_DATABASE",
+    "target_class": "org.apache.derby.database.Database"
+  },
+  {
+    "source_class": "org.apache.derby.catalog.SystemProcedures",
+    "source_method": "SYSCS_BACKUP_DATABASE_NOWAIT",
+    "target_class": "org.apache.derby.database.Database"
+  },
+  {
+    "source_class": "org.apache.derby.catalog.SystemProcedures",
+    "source_method": "SYSCS_BACKUP_DATABASE_AND_ENABLE_LOG_ARCHIVE_MODE",
+    "target_class": "short):void \t org.apache.derby.database.Database"
+  },
+  {
+    "source_class": "org.apache.derby.catalog.SystemProcedures",
+    "source_method": "SYSCS_BACKUP_DATABASE_AND_ENABLE_LOG_ARCHIVE_MODE_NOWAIT",
+    "target_class": "short):void \t org.apache.derby.database.Database"
+  },
+  {
+    "source_class": "org.apache.derby.catalog.SystemProcedures",
+    "source_method": "SYSCS_DISABLE_LOG_ARCHIVE_MODE",
+    "target_class": "org.apache.derby.database.Database"
+  },
+  {
+    "source_class": "org.apache.derby.catalog.SystemProcedures",
+    "source_method": "SYSCS_SET_RUNTIMESTATISTICS",
+    "target_class": "org.apache.derby.iapi.sql.conn.ConnectionUtil"
+  },
+  {
+    "source_class": "org.apache.derby.catalog.SystemProcedures",
+    "source_method": "SYSCS_SET_STATISTICS_TIMING",
+    "target_class": "org.apache.derby.iapi.sql.conn.ConnectionUtil"
+  },
+  {
+    "source_class": "org.apache.derby.catalog.SystemProcedures",
+    "source_method": "SYSCS_INPLACE_COMPRESS_TABLE",
+    "target_class": "java.lang.String, short, short, short):void \t org.apache.derby.iapi.sql.conn.ConnectionUtil"
+  },
+  {
+    "source_class": "org.apache.derby.catalog.SystemProcedures",
+    "source_method": "SYSCS_GET_RUNTIMESTATISTICS",
+    "target_class": "org.apache.derby.iapi.sql.conn.ConnectionUtil"
+  },
+  {
+    "source_class": "org.apache.derby.catalog.SystemProcedures",
+    "source_method": "INSTALL_JAR",
+    "target_class": "java.lang.String, int):void \t org.apache.derby.iapi.sql.conn.ConnectionUtil"
+  },
+  {
+    "source_class": "org.apache.derby.catalog.SystemProcedures",
+    "source_method": "REPLACE_JAR",
+    "target_class": "java.lang.String):void \t org.apache.derby.iapi.sql.conn.ConnectionUtil"
+  },
+  {
+    "source_class": "org.apache.derby.catalog.SystemProcedures",
+    "source_method": "REMOVE_JAR",
+    "target_class": "int):void \t org.apache.derby.iapi.sql.conn.ConnectionUtil"
+  },
+  {
+    "source_class": "org.apache.derby.catalog.SystemProcedures",
+    "source_method": "checkJarSQLName",
+    "target_class": "org.apache.derby.iapi.error.StandardException"
+  },
+  {
+    "source_class": "org.apache.derby.catalog.SystemProcedures",
+    "source_method": "SYSCS_BULK_INSERT",
+    "target_class": "java.lang.String, java.lang.String, java.lang.String):void \t org.apache.derby.iapi.util.StringUtil"
+  },
+  {
+    "source_class": "org.apache.derby.catalog.SystemProcedures",
+    "source_method": "SYSCS_RELOAD_SECURITY_POLICY",
+    "target_class": "org.apache.derby.impl.jdbc.Util"
+  },
+  {
+    "source_class": "org.apache.derby.catalog.SystemProcedures",
+    "source_method": "SYSCS_SET_USER_ACCESS",
+    "target_class": "java.lang.String):void \t org.apache.derby.iapi.util.IdUtil"
+  },
+  {
+    "source_class": "org.apache.derby.catalog.SystemProcedures",
+    "source_method": "SYSCS_GET_USER_ACCESS",
+    "target_class": "org.apache.derby.iapi.util.StringUtil"
+  },
+  {
+    "source_class": "org.apache.derby.catalog.SystemProcedures",
+    "source_method": "SYSCS_EMPTY_STATEMENT_CACHE",
+    "target_class": "org.apache.derby.iapi.sql.conn.ConnectionUtil"
+  },
+  {
+    "source_class": "org.apache.derby.catalog.SystemProcedures",
+    "source_method": "SYSCS_SET_XPLAIN_MODE",
+    "target_class": "org.apache.derby.iapi.sql.conn.ConnectionUtil"
+  },
+  {
+    "source_class": "org.apache.derby.catalog.SystemProcedures",
+    "source_method": "SYSCS_GET_XPLAIN_MODE",
+    "target_class": "org.apache.derby.iapi.sql.conn.ConnectionUtil"
+  },
+  {
+    "source_class": "org.apache.derby.catalog.SystemProcedures",
+    "source_method": "SYSCS_SET_XPLAIN_SCHEMA",
+    "target_class": "org.apache.derby.iapi.sql.conn.ConnectionUtil"
+  },
+  {
+    "source_class": "org.apache.derby.catalog.SystemProcedures",
+    "source_method": "SYSCS_GET_XPLAIN_SCHEMA",
+    "target_class": "org.apache.derby.iapi.sql.conn.ConnectionUtil"
+  },
+  {
+    "source_class": "org.apache.derby.catalog.SystemProcedures",
+    "source_method": "SYSCS_CREATE_USER",
+    "target_class": "java.lang.String):void \t org.apache.derby.iapi.sql.conn.ConnectionUtil"
+  },
+  {
+    "source_class": "org.apache.derby.catalog.SystemProcedures",
+    "source_method": "addUser",
+    "target_class": "java.lang.String, org.apache.derby.iapi.store.access.TransactionController):void \t org.apache.derby.iapi.sql.conn.ConnectionUtil"
+  },
+  {
+    "source_class": "org.apache.derby.catalog.SystemProcedures",
+    "source_method": "resetAuthorizationIDPassword",
+    "target_class": "java.lang.String):void \t org.apache.derby.iapi.sql.conn.ConnectionUtil"
+  },
+  {
+    "source_class": "org.apache.derby.catalog.SystemProcedures",
+    "source_method": "SYSCS_MODIFY_PASSWORD",
+    "target_class": "org.apache.derby.iapi.sql.conn.ConnectionUtil"
+  },
+  {
+    "source_class": "org.apache.derby.catalog.SystemProcedures",
+    "source_method": "SYSCS_DROP_USER",
+    "target_class": "org.apache.derby.iapi.sql.conn.ConnectionUtil"
+  },
+  {
+    "source_class": "org.apache.derby.catalog.SystemProcedures",
+    "source_method": "checkLegalUser",
+    "target_class": "java.lang.String):void \t org.apache.derby.iapi.error.StandardException"
+  },
+  {
+    "source_class": "org.apache.derby.catalog.SystemProcedures",
+    "source_method": "normalizeUserName",
+    "target_class": "org.apache.derby.iapi.util.IdUtil"
+  },
+  {
+    "source_class": "org.apache.derby.catalog.SystemProcedures",
+    "source_method": "SYSCS_PEEK_AT_SEQUENCE",
+    "target_class": "java.lang.String):java.lang.Long \t org.apache.derby.iapi.sql.conn.ConnectionUtil"
+  },
+  {
+    "source_class": "org.apache.derby.iapi.types.Like",
+    "source_method": "stripEscapesNoPatternChars",
+    "target_class": "char):java.lang.String \t org.apache.derby.iapi.error.StandardException"
+  },
+  {
+    "source_class": "org.apache.derby.iapi.types.DataTypeUtilities",
+    "source_method": "getPrecision",
+    "target_class": "org.apache.derby.iapi.types.DataTypeDescriptor"
+  },
+  {
+    "source_class": "org.apache.derby.iapi.types.DataTypeUtilities",
+    "source_method": "getDigitPrecision",
+    "target_class": "org.apache.derby.iapi.types.DataTypeDescriptor"
+  },
+  {
+    "source_class": "org.apache.derby.iapi.types.DataTypeUtilities",
+    "source_method": "isCurrency",
+    "target_class": "org.apache.derby.iapi.types.TypeId"
+  },
+  {
+    "source_class": "org.apache.derby.iapi.types.DataTypeUtilities",
+    "source_method": "isCaseSensitive",
+    "target_class": "org.apache.derby.iapi.types.DataTypeDescriptor"
+  },
+  {
+    "source_class": "org.apache.derby.iapi.types.DataTypeUtilities",
+    "source_method": "isNullable",
+    "target_class": "org.apache.derby.iapi.types.DataTypeDescriptor"
+  },
+  {
+    "source_class": "org.apache.derby.iapi.types.DataTypeUtilities",
+    "source_method": "isSigned",
+    "target_class": "org.apache.derby.iapi.types.TypeId"
+  },
+  {
+    "source_class": "org.apache.derby.iapi.types.DataTypeUtilities",
+    "source_method": "getColumnDisplaySize",
+    "target_class": "org.apache.derby.iapi.types.DataTypeDescriptor"
+  },
+  {
+    "source_class": "org.apache.derby.iapi.types.DataTypeDescriptor",
+    "source_method": "getCollationName",
+    "target_class": "org.apache.derby.iapi.types.StringDataValue"
+  },
+  {
+    "source_class": "org.apache.derby.iapi.types.ReaderToUTF8Stream",
+    "source_method": "fillBuffer",
+    "target_class": "org.apache.derby.iapi.types.StreamHeaderGenerator"
+  },
+  {
+    "source_class": "org.apache.derby.iapi.types.SQLTime",
+    "source_method": "parseTime",
+    "target_class": "boolean, org.apache.derby.iapi.services.i18n.LocaleFinder, java.util.Calendar):void \t org.apache.derby.iapi.types.DateTimeParser"
+  },
+  {
+    "source_class": "org.apache.derby.iapi.security.SecurityUtil",
+    "source_method": "getAuthorizationId",
+    "target_class": "org.apache.derby.iapi.util.IdUtil"
+  },
+  {
+    "source_class": "org.apache.derby.iapi.sql.dictionary.ConglomerateDescriptorList",
+    "source_method": "getConglomerateDescriptor",
+    "target_class": "org.apache.derby.iapi.sql.dictionary.ConglomerateDescriptor"
+  },
+  {
+    "source_class": "org.apache.derby.iapi.sql.dictionary.ConglomerateDescriptorList",
+    "source_method": "getConglomerateDescriptors",
+    "target_class": "org.apache.derby.iapi.sql.dictionary.ConglomerateDescriptor"
+  },
+  {
+    "source_class": "org.apache.derby.iapi.sql.dictionary.ConglomerateDescriptorList",
+    "source_method": "getConglomerateDescriptor",
+    "target_class": "org.apache.derby.iapi.sql.dictionary.ConglomerateDescriptor"
+  },
+  {
+    "source_class": "org.apache.derby.iapi.sql.dictionary.TableDescriptor",
+    "source_method": "getColumnCollationIds",
+    "target_class": "org.apache.derby.iapi.sql.dictionary.ColumnDescriptor"
+  },
+  {
+    "source_class": "org.apache.derby.iapi.sql.dictionary.SPSDescriptor",
+    "source_method": "getQualifiedName",
+    "target_class": "org.apache.derby.iapi.sql.dictionary.SchemaDescriptor"
+  },
+  {
+    "source_class": "org.apache.derby.iapi.sql.dictionary.IndexRowGenerator",
+    "source_method": "getNullIndexRow",
+    "target_class": "org.apache.derby.iapi.types.RowLocation):org.apache.derby.iapi.sql.execute.ExecIndexRow \t org.apache.derby.iapi.types.DataTypeDescriptor"
+  },
+  {
+    "source_class": "org.apache.derby.iapi.sql.dictionary.ConstraintDescriptor",
+    "source_method": "areColumnsComparable",
+    "target_class": "org.apache.derby.iapi.sql.dictionary.ColumnDescriptor"
+  },
+  {
+    "source_class": "org.apache.derby.iapi.sql.dictionary.DDUtils",
+    "source_method": "getColumnDescriptors",
+    "target_class": "org.apache.derby.iapi.sql.dictionary.TableDescriptor, java.lang.String[]):org.apache.derby.iapi.sql.dictionary.ColumnDescriptorList \t org.apache.derby.iapi.sql.dictionary.TableDescriptor"
+  },
+  {
+    "source_class": "org.apache.derby.iapi.sql.dictionary.DDUtils",
+    "source_method": "checkForAnyExistingDeleteConnectionViolations",
+    "target_class": "org.apache.derby.iapi.sql.dictionary.TableDescriptor, int, java.util.Hashtable, java.lang.String):void \t org.apache.derby.iapi.sql.dictionary.ReferencedKeyConstraintDescriptor"
+  },
+  {
+    "source_class": "org.apache.derby.iapi.store.access.RowUtil",
+    "source_method": "getNumberOfColumns",
+    "target_class": "org.apache.derby.iapi.services.io.FormatableBitSet):int \t org.apache.derby.shared.common.sanity.SanityManager"
+  },
+  {
+    "source_class": "org.apache.derby.iapi.store.access.RowUtil",
+    "source_method": "qualifyRow",
+    "target_class": "org.apache.derby.iapi.store.access.Qualifier[][]):boolean \t org.apache.derby.iapi.store.access.Qualifier"
+  },
+  {
+    "source_class": "org.apache.derby.iapi.services.io.CompressedNumber",
+    "source_method": "readInt",
+    "target_class": "org.apache.derby.iapi.services.io.InputStreamUtil"
+  },
+  {
+    "source_class": "org.apache.derby.iapi.services.io.CompressedNumber",
+    "source_method": "readLong",
+    "target_class": "org.apache.derby.iapi.services.io.InputStreamUtil"
+  },
+  {
+    "source_class": "org.apache.derby.iapi.services.diag.DiagnosticUtil",
+    "source_method": "findDiagnostic",
+    "target_class": "org.apache.derby.iapi.services.diag.Diagnosticable"
+  },
+  {
+    "source_class": "org.apache.derby.iapi.services.monitor.Monitor",
+    "source_method": "exceptionStartingModule",
+    "target_class": "org.apache.derby.iapi.error.StandardException"
+  },
+  {
+    "source_class": "org.apache.derby.iapi.services.property.PropertyUtil",
+    "source_method": "propertiesContainsBuiltinUser",
+    "target_class": "java.lang.String):boolean \t org.apache.derby.iapi.util.StringUtil"
+  },
+  {
+    "source_class": "org.apache.derby.iapi.services.context.ContextService",
+    "source_method": "resetCurrentContextManager",
+    "target_class": "org.apache.derby.iapi.services.context.ContextManager"
+  },
+  {
+    "source_class": "org.apache.derby.iapi.services.context.ContextService",
+    "source_method": "setCurrentContextManager",
+    "target_class": "org.apache.derby.iapi.services.context.ContextManager"
+  },
+  {
+    "source_class": "org.apache.derby.iapi.services.context.ContextManager",
+    "source_method": "cleanupOnError",
+    "target_class": "boolean):boolean \t org.apache.derby.iapi.services.context.ContextImpl"
+  },
+  {
+    "source_class": "org.apache.derby.iapi.services.context.ContextManager",
+    "source_method": "reportError",
+    "target_class": "org.apache.derby.iapi.error.StandardException"
+  },
+  {
+    "source_class": "org.apache.derby.iapi.util.UTF8Util",
+    "source_method": "internalSkip",
+    "target_class": "long):org.apache.derby.iapi.util.UTF8Util.SkipCount \t org.apache.derby.iapi.services.io.InputStreamUtil"
+  },
+  {
+    "source_class": "org.apache.derby.iapi.util.IdUtil",
+    "source_method": "normalToDelimited",
+    "target_class": "org.apache.derby.iapi.util.StringUtil"
+  },
+  {
+    "source_class": "org.apache.derby.iapi.util.IdUtil",
+    "source_method": "parseRoleId",
+    "target_class": "org.apache.derby.iapi.util.StringUtil"
+  },
+  {
+    "source_class": "org.apache.derby.iapi.db.OptimizerTrace",
+    "source_method": "setOptimizerTraceHtml",
+    "target_class": "org.apache.derby.iapi.sql.conn.ConnectionUtil"
+  },
+  {
+    "source_class": "org.apache.derby.iapi.db.OptimizerTrace",
+    "source_method": "getOptimizerTraceOutput",
+    "target_class": "org.apache.derby.iapi.sql.conn.ConnectionUtil"
+  },
+  {
+    "source_class": "org.apache.derby.iapi.db.ConsistencyChecker",
+    "source_method": "checkTable",
+    "target_class": "java.lang.String):boolean \t org.apache.derby.iapi.sql.conn.ConnectionUtil"
+  },
+  {
+    "source_class": "org.apache.derby.iapi.db.Factory",
+    "source_method": "getDatabaseOfConnection",
+    "target_class": "org.apache.derby.iapi.sql.conn.ConnectionUtil"
+  },
+  {
+    "source_class": "org.apache.derby.iapi.db.Factory",
+    "source_method": "getTriggerExecutionContext",
+    "target_class": "org.apache.derby.iapi.sql.conn.ConnectionUtil"
+  },
+  {
+    "source_class": "org.apache.derby.iapi.db.PropertyInfo",
+    "source_method": "setDatabaseProperty",
+    "target_class": "java.lang.String):void \t org.apache.derby.iapi.sql.conn.ConnectionUtil"
+  },
+  {
+    "source_class": "org.apache.derby.iapi.db.PropertyInfo",
+    "source_method": "getConglomerateProperties",
+    "target_class": "java.lang.String, boolean):java.util.Properties \t org.apache.derby.iapi.sql.conn.ConnectionUtil"
+  },
+  {
+    "source_class": "org.apache.derby.iapi.db.ConnectionInfo",
+    "source_method": "lastAutoincrementValue",
+    "target_class": "java.lang.String, java.lang.String):java.lang.Long \t org.apache.derby.iapi.sql.conn.ConnectionUtil"
+  },
+  {
+    "source_class": "org.apache.derby.iapi.db.ConnectionInfo",
+    "source_method": "nextAutoincrementValue",
+    "target_class": "java.lang.String, java.lang.String):long \t org.apache.derby.iapi.sql.conn.ConnectionUtil"
+  }
+]

@@ -1,0 +1,652 @@
+[
+  {
+    "source_class": "edu.rice.cs.drjava.model.javadoc.DefaultJavadocModel",
+    "source_method": "_attemptSaveAllDocuments",
+    "target_class": "edu.rice.cs.drjava.model.GlobalModel"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.model.DefaultGlobalModel",
+    "source_method": "coarsenVersion",
+    "target_class": "edu.rice.cs.drjava.DrJava"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.model.JDKToolsLibrary",
+    "source_method": "isValid",
+    "target_class": "edu.rice.cs.drjava.model.javadoc.JavadocModel"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.model.BrowserHistoryManager",
+    "source_method": "addBrowserRegionBefore",
+    "target_class": "edu.rice.cs.drjava.model.GlobalEventNotifier):void \t edu.rice.cs.drjava.model.BrowserDocumentRegion"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.model.AbstractGlobalModel",
+    "source_method": "_toggleBookmark",
+    "target_class": "int):void \t edu.rice.cs.drjava.model.RegionManager"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.model.AbstractGlobalModel",
+    "source_method": "saveAllFilesHelper",
+    "target_class": "edu.rice.cs.drjava.model.OpenDefinitionsDocument"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.model.AbstractGlobalModel",
+    "source_method": "_makeProjectProfile",
+    "target_class": "java.util.HashMap<edu.rice.cs.drjava.model.OpenDefinitionsDocument,edu.rice.cs.drjava.project.DocumentInfoGetter>):edu.rice.cs.drjava.project.ProjectProfile \t edu.rice.cs.drjava.project.ProjectProfile"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.model.AbstractGlobalModel",
+    "source_method": "saveProject",
+    "target_class": "java.util.HashMap<edu.rice.cs.drjava.model.OpenDefinitionsDocument,edu.rice.cs.drjava.project.DocumentInfoGetter>):void \t edu.rice.cs.drjava.project.ProjectProfile"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.model.AbstractGlobalModel",
+    "source_method": "exportOldProject",
+    "target_class": "java.util.HashMap<edu.rice.cs.drjava.model.OpenDefinitionsDocument,edu.rice.cs.drjava.project.DocumentInfoGetter>):void \t edu.rice.cs.drjava.project.ProjectProfile"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.model.AbstractGlobalModel",
+    "source_method": "closeAllFiles",
+    "target_class": "edu.rice.cs.drjava.model.GlobalEventNotifier"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.model.AbstractGlobalModel",
+    "source_method": "closeFileWithoutPrompt",
+    "target_class": "edu.rice.cs.drjava.model.ConcreteRegionManager"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.model.AbstractGlobalModel",
+    "source_method": "getPrevDocHelper",
+    "target_class": "edu.rice.cs.drjava.model.OpenDefinitionsDocument"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.model.AbstractGlobalModel",
+    "source_method": "_docAppend",
+    "target_class": "java.lang.String, java.lang.String):void \t edu.rice.cs.util.text.ConsoleDocument"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.model.AbstractGlobalModel",
+    "source_method": "systemOutPrint",
+    "target_class": "edu.rice.cs.util.text.ConsoleDocument"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.model.AbstractGlobalModel",
+    "source_method": "systemErrPrint",
+    "target_class": "edu.rice.cs.util.text.ConsoleDocument"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.model.AbstractGlobalModel",
+    "source_method": "systemInEcho",
+    "target_class": "edu.rice.cs.util.text.ConsoleDocument"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.model.AbstractGlobalModel",
+    "source_method": "addToBrowserHistory",
+    "target_class": "edu.rice.cs.drjava.model.OpenDefinitionsDocument"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.model.AbstractGlobalModel",
+    "source_method": "getNonProjectDocuments",
+    "target_class": "edu.rice.cs.drjava.model.OpenDefinitionsDocument"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.model.definitions.reducedmodel.ReducedModelBrace",
+    "source_method": "balanceForward",
+    "target_class": "edu.rice.cs.drjava.model.definitions.reducedmodel.TokenList.Iterator"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.model.definitions.reducedmodel.ReducedModelBrace",
+    "source_method": "balanceBackward",
+    "target_class": "edu.rice.cs.drjava.model.definitions.reducedmodel.TokenList.Iterator"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.model.definitions.reducedmodel.ReducedModelBrace",
+    "source_method": "_getLineEnclosingBrace",
+    "target_class": "edu.rice.cs.drjava.model.definitions.reducedmodel.ReducedToken"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.model.definitions.reducedmodel.ReducedModelBrace",
+    "source_method": "_getEnclosingBrace",
+    "target_class": "edu.rice.cs.drjava.model.definitions.reducedmodel.ReducedToken"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.model.definitions.reducedmodel.AbstractReducedModel",
+    "source_method": "simpleString",
+    "target_class": "edu.rice.cs.drjava.model.definitions.reducedmodel.TokenList"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.model.definitions.reducedmodel.ReducedModelComment",
+    "source_method": "insertQuote",
+    "target_class": "edu.rice.cs.drjava.model.definitions.reducedmodel.TokenList.Iterator"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.model.definitions.reducedmodel.ReducedModelComment",
+    "source_method": "move",
+    "target_class": "edu.rice.cs.drjava.model.definitions.reducedmodel.TokenList.Iterator"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.model.definitions.reducedmodel.ReducedModelComment",
+    "source_method": "_getDistToStart",
+    "target_class": "edu.rice.cs.drjava.model.definitions.reducedmodel.TokenList.Iterator"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.model.debug.jpda.PendingRequestManager",
+    "source_method": "addPendingRequest",
+    "target_class": "edu.rice.cs.drjava.model.debug.jpda.JPDADebugger"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.model.debug.jpda.PendingRequestManager",
+    "source_method": "LLDDALineNum",
+    "target_class": "edu.rice.cs.drjava.model.debug.jpda.JPDADebugger"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.model.debug.jpda.JPDADebugger",
+    "source_method": "notifyBreakpointChange",
+    "target_class": "edu.rice.cs.drjava.model.GlobalModel"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.model.debug.jpda.JPDADebugger",
+    "source_method": "preloadDocument",
+    "target_class": "edu.rice.cs.drjava.model.GlobalModel"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.model.debug.jpda.JPDADebugger",
+    "source_method": "printMessage",
+    "target_class": "edu.rice.cs.drjava.model.GlobalModel"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.model.debug.jpda.JPDADebugger",
+    "source_method": "_switchToSuspendedThread",
+    "target_class": "boolean):void \t edu.rice.cs.drjava.model.debug.jpda.JPDABreakpoint"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.model.debug.jpda.JPDADebugger",
+    "source_method": "_removeAllDebugInterpreters",
+    "target_class": "edu.rice.cs.drjava.model.debug.jpda.JPDADebugger.RandomAccessStack"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.model.debug.jpda.JPDADebugger",
+    "source_method": "getLLSTM",
+    "target_class": "edu.rice.cs.drjava.model.GlobalModel"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.model.AbstractDJDocument",
+    "source_method": "_addCharToReducedModel",
+    "target_class": "edu.rice.cs.drjava.model.definitions.reducedmodel.ReducedModelControl"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.model.AbstractDJDocument",
+    "source_method": "notInBlock",
+    "target_class": "edu.rice.cs.drjava.model.definitions.reducedmodel.ReducedModelControl"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.model.compiler.DefaultCompilerModel",
+    "source_method": "_prepareForCompile",
+    "target_class": "edu.rice.cs.drjava.model.compiler.CompilerEventNotifier"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.model.compiler.LanguageLevelStackTraceMapper",
+    "source_method": "matches",
+    "target_class": "java.lang.StackTraceElement):boolean \t edu.rice.cs.drjava.model.GlobalModel"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.model.compiler.CompilerErrorModel",
+    "source_method": "_calculatePositions",
+    "target_class": "edu.rice.cs.drjava.model.GlobalModel"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.model.junit.ConcJUnitUtils",
+    "source_method": "showIncompatibleWantToRegenerateDialog",
+    "target_class": "java.lang.Runnable, java.lang.Runnable):boolean \t edu.rice.cs.drjava.config.OptionConstants.ConcJUnitCheckChoices"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.model.junit.ConcJUnitUtils",
+    "source_method": "showGenerateRTConcJUnitJarFileDialog",
+    "target_class": "java.io.File, java.io.File, edu.rice.cs.drjava.model.junit.Runnable1<java.io.File>, java.lang.Runnable):void \t edu.rice.cs.util.swing.SwingWorker"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.model.junit.DefaultJUnitModel",
+    "source_method": "_notifyCompileBeforeJUnit",
+    "target_class": "java.util.List<edu.rice.cs.drjava.model.OpenDefinitionsDocument>):void \t edu.rice.cs.drjava.model.junit.JUnitEventNotifier"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.config.OptionMapLoader",
+    "source_method": "loadInto",
+    "target_class": "edu.rice.cs.drjava.config.DefaultOptionMap"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.config.OptionConstants.DefaultFont",
+    "source_method": "getDefaultMainFont",
+    "target_class": "edu.rice.cs.drjava.platform.PlatformFactory"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.config.OptionConstants.DefaultFont",
+    "source_method": "getDefaultDocListFont",
+    "target_class": "edu.rice.cs.drjava.platform.PlatformFactory"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.config.OptionConstants.LookAndFeels",
+    "source_method": "getDefaultLookAndFeel",
+    "target_class": "edu.rice.cs.drjava.platform.PlatformSupport"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.config.OptionConstants.LookAndFeels",
+    "source_method": "getLookAndFeels",
+    "target_class": "edu.rice.cs.drjava.platform.PlatformFactory"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.config.ConfigOptionListeners",
+    "source_method": "sanitizeJavadocCustomParams",
+    "target_class": "java.lang.String):void \t edu.rice.cs.drjava.DrJava"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.project.ProjectFileParser",
+    "source_method": "parseBookmark",
+    "target_class": "java.lang.String):edu.rice.cs.drjava.model.FileRegion \t edu.rice.cs.util.sexp.SExp"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.project.ProjectProfile",
+    "source_method": "encodeBookmarkRelative",
+    "target_class": "java.lang.String):java.lang.String \t edu.rice.cs.drjava.model.FileRegion"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.ui.BreakpointsPanel",
+    "source_method": "enableDisableBreakpoint",
+    "target_class": "edu.rice.cs.drjava.model.RegionManager"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.ui.AboutDialog",
+    "source_method": "createCopyrightTab",
+    "target_class": "edu.rice.cs.drjava.config.Configuration"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.ui.ExecuteExternalDialog",
+    "source_method": "saveToFile",
+    "target_class": "java.io.File):void \t edu.rice.cs.util.XMLConfig"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.ui.predictive.PredictiveInputModel",
+    "source_method": "getSharedMaskExtension",
+    "target_class": "edu.rice.cs.drjava.ui.predictive.PredictiveInputModel.MatchingStrategy"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.ui.predictive.PredictiveInputFrame",
+    "source_method": "updateTextField",
+    "target_class": "edu.rice.cs.drjava.ui.predictive.PredictiveInputModel"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.ui.predictive.PredictiveInputFrame",
+    "source_method": "updateExtensionLabel",
+    "target_class": "edu.rice.cs.drjava.ui.predictive.PredictiveInputModel"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.ui.predictive.PredictiveInputFrame",
+    "source_method": "updateList",
+    "target_class": "edu.rice.cs.drjava.ui.predictive.PredictiveInputModel"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.ui.FindResultsPanel",
+    "source_method": "_findAgain",
+    "target_class": "edu.rice.cs.drjava.ui.FindReplacePanel"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.ui.FindResultsPanel",
+    "source_method": "_bookmark",
+    "target_class": "edu.rice.cs.drjava.model.RegionManager"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.ui.FindReplacePanel",
+    "source_method": "_findAll",
+    "target_class": "edu.rice.cs.drjava.ui.DefinitionsPane"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.ui.FindReplacePanel",
+    "source_method": "findAll",
+    "target_class": "boolean, boolean, boolean, boolean, boolean, boolean, edu.rice.cs.drjava.model.OpenDefinitionsDocument, edu.rice.cs.drjava.model.RegionManager<edu.rice.cs.drjava.model.MovingDocumentRegion>, edu.rice.cs.drjava.model.MovingDocumentRegion, edu.rice.cs.drjava.ui.FindResultsPanel):void \t edu.rice.cs.drjava.model.RegionManager"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.ui.FindReplacePanel",
+    "source_method": "_replaceAll",
+    "target_class": "edu.rice.cs.drjava.model.SingleDisplayModel"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.ui.PreviewFrame",
+    "source_method": "showPage",
+    "target_class": "edu.rice.cs.drjava.ui.PreviewFrame.PagePreview"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.ui.config.ConfigFrame",
+    "source_method": "addOptionComponent",
+    "target_class": "edu.rice.cs.drjava.ui.config.OptionComponent<X,C>):void \t edu.rice.cs.drjava.ui.config.ConfigPanel"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.ui.config.ConfigFrame",
+    "source_method": "_setupPositionsPanel",
+    "target_class": "edu.rice.cs.drjava.ui.config.ConfigPanel"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.ui.config.ConfigFrame",
+    "source_method": "_setupKeyBindingsPanel",
+    "target_class": "edu.rice.cs.drjava.ui.config.ConfigPanel"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.ui.config.ConfigFrame",
+    "source_method": "_setupDebugPanel",
+    "target_class": "edu.rice.cs.drjava.ui.config.VectorFileOptionComponent"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.ui.config.ConfigFrame",
+    "source_method": "_setupNotificationsPanel",
+    "target_class": "edu.rice.cs.drjava.ui.config.ConfigPanel"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.ui.config.ConfigFrame",
+    "source_method": "_setupMiscPanel",
+    "target_class": "edu.rice.cs.drjava.ui.config.ConfigPanel"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.ui.config.ConfigFrame",
+    "source_method": "_setupJVMsPanel",
+    "target_class": "edu.rice.cs.drjava.ui.config.ConfigPanel"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.ui.RegionsTreePanel",
+    "source_method": "closeIfEmpty",
+    "target_class": "edu.rice.cs.drjava.model.RegionManager"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.ui.MainFrameStatics",
+    "source_method": "proposeToChangeExtension",
+    "target_class": "java.io.File, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String):java.io.File \t edu.rice.cs.drjava.model.DrJavaFileUtils"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.ui.MainFrameStatics",
+    "source_method": "showError",
+    "target_class": "java.lang.Throwable, java.lang.String, java.lang.String):void \t edu.rice.cs.util.StringOps"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.ui.MainFrame",
+    "source_method": "_newJavaClass",
+    "target_class": "edu.rice.cs.drjava.ui.NewJavaClassDialog"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.ui.MainFrame",
+    "source_method": "_gotoFileUnderCursor",
+    "target_class": "edu.rice.cs.drjava.ui.DefinitionsPane"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.ui.MainFrame",
+    "source_method": "_openJavadocUnderCursor",
+    "target_class": "edu.rice.cs.drjava.ui.DefinitionsPane"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.ui.MainFrame",
+    "source_method": "setAutomaticTraceMenuItemStatus",
+    "target_class": "edu.rice.cs.drjava.model.AbstractGlobalModel"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.ui.MainFrame",
+    "source_method": "toggleBookmark",
+    "target_class": "edu.rice.cs.drjava.model.AbstractGlobalModel"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.ui.MainFrame",
+    "source_method": "addToBrowserHistoryBefore",
+    "target_class": "edu.rice.cs.drjava.model.AbstractGlobalModel"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.ui.MainFrame",
+    "source_method": "disableFindAgainOnClose",
+    "target_class": "edu.rice.cs.drjava.ui.FindResultsPanel"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.ui.MainFrame",
+    "source_method": "_getBeginLinePos",
+    "target_class": "edu.rice.cs.drjava.model.AbstractGlobalModel"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.ui.MainFrame",
+    "source_method": "getSaveFile",
+    "target_class": "edu.rice.cs.drjava.model.OpenDefinitionsDocument"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.ui.MainFrame",
+    "source_method": "_installNewDocumentListener",
+    "target_class": "edu.rice.cs.drjava.ui.DebugPanel"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.ui.MainFrame",
+    "source_method": "_moveToAuxiliary",
+    "target_class": "edu.rice.cs.drjava.model.AbstractGlobalModel"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.ui.MainFrame",
+    "source_method": "_moveAllToAuxiliary",
+    "target_class": "edu.rice.cs.drjava.model.AbstractGlobalModel"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.ui.MainFrame",
+    "source_method": "_removeAllAuxiliary",
+    "target_class": "edu.rice.cs.drjava.model.AbstractGlobalModel"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.ui.MainFrame",
+    "source_method": "_putTextIntoDefinitions",
+    "target_class": "edu.rice.cs.drjava.model.AbstractGlobalModel"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.ui.MainFrame",
+    "source_method": "openFolder",
+    "target_class": "edu.rice.cs.drjava.model.OpenDefinitionsDocument"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.ui.MainFrame",
+    "source_method": "gatherProjectDocInfo",
+    "target_class": "edu.rice.cs.drjava.model.AbstractGlobalModel"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.ui.MainFrame",
+    "source_method": "_makeInfoGetter",
+    "target_class": "edu.rice.cs.drjava.model.OpenDefinitionsDocument"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.ui.MainFrame",
+    "source_method": "_scanClassFiles",
+    "target_class": "edu.rice.cs.drjava.model.AbstractGlobalModel"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.ui.MainFrame",
+    "source_method": "_junitProject",
+    "target_class": "edu.rice.cs.drjava.model.AbstractGlobalModel"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.ui.MainFrame",
+    "source_method": "_junitAll",
+    "target_class": "edu.rice.cs.drjava.model.AbstractGlobalModel"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.ui.MainFrame",
+    "source_method": "debuggerResume",
+    "target_class": "edu.rice.cs.drjava.model.AbstractGlobalModel"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.ui.MainFrame",
+    "source_method": "debuggerAutomaticTrace",
+    "target_class": "edu.rice.cs.drjava.model.AbstractGlobalModel"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.ui.MainFrame",
+    "source_method": "debuggerClearAllBreakpoints",
+    "target_class": "edu.rice.cs.drjava.model.AbstractGlobalModel"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.ui.MainFrame",
+    "source_method": "_showFileMovedError",
+    "target_class": "edu.rice.cs.drjava.model.AbstractGlobalModel"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.ui.MainFrame",
+    "source_method": "_jumpToLine",
+    "target_class": "edu.rice.cs.drjava.ui.DefinitionsPane"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.ui.MainFrame",
+    "source_method": "_removeErrorListener",
+    "target_class": "edu.rice.cs.drjava.ui.DefinitionsPane"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.ui.MainFrame",
+    "source_method": "_setUpGUIComponentAvailability",
+    "target_class": "edu.rice.cs.drjava.model.AbstractGlobalModel"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.ui.MainFrame",
+    "source_method": "_setUpActions",
+    "target_class": "edu.rice.cs.drjava.model.AbstractGlobalModel"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.ui.MainFrame",
+    "source_method": "addMenuBarInOtherFrame",
+    "target_class": "edu.rice.cs.drjava.ui.RecentFileManager"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.ui.MainFrame",
+    "source_method": "removeMenuBarInOtherFrame",
+    "target_class": "edu.rice.cs.drjava.ui.RecentFileManager"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.ui.MainFrame",
+    "source_method": "_setUpToolsMenu",
+    "target_class": "boolean):javax.swing.JMenu \t edu.rice.cs.drjava.ui.ExecuteExternalDialog"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.ui.MainFrame",
+    "source_method": "_setThreadDependentDebugMenuItems",
+    "target_class": "edu.rice.cs.drjava.ui.DebugPanel"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.ui.MainFrame",
+    "source_method": "start",
+    "target_class": "edu.rice.cs.drjava.model.AbstractGlobalModel"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.ui.MainFrame",
+    "source_method": "_refreshDefScrollPane",
+    "target_class": "edu.rice.cs.drjava.model.OpenDefinitionsDocument"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.ui.MainFrame",
+    "source_method": "resetUndo",
+    "target_class": "edu.rice.cs.drjava.ui.DefinitionsPane"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.ui.MainFrame",
+    "source_method": "_reenableScrollBar",
+    "target_class": "edu.rice.cs.drjava.model.AbstractGlobalModel"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.ui.MainFrame",
+    "source_method": "_setCurrentDirectory",
+    "target_class": "edu.rice.cs.drjava.model.OpenDefinitionsDocument"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.ui.MainFrame",
+    "source_method": "commentLines",
+    "target_class": "edu.rice.cs.drjava.ui.DefinitionsPane"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.ui.MainFrame",
+    "source_method": "uncommentLines",
+    "target_class": "edu.rice.cs.drjava.model.OpenDefinitionsDocument"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.ui.MainFrame",
+    "source_method": "goToRegionAndHighlight",
+    "target_class": "edu.rice.cs.drjava.ui.DefinitionsPane"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.ui.MainFrame",
+    "source_method": "isProjectActiveAndMainClassSet",
+    "target_class": "edu.rice.cs.drjava.model.AbstractGlobalModel"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.ui.MainFrame",
+    "source_method": "isProjectActiveAndBuildDirSet",
+    "target_class": "edu.rice.cs.drjava.model.AbstractGlobalModel"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.ui.MainFrame",
+    "source_method": "getDefViewport",
+    "target_class": "edu.rice.cs.drjava.model.AbstractGlobalModel"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.ui.MainFrame",
+    "source_method": "isDebuggerReady",
+    "target_class": "edu.rice.cs.drjava.model.AbstractGlobalModel"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.ui.MainFrame",
+    "source_method": "_setUpKeyBindingMaps",
+    "target_class": "edu.rice.cs.drjava.ui.KeyBindingManager"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.ui.MainFrame",
+    "source_method": "openExtProcessFile",
+    "target_class": "edu.rice.cs.drjava.ui.ExecuteExternalDialog"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.ui.MainFrame",
+    "source_method": "openExtProcessJarFile",
+    "target_class": "edu.rice.cs.drjava.ui.ExecuteExternalDialog"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.ui.MainFrame",
+    "source_method": "_showAutoImportDialog",
+    "target_class": "edu.rice.cs.drjava.model.OpenDefinitionsDocument"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.ui.MainFrame",
+    "source_method": "initExecuteExternalProcessDialog",
+    "target_class": "edu.rice.cs.drjava.ui.ExecuteExternalDialog"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.ui.MainFrame",
+    "source_method": "initEditExternalProcessDialog",
+    "target_class": "edu.rice.cs.drjava.ui.EditExternalDialog"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.ui.DrJavaErrorHandler",
+    "source_method": "record",
+    "target_class": "edu.rice.cs.util.swing.Utilities"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.ui.DrJavaErrorWindow",
+    "source_method": "getSystemAndDrJavaInfo",
+    "target_class": "edu.rice.cs.drjava.model.JDKToolsLibrary"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.ui.JarOptionsDialog",
+    "source_method": "_loadSettings",
+    "target_class": "edu.rice.cs.drjava.model.GlobalModel"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.ui.JarOptionsDialog",
+    "source_method": "_toggleMainClass",
+    "target_class": "edu.rice.cs.util.swing.FileSelectorStringComponent"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.DrJava",
+    "source_method": "openWithRemoteControl",
+    "target_class": "int):boolean \t edu.rice.cs.drjava.RemoteControlClient"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.DrJava",
+    "source_method": "configureAndLoadDrJavaRoot",
+    "target_class": "edu.rice.cs.drjava.DrJavaRoot"
+  },
+  {
+    "source_class": "edu.rice.cs.drjava.DrJava",
+    "source_method": "setPropertiesFile",
+    "target_class": "edu.rice.cs.drjava.model.DrJavaFileUtils"
+  }
+]

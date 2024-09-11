@@ -1,0 +1,352 @@
+[
+  {
+    "source_class": "org.jfree.chart.ChartFactory",
+    "source_method": "createBarChart3D",
+    "target_class": "java.lang.String, java.lang.String, org.jfree.data.category.CategoryDataset, org.jfree.chart.plot.PlotOrientation, boolean, boolean, boolean):org.jfree.chart.JFreeChart \t org.jfree.chart.renderer.category.AbstractCategoryItemRenderer"
+  },
+  {
+    "source_class": "org.jfree.chart.ChartFactory",
+    "source_method": "createLineChart3D",
+    "target_class": "java.lang.String, java.lang.String, org.jfree.data.category.CategoryDataset, org.jfree.chart.plot.PlotOrientation, boolean, boolean, boolean):org.jfree.chart.JFreeChart \t org.jfree.chart.renderer.category.AbstractCategoryItemRenderer"
+  },
+  {
+    "source_class": "org.jfree.chart.ChartFactory",
+    "source_method": "createBoxAndWhiskerChart",
+    "target_class": "java.lang.String, java.lang.String, org.jfree.data.statistics.BoxAndWhiskerCategoryDataset, boolean):org.jfree.chart.JFreeChart \t org.jfree.chart.renderer.category.AbstractCategoryItemRenderer"
+  },
+  {
+    "source_class": "org.jfree.chart.ChartFactory",
+    "source_method": "createWindPlot",
+    "target_class": "java.lang.String, java.lang.String, org.jfree.data.xy.WindDataset, boolean, boolean, boolean):org.jfree.chart.JFreeChart \t org.jfree.chart.renderer.xy.AbstractXYItemRenderer"
+  },
+  {
+    "source_class": "org.jfree.chart.ChartUtilities",
+    "source_method": "writeChartAsPNG",
+    "target_class": "org.jfree.chart.JFreeChart, int, int, org.jfree.chart.ChartRenderingInfo):void \t org.jfree.chart.encoders.EncoderUtil"
+  },
+  {
+    "source_class": "org.jfree.chart.ChartUtilities",
+    "source_method": "writeChartAsJPEG",
+    "target_class": "org.jfree.chart.JFreeChart, int, int, org.jfree.chart.ChartRenderingInfo):void \t org.jfree.chart.encoders.EncoderUtil"
+  },
+  {
+    "source_class": "org.jfree.chart.ChartUtilities",
+    "source_method": "writeChartAsJPEG",
+    "target_class": "float, org.jfree.chart.JFreeChart, int, int, org.jfree.chart.ChartRenderingInfo):void \t org.jfree.chart.encoders.EncoderUtil"
+  },
+  {
+    "source_class": "org.jfree.chart.ChartUtilities",
+    "source_method": "writeBufferedImageAsJPEG",
+    "target_class": "float, java.awt.image.BufferedImage):void \t org.jfree.chart.encoders.EncoderUtil"
+  },
+  {
+    "source_class": "org.jfree.chart.ChartUtilities",
+    "source_method": "writeBufferedImageAsPNG",
+    "target_class": "java.awt.image.BufferedImage):void \t org.jfree.chart.encoders.EncoderUtil"
+  },
+  {
+    "source_class": "org.jfree.chart.ChartUtilities",
+    "source_method": "writeBufferedImageAsPNG",
+    "target_class": "java.awt.image.BufferedImage, boolean, int):void \t org.jfree.chart.encoders.EncoderUtil"
+  },
+  {
+    "source_class": "org.jfree.chart.ChartUtilities",
+    "source_method": "encodeAsPNG",
+    "target_class": "org.jfree.chart.encoders.EncoderUtil"
+  },
+  {
+    "source_class": "org.jfree.chart.ChartUtilities",
+    "source_method": "encodeAsPNG",
+    "target_class": "boolean, int):byte[] \t org.jfree.chart.encoders.EncoderUtil"
+  },
+  {
+    "source_class": "org.jfree.chart.renderer.RendererUtilities",
+    "source_method": "findLiveItemsLowerBound",
+    "target_class": "int, double, double):int \t org.jfree.data.DomainOrder"
+  },
+  {
+    "source_class": "org.jfree.chart.renderer.RendererUtilities",
+    "source_method": "findLiveItemsUpperBound",
+    "target_class": "int, double, double):int \t org.jfree.data.DomainOrder"
+  },
+  {
+    "source_class": "org.jfree.chart.renderer.xy.XYDifferenceRenderer",
+    "source_method": "createPolygon",
+    "target_class": "java.awt.geom.Rectangle2D, org.jfree.chart.plot.XYPlot, org.jfree.chart.axis.ValueAxis, org.jfree.chart.axis.ValueAxis, boolean, java.util.LinkedList, java.util.LinkedList):void \t org.jfree.chart.axis.ValueAxis"
+  },
+  {
+    "source_class": "org.jfree.chart.renderer.category.StackedBarRenderer3D",
+    "source_method": "createStackedValueList",
+    "target_class": "java.lang.Comparable, int[], double, boolean):java.util.List \t org.jfree.data.DataUtilities"
+  },
+  {
+    "source_class": "org.jfree.chart.StandardChartTheme",
+    "source_method": "applyToSpiderWebPlot",
+    "target_class": "org.jfree.chart.plot.SpiderWebPlot"
+  },
+  {
+    "source_class": "org.jfree.chart.StandardChartTheme",
+    "source_method": "applyToCategoryAxis",
+    "target_class": "org.jfree.chart.axis.SubCategoryAxis"
+  },
+  {
+    "source_class": "org.jfree.chart.StandardChartTheme",
+    "source_method": "applyToXYItemRenderer",
+    "target_class": "org.jfree.chart.renderer.xy.XYBarRenderer"
+  },
+  {
+    "source_class": "org.jfree.chart.block.FlowArrangement",
+    "source_method": "arrangeFN",
+    "target_class": "java.awt.Graphics2D, org.jfree.chart.block.RectangleConstraint):org.jfree.chart.block.Size2D \t org.jfree.chart.block.Block"
+  },
+  {
+    "source_class": "org.jfree.chart.demo.TimeSeriesChartDemo1",
+    "source_method": "createDataset",
+    "target_class": "org.jfree.data.time.TimeSeriesCollection"
+  },
+  {
+    "source_class": "org.jfree.chart.JFreeChart",
+    "source_method": "drawTitle",
+    "target_class": "java.awt.Graphics2D, java.awt.geom.Rectangle2D, boolean):org.jfree.chart.entity.EntityCollection \t org.jfree.chart.block.EntityBlockResult"
+  },
+  {
+    "source_class": "org.jfree.chart.editor.PaletteChooserPanel",
+    "source_method": "getSelectedPalette",
+    "target_class": "org.jfree.chart.editor.PaletteSample"
+  },
+  {
+    "source_class": "org.jfree.chart.servlet.ServletUtilities",
+    "source_method": "registerChartForDeletion",
+    "target_class": "org.jfree.chart.servlet.HttpSession):void \t org.jfree.chart.servlet.ChartDeleter"
+  },
+  {
+    "source_class": "org.jfree.data.general.DatasetUtilities",
+    "source_method": "createPieDatasetForRow",
+    "target_class": "int):org.jfree.data.general.PieDataset \t org.jfree.data.Values2D"
+  },
+  {
+    "source_class": "org.jfree.data.general.DatasetUtilities",
+    "source_method": "createPieDatasetForColumn",
+    "target_class": "int):org.jfree.data.general.PieDataset \t org.jfree.data.Values2D"
+  },
+  {
+    "source_class": "org.jfree.data.general.DatasetUtilities",
+    "source_method": "isEmptyOrNull",
+    "target_class": "org.jfree.data.Values2D"
+  },
+  {
+    "source_class": "org.jfree.data.general.DatasetUtilities",
+    "source_method": "findDomainBounds",
+    "target_class": "java.util.List, boolean):org.jfree.data.Range \t org.jfree.data.xy.XYDomainInfo"
+  },
+  {
+    "source_class": "org.jfree.data.general.DatasetUtilities",
+    "source_method": "findRangeBounds",
+    "target_class": "java.util.List, boolean):org.jfree.data.Range \t org.jfree.data.category.CategoryRangeInfo"
+  },
+  {
+    "source_class": "org.jfree.data.general.DatasetUtilities",
+    "source_method": "iterateRangeBounds",
+    "target_class": "boolean):org.jfree.data.Range \t org.jfree.data.Values2D"
+  },
+  {
+    "source_class": "org.jfree.data.general.DatasetUtilities",
+    "source_method": "iterateToFindRangeBounds",
+    "target_class": "java.util.List, boolean):org.jfree.data.Range \t org.jfree.data.Values2D"
+  },
+  {
+    "source_class": "org.jfree.data.general.DatasetUtilities",
+    "source_method": "iterateRangeBounds",
+    "target_class": "boolean):org.jfree.data.Range \t org.jfree.data.general.SeriesDataset"
+  },
+  {
+    "source_class": "org.jfree.data.general.DatasetUtilities",
+    "source_method": "iterateToFindDomainBounds",
+    "target_class": "java.util.List, boolean):org.jfree.data.Range \t org.jfree.data.general.SeriesDataset"
+  },
+  {
+    "source_class": "org.jfree.data.general.DatasetUtilities",
+    "source_method": "iterateToFindRangeBounds",
+    "target_class": "java.util.List, org.jfree.data.Range, boolean):org.jfree.data.Range \t org.jfree.data.Range"
+  },
+  {
+    "source_class": "org.jfree.data.general.DatasetUtilities",
+    "source_method": "findMinimumDomainValue",
+    "target_class": "org.jfree.data.general.SeriesDataset"
+  },
+  {
+    "source_class": "org.jfree.data.general.DatasetUtilities",
+    "source_method": "findMaximumDomainValue",
+    "target_class": "org.jfree.data.general.SeriesDataset"
+  },
+  {
+    "source_class": "org.jfree.data.general.DatasetUtilities",
+    "source_method": "findMinimumRangeValue",
+    "target_class": "org.jfree.data.RangeInfo"
+  },
+  {
+    "source_class": "org.jfree.data.general.DatasetUtilities",
+    "source_method": "findMinimumRangeValue",
+    "target_class": "org.jfree.data.general.SeriesDataset"
+  },
+  {
+    "source_class": "org.jfree.data.general.DatasetUtilities",
+    "source_method": "findMaximumRangeValue",
+    "target_class": "org.jfree.data.RangeInfo"
+  },
+  {
+    "source_class": "org.jfree.data.general.DatasetUtilities",
+    "source_method": "findMaximumRangeValue",
+    "target_class": "org.jfree.data.general.SeriesDataset"
+  },
+  {
+    "source_class": "org.jfree.data.general.DatasetUtilities",
+    "source_method": "findStackedRangeBounds",
+    "target_class": "org.jfree.data.KeyToGroupMap):org.jfree.data.Range \t org.jfree.data.Range"
+  },
+  {
+    "source_class": "org.jfree.data.general.DatasetUtilities",
+    "source_method": "findStackedRangeBounds",
+    "target_class": "double):org.jfree.data.Range \t org.jfree.data.general.SeriesDataset"
+  },
+  {
+    "source_class": "org.jfree.data.DefaultKeyedValues2D",
+    "source_method": "removeValue",
+    "target_class": "java.lang.Comparable):void \t org.jfree.data.DefaultKeyedValues"
+  },
+  {
+    "source_class": "org.jfree.data.DefaultKeyedValues2D",
+    "source_method": "removeColumn",
+    "target_class": "org.jfree.data.DefaultKeyedValues"
+  },
+  {
+    "source_class": "org.jfree.data.DataUtilities",
+    "source_method": "calculateColumnTotal",
+    "target_class": "int):double \t org.jfree.data.Values2D"
+  },
+  {
+    "source_class": "org.jfree.data.DataUtilities",
+    "source_method": "calculateColumnTotal",
+    "target_class": "int, int[]):double \t org.jfree.data.Values2D"
+  },
+  {
+    "source_class": "org.jfree.data.DataUtilities",
+    "source_method": "calculateRowTotal",
+    "target_class": "int):double \t org.jfree.data.Values2D"
+  },
+  {
+    "source_class": "org.jfree.data.DataUtilities",
+    "source_method": "calculateRowTotal",
+    "target_class": "int, int[]):double \t org.jfree.data.Values2D"
+  },
+  {
+    "source_class": "org.jfree.data.DataUtilities",
+    "source_method": "getCumulativePercentages",
+    "target_class": "org.jfree.data.KeyedValues"
+  },
+  {
+    "source_class": "org.jfree.data.time.TimePeriodValuesCollection",
+    "source_method": "getX",
+    "target_class": "org.jfree.data.time.TimePeriodAnchor"
+  },
+  {
+    "source_class": "org.jfree.data.time.TimePeriodValuesCollection",
+    "source_method": "getY",
+    "target_class": "int):java.lang.Number \t org.jfree.data.time.TimePeriodValues"
+  },
+  {
+    "source_class": "org.jfree.experimental.chart.swt.demo.SWTMultipleAxisDemo1",
+    "source_method": "createDataset",
+    "target_class": "double, org.jfree.data.time.RegularTimePeriod, int):org.jfree.data.xy.XYDataset \t org.jfree.data.time.TimeSeriesCollection"
+  },
+  {
+    "source_class": "org.jfree.experimental.chart.swt.demo.SWTTimeSeriesDemo",
+    "source_method": "createDataset",
+    "target_class": "org.jfree.data.time.TimeSeriesCollection"
+  },
+  {
+    "source_class": "org.jfree.experimental.chart.swt.demo.SWTBarChartDemo1",
+    "source_method": "createChart",
+    "target_class": "org.jfree.chart.renderer.category.BarRenderer"
+  },
+  {
+    "source_class": "org.jfree.experimental.chart.swt.editor.SWTPlotEditor",
+    "source_method": "getOutlineStroke",
+    "target_class": "org.jfree.experimental.chart.swt.editor.SWTPlotAppearanceEditor"
+  },
+  {
+    "source_class": "org.jfree.experimental.chart.demo.CombinedXYPlotDemo1",
+    "source_method": "createCombinedChart",
+    "target_class": "org.jfree.chart.renderer.xy.XYBarRenderer"
+  },
+  {
+    "source_class": "org.jfree.chart.plot.junit.CombinedRangeXYPlotTests",
+    "source_method": "createDataset1",
+    "target_class": "org.jfree.data.xy.XYSeriesCollection"
+  },
+  {
+    "source_class": "org.jfree.chart.plot.junit.CombinedDomainXYPlotTests",
+    "source_method": "createDataset1",
+    "target_class": "org.jfree.data.xy.XYSeriesCollection"
+  },
+  {
+    "source_class": "org.jfree.chart.junit.GanttChartTests",
+    "source_method": "createDataset",
+    "target_class": "org.jfree.data.gantt.TaskSeriesCollection"
+  },
+  {
+    "source_class": "org.jfree.chart.junit.LineChartTests",
+    "source_method": "createLineChart",
+    "target_class": "org.jfree.data.general.DatasetUtilities"
+  },
+  {
+    "source_class": "org.jfree.chart.junit.BarChart3DTests",
+    "source_method": "createBarChart3D",
+    "target_class": "org.jfree.data.general.DatasetUtilities"
+  },
+  {
+    "source_class": "org.jfree.chart.junit.StackedBarChart3DTests",
+    "source_method": "createChart",
+    "target_class": "org.jfree.data.general.DatasetUtilities"
+  },
+  {
+    "source_class": "org.jfree.chart.junit.StackedBarChartTests",
+    "source_method": "createChart",
+    "target_class": "org.jfree.chart.ChartFactory"
+  },
+  {
+    "source_class": "org.jfree.chart.junit.LineChart3DTests",
+    "source_method": "createLineChart3D",
+    "target_class": "org.jfree.data.general.DatasetUtilities"
+  },
+  {
+    "source_class": "org.jfree.chart.renderer.xy.junit.RendererXYPackageTests",
+    "source_method": "createTestXYSeriesCollection",
+    "target_class": "org.jfree.data.xy.XYSeriesCollection"
+  },
+  {
+    "source_class": "org.jfree.chart.renderer.category.junit.LineAndShapeRendererTests",
+    "source_method": "checkIndependence",
+    "target_class": "org.jfree.chart.renderer.category.LineAndShapeRenderer):boolean \t org.jfree.chart.renderer.category.LineAndShapeRenderer"
+  },
+  {
+    "source_class": "org.jfree.data.gantt.junit.TaskSeriesCollectionTests",
+    "source_method": "createCollection1",
+    "target_class": "org.jfree.data.gantt.TaskSeriesCollection"
+  },
+  {
+    "source_class": "org.jfree.data.gantt.junit.TaskSeriesCollectionTests",
+    "source_method": "createCollection2",
+    "target_class": "org.jfree.data.gantt.TaskSeriesCollection"
+  },
+  {
+    "source_class": "org.jfree.data.gantt.junit.TaskSeriesCollectionTests",
+    "source_method": "createCollection3",
+    "target_class": "org.jfree.data.gantt.TaskSeriesCollection"
+  },
+  {
+    "source_class": "org.jfree.data.xy.junit.DefaultXYDatasetTests",
+    "source_method": "createSampleDataset1",
+    "target_class": "org.jfree.data.xy.DefaultXYDataset"
+  }
+]

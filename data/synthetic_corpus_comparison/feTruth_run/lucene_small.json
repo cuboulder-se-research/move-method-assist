@@ -1,0 +1,1087 @@
+[
+  {
+    "source_class": "org.apache.lucene.facet.search.TopKFacetResultsHandler",
+    "source_method": "heapDescendants",
+    "target_class": "org.apache.lucene.facet.search.Heap<org.apache.lucene.facet.search.FacetResultNode>, org.apache.lucene.facet.search.FacetResultNode, int):int \t org.apache.lucene.facet.taxonomy.directory.ParallelTaxonomyArrays"
+  },
+  {
+    "source_class": "org.apache.lucene.facet.search.StandardFacetsAccumulator",
+    "source_method": "fillArraysForPartition",
+    "target_class": "org.apache.lucene.facet.search.FacetArrays, int):void \t org.apache.lucene.facet.search.FacetArrays"
+  },
+  {
+    "source_class": "org.apache.lucene.facet.taxonomy.writercache.cl2o.CompactLabelToOrdinal",
+    "source_method": "stringHashCode",
+    "target_class": "int):int \t org.apache.lucene.facet.taxonomy.writercache.cl2o.CategoryPathUtils"
+  },
+  {
+    "source_class": "org.apache.lucene.facet.complements.TotalFacetCounts",
+    "source_method": "compute",
+    "target_class": "org.apache.lucene.facet.taxonomy.TaxonomyReader, org.apache.lucene.facet.params.FacetIndexingParams):org.apache.lucene.facet.complements.TotalFacetCounts \t org.apache.lucene.facet.util.PartitionsUtils"
+  },
+  {
+    "source_class": "org.apache.lucene.facet.partitions.PartitionsFacetResultsHandler",
+    "source_method": "isSelfPartition",
+    "target_class": "org.apache.lucene.facet.search.FacetArrays, int):boolean \t org.apache.lucene.facet.search.FacetArrays"
+  },
+  {
+    "source_class": "org.apache.lucene.facet.util.TaxonomyMergeUtils",
+    "source_method": "merge",
+    "target_class": "org.apache.lucene.store.Directory, org.apache.lucene.facet.taxonomy.directory.DirectoryTaxonomyWriter.OrdinalMap, org.apache.lucene.index.IndexWriter, org.apache.lucene.facet.taxonomy.directory.DirectoryTaxonomyWriter, org.apache.lucene.facet.params.FacetIndexingParams):void \t org.apache.lucene.facet.taxonomy.directory.DirectoryTaxonomyWriter"
+  },
+  {
+    "source_class": "org.apache.lucene.facet.util.FacetsPayloadMigrationReader",
+    "source_method": "buildFieldTermsMap",
+    "target_class": "org.apache.lucene.facet.params.FacetIndexingParams):java.util.Map<java.lang.String,org.apache.lucene.index.Term> \t org.apache.lucene.util.BytesRefIterator"
+  },
+  {
+    "source_class": "org.apache.lucene.facet.util.PartitionsUtils",
+    "source_method": "partitionSize",
+    "target_class": "org.apache.lucene.facet.taxonomy.TaxonomyReader):int \t org.apache.lucene.facet.taxonomy.TaxonomyReader"
+  },
+  {
+    "source_class": "org.apache.lucene.facet.util.ScoredDocIdsUtils",
+    "source_method": "clearDeleted",
+    "target_class": "org.apache.lucene.util.FixedBitSet):void \t org.apache.lucene.search.DocIdSetIterator"
+  },
+  {
+    "source_class": "org.apache.lucene.search.suggest.fst.WFSTCompletionLookup",
+    "source_method": "lookupPrefix",
+    "target_class": "org.apache.lucene.util.fst.FST.Arc<java.lang.Long>):java.lang.Long \t org.apache.lucene.util.fst.FST"
+  },
+  {
+    "source_class": "org.apache.lucene.search.suggest.fst.FSTCompletionBuilder",
+    "source_method": "buildAutomaton",
+    "target_class": "org.apache.lucene.util.fst.Builder"
+  },
+  {
+    "source_class": "org.apache.lucene.search.suggest.fst.FSTCompletionLookup",
+    "source_method": "get",
+    "target_class": "org.apache.lucene.search.suggest.fst.FSTCompletion"
+  },
+  {
+    "source_class": "org.apache.lucene.search.suggest.analyzing.AnalyzingSuggester",
+    "source_method": "toFiniteStrings",
+    "target_class": "org.apache.lucene.analysis.TokenStreamToAutomaton):java.util.Set<org.apache.lucene.util.IntsRef> \t org.apache.lucene.analysis.Analyzer"
+  },
+  {
+    "source_class": "org.apache.lucene.search.suggest.analyzing.AnalyzingSuggester",
+    "source_method": "toLookupAutomaton",
+    "target_class": "org.apache.lucene.analysis.Analyzer"
+  },
+  {
+    "source_class": "org.apache.lucene.search.suggest.analyzing.FSTUtil",
+    "source_method": "intersectPrefixPaths",
+    "target_class": "org.apache.lucene.util.fst.FST<T>):java.util.List<org.apache.lucene.search.suggest.analyzing.FSTUtil.Path<T>> \t org.apache.lucene.util.fst.Util"
+  },
+  {
+    "source_class": "org.apache.lucene.search.suggest.tst.TSTLookup",
+    "source_method": "add",
+    "target_class": "java.lang.Object):boolean \t org.apache.lucene.search.suggest.tst.TSTAutocomplete"
+  },
+  {
+    "source_class": "org.apache.lucene.search.suggest.jaspell.JaspellLookup",
+    "source_method": "add",
+    "target_class": "java.lang.Object):boolean \t org.apache.lucene.search.suggest.jaspell.JaspellTernarySearchTrie"
+  },
+  {
+    "source_class": "org.apache.lucene.spatial.query.SpatialArgsParser",
+    "source_method": "writeSpatialArgs",
+    "target_class": "org.apache.lucene.spatial.query.SpatialOperation"
+  },
+  {
+    "source_class": "org.apache.lucene.analysis.cn.smart.hhmm.BiSegGraph",
+    "source_method": "generateBiSegGraph",
+    "target_class": "org.apache.lucene.analysis.cn.smart.hhmm.SegGraph"
+  },
+  {
+    "source_class": "org.apache.lucene.analysis.cn.smart.SmartChineseAnalyzer",
+    "source_method": "getDefaultStopSet",
+    "target_class": "org.apache.lucene.analysis.cn.smart.SmartChineseAnalyzer.DefaultSetHolder"
+  },
+  {
+    "source_class": "org.apache.lucene.analysis.cn.smart.SmartChineseAnalyzer.DefaultSetHolder",
+    "source_method": "loadDefaultStopWordSet",
+    "target_class": "org.apache.lucene.util.IOUtils"
+  },
+  {
+    "source_class": "org.apache.lucene.analysis.hunspell.HunspellStemmer",
+    "source_method": "applyAffix",
+    "target_class": "int, org.apache.lucene.analysis.hunspell.HunspellAffix, int):java.util.List<org.apache.lucene.analysis.hunspell.HunspellStemmer.Stem> \t org.apache.lucene.analysis.util.CharacterUtils"
+  },
+  {
+    "source_class": "org.apache.lucene.analysis.en.KStemmer",
+    "source_method": "endsIn",
+    "target_class": "char):boolean \t org.apache.lucene.analysis.util.OpenStringBuilder"
+  },
+  {
+    "source_class": "org.apache.lucene.analysis.en.KStemmer",
+    "source_method": "endsIn",
+    "target_class": "char, char):boolean \t org.apache.lucene.analysis.util.OpenStringBuilder"
+  },
+  {
+    "source_class": "org.apache.lucene.analysis.en.KStemmer",
+    "source_method": "endsIn",
+    "target_class": "char, char, char):boolean \t org.apache.lucene.analysis.util.OpenStringBuilder"
+  },
+  {
+    "source_class": "org.apache.lucene.analysis.compound.HyphenationCompoundWordTokenFilter",
+    "source_method": "getHyphenationTree",
+    "target_class": "org.apache.lucene.analysis.compound.hyphenation.HyphenationTree"
+  },
+  {
+    "source_class": "org.apache.lucene.analysis.util.StopwordAnalyzerBase",
+    "source_method": "loadStopwordSet",
+    "target_class": "java.lang.Class<? extends org.apache.lucene.analysis.Analyzer>, java.lang.String, java.lang.String):org.apache.lucene.analysis.util.CharArraySet \t org.apache.lucene.util.IOUtils"
+  },
+  {
+    "source_class": "org.apache.lucene.analysis.util.StopwordAnalyzerBase",
+    "source_method": "loadStopwordSet",
+    "target_class": "org.apache.lucene.util.Version):org.apache.lucene.analysis.util.CharArraySet \t org.apache.lucene.util.IOUtils"
+  },
+  {
+    "source_class": "org.apache.lucene.analysis.util.StopwordAnalyzerBase",
+    "source_method": "loadStopwordSet",
+    "target_class": "org.apache.lucene.util.Version):org.apache.lucene.analysis.util.CharArraySet \t org.apache.lucene.util.IOUtils"
+  },
+  {
+    "source_class": "org.apache.lucene.analysis.util.WordlistLoader",
+    "source_method": "getWordSet",
+    "target_class": "org.apache.lucene.analysis.util.CharArraySet):org.apache.lucene.analysis.util.CharArraySet \t org.apache.lucene.util.IOUtils"
+  },
+  {
+    "source_class": "org.apache.lucene.analysis.util.WordlistLoader",
+    "source_method": "getWordSet",
+    "target_class": "java.lang.String, org.apache.lucene.analysis.util.CharArraySet):org.apache.lucene.analysis.util.CharArraySet \t org.apache.lucene.util.IOUtils"
+  },
+  {
+    "source_class": "org.apache.lucene.analysis.util.WordlistLoader",
+    "source_method": "getSnowballWordSet",
+    "target_class": "org.apache.lucene.analysis.util.CharArraySet):org.apache.lucene.analysis.util.CharArraySet \t org.apache.lucene.util.IOUtils"
+  },
+  {
+    "source_class": "org.apache.lucene.analysis.util.WordlistLoader",
+    "source_method": "getStemDict",
+    "target_class": "org.apache.lucene.analysis.util.CharArrayMap<java.lang.String>):org.apache.lucene.analysis.util.CharArrayMap<java.lang.String> \t org.apache.lucene.util.IOUtils"
+  },
+  {
+    "source_class": "org.apache.lucene.analysis.util.WordlistLoader",
+    "source_method": "getLines",
+    "target_class": "java.nio.charset.Charset):java.util.List<java.lang.String> \t org.apache.lucene.util.IOUtils"
+  },
+  {
+    "source_class": "org.apache.lucene.analysis.util.CharArrayMap",
+    "source_method": "getHashCode",
+    "target_class": "int, int):int \t org.apache.lucene.analysis.util.CharacterUtils"
+  },
+  {
+    "source_class": "org.apache.lucene.analysis.util.CharArrayMap",
+    "source_method": "getHashCode",
+    "target_class": "org.apache.lucene.analysis.util.CharacterUtils"
+  },
+  {
+    "source_class": "org.egothor.stemmer.Gener",
+    "source_method": "eat",
+    "target_class": "int[]):boolean \t org.egothor.stemmer.Cell"
+  },
+  {
+    "source_class": "org.apache.lucene.analysis.morfologik.MorfologikFilter",
+    "source_method": "toLowercase",
+    "target_class": "org.apache.lucene.analysis.util.CharacterUtils"
+  },
+  {
+    "source_class": "org.apache.lucene.analysis.ja.JapaneseTokenizer",
+    "source_method": "backtrace",
+    "target_class": "int):void \t org.apache.lucene.analysis.ja.JapaneseTokenizer.WrappedPositionArray"
+  },
+  {
+    "source_class": "org.apache.lucene.search.highlight.WeightedSpanTermExtractor",
+    "source_method": "extractWeightedSpanTerms",
+    "target_class": "org.apache.lucene.search.spans.SpanQuery):void \t org.apache.lucene.search.spans.Spans"
+  },
+  {
+    "source_class": "org.apache.lucene.search.highlight.WeightedSpanTermExtractor",
+    "source_method": "getLeafContext",
+    "target_class": "org.apache.lucene.index.memory.MemoryIndex"
+  },
+  {
+    "source_class": "org.apache.lucene.search.highlight.TokenSources",
+    "source_method": "getTokenStream",
+    "target_class": "boolean):org.apache.lucene.analysis.TokenStream \t org.apache.lucene.util.ArrayUtil"
+  },
+  {
+    "source_class": "org.apache.lucene.search.postingshighlight.PostingsHighlighter",
+    "source_method": "highlightDoc",
+    "target_class": "org.apache.lucene.index.Term[], int, java.text.BreakIterator, int, org.apache.lucene.index.TermsEnum, org.apache.lucene.index.DocsAndPositionsEnum[], int):org.apache.lucene.search.postingshighlight.Passage[] \t org.apache.lucene.index.DocsAndPositionsEnum"
+  },
+  {
+    "source_class": "org.apache.lucene.search.vectorhighlight.BaseFragmentsBuilder",
+    "source_method": "getFragmentSourceMSO",
+    "target_class": "int[], org.apache.lucene.document.Field[], int, int, int[]):java.lang.String \t org.apache.lucene.search.vectorhighlight.BoundaryScanner"
+  },
+  {
+    "source_class": "org.apache.lucene.search.grouping.term.TermGroupFacetCollector.MV",
+    "source_method": "process",
+    "target_class": "int):void \t org.apache.lucene.index.SortedDocValues"
+  },
+  {
+    "source_class": "org.apache.lucene.sandbox.queries.FuzzyLikeThisQuery",
+    "source_method": "addTerms",
+    "target_class": "org.apache.lucene.sandbox.queries.FuzzyLikeThisQuery.FieldVals):void \t org.apache.lucene.analysis.TokenStream"
+  },
+  {
+    "source_class": "org.apache.lucene.codecs.compressing.LZ4.HCHashTable",
+    "source_method": "insertAndFindBestMatch",
+    "target_class": "int, int, org.apache.lucene.codecs.compressing.LZ4.Match):boolean \t org.apache.lucene.codecs.compressing.LZ4.Match"
+  },
+  {
+    "source_class": "org.apache.lucene.codecs.compressing.CompressingTermVectorsWriter",
+    "source_method": "addDocData",
+    "target_class": "org.apache.lucene.codecs.compressing.CompressingTermVectorsWriter.DocData"
+  },
+  {
+    "source_class": "org.apache.lucene.codecs.compressing.CompressingStoredFieldsReader",
+    "source_method": "readField",
+    "target_class": "org.apache.lucene.index.StoredFieldVisitor, org.apache.lucene.index.FieldInfo, int):void \t org.apache.lucene.util.IOUtils"
+  },
+  {
+    "source_class": "org.apache.lucene.codecs.TermVectorsWriter",
+    "source_method": "addAllDocVectors",
+    "target_class": "org.apache.lucene.index.MergeState):void \t org.apache.lucene.index.DocsAndPositionsEnum"
+  },
+  {
+    "source_class": "org.apache.lucene.codecs.lucene41.ForUtil",
+    "source_method": "skipBlock",
+    "target_class": "org.apache.lucene.store.IndexInput"
+  },
+  {
+    "source_class": "org.apache.lucene.codecs.FieldsConsumer",
+    "source_method": "merge",
+    "target_class": "org.apache.lucene.index.Fields):void \t org.apache.lucene.codecs.TermsConsumer"
+  },
+  {
+    "source_class": "org.apache.lucene.codecs.CodecUtil",
+    "source_method": "checkHeaderNoMagic",
+    "target_class": "java.lang.String, int, int):int \t org.apache.lucene.store.DataInput"
+  },
+  {
+    "source_class": "org.apache.lucene.codecs.Codec",
+    "source_method": "forName",
+    "target_class": "org.apache.lucene.util.NamedSPILoader"
+  },
+  {
+    "source_class": "org.apache.lucene.codecs.DocValuesConsumer",
+    "source_method": "mergeNumericField",
+    "target_class": "org.apache.lucene.index.MergeState, java.util.List<org.apache.lucene.index.NumericDocValues>):void \t org.apache.lucene.index.NumericDocValues"
+  },
+  {
+    "source_class": "org.apache.lucene.codecs.DocValuesConsumer",
+    "source_method": "mergeBinaryField",
+    "target_class": "org.apache.lucene.index.MergeState, java.util.List<org.apache.lucene.index.BinaryDocValues>):void \t org.apache.lucene.index.BinaryDocValues"
+  },
+  {
+    "source_class": "org.apache.lucene.codecs.DocValuesConsumer",
+    "source_method": "mergeSortedField",
+    "target_class": "org.apache.lucene.index.MergeState, java.util.List<org.apache.lucene.index.SortedDocValues>):void \t org.apache.lucene.index.SortedDocValues"
+  },
+  {
+    "source_class": "org.apache.lucene.codecs.lucene40.Lucene40TermVectorsWriter",
+    "source_method": "addRawDocuments",
+    "target_class": "int[], int[], int):void \t org.apache.lucene.codecs.lucene40.Lucene40TermVectorsReader"
+  },
+  {
+    "source_class": "org.apache.lucene.codecs.MappingMultiDocsAndPositionsEnum",
+    "source_method": "reset",
+    "target_class": "org.apache.lucene.index.MultiDocsAndPositionsEnum"
+  },
+  {
+    "source_class": "org.apache.lucene.codecs.PostingsConsumer",
+    "source_method": "merge",
+    "target_class": "org.apache.lucene.index.FieldInfo.IndexOptions, org.apache.lucene.index.DocsEnum, org.apache.lucene.util.FixedBitSet):org.apache.lucene.codecs.TermStats \t org.apache.lucene.index.DocsAndPositionsEnum"
+  },
+  {
+    "source_class": "org.apache.lucene.codecs.PostingsFormat",
+    "source_method": "availablePostingsFormats",
+    "target_class": "org.apache.lucene.util.NamedSPILoader"
+  },
+  {
+    "source_class": "org.apache.lucene.codecs.PostingsFormat",
+    "source_method": "reloadPostingsFormats",
+    "target_class": "org.apache.lucene.util.NamedSPILoader"
+  },
+  {
+    "source_class": "org.apache.lucene.search.payloads.PayloadSpanUtil",
+    "source_method": "getPayloads",
+    "target_class": "org.apache.lucene.search.spans.SpanQuery):void \t org.apache.lucene.search.spans.SpanQuery"
+  },
+  {
+    "source_class": "org.apache.lucene.search.PhrasePositions",
+    "source_method": "nextPosition",
+    "target_class": "org.apache.lucene.index.DocsAndPositionsEnum"
+  },
+  {
+    "source_class": "org.apache.lucene.search.NumericRangeQuery",
+    "source_method": "newLongRange",
+    "target_class": "java.lang.Long, java.lang.Long, boolean, boolean):org.apache.lucene.search.NumericRangeQuery<java.lang.Long> \t org.apache.lucene.util.NumericUtils"
+  },
+  {
+    "source_class": "org.apache.lucene.search.NumericRangeQuery",
+    "source_method": "newIntRange",
+    "target_class": "java.lang.Integer, java.lang.Integer, boolean, boolean):org.apache.lucene.search.NumericRangeQuery<java.lang.Integer> \t org.apache.lucene.util.NumericUtils"
+  },
+  {
+    "source_class": "org.apache.lucene.search.NumericRangeQuery",
+    "source_method": "newDoubleRange",
+    "target_class": "java.lang.Double, java.lang.Double, boolean, boolean):org.apache.lucene.search.NumericRangeQuery<java.lang.Double> \t org.apache.lucene.util.NumericUtils"
+  },
+  {
+    "source_class": "org.apache.lucene.search.NumericRangeQuery",
+    "source_method": "newFloatRange",
+    "target_class": "java.lang.Float, java.lang.Float, boolean, boolean):org.apache.lucene.search.NumericRangeQuery<java.lang.Float> \t org.apache.lucene.util.NumericUtils"
+  },
+  {
+    "source_class": "org.apache.lucene.search.IndexSearcher",
+    "source_method": "search",
+    "target_class": "org.apache.lucene.search.ScoreDoc, int):org.apache.lucene.search.TopDocs \t org.apache.lucene.search.IndexSearcher.ExecutionHelper"
+  },
+  {
+    "source_class": "org.apache.lucene.search.similarities.TFIDFSimilarity",
+    "source_method": "explainScore",
+    "target_class": "org.apache.lucene.search.Explanation, org.apache.lucene.search.similarities.TFIDFSimilarity.IDFStats, org.apache.lucene.index.NumericDocValues):org.apache.lucene.search.Explanation \t org.apache.lucene.search.similarities.TFIDFSimilarity.IDFStats"
+  },
+  {
+    "source_class": "org.apache.lucene.analysis.TokenStreamToAutomaton",
+    "source_method": "addHoles",
+    "target_class": "org.apache.lucene.util.RollingBuffer<org.apache.lucene.analysis.TokenStreamToAutomaton.Position>, int):void \t org.apache.lucene.util.automaton.State"
+  },
+  {
+    "source_class": "org.apache.lucene.analysis.Analyzer",
+    "source_method": "tokenStream",
+    "target_class": "java.io.Reader):org.apache.lucene.analysis.TokenStream \t org.apache.lucene.analysis.Analyzer.TokenStreamComponents"
+  },
+  {
+    "source_class": "org.apache.lucene.store.CompoundFileDirectory",
+    "source_method": "readEntries",
+    "target_class": "org.apache.lucene.store.Directory, java.lang.String):java.util.Map<java.lang.String,org.apache.lucene.store.CompoundFileDirectory.FileEntry> \t org.apache.lucene.codecs.CodecUtil"
+  },
+  {
+    "source_class": "org.apache.lucene.store.RAMOutputStream",
+    "source_method": "sizeInBytes",
+    "target_class": "org.apache.lucene.store.RAMFile"
+  },
+  {
+    "source_class": "org.apache.lucene.store.RAMInputStream",
+    "source_method": "switchCurrentBuffer",
+    "target_class": "org.apache.lucene.store.RAMFile"
+  },
+  {
+    "source_class": "org.apache.lucene.document.CompressionTools",
+    "source_method": "decompressString",
+    "target_class": "int, int):java.lang.String \t org.apache.lucene.util.UnicodeUtil"
+  },
+  {
+    "source_class": "org.apache.lucene.document.Field",
+    "source_method": "translateFieldType",
+    "target_class": "org.apache.lucene.document.Field.Index, org.apache.lucene.document.Field.TermVector):org.apache.lucene.document.FieldType \t org.apache.lucene.document.FieldType"
+  },
+  {
+    "source_class": "org.apache.lucene.util.automaton.DaciukMihovAutomatonBuilder",
+    "source_method": "convert",
+    "target_class": "java.util.IdentityHashMap<org.apache.lucene.util.automaton.DaciukMihovAutomatonBuilder.State,org.apache.lucene.util.automaton.State>):org.apache.lucene.util.automaton.State \t org.apache.lucene.util.automaton.DaciukMihovAutomatonBuilder.State"
+  },
+  {
+    "source_class": "org.apache.lucene.util.automaton.LevenshteinAutomata",
+    "source_method": "toAutomaton",
+    "target_class": "org.apache.lucene.util.automaton.LevenshteinAutomata.ParametricDescription"
+  },
+  {
+    "source_class": "org.apache.lucene.util.automaton.RegExp",
+    "source_method": "toAutomaton",
+    "target_class": "org.apache.lucene.util.automaton.AutomatonProvider):org.apache.lucene.util.automaton.Automaton \t org.apache.lucene.util.automaton.Automaton"
+  },
+  {
+    "source_class": "org.apache.lucene.util.automaton.BasicAutomata",
+    "source_method": "atLeast",
+    "target_class": "int, java.util.Collection<org.apache.lucene.util.automaton.State>, boolean):org.apache.lucene.util.automaton.State \t org.apache.lucene.util.automaton.State"
+  },
+  {
+    "source_class": "org.apache.lucene.util.automaton.BasicAutomata",
+    "source_method": "makeString",
+    "target_class": "int, int):org.apache.lucene.util.automaton.Automaton \t org.apache.lucene.util.automaton.State"
+  },
+  {
+    "source_class": "org.apache.lucene.util.automaton.BasicOperations",
+    "source_method": "concatenate",
+    "target_class": "org.apache.lucene.util.automaton.Automaton):org.apache.lucene.util.automaton.Automaton \t org.apache.lucene.util.automaton.BasicAutomata"
+  },
+  {
+    "source_class": "org.apache.lucene.util.automaton.BasicOperations",
+    "source_method": "optional",
+    "target_class": "org.apache.lucene.util.automaton.Automaton"
+  },
+  {
+    "source_class": "org.apache.lucene.util.automaton.BasicOperations",
+    "source_method": "repeat",
+    "target_class": "org.apache.lucene.util.automaton.State"
+  },
+  {
+    "source_class": "org.apache.lucene.util.automaton.BasicOperations",
+    "source_method": "repeat",
+    "target_class": "int, int):org.apache.lucene.util.automaton.Automaton \t org.apache.lucene.util.automaton.State"
+  },
+  {
+    "source_class": "org.apache.lucene.util.automaton.BasicOperations",
+    "source_method": "intersection",
+    "target_class": "org.apache.lucene.util.automaton.Automaton):org.apache.lucene.util.automaton.Automaton \t org.apache.lucene.util.automaton.BasicAutomata"
+  },
+  {
+    "source_class": "org.apache.lucene.util.automaton.BasicOperations",
+    "source_method": "subsetOf",
+    "target_class": "org.apache.lucene.util.automaton.Automaton):boolean \t org.apache.lucene.util.automaton.Transition"
+  },
+  {
+    "source_class": "org.apache.lucene.util.automaton.BasicOperations",
+    "source_method": "union",
+    "target_class": "org.apache.lucene.util.automaton.Automaton):org.apache.lucene.util.automaton.Automaton \t org.apache.lucene.util.automaton.Automaton"
+  },
+  {
+    "source_class": "org.apache.lucene.util.automaton.BasicOperations",
+    "source_method": "isEmptyString",
+    "target_class": "org.apache.lucene.util.automaton.Automaton"
+  },
+  {
+    "source_class": "org.apache.lucene.util.automaton.BasicOperations",
+    "source_method": "isTotal",
+    "target_class": "org.apache.lucene.util.automaton.Automaton"
+  },
+  {
+    "source_class": "org.apache.lucene.util.automaton.SpecialOperations",
+    "source_method": "getCommonPrefix",
+    "target_class": "org.apache.lucene.util.automaton.State"
+  },
+  {
+    "source_class": "org.apache.lucene.util.automaton.SpecialOperations",
+    "source_method": "reverse",
+    "target_class": "org.apache.lucene.util.automaton.Automaton"
+  },
+  {
+    "source_class": "org.apache.lucene.util.automaton.SpecialOperations",
+    "source_method": "getFiniteStrings",
+    "target_class": "int):java.util.Set<org.apache.lucene.util.IntsRef> \t org.apache.lucene.util.fst.Util"
+  },
+  {
+    "source_class": "org.apache.lucene.util.automaton.UTF32ToUTF8",
+    "source_method": "convert",
+    "target_class": "org.apache.lucene.util.automaton.Automaton"
+  },
+  {
+    "source_class": "org.apache.lucene.util.packed.AbstractBlockPackedWriter",
+    "source_method": "writeValues",
+    "target_class": "org.apache.lucene.util.packed.PackedInts.Encoder"
+  },
+  {
+    "source_class": "org.apache.lucene.util.packed.PackedReaderIterator",
+    "source_method": "iterations",
+    "target_class": "org.apache.lucene.util.packed.BulkOperation"
+  },
+  {
+    "source_class": "org.apache.lucene.util.packed.PackedInts",
+    "source_method": "fastestFormatAndBits",
+    "target_class": "int, float):org.apache.lucene.util.packed.PackedInts.FormatAndBits \t org.apache.lucene.util.packed.PackedInts.Format"
+  },
+  {
+    "source_class": "org.apache.lucene.util.packed.PackedInts",
+    "source_method": "getReader",
+    "target_class": "org.apache.lucene.codecs.CodecUtil"
+  },
+  {
+    "source_class": "org.apache.lucene.util.packed.PackedInts",
+    "source_method": "getReaderIterator",
+    "target_class": "int):org.apache.lucene.util.packed.PackedInts.ReaderIterator \t org.apache.lucene.codecs.CodecUtil"
+  },
+  {
+    "source_class": "org.apache.lucene.util.packed.PackedInts",
+    "source_method": "getDirectReader",
+    "target_class": "org.apache.lucene.codecs.CodecUtil"
+  },
+  {
+    "source_class": "org.apache.lucene.util.packed.PackedInts",
+    "source_method": "readHeader",
+    "target_class": "org.apache.lucene.codecs.CodecUtil"
+  },
+  {
+    "source_class": "org.apache.lucene.util.fst.Util",
+    "source_method": "toUTF32",
+    "target_class": "org.apache.lucene.util.IntsRef):org.apache.lucene.util.IntsRef \t org.apache.lucene.util.IntsRef"
+  },
+  {
+    "source_class": "org.apache.lucene.util.fst.Util",
+    "source_method": "toUTF32",
+    "target_class": "int, int, org.apache.lucene.util.IntsRef):org.apache.lucene.util.IntsRef \t org.apache.lucene.util.IntsRef"
+  },
+  {
+    "source_class": "org.apache.lucene.util.fst.Util",
+    "source_method": "toIntsRef",
+    "target_class": "org.apache.lucene.util.IntsRef):org.apache.lucene.util.IntsRef \t org.apache.lucene.util.IntsRef"
+  },
+  {
+    "source_class": "org.apache.lucene.util.fst.FST",
+    "source_method": "read",
+    "target_class": "org.apache.lucene.util.fst.Outputs<T>):org.apache.lucene.util.fst.FST<T> \t org.apache.lucene.util.IOUtils"
+  },
+  {
+    "source_class": "org.apache.lucene.util.fst.FST",
+    "source_method": "readLabel",
+    "target_class": "org.apache.lucene.store.DataInput"
+  },
+  {
+    "source_class": "org.apache.lucene.util.OpenBitSet",
+    "source_method": "unionCount",
+    "target_class": "org.apache.lucene.util.OpenBitSet):long \t org.apache.lucene.util.BitUtil"
+  },
+  {
+    "source_class": "org.apache.lucene.util.UnicodeUtil",
+    "source_method": "UTF16toUTF8WithHash",
+    "target_class": "int, int, org.apache.lucene.util.BytesRef):int \t org.apache.lucene.util.ArrayUtil"
+  },
+  {
+    "source_class": "org.apache.lucene.util.UnicodeUtil",
+    "source_method": "UTF8toUTF16",
+    "target_class": "int, int, org.apache.lucene.util.CharsRef):void \t org.apache.lucene.util.ArrayUtil"
+  },
+  {
+    "source_class": "org.apache.lucene.index.Terms",
+    "source_method": "intersect",
+    "target_class": "org.apache.lucene.util.BytesRef):org.apache.lucene.index.TermsEnum \t org.apache.lucene.util.automaton.CompiledAutomaton"
+  },
+  {
+    "source_class": "org.apache.lucene.index.DocumentsWriter",
+    "source_method": "applyAllDeletes",
+    "target_class": "org.apache.lucene.index.DocumentsWriterFlushControl"
+  },
+  {
+    "source_class": "org.apache.lucene.index.DocumentsWriter",
+    "source_method": "preUpdate",
+    "target_class": "org.apache.lucene.index.DocumentsWriterFlushControl"
+  },
+  {
+    "source_class": "org.apache.lucene.index.DocumentsWriter",
+    "source_method": "updateDocuments",
+    "target_class": "extends java.lang.Iterable<? extends org.apache.lucene.index.IndexableField>>, org.apache.lucene.analysis.Analyzer, org.apache.lucene.index.Term):boolean \t org.apache.lucene.index.DocumentsWriterFlushControl"
+  },
+  {
+    "source_class": "org.apache.lucene.index.DocumentsWriter",
+    "source_method": "updateDocument",
+    "target_class": "extends org.apache.lucene.index.IndexableField>, org.apache.lucene.analysis.Analyzer, org.apache.lucene.index.Term):boolean \t org.apache.lucene.index.DocumentsWriterFlushControl"
+  },
+  {
+    "source_class": "org.apache.lucene.index.DocumentsWriter",
+    "source_method": "finishFlush",
+    "target_class": "org.apache.lucene.index.FrozenBufferedDeletes):void \t org.apache.lucene.index.FrozenBufferedDeletes"
+  },
+  {
+    "source_class": "org.apache.lucene.index.DocumentsWriter",
+    "source_method": "flushAllThreads",
+    "target_class": "org.apache.lucene.index.DocumentsWriterFlushControl"
+  },
+  {
+    "source_class": "org.apache.lucene.index.DocumentsWriterFlushControl",
+    "source_method": "markForFullFlush",
+    "target_class": "org.apache.lucene.index.DocumentsWriterDeleteQueue"
+  },
+  {
+    "source_class": "org.apache.lucene.index.TermVectorsConsumerPerField",
+    "source_method": "finishDocument",
+    "target_class": "org.apache.lucene.index.TermsHashPerField"
+  },
+  {
+    "source_class": "org.apache.lucene.index.TermVectorsConsumerPerField",
+    "source_method": "writeProx",
+    "target_class": "int):void \t org.apache.lucene.index.TermVectorsConsumerPerField.TermVectorsPostingsArray"
+  },
+  {
+    "source_class": "org.apache.lucene.index.StandardDirectoryReader",
+    "source_method": "open",
+    "target_class": "org.apache.lucene.index.IndexCommit, int):org.apache.lucene.index.DirectoryReader \t org.apache.lucene.util.IOUtils"
+  },
+  {
+    "source_class": "org.apache.lucene.index.StandardDirectoryReader",
+    "source_method": "open",
+    "target_class": "org.apache.lucene.index.SegmentInfos, boolean):org.apache.lucene.index.DirectoryReader \t org.apache.lucene.util.IOUtils"
+  },
+  {
+    "source_class": "org.apache.lucene.index.CoalescedDeletes",
+    "source_method": "update",
+    "target_class": "org.apache.lucene.index.FrozenBufferedDeletes"
+  },
+  {
+    "source_class": "org.apache.lucene.index.FreqProxTermsWriterPerField",
+    "source_method": "writeProx",
+    "target_class": "int):void \t org.apache.lucene.index.TermsHashPerField"
+  },
+  {
+    "source_class": "org.apache.lucene.index.FreqProxTermsWriterPerField",
+    "source_method": "flush",
+    "target_class": "org.apache.lucene.codecs.FieldsConsumer, org.apache.lucene.index.SegmentWriteState):void \t org.apache.lucene.index.TermsHashPerField"
+  },
+  {
+    "source_class": "org.apache.lucene.index.MergeState.CheckAbort",
+    "source_method": "work",
+    "target_class": "org.apache.lucene.index.MergePolicy.OneMerge"
+  },
+  {
+    "source_class": "org.apache.lucene.index.CheckIndex",
+    "source_method": "checkFields",
+    "target_class": "org.apache.lucene.util.Bits, int, org.apache.lucene.index.FieldInfos, boolean, boolean, java.io.PrintStream, boolean):org.apache.lucene.index.CheckIndex.Status.TermIndexStatus \t org.apache.lucene.index.DocsAndPositionsEnum"
+  },
+  {
+    "source_class": "org.apache.lucene.index.MultiFields",
+    "source_method": "getTermPositionsEnum",
+    "target_class": "org.apache.lucene.util.Bits, java.lang.String, org.apache.lucene.util.BytesRef):org.apache.lucene.index.DocsAndPositionsEnum \t org.apache.lucene.index.DocsAndPositionsEnum"
+  },
+  {
+    "source_class": "org.apache.lucene.index.TermsHashPerField",
+    "source_method": "shrinkHash",
+    "target_class": "org.apache.lucene.util.BytesRefHash"
+  },
+  {
+    "source_class": "org.apache.lucene.index.TermsHashPerField",
+    "source_method": "reset",
+    "target_class": "org.apache.lucene.util.BytesRefHash"
+  },
+  {
+    "source_class": "org.apache.lucene.index.TermsHashPerField",
+    "source_method": "initReader",
+    "target_class": "int, int):void \t org.apache.lucene.util.IntBlockPool"
+  },
+  {
+    "source_class": "org.apache.lucene.index.TermsHashPerField",
+    "source_method": "sortPostings",
+    "target_class": "org.apache.lucene.util.BytesRefHash"
+  },
+  {
+    "source_class": "org.apache.lucene.index.DocumentsWriterPerThread",
+    "source_method": "abort",
+    "target_class": "org.apache.lucene.index.BufferedDeletes"
+  },
+  {
+    "source_class": "org.apache.lucene.index.DocumentsWriterPerThread",
+    "source_method": "initialize",
+    "target_class": "org.apache.lucene.index.BufferedDeletes"
+  },
+  {
+    "source_class": "org.apache.lucene.index.DocumentsWriterPerThread",
+    "source_method": "updateDocuments",
+    "target_class": "extends java.lang.Iterable<? extends org.apache.lucene.index.IndexableField>>, org.apache.lucene.analysis.Analyzer, org.apache.lucene.index.Term):int \t org.apache.lucene.index.DocConsumer"
+  },
+  {
+    "source_class": "org.apache.lucene.index.DocumentsWriterPerThread",
+    "source_method": "deleteDocID",
+    "target_class": "org.apache.lucene.index.BufferedDeletes"
+  },
+  {
+    "source_class": "org.apache.lucene.index.DocumentsWriterPerThread",
+    "source_method": "numDeleteTerms",
+    "target_class": "org.apache.lucene.index.BufferedDeletes"
+  },
+  {
+    "source_class": "org.apache.lucene.index.DocumentsWriterPerThread",
+    "source_method": "flush",
+    "target_class": "org.apache.lucene.index.BufferedDeletes"
+  },
+  {
+    "source_class": "org.apache.lucene.index.DocumentsWriterPerThread",
+    "source_method": "bytesUsed",
+    "target_class": "org.apache.lucene.index.BufferedDeletes"
+  },
+  {
+    "source_class": "org.apache.lucene.index.SegmentMerger",
+    "source_method": "mergeDocValues",
+    "target_class": "org.apache.lucene.index.NumericDocValues"
+  },
+  {
+    "source_class": "org.apache.lucene.index.SegmentMerger",
+    "source_method": "mergeNorms",
+    "target_class": "org.apache.lucene.index.NumericDocValues"
+  },
+  {
+    "source_class": "org.apache.lucene.index.SegmentMerger",
+    "source_method": "mergeFields",
+    "target_class": "org.apache.lucene.codecs.Codec"
+  },
+  {
+    "source_class": "org.apache.lucene.index.SegmentMerger",
+    "source_method": "mergeTerms",
+    "target_class": "org.apache.lucene.codecs.Codec"
+  },
+  {
+    "source_class": "org.apache.lucene.index.DocumentsWriterDeleteQueue",
+    "source_method": "anyChanges",
+    "target_class": "org.apache.lucene.index.BufferedDeletes"
+  },
+  {
+    "source_class": "org.apache.lucene.index.DocumentsWriterDeleteQueue",
+    "source_method": "tryApplyGlobalSlice",
+    "target_class": "org.apache.lucene.index.BufferedDeletes"
+  },
+  {
+    "source_class": "org.apache.lucene.index.DocumentsWriterDeleteQueue",
+    "source_method": "freezeGlobalBuffer",
+    "target_class": "org.apache.lucene.index.BufferedDeletes"
+  },
+  {
+    "source_class": "org.apache.lucene.index.DocumentsWriterDeleteQueue",
+    "source_method": "updateSlice",
+    "target_class": "org.apache.lucene.index.DocumentsWriterDeleteQueue.DeleteSlice"
+  },
+  {
+    "source_class": "org.apache.lucene.index.DocumentsWriterDeleteQueue",
+    "source_method": "numGlobalTermDeletes",
+    "target_class": "org.apache.lucene.index.BufferedDeletes"
+  },
+  {
+    "source_class": "org.apache.lucene.index.DocumentsWriterDeleteQueue",
+    "source_method": "clear",
+    "target_class": "org.apache.lucene.index.BufferedDeletes"
+  },
+  {
+    "source_class": "org.apache.lucene.index.DocumentsWriterDeleteQueue",
+    "source_method": "forceApplyGlobalSlice",
+    "target_class": "org.apache.lucene.index.BufferedDeletes"
+  },
+  {
+    "source_class": "org.apache.lucene.index.DocumentsWriterDeleteQueue",
+    "source_method": "getBufferedDeleteTermsSize",
+    "target_class": "org.apache.lucene.index.BufferedDeletes"
+  },
+  {
+    "source_class": "org.apache.lucene.index.SegmentInfos",
+    "source_method": "getLastCommitSegmentsFileName",
+    "target_class": "org.apache.lucene.index.IndexFileNames"
+  },
+  {
+    "source_class": "org.apache.lucene.index.SegmentInfos",
+    "source_method": "getLastCommitSegmentsFileName",
+    "target_class": "org.apache.lucene.index.IndexFileNames"
+  },
+  {
+    "source_class": "org.apache.lucene.index.SegmentInfos",
+    "source_method": "read",
+    "target_class": "java.lang.String):void \t org.apache.lucene.codecs.Codec"
+  },
+  {
+    "source_class": "org.apache.lucene.index.SegmentInfos",
+    "source_method": "segmentWasUpgraded",
+    "target_class": "org.apache.lucene.index.SegmentInfo):boolean \t org.apache.lucene.util.IOUtils"
+  },
+  {
+    "source_class": "org.apache.lucene.index.SegmentInfos",
+    "source_method": "write3xInfo",
+    "target_class": "org.apache.lucene.index.SegmentInfo, org.apache.lucene.store.IOContext):java.lang.String \t org.apache.lucene.util.IOUtils"
+  },
+  {
+    "source_class": "org.apache.lucene.index.TermsEnum",
+    "source_method": "docsAndPositions",
+    "target_class": "org.apache.lucene.index.DocsAndPositionsEnum):org.apache.lucene.index.DocsAndPositionsEnum \t org.apache.lucene.index.DocsAndPositionsEnum"
+  },
+  {
+    "source_class": "org.apache.lucene.index.ReaderUtil",
+    "source_method": "subIndex",
+    "target_class": "java.util.List<org.apache.lucene.index.AtomicReaderContext>):int \t org.apache.lucene.index.AtomicReaderContext"
+  },
+  {
+    "source_class": "org.apache.lucene.index.DirectoryReader",
+    "source_method": "listCommits",
+    "target_class": "org.apache.lucene.index.IndexFileNames"
+  },
+  {
+    "source_class": "org.apache.lucene.index.MultiDocValues",
+    "source_method": "getNormValues",
+    "target_class": "java.lang.String):org.apache.lucene.index.NumericDocValues \t org.apache.lucene.index.ReaderUtil"
+  },
+  {
+    "source_class": "org.apache.lucene.index.MultiDocValues",
+    "source_method": "getNumericValues",
+    "target_class": "java.lang.String):org.apache.lucene.index.NumericDocValues \t org.apache.lucene.index.ReaderUtil"
+  },
+  {
+    "source_class": "org.apache.lucene.index.MultiDocValues",
+    "source_method": "getBinaryValues",
+    "target_class": "java.lang.String):org.apache.lucene.index.BinaryDocValues \t org.apache.lucene.index.ReaderUtil"
+  },
+  {
+    "source_class": "org.apache.lucene.index.TermVectorsConsumer",
+    "source_method": "fill",
+    "target_class": "org.apache.lucene.codecs.TermVectorsWriter"
+  },
+  {
+    "source_class": "org.apache.lucene.index.IndexFileDeleter",
+    "source_method": "revisitPolicy",
+    "target_class": "org.apache.lucene.index.IndexDeletionPolicy"
+  },
+  {
+    "source_class": "org.apache.lucene.index.IndexWriter",
+    "source_method": "messageState",
+    "target_class": "org.apache.lucene.index.LiveIndexWriterConfig"
+  },
+  {
+    "source_class": "org.apache.lucene.index.IndexWriter",
+    "source_method": "addIndexes",
+    "target_class": "org.apache.lucene.index.SegmentMerger"
+  },
+  {
+    "source_class": "org.apache.lucene.index.IndexWriter",
+    "source_method": "copySegmentAsIs",
+    "target_class": "java.lang.String, java.util.Map<java.lang.String,java.lang.String>, java.util.Set<java.lang.String>, org.apache.lucene.store.IOContext, java.util.Set<java.lang.String>):org.apache.lucene.index.SegmentInfoPerCommit \t org.apache.lucene.store.TrackingDirectoryWrapper"
+  },
+  {
+    "source_class": "org.apache.lucene.index.IndexWriter",
+    "source_method": "prepareCommitInternal",
+    "target_class": "org.apache.lucene.index.IndexFileDeleter"
+  },
+  {
+    "source_class": "org.apache.lucene.index.IndexWriter",
+    "source_method": "ramSizeInBytes",
+    "target_class": "org.apache.lucene.index.BufferedDeletesStream"
+  },
+  {
+    "source_class": "org.apache.lucene.index.IndexWriter",
+    "source_method": "merge",
+    "target_class": "org.apache.lucene.index.MergePolicy.OneMerge"
+  },
+  {
+    "source_class": "org.apache.lucene.index.IndexWriter",
+    "source_method": "mergeMiddle",
+    "target_class": "org.apache.lucene.index.SegmentMerger"
+  },
+  {
+    "source_class": "org.apache.lucene.index.IndexWriter",
+    "source_method": "filesExist",
+    "target_class": "org.apache.lucene.index.IndexFileDeleter"
+  },
+  {
+    "source_class": "org.apache.lucene.index.IndexWriter",
+    "source_method": "createCompoundFile",
+    "target_class": "org.apache.lucene.store.Directory, org.apache.lucene.index.MergeState.CheckAbort, org.apache.lucene.index.SegmentInfo, org.apache.lucene.store.IOContext):java.util.Collection<java.lang.String> \t org.apache.lucene.util.IOUtils"
+  },
+  {
+    "source_class": "org.apache.lucene.queries.mlt.MoreLikeThis",
+    "source_method": "addTermFrequencies",
+    "target_class": "java.util.Map<java.lang.String,org.apache.lucene.queries.mlt.MoreLikeThis.Int>, java.lang.String):void \t org.apache.lucene.analysis.Analyzer"
+  },
+  {
+    "source_class": "org.apache.lucene.queries.function.valuesource.MultiFunction",
+    "source_method": "toString",
+    "target_class": "org.apache.lucene.queries.function.FunctionValues[], int):java.lang.String \t org.apache.lucene.queries.function.FunctionValues"
+  },
+  {
+    "source_class": "org.apache.lucene.queries.function.valuesource.IDFValueSource",
+    "source_method": "asTFIDF",
+    "target_class": "java.lang.String):org.apache.lucene.search.similarities.TFIDFSimilarity \t org.apache.lucene.search.similarities.PerFieldSimilarityWrapper"
+  },
+  {
+    "source_class": "org.apache.lucene.queryparser.surround.parser.QueryParserTokenManager",
+    "source_method": "jjFillToken",
+    "target_class": "org.apache.lucene.queryparser.surround.parser.Token"
+  },
+  {
+    "source_class": "org.apache.lucene.queryparser.surround.parser.QueryParser",
+    "source_method": "OptionalFields",
+    "target_class": "org.apache.lucene.queryparser.surround.parser.Token"
+  },
+  {
+    "source_class": "org.apache.lucene.queryparser.surround.parser.QueryParser",
+    "source_method": "OptionalWeights",
+    "target_class": "org.apache.lucene.queryparser.surround.parser.Token"
+  },
+  {
+    "source_class": "org.apache.lucene.queryparser.surround.parser.QueryParser",
+    "source_method": "jj_consume_token",
+    "target_class": "org.apache.lucene.queryparser.surround.parser.Token"
+  },
+  {
+    "source_class": "org.apache.lucene.queryparser.surround.parser.QueryParser",
+    "source_method": "jj_scan_token",
+    "target_class": "org.apache.lucene.queryparser.surround.parser.Token"
+  },
+  {
+    "source_class": "org.apache.lucene.queryparser.flexible.standard.parser.StandardSyntaxParser",
+    "source_method": "Clause",
+    "target_class": "org.apache.lucene.queryparser.flexible.standard.parser.Token"
+  },
+  {
+    "source_class": "org.apache.lucene.queryparser.flexible.standard.parser.StandardSyntaxParser",
+    "source_method": "Term",
+    "target_class": "org.apache.lucene.queryparser.flexible.standard.parser.Token"
+  },
+  {
+    "source_class": "org.apache.lucene.queryparser.flexible.standard.parser.StandardSyntaxParser",
+    "source_method": "jj_consume_token",
+    "target_class": "org.apache.lucene.queryparser.flexible.standard.parser.Token"
+  },
+  {
+    "source_class": "org.apache.lucene.queryparser.flexible.standard.parser.StandardSyntaxParser",
+    "source_method": "jj_scan_token",
+    "target_class": "org.apache.lucene.queryparser.flexible.standard.parser.Token"
+  },
+  {
+    "source_class": "org.apache.lucene.queryparser.flexible.standard.parser.StandardSyntaxParser",
+    "source_method": "jj_ntk",
+    "target_class": "org.apache.lucene.queryparser.flexible.standard.parser.Token"
+  },
+  {
+    "source_class": "org.apache.lucene.queryparser.flexible.standard.parser.StandardSyntaxParserTokenManager",
+    "source_method": "jjFillToken",
+    "target_class": "org.apache.lucene.queryparser.flexible.standard.parser.Token"
+  },
+  {
+    "source_class": "org.apache.lucene.queryparser.flexible.standard.nodes.NumericQueryNode",
+    "source_method": "getTermEscaped",
+    "target_class": "org.apache.lucene.queryparser.flexible.core.parser.EscapeQuerySyntax"
+  },
+  {
+    "source_class": "org.apache.lucene.queryparser.classic.QueryParserBase",
+    "source_method": "newFieldQuery",
+    "target_class": "java.lang.String, java.lang.String, boolean):org.apache.lucene.search.Query \t org.apache.lucene.analysis.Analyzer"
+  },
+  {
+    "source_class": "org.apache.lucene.queryparser.classic.QueryParserBase",
+    "source_method": "handleQuotedTerm",
+    "target_class": "org.apache.lucene.queryparser.classic.Token, org.apache.lucene.queryparser.classic.Token):org.apache.lucene.search.Query \t org.apache.lucene.queryparser.classic.Token"
+  },
+  {
+    "source_class": "org.apache.lucene.queryparser.classic.QueryParserBase",
+    "source_method": "handleBoost",
+    "target_class": "org.apache.lucene.queryparser.classic.Token):org.apache.lucene.search.Query \t org.apache.lucene.queryparser.classic.Token"
+  },
+  {
+    "source_class": "org.apache.lucene.queryparser.classic.QueryParserTokenManager",
+    "source_method": "jjFillToken",
+    "target_class": "org.apache.lucene.queryparser.classic.Token"
+  },
+  {
+    "source_class": "org.apache.lucene.queryparser.classic.QueryParser",
+    "source_method": "jj_consume_token",
+    "target_class": "org.apache.lucene.queryparser.classic.Token"
+  },
+  {
+    "source_class": "org.apache.lucene.queryparser.classic.QueryParser",
+    "source_method": "jj_scan_token",
+    "target_class": "org.apache.lucene.queryparser.classic.Token"
+  },
+  {
+    "source_class": "org.apache.lucene.queryparser.complexPhrase.ComplexPhraseQueryParser",
+    "source_method": "checkPhraseClauseIsForSameField",
+    "target_class": "org.apache.lucene.queryparser.complexPhrase.ComplexPhraseQueryParser.ComplexPhraseQuery"
+  },
+  {
+    "source_class": "org.apache.lucene.index.memory.MemoryIndex",
+    "source_method": "sort",
+    "target_class": "org.apache.lucene.util.ArrayUtil"
+  },
+  {
+    "source_class": "org.apache.lucene.search.SearchEquivalenceTestBase",
+    "source_method": "randomChar",
+    "target_class": "org.apache.lucene.util._TestUtil"
+  },
+  {
+    "source_class": "org.apache.lucene.search.QueryUtils",
+    "source_method": "checkEqual",
+    "target_class": "org.apache.lucene.search.Query):void \t org.apache.lucene.search.Query"
+  },
+  {
+    "source_class": "org.apache.lucene.search.QueryUtils",
+    "source_method": "checkUnequal",
+    "target_class": "org.apache.lucene.search.Query):void \t org.apache.lucene.search.Query"
+  },
+  {
+    "source_class": "org.apache.lucene.search.QueryUtils",
+    "source_method": "checkSkipTo",
+    "target_class": "org.apache.lucene.search.IndexSearcher):void \t org.apache.lucene.index.AtomicReader"
+  },
+  {
+    "source_class": "org.apache.lucene.search.QueryUtils",
+    "source_method": "checkFirstSkipTo",
+    "target_class": "org.apache.lucene.search.IndexSearcher):void \t org.apache.lucene.index.AtomicReader"
+  },
+  {
+    "source_class": "org.apache.lucene.search.CheckHits",
+    "source_method": "checkHitCollector",
+    "target_class": "org.apache.lucene.search.Query, java.lang.String, org.apache.lucene.search.IndexSearcher, int[]):void \t org.apache.lucene.search.QueryUtils"
+  },
+  {
+    "source_class": "org.apache.lucene.analysis.BaseTokenStreamTestCase",
+    "source_method": "checkRandomData",
+    "target_class": "org.apache.lucene.analysis.Analyzer, int, int, boolean, boolean):void \t org.apache.lucene.util._TestUtil"
+  },
+  {
+    "source_class": "org.apache.lucene.analysis.BaseTokenStreamTestCase",
+    "source_method": "checkRandomData",
+    "target_class": "org.apache.lucene.analysis.Analyzer, int, int, boolean, boolean, boolean, org.apache.lucene.index.RandomIndexWriter):void \t org.apache.lucene.util._TestUtil"
+  },
+  {
+    "source_class": "org.apache.lucene.analysis.BaseTokenStreamTestCase",
+    "source_method": "randomSubString",
+    "target_class": "int, boolean):java.lang.String \t org.apache.lucene.util._TestUtil"
+  },
+  {
+    "source_class": "org.apache.lucene.util.fst.FSTTester",
+    "source_method": "inputToString",
+    "target_class": "org.apache.lucene.util.IntsRef, boolean):java.lang.String \t org.apache.lucene.util.IntsRef"
+  },
+  {
+    "source_class": "org.apache.lucene.util.fst.FSTTester",
+    "source_method": "simpleRandomString",
+    "target_class": "org.apache.lucene.util._TestUtil"
+  },
+  {
+    "source_class": "org.apache.lucene.util.TestRuleSetupAndRestoreClassEnv",
+    "source_method": "checkCodecRestrictions",
+    "target_class": "org.apache.lucene.codecs.Codec"
+  },
+  {
+    "source_class": "org.apache.lucene.util.LuceneTestCase",
+    "source_method": "tearDown",
+    "target_class": "org.apache.lucene.util.TestRuleSetupTeardownChained"
+  },
+  {
+    "source_class": "org.apache.lucene.util.LuceneTestCase",
+    "source_method": "atLeast",
+    "target_class": "int):int \t org.apache.lucene.util._TestUtil"
+  },
+  {
+    "source_class": "org.apache.lucene.util.LuceneTestCase",
+    "source_method": "newFSDirectory",
+    "target_class": "org.apache.lucene.store.LockFactory, boolean):org.apache.lucene.store.BaseDirectoryWrapper \t org.apache.lucene.util.CommandLineUtil"
+  },
+  {
+    "source_class": "org.apache.lucene.util.LuceneTestCase",
+    "source_method": "newFSDirectoryImpl",
+    "target_class": "extends org.apache.lucene.store.FSDirectory>, java.io.File):org.apache.lucene.store.Directory \t org.apache.lucene.util.CommandLineUtil"
+  },
+  {
+    "source_class": "org.apache.lucene.demo.facet.AssociationsFacetsExample",
+    "source_method": "sumAssociations",
+    "target_class": "org.apache.lucene.facet.search.FacetsCollector"
+  },
+  {
+    "source_class": "org.apache.lucene.search.join.ToParentBlockJoinCollector",
+    "source_method": "copyGroups",
+    "target_class": "org.apache.lucene.search.join.ToParentBlockJoinQuery.BlockJoinScorer"
+  },
+  {
+    "source_class": "org.apache.lucene.benchmark.byTask.tasks.CreateIndexTask",
+    "source_method": "createWriterConfig",
+    "target_class": "org.apache.lucene.benchmark.byTask.PerfRunData, org.apache.lucene.index.IndexWriterConfig.OpenMode, org.apache.lucene.index.IndexCommit):org.apache.lucene.index.IndexWriterConfig \t org.apache.lucene.benchmark.byTask.tasks.OpenIndexTask"
+  },
+  {
+    "source_class": "org.apache.lucene.benchmark.byTask.tasks.NewCollationAnalyzerTask",
+    "source_method": "createAnalyzer",
+    "target_class": "org.apache.lucene.benchmark.byTask.tasks.NewCollationAnalyzerTask.Implementation):org.apache.lucene.analysis.Analyzer \t org.apache.lucene.benchmark.byTask.tasks.NewCollationAnalyzerTask.Implementation"
+  },
+  {
+    "source_class": "org.apache.lucene.benchmark.byTask.feeds.ReutersQueryMaker",
+    "source_method": "createQueries",
+    "target_class": "org.apache.lucene.analysis.Analyzer):org.apache.lucene.search.Query[] \t org.apache.lucene.queryparser.classic.QueryParserBase"
+  }
+]

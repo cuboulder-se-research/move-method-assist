@@ -1,0 +1,105 @@
+Refactoring Type	Source Method	Target Class	Similarity Indice
+Move Method	edu.rice.cs.drjava.ui.MainFrame::_followFile():void	edu.rice.cs.util.FileOpenSelector	0.7236842105263157
+Move Method	edu.rice.cs.drjava.ui.MainFrame::_enableInteractionsPane():void	edu.rice.cs.drjava.ui.InteractionsScriptController	1.0
+Move Method	edu.rice.cs.drjava.model.repl.InteractionsModel::loadHistoryAsScript(FileOpenSelector):InteractionsScriptModel	edu.rice.cs.util.FileOpenSelector	0.3888888888888889
+Move Method	edu.rice.cs.drjava.ui.MainFrame::getOpenFiles(JFileChooser):File[]	edu.rice.cs.util.FileOpenSelector	1.0
+Move Method	edu.rice.cs.drjava.ui.FindResultsPanel::_bookmark():void	edu.rice.cs.drjava.model.MovingDocumentRegion	0.6257575757575756
+Move Method	edu.rice.cs.drjava.ui.DefinitionsPane::centerViewOnOffset(int):void	edu.rice.cs.drjava.ui.ErrorCaretListener	0.7361210846359361
+Move Method	edu.rice.cs.drjava.config.ConfigOptionListeners.RequiresInteractionsRestartListener::_setupNotificationsPanel(ConfigFrame, ConfigPanel):void	edu.rice.cs.drjava.ui.config.ConfigFrame	1.0
+Move Method	edu.rice.cs.drjava.ui.MainFrame::_createManualToolbarButton(Action):JButton	edu.rice.cs.drjava.ui.InteractionsScriptPane	0.5465465465465464
+Move Method	edu.rice.cs.drjava.ui.MainFrame::_setMainFont():void	edu.rice.cs.drjava.ui.FindReplacePanel	0.6063110456783416
+Move Method	edu.rice.cs.drjava.ui.MainFrame::_setCurrentDirectory(OpenDefinitionsDocument):void	edu.rice.cs.drjava.model.FileSaveSelector	0.48
+Move Method	edu.rice.cs.drjava.model.AbstractGlobalModel::addToBrowserHistory(boolean):void	edu.rice.cs.drjava.model.BrowserHistoryManager	1.0
+Move Method	edu.rice.cs.drjava.ui.MainFrame::_jumpToLine(int):int	edu.rice.cs.drjava.ui.DefinitionsPane	0.8171910605734134
+Move Method	edu.rice.cs.drjava.model.TestDocGetter::testConstructOneDocWithoutLineNums(CompilerErrorModelTest):void	edu.rice.cs.drjava.model.compiler.CompilerErrorModelTest	1.0
+Move Method	edu.rice.cs.drjava.ui.MainFrame::initEditExternalProcessDialog():void	edu.rice.cs.drjava.ui.EditExternalDialog	0.8666877104377104
+Move Method	edu.rice.cs.drjava.ui.MainFrame::_setUpActions():void	edu.rice.cs.util.swing.DelegatingAction	0.8160000000000001
+Move Method	edu.rice.cs.drjava.model.GlobalModelTestCase::getInteractionsText():String	edu.rice.cs.drjava.model.DefaultGlobalModel	0.40015733207432835
+Move Method	edu.rice.cs.drjava.ui.MainFrame::_setCurrentDirectory(File):void	edu.rice.cs.util.FileOpenSelector	0.5198019801980198
+Move Method	edu.rice.cs.drjava.model.debug.jpda.JPDADebugger::getLLLocation(Location, List<File>):Location	edu.rice.cs.drjava.model.debug.jpda.PendingRequestManager	0.6519607843137256
+Move Method	edu.rice.cs.drjava.ui.MainFrame::_setUpKeyBindingMaps():void	edu.rice.cs.drjava.ui.DefinitionsPane	1.0
+Move Method	edu.rice.cs.drjava.model.definitions.DefinitionsDocument::containsClassOrInterfaceOrEnum():boolean	edu.rice.cs.drjava.model.definitions.reducedmodel.ReducedModelControl	0.47579656938487114
+Move Method	edu.rice.cs.drjava.ui.MainFrame::_getFullFile(File):File	edu.rice.cs.util.FileOpenSelector	0.5
+Move Method	edu.rice.cs.drjava.ui.MainFrame::handleRemoteOpenFile(File, int):void	edu.rice.cs.drjava.model.FileSaveSelector	0.5473684210526316
+Move Method	edu.rice.cs.drjava.ui.MainFrame::_addGUIAvailabilityListener(Action, GUIAvailabilityListener.ComponentType[]):void	edu.rice.cs.drjava.ui.avail.DefaultGUIAvailabilityNotifier	0.2962962962962963
+Move Method	edu.rice.cs.drjava.model.FindReplaceMachine::findPrevious(FindReplacePanel):void	edu.rice.cs.drjava.ui.FindReplacePanel	1.0
+Move Method	edu.rice.cs.drjava.ui.MainFrame::resetCompleteWordDialogPosition():void	edu.rice.cs.drjava.ui.AutoCompletePopup	0.7624763257575757
+Move Method	edu.rice.cs.drjava.model.GlobalModelTestCase.JUnitTestListener::runJUnit(JUnitModel):void	edu.rice.cs.drjava.model.junit.JUnitModel	0.332464146023468
+Move Method	edu.rice.cs.drjava.model.debug.jpda.JPDADebugger::getLLStackTraceElement(Location, List<File>):StackTraceElement	edu.rice.cs.drjava.model.debug.jpda.PendingRequestManager	0.6545726025364033
+Move Method	edu.rice.cs.drjava.ui.config.VectorFileOptionComponent::reset2(ProjectPropertiesFrame, File):void	edu.rice.cs.drjava.ui.ProjectPropertiesFrame	1.0
+Move Method	edu.rice.cs.drjava.ui.MainFrame::makeFolderChooser(File):DirectoryChooser	edu.rice.cs.util.FileOpenSelector	0.8823529411764706
+Move Method	edu.rice.cs.drjava.ui.MainFrame::_addGUIAvailabilityListener(Component, GUIAvailabilityListener.ComponentType[]):void	edu.rice.cs.drjava.ui.avail.DefaultGUIAvailabilityNotifier	0.2962962962962963
+Move Method	edu.rice.cs.drjava.ui.JUnitPanel::_displayStackTrace(JUnitError):void	edu.rice.cs.drjava.model.junit.JUnitError	0.9782608695652175
+Move Method	edu.rice.cs.drjava.ui.MainFrame::getChosenFiles(JFileChooser, int):File[]	edu.rice.cs.util.FileOpenSelector	1.0
+Move Method	edu.rice.cs.drjava.model.AbstractGlobalModel::openFileHelper(FileOpenSelector):OpenDefinitionsDocument	edu.rice.cs.util.FileOpenSelector	0.39999999999999997
+Move Method	edu.rice.cs.drjava.ui.MainFrame::proposeBetterFileName(File):File	edu.rice.cs.util.FileOpenSelector	0.5198019801980198
+Move Method	edu.rice.cs.drjava.ui.MainFrame::goToRegionAndHighlight(IDocumentRegion):void	edu.rice.cs.drjava.ui.FindReplacePanel	0.8325332798859789
+Move Method	edu.rice.cs.drjava.ui.MainFrame::_createTab(TabbedPanel):void	edu.rice.cs.drjava.ui.TabbedPanel	1.0
+Move Method	edu.rice.cs.drjava.model.definitions.DefinitionsDocument::_findNextOpenCurly(String, int):int	edu.rice.cs.drjava.model.definitions.reducedmodel.ReducedModelControl	0.47063751692323136
+Move Method	edu.rice.cs.drjava.model.AbstractGlobalModel::makeProjectFileGroupingState(File, String, File, File, File, File[], File[], File[], Iterable<AbsRelFile>, File, int, boolean, String):FileGroupingState	edu.rice.cs.drjava.model.FileGroupingState	0.7058823529411767
+Move Method	edu.rice.cs.drjava.model.BrowserHistoryManager::changeRegion(BrowserDocumentRegion, Lambda<BrowserDocumentRegion,Object>):void	edu.rice.cs.drjava.model.BrowserDocumentRegion	0.9130718954248367
+Move Method	edu.rice.cs.drjava.model.debug.jpda.JPDADebugger::LLBreakpointLineNum(Breakpoint):int	edu.rice.cs.drjava.model.debug.jpda.PendingRequestManager	0.6668233082706767
+Move Method	edu.rice.cs.drjava.ui.MainFrame::createFindResultsPanel(RegionManager<MovingDocumentRegion>, MovingDocumentRegion, String, String, boolean, boolean, boolean, boolean, boolean, boolean, WeakReference<OpenDefinitionsDocument>, FindReplacePanel):FindResultsPanel	edu.rice.cs.drjava.ui.FindReplacePanel	0.7287899669801
+Move Method	edu.rice.cs.drjava.ui.MainFrame::_updateToolbarButtons():void	edu.rice.cs.drjava.ui.InteractionsScriptPane	0.5465465465465464
+Move Method	edu.rice.cs.drjava.ui.GenerateCustomDrJavaJarFrame::addZipFile(File, MD5ChecksumProperties, StringBuilder, ZipOutputStream, Predicate<String>):boolean	edu.rice.cs.util.MD5ChecksumProperties	1.0
+Move Method	edu.rice.cs.drjava.ui.MainFrame::resetEditExternalProcessPosition():void	edu.rice.cs.drjava.ui.EditExternalDialog	0.8666877104377104
+Move Method	edu.rice.cs.drjava.model.debug.DebugTestCase::_doSetCurrentThread(DebugThreadData):void	edu.rice.cs.drjava.model.debug.DebugThreadData	0.8627450980392157
+Move Method	edu.rice.cs.drjava.ui.config.ConfigFrame::addOptionComponent(ConfigPanel, OptionComponent<X,C>):void	edu.rice.cs.drjava.ui.config.ConfigPanel	1.0
+Move Method	edu.rice.cs.drjava.ui.MainFrame::_showConfigException():void	edu.rice.cs.drjava.ui.EditExternalDialog	0.23154561316121205
+Move Method	edu.rice.cs.drjava.ui.MainFrame::hourglassOff():void	edu.rice.cs.drjava.ui.DefinitionsPane	0.6599146812367322
+Move Method	edu.rice.cs.drjava.ui.MainFrame::_displayGUIComponentAvailabilityFrame():void	edu.rice.cs.drjava.ui.InteractionsScriptPane	1.0
+Move Method	edu.rice.cs.drjava.model.AbstractGlobalModel::saveAllFilesHelper(FileSaveSelector):void	edu.rice.cs.drjava.model.FileSaveSelector	0.5927128661427552
+Move Method	edu.rice.cs.drjava.DrJavaTestCase::setConfigSetting(Option<T>, T):void	edu.rice.cs.drjava.config.Option	0.5499999999999999
+Move Method	edu.rice.cs.drjava.ui.MainFrame::removeTab(Component):void	edu.rice.cs.drjava.ui.DefinitionsPane	0.9003951225064457
+Move Method	edu.rice.cs.util.text.ConsoleDocument::saveCopy(FileSaveSelector):void	edu.rice.cs.drjava.model.FileSaveSelector	0.447913862718708
+Move Method	edu.rice.cs.drjava.model.junit.JUnitTestManager::_isJUnitTest(Class<?>):boolean	edu.rice.cs.drjava.model.junit.JUnitTestRunner	0.5431547619047619
+Move Method	edu.rice.cs.drjava.ui.MainFrame::refreshBreakpointHighlightPainter():void	edu.rice.cs.drjava.ui.DefinitionsPane	1.0
+Move Method	edu.rice.cs.drjava.ui.MainFrame::_putTextIntoDefinitions(String):void	edu.rice.cs.drjava.ui.DefinitionsPane	0.8377895189621434
+Move Method	edu.rice.cs.drjava.ui.MainFrame::hideRecentDocFrame():void	edu.rice.cs.drjava.ui.RecentDocFrame	1.0
+Move Method	edu.rice.cs.drjava.ui.ExecuteExternalDialog::chooseFile(JTextPane):void	edu.rice.cs.util.swing.FileChooser	1.0
+Move Method	edu.rice.cs.drjava.ui.MainFrame::_updateDefScrollRowHeader():void	edu.rice.cs.drjava.ui.DefinitionsPane	0.4832392707012559
+Move Method	edu.rice.cs.drjava.ui.MainFrame::_setUpFileMenu(int, boolean):JMenu	edu.rice.cs.util.swing.DelegatingAction	0.402962962962963
+Move Method	edu.rice.cs.drjava.ui.MainFrame::getChosenFile(JFileChooser, int, File):File	edu.rice.cs.util.FileOpenSelector	1.0
+Move Method	edu.rice.cs.drjava.ui.MainFrame::removeMenuBarInOtherFrame(JMenuBar):void	edu.rice.cs.drjava.ui.RecentFileManager	1.0
+Move Method	edu.rice.cs.drjava.ui.ExecuteExternalDialog::colorVariables(JTextPane, PropertyMaps, DocumentListener, SimpleAttributeSet, SimpleAttributeSet, SimpleAttributeSet):void	edu.rice.cs.drjava.config.PropertyMaps	1.0
+Move Method	edu.rice.cs.drjava.model.GlobalModelTestCase::getCompilerErrorString():String	edu.rice.cs.drjava.model.DefaultGlobalModel	0.452958409307065
+Move Method	edu.rice.cs.drjava.ui.GenerateCustomDrJavaJarFrame::addOptionsPropertiesFile(ZipOutputStream):void	edu.rice.cs.drjava.ui.config.VectorFileOptionComponent	0.5823836657169991
+Move Method	edu.rice.cs.drjava.ui.MainFrame::_createToolbarButton(Action):JButton	edu.rice.cs.drjava.ui.InteractionsScriptPane	0.5986394557823128
+Move Method	edu.rice.cs.drjava.ui.MainFrame::openProject(FileOpenSelector):void	edu.rice.cs.util.FileOpenSelector	0.75
+Move Method	edu.rice.cs.drjava.model.AbstractGlobalModel::openFilesHelper(FileOpenSelector):OpenDefinitionsDocument[]	edu.rice.cs.util.FileOpenSelector	0.39999999999999997
+Move Method	edu.rice.cs.drjava.model.AbstractGlobalModel::_loadProject(ProjectFileIR):void	edu.rice.cs.drjava.model.ConcreteRegionManager	0.5513756613756615
+Move Method	edu.rice.cs.util.swing.DirectoryChooser::_setUpLanguageLevelMenu(MainFrame, int, boolean):JMenu	edu.rice.cs.drjava.ui.MainFrame	0.44131320196801394
+Move Method	edu.rice.cs.drjava.ui.ErrorPanel.ErrorListPane::addActionForKeyStroke(Vector<KeyStroke>, Action):void	edu.rice.cs.util.swing.HighlightManager	0.17952503999015626
+Move Method	edu.rice.cs.drjava.ui.MainFrame::getSaveFile(JFileChooser):File	edu.rice.cs.util.FileOpenSelector	1.0
+Move Method	edu.rice.cs.util.sexp.SExpParser.ParseHelper::parseAtom(Tokens.SExpToken):Atom	edu.rice.cs.util.sexp.Lexer	0.18958333333333335
+Move Method	edu.rice.cs.drjava.ui.DefinitionsPane::setPositionAndScroll(int):void	edu.rice.cs.drjava.ui.ErrorCaretListener	0.41953334364048644
+Move Method	edu.rice.cs.drjava.ui.MainFrame::_getBeginLinePos():int	edu.rice.cs.drjava.ui.DefinitionsPane	0.8377895189621434
+Move Method	edu.rice.cs.drjava.model.AbstractGlobalModel::_createOpenDefinitionsDocument(File):ConcreteOpenDefDoc	edu.rice.cs.drjava.model.FileGroupingState	0.43750000000000006
+Move Method	edu.rice.cs.drjava.model.GlobalModelTestCase::interpretIgnoreResult(String):void	edu.rice.cs.drjava.model.DefaultGlobalModel	0.26987554038356165
+Move Method	edu.rice.cs.drjava.ui.ExecuteExternalDialog::runCommand(String, String, String, String, PropertyMaps):ExternalProcessPanel	edu.rice.cs.util.swing.FileChooser	0.660860855970295
+Move Method	edu.rice.cs.drjava.ui.config.ConfigFrame::_getWorkDir():File	edu.rice.cs.drjava.ui.MainFrame	0.5632814925684267
+Move Method	edu.rice.cs.drjava.model.AbstractGlobalModel::_makeProjectProfile(File, HashMap<OpenDefinitionsDocument,DocumentInfoGetter>):ProjectProfile	edu.rice.cs.drjava.model.ConcreteRegionManager	0.6753149335643588
+Move Method	edu.rice.cs.drjava.config.OptionMapLoader::loadInto(OptionMap):void	edu.rice.cs.drjava.config.DefaultOptionMap	1.0
+Move Method	edu.rice.cs.drjava.model.compiler.DefaultCompilerModel::_visitorErrors2CompilerErrors(LinkedList<Pair<String,JExpressionIF>>):LinkedList<DJError>	edu.rice.cs.drjava.model.compiler.CompilerErrorModel	0.28099173553719003
+Move Method	edu.rice.cs.drjava.model.definitions.DefinitionsDocument::_findPrevKeyword(String, String, int):int	edu.rice.cs.drjava.model.definitions.reducedmodel.ReducedModelControl	0.47063751692323136
+Move Method	edu.rice.cs.drjava.ui.MainFrame::_setUpStatusBar():void	edu.rice.cs.drjava.ui.InteractionsScriptPane	0.8095833027118395
+Move Method	edu.rice.cs.drjava.ui.MainFrame::_addMenuItem(JMenu, Action, VectorOption<KeyStroke>, int, boolean):JMenuItem	edu.rice.cs.util.swing.DelegatingAction	0.6479477548810614
+Move Method	edu.rice.cs.drjava.ui.MainFrame::_setMenuShortcut(JMenuItem, Action, VectorOption<KeyStroke>, boolean):void	edu.rice.cs.util.swing.DelegatingAction	0.35079647178410983
+Move Method	edu.rice.cs.drjava.ui.MainFrame::_disableInteractionsPane():void	edu.rice.cs.drjava.ui.InteractionsScriptController	1.0
+Move Method	edu.rice.cs.drjava.model.GlobalModelTestCase::interpret(String):String	edu.rice.cs.util.Log	0.398122622817836
+Move Method	edu.rice.cs.drjava.ui.MainFrame::_storePositionInfo():void	edu.rice.cs.drjava.ui.AutoCompletePopup	0.7716281196645853
+Move Method	edu.rice.cs.drjava.ui.MainFrame::_addMenuItem(JMenu, Action, VectorOption<KeyStroke>, boolean):JMenuItem	edu.rice.cs.util.swing.DelegatingAction	0.6479477548810614
+Move Method	edu.rice.cs.drjava.ui.MainFrame::_showDebuggerPanel():void	edu.rice.cs.drjava.ui.DetachedFrame	0.9702922077922078
+Move Method	edu.rice.cs.drjava.ui.ErrorPanel.ErrorListPane::_errorAtPoint(Point):DJError	edu.rice.cs.util.swing.HighlightManager	0.3026808633244276
+Move Method	edu.rice.cs.drjava.model.javadoc.DefaultJavadocModel::_getFileFromDocument(OpenDefinitionsDocument, FileSaveSelector):File	edu.rice.cs.drjava.model.FileSaveSelector	0.48571428571428577
+Move Method	edu.rice.cs.drjava.ui.MainFrame::hourglassOn():void	edu.rice.cs.drjava.ui.DefinitionsPane	0.6599146812367322
+Move Method	edu.rice.cs.drjava.ui.MainFrame::_hideDebuggerPanel():void	edu.rice.cs.drjava.ui.DetachedFrame	0.959778543452013
+Move Method	edu.rice.cs.drjava.model.repl.InteractionsDJDocument::testHistoryRecallNextMovesToEnd(InteractionsPaneTest):void	edu.rice.cs.drjava.ui.InteractionsPaneTest	1.0
+Move Method	edu.rice.cs.drjava.ui.GenerateCustomDrJavaJarFrame::addDirectory(File, MD5ChecksumProperties, StringBuilder, ZipOutputStream, Predicate<String>):boolean	edu.rice.cs.util.MD5ChecksumProperties	1.0
+Move Method	edu.rice.cs.drjava.model.debug.jpda.JPDADebugger::openAndScroll(OpenDefinitionsDocument, Location, boolean):void	edu.rice.cs.drjava.model.debug.jpda.PendingRequestManager	0.7481481481481481
+Move Method	edu.rice.cs.drjava.ui.MainFrame::_openFileOrProject():void	edu.rice.cs.util.swing.DirectoryChooser	0.7392076502732242
+Move Method	edu.rice.cs.drjava.ui.MainFrame::_updateToolbarButton(JButton, Action):JButton	edu.rice.cs.drjava.ui.InteractionsScriptPane	1.0
+Move Method	edu.rice.cs.drjava.ui.MainFrame::_showFileMovedError(FileMovedException):void	edu.rice.cs.drjava.model.FileMovedException	1.0
+Move Method	edu.rice.cs.drjava.ui.MainFrame::testNE(CommandLineTest):void	edu.rice.cs.drjava.CommandLineTest	1.0
+Move Method	edu.rice.cs.drjava.ui.MainFrame::addMenuBarInOtherFrame(JMenuBar):void	edu.rice.cs.drjava.ui.RecentFileManager	1.0
+Move Method	edu.rice.cs.util.swing.FileChooser::_runCommand(ExecuteExternalDialog):void	edu.rice.cs.drjava.ui.ExecuteExternalDialog	1.0

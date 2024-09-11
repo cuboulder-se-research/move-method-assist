@@ -1,0 +1,47 @@
+[
+  {
+    "source_class": "org.junit.internal.runners.MethodValidator",
+    "source_method": "validateNoArgConstructor",
+    "target_class": "org.junit.internal.runners.TestClass"
+  },
+  {
+    "source_class": "org.junit.internal.runners.ClassRoadie",
+    "source_method": "runBefores",
+    "target_class": "org.junit.runner.notification.RunNotifier"
+  },
+  {
+    "source_class": "org.junit.internal.runners.ClassRoadie",
+    "source_method": "runAfters",
+    "target_class": "org.junit.runner.notification.RunNotifier"
+  },
+  {
+    "source_class": "org.junit.internal.runners.JUnit4ClassRunner",
+    "source_method": "validate",
+    "target_class": "org.junit.internal.runners.MethodValidator"
+  },
+  {
+    "source_class": "org.junit.internal.runners.JUnit4ClassRunner",
+    "source_method": "createTest",
+    "target_class": "org.junit.internal.runners.TestClass"
+  },
+  {
+    "source_class": "org.junit.runner.JUnitCore",
+    "source_method": "runMainAndExit",
+    "target_class": "java.lang.String[]):void \t org.junit.internal.JUnitSystem"
+  },
+  {
+    "source_class": "org.junit.runner.JUnitCore",
+    "source_method": "runMain",
+    "target_class": "java.lang.String[]):org.junit.runner.Result \t org.junit.runner.Description"
+  },
+  {
+    "source_class": "org.junit.experimental.categories.Categories",
+    "source_method": "canHaveCategorizedChildren",
+    "target_class": "org.junit.runner.Description"
+  },
+  {
+    "source_class": "junit.framework.JUnit4TestAdapterCache",
+    "source_method": "createTest",
+    "target_class": "junit.framework.TestSuite"
+  }
+]

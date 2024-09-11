@@ -1,0 +1,872 @@
+[
+  {
+    "source_class": "com.ibm.as400.vaccess.VIFSDirectory",
+    "source_method": "load",
+    "target_class": "com.ibm.as400.access.IFSFile"
+  },
+  {
+    "source_class": "com.ibm.as400.vaccess.IFSTextFileDocument",
+    "source_method": "load",
+    "target_class": "com.ibm.as400.vaccess.WorkingEventSupport"
+  },
+  {
+    "source_class": "com.ibm.as400.vaccess.IFSTextFileDocument",
+    "source_method": "save",
+    "target_class": "com.ibm.as400.vaccess.WorkingEventSupport"
+  },
+  {
+    "source_class": "com.ibm.as400.vaccess.VJobList",
+    "source_method": "loadFirst",
+    "target_class": "com.ibm.as400.vaccess.WorkingEventSupport"
+  },
+  {
+    "source_class": "com.ibm.as400.vaccess.ResourceListDetailsModel",
+    "source_method": "getResourceAt",
+    "target_class": "com.ibm.as400.resource.ResourceList"
+  },
+  {
+    "source_class": "com.ibm.as400.vaccess.ResourceListDetailsModel",
+    "source_method": "load",
+    "target_class": "com.ibm.as400.vaccess.TableModelEventSupport"
+  },
+  {
+    "source_class": "com.ibm.as400.vaccess.VPrinters",
+    "source_method": "loadChildren",
+    "target_class": "com.ibm.as400.vaccess.VObject"
+  },
+  {
+    "source_class": "com.ibm.as400.vaccess.VJob",
+    "source_method": "getPropertyValue",
+    "target_class": "com.ibm.as400.resource.RJob"
+  },
+  {
+    "source_class": "com.ibm.as400.vaccess.VUserList",
+    "source_method": "load",
+    "target_class": "com.ibm.as400.vaccess.WorkingEventSupport"
+  },
+  {
+    "source_class": "com.ibm.as400.vaccess.PermissionMainPanel",
+    "source_method": "fireError",
+    "target_class": "com.ibm.as400.vaccess.ErrorEventSupport"
+  },
+  {
+    "source_class": "com.ibm.as400.vaccess.PrinterPropertiesPane",
+    "source_method": "buildDevicePane",
+    "target_class": "com.ibm.as400.vaccess.VPrinter"
+  },
+  {
+    "source_class": "com.ibm.as400.vaccess.PrinterPropertiesPane",
+    "source_method": "buildFormsPane",
+    "target_class": "com.ibm.as400.vaccess.VPrinter"
+  },
+  {
+    "source_class": "com.ibm.as400.vaccess.PrinterPropertiesPane",
+    "source_method": "buildGeneralPane",
+    "target_class": "com.ibm.as400.vaccess.VPrinter"
+  },
+  {
+    "source_class": "com.ibm.as400.vaccess.PrinterPropertiesPane",
+    "source_method": "buildOutputQueuePane",
+    "target_class": "com.ibm.as400.vaccess.VPrinter"
+  },
+  {
+    "source_class": "com.ibm.as400.vaccess.PrinterPropertiesPane",
+    "source_method": "buildSeparatorsPane",
+    "target_class": "com.ibm.as400.vaccess.VPrinter"
+  },
+  {
+    "source_class": "com.ibm.as400.vaccess.PrinterPropertiesPane",
+    "source_method": "buildWriterPane",
+    "target_class": "com.ibm.as400.vaccess.VPrinter"
+  },
+  {
+    "source_class": "com.ibm.as400.vaccess.PrinterPropertiesPane",
+    "source_method": "getWriterStatusVector",
+    "target_class": "com.ibm.as400.vaccess.VPrinter"
+  },
+  {
+    "source_class": "com.ibm.as400.vaccess.SQLQueryFieldsPane",
+    "source_method": "fieldName",
+    "target_class": "com.ibm.as400.vaccess.SQLMetaDataTableModel"
+  },
+  {
+    "source_class": "com.ibm.as400.vaccess.SQLQueryFieldsPane",
+    "source_method": "update",
+    "target_class": "com.ibm.as400.vaccess.SQLQueryBuilderPane"
+  },
+  {
+    "source_class": "com.ibm.as400.vaccess.SQLQueryJoinPane",
+    "source_method": "buildTableList",
+    "target_class": "com.ibm.as400.vaccess.SQLQueryBuilderPane"
+  },
+  {
+    "source_class": "com.ibm.as400.vaccess.SQLQueryJoinPane",
+    "source_method": "complete",
+    "target_class": "com.ibm.as400.vaccess.SQLQueryClause"
+  },
+  {
+    "source_class": "com.ibm.as400.vaccess.OutputPropertiesPane",
+    "source_method": "buildPrinterQueuePane",
+    "target_class": "com.ibm.as400.access.QSYSObjectPathName"
+  },
+  {
+    "source_class": "com.ibm.as400.vaccess.IFSEditAction",
+    "source_method": "save",
+    "target_class": "com.ibm.as400.vaccess.VObject"
+  },
+  {
+    "source_class": "com.ibm.as400.vaccess.SQLQuerySummaryPane",
+    "source_method": "update",
+    "target_class": "com.ibm.as400.vaccess.SQLQueryBuilderPane"
+  },
+  {
+    "source_class": "com.ibm.as400.vaccess.ResourceListDetailsPane",
+    "source_method": "getResourceAtPoint",
+    "target_class": "com.ibm.as400.vaccess.ResourceListDetailsModel"
+  },
+  {
+    "source_class": "com.ibm.as400.vaccess.ResourceListDetailsPane",
+    "source_method": "isSelected",
+    "target_class": "com.ibm.as400.resource.Resource"
+  },
+  {
+    "source_class": "com.ibm.as400.vaccess.ResourceListDetailsPane",
+    "source_method": "load",
+    "target_class": "com.ibm.as400.vaccess.ResourceListDetailsModel"
+  },
+  {
+    "source_class": "com.ibm.as400.vaccess.ResourceListDetailsPane",
+    "source_method": "setColumnAttributeIDs",
+    "target_class": "com.ibm.as400.vaccess.ResourceListDetailsModel"
+  },
+  {
+    "source_class": "com.ibm.as400.data.RfmlRecordFormat",
+    "source_method": "addFieldDescriptions",
+    "target_class": "java.util.Vector, java.util.Vector, java.util.Vector, java.lang.String, java.util.TimeZone):void \t com.ibm.as400.access.TimeFieldDescription"
+  },
+  {
+    "source_class": "com.ibm.as400.data.RecordFormatDocument",
+    "source_method": "setValues",
+    "target_class": "com.ibm.as400.access.Record):void \t com.ibm.as400.data.RfmlDocument"
+  },
+  {
+    "source_class": "com.ibm.as400.data.RecordFormatDocument",
+    "source_method": "toRecordFormat",
+    "target_class": "com.ibm.as400.data.RfmlRecordFormat"
+  },
+  {
+    "source_class": "com.ibm.as400.data.ProgramCallDocument",
+    "source_method": "loadSerializedPcmlDocumentFromStream",
+    "target_class": "com.ibm.as400.access.Trace"
+  },
+  {
+    "source_class": "com.ibm.as400.data.ProgramCallDocument",
+    "source_method": "loadSourcePcmlDocumentFromStream",
+    "target_class": "java.io.InputStream, java.lang.ClassLoader, java.io.InputStream, boolean):com.ibm.as400.data.PcmlDocument \t com.ibm.as400.data.PcmlSAXParser"
+  },
+  {
+    "source_class": "com.ibm.as400.data.PcmlDataValues",
+    "source_method": "parseBytes",
+    "target_class": "int, java.util.Hashtable):int \t com.ibm.as400.data.PcmlDimensions"
+  },
+  {
+    "source_class": "com.ibm.as400.util.commtrace.FormatDisplay",
+    "source_method": "open",
+    "target_class": "com.ibm.as400.vaccess.IFSFileDialog"
+  },
+  {
+    "source_class": "com.ibm.as400.util.commtrace.CommTrace",
+    "source_method": "transfer",
+    "target_class": "com.ibm.as400.vaccess.IFSFileDialog"
+  },
+  {
+    "source_class": "com.ibm.as400.access.IFSFileOutputStream",
+    "source_method": "connectAndOpen",
+    "target_class": "com.ibm.as400.access.IFSFileDescriptor"
+  },
+  {
+    "source_class": "com.ibm.as400.access.AS400JDBCManagedDataSource",
+    "source_method": "createPhysicalConnection",
+    "target_class": "java.lang.String):com.ibm.as400.access.AS400JDBCConnection \t com.ibm.as400.access.SocketProperties"
+  },
+  {
+    "source_class": "com.ibm.as400.access.DataAreaImplRemote",
+    "source_method": "retrieveAttributesBigDecimal",
+    "target_class": "com.ibm.as400.access.AS400PackedDecimal"
+  },
+  {
+    "source_class": "com.ibm.as400.access.JDStatementProxy",
+    "source_method": "callMethodRtnInt",
+    "target_class": "com.ibm.as400.access.ProxyClientConnection"
+  },
+  {
+    "source_class": "com.ibm.as400.access.JDStatementProxy",
+    "source_method": "callMethodRtnRaw",
+    "target_class": "java.lang.Class[], java.lang.Object[]):com.ibm.as400.access.ProxyReturnValue \t com.ibm.as400.access.ProxyClientConnection"
+  },
+  {
+    "source_class": "com.ibm.as400.access.ObjectDescription",
+    "source_method": "getObjectLockList",
+    "target_class": "com.ibm.as400.access.CharConverter"
+  },
+  {
+    "source_class": "com.ibm.as400.access.MemberList",
+    "source_method": "load",
+    "target_class": "com.ibm.as400.access.CharConverter"
+  },
+  {
+    "source_class": "com.ibm.as400.access.MemberList",
+    "source_method": "readMemberInfoFromUserspaceEntry",
+    "target_class": "java.lang.String, com.ibm.as400.access.CharConverter, java.lang.String):void \t com.ibm.as400.access.CharConverter"
+  },
+  {
+    "source_class": "com.ibm.as400.access.BaseDataQueue",
+    "source_method": "delete",
+    "target_class": "com.ibm.as400.access.BaseDataQueueImpl"
+  },
+  {
+    "source_class": "com.ibm.as400.access.QSYSObjectPathName",
+    "source_method": "buildPathName",
+    "target_class": "java.lang.String, java.lang.String, java.lang.String, java.lang.String):java.lang.String \t com.ibm.as400.access.Trace"
+  },
+  {
+    "source_class": "com.ibm.as400.access.PxClientConnectionAdapter",
+    "source_method": "tunnelSend",
+    "target_class": "com.ibm.as400.access.PxReqCV"
+  },
+  {
+    "source_class": "com.ibm.as400.access.PxClientConnectionAdapter",
+    "source_method": "tunnelReceive",
+    "target_class": "java.net.URLConnection):java.lang.Object \t com.ibm.as400.access.PxClientReadDaemon"
+  },
+  {
+    "source_class": "com.ibm.as400.access.PxClientConnectionAdapter",
+    "source_method": "receive",
+    "target_class": "com.ibm.as400.access.PxClientReadDaemon"
+  },
+  {
+    "source_class": "com.ibm.as400.access.UDFS",
+    "source_method": "createPathName",
+    "target_class": "java.lang.String):byte[] \t com.ibm.as400.access.BinaryConverter"
+  },
+  {
+    "source_class": "com.ibm.as400.access.UDFS",
+    "source_method": "getUdfsInformationStructure",
+    "target_class": "com.ibm.as400.access.IFSFileDescriptorImplRemote"
+  },
+  {
+    "source_class": "com.ibm.as400.access.UDFS",
+    "source_method": "getMountedFsInformationStructure",
+    "target_class": "com.ibm.as400.access.IFSIoctlRep"
+  },
+  {
+    "source_class": "com.ibm.as400.access.IFSFile",
+    "source_method": "canWrite",
+    "target_class": "com.ibm.as400.access.IFSFileImpl"
+  },
+  {
+    "source_class": "com.ibm.as400.access.IFSFile",
+    "source_method": "copyTo",
+    "target_class": "boolean):boolean \t com.ibm.as400.access.IFSFileImpl"
+  },
+  {
+    "source_class": "com.ibm.as400.access.IFSFile",
+    "source_method": "created",
+    "target_class": "com.ibm.as400.access.IFSFileImpl"
+  },
+  {
+    "source_class": "com.ibm.as400.access.IFSFile",
+    "source_method": "getFreeSpace",
+    "target_class": "com.ibm.as400.access.IFSFileImpl"
+  },
+  {
+    "source_class": "com.ibm.as400.access.IFSFile",
+    "source_method": "getAvailableSpace",
+    "target_class": "com.ibm.as400.access.IFSFileImpl"
+  },
+  {
+    "source_class": "com.ibm.as400.access.IFSFile",
+    "source_method": "getPathPointedTo",
+    "target_class": "com.ibm.as400.access.IFSFileImpl"
+  },
+  {
+    "source_class": "com.ibm.as400.access.IFSFile",
+    "source_method": "isSourcePhysicalFile",
+    "target_class": "com.ibm.as400.access.IFSFileImpl"
+  },
+  {
+    "source_class": "com.ibm.as400.access.IFSFile",
+    "source_method": "isSymbolicLink",
+    "target_class": "com.ibm.as400.access.IFSFileImpl"
+  },
+  {
+    "source_class": "com.ibm.as400.access.IFSFile",
+    "source_method": "lastAccessed",
+    "target_class": "com.ibm.as400.access.IFSFileImpl"
+  },
+  {
+    "source_class": "com.ibm.as400.access.IFSFile",
+    "source_method": "length0",
+    "target_class": "com.ibm.as400.access.IFSFileImpl"
+  },
+  {
+    "source_class": "com.ibm.as400.access.IFSFile",
+    "source_method": "list0",
+    "target_class": "java.lang.String):java.lang.String[] \t com.ibm.as400.access.IFSFileImpl"
+  },
+  {
+    "source_class": "com.ibm.as400.access.IFSFile",
+    "source_method": "listFiles0",
+    "target_class": "java.lang.String, int, java.lang.String, byte[], boolean):com.ibm.as400.access.IFSFile[] \t com.ibm.as400.access.IFSFileImpl"
+  },
+  {
+    "source_class": "com.ibm.as400.access.IFSFile",
+    "source_method": "renameTo0",
+    "target_class": "com.ibm.as400.access.IFSFileImpl"
+  },
+  {
+    "source_class": "com.ibm.as400.access.AS400Time",
+    "source_method": "toXsdString",
+    "target_class": "java.util.TimeZone):java.lang.String \t com.ibm.as400.access.Trace"
+  },
+  {
+    "source_class": "com.ibm.as400.access.IFSFileInputStream",
+    "source_method": "chooseImpl",
+    "target_class": "com.ibm.as400.access.IFSFileDescriptor"
+  },
+  {
+    "source_class": "com.ibm.as400.access.IFSFileInputStream",
+    "source_method": "connectAndOpen",
+    "target_class": "com.ibm.as400.access.IFSFileDescriptor"
+  },
+  {
+    "source_class": "com.ibm.as400.access.IFSFileInputStream",
+    "source_method": "open",
+    "target_class": "com.ibm.as400.access.IFSFileInputStreamImpl"
+  },
+  {
+    "source_class": "com.ibm.as400.access.IFSFileInputStream",
+    "source_method": "rewind",
+    "target_class": "com.ibm.as400.access.IFSFileDescriptor"
+  },
+  {
+    "source_class": "com.ibm.as400.access.IFSFileInputStream",
+    "source_method": "setFD",
+    "target_class": "com.ibm.as400.access.IFSFileDescriptor"
+  },
+  {
+    "source_class": "com.ibm.as400.access.IFSFileInputStream",
+    "source_method": "unlock",
+    "target_class": "com.ibm.as400.access.IFSFileInputStreamImpl"
+  },
+  {
+    "source_class": "com.ibm.as400.access.MemberDescription",
+    "source_method": "retrieve",
+    "target_class": "com.ibm.as400.access.ProgramCall"
+  },
+  {
+    "source_class": "com.ibm.as400.access.MemberDescription",
+    "source_method": "buildProgramParameters",
+    "target_class": "com.ibm.as400.access.QSYSObjectPathName"
+  },
+  {
+    "source_class": "com.ibm.as400.access.JDUtilities",
+    "source_method": "decompress",
+    "target_class": "int, int, byte[], int):void \t com.ibm.as400.access.BinaryConverter"
+  },
+  {
+    "source_class": "com.ibm.as400.access.JDUtilities",
+    "source_method": "getLibraries",
+    "target_class": "com.ibm.as400.access.AS400JDBCConnection, com.ibm.as400.access.SQLConversionSettings, boolean):java.sql.ResultSet \t com.ibm.as400.access.DBBaseRequestDS"
+  },
+  {
+    "source_class": "com.ibm.as400.access.JDUtilities",
+    "source_method": "getTypeCode",
+    "target_class": "com.ibm.as400.access.JDTrace"
+  },
+  {
+    "source_class": "com.ibm.as400.access.PrintObject",
+    "source_method": "getIntegerAttribute",
+    "target_class": "com.ibm.as400.access.PrintObjectImpl"
+  },
+  {
+    "source_class": "com.ibm.as400.access.JDSearchPattern",
+    "source_method": "unquote",
+    "target_class": "com.ibm.as400.access.JDUtilities"
+  },
+  {
+    "source_class": "com.ibm.as400.access.JobLog",
+    "source_method": "writeMessage",
+    "target_class": "java.lang.String, int, java.lang.String):void \t com.ibm.as400.access.Trace"
+  },
+  {
+    "source_class": "com.ibm.as400.access.JobLog",
+    "source_method": "writeMessage",
+    "target_class": "java.lang.String, int, java.lang.String, byte[]):void \t com.ibm.as400.access.Trace"
+  },
+  {
+    "source_class": "com.ibm.as400.access.JobLog",
+    "source_method": "writeMessage",
+    "target_class": "java.lang.String, int, java.lang.String, byte[], boolean):void \t com.ibm.as400.access.Trace"
+  },
+  {
+    "source_class": "com.ibm.as400.access.DBDSPool",
+    "source_method": "getDBSQLRequestDS",
+    "target_class": "int, int, int):com.ibm.as400.access.DBSQLRequestDS \t com.ibm.as400.access.DBBaseRequestDS"
+  },
+  {
+    "source_class": "com.ibm.as400.access.IFSFileImplRemote",
+    "source_method": "retrieveDatabaseFileAttributes",
+    "target_class": "com.ibm.as400.access.IFSFileDescriptorImplRemote"
+  },
+  {
+    "source_class": "com.ibm.as400.access.IFSFileImplRemote",
+    "source_method": "listAttributes",
+    "target_class": "int, byte[], boolean, boolean):java.util.Vector \t com.ibm.as400.access.IFSListAttrsReq"
+  },
+  {
+    "source_class": "com.ibm.as400.access.IFSFileImplRemote",
+    "source_method": "listDirectoryDetails",
+    "target_class": "java.lang.String, int, byte[], boolean, boolean):com.ibm.as400.access.IFSCachedAttributes[] \t com.ibm.as400.access.IFSFileDescriptorImplRemote"
+  },
+  {
+    "source_class": "com.ibm.as400.access.SpooledFile",
+    "source_method": "moveToTop",
+    "target_class": "com.ibm.as400.access.PrintObjectImpl"
+  },
+  {
+    "source_class": "com.ibm.as400.access.SystemValueUtility",
+    "source_method": "parse",
+    "target_class": "com.ibm.as400.access.AS400, com.ibm.as400.access.Converter):java.util.Vector \t com.ibm.as400.access.Trace"
+  },
+  {
+    "source_class": "com.ibm.as400.access.SystemValueUtility",
+    "source_method": "retrieveFromSystem",
+    "target_class": "java.util.Vector, boolean):java.util.Vector \t com.ibm.as400.access.BinaryConverter"
+  },
+  {
+    "source_class": "com.ibm.as400.access.SystemValueUtility",
+    "source_method": "set",
+    "target_class": "com.ibm.as400.access.SystemValueInfo, java.lang.Object):void \t com.ibm.as400.access.SystemValueList"
+  },
+  {
+    "source_class": "com.ibm.as400.access.QSYSPermission",
+    "source_method": "hasObjectAuthorities",
+    "target_class": "java.lang.String, java.lang.String, java.lang.String[]):boolean \t com.ibm.as400.access.BinaryConverter"
+  },
+  {
+    "source_class": "com.ibm.as400.access.PSEventDispatcher",
+    "source_method": "fireEvent",
+    "target_class": "java.lang.String, java.util.EventObject):void \t com.ibm.as400.access.PSConnection"
+  },
+  {
+    "source_class": "com.ibm.as400.access.NetServerSession",
+    "source_method": "list",
+    "target_class": "com.ibm.as400.resource.PresentationLoader"
+  },
+  {
+    "source_class": "com.ibm.as400.access.DDMObjectDataStream",
+    "source_method": "getObjectS38BUF",
+    "target_class": "com.ibm.as400.access.DDMS38OpenFeedback, boolean, int):com.ibm.as400.access.DDMObjectDataStream[] \t com.ibm.as400.access.DDMS38OpenFeedback"
+  },
+  {
+    "source_class": "com.ibm.as400.access.JDConnectionProxy",
+    "source_method": "setProperties",
+    "target_class": "com.ibm.as400.access.JDProperties, com.ibm.as400.access.AS400):void \t com.ibm.as400.access.ProxyClientConnection"
+  },
+  {
+    "source_class": "com.ibm.as400.access.PSSecureServerSocketContainer",
+    "source_method": "createSSLServerSocket",
+    "target_class": "java.lang.String, java.lang.String):java.net.ServerSocket \t com.ibm.as400.access.PxSecureSocketContainer"
+  },
+  {
+    "source_class": "com.ibm.as400.access.PxDSFactory",
+    "source_method": "register",
+    "target_class": "com.ibm.as400.access.PxDSRV"
+  },
+  {
+    "source_class": "com.ibm.as400.access.ListUtilities",
+    "source_method": "checkListStatus",
+    "target_class": "com.ibm.as400.access.CharConverter"
+  },
+  {
+    "source_class": "com.ibm.as400.access.ListUtilities",
+    "source_method": "closeList",
+    "target_class": "byte[]):void \t com.ibm.as400.access.ProgramCall"
+  },
+  {
+    "source_class": "com.ibm.as400.access.ListUtilities",
+    "source_method": "refreshListInformation",
+    "target_class": "com.ibm.as400.access.ProgramCall):byte[] \t com.ibm.as400.access.BinaryConverter"
+  },
+  {
+    "source_class": "com.ibm.as400.access.PSConnection",
+    "source_method": "processReq",
+    "target_class": "com.ibm.as400.access.PxReqSV"
+  },
+  {
+    "source_class": "com.ibm.as400.access.JDError",
+    "source_method": "getReason",
+    "target_class": "int, int):java.lang.String \t com.ibm.as400.access.JDUtilities"
+  },
+  {
+    "source_class": "com.ibm.as400.access.JDError",
+    "source_method": "getSQLState",
+    "target_class": "int):java.lang.String \t com.ibm.as400.access.DBReplyRequestedDS"
+  },
+  {
+    "source_class": "com.ibm.as400.access.CurrentUser",
+    "source_method": "getUserID",
+    "target_class": "com.ibm.as400.access.NativeMethods"
+  },
+  {
+    "source_class": "com.ibm.as400.access.CurrentUser",
+    "source_method": "getUserInfo",
+    "target_class": "byte[], byte[]):byte[] \t com.ibm.as400.access.NativeMethods"
+  },
+  {
+    "source_class": "com.ibm.as400.access.Job",
+    "source_method": "getCallStack",
+    "target_class": "com.ibm.as400.access.CharConverter"
+  },
+  {
+    "source_class": "com.ibm.as400.access.AS400",
+    "source_method": "loadImpl3",
+    "target_class": "java.lang.String, java.lang.String):java.lang.Object \t com.ibm.as400.access.ProxyImpl"
+  },
+  {
+    "source_class": "com.ibm.as400.access.AS400",
+    "source_method": "resolveProxyServer",
+    "target_class": "com.ibm.as400.access.SystemProperties"
+  },
+  {
+    "source_class": "com.ibm.as400.access.AS400",
+    "source_method": "userIdMatchesLocal",
+    "target_class": "boolean):boolean \t com.ibm.as400.access.ServerVersion"
+  },
+  {
+    "source_class": "com.ibm.as400.access.ConvTable",
+    "source_method": "getTable",
+    "target_class": "com.ibm.as400.access.ConversionMaps"
+  },
+  {
+    "source_class": "com.ibm.as400.access.ConvTable",
+    "source_method": "getTable",
+    "target_class": "com.ibm.as400.access.AS400ImplRemote):com.ibm.as400.access.ConvTable \t com.ibm.as400.access.ConversionMaps"
+  },
+  {
+    "source_class": "com.ibm.as400.access.TokenManager",
+    "source_method": "getGSSToken",
+    "target_class": "java.lang.String):byte[] \t com.ibm.as400.access.Trace"
+  },
+  {
+    "source_class": "com.ibm.as400.access.NPDataAnalyzer",
+    "source_method": "dataIsAFP",
+    "target_class": "int, int):boolean \t com.ibm.as400.access.BinaryConverter"
+  },
+  {
+    "source_class": "com.ibm.as400.access.IFSFileDescriptorImplRemote",
+    "source_method": "listObjAttrs",
+    "target_class": "int, int):com.ibm.as400.access.IFSListAttrsRep \t com.ibm.as400.access.IFSListAttrsReq"
+  },
+  {
+    "source_class": "com.ibm.as400.access.IFSFileDescriptorImplRemote",
+    "source_method": "unlock",
+    "target_class": "com.ibm.as400.access.IFSKey"
+  },
+  {
+    "source_class": "com.ibm.as400.access.JDEscapeClause",
+    "source_method": "getNumericFunctions",
+    "target_class": "com.ibm.as400.access.JDUtilities"
+  },
+  {
+    "source_class": "com.ibm.as400.access.JDEscapeClause",
+    "source_method": "getStringFunctions",
+    "target_class": "com.ibm.as400.access.JDUtilities"
+  },
+  {
+    "source_class": "com.ibm.as400.access.JDEscapeClause",
+    "source_method": "getTimeDateFunctions",
+    "target_class": "com.ibm.as400.access.JDUtilities"
+  },
+  {
+    "source_class": "com.ibm.as400.access.JDPackageManager",
+    "source_method": "create",
+    "target_class": "com.ibm.as400.access.DBSQLRequestDS"
+  },
+  {
+    "source_class": "com.ibm.as400.access.JDPackageManager",
+    "source_method": "getCachedStatementIndex",
+    "target_class": "com.ibm.as400.access.AS400JDBCConnection"
+  },
+  {
+    "source_class": "com.ibm.as400.access.AS400Text",
+    "source_method": "toBytes",
+    "target_class": "byte[], int, com.ibm.as400.access.BidiConversionProperties):int \t com.ibm.as400.access.ConverterImpl"
+  },
+  {
+    "source_class": "com.ibm.as400.access.MessageFile",
+    "source_method": "getMessage",
+    "target_class": "byte[], int, int, int):com.ibm.as400.access.AS400Message \t com.ibm.as400.access.Converter"
+  },
+  {
+    "source_class": "com.ibm.as400.access.ToolboxSignonHandler",
+    "source_method": "setupPasswordDialog",
+    "target_class": "com.ibm.as400.access.AS400"
+  },
+  {
+    "source_class": "com.ibm.as400.access.AS400ImplRemote",
+    "source_method": "getCcsidFromServer",
+    "target_class": "com.ibm.as400.access.NLSImpl"
+  },
+  {
+    "source_class": "com.ibm.as400.access.NLS",
+    "source_method": "encodingToCCSID",
+    "target_class": "com.ibm.as400.access.ConversionMaps"
+  },
+  {
+    "source_class": "com.ibm.as400.access.NLS",
+    "source_method": "localeToNLV",
+    "target_class": "com.ibm.as400.access.ConversionMaps"
+  },
+  {
+    "source_class": "com.ibm.as400.access.NLS",
+    "source_method": "getCountryDescription",
+    "target_class": "java.lang.String):java.lang.String \t com.ibm.as400.access.BinaryConverter"
+  },
+  {
+    "source_class": "com.ibm.as400.access.EnvironmentVariable",
+    "source_method": "setupServiceProgramCall",
+    "target_class": "com.ibm.as400.access.ServiceProgramCall"
+  },
+  {
+    "source_class": "com.ibm.as400.access.IFSRandomAccessFile",
+    "source_method": "close",
+    "target_class": "com.ibm.as400.access.IFSFileDescriptor"
+  },
+  {
+    "source_class": "com.ibm.as400.access.IFSRandomAccessFile",
+    "source_method": "connectAndOpen",
+    "target_class": "com.ibm.as400.access.IFSFileDescriptor"
+  },
+  {
+    "source_class": "com.ibm.as400.access.IFSRandomAccessFile",
+    "source_method": "length",
+    "target_class": "com.ibm.as400.access.IFSRandomAccessFileImpl"
+  },
+  {
+    "source_class": "com.ibm.as400.access.IFSRandomAccessFile",
+    "source_method": "open",
+    "target_class": "com.ibm.as400.access.IFSFileDescriptor"
+  },
+  {
+    "source_class": "com.ibm.as400.access.IFSRandomAccessFile",
+    "source_method": "setLength",
+    "target_class": "com.ibm.as400.access.IFSRandomAccessFileImpl"
+  },
+  {
+    "source_class": "com.ibm.as400.access.AS400Date",
+    "source_method": "toXsdString",
+    "target_class": "java.util.TimeZone):java.lang.String \t com.ibm.as400.access.Trace"
+  },
+  {
+    "source_class": "com.ibm.as400.access.PermissionAccess",
+    "source_method": "getAuthority",
+    "target_class": "com.ibm.as400.access.Record"
+  },
+  {
+    "source_class": "com.ibm.as400.access.ExecutionEnvironment",
+    "source_method": "getBestGuessAS400Ccsid",
+    "target_class": "com.ibm.as400.access.ConversionMaps"
+  },
+  {
+    "source_class": "com.ibm.as400.access.ExecutionEnvironment",
+    "source_method": "getEncoding",
+    "target_class": "com.ibm.as400.access.ConversionMaps"
+  },
+  {
+    "source_class": "com.ibm.as400.access.AS400FileImplBase",
+    "source_method": "readPreviousEqual",
+    "target_class": "com.ibm.as400.access.DDMRecordCache"
+  },
+  {
+    "source_class": "com.ibm.as400.access.AS400FileImplBase",
+    "source_method": "refreshRecordCache",
+    "target_class": "com.ibm.as400.access.DDMRecordCache"
+  },
+  {
+    "source_class": "com.ibm.as400.access.ISeriesNetServer",
+    "source_method": "listShares",
+    "target_class": "java.lang.String):java.lang.Object \t com.ibm.as400.access.CharConverter"
+  },
+  {
+    "source_class": "com.ibm.as400.access.ISeriesNetServer",
+    "source_method": "listSessionsForWorkstation",
+    "target_class": "com.ibm.as400.access.AS400"
+  },
+  {
+    "source_class": "com.ibm.as400.access.ISeriesNetServer",
+    "source_method": "listConnectionsForSession",
+    "target_class": "com.ibm.as400.access.CharConverter"
+  },
+  {
+    "source_class": "com.ibm.as400.access.ISeriesNetServer",
+    "source_method": "listConnectionsForSession",
+    "target_class": "com.ibm.as400.access.CharConverter"
+  },
+  {
+    "source_class": "com.ibm.as400.access.ISeriesNetServer",
+    "source_method": "parseZLSL0300",
+    "target_class": "int, com.ibm.as400.access.CharConverter, com.ibm.as400.access.ISeriesNetServerSession):com.ibm.as400.access.ISeriesNetServerSession \t com.ibm.as400.access.CharConverter"
+  },
+  {
+    "source_class": "com.ibm.as400.access.ISeriesNetServer",
+    "source_method": "parseZLSL0600or0700",
+    "target_class": "int, com.ibm.as400.access.CharConverter, boolean, com.ibm.as400.access.ISeriesNetServerConnection):com.ibm.as400.access.ISeriesNetServerConnection \t com.ibm.as400.access.CharConverter"
+  },
+  {
+    "source_class": "com.ibm.as400.access.ISeriesNetServer",
+    "source_method": "listConnectionsForShare",
+    "target_class": "com.ibm.as400.access.CharConverter"
+  },
+  {
+    "source_class": "com.ibm.as400.access.ISeriesNetServer",
+    "source_method": "retrieveAutostart",
+    "target_class": "com.ibm.as400.access.CharConverter"
+  },
+  {
+    "source_class": "com.ibm.as400.access.ISeriesNetServer",
+    "source_method": "changeServerInfo",
+    "target_class": "com.ibm.as400.access.CharConverter"
+  },
+  {
+    "source_class": "com.ibm.as400.access.ISeriesNetServer",
+    "source_method": "openListOfServerInfo",
+    "target_class": "com.ibm.as400.access.CharConverter"
+  },
+  {
+    "source_class": "com.ibm.as400.access.ISeriesNetServer",
+    "source_method": "refresh",
+    "target_class": "com.ibm.as400.access.ISeriesNetServerConnection"
+  },
+  {
+    "source_class": "com.ibm.as400.access.ISeriesNetServer",
+    "source_method": "refresh",
+    "target_class": "com.ibm.as400.access.ISeriesNetServerSession"
+  },
+  {
+    "source_class": "com.ibm.as400.access.ISeriesNetServer",
+    "source_method": "refresh",
+    "target_class": "com.ibm.as400.access.CharConverter"
+  },
+  {
+    "source_class": "com.ibm.as400.access.ISeriesNetServer",
+    "source_method": "commitChanges",
+    "target_class": "com.ibm.as400.access.ISeriesNetServerPrintShare"
+  },
+  {
+    "source_class": "com.ibm.as400.access.SystemValueGroup",
+    "source_method": "refresh",
+    "target_class": "com.ibm.as400.access.SystemValueUtility"
+  },
+  {
+    "source_class": "com.ibm.as400.access.JDConnectionPoolManager",
+    "source_method": "fillPool",
+    "target_class": "int):void \t com.ibm.as400.access.JDConnectionPoolKey"
+  },
+  {
+    "source_class": "com.ibm.as400.access.SQLTime",
+    "source_method": "timeToString",
+    "target_class": "com.ibm.as400.access.SQLConversionSettings, java.util.Calendar, int):java.lang.String \t com.ibm.as400.access.JDUtilities"
+  },
+  {
+    "source_class": "com.ibm.as400.access.jdbcClient.Main",
+    "source_method": "dispRow",
+    "target_class": "java.sql.ResultSet, boolean, int, int[], java.lang.String[], java.lang.String[], boolean, boolean, int, int, boolean, boolean):void \t com.ibm.as400.access.jdbcClient.ReflectionUtil"
+  },
+  {
+    "source_class": "com.ibm.as400.access.PSTunnelController",
+    "source_method": "runInputStream",
+    "target_class": "java.io.OutputStream):void \t com.ibm.as400.access.PSTunnelConnection"
+  },
+  {
+    "source_class": "com.ibm.as400.access.ConnectionList",
+    "source_method": "removeExpiredConnections",
+    "target_class": "com.ibm.as400.access.ConnectionPoolEvent"
+  },
+  {
+    "source_class": "com.ibm.as400.access.JDSimpleRowCache",
+    "source_method": "reposition",
+    "target_class": "com.ibm.as400.access.JDSimpleRow"
+  },
+  {
+    "source_class": "com.ibm.as400.access.SystemValueList",
+    "source_method": "lookupDescription",
+    "target_class": "java.util.Locale):java.lang.String \t com.ibm.as400.access.ResourceBundleLoader"
+  },
+  {
+    "source_class": "com.ibm.as400.access.IFSFileDescriptor",
+    "source_method": "incrementFileOffset",
+    "target_class": "com.ibm.as400.access.IFSFileDescriptorImpl"
+  },
+  {
+    "source_class": "com.ibm.as400.access.IFSFileDescriptor",
+    "source_method": "setFileOffset",
+    "target_class": "com.ibm.as400.access.IFSFileDescriptorImpl"
+  },
+  {
+    "source_class": "com.ibm.as400.access.NetServerConnection",
+    "source_method": "getAttributeMetaDataStatic",
+    "target_class": "com.ibm.as400.resource.ResourceMetaDataTable"
+  },
+  {
+    "source_class": "com.ibm.as400.access.NetServerConnection",
+    "source_method": "list",
+    "target_class": "int):com.ibm.as400.resource.ResourceList \t com.ibm.as400.resource.PresentationLoader"
+  },
+  {
+    "source_class": "com.ibm.as400.access.NetServerConnection",
+    "source_method": "list",
+    "target_class": "int, java.lang.String):com.ibm.as400.resource.ResourceList \t com.ibm.as400.resource.PresentationLoader"
+  },
+  {
+    "source_class": "com.ibm.as400.access.ClassDecoupler",
+    "source_method": "connectDDMPhase2",
+    "target_class": "java.io.InputStream, byte[], byte[], byte[], int, java.lang.String, java.lang.String, int):void \t com.ibm.as400.access.DDMSECCHKRequestDataStream"
+  },
+  {
+    "source_class": "com.ibm.as400.access.CredentialVault",
+    "source_method": "encode",
+    "target_class": "byte[], byte[]):byte[] \t com.ibm.as400.access.Trace"
+  },
+  {
+    "source_class": "com.ibm.as400.access.AS400FileRecordDescriptionImplRemote",
+    "source_method": "writeFieldDescription",
+    "target_class": "com.ibm.as400.access.Record):void \t com.ibm.as400.access.Record"
+  },
+  {
+    "source_class": "com.ibm.as400.access.NativeMethods",
+    "source_method": "loadSCK",
+    "target_class": "com.ibm.as400.access.Trace"
+  },
+  {
+    "source_class": "com.ibm.as400.access.PermissionAccessQSYS",
+    "source_method": "getAddCommand",
+    "target_class": "java.lang.String, com.ibm.as400.access.UserPermission):com.ibm.as400.access.CommandCall \t com.ibm.as400.access.QSYSPermission"
+  },
+  {
+    "source_class": "com.ibm.as400.access.PermissionAccessQSYS",
+    "source_method": "getChgCommand",
+    "target_class": "java.lang.String, com.ibm.as400.access.UserPermission):com.ibm.as400.access.CommandCall \t com.ibm.as400.access.QSYSPermission"
+  },
+  {
+    "source_class": "com.ibm.as400.access.AS400File",
+    "source_method": "create",
+    "target_class": "java.lang.String, java.lang.String):void \t com.ibm.as400.access.RecordFormat"
+  },
+  {
+    "source_class": "com.ibm.as400.access.AS400File",
+    "source_method": "fillInRecord",
+    "target_class": "com.ibm.as400.access.Record"
+  }
+]

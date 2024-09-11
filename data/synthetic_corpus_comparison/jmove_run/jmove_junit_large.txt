@@ -1,0 +1,18 @@
+Refactoring Type	Source Method	Target Class	Similarity Indice
+Move Method	org.junit.runner.manipulation.Filter::filter3(JUnit4ClassRunner):void	org.junit.internal.runners.JUnit4ClassRunner	0.44936507936507936
+Move Method	junit.framework.JUnit4TestAdapterCache::getNotifier(TestResult, JUnit4TestAdapter):RunNotifier	junit.framework.TestResult	1.0
+Move Method	org.junit.experimental.theories.internal.Assignments::getAnnotatedSupplier(ParameterSignature):ParameterSupplier	org.junit.experimental.theories.ParameterSignature	1.0
+Move Method	org.junit.internal.runners.JUnit4ClassRunner::testAborted(RunNotifier, Description, Throwable):void	org.junit.runner.Description	0.4294573643410852
+Move Method	org.junit.experimental.theories.Theories.TheoryAnchor::runWithIncompleteAssignment(Assignments):void	org.junit.experimental.theories.internal.Assignments	0.9727891156462583
+Move Method	org.junit.runners.ParentRunner::validatePublicVoidNoArgMethods(Class<? extends Annotation>, boolean, List<Throwable>):void	org.junit.runners.model.TestClass	0.774496336996337
+Move Method	org.junit.runner.Description::runBefores(ClassRoadie):void	org.junit.internal.runners.ClassRoadie	1.0
+Move Method	org.junit.runner.manipulation.Filter::filter2(JUnit38ClassRunner):void	org.junit.internal.runners.JUnit38ClassRunner	0.5261904761904763
+Move Method	org.junit.experimental.theories.ParameterSignature::addFields(AllMembersSupplier, List<PotentialAssignment>):void	org.junit.experimental.theories.internal.AllMembersSupplier	0.7786596119929453
+Move Method	org.junit.experimental.theories.internal.AllMembersSupplier::addSinglePointMethods(ParameterSignature, List<PotentialAssignment>):void	org.junit.runners.model.TestClass	0.9211233211233212
+Move Method	org.junit.internal.runners.JUnit4ClassRunner::classAnnotations():Annotation[]	org.junit.internal.runners.TestClass	1.0
+Move Method	org.junit.runners.ParentRunner::runLeaf(Statement, Description, RunNotifier):void	org.junit.runner.Description	0.4396825396825397
+Move Method	org.junit.runner.Computer::getSuite(RunnerBuilder, Class<?>[]):Runner	org.junit.runners.model.RunnerBuilder	0.953662757162084
+Move Method	org.junit.runners.model.Statement::evaluate2(ExpectException):void	org.junit.internal.runners.statements.ExpectException	1.0
+Move Method	org.junit.runner.notification.RunNotifier::runTestMethod(MethodRoadie):void	org.junit.internal.runners.MethodRoadie	0.7312440645773979
+Move Method	org.junit.runner.Computer::getRunner(RunnerBuilder, Class<?>):Runner	org.junit.runners.model.RunnerBuilder	0.6444444444444445
+Move Method	org.junit.runners.Parameterized::getParametersMethod(TestClass):FrameworkMethod	org.junit.runners.model.TestClass	0.42510639974779324

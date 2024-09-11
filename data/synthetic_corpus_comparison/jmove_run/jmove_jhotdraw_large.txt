@@ -1,0 +1,28 @@
+Refactoring Type	Source Method	Target Class	Similarity Indice
+Move Method	org.jhotdraw.geom.BezierPath::chop(BezierFigure, Double):Point2D.Double	org.jhotdraw.draw.BezierFigure	1.0
+Move Method	org.jhotdraw.draw.AbstractCompositeFigure::findChild(Point2D.Double):Figure	org.jhotdraw.draw.layouter.Layouter	0.8333333333333333
+Move Method	net.n3.nanoxml.XMLElement::print(NanoXMLDOMOutput, PrintWriter):void	org.jhotdraw.xml.NanoXMLDOMOutput	1.0
+Move Method	org.jhotdraw.draw.AbstractAttributedCompositeFigure::setAttributeOnChildren(AttributeKey<T>, T):void	org.jhotdraw.draw.AttributeKey	0.7250196953781511
+Move Method	org.jhotdraw.samples.teddy.regex.Matcher::initComponents(FindDialog):void	org.jhotdraw.samples.teddy.FindDialog	0.8987177679818832
+Move Method	org.jhotdraw.samples.svg.figures.SVGBezierFigure::createHandles(SVGPathFigure, int):Collection<Handle>	org.jhotdraw.samples.svg.figures.SVGPathFigure	0.6469268647246618
+Move Method	org.jhotdraw.app.OSXApplication::initScreenMenuBar():void	org.jhotdraw.app.osx.OSXPaletteHandler	1.0
+Move Method	org.jhotdraw.samples.odg.figures.ODGBezierFigure::createHandles(ODGPathFigure, int):Collection<Handle>	org.jhotdraw.samples.odg.figures.ODGPathFigure	0.6232490020294252
+Move Method	org.jhotdraw.app.MDIApplication::updateViewTitle(View, JInternalFrame):void	org.jhotdraw.util.ResourceBundleUtil	0.5457912457912457
+Move Method	org.jhotdraw.draw.event.HandleMulticaster::updateHoverHandles(DefaultHandleTracker, DrawingView, Figure):void	org.jhotdraw.draw.tool.DefaultHandleTracker	0.8842383107088989
+Move Method	org.jhotdraw.samples.svg.gui.ViewToolBar::setEditor(SVGDrawingPanel, DrawingEditor):void	org.jhotdraw.samples.svg.SVGDrawingPanel	1.0
+Move Method	org.jhotdraw.draw.QuadTreeCompositeFigure::findFiguresWithin(Rectangle2D.Double):java.util.List<Figure>	org.jhotdraw.geom.QuadTree	0.5661311619718309
+Move Method	org.jhotdraw.samples.draw.DrawingPanel::load(DrawLiveConnectApplet, ActionEvent):void	org.jhotdraw.samples.draw.DrawLiveConnectApplet	1.0
+Move Method	org.jhotdraw.app.OSXApplication::setPalette(TogglePaletteAction, Window):void	org.jhotdraw.app.action.window.TogglePaletteAction	1.0
+Move Method	org.jhotdraw.samples.svg.SVGDrawingPanel::getOpenChooser(SVGDrawingPanelSample):JFileChooser	org.jhotdraw.samples.mini.SVGDrawingPanelSample	1.0
+Move Method	org.jhotdraw.geom.BezierPath.Node::trackEnd2(BezierNodeHandle, Point, Point, int):void	org.jhotdraw.draw.handle.BezierNodeHandle	1.0
+Move Method	org.jhotdraw.geom.DoubleStroke::traceStroke(BezierPath, Path2D.Double, Path2D.Double):void	org.jhotdraw.geom.BezierPath	0.8891474654377879
+Move Method	org.jhotdraw.undo.UndoRedoManager::getLineOfOffset(TeddyView, int):int	org.jhotdraw.samples.teddy.TeddyView	1.0
+Move Method	org.jhotdraw.io.StreamPosTokenizer::readViewportAttributes(SVGInputFormat, IXMLElement, HashMap<AttributeKey,Object>):void	org.jhotdraw.samples.svg.io.SVGInputFormat	1.0
+Move Method	org.jhotdraw.draw.handle.AbstractConnectionHandle::findConnector(Point2D.Double, Figure, ConnectionFigure):Connector	org.jhotdraw.draw.connector.Connector	0.4
+Move Method	org.jhotdraw.gui.JFontChooser::applySelectedFontToFigures(FontChooserHandler):void	org.jhotdraw.draw.action.FontChooserHandler	1.0
+Move Method	org.jhotdraw.draw.action.PickAttributesAction::selectionChanged(FigureSelectionEvent):void	org.jhotdraw.draw.event.FigureSelectionEvent	0.8066037735849056
+Move Method	org.jhotdraw.samples.svg.figures.SVGTextAreaFigure::writeTextAreaElement(IXMLElement, SVGOutputFormat):void	org.jhotdraw.samples.svg.io.SVGOutputFormat	1.0
+Move Method	org.jhotdraw.draw.action.ApplyAttributesAction::selectionChanged(FigureSelectionEvent):void	org.jhotdraw.draw.event.FigureSelectionEvent	0.8066037735849056
+Move Method	org.jhotdraw.draw.DefaultDrawingView::fireSelectionChanged(Set<Figure>, Set<Figure>):void	org.jhotdraw.draw.Drawing	0.33333333333333337
+Move Method	org.jhotdraw.draw.AttributeKey::getDrawingArea2(DiamondFigure):Rectangle2D.Double	org.jhotdraw.draw.DiamondFigure	1.0
+Move Method	org.jhotdraw.draw.AttributeKey::calculateLayout2(LocatorLayouter, CompositeFigure, Double, Double):Rectangle2D.Double	org.jhotdraw.draw.layouter.LocatorLayouter	1.0

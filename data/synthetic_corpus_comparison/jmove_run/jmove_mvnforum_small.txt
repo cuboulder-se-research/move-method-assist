@@ -1,0 +1,8 @@
+Refactoring Type	Source Method	Target Class	Similarity Indice
+Move Method	com.mvnforum.admin.importexport.mvnforum.MvnForumMemberXML::addMessageFolder(String, String, String, String):void	com.mvnforum.admin.MemberXML	0.4253302532337736
+Move Method	com.mvnforum.admin.importexport.mvnforum.MvnForumThreadXML::addThreadWatch(String, String, String, String, String, String, String):void	com.mvnforum.admin.ThreadXML	0.42220495242897266
+Move Method	com.mvnforum.admin.importexport.jive.JiveUserXML::updateAdmin(String, String, String, String, String, String, String, String, String, String, String):void	com.mvnforum.admin.MemberXML	0.5850908806323748
+Move Method	net.myvietnam.mvncore.configuration.ConfigurationFactory.ConfigurationBuilder::createAdditionalConfiguration(Collection):Configuration	net.myvietnam.mvncore.configuration.CompositeConfiguration	0.5389952107218443
+Move Method	com.mvnforum.admin.importexport.mvnforum.MvnForumMemberXML::addGlobalWatch(String, String, String, String, String, String):void	com.mvnforum.admin.MemberXML	0.4253302532337736
+Move Method	com.mvnsoft.mvnad.admin.ConfigForumWebHandler::prepare(GenericRequest):void	com.mvnforum.auth.OnlineUserManager	0.33733319085209834
+Move Method	com.mvnforum.admin.importexport.mvnforum.MvnForumThreadXML::addFavoriteThread(String, String, String, String, String):void	com.mvnforum.admin.ThreadXML	0.42220495242897266
