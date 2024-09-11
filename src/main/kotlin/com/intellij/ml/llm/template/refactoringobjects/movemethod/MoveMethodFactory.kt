@@ -13,6 +13,7 @@ import com.intellij.ml.llm.template.refactoringobjects.MyRefactoringFactory
 import com.intellij.ml.llm.template.telemetry.EFTelemetryDataManager
 import com.intellij.ml.llm.template.utils.JsonUtils
 import com.intellij.ml.llm.template.utils.PsiUtils
+import com.intellij.openapi.application.invokeLater
 import com.intellij.openapi.application.runReadAction
 import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.editor.Editor
@@ -26,6 +27,8 @@ import com.intellij.refactoring.openapi.impl.JavaRefactoringFactoryImpl
 import com.intellij.refactoring.suggested.startOffset
 import com.intellij.usageView.UsageInfo
 import dev.langchain4j.model.chat.ChatLanguageModel
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.runBlocking
 import org.jetbrains.kotlin.idea.editor.fixers.endLine
 import org.jetbrains.kotlin.idea.editor.fixers.startLine
 import org.jetbrains.kotlin.psi.psiUtil.endOffset
@@ -49,6 +52,7 @@ class MoveMethodFactory {
         const val TOPN_SUGGESTIONS4USER = 1
         const val TOPN_SUGGESTIONS4LLM = 5
         val llmResponseCache = mutableMapOf<String, LLMBaseResponse>()
+        var myInvokeFinished: Boolean? = null
 
         fun test(){
 
@@ -99,21 +103,25 @@ class MoveMethodFactory {
             val validMovePivots = getValidPivots(project, editor, file, methodToMove, targetPivots)
             val targetPivotsWithSimilarity: List<Pair<MovePivot, Double>>
             val similarityComputationTime = measureTimeMillis {
-                targetPivotsWithSimilarity = validMovePivots
-                    .filter { methodToMove.containingClass?.qualifiedName != it.psiClass.qualifiedName }
-                    .map { pivot ->
-                        val similarity = PsiUtils.computeCosineSimilarity(methodToMove, pivot.psiClass)
-                        pivot to similarity
-                    }
+                targetPivotsWithSimilarity =
+                    validMovePivots
+                        .filter { runReadAction{ methodToMove.containingClass?.qualifiedName != it.psiClass.qualifiedName } }
+                        .map { pivot ->
+                            val similarity = runReadAction{ PsiUtils.computeCosineSimilarity(methodToMove, pivot.psiClass) }
+                            pivot to similarity
+                        }
+
             }
-            val targetPivotsSorted = targetPivotsWithSimilarity
-                .sortedByDescending { it.second }
-                .distinctBy { it.first.psiClass.name + it.first.psiElement?.text }
-                .map { it.first }
+            val targetPivotsSorted = runReadAction{
+                targetPivotsWithSimilarity
+                    .sortedByDescending { it.second }
+                    .distinctBy { it.first.psiClass.name + it.first.psiElement?.text }
+                    .map { it.first }
+            }
             telemetryDataManager
                 ?.addPotentialTargetClassesOrdered(
                     methodToMove.name,
-                    targetPivotsWithSimilarity.map{it.first.psiClass.name to it.second},
+                    runReadAction{ targetPivotsWithSimilarity.map { it.first.psiClass.name to it.second } },
                     "cosine",
                     similarityComputationTime)
 
@@ -121,7 +129,7 @@ class MoveMethodFactory {
                 if (llmChatModel!=null)
                     rerankByLLM(targetPivotsSorted,
                         methodToMove,
-                        methodToMove.containingClass,
+                        runReadAction{ methodToMove.containingClass },
                         project,
                         llmChatModel,
                         telemetryDataManager)?: targetPivotsSorted
@@ -132,19 +140,22 @@ class MoveMethodFactory {
             logPotentialPivots(pivotsSortedByLLM.subList(0, min(3, pivotsSortedByLLM.size)), methodToMove)
 
             if (PsiUtils.isMethodStatic(methodToMove)){
-                val moveMethods = pivotsSortedByLLM.map {
-                    it.psiClass.qualifiedName?.let { it1 ->
-                        MyMoveStaticMethodRefactoring(
-                            methodToMove.startLine(editor.document),
-                            methodToMove.endLine(editor.document),
-                            methodToMove, it1,
-                            rationale = it.rationale
-                        )
-                    }
-                }.filterNotNull()
-                if (moveMethods.isEmpty())
-                    return emptyList()
-                return moveMethods.subList(0, min(TOPN_SUGGESTIONS4USER, moveMethods.size))
+                return runReadAction {
+                    val moveMethods = pivotsSortedByLLM.map {
+                        it.psiClass.qualifiedName?.let { it1 ->
+                            MyMoveStaticMethodRefactoring(
+                                methodToMove.startLine(editor.document),
+                                methodToMove.endLine(editor.document),
+                                methodToMove, it1,
+                                rationale = it.rationale
+                            )
+                        }
+                    }.filterNotNull()
+
+                    if (moveMethods.isEmpty())
+                        return@runReadAction emptyList()
+                    return@runReadAction moveMethods.subList(0, min(TOPN_SUGGESTIONS4USER, moveMethods.size))
+                }
             }
 
             val moveMethods = pivotsSortedByLLM
@@ -199,25 +210,27 @@ class MoveMethodFactory {
             methodToMove: PsiMethod,
             it: MovePivot
         ): Boolean {
-            val processor = MoveInstanceMethodProcessorAutoValidator(
-                project, methodToMove, it.psiElement as PsiVariable, "public",
-                runReadAction {
-                    getParamNamesIfNeeded(
-                        MoveInstanceMembersUtil.getThisClassesToMembers(methodToMove),
-                        it.psiElement as? PsiField
-                    )
-                }
-            )
-            // Reflection. This is a hacky way to call intellij API.
-            val method = processor.javaClass.getDeclaredMethod("findUsages")
-            method.setAccessible(true)
-            val usages = method.invoke(processor)
-            val refUsages = Ref<Array<UsageInfo>>(usages as Array<UsageInfo>)
+            return runReadAction {
+                val processor = MoveInstanceMethodProcessorAutoValidator(
+                    project, methodToMove, it.psiElement as PsiVariable, "public",
+                    runReadAction {
+                        getParamNamesIfNeeded(
+                            MoveInstanceMembersUtil.getThisClassesToMembers(methodToMove),
+                            it.psiElement as? PsiField
+                        )
+                    }
+                )
+                // Reflection. This is a hacky way to call intellij API.
+                val method = processor.javaClass.getDeclaredMethod("findUsages")
+                method.setAccessible(true)
+                val usages = method.invoke(processor)
+                val refUsages = Ref<Array<UsageInfo>>(usages as Array<UsageInfo>)
 
-            val preprocessUsagesMethod =
-                processor.javaClass.getDeclaredMethod("preprocessUsages", refUsages::class.java)
-            preprocessUsagesMethod.setAccessible(true)
-            return preprocessUsagesMethod.invoke(processor, refUsages) as Boolean
+                val preprocessUsagesMethod =
+                    processor.javaClass.getDeclaredMethod("preprocessUsages", refUsages::class.java)
+                preprocessUsagesMethod.setAccessible(true)
+                return@runReadAction preprocessUsagesMethod.invoke(processor, refUsages) as Boolean
+            }
         }
 
         private fun logPotentialPivots(
@@ -244,72 +257,88 @@ class MoveMethodFactory {
         ) : List<MovePivot>?{
 
             val response: LLMBaseResponse?
+            val methoText = runReadAction{ methodToMove.text }
             val llmResponseTime = measureTimeMillis {
-                response = llmResponseCache[methodToMove.text] ?: sendChatRequest(
+                response = llmResponseCache[methoText] ?: sendChatRequest(
                     project,
                     MoveMethodRefactoringPrompt().askForTargetClassPriorityPrompt(
-                        methodToMove.text,
+                        methoText,
                         targetPivotsSorted.distinctBy { it.psiClass.name }
                     ),
                     llmChatModel)
             }
             if (response!=null){
-                llmResponseCache[methodToMove.text]?: llmResponseCache.put(methodToMove.text, response)
+                llmResponseCache[methoText]?: llmResponseCache.put(runReadAction{ methoText }, response)
                 try {
                     val priorityOrder =
                         (JsonParser.parseString(JsonUtils.sanitizeJson(response.getSuggestions()[0].text)) as JsonArray)
                         .map { try{ Gson().fromJson(it, MoveSuggestion::class.java) } catch (e: Exception){null} }
                         .filterNotNull()
                     val targetClassesRanked = priorityOrder.map { it.targetClassName }
-                    priorityOrder.forEach {
-                        moveSuggestion -> targetPivotsSorted
-                            .filter { it.psiClass.name == moveSuggestion.targetClassName}
-                            .forEach { it.rationale=moveSuggestion.rationale }
-                    }
-                    val llmSortedPivots = targetPivotsSorted.sortedBy {
-                        val index = targetClassesRanked.indexOf(it.psiClass.name)
-                        if (index == -1){
-                            targetPivotsSorted.size+1
-                        }else {
-                            index
+                    return runReadAction {
+                        priorityOrder.forEach { moveSuggestion ->
+                            targetPivotsSorted
+                                .filter { it.psiClass.name == moveSuggestion.targetClassName }
+                                .forEach { it.rationale = moveSuggestion.rationale }
                         }
+
+                        val llmSortedPivots = targetPivotsSorted.sortedBy {
+                            val index = targetClassesRanked.indexOf(it.psiClass.name)
+                            if (index == -1) {
+                                targetPivotsSorted.size + 1
+                            } else {
+                                index
+                            }
+                        }
+                        telemetryDataManager?.addLlmTargetClassPriorityResponse(
+                            methodToMove.name,
+                            llmSortedPivots.map { it.psiClass.name }.filterNotNull(),
+                            llmResponseTime
+                        )
+
+                        return@runReadAction llmSortedPivots
                     }
-                    telemetryDataManager?.addLlmTargetClassPriorityResponse(
-                        methodToMove.name,
-                        llmSortedPivots.map{it.psiClass.name}.filterNotNull(),
-                        llmResponseTime
-                    )
-                    return llmSortedPivots
                 } catch (e: Exception) {
-                    telemetryDataManager?.addLlmTargetClassPriorityResponse(
-                        methodToMove.name,
-                        response.getSuggestions()[0].text,
-                        llmResponseTime
-                    )
-                    e.printStackTrace()
+                    runReadAction {
+                        telemetryDataManager?.addLlmTargetClassPriorityResponse(
+                            methodToMove.name,
+                            response.getSuggestions()[0].text,
+                            llmResponseTime
+                        )
+                        e.printStackTrace()
+                    }
                 }
             }
             return null
         }
 
         private fun getPotentialMovePivots(project: Project, editor: Editor, file: PsiFile, methodToMove: PsiMethod): List<MovePivot> {
-            if (methodToMove.containingClass==null) return emptyList()
+            if (runReadAction{ methodToMove.containingClass } ==null) return emptyList()
             if (PsiUtils.isMethodStatic(methodToMove)
-                && MoveMembersPreConditions.checkPreconditions(project, arrayOf(methodToMove), null, null)){
-                return (PsiUtils.fetchClassesInPackage(methodToMove.containingClass!!, project) + PsiUtils.fetchImportsInFile(file, project))
-                    .map { MovePivot(it, null) }
+                && runReadAction {
+                    MoveMembersPreConditions.checkPreconditions(project, arrayOf(methodToMove), null, null)
+                }){
+                return runReadAction {
+                    (PsiUtils.fetchClassesInPackage(
+                        methodToMove.containingClass!!,
+                        project
+                    ) + PsiUtils.fetchImportsInFile(file, project))
+                        .map { MovePivot(it, null) }
+                }
 //                val potentialTargets = (PsiUtils.fetchClassesInPackage(methodToMove.containingClass!!, project) + PsiUtils.fetchImportsInFile(file, project))
 //                return potentialTargets.subList(0, min(potentialTargets.size, 30)).map { MovePivot(it,null) }
             }else{
                 val handler = MoveInstanceMethodHandlerForPlugin()
-                handler.invoke(project, arrayOf(methodToMove), null)
-                return handler.suitableVariablesToMove.map {
-                    val clazz = PsiUtils.findClassFromQualifier(it.type.canonicalText, project)
-                    if (clazz!=null)
-                        MovePivot(clazz, it)
-                    else
-                        null
-                }.filterNotNull()
+                return runReadAction {
+                    handler.invoke(project, arrayOf(methodToMove), null)
+                    handler.suitableVariablesToMove.map {
+                        val clazz = PsiUtils.findClassFromQualifier(it.type.canonicalText, project)
+                        if (clazz != null)
+                            MovePivot(clazz, it)
+                        else
+                            null
+                    }.filterNotNull()
+                }
             }
         }
 
@@ -427,18 +456,38 @@ class MoveMethodFactory {
         private fun checkStaticMoveValidity(project: Project,
                                             methodToMove: PsiMethod,
                                             movePivot: MovePivot) : Boolean {
-            if (methodToMove.containingClass!!.name==movePivot.psiClass.name)
-                return false
-            val processor = MoveStaticMethodValidator(project, methodToMove.containingClass!!, movePivot.psiClass, methodToMove)
-            val method = processor.javaClass.getDeclaredMethod("findUsages")
-            method.setAccessible(true)
-            val usages = method.invoke(processor)
-            val refUsages = Ref<Array<UsageInfo>>(usages as Array<UsageInfo>)
+            return runReadAction {
+                if (methodToMove.containingClass!!.name==movePivot.psiClass.name)
+                    return@runReadAction false
+                myInvokeFinished = false
+                var processor: MoveStaticMethodValidator?= null
+                    invokeLater{
+                        processor = MoveStaticMethodValidator(
+                            project,
+                            methodToMove.containingClass!!,
+                            movePivot.psiClass,
+                            methodToMove
+                        )
+                        myInvokeFinished = true
+                    }
+                runBlocking{ waitForBackgroundFinish(1 * 60 * 1000, 1000) }
 
-            val preprocessUsagesMethod =
-                processor.javaClass.getDeclaredMethod("preprocessUsages", refUsages::class.java)
-            preprocessUsagesMethod.setAccessible(true)
-            return preprocessUsagesMethod.invoke(processor, refUsages) as Boolean
+                val method = processor!!.javaClass.getDeclaredMethod("findUsages")
+                method.setAccessible(true)
+                val usages = method.invoke(processor)
+                val refUsages = Ref<Array<UsageInfo>>(usages as Array<UsageInfo>)
+
+                val preprocessUsagesMethod =
+                    processor!!.javaClass.getDeclaredMethod("preprocessUsages", refUsages::class.java)
+                preprocessUsagesMethod.setAccessible(true)
+                return@runReadAction preprocessUsagesMethod.invoke(processor, refUsages) as Boolean
+            }
+        }
+        tailrec suspend fun waitForBackgroundFinish(maxDelay: Long, checkPeriod: Long) : Boolean{
+            if(maxDelay < 0) return false
+            if(myInvokeFinished==true) return true
+            delay(checkPeriod)
+            return waitForBackgroundFinish(maxDelay - checkPeriod, checkPeriod)
         }
 
         private fun getParamNamesIfNeeded(

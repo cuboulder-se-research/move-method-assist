@@ -47,7 +47,7 @@ open class ApplyMoveMethodInteractiveIntention : ApplySuggestRefactoringIntentio
     lateinit var currentEditor: Editor
     lateinit var currentFile: PsiFile
     lateinit var currentProject: Project
-    val SUGGESTIONS4USER = 5
+    val SUGGESTIONS4USER = 20
     val logger = Logger.getInstance(this::class.java)
     var showSuggestions = true
 
@@ -178,7 +178,6 @@ open class ApplyMoveMethodInteractiveIntention : ApplySuggestRefactoringIntentio
     }
 
     private fun createRefactoringObjectsAndShowSuggestions(moveMethodSuggestions: List<MoveMethodSuggestion>) {
-        invokeLater {
             val refObjs = moveMethodSuggestions
                 .map {
                     MoveMethodFactory.createMoveMethodFromName(
@@ -193,13 +192,15 @@ open class ApplyMoveMethodInteractiveIntention : ApplySuggestRefactoringIntentio
                 .reduce { acc, abstractRefactorings -> acc + abstractRefactorings }
             telemetryDataManager.setRefactoringObjects(refObjs)
             if (refObjs.isEmpty()){
-                showEFNotification(
-                    currentProject,
-                    LLMBundle.message("notification.extract.function.with.llm.no.extractable.candidates.message"),
-                    NotificationType.INFORMATION
-                )
-                sendTelemetryData()
-                return@invokeLater
+                invokeLater {
+                    showEFNotification(
+                        currentProject,
+                        LLMBundle.message("notification.extract.function.with.llm.no.extractable.candidates.message"),
+                        NotificationType.INFORMATION
+                    )
+                    sendTelemetryData()
+                }
+                return
             }
             val candidatesApplicationTelemetryObserver = EFCandidatesApplicationTelemetryObserver()
             telemetryDataManager.addCandidatesTelemetryData(
@@ -208,11 +209,12 @@ open class ApplyMoveMethodInteractiveIntention : ApplySuggestRefactoringIntentio
                     candidatesApplicationTelemetryObserver.getData()
                 )
             )
-            if(showSuggestions)
-                showRefactoringOptionsPopup(currentProject, currentEditor, currentFile, refObjs, codeTransformer)
+            if(showSuggestions) {
+                invokeLater { showRefactoringOptionsPopup(currentProject, currentEditor, currentFile, refObjs, codeTransformer)}
+            }
             else
                 sendTelemetryData()
-        }
+
 
     }
     fun showRefactoringOptionsPopup(

@@ -364,7 +364,6 @@ class EFTelemetryDataManager {
         similarityMetric: String,
         similarityComputationTime: Long
     ) {
-        // TODO: Anonymize.
         val anonIfTargetClassesWithSimilarity = if (anonimizeTelemetry){
             targetClassesWithSimilarityMetric.map{
                 if (it.first==null)

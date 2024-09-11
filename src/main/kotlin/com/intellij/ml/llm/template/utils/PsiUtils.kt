@@ -258,7 +258,7 @@ class PsiUtils {
         }
 
         fun isMethodStatic(psiMethod: PsiMethod): Boolean{
-            return psiMethod.modifierList.text.contains("static")
+            return runReadAction{ psiMethod.modifierList.text.contains("static") }
         }
 
         fun getVariableOfType(psiElement: PsiElement, typeName: String): PsiElement?{

@@ -4,6 +4,7 @@ import com.google.gson.JsonParser
 import com.intellij.ml.llm.template.utils.openFile
 import com.intellij.ml.llm.template.utils.openFileFromQualifiedName
 import com.intellij.openapi.application.invokeLater
+import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.fileEditor.FileEditorManager
 import com.intellij.openapi.project.DumbService
 import com.intellij.openapi.project.Project
@@ -38,10 +39,13 @@ class ApplyMMOnProjectAndCommitIntention: ApplyMoveMethodOnProjectIntention() {
                     VfsUtil.markDirtyAndRefresh(false, true, true, project.baseDir)
                     Thread.sleep(500)
                     var newFile: PsiFile? = null
+                    var newEditor: Editor? = null
                     DumbService.getInstance(project).smartInvokeLater {
                         val editorFilePair = openFile(filePath, project)
-                        val newEditor = editorFilePair.first
+                        newEditor = editorFilePair.first
                         newFile = editorFilePair.second
+                    }
+                    DumbService.getInstance(project).smartInvokeLater {
                         super.invokePlugin(project, newEditor, newFile)
                         invokeLaterFinished = true
                     }
