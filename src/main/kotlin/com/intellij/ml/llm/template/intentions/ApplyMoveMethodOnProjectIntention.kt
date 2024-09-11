@@ -26,16 +26,16 @@ import java.nio.file.Files
 import kotlin.io.path.Path
 import kotlin.math.min
 
-class ApplyMoveMethodOnProjectIntention: ApplyMoveMethodInteractiveIntention() {
+open class ApplyMoveMethodOnProjectIntention: ApplyMoveMethodInteractiveIntention() {
 
-    private val mutex = Mutex()
+    protected val mutex = Mutex()
     init {
         showSuggestions=false
     }
     companion object{
         const val FILE_LIMIT = 5
     }
-    private var invokeLaterFinished = true
+    protected var invokeLaterFinished = true
 
     override fun invokeLLM(project: Project, messageList: MutableList<ChatMessage>, editor: Editor, file: PsiFile) {
         super.invokeLLM(project, messageList, editor, file)
@@ -52,7 +52,7 @@ class ApplyMoveMethodOnProjectIntention: ApplyMoveMethodInteractiveIntention() {
         ProgressManager.getInstance().runProcessWithProgressAsynchronously(task, BackgroundableProcessIndicator(task))
     }
 
-    private fun runPluginOnSpecificFiles(project: Project) {
+    open protected fun runPluginOnSpecificFiles(project: Project) {
         val allClasses = File("/Users/abhiram/Documents/TBE/RefactoringAgentProject/llm-guide-refactorings/data/qualified_classes.txt").readLines()
         val basePath = project.basePath!!
         for (filePath in allClasses) {
@@ -75,13 +75,6 @@ class ApplyMoveMethodOnProjectIntention: ApplyMoveMethodInteractiveIntention() {
         }
     }
 
-    private fun filterOutThisFile(file: PsiFile): Boolean{
-        val innerClasses = (file as PsiJavaFileImpl).classes
-        if (innerClasses.isNotEmpty()){
-            return innerClasses[0].isInterface
-        }
-        return true
-    }
     tailrec suspend fun waitForBackgroundFinish(maxDelay: Long, checkPeriod: Long) : Boolean{
         if(maxDelay < 0) return false
         if(invokeLaterFinished && finishedBackgroundTask==true) return true

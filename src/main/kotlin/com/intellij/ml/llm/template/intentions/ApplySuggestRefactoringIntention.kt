@@ -61,13 +61,21 @@ abstract class ApplySuggestRefactoringIntention(
     }
 
     override fun invoke(project: Project, editor: Editor?, file: PsiFile?) {
-        llmChatModel= RefAgentSettingsManager.getInstance().createAndGetAiModel()!!
+        invokePlugin(project, editor, file)
+    }
+
+    protected fun invokePlugin(
+        project: Project,
+        editor: Editor?,
+        file: PsiFile?
+    ) {
+        llmChatModel = RefAgentSettingsManager.getInstance().createAndGetAiModel()!!
 
         if (editor == null || file == null) return
         val selectionModel = editor.selectionModel
-//        val namedElement =
-//            PsiUtils.getParentFunctionOrNull(editor, file.language)
-//                ?: PsiUtils.getParentClassOrNull(editor, file.language)
+        //        val namedElement =
+        //            PsiUtils.getParentFunctionOrNull(editor, file.language)
+        //                ?: PsiUtils.getParentClassOrNull(editor, file.language)
         val namedElement = (file as PsiJavaFileImpl).classes[0]
         if (namedElement != null) {
 
@@ -81,7 +89,7 @@ abstract class ApplySuggestRefactoringIntention(
             functionSrc = withLineNumbers
             functionPsiElement = namedElement
 
-            val bodyLineStart = when(namedElement){
+            val bodyLineStart = when (namedElement) {
                 is PsiClass -> PsiUtils.getClassBodyStartLine(namedElement)
                 else -> PsiUtils.getFunctionBodyStartLine(namedElement)
             }
@@ -99,7 +107,7 @@ abstract class ApplySuggestRefactoringIntention(
         }
     }
 
-//    abstract fun invokeLlm(text: String, project: Project, editor: Editor, file: PsiFile)
+    //    abstract fun invokeLlm(text: String, project: Project, editor: Editor, file: PsiFile)
 fun getPromptAndRunBackgroundable(text: String, project: Project, editor: Editor, file: PsiFile) {
         logger.info("Invoking LLM with text: $text")
         val messageList = prompter.getPrompt(text)
