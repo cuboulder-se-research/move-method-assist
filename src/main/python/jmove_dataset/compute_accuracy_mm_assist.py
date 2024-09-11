@@ -7,6 +7,24 @@ def myindex(list, ele):
     except ValueError:
         return -1
 
+def calculate_vanilla_llm_recalls(telemetry, method_name, alias_method_name, target_class, evaluation_data):
+    vanilla_llm_suggestions = [i for i in telemetry['iterationData'] if i['iteration_num']==3]
+    if (len(vanilla_llm_suggestions)==0):
+        evaluation_data['vanilla_recall_method_position'] = -1
+        evaluation_data['vanilla_recall_method_class_position'] = -1
+        return
+    method_order = [i['method_name'] for i in vanilla_llm_suggestions[0]['suggested_move_methods']]
+    evaluation_data['vanilla_recall_method_position'] = max(myindex(method_order, method_name), myindex(method_order, alias_method_name) )
+
+    if evaluation_data['vanilla_recall_method_position']==-1:
+        evaluation_data['vanilla_recall_method_class_position'] = -1
+        return
+    target_classes = [i['target_class'] for i in vanilla_llm_suggestions[0]['suggested_move_methods']]
+    if target_class in target_classes:
+        evaluation_data['vanilla_recall_method_class_position'] = 0
+    else:
+        evaluation_data['vanilla_recall_method_class_position'] = -1
+
 
 plugin_outfiles = [
     'comparison_ant_large.json',
@@ -48,6 +66,8 @@ for evaluation_data in combined_output:
     target_class = oracle.split('.')[-1]
 
     telemetry = evaluation_data['telemetry']
+
+    calculate_vanilla_llm_recalls(telemetry, method_name, alias_method_name, target_class, evaluation_data)
 
     if len(telemetry['candidatesTelemetryData']['candidates']) == 0:
         evaluation_data['recall_method_and_class_position'] = -1
@@ -114,3 +134,48 @@ print(f"recall class @1 = {recall_class_1}")
 print(f"recall class @2 = {recall_class_2}")
 print(f"recall class @3 = {recall_class_3}")
 print(f"recall class @inf = {recall_class_inf}")
+
+
+print("---Vanilla LLM recall---")
+vanilla_recall_method_and_class_1 = len(
+    [i for i in combined_output if i['vanilla_recall_method_position'] == 0 and i['vanilla_recall_method_class_position'] == 0]) / len(
+    combined_output)
+vanilla_recall_method_1 = len([i for i in combined_output if i['vanilla_recall_method_position'] == 0]) / len(combined_output)
+
+vanilla_recall_method_and_class_2 = len([i for i in combined_output if
+                                 i['vanilla_recall_method_position'] in [0, 1] and i['vanilla_recall_method_class_position'] == 0]) / len(combined_output)
+vanilla_recall_method_2 = len([i for i in combined_output if i['vanilla_recall_method_position'] in [0, 1]]) / len(combined_output)
+
+vanilla_recall_method_and_class_3 = len([i for i in combined_output if
+                                 i['vanilla_recall_method_position'] in [0, 1, 2] and i['vanilla_recall_method_class_position'] == 0]) / len(combined_output)
+vanilla_recall_method_3 = len([i for i in combined_output if i['vanilla_recall_method_position'] in [0, 1, 2]]) / len(combined_output)
+
+vanilla_recall_method_and_class_all = len([i for i in combined_output if
+                                 i['vanilla_recall_method_position']!=-1 and i['vanilla_recall_method_class_position'] !=-1]) / len(combined_output)
+vanilla_recall_method_all = len([i for i in combined_output if i['vanilla_recall_method_position'] !=-1]) / len(combined_output)
+
+print("recalling the correct MoveMethod:")
+print(f"recall method&class @1 = {vanilla_recall_method_and_class_1}")
+print(f"recall method&class @2 = {vanilla_recall_method_and_class_2}")
+print(f"recall method&class @3 = {vanilla_recall_method_and_class_3}")
+print(f"recall method&class @inf = {vanilla_recall_method_and_class_all}")
+print()
+
+print("recalling the correct method only (identifying method out of place)")
+print(f"recall method @1 = {vanilla_recall_method_1}")
+print(f"recall method @2 = {vanilla_recall_method_2}")
+print(f"recall method @3 = {vanilla_recall_method_3}")
+print(f"recall method @inf = {vanilla_recall_method_all}")
+print()
+
+vanilla_recalled_methods = [i for i in combined_output if i['vanilla_recall_method_position'] != -1]
+vanilla_recall_class_1 = len([i for i in vanilla_recalled_methods if i['vanilla_recall_method_class_position'] == 0]) / len(vanilla_recalled_methods)
+vanilla_recall_class_2 = len([i for i in vanilla_recalled_methods if i['vanilla_recall_method_class_position'] in [0, 1]]) / len(vanilla_recalled_methods)
+vanilla_recall_class_3 = len([i for i in vanilla_recalled_methods if i['vanilla_recall_method_class_position'] in [0, 1, 2]]) / len(vanilla_recalled_methods)
+vanilla_recall_class_inf = len([i for i in vanilla_recalled_methods if i['vanilla_recall_method_class_position'] != -1]) / len(vanilla_recalled_methods)
+print(f"recall of class for a recalled method. there were {len(vanilla_recalled_methods)} recalled at any position.")
+print(f"recall class @1 = {vanilla_recall_class_1}")
+print(f"recall class @2 = {vanilla_recall_class_2}")
+print(f"recall class @3 = {vanilla_recall_class_3}")
+print(f"recall class @inf = {vanilla_recall_class_inf}")
+

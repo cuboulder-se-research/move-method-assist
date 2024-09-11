@@ -1,0 +1,127 @@
+Refactoring Type	Source Method	Target Class	Similarity Indice
+Move Method	com.ibm.as400.vaccess.VUserList::setSystem(AS400):void	com.ibm.as400.access.UserList	0.7589466089466089
+Move Method	com.ibm.as400.access.AS400ConnectionPool::removeFromPool(AS400):void	com.ibm.as400.access.AS400	0.7189510713000644
+Move Method	com.ibm.as400.access.AS400ImplRemote::mapNativeSecurityException(NativeException):AS400SecurityException	com.ibm.as400.access.NativeException	0.2847222222222222
+Move Method	com.ibm.as400.access.RemoteCommandImplNative::setNlvOnServer(String):void	com.ibm.as400.access.AS400ImplRemote	0.45498842393804556
+Move Method	com.ibm.as400.access.CommandCall::getJob():RJob	com.ibm.as400.access.RemoteCommandImpl	0.9126984126984128
+Move Method	com.ibm.as400.access.JDResultSetProxy::callMethod(String, Class[], Object[]):void	com.ibm.as400.access.JDConnectionProxy	0.7615986004045702
+Move Method	com.ibm.as400.access.AS400ConnectionPool::returnConnectionToPool(AS400):void	com.ibm.as400.access.AS400	0.7853853361403692
+Move Method	com.ibm.as400.vaccess.VUserList::addVetoableChangeListener(VetoableChangeListener):void	com.ibm.as400.access.UserList	0.5033488125065665
+Move Method	com.ibm.as400.access.PTFGroupList::getPTFGroup():PTFGroup[]	com.ibm.as400.access.AS400	0.3286385089135215
+Move Method	com.ibm.as400.security.auth.AS400Credential::swap(boolean):AS400Credential	com.ibm.as400.access.AS400	1.0
+Move Method	com.ibm.as400.access.ProxyServer::parseArgs(String[]):boolean	com.ibm.as400.access.PSConfig	0.9851787101787102
+Move Method	com.ibm.as400.access.SpooledFile::delete():void	com.ibm.as400.access.PrintObjectImpl	0.7
+Move Method	com.ibm.as400.vaccess.VUserList::removePropertyChangeListener(PropertyChangeListener):void	com.ibm.as400.access.UserList	0.5033488125065665
+Move Method	com.ibm.as400.access.BaseDataQueue::getForceToAuxiliaryStorage():boolean	com.ibm.as400.access.BaseDataQueueImpl	0.9382482043096567
+Move Method	com.ibm.as400.access.DecimalDataArea::clear():void	com.ibm.as400.access.DataAreaImpl	0.9307975235277947
+Move Method	com.ibm.as400.access.UserSpace::getInitialValue():byte	com.ibm.as400.access.UserSpaceImpl	0.9700347036839297
+Move Method	com.ibm.as400.access.JDDatabaseMetaDataProxy::callMethodRtnObj(String, Class[], Object[]):Object	com.ibm.as400.access.JDConnectionProxy	0.5819630465922968
+Move Method	com.ibm.as400.access.JDStatementProxy::callMethod(String, Class[], Object[]):void	com.ibm.as400.access.JDConnectionProxy	0.7615986004045702
+Move Method	com.ibm.as400.access.SystemStatus::removeVetoableChangeListener(VetoableChangeListener):void	com.ibm.as400.access.ProgramParameter	0.542700066137566
+Move Method	com.ibm.as400.access.BaseDataQueue::getSaveSenderInformation():boolean	com.ibm.as400.access.BaseDataQueueImpl	0.9382482043096567
+Move Method	com.ibm.as400.access.UserSpace::getLength():int	com.ibm.as400.access.UserSpaceImpl	0.9700347036839297
+Move Method	com.ibm.as400.access.CommandCall::getSystemThread():Thread	com.ibm.as400.access.RemoteCommandImpl	0.9126984126984128
+Move Method	com.ibm.as400.access.JDResultSetMetaDataProxy::callMethodRtnStr(String, int):String	com.ibm.as400.access.JDConnectionProxy	0.5550338964518067
+Move Method	com.ibm.as400.util.servlet.HTMLTableConverter::getObjectHyperlink(RowData, int, int):HTMLHyperlink	com.ibm.as400.util.servlet.RowData	0.5386904761904762
+Move Method	com.ibm.as400.access.AS400JDBCManagedDataSource::getConnectionFromPool(JDConnectionPoolKey, String):AS400JDBCConnectionHandle	com.ibm.as400.access.JDConnectionPoolManager	0.8314362530780446
+Move Method	com.ibm.as400.access.FTP::doAppendOrPut(String, String):OutputStream	com.ibm.as400.access.FTPThread	0.7487684729064039
+Move Method	com.ibm.as400.access.ProgramCall::getServerJob():Job	com.ibm.as400.access.Job	0.9972512988606411
+Move Method	com.ibm.as400.micro.JdbcMeService::processJdbcObject(int):Object	com.ibm.as400.micro.ConnectionHandler	1.0
+Move Method	com.ibm.as400.access.RCRunCommandReplyDataStream::getMessageList(ConverterImplRemote):AS400Message[]	com.ibm.as400.access.ConverterImplRemote	0.6529296659242556
+Move Method	com.ibm.as400.access.DataArea::delete0():void	com.ibm.as400.access.DataAreaImpl	0.9307975235277947
+Move Method	com.ibm.as400.vaccess.ResourcePropertiesTabbedPane::createTabComponent(int):Component	com.ibm.as400.vaccess.ResourceProperties	0.3339361060880048
+Move Method	com.ibm.as400.access.DecimalDataArea::create():void	com.ibm.as400.access.DataAreaImpl	0.9660144693334657
+Move Method	com.ibm.as400.access.ProgramCall::isStayOnThread():boolean	com.ibm.as400.access.RemoteCommandImpl	0.8556731334509112
+Move Method	com.ibm.as400.access.FTP::initiateActiveMode():void	com.ibm.as400.access.FTPThread	0.7499999999999999
+Move Method	com.ibm.as400.vaccess.PermissionMainPanel::fireError(Exception):void	com.ibm.as400.vaccess.ErrorEventSupport	0.8271604938271604
+Move Method	com.ibm.as400.access.AS400FileImplNative::parseRecordData(LocalIOFB, BytesWithOffset):Record[]	com.ibm.as400.access.LocalIOFB	1.0
+Move Method	com.ibm.as400.access.AS400FileRecordDescriptionImplRemote::resetOutfileCCSID(String, String, int):void	com.ibm.as400.access.AS400FileImplBase	1.0
+Move Method	com.ibm.as400.access.JavaProgram::checkVRM():void	com.ibm.as400.access.AS400	0.9832133383719981
+Move Method	com.ibm.as400.access.ChangePasswordDialog::add(Container, Component, GridBagConstraints, int, int, int, int):void	com.ibm.as400.access.AS400SignonDialogAdapter	0.13739224137931033
+Move Method	com.ibm.as400.access.ProgramCall::getSystemThread():Thread	com.ibm.as400.access.ProgramCallCancelThread	0.8369855692143237
+Move Method	com.ibm.as400.access.SystemValueList::getGroup(int):Vector	com.ibm.as400.access.AS400	0.38200619131358604
+Move Method	com.ibm.as400.access.SystemStatus::removePropertyChangeListener(PropertyChangeListener):void	com.ibm.as400.access.ProgramParameter	0.542700066137566
+Move Method	com.ibm.as400.access.DataArea::getLength():int	com.ibm.as400.access.DataAreaImpl	0.9272943123358637
+Move Method	com.ibm.as400.access.UserObjectsOwnedList::getObjectList():UserObjectsOwnedListEntry[]	com.ibm.as400.access.AS400	0.26512390988122886
+Move Method	com.ibm.as400.access.LogicalDataArea::clear():void	com.ibm.as400.access.DataAreaImpl	0.9307975235277947
+Move Method	com.ibm.as400.access.CommandCall::isStayOnThread():boolean	com.ibm.as400.access.RemoteCommandImpl	0.9282525510204083
+Move Method	com.ibm.as400.access.AS400FileImplBase::compareKeys(Object[], Object[]):int	com.ibm.as400.access.RecordFormat	1.0
+Move Method	com.ibm.as400.util.servlet.HTMLFormConverter::setObjectHyperlink(RowData, HTMLHyperlink, int, int):void	com.ibm.as400.util.servlet.RowData	0.6022534013605444
+Move Method	com.ibm.as400.access.AS400JDBCConnection::debug(DBReplyRequestedDS):void	com.ibm.as400.access.DBReplyRequestedDS	0.5402777777777777
+Move Method	com.ibm.as400.access.SystemValueList::removeWorkingListener(VSystemValueList, WorkingListener):void	com.ibm.as400.vaccess.VSystemValueList	0.523754852113061
+Move Method	com.ibm.as400.access.DecimalDataArea::getDecimalPositions():int	com.ibm.as400.access.DataAreaImpl	0.9272943123358637
+Move Method	com.ibm.as400.access.AS400FileRecordDescriptionImplRemote::getSavefileAttributes():Record	com.ibm.as400.access.AS400FileImplBase	1.0
+Move Method	com.ibm.as400.access.UserSpace::isAutoExtendible():boolean	com.ibm.as400.access.UserSpaceImpl	0.9700347036839297
+Move Method	com.ibm.as400.access.IFSTextFileInputStream::read(int):String	com.ibm.as400.access.IFSFileInputStreamImpl	0.6490793250717636
+Move Method	com.ibm.as400.access.AS400CertificateUtil::getCertificateHandle(byte[]):byte[]	com.ibm.as400.access.AS400CertificateUtilImpl	0.6999046604228589
+Move Method	com.ibm.as400.access.BaseDataQueue::getDescription():String	com.ibm.as400.access.BaseDataQueueImpl	0.9382482043096567
+Move Method	com.ibm.as400.access.AS400JDBCPreparedStatement::testSQLType(int, int):void	com.ibm.as400.access.JDServerRow	1.0
+Move Method	com.ibm.as400.access.JDStatementProxy::callMethodRtnRaw(String, Class[], Object[]):ProxyReturnValue	com.ibm.as400.access.JDConnectionProxy	0.5819630465922968
+Move Method	com.ibm.as400.access.CommandCall::isThreadSafe():boolean	com.ibm.as400.access.RemoteCommandImpl	0.9489795918367347
+Move Method	com.ibm.as400.access.UserSpace::setInitialValue(byte):void	com.ibm.as400.access.UserSpaceImpl	0.9811002362470472
+Move Method	com.ibm.as400.access.CharacterDataArea::clear():void	com.ibm.as400.access.DataAreaImpl	0.9307975235277947
+Move Method	com.ibm.as400.access.JDResultSetProxy::callMethodRtnRaw(String, Class[], Object[]):ProxyReturnValue	com.ibm.as400.access.JDConnectionProxy	0.5819630465922968
+Move Method	com.ibm.as400.access.IFSFile::setPermission(Permission):void	com.ibm.as400.access.Permission	0.6026401566659072
+Move Method	com.ibm.as400.access.IFSTextFileOutputStream::write(String):void	com.ibm.as400.access.IFSFileOutputStreamImpl	0.3759484780112819
+Move Method	com.ibm.as400.access.AS400FileImplBase::compareKeys(byte[], byte[], int):int	com.ibm.as400.access.RecordFormat	1.0
+Move Method	com.ibm.as400.access.UserSpace::create(int, boolean, String, byte, String, String):void	com.ibm.as400.access.UserSpaceNativeReadWriteImpl	0.7808601203581388
+Move Method	com.ibm.as400.access.RCCallProgramReplyDataStream::getMessageList(ConverterImplRemote):AS400Message[]	com.ibm.as400.access.ConverterImplRemote	0.6529296659242556
+Move Method	com.ibm.as400.access.UserSpace::write(byte[], int):void	com.ibm.as400.access.UserSpaceImpl	0.9811002362470472
+Move Method	com.ibm.as400.security.auth.AS400Principal::getUser():User	com.ibm.as400.access.AS400	0.26290665966139165
+Move Method	com.ibm.as400.access.CommandCall::run(String):boolean	com.ibm.as400.access.RemoteCommandImpl	0.9489795918367347
+Move Method	com.ibm.as400.access.AS400GenAuthTknReplyDS::getErrorMessages(ConverterImplRemote):AS400Message[]	com.ibm.as400.access.ConverterImplRemote	0.667655109489051
+Move Method	com.ibm.as400.vaccess.ResourceListPropertiesTabbedPane::applyChanges(boolean):void	com.ibm.as400.resource.ResourceList	0.6198958935801042
+Move Method	com.ibm.as400.access.PermissionAccess::getParameters(int, String, boolean):ProgramParameter[]	com.ibm.as400.access.AS400	0.6777311182512434
+Move Method	com.ibm.as400.access.AS400JDBCSQLXML::getInternalEncodingFromEbcdic(byte[]):String	com.ibm.as400.access.AS400JDBCBlob	0.11374517598583986
+Move Method	com.ibm.as400.access.DataArea::refreshAttributes():void	com.ibm.as400.access.DataAreaImpl	0.9272943123358637
+Move Method	com.ibm.as400.security.auth.AS400Credential::validatePrincipalCompatibility():void	com.ibm.as400.access.AS400	0.9832133383719981
+Move Method	com.ibm.as400.access.SignonInfoRep::getErrorMessages(ConverterImplRemote):AS400Message[]	com.ibm.as400.access.ConverterImplRemote	0.667655109489051
+Move Method	com.ibm.as400.access.KeyedFile::checkParameter(Object[]):void	com.ibm.as400.access.RecordFormat	0.7041428571428573
+Move Method	com.ibm.as400.util.servlet.HTMLFormConverter::getObjectHyperlink(RowData, int, int):HTMLHyperlink	com.ibm.as400.util.servlet.RowData	0.5386904761904762
+Move Method	com.ibm.as400.security.auth.AS400Credential::validateVRM():void	com.ibm.as400.access.AS400	1.0
+Move Method	com.ibm.as400.access.DecimalDataArea::read():BigDecimal	com.ibm.as400.access.DataAreaImpl	0.9651408810354135
+Move Method	com.ibm.as400.access.UserSpace::read(byte[], int):int	com.ibm.as400.access.UserSpaceImpl	0.9811002362470472
+Move Method	com.ibm.as400.access.JDDatabaseMetaDataProxy::callMethodRtnBool(String, Class[], Object[]):boolean	com.ibm.as400.access.JDConnectionProxy	0.5819630465922968
+Move Method	com.ibm.as400.micro.JdbcMeService::handleException(SQLException):void	com.ibm.as400.micro.MicroDataOutputStream	1.0
+Move Method	com.ibm.as400.access.JDResultSetMetaDataProxy::callMethodRtnRaw(String, int):ProxyReturnValue	com.ibm.as400.access.JDConnectionProxy	0.5550338964518067
+Move Method	com.ibm.as400.vaccess.ResourceListPropertiesTabbedPane::addChangeListener(ChangeListener):void	com.ibm.as400.resource.Presentation	0.2597402597402597
+Move Method	com.ibm.as400.access.User::setUserExpirationDate(Date):void	com.ibm.as400.access.DateTimeConverter	0.6957967032967034
+Move Method	com.ibm.as400.access.JDLibraryList::addOnServer(AS400JDBCConnection, int):void	com.ibm.as400.access.AS400JDBCConnection	1.0
+Move Method	com.ibm.as400.access.BaseDataQueue::getMaxEntryLength():int	com.ibm.as400.access.BaseDataQueueImpl	0.9382482043096567
+Move Method	com.ibm.as400.access.BaseDataQueue::isFIFO():boolean	com.ibm.as400.access.BaseDataQueueImpl	0.9382482043096567
+Move Method	com.ibm.as400.access.JDDatabaseMetaDataProxy::callMethodRtnBool(String, int):boolean	com.ibm.as400.access.JDConnectionProxy	0.5550338964518067
+Move Method	com.ibm.as400.resource.ProgramAttributeGetter::getValue(Object, int):Object	com.ibm.as400.resource.ProgramMap	0.8471001423825345
+Move Method	com.ibm.as400.access.JDParameterMetaDataProxy::callMethodRtnRaw(String, int):ProxyReturnValue	com.ibm.as400.access.JDConnectionProxy	0.5550338964518067
+Move Method	com.ibm.as400.access.AS400JDBCConnection::debug(DBBaseRequestDS):void	com.ibm.as400.access.DBBaseRequestDS	0.6868686868686871
+Move Method	com.ibm.as400.access.CommandCall::getServerJob():Job	com.ibm.as400.access.RemoteCommandImpl	0.8193662995400666
+Move Method	com.ibm.as400.access.UserSpace::setAutoExtendible(boolean):void	com.ibm.as400.access.UserSpaceImpl	0.9811002362470472
+Move Method	com.ibm.as400.vaccess.ResourcePropertiesTabbedPane::applyChanges():void	com.ibm.as400.resource.Resource	0.8658963875886316
+Move Method	com.ibm.as400.access.UserSpace::read(byte[], int, int, int):int	com.ibm.as400.access.UserSpaceImpl	0.9484264418009335
+Move Method	com.ibm.as400.access.PrintObject::getIDCodePoint():NPCPID	com.ibm.as400.access.AS400	0.9846497290484071
+Move Method	com.ibm.as400.access.WriterJob::end(String):void	com.ibm.as400.access.PrintObjectImpl	0.726923076923077
+Move Method	com.ibm.as400.access.UserSpace::exists():boolean	com.ibm.as400.access.UserSpaceImpl	0.9642857142857143
+Move Method	com.ibm.as400.vaccess.VUserList::removeVetoableChangeListener(VetoableChangeListener):void	com.ibm.as400.access.UserList	0.5033488125065665
+Move Method	com.ibm.as400.data.PcmlSAXParser::inTree(String, AttributesImpl):boolean	com.ibm.as400.data.PcmlDocNode	1.0
+Move Method	com.ibm.as400.vaccess.VUserList::addPropertyChangeListener(PropertyChangeListener):void	com.ibm.as400.access.UserList	0.5033488125065665
+Move Method	com.ibm.as400.access.JDParameterMetaDataProxy::callMethodRtnStr(String, int):String	com.ibm.as400.access.JDConnectionProxy	0.5550338964518067
+Move Method	com.ibm.as400.access.PasswordDialog::add(Component, GridBagLayout, GridBagConstraints, int, int, int, int):void	com.ibm.as400.access.AS400SignonDialogAdapter	0.1320535714285714
+Move Method	com.ibm.as400.data.PcmlDocument::getProgramNode(String):PcmlProgram	com.ibm.as400.data.PcmlProgram	0.7063911984546908
+Move Method	com.ibm.as400.micro.MEServer::sendException(Exception):void	com.ibm.as400.micro.MicroDataOutputStream	0.9856809856809859
+Move Method	com.ibm.as400.access.KeyedFile::checkParameters(byte[], int):void	com.ibm.as400.access.RecordFormat	0.7041428571428573
+Move Method	com.ibm.as400.access.UserSpace::create(String, int, boolean, String, byte, String, String):void	com.ibm.as400.access.UserSpaceImpl	0.9700347036839297
+Move Method	com.ibm.as400.access.UserSpace::delete():void	com.ibm.as400.access.UserSpaceImpl	0.9613095238095238
+Move Method	com.ibm.as400.vaccess.VIFSDirectory::setFilter(IFSFileFilter):void	com.ibm.as400.vaccess.IFSDirectoryFilter	1.0
+Move Method	com.ibm.as400.access.AS400JDBCDatabaseMetaData::parseResultData(DBData, DBDataFormat):void	com.ibm.as400.access.AS400JDBCConnection	0.8582484149283746
+Move Method	com.ibm.as400.vaccess.ResourceListPropertiesTabbedPane::addErrorListener(ErrorListener):void	com.ibm.as400.resource.Presentation	0.2597402597402597
+Move Method	com.ibm.as400.util.servlet.HTMLTableConverter::setObjectHyperlink(RowData, HTMLHyperlink, int, int):void	com.ibm.as400.util.servlet.RowData	0.6022534013605444
+Move Method	com.ibm.as400.access.JDResultSetProxy::callMethodRtnObj(String, Class[], Object[]):Object	com.ibm.as400.access.JDConnectionProxy	0.5819630465922968
+Move Method	com.ibm.as400.access.ChangePasswordRep::getErrorMessages(ConverterImplRemote):AS400Message[]	com.ibm.as400.access.ConverterImplRemote	0.667655109489051
+Move Method	com.ibm.as400.access.SignonGenAuthTokenReplyDS::getErrorMessages(ConverterImplRemote):AS400Message[]	com.ibm.as400.access.ConverterImplRemote	0.667655109489051
+Move Method	com.ibm.as400.vaccess.ResourceCellRenderer::setTextAndIcon(Presentation):void	com.ibm.as400.resource.Presentation	1.0
+Move Method	com.ibm.as400.access.UserSpace::setLength(int):void	com.ibm.as400.access.UserSpaceImpl	0.9700347036839297
+Move Method	com.ibm.as400.access.ProgramCall::run(String, ProgramParameter[]):boolean	com.ibm.as400.access.RemoteCommandImpl	0.8712522045855379
+Move Method	com.ibm.as400.access.AS400JDBCManagedDataSource::createPhysicalConnection():AS400JDBCConnection	com.ibm.as400.access.AS400JDBCManagedConnectionPoolDataSource	0.7349258712337704
+Move Method	com.ibm.as400.access.LogicalDataArea::create():void	com.ibm.as400.access.DataAreaImpl	0.9660144693334657
+Move Method	com.ibm.as400.access.JDResultSetProxy::callMethodRtnInpStrm(String, int):JDInputStreamProxy	com.ibm.as400.access.JDConnectionProxy	0.6717426641748692
+Move Method	com.ibm.as400.access.LogicalDataArea::read():boolean	com.ibm.as400.access.DataAreaImpl	0.9272943123358637
+Move Method	com.ibm.as400.resource.Resource::initializeAttributeValue(Object, Object):void	com.ibm.as400.resource.ResourceMetaDataTable	0.8878205128205127
