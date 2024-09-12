@@ -1,0 +1,1327 @@
+[
+  {
+    "source_class": "cn.iocoder.yudao.module.crm.service.product.CrmProductServiceImpl",
+    "source_method": "validateProductCategoryExists",
+    "target_class": "cn.iocoder.yudao.module.crm.service.product.CrmProductCategoryService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.crm.service.business.CrmBusinessStatusTypeServiceImpl",
+    "source_method": "validateBusinessStatusTypeExists",
+    "target_class": "java.lang.Long):void \t cn.iocoder.yudao.module.crm.dal.mysql.business.CrmBusinessStatusTypeMapper"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.crm.service.business.CrmBusinessServiceImpl",
+    "source_method": "validateContractExists",
+    "target_class": "cn.iocoder.yudao.module.crm.service.contract.CrmContractService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.crm.service.permission.CrmPermissionServiceImpl",
+    "source_method": "validatePermissionNotExists",
+    "target_class": "cn.iocoder.yudao.module.crm.dal.mysql.permission.CrmPermissionMapper"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.crm.service.contract.listener.CrmContractResultListener",
+    "source_method": "isEndResult",
+    "target_class": "cn.iocoder.yudao.framework.common.util.object.ObjectUtils"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.crm.service.bi.CrmBiRankingServiceImpl",
+    "source_method": "getUserIds",
+    "target_class": "cn.iocoder.yudao.module.system.api.user.AdminUserApi"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.crm.service.customer.CrmCustomerLimitConfigServiceImpl",
+    "source_method": "validateUserAndDept",
+    "target_class": "java.util.Collection<java.lang.Long>):void \t cn.iocoder.yudao.module.system.api.user.AdminUserApi"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.crm.service.customer.CrmCustomerServiceImpl",
+    "source_method": "initCustomer",
+    "target_class": "java.lang.Long):cn.iocoder.yudao.module.crm.dal.dataobject.customer.CrmCustomerDO \t cn.iocoder.yudao.framework.common.util.object.BeanUtils"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.crm.convert.contact.CrmContactConvert",
+    "source_method": "setUserInfo",
+    "target_class": "java.util.Map<java.lang.Long,cn.iocoder.yudao.module.system.api.user.dto.AdminUserRespDTO>):void \t cn.iocoder.yudao.framework.ip.core.utils.AreaUtils"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.crm.convert.customer.CrmCustomerConvert",
+    "source_method": "setUserInfo",
+    "target_class": "java.util.Map<java.lang.Long,cn.iocoder.yudao.module.system.api.user.dto.AdminUserRespDTO>, java.util.Map<java.lang.Long,cn.iocoder.yudao.module.system.api.dept.dto.DeptRespDTO>):void \t cn.iocoder.yudao.framework.ip.core.utils.AreaUtils"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.crm.controller.admin.business.CrmBusinessController",
+    "source_method": "createBusiness",
+    "target_class": "cn.iocoder.yudao.module.crm.service.business.CrmBusinessService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.crm.controller.admin.business.CrmBusinessController",
+    "source_method": "getContactListByIds",
+    "target_class": "cn.iocoder.yudao.module.crm.service.business.CrmBusinessService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.crm.controller.admin.business.CrmBusinessController",
+    "source_method": "getBusinessContactPage",
+    "target_class": "cn.iocoder.yudao.module.crm.service.business.CrmBusinessService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.crm.controller.admin.business.CrmBusinessController",
+    "source_method": "transferBusiness",
+    "target_class": "cn.iocoder.yudao.module.crm.service.business.CrmBusinessService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.crm.controller.admin.backlog.CrmBacklogController",
+    "source_method": "getTodayCustomerPage",
+    "target_class": "cn.iocoder.yudao.module.crm.service.message.CrmBacklogService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.crm.controller.admin.permission.CrmPermissionController",
+    "source_method": "addPermission",
+    "target_class": "cn.iocoder.yudao.module.crm.service.permission.CrmPermissionService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.crm.controller.admin.permission.CrmPermissionController",
+    "source_method": "deletePermission",
+    "target_class": "cn.iocoder.yudao.module.crm.service.permission.CrmPermissionService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.crm.controller.admin.permission.CrmPermissionController",
+    "source_method": "deleteSelfPermission",
+    "target_class": "cn.iocoder.yudao.module.crm.service.permission.CrmPermissionService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.crm.controller.admin.contact.CrmContactController",
+    "source_method": "createContact",
+    "target_class": "cn.iocoder.yudao.module.crm.service.contact.CrmContactService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.crm.controller.admin.contact.CrmContactController",
+    "source_method": "transferContact",
+    "target_class": "cn.iocoder.yudao.module.crm.service.contact.CrmContactService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.crm.controller.admin.clue.CrmClueController",
+    "source_method": "createClue",
+    "target_class": "cn.iocoder.yudao.module.crm.service.clue.CrmClueService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.crm.controller.admin.clue.CrmClueController",
+    "source_method": "getCluePage",
+    "target_class": "cn.iocoder.yudao.module.crm.service.clue.CrmClueService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.crm.controller.admin.clue.CrmClueController",
+    "source_method": "transferClue",
+    "target_class": "cn.iocoder.yudao.module.crm.service.clue.CrmClueService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.crm.controller.admin.clue.CrmClueController",
+    "source_method": "translateCustomer",
+    "target_class": "cn.iocoder.yudao.module.crm.service.clue.CrmClueService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.crm.controller.admin.contract.CrmContractController",
+    "source_method": "createContract",
+    "target_class": "cn.iocoder.yudao.module.crm.service.contract.CrmContractService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.crm.controller.admin.contract.CrmContractController",
+    "source_method": "transferContract",
+    "target_class": "cn.iocoder.yudao.module.crm.service.contract.CrmContractService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.crm.controller.admin.contract.CrmContractController",
+    "source_method": "submitContract",
+    "target_class": "cn.iocoder.yudao.module.crm.service.contract.CrmContractService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.crm.controller.admin.followup.CrmFollowUpRecordController",
+    "source_method": "deleteFollowUpRecord",
+    "target_class": "cn.iocoder.yudao.module.crm.service.followup.CrmFollowUpRecordService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.crm.controller.admin.receivable.CrmReceivablePlanController",
+    "source_method": "createReceivablePlan",
+    "target_class": "cn.iocoder.yudao.module.crm.service.receivable.CrmReceivablePlanService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.crm.controller.admin.receivable.CrmReceivableController",
+    "source_method": "createReceivable",
+    "target_class": "cn.iocoder.yudao.module.crm.service.receivable.CrmReceivableService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.crm.controller.admin.customer.CrmCustomerController",
+    "source_method": "createCustomer",
+    "target_class": "cn.iocoder.yudao.module.crm.service.customer.CrmCustomerService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.crm.controller.admin.customer.CrmCustomerController",
+    "source_method": "importExcel",
+    "target_class": "java.lang.Boolean):cn.iocoder.yudao.framework.common.pojo.CommonResult<cn.iocoder.yudao.module.crm.controller.admin.customer.vo.CrmCustomerImportRespVO> \t cn.iocoder.yudao.module.crm.service.customer.CrmCustomerService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.crm.controller.admin.customer.CrmCustomerController",
+    "source_method": "transferCustomer",
+    "target_class": "cn.iocoder.yudao.module.crm.service.customer.CrmCustomerService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.crm.controller.admin.customer.CrmCustomerController",
+    "source_method": "lockCustomer",
+    "target_class": "cn.iocoder.yudao.module.crm.service.customer.CrmCustomerService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.crm.controller.admin.customer.CrmCustomerController",
+    "source_method": "receiveCustomer",
+    "target_class": "cn.iocoder.yudao.module.crm.service.customer.CrmCustomerService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.crm.framework.permission.core.util.CrmPermissionUtils",
+    "source_method": "isCrmAdmin",
+    "target_class": "cn.iocoder.yudao.module.system.api.permission.PermissionApi"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.crm.framework.permission.core.aop.CrmPermissionAspect",
+    "source_method": "getUserId",
+    "target_class": "cn.iocoder.yudao.framework.web.core.util.WebFrameworkUtils"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.crm.util.CrmQueryWrapperUtils",
+    "source_method": "appendPermissionCondition",
+    "target_class": "java.lang.Integer, cn.iocoder.yudao.module.crm.util.SFunction<S,?>, java.lang.Long, java.lang.Integer, java.lang.Boolean):void \t cn.iocoder.yudao.module.crm.framework.permission.core.util.CrmPermissionUtils"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.crm.util.CrmQueryWrapperUtils",
+    "source_method": "appendPermissionCondition",
+    "target_class": "java.lang.Integer, java.util.Collection<java.lang.Long>, java.lang.Long):void \t cn.iocoder.yudao.module.crm.framework.permission.core.util.CrmPermissionUtils"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.framework.operatelog.core.aop.OperateLogAspect",
+    "source_method": "fillUserFields",
+    "target_class": "cn.iocoder.yudao.framework.web.core.util.WebFrameworkUtils"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.framework.operatelog.core.aop.OperateLogAspect",
+    "source_method": "fillRequestFields",
+    "target_class": "cn.iocoder.yudao.framework.common.util.servlet.ServletUtils"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.framework.operatelog.core.aop.OperateLogAspect",
+    "source_method": "convertOperateLogType",
+    "target_class": "cn.iocoder.yudao.framework.operatelog.core.enums.OperateTypeEnum"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.framework.operatelog.core.aop.OperateLogAspect",
+    "source_method": "obtainMethodArgs",
+    "target_class": "cn.iocoder.yudao.framework.common.util.json.JsonUtils"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.framework.operatelog.core.aop.OperateLogAspect",
+    "source_method": "obtainResultData",
+    "target_class": "cn.iocoder.yudao.framework.common.util.json.JsonUtils"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.framework.ip.core.utils.AreaUtils",
+    "source_method": "format",
+    "target_class": "java.lang.String):java.lang.String \t cn.iocoder.yudao.framework.ip.core.enums.AreaTypeEnum"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.framework.ip.core.utils.AreaUtils",
+    "source_method": "getByType",
+    "target_class": "java.util.function.Function<cn.iocoder.yudao.framework.ip.core.Area,T>):java.util.List<T> \t cn.iocoder.yudao.framework.common.util.collection.CollectionUtils"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.framework.datapermission.core.util.DataPermissionUtils",
+    "source_method": "executeIgnore",
+    "target_class": "cn.iocoder.yudao.framework.datapermission.core.aop.DataPermissionContextHolder"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.framework.datapermission.core.db.DataPermissionDatabaseInterceptor",
+    "source_method": "addMappedStatementCache",
+    "target_class": "cn.iocoder.yudao.framework.datapermission.core.db.DataPermissionDatabaseInterceptor.MappedStatementCache"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.framework.datapermission.config.YudaoDeptDataPermissionAutoConfiguration",
+    "source_method": "deptDataPermissionRule",
+    "target_class": "java.util.List<cn.iocoder.yudao.framework.datapermission.core.rule.dept.DeptDataPermissionRuleCustomizer>):cn.iocoder.yudao.framework.datapermission.core.rule.dept.DeptDataPermissionRule \t cn.iocoder.yudao.framework.datapermission.core.rule.dept.DeptDataPermissionRuleCustomizer"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.framework.tenant.core.context.TenantContextHolder",
+    "source_method": "getRequiredTenantId",
+    "target_class": "cn.iocoder.yudao.framework.common.enums.DocumentEnum"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.framework.tenant.core.util.TenantUtils",
+    "source_method": "execute",
+    "target_class": "java.lang.Runnable):void \t cn.iocoder.yudao.framework.tenant.core.context.TenantContextHolder"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.framework.tenant.core.util.TenantUtils",
+    "source_method": "execute",
+    "target_class": "java.util.concurrent.Callable<V>):V \t cn.iocoder.yudao.framework.tenant.core.context.TenantContextHolder"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.framework.tenant.core.util.TenantUtils",
+    "source_method": "executeIgnore",
+    "target_class": "cn.iocoder.yudao.framework.tenant.core.context.TenantContextHolder"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.framework.test.core.util.RandomUtils",
+    "source_method": "randomCommonStatus",
+    "target_class": "cn.iocoder.yudao.framework.common.enums.CommonStatusEnum"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.framework.test.core.util.AssertUtils",
+    "source_method": "assertServiceException",
+    "target_class": "cn.iocoder.yudao.framework.common.exception.ErrorCode, java.lang.Object[]):void \t cn.iocoder.yudao.framework.common.exception.util.ServiceExceptionUtil"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.framework.security.core.util.SecurityFrameworkUtils",
+    "source_method": "setLoginUser",
+    "target_class": "cn.iocoder.yudao.framework.security.core.util.HttpServletRequest):void \t cn.iocoder.yudao.framework.web.core.util.WebFrameworkUtils"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.framework.operatelog.core.service.LogRecordServiceImpl",
+    "source_method": "fillUserFields",
+    "target_class": "cn.iocoder.yudao.framework.security.core.util.SecurityFrameworkUtils"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.framework.operatelog.core.service.LogRecordServiceImpl",
+    "source_method": "fillRequestFields",
+    "target_class": "cn.iocoder.yudao.framework.common.util.servlet.ServletUtils"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.framework.mq.redis.config.YudaoRedisMQConsumerAutoConfiguration",
+    "source_method": "checkRedisVersion",
+    "target_class": "cn.iocoder.yudao.framework.common.enums.DocumentEnum"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.framework.pay.core.client.impl.alipay.AbstractAlipayPayClient",
+    "source_method": "parseStatus",
+    "target_class": "cn.iocoder.yudao.framework.common.util.object.ObjectUtils"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.framework.pay.core.client.impl.weixin.AbstractWxPayClient",
+    "source_method": "parseStatus",
+    "target_class": "cn.iocoder.yudao.framework.pay.core.enums.order.PayOrderStatusRespEnum"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.framework.pay.core.client.impl.weixin.WxBarPayClient",
+    "source_method": "getAuthCode",
+    "target_class": "cn.iocoder.yudao.framework.common.exception.util.ServiceExceptionUtil"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.framework.pay.core.client.impl.weixin.WxPubPayClient",
+    "source_method": "getOpenid",
+    "target_class": "cn.iocoder.yudao.framework.common.exception.util.ServiceExceptionUtil"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.framework.common.pojo.CommonResult",
+    "source_method": "error",
+    "target_class": "cn.iocoder.yudao.framework.common.exception.ServiceException"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.framework.common.util.collection.ArrayUtils",
+    "source_method": "toArray",
+    "target_class": "java.util.function.Function<T,V>):V[] \t cn.iocoder.yudao.framework.common.util.collection.CollectionUtils"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.framework.common.util.object.BeanUtils",
+    "source_method": "toBean",
+    "target_class": "java.lang.Class<T>):java.util.List<T> \t cn.iocoder.yudao.framework.common.util.collection.CollectionUtils"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.framework.common.util.servlet.ServletUtils",
+    "source_method": "writeJSON",
+    "target_class": "java.lang.Object):void \t cn.iocoder.yudao.framework.common.util.json.JsonUtils"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.bpm.service.task.BpmTaskServiceImpl",
+    "source_method": "validateTargetTaskCanReturn",
+    "target_class": "java.lang.String, java.lang.String):cn.iocoder.yudao.module.bpm.service.task.FlowElement \t cn.iocoder.yudao.module.bpm.service.definition.BpmModelService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.bpm.controller.admin.oa.BpmOALeaveController",
+    "source_method": "createLeave",
+    "target_class": "cn.iocoder.yudao.module.bpm.service.oa.BpmOALeaveService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.bpm.controller.admin.oa.BpmOALeaveController",
+    "source_method": "getLeavePage",
+    "target_class": "cn.iocoder.yudao.module.bpm.service.oa.BpmOALeaveService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.bpm.controller.admin.definition.BpmModelController",
+    "source_method": "createModel",
+    "target_class": "cn.iocoder.yudao.module.bpm.service.definition.BpmModelService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.bpm.controller.admin.definition.BpmFormController",
+    "source_method": "getSimpleForms",
+    "target_class": "cn.iocoder.yudao.module.bpm.service.definition.BpmFormService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.bpm.controller.admin.task.BpmProcessInstanceController",
+    "source_method": "getMyProcessInstancePage",
+    "target_class": "cn.iocoder.yudao.module.bpm.service.task.BpmProcessInstanceService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.bpm.controller.admin.task.BpmProcessInstanceController",
+    "source_method": "createProcessInstance",
+    "target_class": "cn.iocoder.yudao.module.bpm.service.task.BpmProcessInstanceService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.bpm.controller.admin.task.BpmProcessInstanceController",
+    "source_method": "cancelProcessInstance",
+    "target_class": "cn.iocoder.yudao.module.bpm.service.task.BpmProcessInstanceService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.bpm.controller.admin.task.BpmActivityController",
+    "source_method": "getActivityList",
+    "target_class": "cn.iocoder.yudao.module.bpm.service.task.BpmActivityService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.bpm.controller.admin.task.BpmProcessInstanceCopyController",
+    "source_method": "createProcessInstanceCopy",
+    "target_class": "cn.iocoder.yudao.module.bpm.service.task.cc.BpmProcessInstanceCopyService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.bpm.controller.admin.task.BpmTaskController",
+    "source_method": "getTodoTaskPage",
+    "target_class": "cn.iocoder.yudao.module.bpm.service.task.BpmTaskService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.bpm.controller.admin.task.BpmTaskController",
+    "source_method": "getDoneTaskPage",
+    "target_class": "cn.iocoder.yudao.module.bpm.service.task.BpmTaskService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.bpm.controller.admin.task.BpmTaskController",
+    "source_method": "approveTask",
+    "target_class": "cn.iocoder.yudao.module.bpm.service.task.BpmTaskService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.bpm.controller.admin.task.BpmTaskController",
+    "source_method": "rejectTask",
+    "target_class": "cn.iocoder.yudao.module.bpm.service.task.BpmTaskService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.bpm.controller.admin.task.BpmTaskController",
+    "source_method": "updateTaskAssignee",
+    "target_class": "cn.iocoder.yudao.module.bpm.service.task.BpmTaskService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.bpm.controller.admin.task.BpmTaskController",
+    "source_method": "getReturnList",
+    "target_class": "cn.iocoder.yudao.module.bpm.service.task.BpmTaskService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.bpm.controller.admin.task.BpmTaskController",
+    "source_method": "returnTask",
+    "target_class": "cn.iocoder.yudao.module.bpm.service.task.BpmTaskService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.bpm.controller.admin.task.BpmTaskController",
+    "source_method": "delegateTask",
+    "target_class": "cn.iocoder.yudao.module.bpm.service.task.BpmTaskService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.bpm.controller.admin.task.BpmTaskController",
+    "source_method": "createSignTask",
+    "target_class": "cn.iocoder.yudao.module.bpm.service.task.BpmTaskService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.bpm.controller.admin.task.BpmTaskController",
+    "source_method": "deleteSignTask",
+    "target_class": "cn.iocoder.yudao.module.bpm.service.task.BpmTaskService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.bpm.framework.bpm.config.BpmCandidateProcessorConfiguration",
+    "source_method": "bpmCandidateScriptApiSourceInfoProcessor",
+    "target_class": "cn.iocoder.yudao.module.bpm.service.candidate.sourceInfoProcessor.BpmCandidateScriptApiSourceInfoProcessor"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.bpm.enums.task.BpmProcessInstanceResultEnum",
+    "source_method": "isEndResult",
+    "target_class": "cn.iocoder.yudao.framework.common.util.object.ObjectUtils"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.report.controller.admin.goview.GoViewProjectController",
+    "source_method": "getMyProjectPage",
+    "target_class": "cn.iocoder.yudao.module.report.service.goview.GoViewProjectService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.system.service.tenant.TenantServiceImpl",
+    "source_method": "createUser",
+    "target_class": "cn.iocoder.yudao.module.system.controller.admin.tenant.vo.tenant.TenantSaveReqVO):java.lang.Long \t cn.iocoder.yudao.module.system.service.permission.PermissionService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.system.service.tenant.TenantPackageServiceImpl",
+    "source_method": "validateTenantUsed",
+    "target_class": "cn.iocoder.yudao.module.system.service.tenant.TenantService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.system.service.notify.NotifySendServiceImpl",
+    "source_method": "validateNotifyTemplate",
+    "target_class": "cn.iocoder.yudao.module.system.service.notify.NotifyTemplateService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.system.service.user.AdminUserServiceImpl",
+    "source_method": "getDeptCondition",
+    "target_class": "cn.iocoder.yudao.module.system.service.dept.DeptService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.system.service.mail.MailSendServiceImpl",
+    "source_method": "validateMailTemplate",
+    "target_class": "cn.iocoder.yudao.module.system.service.mail.MailTemplateService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.system.service.mail.MailSendServiceImpl",
+    "source_method": "validateMailAccount",
+    "target_class": "cn.iocoder.yudao.module.system.service.mail.MailAccountService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.system.service.sms.SmsSendServiceImpl",
+    "source_method": "validateSmsChannel",
+    "target_class": "cn.iocoder.yudao.module.system.service.sms.SmsChannelService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.system.service.sms.SmsSendServiceImpl",
+    "source_method": "validateSmsTemplate",
+    "target_class": "cn.iocoder.yudao.module.system.service.sms.SmsTemplateService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.system.controller.admin.oauth2.OAuth2UserController",
+    "source_method": "updateUserInfo",
+    "target_class": "cn.iocoder.yudao.module.system.service.user.AdminUserService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.system.controller.admin.oauth2.OAuth2OpenController",
+    "source_method": "authorize",
+    "target_class": "cn.iocoder.yudao.module.system.service.oauth2.OAuth2ClientService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.system.controller.admin.oauth2.OAuth2OpenController",
+    "source_method": "getGrantTypeEnum",
+    "target_class": "cn.iocoder.yudao.framework.common.exception.util.ServiceExceptionUtil"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.system.controller.admin.permission.PermissionController",
+    "source_method": "getRoleMenuList",
+    "target_class": "cn.iocoder.yudao.module.system.service.permission.PermissionService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.system.controller.admin.permission.PermissionController",
+    "source_method": "listAdminRoles",
+    "target_class": "cn.iocoder.yudao.module.system.service.permission.PermissionService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.system.controller.admin.permission.RoleController",
+    "source_method": "createRole",
+    "target_class": "cn.iocoder.yudao.module.system.service.permission.RoleService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.system.controller.admin.dict.DictTypeController",
+    "source_method": "pageDictTypes",
+    "target_class": "cn.iocoder.yudao.module.system.service.dict.DictTypeService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.system.controller.admin.dict.DictTypeController",
+    "source_method": "getSimpleDictTypeList",
+    "target_class": "cn.iocoder.yudao.module.system.service.dict.DictTypeService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.system.controller.admin.dict.DictDataController",
+    "source_method": "getDictTypePage",
+    "target_class": "cn.iocoder.yudao.module.system.service.dict.DictDataService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.system.controller.admin.user.UserProfileController",
+    "source_method": "updateUserProfile",
+    "target_class": "cn.iocoder.yudao.module.system.service.user.AdminUserService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.system.controller.admin.user.UserProfileController",
+    "source_method": "updateUserProfilePassword",
+    "target_class": "cn.iocoder.yudao.module.system.service.user.AdminUserService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.system.controller.admin.user.UserController",
+    "source_method": "importExcel",
+    "target_class": "java.lang.Boolean):cn.iocoder.yudao.framework.common.pojo.CommonResult<cn.iocoder.yudao.module.system.controller.admin.user.vo.user.UserImportRespVO> \t cn.iocoder.yudao.module.system.service.user.AdminUserService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.system.controller.admin.mail.MailLogController",
+    "source_method": "getMailTemplate",
+    "target_class": "cn.iocoder.yudao.module.system.service.mail.MailLogService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.system.controller.admin.mail.MailTemplateController",
+    "source_method": "getSimpleTemplateList",
+    "target_class": "cn.iocoder.yudao.module.system.service.mail.MailTemplateService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.system.controller.admin.mail.MailAccountController",
+    "source_method": "getSimpleMailAccountList",
+    "target_class": "cn.iocoder.yudao.module.system.service.mail.MailAccountService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.system.controller.admin.captcha.CaptchaController",
+    "source_method": "getRemoteId",
+    "target_class": "cn.iocoder.yudao.framework.common.util.servlet.ServletUtils"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.system.controller.admin.auth.AuthController",
+    "source_method": "sendLoginSmsCode",
+    "target_class": "cn.iocoder.yudao.module.system.service.auth.AdminAuthService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.system.controller.admin.auth.AuthController",
+    "source_method": "socialQuickLogin",
+    "target_class": "cn.iocoder.yudao.module.system.service.auth.AdminAuthService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.system.controller.admin.sms.SmsChannelController",
+    "source_method": "getSimpleSmsChannelList",
+    "target_class": "cn.iocoder.yudao.module.system.service.sms.SmsChannelService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.system.framework.datapermission.config.DataPermissionConfiguration",
+    "source_method": "sysDeptDataPermissionRuleCustomizer",
+    "target_class": "cn.iocoder.yudao.framework.datapermission.core.rule.dept.DeptDataPermissionRule"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.system.util.oauth2.OAuth2Utils",
+    "source_method": "buildAuthorizationCodeRedirectUri",
+    "target_class": "java.lang.String, java.lang.String):java.lang.String \t cn.iocoder.yudao.framework.common.util.http.HttpUtils"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.system.util.oauth2.OAuth2Utils",
+    "source_method": "buildUnsuccessfulRedirect",
+    "target_class": "java.lang.String, java.lang.String, java.lang.String, java.lang.String):java.lang.String \t cn.iocoder.yudao.framework.common.util.http.HttpUtils"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.system.enums.permission.RoleCodeEnum",
+    "source_method": "isSuperAdmin",
+    "target_class": "cn.iocoder.yudao.framework.common.util.object.ObjectUtils"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.erp.service.sale.ErpSaleOrderServiceImpl",
+    "source_method": "deleteSalesOrderItemsById",
+    "target_class": "cn.iocoder.yudao.module.erp.dal.mysql.sale.ErpSalesOrderItemMapper"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.erp.controller.admin.product.ErpProductCategoryController",
+    "source_method": "exportProductCategoryExcel",
+    "target_class": "cn.iocoder.yudao.module.erp.controller.admin.product.HttpServletResponse):void \t cn.iocoder.yudao.module.erp.service.product.ErpProductCategoryService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.ssodemo.client.UserClient",
+    "source_method": "addTokenHeader",
+    "target_class": "cn.iocoder.yudao.ssodemo.framework.core.util.SecurityUtils"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.ssodemo.controller.AuthController",
+    "source_method": "loginByCode",
+    "target_class": "java.lang.String):cn.iocoder.yudao.ssodemo.client.dto.CommonResult<cn.iocoder.yudao.ssodemo.client.dto.oauth2.OAuth2AccessTokenRespDTO> \t cn.iocoder.yudao.ssodemo.client.OAuth2Client"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.ssodemo.client.UserClient",
+    "source_method": "addTokenHeader",
+    "target_class": "cn.iocoder.yudao.ssodemo.framework.core.util.SecurityUtils"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.mp.controller.admin.message.MpMessageController",
+    "source_method": "sendMessage",
+    "target_class": "cn.iocoder.yudao.module.mp.service.message.MpMessageService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.mp.controller.admin.tag.MpTagController",
+    "source_method": "getSimpleTags",
+    "target_class": "cn.iocoder.yudao.module.mp.service.tag.MpTagService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.mp.controller.admin.menu.MpMenuController",
+    "source_method": "deleteMenu",
+    "target_class": "cn.iocoder.yudao.module.mp.service.menu.MpMenuService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.mp.controller.admin.menu.MpMenuController",
+    "source_method": "getMenuList",
+    "target_class": "cn.iocoder.yudao.module.mp.service.menu.MpMenuService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.mp.controller.admin.account.MpAccountController",
+    "source_method": "getSimpleAccounts",
+    "target_class": "cn.iocoder.yudao.module.mp.service.account.MpAccountService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.mp.framework.mp.core.util.MpUtils",
+    "source_method": "validateMessage",
+    "target_class": "java.lang.String, java.lang.Object):void \t cn.iocoder.yudao.framework.common.util.validation.ValidationUtils"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.mp.framework.mp.core.util.MpUtils",
+    "source_method": "validateButton",
+    "target_class": "java.lang.String, java.lang.String, java.lang.Object):void \t cn.iocoder.yudao.framework.common.util.validation.ValidationUtils"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.infra.service.demo.demo03.Demo03StudentServiceImpl",
+    "source_method": "deleteDemo03CourseByStudentId",
+    "target_class": "cn.iocoder.yudao.module.infra.dal.mysql.demo.demo03.Demo03CourseMapper"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.infra.service.demo.demo03.Demo03StudentServiceImpl",
+    "source_method": "deleteDemo03GradeByStudentId",
+    "target_class": "cn.iocoder.yudao.module.infra.dal.mysql.demo.demo03.Demo03GradeMapper"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.infra.service.codegen.CodegenServiceImpl",
+    "source_method": "createCodegen",
+    "target_class": "java.lang.Long, java.lang.String):java.lang.Long \t cn.iocoder.yudao.module.infra.service.db.DatabaseTableService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.infra.controller.admin.logger.ApiErrorLogController",
+    "source_method": "updateApiErrorLogProcess",
+    "target_class": "java.lang.Integer):cn.iocoder.yudao.framework.common.pojo.CommonResult<java.lang.Boolean> \t cn.iocoder.yudao.module.infra.service.logger.ApiErrorLogService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.infra.controller.admin.demo.demo02.Demo02CategoryController",
+    "source_method": "exportDemo02CategoryExcel",
+    "target_class": "cn.iocoder.yudao.module.infra.controller.admin.demo.demo02.HttpServletResponse):void \t cn.iocoder.yudao.module.infra.service.demo.demo02.Demo02CategoryService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.infra.controller.admin.codegen.CodegenController",
+    "source_method": "getCodegenDetail",
+    "target_class": "cn.iocoder.yudao.module.infra.service.codegen.CodegenService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.infra.controller.admin.codegen.CodegenController",
+    "source_method": "createCodegenList",
+    "target_class": "cn.iocoder.yudao.module.infra.service.codegen.CodegenService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.infra.controller.admin.codegen.CodegenController",
+    "source_method": "previewCodegen",
+    "target_class": "cn.iocoder.yudao.module.infra.service.codegen.CodegenService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.infra.enums.codegen.CodegenTemplateTypeEnum",
+    "source_method": "isMaster",
+    "target_class": "cn.iocoder.yudao.framework.common.util.object.ObjectUtils"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.member.service.level.MemberLevelServiceImpl",
+    "source_method": "validateLevelHasUser",
+    "target_class": "cn.iocoder.yudao.module.member.service.user.MemberUserService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.member.service.user.MemberUserServiceImpl",
+    "source_method": "validateUserExists",
+    "target_class": "cn.iocoder.yudao.module.member.dal.mysql.user.MemberUserMapper"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.member.service.tag.MemberTagServiceImpl",
+    "source_method": "validateTagHasUser",
+    "target_class": "cn.iocoder.yudao.module.member.service.user.MemberUserService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.member.service.group.MemberGroupServiceImpl",
+    "source_method": "validateGroupHasUser",
+    "target_class": "cn.iocoder.yudao.module.member.service.user.MemberUserService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.member.controller.app.signin.AppMemberSignInRecordController",
+    "source_method": "getSignInRecordSummary",
+    "target_class": "cn.iocoder.yudao.module.member.service.signin.MemberSignInRecordService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.member.controller.app.signin.AppMemberSignInRecordController",
+    "source_method": "createSignInRecord",
+    "target_class": "cn.iocoder.yudao.module.member.service.signin.MemberSignInRecordService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.member.controller.app.signin.AppMemberSignInRecordController",
+    "source_method": "getSignRecordPage",
+    "target_class": "cn.iocoder.yudao.module.member.service.signin.MemberSignInRecordService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.member.controller.app.level.AppMemberLevelController",
+    "source_method": "getLevelList",
+    "target_class": "cn.iocoder.yudao.module.member.service.level.MemberLevelService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.member.controller.app.address.AppAddressController",
+    "source_method": "createAddress",
+    "target_class": "cn.iocoder.yudao.module.member.service.address.AddressService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.member.controller.app.address.AppAddressController",
+    "source_method": "updateAddress",
+    "target_class": "cn.iocoder.yudao.module.member.service.address.AddressService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.member.controller.app.address.AppAddressController",
+    "source_method": "deleteAddress",
+    "target_class": "cn.iocoder.yudao.module.member.service.address.AddressService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.member.controller.app.address.AppAddressController",
+    "source_method": "getAddress",
+    "target_class": "cn.iocoder.yudao.module.member.service.address.AddressService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.member.controller.app.address.AppAddressController",
+    "source_method": "getDefaultUserAddress",
+    "target_class": "cn.iocoder.yudao.module.member.service.address.AddressService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.member.controller.app.address.AppAddressController",
+    "source_method": "getAddressList",
+    "target_class": "cn.iocoder.yudao.module.member.service.address.AddressService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.member.controller.app.user.AppMemberUserController",
+    "source_method": "updateUserMobile",
+    "target_class": "cn.iocoder.yudao.module.member.service.user.MemberUserService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.member.controller.app.user.AppMemberUserController",
+    "source_method": "updateUserMobileByWeixin",
+    "target_class": "cn.iocoder.yudao.module.member.service.user.MemberUserService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.member.controller.app.user.AppMemberUserController",
+    "source_method": "updateUserPassword",
+    "target_class": "cn.iocoder.yudao.module.member.service.user.MemberUserService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.member.controller.app.auth.AppAuthController",
+    "source_method": "sendSmsCode",
+    "target_class": "cn.iocoder.yudao.module.member.service.auth.MemberAuthService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.member.controller.app.auth.AppAuthController",
+    "source_method": "validateSmsCode",
+    "target_class": "cn.iocoder.yudao.module.member.service.auth.MemberAuthService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.member.controller.app.auth.AppAuthController",
+    "source_method": "socialAuthRedirect",
+    "target_class": "java.lang.String):cn.iocoder.yudao.framework.common.pojo.CommonResult<java.lang.String> \t cn.iocoder.yudao.module.member.service.auth.MemberAuthService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.member.controller.admin.level.MemberLevelController",
+    "source_method": "getSimpleLevelList",
+    "target_class": "cn.iocoder.yudao.module.member.service.level.MemberLevelService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.member.controller.admin.tag.MemberTagController",
+    "source_method": "getMemberTag",
+    "target_class": "cn.iocoder.yudao.module.member.service.tag.MemberTagService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.member.controller.admin.tag.MemberTagController",
+    "source_method": "getSimpleTagList",
+    "target_class": "cn.iocoder.yudao.module.member.service.tag.MemberTagService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.member.controller.admin.tag.MemberTagController",
+    "source_method": "getMemberTagList",
+    "target_class": "cn.iocoder.yudao.module.member.service.tag.MemberTagService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.member.controller.admin.group.MemberGroupController",
+    "source_method": "getSimpleGroupList",
+    "target_class": "cn.iocoder.yudao.module.member.service.group.MemberGroupService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.pay.enums.order.PayOrderStatusEnum",
+    "source_method": "isSuccessOrRefund",
+    "target_class": "cn.iocoder.yudao.framework.common.util.object.ObjectUtils"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.pay.service.channel.PayChannelServiceImpl",
+    "source_method": "init",
+    "target_class": "cn.iocoder.yudao.framework.pay.core.client.PayClientFactory"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.pay.controller.app.wallet.AppPayWalletRechargeController",
+    "source_method": "createWalletRecharge",
+    "target_class": "cn.iocoder.yudao.module.pay.service.wallet.PayWalletRechargeService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.pay.controller.app.channel.AppPayChannelController",
+    "source_method": "getEnableChannelCodeList",
+    "target_class": "cn.iocoder.yudao.module.pay.service.channel.PayChannelService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.pay.controller.admin.wallet.PayWalletRechargeController",
+    "source_method": "refundWalletRecharge",
+    "target_class": "cn.iocoder.yudao.module.pay.service.wallet.PayWalletRechargeService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.pay.controller.admin.channel.PayChannelController",
+    "source_method": "getChannel",
+    "target_class": "java.lang.Long, java.lang.String):cn.iocoder.yudao.framework.common.pojo.CommonResult<cn.iocoder.yudao.module.pay.controller.admin.channel.vo.PayChannelRespVO> \t cn.iocoder.yudao.module.pay.service.channel.PayChannelService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.pay.controller.admin.channel.PayChannelController",
+    "source_method": "getEnableChannelCodeList",
+    "target_class": "cn.iocoder.yudao.module.pay.service.channel.PayChannelService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.pay.controller.admin.demo.PayDemoOrderController",
+    "source_method": "createDemoOrder",
+    "target_class": "cn.iocoder.yudao.module.pay.service.demo.PayDemoOrderService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.pay.controller.admin.demo.PayDemoOrderController",
+    "source_method": "refundDemoOrder",
+    "target_class": "cn.iocoder.yudao.module.pay.service.demo.PayDemoOrderService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.product.dal.mysql.spu.ProductSpuMapper",
+    "source_method": "appendTabQuery",
+    "target_class": "cn.iocoder.yudao.framework.mybatis.core.query.LambdaQueryWrapperX<cn.iocoder.yudao.module.product.dal.dataobject.spu.ProductSpuDO>):void \t cn.iocoder.yudao.framework.mybatis.core.query.LambdaQueryWrapperX"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.product.service.comment.ProductCommentServiceImpl",
+    "source_method": "validateCommentExists",
+    "target_class": "java.lang.Long):void \t cn.iocoder.yudao.module.product.dal.mysql.comment.ProductCommentMapper"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.product.service.comment.ProductCommentServiceImpl",
+    "source_method": "validateSku",
+    "target_class": "cn.iocoder.yudao.module.product.service.sku.ProductSkuService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.product.service.comment.ProductCommentServiceImpl",
+    "source_method": "validateSpu",
+    "target_class": "cn.iocoder.yudao.module.product.service.spu.ProductSpuService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.product.controller.app.history.AppProductBrowseHistoryController",
+    "source_method": "deleteBrowseHistory",
+    "target_class": "cn.iocoder.yudao.module.product.service.history.ProductBrowseHistoryService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.product.controller.app.favorite.AppFavoriteController",
+    "source_method": "getFavoriteCount",
+    "target_class": "cn.iocoder.yudao.module.product.service.favorite.ProductFavoriteService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.product.controller.app.category.AppCategoryController",
+    "source_method": "getProductCategoryList",
+    "target_class": "cn.iocoder.yudao.module.product.service.category.ProductCategoryService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.product.controller.admin.spu.ProductSpuController",
+    "source_method": "createProductSpu",
+    "target_class": "cn.iocoder.yudao.module.product.service.spu.ProductSpuService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.product.controller.admin.spu.ProductSpuController",
+    "source_method": "updateStatus",
+    "target_class": "cn.iocoder.yudao.module.product.service.spu.ProductSpuService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.product.controller.admin.spu.ProductSpuController",
+    "source_method": "getSpuList",
+    "target_class": "cn.iocoder.yudao.module.product.service.spu.ProductSpuService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.product.controller.admin.spu.ProductSpuController",
+    "source_method": "getSpuCount",
+    "target_class": "cn.iocoder.yudao.module.product.service.spu.ProductSpuService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.product.controller.admin.comment.ProductCommentController",
+    "source_method": "commentReply",
+    "target_class": "cn.iocoder.yudao.module.product.service.comment.ProductCommentService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.statistics.dal.mysql.product.ProductStatisticsMapper",
+    "source_method": "buildWrapper",
+    "target_class": "cn.iocoder.yudao.framework.mybatis.core.query.MPJLambdaWrapperX"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.statistics.controller.admin.product.ProductStatisticsController",
+    "source_method": "exportProductStatisticsExcel",
+    "target_class": "cn.iocoder.yudao.module.statistics.controller.admin.product.HttpServletResponse):void \t cn.iocoder.yudao.module.statistics.service.product.ProductStatisticsService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.statistics.controller.admin.trade.TradeStatisticsController",
+    "source_method": "getTradeSummaryComparison",
+    "target_class": "cn.iocoder.yudao.module.statistics.service.trade.TradeStatisticsService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.statistics.controller.admin.pay.PayStatisticsController",
+    "source_method": "getWalletRechargePrice",
+    "target_class": "cn.iocoder.yudao.module.statistics.service.pay.PayWalletStatisticsService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.trade.service.order.handler.TradeBrokerageOrderHandler",
+    "source_method": "cancelBrokerage",
+    "target_class": "java.lang.Long):void \t cn.iocoder.yudao.module.trade.service.brokerage.BrokerageRecordService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.trade.service.order.TradeOrderUpdateServiceImpl",
+    "source_method": "updateOrderItemAfterSaleStatus",
+    "target_class": "java.lang.Integer, java.lang.Integer, java.lang.Long):void \t cn.iocoder.yudao.module.trade.dal.mysql.order.TradeOrderItemMapper"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.trade.service.aftersale.AfterSaleServiceImpl",
+    "source_method": "updateAfterSaleStatus",
+    "target_class": "java.lang.Integer, cn.iocoder.yudao.module.trade.dal.dataobject.aftersale.AfterSaleDO):void \t cn.iocoder.yudao.module.trade.dal.mysql.aftersale.AfterSaleMapper"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.trade.service.price.calculator.TradePriceCalculatorHelper",
+    "source_method": "getOrderType",
+    "target_class": "cn.iocoder.yudao.module.trade.enums.order.TradeOrderTypeEnum"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.trade.service.price.calculator.TradePriceCalculatorHelper",
+    "source_method": "recountAllGivePoint",
+    "target_class": "cn.iocoder.yudao.framework.common.util.collection.CollectionUtils"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.trade.service.price.calculator.TradePriceCalculatorHelper",
+    "source_method": "calculateTotalPayPrice",
+    "target_class": "cn.iocoder.yudao.framework.common.util.collection.CollectionUtils"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.trade.service.price.calculator.TradePriceCalculatorHelper",
+    "source_method": "calculateTotalCount",
+    "target_class": "cn.iocoder.yudao.framework.common.util.collection.CollectionUtils"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.trade.service.price.calculator.TradePriceCalculatorHelper",
+    "source_method": "dividePrice2",
+    "target_class": "java.lang.Integer):java.util.List<java.lang.Integer> \t cn.iocoder.yudao.framework.common.util.collection.CollectionUtils"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.trade.service.price.calculator.TradePriceCalculatorHelper",
+    "source_method": "addPromotion",
+    "target_class": "java.util.List<cn.iocoder.yudao.module.trade.service.price.bo.TradePriceCalculateRespBO.OrderItem>, java.lang.Long, java.lang.String, java.lang.Integer, java.lang.String, java.util.List<java.lang.Integer>):void \t cn.iocoder.yudao.framework.common.util.collection.CollectionUtils"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.trade.service.price.calculator.TradePriceCalculatorHelper",
+    "source_method": "addNotMatchPromotion",
+    "target_class": "java.util.List<cn.iocoder.yudao.module.trade.service.price.bo.TradePriceCalculateRespBO.OrderItem>, java.lang.Long, java.lang.String, java.lang.Integer, java.lang.String):void \t cn.iocoder.yudao.framework.common.util.collection.CollectionUtils"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.trade.service.price.TradePriceServiceImpl",
+    "source_method": "checkSpuList",
+    "target_class": "cn.iocoder.yudao.module.product.api.spu.ProductSpuApi"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.trade.controller.app.cart.AppCartController",
+    "source_method": "addCart",
+    "target_class": "cn.iocoder.yudao.module.trade.service.cart.CartService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.trade.controller.app.cart.AppCartController",
+    "source_method": "updateCartCount",
+    "target_class": "cn.iocoder.yudao.module.trade.service.cart.CartService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.trade.controller.app.cart.AppCartController",
+    "source_method": "updateCartSelected",
+    "target_class": "cn.iocoder.yudao.module.trade.service.cart.CartService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.trade.controller.app.cart.AppCartController",
+    "source_method": "resetCart",
+    "target_class": "cn.iocoder.yudao.module.trade.service.cart.CartService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.trade.controller.app.cart.AppCartController",
+    "source_method": "deleteCart",
+    "target_class": "cn.iocoder.yudao.module.trade.service.cart.CartService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.trade.controller.app.cart.AppCartController",
+    "source_method": "getCartCount",
+    "target_class": "cn.iocoder.yudao.module.trade.service.cart.CartService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.trade.controller.app.cart.AppCartController",
+    "source_method": "getCartList",
+    "target_class": "cn.iocoder.yudao.module.trade.service.cart.CartService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.trade.controller.app.brokerage.AppBrokerageWithdrawController",
+    "source_method": "createBrokerageWithdraw",
+    "target_class": "cn.iocoder.yudao.module.trade.service.brokerage.BrokerageWithdrawService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.trade.controller.app.brokerage.AppBrokerageUserController",
+    "source_method": "getBrokerageUserChildSummaryPage",
+    "target_class": "cn.iocoder.yudao.module.trade.service.brokerage.BrokerageUserService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.trade.controller.app.brokerage.AppBrokerageUserController",
+    "source_method": "getRankByPrice",
+    "target_class": "cn.iocoder.yudao.module.trade.service.brokerage.BrokerageRecordService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.trade.controller.app.brokerage.AppBrokerageRecordController",
+    "source_method": "getProductBrokeragePrice",
+    "target_class": "cn.iocoder.yudao.module.trade.service.brokerage.BrokerageRecordService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.trade.controller.app.order.AppTradeOrderController",
+    "source_method": "settlementOrder",
+    "target_class": "cn.iocoder.yudao.module.trade.service.order.TradeOrderUpdateService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.trade.controller.app.order.AppTradeOrderController",
+    "source_method": "getOrderExpressTrackList",
+    "target_class": "cn.iocoder.yudao.module.trade.service.order.TradeOrderQueryService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.trade.controller.app.order.AppTradeOrderController",
+    "source_method": "receiveOrder",
+    "target_class": "cn.iocoder.yudao.module.trade.service.order.TradeOrderUpdateService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.trade.controller.app.order.AppTradeOrderController",
+    "source_method": "cancelOrder",
+    "target_class": "cn.iocoder.yudao.module.trade.service.order.TradeOrderUpdateService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.trade.controller.app.order.AppTradeOrderController",
+    "source_method": "deleteOrder",
+    "target_class": "cn.iocoder.yudao.module.trade.service.order.TradeOrderUpdateService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.trade.controller.app.order.AppTradeOrderController",
+    "source_method": "createOrderItemComment",
+    "target_class": "cn.iocoder.yudao.module.trade.service.order.TradeOrderUpdateService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.trade.controller.app.aftersale.AppAfterSaleController",
+    "source_method": "createAfterSale",
+    "target_class": "cn.iocoder.yudao.module.trade.service.aftersale.AfterSaleService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.trade.controller.app.aftersale.AppAfterSaleController",
+    "source_method": "deliveryAfterSale",
+    "target_class": "cn.iocoder.yudao.module.trade.service.aftersale.AfterSaleService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.trade.controller.app.aftersale.AppAfterSaleController",
+    "source_method": "cancelAfterSale",
+    "target_class": "cn.iocoder.yudao.module.trade.service.aftersale.AfterSaleService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.trade.controller.app.delivery.AppDeliverPickUpStoreController",
+    "source_method": "getOrder",
+    "target_class": "cn.iocoder.yudao.module.trade.service.delivery.DeliveryPickUpStoreService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.trade.controller.admin.brokerage.BrokerageUserController",
+    "source_method": "getBrokerageUser",
+    "target_class": "cn.iocoder.yudao.module.trade.service.brokerage.BrokerageUserService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.trade.controller.admin.brokerage.BrokerageWithdrawController",
+    "source_method": "approveBrokerageWithdraw",
+    "target_class": "cn.iocoder.yudao.module.trade.service.brokerage.BrokerageWithdrawService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.trade.controller.admin.order.TradeOrderController",
+    "source_method": "getOrderExpressTrackList",
+    "target_class": "cn.iocoder.yudao.module.trade.service.order.TradeOrderQueryService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.trade.controller.admin.order.TradeOrderController",
+    "source_method": "pickUpOrderById",
+    "target_class": "cn.iocoder.yudao.module.trade.service.order.TradeOrderUpdateService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.trade.controller.admin.order.TradeOrderController",
+    "source_method": "pickUpOrderByVerifyCode",
+    "target_class": "cn.iocoder.yudao.module.trade.service.order.TradeOrderUpdateService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.trade.controller.admin.aftersale.AfterSaleController",
+    "source_method": "agreeAfterSale",
+    "target_class": "cn.iocoder.yudao.module.trade.service.aftersale.AfterSaleService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.trade.controller.admin.aftersale.AfterSaleController",
+    "source_method": "disagreeAfterSale",
+    "target_class": "cn.iocoder.yudao.module.trade.service.aftersale.AfterSaleService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.trade.controller.admin.aftersale.AfterSaleController",
+    "source_method": "receiveAfterSale",
+    "target_class": "cn.iocoder.yudao.module.trade.service.aftersale.AfterSaleService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.trade.controller.admin.aftersale.AfterSaleController",
+    "source_method": "refuseAfterSale",
+    "target_class": "cn.iocoder.yudao.module.trade.service.aftersale.AfterSaleService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.trade.controller.admin.aftersale.AfterSaleController",
+    "source_method": "refundAfterSale",
+    "target_class": "cn.iocoder.yudao.module.trade.service.aftersale.AfterSaleService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.trade.controller.admin.config.TradeConfigController",
+    "source_method": "updateConfig",
+    "target_class": "cn.iocoder.yudao.module.trade.service.config.TradeConfigService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.trade.controller.admin.delivery.DeliveryExpressController",
+    "source_method": "exportDeliveryExpressExcel",
+    "target_class": "cn.iocoder.yudao.module.trade.controller.admin.delivery.HttpServletResponse):void \t cn.iocoder.yudao.module.trade.service.delivery.DeliveryExpressService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.trade.controller.admin.delivery.DeliveryExpressTemplateController",
+    "source_method": "getSimpleTemplateList",
+    "target_class": "cn.iocoder.yudao.module.trade.service.delivery.DeliveryExpressTemplateService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.trade.framework.order.core.utils.TradeOrderLogUtils",
+    "source_method": "setOrderInfo",
+    "target_class": "java.lang.Integer, java.lang.Integer):void \t cn.iocoder.yudao.module.trade.framework.order.core.aop.TradeOrderLogAspect"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.trade.framework.order.core.aop.TradeOrderLogAspect",
+    "source_method": "getUserType",
+    "target_class": "cn.iocoder.yudao.framework.web.core.util.WebFrameworkUtils"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.trade.framework.order.core.aop.TradeOrderLogAspect",
+    "source_method": "getUserId",
+    "target_class": "cn.iocoder.yudao.framework.web.core.util.WebFrameworkUtils"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.trade.framework.aftersale.core.utils.AfterSaleLogUtils",
+    "source_method": "setAfterSaleInfo",
+    "target_class": "java.lang.Integer, java.lang.Integer, java.util.Map<java.lang.String,java.lang.Object>):void \t cn.iocoder.yudao.module.trade.framework.aftersale.core.aop.AfterSaleLogAspect"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.trade.framework.aftersale.core.aop.AfterSaleLogAspect",
+    "source_method": "getUserType",
+    "target_class": "cn.iocoder.yudao.framework.web.core.util.WebFrameworkUtils"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.trade.framework.aftersale.core.aop.AfterSaleLogAspect",
+    "source_method": "getUserId",
+    "target_class": "cn.iocoder.yudao.framework.web.core.util.WebFrameworkUtils"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.trade.framework.delivery.config.ExpressClientConfig",
+    "source_method": "defaultExpressClient",
+    "target_class": "cn.iocoder.yudao.module.trade.framework.delivery.core.client.ExpressClientFactory"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.trade.enums.order.TradeOrderStatusEnum",
+    "source_method": "havePaid",
+    "target_class": "cn.iocoder.yudao.framework.common.util.object.ObjectUtils"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.trade.enums.order.TradeOrderStatusEnum",
+    "source_method": "haveDelivered",
+    "target_class": "cn.iocoder.yudao.framework.common.util.object.ObjectUtils"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.promotion.service.article.ArticleServiceImpl",
+    "source_method": "validateArticleCategoryExists",
+    "target_class": "cn.iocoder.yudao.module.promotion.service.article.ArticleCategoryService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.promotion.service.bargain.BargainActivityServiceImpl",
+    "source_method": "validateSku",
+    "target_class": "cn.iocoder.yudao.module.product.api.sku.ProductSkuApi"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.promotion.controller.app.article.AppArticleController",
+    "source_method": "getArticleList",
+    "target_class": "java.lang.Boolean):cn.iocoder.yudao.framework.common.pojo.CommonResult<java.util.List<cn.iocoder.yudao.module.promotion.controller.app.article.vo.article.AppArticleRespVO>> \t cn.iocoder.yudao.module.promotion.service.article.ArticleService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.promotion.controller.app.article.AppArticleController",
+    "source_method": "getArticle",
+    "target_class": "java.lang.String):cn.iocoder.yudao.framework.common.pojo.CommonResult<cn.iocoder.yudao.module.promotion.controller.app.article.vo.article.AppArticleRespVO> \t cn.iocoder.yudao.module.promotion.service.article.ArticleService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.promotion.controller.app.article.AppArticleController",
+    "source_method": "addBrowseCount",
+    "target_class": "cn.iocoder.yudao.module.promotion.service.article.ArticleService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.promotion.controller.app.bargain.AppBargainRecordController",
+    "source_method": "createBargainRecord",
+    "target_class": "cn.iocoder.yudao.module.promotion.service.bargain.BargainRecordService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.promotion.controller.app.coupon.AppCouponController",
+    "source_method": "getMatchCouponList",
+    "target_class": "cn.iocoder.yudao.module.promotion.service.coupon.CouponService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.promotion.controller.app.coupon.AppCouponController",
+    "source_method": "getCoupon",
+    "target_class": "cn.iocoder.yudao.module.promotion.service.coupon.CouponService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.promotion.controller.app.coupon.AppCouponController",
+    "source_method": "getUnusedCouponCount",
+    "target_class": "cn.iocoder.yudao.module.promotion.service.coupon.CouponService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.promotion.controller.app.coupon.AppCouponTemplateController",
+    "source_method": "getCouponTemplateList",
+    "target_class": "cn.iocoder.yudao.module.promotion.service.coupon.CouponService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.promotion.controller.app.banner.AppBannerController",
+    "source_method": "getBannerList",
+    "target_class": "cn.iocoder.yudao.module.promotion.service.banner.BannerService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.promotion.controller.app.banner.AppBannerController",
+    "source_method": "addBrowseCount",
+    "target_class": "cn.iocoder.yudao.module.promotion.service.banner.BannerService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.promotion.controller.admin.bargain.BargainActivityController",
+    "source_method": "closeSeckillActivity",
+    "target_class": "cn.iocoder.yudao.module.promotion.service.bargain.BargainActivityService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.promotion.controller.admin.diy.DiyTemplateController",
+    "source_method": "getDiyTemplateProperty",
+    "target_class": "cn.iocoder.yudao.module.promotion.service.diy.DiyPageService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.promotion.controller.admin.diy.DiyPageController",
+    "source_method": "getDiyPageProperty",
+    "target_class": "cn.iocoder.yudao.module.promotion.service.diy.DiyPageService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.promotion.controller.admin.combination.CombinationActivityController",
+    "source_method": "closeCombinationActivity",
+    "target_class": "cn.iocoder.yudao.module.promotion.service.combination.CombinationActivityService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.promotion.controller.admin.seckill.SeckillConfigController",
+    "source_method": "getSeckillActivityPage",
+    "target_class": "cn.iocoder.yudao.module.promotion.service.seckill.SeckillConfigService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.promotion.controller.admin.discount.DiscountActivityController",
+    "source_method": "closeRewardActivity",
+    "target_class": "cn.iocoder.yudao.module.promotion.service.discount.DiscountActivityService"
+  },
+  {
+    "source_class": "cn.iocoder.yudao.module.promotion.util.PromotionUtils",
+    "source_method": "calculateActivityStatus",
+    "target_class": "cn.iocoder.yudao.framework.common.util.date.LocalDateTimeUtils"
+  }
+]

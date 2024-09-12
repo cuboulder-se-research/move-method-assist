@@ -53,6 +53,7 @@ class MoveMethodFactory {
         const val TOPN_SUGGESTIONS4LLM = 5
         val llmResponseCache = mutableMapOf<String, LLMBaseResponse>()
         var myInvokeFinished: Boolean? = null
+        const val MAX_TARGET_CLASS4LLM = 5
 
         fun test(){
 
@@ -117,6 +118,7 @@ class MoveMethodFactory {
                     .sortedByDescending { it.second }
                     .distinctBy { it.first.psiClass.name + it.first.psiElement?.text }
                     .map { it.first }
+                    .subList(0, min(targetPivotsWithSimilarity.size, MAX_TARGET_CLASS4LLM))
             }
             telemetryDataManager
                 ?.addPotentialTargetClassesOrdered(
@@ -210,27 +212,28 @@ class MoveMethodFactory {
             methodToMove: PsiMethod,
             it: MovePivot
         ): Boolean {
-            return runReadAction {
-                val processor = MoveInstanceMethodProcessorAutoValidator(
-                    project, methodToMove, it.psiElement as PsiVariable, "public",
-                    runReadAction {
-                        getParamNamesIfNeeded(
-                            MoveInstanceMembersUtil.getThisClassesToMembers(methodToMove),
-                            it.psiElement as? PsiField
-                        )
-                    }
-                )
-                // Reflection. This is a hacky way to call intellij API.
-                val method = processor.javaClass.getDeclaredMethod("findUsages")
-                method.setAccessible(true)
-                val usages = method.invoke(processor)
-                val refUsages = Ref<Array<UsageInfo>>(usages as Array<UsageInfo>)
-
-                val preprocessUsagesMethod =
-                    processor.javaClass.getDeclaredMethod("preprocessUsages", refUsages::class.java)
-                preprocessUsagesMethod.setAccessible(true)
-                return@runReadAction preprocessUsagesMethod.invoke(processor, refUsages) as Boolean
-            }
+            return true
+//            return runReadAction {
+//                val processor = MoveInstanceMethodProcessorAutoValidator(
+//                    project, methodToMove, it.psiElement as PsiVariable, "public",
+//                    runReadAction {
+//                        getParamNamesIfNeeded(
+//                            MoveInstanceMembersUtil.getThisClassesToMembers(methodToMove),
+//                            it.psiElement as? PsiField
+//                        )
+//                    }
+//                )
+//                // Reflection. This is a hacky way to call intellij API.
+//                val method = processor.javaClass.getDeclaredMethod("findUsages")
+//                method.setAccessible(true)
+//                val usages = method.invoke(processor)
+//                val refUsages = Ref<Array<UsageInfo>>(usages as Array<UsageInfo>)
+//
+//                val preprocessUsagesMethod =
+//                    processor.javaClass.getDeclaredMethod("preprocessUsages", refUsages::class.java)
+//                preprocessUsagesMethod.setAccessible(true)
+//                return@runReadAction preprocessUsagesMethod.invoke(processor, refUsages) as Boolean
+//            }
         }
 
         private fun logPotentialPivots(
@@ -319,10 +322,10 @@ class MoveMethodFactory {
                     MoveMembersPreConditions.checkPreconditions(project, arrayOf(methodToMove), null, null)
                 }){
                 return runReadAction {
-                    (PsiUtils.fetchClassesInPackage(
+                    (PsiUtils.fetchClassesInProject(
                         methodToMove.containingClass!!,
                         project
-                    ) + PsiUtils.fetchImportsInFile(file, project))
+                    ))
                         .map { MovePivot(it, null) }
                 }
 //                val potentialTargets = (PsiUtils.fetchClassesInPackage(methodToMove.containingClass!!, project) + PsiUtils.fetchImportsInFile(file, project))
@@ -459,28 +462,29 @@ class MoveMethodFactory {
             return runReadAction {
                 if (methodToMove.containingClass!!.name==movePivot.psiClass.name)
                     return@runReadAction false
-                myInvokeFinished = false
-                var processor: MoveStaticMethodValidator?= null
-                    invokeLater{
-                        processor = MoveStaticMethodValidator(
-                            project,
-                            methodToMove.containingClass!!,
-                            movePivot.psiClass,
-                            methodToMove
-                        )
-                        myInvokeFinished = true
-                    }
-                runBlocking{ waitForBackgroundFinish(5 * 60 * 1000, 1000) }
-
-                val method = processor!!.javaClass.getDeclaredMethod("findUsages")
-                method.setAccessible(true)
-                val usages = method.invoke(processor)
-                val refUsages = Ref<Array<UsageInfo>>(usages as Array<UsageInfo>)
-
-                val preprocessUsagesMethod =
-                    processor!!.javaClass.getDeclaredMethod("preprocessUsages", refUsages::class.java)
-                preprocessUsagesMethod.setAccessible(true)
-                return@runReadAction preprocessUsagesMethod.invoke(processor, refUsages) as Boolean
+                return@runReadAction true
+//                myInvokeFinished = false
+//                var processor: MoveStaticMethodValidator?= null
+//                    invokeLater{
+//                        processor = MoveStaticMethodValidator(
+//                            project,
+//                            methodToMove.containingClass!!,
+//                            movePivot.psiClass,
+//                            methodToMove
+//                        )
+//                        myInvokeFinished = true
+//                    }
+//                runBlocking{ waitForBackgroundFinish(5 * 60 * 1000, 1000) }
+//
+//                val method = processor!!.javaClass.getDeclaredMethod("findUsages")
+//                method.setAccessible(true)
+//                val usages = method.invoke(processor)
+//                val refUsages = Ref<Array<UsageInfo>>(usages as Array<UsageInfo>)
+//
+//                val preprocessUsagesMethod =
+//                    processor!!.javaClass.getDeclaredMethod("preprocessUsages", refUsages::class.java)
+//                preprocessUsagesMethod.setAccessible(true)
+//                return@runReadAction preprocessUsagesMethod.invoke(processor, refUsages) as Boolean
             }
         }
         tailrec suspend fun waitForBackgroundFinish(maxDelay: Long, checkPeriod: Long) : Boolean{

@@ -1,0 +1,2232 @@
+[
+  {
+    "source_class": "org.redisson.hibernate.RedissonRegionFactory",
+    "source_method": "getCache",
+    "target_class": "java.util.Map, java.lang.String):org.redisson.api.RMapCache<java.lang.Object,java.lang.Object> \t org.redisson.api.RedissonClient"
+  },
+  {
+    "source_class": "org.redisson.hibernate.RedissonRegionFactory",
+    "source_method": "getCache",
+    "target_class": "java.util.Map, java.lang.String):org.redisson.api.RMapCache<java.lang.Object,java.lang.Object> \t org.redisson.api.RedissonClient"
+  },
+  {
+    "source_class": "org.redisson.hibernate.RedissonRegionFactory",
+    "source_method": "getCache",
+    "target_class": "java.util.Properties, java.lang.String):org.redisson.api.RMapCache<java.lang.Object,java.lang.Object> \t org.redisson.api.RedissonClient"
+  },
+  {
+    "source_class": "org.redisson.hibernate.RedissonRegionFactory",
+    "source_method": "getCache",
+    "target_class": "java.util.Properties, java.lang.String):org.redisson.api.RMapCache<java.lang.Object,java.lang.Object> \t org.redisson.api.RedissonClient"
+  },
+  {
+    "source_class": "org.redisson.hibernate.RedissonRegionFactory",
+    "source_method": "getCache",
+    "target_class": "java.util.Properties, java.lang.String):org.redisson.api.RMapCache<java.lang.Object,java.lang.Object> \t org.redisson.api.RedissonClient"
+  },
+  {
+    "source_class": "org.redisson.tomcat.RedissonSessionManager",
+    "source_method": "getNotifiedNodes",
+    "target_class": "org.redisson.api.RedissonClient"
+  },
+  {
+    "source_class": "org.redisson.tomcat.RedissonSessionManager",
+    "source_method": "shutdownRedisson",
+    "target_class": "org.redisson.api.RedissonClient"
+  },
+  {
+    "source_class": "org.redisson.tomcat.RedissonSessionManager",
+    "source_method": "getNotifiedNodes",
+    "target_class": "org.redisson.api.RedissonClient"
+  },
+  {
+    "source_class": "org.redisson.tomcat.RedissonSessionManager",
+    "source_method": "shutdownRedisson",
+    "target_class": "org.redisson.api.RedissonClient"
+  },
+  {
+    "source_class": "org.redisson.tomcat.RedissonSessionManager",
+    "source_method": "getNotifiedNodes",
+    "target_class": "org.redisson.api.RedissonClient"
+  },
+  {
+    "source_class": "org.redisson.tomcat.RedissonSessionManager",
+    "source_method": "shutdownRedisson",
+    "target_class": "org.redisson.api.RedissonClient"
+  },
+  {
+    "source_class": "org.redisson.tomcat.RedissonSessionManager",
+    "source_method": "getNotifiedNodes",
+    "target_class": "org.redisson.api.RedissonClient"
+  },
+  {
+    "source_class": "org.redisson.tomcat.RedissonSessionManager",
+    "source_method": "shutdownRedisson",
+    "target_class": "org.redisson.api.RedissonClient"
+  },
+  {
+    "source_class": "org.redisson.spring.starter.RedissonAutoConfiguration",
+    "source_method": "redissonReactive",
+    "target_class": "org.redisson.api.RedissonClient"
+  },
+  {
+    "source_class": "org.redisson.spring.starter.RedissonAutoConfiguration",
+    "source_method": "redissonRxJava",
+    "target_class": "org.redisson.api.RedissonClient"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonBaseReactive",
+    "source_method": "execute",
+    "target_class": "org.redisson.client.protocol.RedisCommand<T>, java.lang.Object[]):org.redisson.spring.data.connection.Mono<T> \t org.redisson.reactive.CommandReactiveExecutor"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "isPipelinedAtomic",
+    "target_class": "org.redisson.command.CommandBatchService"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "syncFuture",
+    "target_class": "org.redisson.command.CommandAsyncService"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "write",
+    "target_class": "org.redisson.client.codec.Codec, org.redisson.client.protocol.RedisCommand<?>, java.lang.Object[]):T \t org.redisson.command.CommandAsyncService"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "indexCommand",
+    "target_class": "org.redisson.client.protocol.RedisCommand"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "read",
+    "target_class": "org.redisson.client.codec.Codec, org.redisson.client.protocol.RedisCommand<?>, java.lang.Object[]):T \t org.redisson.command.CommandAsyncService"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "resetConnection",
+    "target_class": "org.redisson.Redisson"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "isPipelinedAtomic",
+    "target_class": "org.redisson.command.CommandBatchService"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "syncFuture",
+    "target_class": "org.redisson.command.CommandAsyncService"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "write",
+    "target_class": "org.redisson.client.codec.Codec, org.redisson.client.protocol.RedisCommand<?>, java.lang.Object[]):T \t org.redisson.command.CommandAsyncService"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "indexCommand",
+    "target_class": "org.redisson.client.protocol.RedisCommand"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "read",
+    "target_class": "org.redisson.client.codec.Codec, org.redisson.client.protocol.RedisCommand<?>, java.lang.Object[]):T \t org.redisson.command.CommandAsyncService"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "resetConnection",
+    "target_class": "org.redisson.Redisson"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonBaseReactive",
+    "source_method": "execute",
+    "target_class": "org.redisson.client.protocol.RedisCommand<T>, java.lang.Object[]):org.redisson.spring.data.connection.Mono<T> \t org.redisson.reactive.CommandReactiveExecutor"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "isPipelinedAtomic",
+    "target_class": "org.redisson.command.CommandBatchService"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "syncFuture",
+    "target_class": "org.redisson.command.CommandAsyncService"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "write",
+    "target_class": "org.redisson.client.codec.Codec, org.redisson.client.protocol.RedisCommand<?>, java.lang.Object[]):T \t org.redisson.command.CommandAsyncService"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "indexCommand",
+    "target_class": "org.redisson.client.protocol.RedisCommand"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "read",
+    "target_class": "org.redisson.client.codec.Codec, org.redisson.client.protocol.RedisCommand<?>, java.lang.Object[]):T \t org.redisson.command.CommandAsyncService"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "resetConnection",
+    "target_class": "org.redisson.Redisson"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonBaseReactive",
+    "source_method": "execute",
+    "target_class": "org.redisson.client.protocol.RedisCommand<T>, java.lang.Object[]):org.redisson.spring.data.connection.Mono<T> \t org.redisson.reactive.CommandReactiveExecutor"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "isPipelinedAtomic",
+    "target_class": "org.redisson.command.CommandBatchService"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "syncFuture",
+    "target_class": "org.redisson.command.CommandAsyncService"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "write",
+    "target_class": "org.redisson.client.codec.Codec, org.redisson.client.protocol.RedisCommand<?>, java.lang.Object[]):T \t org.redisson.command.CommandAsyncService"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "indexCommand",
+    "target_class": "org.redisson.client.protocol.RedisCommand"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "read",
+    "target_class": "org.redisson.client.codec.Codec, org.redisson.client.protocol.RedisCommand<?>, java.lang.Object[]):T \t org.redisson.command.CommandAsyncService"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "resetConnection",
+    "target_class": "org.redisson.Redisson"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "encode",
+    "target_class": "org.redisson.command.CommandAsyncService"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonBaseReactive",
+    "source_method": "execute",
+    "target_class": "org.redisson.client.protocol.RedisCommand<T>, java.lang.Object[]):org.redisson.spring.data.connection.Mono<T> \t org.redisson.reactive.CommandReactiveExecutor"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "isPipelinedAtomic",
+    "target_class": "org.redisson.command.CommandBatchService"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "syncFuture",
+    "target_class": "org.redisson.command.CommandAsyncService"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "write",
+    "target_class": "org.redisson.client.codec.Codec, org.redisson.client.protocol.RedisCommand<?>, java.lang.Object[]):T \t org.redisson.command.CommandAsyncService"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "indexCommand",
+    "target_class": "org.redisson.client.protocol.RedisCommand"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "read",
+    "target_class": "org.redisson.client.codec.Codec, org.redisson.client.protocol.RedisCommand<?>, java.lang.Object[]):T \t org.redisson.command.CommandAsyncService"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "resetConnection",
+    "target_class": "org.redisson.Redisson"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "encode",
+    "target_class": "org.redisson.command.CommandAsyncService"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonBaseReactive",
+    "source_method": "execute",
+    "target_class": "org.redisson.client.protocol.RedisCommand<T>, java.lang.Object[]):org.redisson.spring.data.connection.Mono<T> \t org.redisson.reactive.CommandReactiveExecutor"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "isPipelinedAtomic",
+    "target_class": "org.redisson.command.CommandBatchService"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "syncFuture",
+    "target_class": "org.redisson.command.CommandAsyncService"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "write",
+    "target_class": "org.redisson.client.codec.Codec, org.redisson.client.protocol.RedisCommand<?>, java.lang.Object[]):T \t org.redisson.command.CommandAsyncService"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "indexCommand",
+    "target_class": "org.redisson.client.protocol.RedisCommand"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "read",
+    "target_class": "org.redisson.client.codec.Codec, org.redisson.client.protocol.RedisCommand<?>, java.lang.Object[]):T \t org.redisson.command.CommandAsyncService"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "resetConnection",
+    "target_class": "org.redisson.Redisson"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonBaseReactive",
+    "source_method": "execute",
+    "target_class": "org.redisson.client.protocol.RedisCommand<T>, java.lang.Object[]):org.redisson.spring.data.connection.Mono<T> \t org.redisson.reactive.CommandReactiveExecutor"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "isPipelinedAtomic",
+    "target_class": "org.redisson.command.CommandBatchService"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "syncFuture",
+    "target_class": "org.redisson.command.CommandAsyncService"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "write",
+    "target_class": "org.redisson.client.codec.Codec, org.redisson.client.protocol.RedisCommand<?>, java.lang.Object[]):T \t org.redisson.command.CommandAsyncService"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "indexCommand",
+    "target_class": "org.redisson.client.protocol.RedisCommand"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "read",
+    "target_class": "org.redisson.client.codec.Codec, org.redisson.client.protocol.RedisCommand<?>, java.lang.Object[]):T \t org.redisson.command.CommandAsyncService"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "resetConnection",
+    "target_class": "org.redisson.Redisson"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "encode",
+    "target_class": "org.redisson.command.CommandAsyncService"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonBaseReactive",
+    "source_method": "execute",
+    "target_class": "org.redisson.client.protocol.RedisCommand<T>, java.lang.Object[]):org.redisson.spring.data.connection.Mono<T> \t org.redisson.reactive.CommandReactiveExecutor"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "isPipelinedAtomic",
+    "target_class": "org.redisson.command.CommandBatchService"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "syncFuture",
+    "target_class": "org.redisson.command.CommandAsyncService"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "write",
+    "target_class": "org.redisson.client.codec.Codec, org.redisson.client.protocol.RedisCommand<?>, java.lang.Object[]):T \t org.redisson.command.CommandAsyncService"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "indexCommand",
+    "target_class": "org.redisson.client.protocol.RedisCommand"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "read",
+    "target_class": "org.redisson.client.codec.Codec, org.redisson.client.protocol.RedisCommand<?>, java.lang.Object[]):T \t org.redisson.command.CommandAsyncService"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "resetConnection",
+    "target_class": "org.redisson.Redisson"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonBaseReactive",
+    "source_method": "execute",
+    "target_class": "org.redisson.client.protocol.RedisCommand<T>, java.lang.Object[]):org.redisson.spring.data.connection.Mono<T> \t org.redisson.reactive.CommandReactiveExecutor"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "isPipelinedAtomic",
+    "target_class": "org.redisson.command.CommandBatchService"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "syncFuture",
+    "target_class": "org.redisson.command.CommandAsyncService"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "write",
+    "target_class": "org.redisson.client.codec.Codec, org.redisson.client.protocol.RedisCommand<?>, java.lang.Object[]):T \t org.redisson.command.CommandAsyncService"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "indexCommand",
+    "target_class": "org.redisson.client.protocol.RedisCommand"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "read",
+    "target_class": "org.redisson.client.codec.Codec, org.redisson.client.protocol.RedisCommand<?>, java.lang.Object[]):T \t org.redisson.command.CommandAsyncService"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "resetConnection",
+    "target_class": "org.redisson.Redisson"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "encode",
+    "target_class": "org.redisson.command.CommandAsyncService"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonBaseReactive",
+    "source_method": "execute",
+    "target_class": "org.redisson.client.protocol.RedisCommand<T>, java.lang.Object[]):org.redisson.spring.data.connection.Mono<T> \t org.redisson.reactive.CommandReactiveExecutor"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "isPipelinedAtomic",
+    "target_class": "org.redisson.command.CommandBatchService"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "syncFuture",
+    "target_class": "org.redisson.command.CommandAsyncService"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "write",
+    "target_class": "org.redisson.client.codec.Codec, org.redisson.client.protocol.RedisCommand<?>, java.lang.Object[]):T \t org.redisson.command.CommandAsyncService"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "indexCommand",
+    "target_class": "org.redisson.client.protocol.RedisCommand"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "read",
+    "target_class": "org.redisson.client.codec.Codec, org.redisson.client.protocol.RedisCommand<?>, java.lang.Object[]):T \t org.redisson.command.CommandAsyncService"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "resetConnection",
+    "target_class": "org.redisson.Redisson"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "isPipelinedAtomic",
+    "target_class": "org.redisson.command.CommandBatchService"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "syncFuture",
+    "target_class": "org.redisson.command.CommandAsyncService"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "write",
+    "target_class": "org.redisson.client.codec.Codec, org.redisson.client.protocol.RedisCommand<?>, java.lang.Object[]):T \t org.redisson.command.CommandAsyncService"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "indexCommand",
+    "target_class": "org.redisson.client.protocol.RedisCommand"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "read",
+    "target_class": "org.redisson.client.codec.Codec, org.redisson.client.protocol.RedisCommand<?>, java.lang.Object[]):T \t org.redisson.command.CommandAsyncService"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "resetConnection",
+    "target_class": "org.redisson.Redisson"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonBaseReactive",
+    "source_method": "execute",
+    "target_class": "org.redisson.client.protocol.RedisCommand<T>, java.lang.Object[]):org.redisson.spring.data.connection.Mono<T> \t org.redisson.reactive.CommandReactiveExecutor"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "isPipelinedAtomic",
+    "target_class": "org.redisson.command.CommandBatchService"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "syncFuture",
+    "target_class": "org.redisson.command.CommandAsyncService"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "write",
+    "target_class": "org.redisson.client.codec.Codec, org.redisson.client.protocol.RedisCommand<?>, java.lang.Object[]):T \t org.redisson.command.CommandAsyncService"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "indexCommand",
+    "target_class": "org.redisson.client.protocol.RedisCommand"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "read",
+    "target_class": "org.redisson.client.codec.Codec, org.redisson.client.protocol.RedisCommand<?>, java.lang.Object[]):T \t org.redisson.command.CommandAsyncService"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "resetConnection",
+    "target_class": "org.redisson.Redisson"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "encode",
+    "target_class": "org.redisson.command.CommandAsyncService"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonBaseReactive",
+    "source_method": "execute",
+    "target_class": "org.redisson.client.protocol.RedisCommand<T>, java.lang.Object[]):org.redisson.spring.data.connection.Mono<T> \t org.redisson.reactive.CommandReactiveExecutor"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "isPipelinedAtomic",
+    "target_class": "org.redisson.command.CommandBatchService"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "syncFuture",
+    "target_class": "org.redisson.command.CommandAsyncService"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "write",
+    "target_class": "org.redisson.client.codec.Codec, org.redisson.client.protocol.RedisCommand<?>, java.lang.Object[]):T \t org.redisson.command.CommandAsyncService"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "indexCommand",
+    "target_class": "org.redisson.client.protocol.RedisCommand"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "read",
+    "target_class": "org.redisson.client.codec.Codec, org.redisson.client.protocol.RedisCommand<?>, java.lang.Object[]):T \t org.redisson.command.CommandAsyncService"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "resetConnection",
+    "target_class": "org.redisson.Redisson"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "isPipelinedAtomic",
+    "target_class": "org.redisson.command.CommandBatchService"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "syncFuture",
+    "target_class": "org.redisson.command.CommandAsyncService"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "write",
+    "target_class": "org.redisson.client.codec.Codec, org.redisson.client.protocol.RedisCommand<?>, java.lang.Object[]):T \t org.redisson.command.CommandAsyncService"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "indexCommand",
+    "target_class": "org.redisson.client.protocol.RedisCommand"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "read",
+    "target_class": "org.redisson.client.codec.Codec, org.redisson.client.protocol.RedisCommand<?>, java.lang.Object[]):T \t org.redisson.command.CommandAsyncService"
+  },
+  {
+    "source_class": "org.redisson.spring.data.connection.RedissonConnection",
+    "source_method": "resetConnection",
+    "target_class": "org.redisson.Redisson"
+  },
+  {
+    "source_class": "org.redisson.RedissonObject",
+    "source_method": "setName",
+    "target_class": "org.redisson.command.CommandAsyncExecutor"
+  },
+  {
+    "source_class": "org.redisson.RedissonObject",
+    "source_method": "sizeInMemoryAsync",
+    "target_class": "java.util.List<java.lang.Object>):org.redisson.api.RFuture<java.lang.Long> \t org.redisson.command.CommandAsyncExecutor"
+  },
+  {
+    "source_class": "org.redisson.RedissonObject",
+    "source_method": "deleteAsync",
+    "target_class": "org.redisson.command.CommandAsyncExecutor"
+  },
+  {
+    "source_class": "org.redisson.RedissonObject",
+    "source_method": "removeListener",
+    "target_class": "java.lang.String[]):void \t org.redisson.api.RPatternTopic"
+  },
+  {
+    "source_class": "org.redisson.RedissonObject",
+    "source_method": "removeListenerAsync",
+    "target_class": "int, java.lang.String[]):org.redisson.api.RFuture<java.lang.Void> \t org.redisson.api.RPatternTopic"
+  },
+  {
+    "source_class": "org.redisson.RedissonObject",
+    "source_method": "addTrackingListenerAsync",
+    "target_class": "org.redisson.pubsub.PublishSubscribeService"
+  },
+  {
+    "source_class": "org.redisson.RedissonObject",
+    "source_method": "removeTrackingListenerAsync",
+    "target_class": "org.redisson.pubsub.PublishSubscribeService"
+  },
+  {
+    "source_class": "org.redisson.RedissonObject",
+    "source_method": "map",
+    "target_class": "org.redisson.command.CommandAsyncExecutor"
+  },
+  {
+    "source_class": "org.redisson.RedissonObject",
+    "source_method": "getSubscribeService",
+    "target_class": "org.redisson.command.CommandAsyncExecutor"
+  },
+  {
+    "source_class": "org.redisson.liveobject.LiveObjectSearch",
+    "source_method": "traverseOr",
+    "target_class": "org.redisson.liveobject.resolver.NamingScheme, java.lang.Class<?>):java.util.Set<java.lang.Object> \t org.redisson.api.RSetMultimap"
+  },
+  {
+    "source_class": "org.redisson.liveobject.LiveObjectSearch",
+    "source_method": "find",
+    "target_class": "org.redisson.api.condition.Condition):java.util.Set<java.lang.Object> \t org.redisson.command.CommandAsyncExecutor"
+  },
+  {
+    "source_class": "org.redisson.liveobject.core.RExpirableInterceptor",
+    "source_method": "intercept",
+    "target_class": "java.lang.Object[], org.redisson.api.RMap<?,?>):java.lang.Object \t org.redisson.liveobject.misc.ClassUtils"
+  },
+  {
+    "source_class": "org.redisson.liveobject.core.LiveObjectInterceptor",
+    "source_method": "getMapKey",
+    "target_class": "org.redisson.liveobject.resolver.NamingScheme"
+  },
+  {
+    "source_class": "org.redisson.liveobject.core.RedissonObjectBuilder",
+    "source_method": "getFieldCodec",
+    "target_class": "java.lang.Class<? extends org.redisson.api.RObject>, java.lang.String):org.redisson.client.codec.Codec \t org.redisson.codec.ReferenceCodecProvider"
+  },
+  {
+    "source_class": "org.redisson.liveobject.core.RedissonObjectBuilder",
+    "source_method": "getNamingScheme",
+    "target_class": "org.redisson.codec.ReferenceCodecProvider"
+  },
+  {
+    "source_class": "org.redisson.liveobject.core.RedissonObjectBuilder",
+    "source_method": "fillCodecMethods",
+    "target_class": "java.lang.Class<?>, java.lang.Class<?>):void \t org.redisson.liveobject.core.RedissonObjectBuilder.CodecMethodRef"
+  },
+  {
+    "source_class": "org.redisson.liveobject.core.RedissonObjectBuilder",
+    "source_method": "getObject",
+    "target_class": "org.redisson.RedissonReference, java.lang.Class<? extends java.lang.Object>, org.redisson.codec.ReferenceCodecProvider):java.lang.Object \t org.redisson.liveobject.core.RedissonObjectBuilder.CodecMethodRef"
+  },
+  {
+    "source_class": "org.redisson.liveobject.core.FieldAccessorInterceptor",
+    "source_method": "intercept",
+    "target_class": "java.lang.Object[], java.lang.Object, org.redisson.api.RMap<?,?>):java.lang.Object \t org.redisson.liveobject.misc.ClassUtils"
+  },
+  {
+    "source_class": "org.redisson.RedissonExecutorService",
+    "source_method": "createBatchService",
+    "target_class": "org.redisson.api.RTopic"
+  },
+  {
+    "source_class": "org.redisson.RedissonExecutorService",
+    "source_method": "checkState",
+    "target_class": "org.redisson.command.CommandAsyncExecutor"
+  },
+  {
+    "source_class": "org.redisson.RedissonExecutorService",
+    "source_method": "createTaskParameters",
+    "target_class": "org.redisson.api.IdGenerator"
+  },
+  {
+    "source_class": "org.redisson.RedissonExecutorService",
+    "source_method": "createTaskParameters",
+    "target_class": "org.redisson.api.IdGenerator"
+  },
+  {
+    "source_class": "org.redisson.RedissonExecutorService",
+    "source_method": "addListener",
+    "target_class": "org.redisson.executor.RemotePromise"
+  },
+  {
+    "source_class": "org.redisson.RedissonExecutorService",
+    "source_method": "syncExecute",
+    "target_class": "org.redisson.executor.RemotePromise"
+  },
+  {
+    "source_class": "org.redisson.RedissonExecutorService",
+    "source_method": "cancelResponseHandling",
+    "target_class": "org.redisson.misc.WrappedLock"
+  },
+  {
+    "source_class": "org.redisson.RedissonExecutorService",
+    "source_method": "createFuture",
+    "target_class": "org.redisson.executor.RemotePromise"
+  },
+  {
+    "source_class": "org.redisson.RedissonExecutorService",
+    "source_method": "createFuture",
+    "target_class": "long):org.redisson.api.RScheduledFuture<T> \t org.redisson.executor.RemotePromise"
+  },
+  {
+    "source_class": "org.redisson.RedissonExecutorService",
+    "source_method": "poll",
+    "target_class": "long, java.util.concurrent.TimeUnit):T \t org.redisson.command.CommandAsyncExecutor"
+  },
+  {
+    "source_class": "org.redisson.RedissonTimeSeries",
+    "source_method": "scanIteratorAsync",
+    "target_class": "org.redisson.client.RedisClient, java.lang.String, int):org.redisson.api.RFuture<org.redisson.client.protocol.decoder.ListScanResult<java.lang.Object>> \t org.redisson.command.CommandAsyncExecutor"
+  },
+  {
+    "source_class": "org.redisson.RedissonLiveObjectService",
+    "source_method": "addExpireListener",
+    "target_class": "org.redisson.command.CommandAsyncExecutor"
+  },
+  {
+    "source_class": "org.redisson.RedissonLiveObjectService",
+    "source_method": "generateId",
+    "target_class": "java.lang.String):java.lang.Object \t org.redisson.liveobject.resolver.RIdResolver"
+  },
+  {
+    "source_class": "org.redisson.RedissonLiveObjectService",
+    "source_method": "delete",
+    "target_class": "java.lang.Class<?>, org.redisson.liveobject.resolver.NamingScheme, org.redisson.command.CommandBatchService, java.util.Set<java.lang.String>):org.redisson.api.RFuture<java.lang.Long> \t org.redisson.api.RScoredSortedSetAsync"
+  },
+  {
+    "source_class": "org.redisson.RedissonTopic",
+    "source_method": "createRaw",
+    "target_class": "java.lang.String):org.redisson.RedissonTopic \t org.redisson.connection.ServiceManager"
+  },
+  {
+    "source_class": "org.redisson.RedissonTopic",
+    "source_method": "createRaw",
+    "target_class": "org.redisson.command.CommandAsyncExecutor, java.lang.String):org.redisson.RedissonTopic \t org.redisson.api.NameMapper"
+  },
+  {
+    "source_class": "org.redisson.RedissonTopic",
+    "source_method": "addListenerAsync",
+    "target_class": "org.redisson.pubsub.PublishSubscribeService"
+  },
+  {
+    "source_class": "org.redisson.transaction.RedissonTransaction",
+    "source_method": "createOptions",
+    "target_class": "org.redisson.api.BatchOptions"
+  },
+  {
+    "source_class": "org.redisson.transaction.RedissonTransaction",
+    "source_method": "checkTimeout",
+    "target_class": "org.redisson.api.TransactionOptions"
+  },
+  {
+    "source_class": "org.redisson.transaction.RedissonTransaction",
+    "source_method": "enableLocalCacheAsync",
+    "target_class": "java.util.Map<org.redisson.transaction.HashKey,org.redisson.transaction.HashValue>):org.redisson.api.RFuture<org.redisson.api.BatchResult<?>> \t org.redisson.RedissonBatch"
+  },
+  {
+    "source_class": "org.redisson.transaction.RedissonTransaction",
+    "source_method": "enableLocalCache",
+    "target_class": "java.util.Map<org.redisson.transaction.HashKey,org.redisson.transaction.HashValue>):void \t org.redisson.RedissonBatch"
+  },
+  {
+    "source_class": "org.redisson.transaction.RedissonTransaction",
+    "source_method": "rollback",
+    "target_class": "org.redisson.command.CommandBatchService"
+  },
+  {
+    "source_class": "org.redisson.transaction.BaseTransactionalObject",
+    "source_method": "executeLocked",
+    "target_class": "java.util.function.Supplier<java.util.concurrent.CompletionStage<R>>, java.util.List<org.redisson.api.RLock>):org.redisson.api.RFuture<R> \t org.redisson.RedissonMultiLock"
+  },
+  {
+    "source_class": "org.redisson.transaction.BaseTransactionalSet",
+    "source_method": "containsAsync",
+    "target_class": "org.redisson.api.RCollectionAsync"
+  },
+  {
+    "source_class": "org.redisson.transaction.BaseTransactionalSet",
+    "source_method": "containsAllAsync",
+    "target_class": "org.redisson.api.RCollectionAsync"
+  },
+  {
+    "source_class": "org.redisson.transaction.RedissonTransactionalBuckets",
+    "source_method": "executeLocked",
+    "target_class": "java.util.Collection<java.lang.String>):org.redisson.api.RFuture<R> \t org.redisson.RedissonMultiLock"
+  },
+  {
+    "source_class": "org.redisson.spring.cache.RedissonCache",
+    "source_method": "retrieve",
+    "target_class": "java.util.function.Supplier<java.util.concurrent.CompletableFuture<T>>):java.util.concurrent.CompletableFuture<T> \t org.redisson.spring.cache.CacheConfig"
+  },
+  {
+    "source_class": "org.redisson.spring.session.config.RedissonHttpSessionConfiguration",
+    "source_method": "sessionRepository",
+    "target_class": "org.redisson.spring.session.config.ApplicationEventPublisher):org.redisson.spring.session.RedissonSessionRepository \t org.redisson.spring.session.RedissonSessionRepository"
+  },
+  {
+    "source_class": "org.redisson.spring.session.config.RedissonWebSessionConfiguration",
+    "source_method": "sessionRepository",
+    "target_class": "org.redisson.spring.session.config.ApplicationEventPublisher):org.redisson.spring.session.ReactiveRedissonSessionRepository \t org.redisson.spring.session.ReactiveRedissonSessionRepository"
+  },
+  {
+    "source_class": "org.redisson.misc.Hash",
+    "source_method": "calcHash",
+    "target_class": "org.redisson.misc.HighwayHash"
+  },
+  {
+    "source_class": "org.redisson.client.RedisPubSubConnection",
+    "source_method": "onMessage",
+    "target_class": "org.redisson.client.protocol.pubsub.PubSubStatusMessage"
+  },
+  {
+    "source_class": "org.redisson.client.RedisPubSubConnection",
+    "source_method": "onMessage",
+    "target_class": "org.redisson.client.protocol.pubsub.PubSubMessage"
+  },
+  {
+    "source_class": "org.redisson.client.RedisPubSubConnection",
+    "source_method": "onMessage",
+    "target_class": "org.redisson.client.protocol.pubsub.PubSubPatternMessage"
+  },
+  {
+    "source_class": "org.redisson.client.RedisPubSubConnection",
+    "source_method": "subscribe",
+    "target_class": "org.redisson.client.codec.Codec, org.redisson.client.ChannelName[]):org.redisson.client.ChannelFuture \t org.redisson.client.codec.Codec"
+  },
+  {
+    "source_class": "org.redisson.client.RedisPubSubConnection",
+    "source_method": "psubscribe",
+    "target_class": "org.redisson.client.codec.Codec, org.redisson.client.ChannelName[]):org.redisson.client.ChannelFuture \t org.redisson.client.codec.Codec"
+  },
+  {
+    "source_class": "org.redisson.client.RedisPubSubConnection",
+    "source_method": "subscribe",
+    "target_class": "org.redisson.client.ChannelName[]):org.redisson.client.ChannelFuture \t org.redisson.client.codec.Codec"
+  },
+  {
+    "source_class": "org.redisson.client.RedisPubSubConnection",
+    "source_method": "psubscribe",
+    "target_class": "org.redisson.client.ChannelName[]):org.redisson.client.ChannelFuture \t org.redisson.client.codec.Codec"
+  },
+  {
+    "source_class": "org.redisson.client.RedisConnection",
+    "source_method": "fireConnected",
+    "target_class": "org.redisson.client.RedisClient"
+  },
+  {
+    "source_class": "org.redisson.client.RedisConnection",
+    "source_method": "fireDisconnected",
+    "target_class": "org.redisson.client.RedisClient"
+  },
+  {
+    "source_class": "org.redisson.client.RedisConnection",
+    "source_method": "await",
+    "target_class": "org.redisson.client.RedisClient"
+  },
+  {
+    "source_class": "org.redisson.client.handler.ConnectionWatchdog",
+    "source_method": "reattachPubSub",
+    "target_class": "org.redisson.client.RedisPubSubConnection"
+  },
+  {
+    "source_class": "org.redisson.client.handler.CommandDecoder",
+    "source_method": "sendNext",
+    "target_class": "org.redisson.client.protocol.QueueCommand):void \t org.redisson.client.protocol.QueueCommand"
+  },
+  {
+    "source_class": "org.redisson.client.handler.CommandDecoder",
+    "source_method": "handleResult",
+    "target_class": "java.util.List<java.lang.Object>, java.lang.Object, boolean):void \t org.redisson.client.protocol.CommandData"
+  },
+  {
+    "source_class": "org.redisson.client.handler.CommandDecoder",
+    "source_method": "completeResponse",
+    "target_class": "java.lang.Object):void \t org.redisson.client.protocol.CommandData"
+  },
+  {
+    "source_class": "org.redisson.client.handler.CommandPubSubDecoder",
+    "source_method": "addPubSubCommand",
+    "target_class": "org.redisson.client.protocol.CommandData<java.lang.Object,java.lang.Object>):void \t org.redisson.client.protocol.CommandData"
+  },
+  {
+    "source_class": "org.redisson.client.protocol.decoder.MultiDecoder",
+    "source_method": "getDecoder",
+    "target_class": "int, org.redisson.client.handler.State):org.redisson.client.protocol.Decoder<java.lang.Object> \t org.redisson.client.codec.Codec"
+  },
+  {
+    "source_class": "org.redisson.RedissonBaseLock.ExpirationEntry",
+    "source_method": "addThreadId",
+    "target_class": "org.redisson.misc.WrappedLock"
+  },
+  {
+    "source_class": "org.redisson.RedissonBaseLock.ExpirationEntry",
+    "source_method": "hasNoThreads",
+    "target_class": "org.redisson.misc.WrappedLock"
+  },
+  {
+    "source_class": "org.redisson.RedissonBaseLock.ExpirationEntry",
+    "source_method": "getFirstThreadId",
+    "target_class": "org.redisson.misc.WrappedLock"
+  },
+  {
+    "source_class": "org.redisson.RedissonBaseLock.ExpirationEntry",
+    "source_method": "removeThreadId",
+    "target_class": "org.redisson.misc.WrappedLock"
+  },
+  {
+    "source_class": "org.redisson.RedissonBaseLock",
+    "source_method": "evalWriteSyncedAsync",
+    "target_class": "org.redisson.client.codec.Codec, org.redisson.client.protocol.RedisCommand<T>, java.lang.String, java.util.List<java.lang.Object>, java.lang.Object[]):org.redisson.api.RFuture<T> \t org.redisson.command.CommandAsyncExecutor"
+  },
+  {
+    "source_class": "org.redisson.RedissonBaseLock",
+    "source_method": "acquireFailed",
+    "target_class": "java.util.concurrent.TimeUnit, long):void \t org.redisson.command.CommandAsyncExecutor"
+  },
+  {
+    "source_class": "org.redisson.RedissonBaseLock",
+    "source_method": "handleNoSync",
+    "target_class": "java.util.concurrent.CompletionStage<T>):java.util.concurrent.CompletionStage<T> \t org.redisson.command.CommandAsyncExecutor"
+  },
+  {
+    "source_class": "org.redisson.RedissonLocalCachedMap",
+    "source_method": "cachePut",
+    "target_class": "java.lang.Object, java.lang.Object):org.redisson.cache.CacheValue \t org.redisson.cache.LocalCacheListener"
+  },
+  {
+    "source_class": "org.redisson.RedissonLocalCachedMap",
+    "source_method": "cachePutIfAbsent",
+    "target_class": "java.lang.Object, java.lang.Object):org.redisson.cache.CacheValue \t org.redisson.cache.LocalCacheListener"
+  },
+  {
+    "source_class": "org.redisson.RedissonLocalCachedMap",
+    "source_method": "cachePutIfExists",
+    "target_class": "java.lang.Object, java.lang.Object):org.redisson.cache.CacheValue \t org.redisson.cache.LocalCacheListener"
+  },
+  {
+    "source_class": "org.redisson.RedissonLocalCachedMap",
+    "source_method": "cacheReplace",
+    "target_class": "java.lang.Object, java.lang.Object):org.redisson.cache.CacheValue \t org.redisson.cache.LocalCacheListener"
+  },
+  {
+    "source_class": "org.redisson.RedissonLocalCachedMap",
+    "source_method": "cacheReplace",
+    "target_class": "java.lang.Object, java.lang.Object, java.lang.Object):boolean \t org.redisson.cache.LocalCacheListener"
+  },
+  {
+    "source_class": "org.redisson.RedissonLocalCachedMap",
+    "source_method": "cacheRemove",
+    "target_class": "java.lang.Object, java.lang.Object):boolean \t org.redisson.cache.LocalCacheListener"
+  },
+  {
+    "source_class": "org.redisson.RedissonLocalCachedMap",
+    "source_method": "cacheRemove",
+    "target_class": "org.redisson.cache.LocalCacheListener"
+  },
+  {
+    "source_class": "org.redisson.RedissonLocalCachedMap",
+    "source_method": "cacheMap",
+    "target_class": "org.redisson.cache.LocalCacheView"
+  },
+  {
+    "source_class": "org.redisson.WriteBehindService",
+    "source_method": "start",
+    "target_class": "org.redisson.api.MapOptions<?,?>):org.redisson.MapWriteBehindTask \t org.redisson.MapWriteBehindTask"
+  },
+  {
+    "source_class": "org.redisson.WriteBehindService",
+    "source_method": "stop",
+    "target_class": "org.redisson.MapWriteBehindTask"
+  },
+  {
+    "source_class": "org.redisson.RedissonTransferQueue",
+    "source_method": "clearAsync",
+    "target_class": "org.redisson.RedissonKeys"
+  },
+  {
+    "source_class": "org.redisson.RedissonTransferQueue",
+    "source_method": "sizeAsync",
+    "target_class": "org.redisson.api.RRemoteService"
+  },
+  {
+    "source_class": "org.redisson.RedissonScript",
+    "source_method": "scriptLoad",
+    "target_class": "java.lang.String):java.lang.String \t org.redisson.command.CommandAsyncExecutor"
+  },
+  {
+    "source_class": "org.redisson.RedissonScript",
+    "source_method": "scriptKill",
+    "target_class": "org.redisson.command.CommandAsyncExecutor"
+  },
+  {
+    "source_class": "org.redisson.RedissonScript",
+    "source_method": "scriptKillAsync",
+    "target_class": "org.redisson.command.CommandAsyncExecutor"
+  },
+  {
+    "source_class": "org.redisson.RedissonScript",
+    "source_method": "scriptExists",
+    "target_class": "java.lang.String[]):java.util.List<java.lang.Boolean> \t org.redisson.command.CommandAsyncExecutor"
+  },
+  {
+    "source_class": "org.redisson.RedissonScript",
+    "source_method": "scriptExistsAsync",
+    "target_class": "java.lang.String[]):org.redisson.api.RFuture<java.util.List<java.lang.Boolean>> \t org.redisson.command.CommandAsyncExecutor"
+  },
+  {
+    "source_class": "org.redisson.RedissonScript",
+    "source_method": "scriptFlush",
+    "target_class": "org.redisson.command.CommandAsyncExecutor"
+  },
+  {
+    "source_class": "org.redisson.RedissonScript",
+    "source_method": "scriptFlushAsync",
+    "target_class": "org.redisson.command.CommandAsyncExecutor"
+  },
+  {
+    "source_class": "org.redisson.QueueTransferTask",
+    "source_method": "start",
+    "target_class": "org.redisson.api.RTopic"
+  },
+  {
+    "source_class": "org.redisson.QueueTransferTask",
+    "source_method": "stop",
+    "target_class": "org.redisson.api.RTopic"
+  },
+  {
+    "source_class": "org.redisson.RedissonBuckets",
+    "source_method": "map",
+    "target_class": "org.redisson.command.CommandAsyncExecutor"
+  },
+  {
+    "source_class": "org.redisson.RedissonBloomFilter",
+    "source_method": "readConfig",
+    "target_class": "org.redisson.command.CommandAsyncExecutor"
+  },
+  {
+    "source_class": "org.redisson.connection.SentinelConnectionManager",
+    "source_method": "resolveIP",
+    "target_class": "java.lang.String):java.util.concurrent.CompletableFuture<java.net.InetSocketAddress> \t org.redisson.connection.ServiceManager"
+  },
+  {
+    "source_class": "org.redisson.connection.TrackedConnectionsHolder",
+    "source_method": "reset",
+    "target_class": "org.redisson.connection.ConnectionsHolder"
+  },
+  {
+    "source_class": "org.redisson.connection.ServiceManager",
+    "source_method": "createIOUringGroup",
+    "target_class": "org.redisson.config.Config"
+  },
+  {
+    "source_class": "org.redisson.connection.ServiceManager",
+    "source_method": "createNodeNotFoundException",
+    "target_class": "org.redisson.connection.NodeSource"
+  },
+  {
+    "source_class": "org.redisson.connection.ServiceManager",
+    "source_method": "isResp3",
+    "target_class": "org.redisson.config.Config"
+  },
+  {
+    "source_class": "org.redisson.connection.ServiceManager",
+    "source_method": "getCodec",
+    "target_class": "org.redisson.config.Config"
+  },
+  {
+    "source_class": "org.redisson.connection.ConnectionsHolder",
+    "source_method": "acquireConnection",
+    "target_class": "org.redisson.misc.AsyncSemaphore"
+  },
+  {
+    "source_class": "org.redisson.connection.ConnectionsHolder",
+    "source_method": "releaseConnection",
+    "target_class": "org.redisson.misc.AsyncSemaphore"
+  },
+  {
+    "source_class": "org.redisson.connection.SingleConnectionManager",
+    "source_method": "create",
+    "target_class": "org.redisson.config.BaseConfig"
+  },
+  {
+    "source_class": "org.redisson.connection.balancer.WeightedRoundRobinBalancer",
+    "source_method": "findClients",
+    "target_class": "java.util.Map<org.redisson.misc.RedisURI,org.redisson.connection.balancer.WeightedRoundRobinBalancer.WeightEntry>):java.util.List<org.redisson.connection.ClientConnectionsEntry> \t org.redisson.connection.ClientConnectionsEntry"
+  },
+  {
+    "source_class": "org.redisson.connection.ClientConnectionsEntry",
+    "source_method": "initConnections",
+    "target_class": "org.redisson.connection.ConnectionsHolder"
+  },
+  {
+    "source_class": "org.redisson.connection.ClientConnectionsEntry",
+    "source_method": "initPubSubConnections",
+    "target_class": "org.redisson.connection.ConnectionsHolder"
+  },
+  {
+    "source_class": "org.redisson.connection.ClientConnectionsEntry",
+    "source_method": "shutdownAsync",
+    "target_class": "org.redisson.client.RedisClient"
+  },
+  {
+    "source_class": "org.redisson.connection.ClientConnectionsEntry",
+    "source_method": "reattachPubSub",
+    "target_class": "org.redisson.connection.ConnectionManager"
+  },
+  {
+    "source_class": "org.redisson.connection.ClientConnectionsEntry",
+    "source_method": "nodeDown",
+    "target_class": "org.redisson.connection.ConnectionsHolder"
+  },
+  {
+    "source_class": "org.redisson.connection.MasterSlaveConnectionManager",
+    "source_method": "closeNodeConnections",
+    "target_class": "org.redisson.client.RedisConnection"
+  },
+  {
+    "source_class": "org.redisson.connection.MasterSlaveConnectionManager",
+    "source_method": "closeNodeConnection",
+    "target_class": "org.redisson.client.RedisConnection"
+  },
+  {
+    "source_class": "org.redisson.connection.MasterSlaveConnectionManager",
+    "source_method": "disconnectNode",
+    "target_class": "org.redisson.client.RedisConnection"
+  },
+  {
+    "source_class": "org.redisson.connection.MasterSlaveConnectionManager",
+    "source_method": "connectToNode",
+    "target_class": "org.redisson.config.BaseConfig<?>, org.redisson.misc.RedisURI, java.lang.String):java.util.concurrent.CompletionStage<org.redisson.client.RedisConnection> \t org.redisson.config.BaseConfig"
+  },
+  {
+    "source_class": "org.redisson.connection.MasterSlaveConnectionManager",
+    "source_method": "startDNSMonitoring",
+    "target_class": "org.redisson.config.MasterSlaveServersConfig"
+  },
+  {
+    "source_class": "org.redisson.connection.MasterSlaveConnectionManager",
+    "source_method": "create",
+    "target_class": "org.redisson.config.BaseMasterSlaveServersConfig"
+  },
+  {
+    "source_class": "org.redisson.connection.MasterSlaveConnectionManager",
+    "source_method": "createClient",
+    "target_class": "java.net.InetSocketAddress, org.redisson.misc.RedisURI, int, int, java.lang.String):org.redisson.client.RedisClient \t org.redisson.client.RedisClientConfig"
+  },
+  {
+    "source_class": "org.redisson.connection.MasterSlaveConnectionManager",
+    "source_method": "getNodeType",
+    "target_class": "java.net.InetSocketAddress):org.redisson.api.NodeType \t org.redisson.connection.MasterSlaveEntry"
+  },
+  {
+    "source_class": "org.redisson.connection.MasterSlaveConnectionManager",
+    "source_method": "isInitialized",
+    "target_class": "org.redisson.connection.ServiceManager"
+  },
+  {
+    "source_class": "org.redisson.connection.MasterSlaveEntry",
+    "source_method": "initSlaveBalancer",
+    "target_class": "java.util.function.Function<org.redisson.misc.RedisURI,java.lang.String>):java.util.concurrent.CompletableFuture<java.lang.Void> \t org.redisson.config.MasterSlaveServersConfig"
+  },
+  {
+    "source_class": "org.redisson.connection.MasterSlaveEntry",
+    "source_method": "removeSlaveEntry",
+    "target_class": "org.redisson.connection.ClientConnectionsEntry"
+  },
+  {
+    "source_class": "org.redisson.connection.MasterSlaveEntry",
+    "source_method": "addSlaveEntry",
+    "target_class": "org.redisson.connection.ClientConnectionsEntry"
+  },
+  {
+    "source_class": "org.redisson.connection.MasterSlaveEntry",
+    "source_method": "hasNoSlaves",
+    "target_class": "org.redisson.connection.ClientConnectionsEntry"
+  },
+  {
+    "source_class": "org.redisson.connection.MasterSlaveEntry",
+    "source_method": "setupMasterEntry",
+    "target_class": "org.redisson.misc.RedisURI):java.util.concurrent.CompletableFuture<org.redisson.client.RedisClient> \t org.redisson.connection.ConnectionManager"
+  },
+  {
+    "source_class": "org.redisson.connection.MasterSlaveEntry",
+    "source_method": "setupMasterEntry",
+    "target_class": "java.lang.String):java.util.concurrent.CompletableFuture<org.redisson.client.RedisClient> \t org.redisson.connection.ConnectionManager"
+  },
+  {
+    "source_class": "org.redisson.connection.MasterSlaveEntry",
+    "source_method": "setupMasterEntry",
+    "target_class": "org.redisson.client.RedisClient"
+  },
+  {
+    "source_class": "org.redisson.connection.MasterSlaveEntry",
+    "source_method": "masterDown",
+    "target_class": "org.redisson.connection.ClientConnectionsEntry"
+  },
+  {
+    "source_class": "org.redisson.connection.MasterSlaveEntry",
+    "source_method": "addSlave",
+    "target_class": "boolean):java.util.concurrent.CompletableFuture<java.lang.Void> \t org.redisson.client.RedisClient"
+  },
+  {
+    "source_class": "org.redisson.connection.MasterSlaveEntry",
+    "source_method": "addSlave",
+    "target_class": "org.redisson.misc.RedisURI, boolean, java.lang.String):java.util.concurrent.CompletableFuture<java.lang.Void> \t org.redisson.connection.ConnectionManager"
+  },
+  {
+    "source_class": "org.redisson.connection.MasterSlaveEntry",
+    "source_method": "addSlave",
+    "target_class": "boolean, java.lang.String):java.util.concurrent.CompletableFuture<java.lang.Void> \t org.redisson.connection.ConnectionManager"
+  },
+  {
+    "source_class": "org.redisson.connection.MasterSlaveEntry",
+    "source_method": "getEntry",
+    "target_class": "org.redisson.connection.ClientConnectionsEntry"
+  },
+  {
+    "source_class": "org.redisson.connection.MasterSlaveEntry",
+    "source_method": "getEntry",
+    "target_class": "org.redisson.misc.RedisURI"
+  },
+  {
+    "source_class": "org.redisson.connection.MasterSlaveEntry",
+    "source_method": "removeMaster",
+    "target_class": "org.redisson.connection.ClientConnectionsEntry"
+  },
+  {
+    "source_class": "org.redisson.connection.MasterSlaveEntry",
+    "source_method": "shutdownAsync",
+    "target_class": "org.redisson.connection.ClientConnectionsEntry"
+  },
+  {
+    "source_class": "org.redisson.connection.MasterSlaveEntry",
+    "source_method": "connectionWriteOp",
+    "target_class": "org.redisson.connection.pool.MasterConnectionPool"
+  },
+  {
+    "source_class": "org.redisson.connection.MasterSlaveEntry",
+    "source_method": "trackedConnectionWriteOp",
+    "target_class": "org.redisson.connection.pool.MasterConnectionPool"
+  },
+  {
+    "source_class": "org.redisson.connection.MasterSlaveEntry",
+    "source_method": "freeze",
+    "target_class": "org.redisson.connection.ClientConnectionsEntry.FreezeReason):org.redisson.connection.ClientConnectionsEntry \t org.redisson.connection.ClientConnectionsEntry"
+  },
+  {
+    "source_class": "org.redisson.connection.pool.ConnectionPool",
+    "source_method": "isHealthy",
+    "target_class": "org.redisson.connection.ClientConnectionsEntry"
+  },
+  {
+    "source_class": "org.redisson.pubsub.PublishSubscribe",
+    "source_method": "timeout",
+    "target_class": "long):void \t org.redisson.pubsub.PublishSubscribeService"
+  },
+  {
+    "source_class": "org.redisson.pubsub.PublishSubscribeService",
+    "source_method": "psubscribe",
+    "target_class": "org.redisson.client.codec.Codec, org.redisson.client.RedisPubSubListener<?>[]):java.util.concurrent.CompletableFuture<java.util.Collection<org.redisson.pubsub.PubSubConnectionEntry>> \t org.redisson.connection.ConnectionManager"
+  },
+  {
+    "source_class": "org.redisson.pubsub.PublishSubscribeService",
+    "source_method": "isMultiEntity",
+    "target_class": "org.redisson.connection.ConnectionManager"
+  },
+  {
+    "source_class": "org.redisson.pubsub.PublishSubscribeService",
+    "source_method": "subscribe",
+    "target_class": "org.redisson.api.listener.FlushListener):java.util.concurrent.CompletableFuture<java.lang.Integer> \t org.redisson.connection.ConnectionManager"
+  },
+  {
+    "source_class": "org.redisson.pubsub.PublishSubscribeService",
+    "source_method": "subscribe",
+    "target_class": "org.redisson.client.codec.Codec, org.redisson.command.CommandAsyncExecutor, org.redisson.api.listener.TrackingListener):java.util.concurrent.CompletableFuture<java.lang.Integer> \t org.redisson.connection.ConnectionManager"
+  },
+  {
+    "source_class": "org.redisson.pubsub.PublishSubscribeService",
+    "source_method": "subscribe",
+    "target_class": "org.redisson.client.ChannelName, org.redisson.client.RedisPubSubListener<?>[]):java.util.concurrent.CompletableFuture<java.util.List<org.redisson.pubsub.PubSubConnectionEntry>> \t org.redisson.connection.ConnectionManager"
+  },
+  {
+    "source_class": "org.redisson.pubsub.PublishSubscribeService",
+    "source_method": "getSemaphore",
+    "target_class": "org.redisson.client.ChannelName"
+  },
+  {
+    "source_class": "org.redisson.pubsub.PublishSubscribeService",
+    "source_method": "getEntry",
+    "target_class": "org.redisson.client.ChannelName"
+  },
+  {
+    "source_class": "org.redisson.pubsub.PublishSubscribeService",
+    "source_method": "unsubscribeLocked",
+    "target_class": "org.redisson.client.ChannelName, org.redisson.pubsub.PubSubConnectionEntry):java.util.concurrent.CompletableFuture<java.lang.Void> \t org.redisson.misc.AsyncSemaphore"
+  },
+  {
+    "source_class": "org.redisson.pubsub.PublishSubscribeService",
+    "source_method": "remove",
+    "target_class": "org.redisson.pubsub.PubSubConnectionEntry):void \t org.redisson.pubsub.PubSubConnectionEntry"
+  },
+  {
+    "source_class": "org.redisson.pubsub.PublishSubscribeService",
+    "source_method": "release",
+    "target_class": "org.redisson.pubsub.PubSubConnectionEntry"
+  },
+  {
+    "source_class": "org.redisson.pubsub.PublishSubscribeService",
+    "source_method": "unsubscribe",
+    "target_class": "org.redisson.pubsub.PubSubConnectionEntry, org.redisson.client.protocol.pubsub.PubSubType):java.util.concurrent.CompletableFuture<org.redisson.client.codec.Codec> \t org.redisson.misc.AsyncSemaphore"
+  },
+  {
+    "source_class": "org.redisson.pubsub.PublishSubscribeService",
+    "source_method": "reattachPubSub",
+    "target_class": "org.redisson.pubsub.PubSubConnectionEntry"
+  },
+  {
+    "source_class": "org.redisson.pubsub.PublishSubscribeService",
+    "source_method": "reattachPubSub",
+    "target_class": "org.redisson.client.RedisPubSubConnection"
+  },
+  {
+    "source_class": "org.redisson.pubsub.PublishSubscribeService",
+    "source_method": "removeListenerAsync",
+    "target_class": "org.redisson.client.ChannelName, java.util.EventListener):java.util.concurrent.CompletableFuture<java.lang.Void> \t org.redisson.pubsub.PubSubConnectionEntry"
+  },
+  {
+    "source_class": "org.redisson.pubsub.PublishSubscribeService",
+    "source_method": "removeListenerAsync",
+    "target_class": "org.redisson.client.ChannelName, java.lang.Integer[]):java.util.concurrent.CompletableFuture<java.lang.Void> \t org.redisson.pubsub.PubSubConnectionEntry"
+  },
+  {
+    "source_class": "org.redisson.pubsub.PubSubConnectionEntry",
+    "source_method": "removeListener",
+    "target_class": "org.redisson.client.RedisPubSubListener<?>):void \t org.redisson.client.RedisPubSubConnection"
+  },
+  {
+    "source_class": "org.redisson.pubsub.PubSubConnectionEntry",
+    "source_method": "isFree",
+    "target_class": "org.redisson.connection.ServiceManager"
+  },
+  {
+    "source_class": "org.redisson.pubsub.PubSubConnectionEntry",
+    "source_method": "getSubscribeFuture",
+    "target_class": "org.redisson.client.protocol.pubsub.PubSubType):org.redisson.client.SubscribeListener \t org.redisson.client.RedisPubSubConnection"
+  },
+  {
+    "source_class": "org.redisson.pubsub.PubSubConnectionEntry",
+    "source_method": "removeListeners",
+    "target_class": "org.redisson.client.RedisPubSubConnection"
+  },
+  {
+    "source_class": "org.redisson.RedissonPatternTopic",
+    "source_method": "addListener",
+    "target_class": "org.redisson.pubsub.PublishSubscribeService"
+  },
+  {
+    "source_class": "org.redisson.RedissonPatternTopic",
+    "source_method": "addListenerAsync",
+    "target_class": "org.redisson.pubsub.PublishSubscribeService"
+  },
+  {
+    "source_class": "org.redisson.eviction.EvictionTask",
+    "source_method": "schedule",
+    "target_class": "org.redisson.command.CommandAsyncExecutor"
+  },
+  {
+    "source_class": "org.redisson.eviction.EvictionScheduler",
+    "source_method": "scheduleCleanMultimap",
+    "target_class": "java.lang.String):void \t org.redisson.eviction.EvictionTask"
+  },
+  {
+    "source_class": "org.redisson.eviction.EvictionScheduler",
+    "source_method": "scheduleJCache",
+    "target_class": "java.lang.String, java.lang.String):void \t org.redisson.eviction.EvictionTask"
+  },
+  {
+    "source_class": "org.redisson.eviction.EvictionScheduler",
+    "source_method": "scheduleTimeSeries",
+    "target_class": "java.lang.String):void \t org.redisson.eviction.EvictionTask"
+  },
+  {
+    "source_class": "org.redisson.eviction.EvictionScheduler",
+    "source_method": "schedule",
+    "target_class": "long):void \t org.redisson.eviction.EvictionTask"
+  },
+  {
+    "source_class": "org.redisson.eviction.EvictionScheduler",
+    "source_method": "schedule",
+    "target_class": "java.lang.String, java.lang.String, java.lang.String, java.lang.String, org.redisson.api.MapCacheOptions<?,?>, java.lang.String):void \t org.redisson.eviction.EvictionTask"
+  },
+  {
+    "source_class": "org.redisson.eviction.EvictionScheduler",
+    "source_method": "remove",
+    "target_class": "org.redisson.eviction.EvictionTask"
+  },
+  {
+    "source_class": "org.redisson.Redisson",
+    "source_method": "create",
+    "target_class": "org.redisson.config.Config"
+  },
+  {
+    "source_class": "org.redisson.Redisson",
+    "source_method": "createRx",
+    "target_class": "org.redisson.config.SingleServerConfig"
+  },
+  {
+    "source_class": "org.redisson.Redisson",
+    "source_method": "createReactive",
+    "target_class": "org.redisson.config.SingleServerConfig"
+  },
+  {
+    "source_class": "org.redisson.RedissonShardedTopic",
+    "source_method": "createRaw",
+    "target_class": "org.redisson.command.CommandAsyncExecutor, java.lang.String):org.redisson.RedissonTopic \t org.redisson.api.NameMapper"
+  },
+  {
+    "source_class": "org.redisson.remote.AsyncRemoteProxy",
+    "source_method": "awaitResultAsync",
+    "target_class": "org.redisson.executor.RemotePromise<java.lang.Object>, java.util.concurrent.CompletionStage<org.redisson.remote.RRemoteServiceResponse>):void \t org.redisson.executor.RemotePromise"
+  },
+  {
+    "source_class": "org.redisson.remote.AsyncRemoteProxy",
+    "source_method": "cancelAsync",
+    "target_class": "org.redisson.executor.RemotePromise<java.lang.Object>, java.lang.String, java.lang.String, java.lang.Long, boolean):java.util.concurrent.CompletableFuture<java.lang.Boolean> \t org.redisson.remote.BaseRemoteService"
+  },
+  {
+    "source_class": "org.redisson.remote.BaseRemoteProxy",
+    "source_method": "tryPollAckAgainAsync",
+    "target_class": "java.lang.String, java.lang.String):java.util.concurrent.CompletionStage<org.redisson.remote.RemoteServiceAck> \t org.redisson.command.CommandAsyncExecutor"
+  },
+  {
+    "source_class": "org.redisson.remote.BaseRemoteProxy",
+    "source_method": "addCancelHandling",
+    "target_class": "java.util.concurrent.CompletableFuture<T>):void \t org.redisson.remote.ResponseEntry.Result"
+  },
+  {
+    "source_class": "org.redisson.remote.SyncRemoteProxy",
+    "source_method": "create",
+    "target_class": "org.redisson.api.RemoteInvocationOptions):T \t org.redisson.remote.BaseRemoteService"
+  },
+  {
+    "source_class": "org.redisson.remote.BaseRemoteService",
+    "source_method": "encode",
+    "target_class": "org.redisson.client.codec.Codec"
+  },
+  {
+    "source_class": "org.redisson.remote.BaseRemoteService",
+    "source_method": "get",
+    "target_class": "org.redisson.api.RemoteInvocationOptions):T \t org.redisson.remote.AsyncRemoteProxy"
+  },
+  {
+    "source_class": "org.redisson.remote.BaseRemoteService",
+    "source_method": "scheduleCheck",
+    "target_class": "java.lang.String, java.util.concurrent.CompletableFuture<T>):void \t org.redisson.command.CommandAsyncExecutor"
+  },
+  {
+    "source_class": "org.redisson.remote.BaseRemoteService",
+    "source_method": "generateRequestId",
+    "target_class": "org.redisson.command.CommandAsyncExecutor"
+  },
+  {
+    "source_class": "org.redisson.reactive.RedissonBinaryStreamReactive",
+    "source_method": "read",
+    "target_class": "org.redisson.reactive.CommandReactiveExecutor"
+  },
+  {
+    "source_class": "org.redisson.reactive.RedissonBinaryStreamReactive",
+    "source_method": "write",
+    "target_class": "org.redisson.reactive.CommandReactiveExecutor"
+  },
+  {
+    "source_class": "org.redisson.reactive.ReactiveProxyBuilder",
+    "source_method": "create",
+    "target_class": "java.lang.Object, java.lang.Object, java.lang.Class<T>):T \t org.redisson.reactive.CommandReactiveExecutor"
+  },
+  {
+    "source_class": "org.redisson.RedissonBaseAdder",
+    "source_method": "destroy",
+    "target_class": "org.redisson.api.RTopic"
+  },
+  {
+    "source_class": "org.redisson.mapreduce.CoordinatorTask",
+    "source_method": "executeCollator",
+    "target_class": "org.redisson.api.RedissonClient"
+  },
+  {
+    "source_class": "org.redisson.RedissonMap",
+    "source_method": "hasNoLoader",
+    "target_class": "org.redisson.api.MapOptions"
+  },
+  {
+    "source_class": "org.redisson.RedissonMap",
+    "source_method": "hasNoWriter",
+    "target_class": "org.redisson.api.MapOptions"
+  },
+  {
+    "source_class": "org.redisson.RedissonMap",
+    "source_method": "scanKeyIteratorAsync",
+    "target_class": "org.redisson.client.RedisClient, java.lang.String, java.lang.String, int):org.redisson.api.RFuture<org.redisson.ScanResult<java.lang.Object>> \t org.redisson.client.codec.Codec"
+  },
+  {
+    "source_class": "org.redisson.RedissonMap",
+    "source_method": "scanIteratorAsync",
+    "target_class": "org.redisson.client.RedisClient, java.lang.String, java.lang.String, int):org.redisson.api.RFuture<org.redisson.ScanResult<java.util.Map.Entry<java.lang.Object,java.lang.Object>>> \t org.redisson.command.CommandAsyncExecutor"
+  },
+  {
+    "source_class": "org.redisson.command.RedisExecutor",
+    "source_method": "isResendAllowed",
+    "target_class": "int):boolean \t org.redisson.client.protocol.RedisCommand"
+  },
+  {
+    "source_class": "org.redisson.command.RedisExecutor",
+    "source_method": "handleError",
+    "target_class": "java.lang.Throwable):void \t org.redisson.client.RedisClient"
+  },
+  {
+    "source_class": "org.redisson.command.RedisExecutor",
+    "source_method": "release",
+    "target_class": "org.redisson.connection.MasterSlaveEntry"
+  },
+  {
+    "source_class": "org.redisson.command.RedisExecutor",
+    "source_method": "getEntry",
+    "target_class": "org.redisson.connection.ConnectionManager"
+  },
+  {
+    "source_class": "org.redisson.command.RedisQueuedBatchExecutor",
+    "source_method": "getEntry",
+    "target_class": "org.redisson.connection.NodeSource"
+  },
+  {
+    "source_class": "org.redisson.command.CommandBatchService",
+    "source_method": "execute",
+    "target_class": "org.redisson.api.BatchOptions"
+  },
+  {
+    "source_class": "org.redisson.command.CommandBatchService",
+    "source_method": "getEntry",
+    "target_class": "org.redisson.connection.NodeSource"
+  },
+  {
+    "source_class": "org.redisson.command.CommandBatchService",
+    "source_method": "isRedisBasedQueue",
+    "target_class": "org.redisson.api.BatchOptions"
+  },
+  {
+    "source_class": "org.redisson.command.CommandBatchService",
+    "source_method": "isWaitCommand",
+    "target_class": "org.redisson.client.protocol.CommandData"
+  },
+  {
+    "source_class": "org.redisson.command.RedisCommonBatchExecutor",
+    "source_method": "timeout",
+    "target_class": "org.redisson.api.BatchOptions):int \t org.redisson.config.BaseConfig"
+  },
+  {
+    "source_class": "org.redisson.command.RedisCommonBatchExecutor",
+    "source_method": "retryInterval",
+    "target_class": "org.redisson.api.BatchOptions):int \t org.redisson.config.BaseConfig"
+  },
+  {
+    "source_class": "org.redisson.command.RedisCommonBatchExecutor",
+    "source_method": "retryAttempts",
+    "target_class": "org.redisson.api.BatchOptions):int \t org.redisson.config.BaseConfig"
+  },
+  {
+    "source_class": "org.redisson.command.RedisCommonBatchExecutor",
+    "source_method": "free",
+    "target_class": "org.redisson.command.CommandBatchService.Entry"
+  },
+  {
+    "source_class": "org.redisson.command.RedisCommonBatchExecutor",
+    "source_method": "isWaitCommand",
+    "target_class": "org.redisson.client.protocol.CommandData"
+  },
+  {
+    "source_class": "org.redisson.command.BaseRedisBatchExecutor",
+    "source_method": "timeout",
+    "target_class": "org.redisson.api.BatchOptions):int \t org.redisson.config.BaseConfig"
+  },
+  {
+    "source_class": "org.redisson.command.BaseRedisBatchExecutor",
+    "source_method": "retryInterval",
+    "target_class": "org.redisson.api.BatchOptions):int \t org.redisson.config.BaseConfig"
+  },
+  {
+    "source_class": "org.redisson.command.BaseRedisBatchExecutor",
+    "source_method": "retryAttempts",
+    "target_class": "org.redisson.api.BatchOptions):int \t org.redisson.config.BaseConfig"
+  },
+  {
+    "source_class": "org.redisson.command.CommandAsyncService",
+    "source_method": "writeAllAsync",
+    "target_class": "org.redisson.client.codec.Codec, java.lang.Object[]):java.util.List<java.util.concurrent.CompletableFuture<R>> \t org.redisson.connection.ConnectionManager"
+  },
+  {
+    "source_class": "org.redisson.command.CommandAsyncService",
+    "source_method": "getNodeSource",
+    "target_class": "org.redisson.connection.ConnectionManager"
+  },
+  {
+    "source_class": "org.redisson.command.CommandAsyncService",
+    "source_method": "getNodeSource",
+    "target_class": "org.redisson.connection.ConnectionManager"
+  },
+  {
+    "source_class": "org.redisson.command.CommandAsyncService",
+    "source_method": "getNodeSource",
+    "target_class": "org.redisson.connection.ConnectionManager"
+  },
+  {
+    "source_class": "org.redisson.command.CommandAsyncService",
+    "source_method": "isEvalCacheActive",
+    "target_class": "org.redisson.connection.ConnectionManager"
+  },
+  {
+    "source_class": "org.redisson.command.CommandAsyncService",
+    "source_method": "evalBatchedAsync",
+    "target_class": "org.redisson.client.codec.Codec, org.redisson.client.protocol.RedisCommand<T>, java.lang.String, java.util.List<java.lang.Object>, org.redisson.SlotCallback<T,R>):org.redisson.api.RFuture<R> \t org.redisson.connection.ConnectionManager"
+  },
+  {
+    "source_class": "org.redisson.command.CommandAsyncService",
+    "source_method": "executeBatchedAsync",
+    "target_class": "org.redisson.client.codec.Codec, org.redisson.client.protocol.RedisCommand<T>, org.redisson.SlotCallback<T,R>, java.lang.Object[]):org.redisson.api.RFuture<R> \t org.redisson.connection.ConnectionManager"
+  },
+  {
+    "source_class": "org.redisson.command.CommandAsyncService",
+    "source_method": "createCommandBatchService",
+    "target_class": "org.redisson.api.BatchOptions"
+  },
+  {
+    "source_class": "org.redisson.RedissonMultimapCache",
+    "source_method": "deleteAsync",
+    "target_class": "org.redisson.command.CommandAsyncExecutor"
+  },
+  {
+    "source_class": "org.redisson.RedissonMultimapCache",
+    "source_method": "expireAsync",
+    "target_class": "java.util.concurrent.TimeUnit, java.lang.String):org.redisson.api.RFuture<java.lang.Boolean> \t org.redisson.command.CommandAsyncExecutor"
+  },
+  {
+    "source_class": "org.redisson.RedissonMultimapCache",
+    "source_method": "expireAtAsync",
+    "target_class": "java.lang.String):org.redisson.api.RFuture<java.lang.Boolean> \t org.redisson.command.CommandAsyncExecutor"
+  },
+  {
+    "source_class": "org.redisson.RedissonMultimapCache",
+    "source_method": "clearExpireAsync",
+    "target_class": "org.redisson.command.CommandAsyncExecutor"
+  },
+  {
+    "source_class": "org.redisson.cache.ReferenceCacheMap",
+    "source_method": "soft",
+    "target_class": "long):org.redisson.cache.ReferenceCacheMap<K,V> \t org.redisson.cache.ReferenceCachedValue.Type"
+  },
+  {
+    "source_class": "org.redisson.cache.LRUCacheMap.SortedSet",
+    "source_method": "clear",
+    "target_class": "org.redisson.misc.WrappedLock"
+  },
+  {
+    "source_class": "org.redisson.cache.LocalCacheListener",
+    "source_method": "notifyUpdate",
+    "target_class": "org.redisson.cache.CacheValue"
+  },
+  {
+    "source_class": "org.redisson.cache.LocalCacheListener",
+    "source_method": "notifyInvalidate",
+    "target_class": "org.redisson.cache.CacheValue"
+  },
+  {
+    "source_class": "org.redisson.cache.LocalCacheListener",
+    "source_method": "clearLocalCacheAsync",
+    "target_class": "org.redisson.command.CommandAsyncExecutor"
+  },
+  {
+    "source_class": "org.redisson.cache.LocalCacheListener",
+    "source_method": "remove",
+    "target_class": "org.redisson.api.LocalCachedMapOptions"
+  },
+  {
+    "source_class": "org.redisson.api.CronSchedule",
+    "source_method": "of",
+    "target_class": "java.time.ZoneId):org.redisson.api.CronSchedule \t org.redisson.executor.CronExpression"
+  },
+  {
+    "source_class": "org.redisson.redisnode.SentinelRedisNode",
+    "source_method": "executeAsync",
+    "target_class": "org.redisson.client.codec.Codec, long, org.redisson.client.protocol.RedisCommand<T>, java.lang.Object[]):org.redisson.api.RFuture<T> \t org.redisson.client.RedisClient"
+  },
+  {
+    "source_class": "org.redisson.redisnode.RedissonBaseNodes",
+    "source_method": "getNodes",
+    "target_class": "org.redisson.connection.ConnectionManager"
+  },
+  {
+    "source_class": "org.redisson.redisnode.RedissonBaseNodes",
+    "source_method": "getNode",
+    "target_class": "org.redisson.api.NodeType):org.redisson.redisnode.RedisNode \t org.redisson.connection.ConnectionManager"
+  },
+  {
+    "source_class": "org.redisson.redisnode.RedissonBaseNodes",
+    "source_method": "getNodes",
+    "target_class": "org.redisson.connection.ConnectionManager"
+  },
+  {
+    "source_class": "org.redisson.RedissonKeys",
+    "source_method": "getKeysByPattern",
+    "target_class": "java.lang.String, int, int):java.lang.Iterable<T> \t org.redisson.command.CommandAsyncExecutor"
+  },
+  {
+    "source_class": "org.redisson.RedissonKeys",
+    "source_method": "scanIteratorAsync",
+    "target_class": "org.redisson.connection.MasterSlaveEntry, org.redisson.client.protocol.RedisCommand<?>, java.lang.String, java.lang.String, int):org.redisson.api.RFuture<org.redisson.ScanResult<java.lang.Object>> \t org.redisson.command.CommandAsyncExecutor"
+  },
+  {
+    "source_class": "org.redisson.RedissonKeys",
+    "source_method": "map",
+    "target_class": "org.redisson.command.CommandAsyncExecutor"
+  },
+  {
+    "source_class": "org.redisson.RedissonKeys",
+    "source_method": "unmap",
+    "target_class": "org.redisson.command.CommandAsyncExecutor"
+  },
+  {
+    "source_class": "org.redisson.RedissonKeys",
+    "source_method": "unmap",
+    "target_class": "org.redisson.command.CommandAsyncExecutor"
+  },
+  {
+    "source_class": "org.redisson.RedissonKeys",
+    "source_method": "map",
+    "target_class": "org.redisson.command.CommandAsyncExecutor"
+  },
+  {
+    "source_class": "org.redisson.RedissonKeys",
+    "source_method": "addListenerAsync",
+    "target_class": "T, java.util.function.BiConsumer<T,java.lang.String>):org.redisson.api.RFuture<java.lang.Integer> \t org.redisson.api.RPatternTopic"
+  },
+  {
+    "source_class": "org.redisson.RedissonKeys",
+    "source_method": "removeListenerAsync",
+    "target_class": "int, java.lang.String[]):org.redisson.api.RFuture<java.lang.Void> \t org.redisson.api.RPatternTopic"
+  },
+  {
+    "source_class": "org.redisson.QueueTransferService",
+    "source_method": "schedule",
+    "target_class": "org.redisson.QueueTransferTask):void \t org.redisson.QueueTransferTask"
+  },
+  {
+    "source_class": "org.redisson.QueueTransferService",
+    "source_method": "remove",
+    "target_class": "org.redisson.QueueTransferTask"
+  },
+  {
+    "source_class": "org.redisson.RedissonReference",
+    "source_method": "getRxJavaType",
+    "target_class": "org.redisson.misc.BiHashMap"
+  },
+  {
+    "source_class": "org.redisson.RedissonReference",
+    "source_method": "getReactiveType",
+    "target_class": "org.redisson.misc.BiHashMap"
+  },
+  {
+    "source_class": "org.redisson.jcache.JCacheManager",
+    "source_method": "getName",
+    "target_class": "org.redisson.jcache.JCache<?,?>):java.lang.String \t org.redisson.jcache.JCache"
+  },
+  {
+    "source_class": "org.redisson.jcache.JCachingProvider",
+    "source_method": "loadConfig",
+    "target_class": "org.redisson.config.Config"
+  },
+  {
+    "source_class": "org.redisson.jcache.JCache",
+    "source_method": "currentNanoTime",
+    "target_class": "org.redisson.jcache.configuration.JCacheConfiguration"
+  },
+  {
+    "source_class": "org.redisson.jcache.JCache",
+    "source_method": "handlePutAllResult",
+    "target_class": "java.util.concurrent.CompletionStage<java.util.List<java.lang.Object>>):org.redisson.api.RFuture<java.lang.Long> \t org.redisson.api.RSemaphore"
+  },
+  {
+    "source_class": "org.redisson.jcache.JCache",
+    "source_method": "removeValuesOperation",
+    "target_class": "java.lang.String, org.redisson.connection.MasterSlaveEntry, java.util.List<java.lang.Object>, java.lang.Object[]):org.redisson.api.RFuture<java.lang.Long> \t org.redisson.command.CommandAsyncExecutor"
+  },
+  {
+    "source_class": "org.redisson.jcache.JCache",
+    "source_method": "waitSync",
+    "target_class": "org.redisson.Redisson"
+  },
+  {
+    "source_class": "org.redisson.jcache.JCache",
+    "source_method": "clearAsync",
+    "target_class": "org.redisson.connection.MasterSlaveEntry, java.lang.String):org.redisson.api.RFuture<java.lang.Void> \t org.redisson.command.CommandAsyncExecutor"
+  },
+  {
+    "source_class": "org.redisson.jcache.JCache",
+    "source_method": "getURI",
+    "target_class": "org.redisson.jcache.JCacheManager"
+  },
+  {
+    "source_class": "org.redisson.jcache.JCache",
+    "source_method": "sendSync",
+    "target_class": "java.util.List<java.lang.Object>):void \t org.redisson.Redisson"
+  },
+  {
+    "source_class": "org.redisson.executor.TasksRunnerService",
+    "source_method": "asyncScheduledServiceAtFixed",
+    "target_class": "java.lang.String):org.redisson.executor.RemoteExecutorServiceAsync \t org.redisson.executor.ScheduledTasksService"
+  },
+  {
+    "source_class": "org.redisson.executor.TasksRunnerService",
+    "source_method": "renewRetryTime",
+    "target_class": "org.redisson.command.CommandAsyncExecutor"
+  },
+  {
+    "source_class": "org.redisson.executor.TasksRunnerService",
+    "source_method": "finish",
+    "target_class": "boolean):void \t org.redisson.command.CommandAsyncExecutor"
+  },
+  {
+    "source_class": "org.redisson.executor.TasksBatchService",
+    "source_method": "executeAdd",
+    "target_class": "org.redisson.command.CommandBatchService"
+  },
+  {
+    "source_class": "org.redisson.executor.TasksBatchService",
+    "source_method": "executeAddAsync",
+    "target_class": "org.redisson.command.CommandBatchService"
+  },
+  {
+    "source_class": "org.redisson.executor.TasksService",
+    "source_method": "hasTaskAsync",
+    "target_class": "org.redisson.command.CommandAsyncExecutor"
+  },
+  {
+    "source_class": "org.redisson.rx.RxProxyBuilder",
+    "source_method": "create",
+    "target_class": "java.lang.Object, java.lang.Object, java.lang.Class<T>):T \t org.redisson.command.CommandAsyncExecutor"
+  },
+  {
+    "source_class": "org.redisson.config.SentinelServersConfig",
+    "source_method": "setNatMap",
+    "target_class": "org.redisson.api.HostPortNatMapper"
+  },
+  {
+    "source_class": "org.redisson.config.RedissonNodeFileConfig",
+    "source_method": "fromJSON",
+    "target_class": "org.redisson.config.ConfigSupport"
+  },
+  {
+    "source_class": "org.redisson.config.RedissonNodeFileConfig",
+    "source_method": "fromYAML",
+    "target_class": "org.redisson.config.ConfigSupport"
+  },
+  {
+    "source_class": "org.redisson.config.ClusterServersConfig",
+    "source_method": "setNatMap",
+    "target_class": "org.redisson.api.HostPortNatMapper"
+  },
+  {
+    "source_class": "org.redisson.config.Config",
+    "source_method": "fromJSON",
+    "target_class": "org.redisson.config.ConfigSupport"
+  },
+  {
+    "source_class": "org.redisson.config.Config",
+    "source_method": "fromJSON",
+    "target_class": "org.redisson.config.ConfigSupport"
+  },
+  {
+    "source_class": "org.redisson.config.Config",
+    "source_method": "fromJSON",
+    "target_class": "org.redisson.config.ConfigSupport"
+  },
+  {
+    "source_class": "org.redisson.config.Config",
+    "source_method": "fromJSON",
+    "target_class": "org.redisson.config.ConfigSupport"
+  },
+  {
+    "source_class": "org.redisson.config.Config",
+    "source_method": "fromYAML",
+    "target_class": "org.redisson.config.ConfigSupport"
+  },
+  {
+    "source_class": "org.redisson.config.Config",
+    "source_method": "fromYAML",
+    "target_class": "org.redisson.config.ConfigSupport"
+  },
+  {
+    "source_class": "org.redisson.config.Config",
+    "source_method": "fromYAML",
+    "target_class": "org.redisson.config.ConfigSupport"
+  },
+  {
+    "source_class": "org.redisson.config.Config",
+    "source_method": "fromYAML",
+    "target_class": "org.redisson.config.ConfigSupport"
+  },
+  {
+    "source_class": "org.redisson.config.Config",
+    "source_method": "toYAML",
+    "target_class": "org.redisson.config.ConfigSupport"
+  },
+  {
+    "source_class": "org.redisson.config.ConfigSupport",
+    "source_method": "createConnectionManager",
+    "target_class": "org.redisson.config.Config"
+  },
+  {
+    "source_class": "org.redisson.config.ConfigSupport",
+    "source_method": "validate",
+    "target_class": "org.redisson.config.SingleServerConfig"
+  },
+  {
+    "source_class": "org.redisson.config.ConfigSupport",
+    "source_method": "validate",
+    "target_class": "org.redisson.config.BaseMasterSlaveServersConfig"
+  },
+  {
+    "source_class": "org.redisson.cluster.ClusterConnectionManager",
+    "source_method": "detectSharding",
+    "target_class": "org.redisson.pubsub.PublishSubscribeService"
+  },
+  {
+    "source_class": "org.redisson.cluster.ClusterConnectionManager",
+    "source_method": "addEntry",
+    "target_class": "org.redisson.connection.MasterSlaveEntry):void \t org.redisson.connection.MasterSlaveEntry"
+  },
+  {
+    "source_class": "org.redisson.cluster.ClusterConnectionManager",
+    "source_method": "find",
+    "target_class": "java.lang.Integer):org.redisson.cluster.ClusterPartition \t org.redisson.cluster.ClusterPartition"
+  },
+  {
+    "source_class": "org.redisson.cluster.ClusterConnectionManager",
+    "source_method": "addCascadeSlaves",
+    "target_class": "org.redisson.cluster.ClusterPartition"
+  },
+  {
+    "source_class": "org.redisson.cluster.ClusterConnectionManager",
+    "source_method": "getLastPartitonsByURI",
+    "target_class": "org.redisson.cluster.ClusterPartition"
+  },
+  {
+    "source_class": "org.redisson.MapWriteBehindTask",
+    "source_method": "stop",
+    "target_class": "org.redisson.api.RQueue"
+  },
+  {
+    "source_class": "org.redisson.RedissonSearch",
+    "source_method": "addHNSWVectorIndex",
+    "target_class": "org.redisson.api.search.index.FieldIndex):void \t org.redisson.api.search.index.HNSWVectorIndexParams"
+  },
+  {
+    "source_class": "org.redisson.RedissonSearch",
+    "source_method": "addFlatVectorIndex",
+    "target_class": "org.redisson.api.search.index.FieldIndex):void \t org.redisson.api.search.index.FlatVectorIndexParams"
+  },
+  {
+    "source_class": "org.redisson.RedissonSearch",
+    "source_method": "addNumericIndex",
+    "target_class": "org.redisson.api.search.index.FieldIndex):void \t org.redisson.api.search.index.NumericIndexParams"
+  },
+  {
+    "source_class": "org.redisson.RedissonSearch",
+    "source_method": "addGeoIndex",
+    "target_class": "org.redisson.api.search.index.FieldIndex):void \t org.redisson.api.search.index.GeoIndexParams"
+  },
+  {
+    "source_class": "org.redisson.RedissonSearch",
+    "source_method": "addTagIndex",
+    "target_class": "org.redisson.api.search.index.FieldIndex):void \t org.redisson.api.search.index.TagIndexParams"
+  },
+  {
+    "source_class": "org.redisson.RedissonSearch",
+    "source_method": "addTextIndex",
+    "target_class": "org.redisson.api.search.index.FieldIndex):void \t org.redisson.api.search.index.TextIndexParams"
+  },
+  {
+    "source_class": "org.redisson.RedissonSearch",
+    "source_method": "isResp3",
+    "target_class": "org.redisson.command.CommandAsyncExecutor"
+  },
+  {
+    "source_class": "org.redisson.RedissonLock",
+    "source_method": "lock",
+    "target_class": "java.util.concurrent.TimeUnit, boolean):void \t org.redisson.command.CommandAsyncExecutor"
+  },
+  {
+    "source_class": "org.redisson.micronaut.RedissonFactory",
+    "source_method": "cache",
+    "target_class": "org.redisson.api.RedissonClient, org.redisson.micronaut.ConversionService, java.util.concurrent.ExecutorService):org.redisson.micronaut.cache.RedissonSyncCache \t org.redisson.api.RedissonClient"
+  },
+  {
+    "source_class": "org.redisson.micronaut.cache.BaseCacheConfiguration",
+    "source_method": "setWriteBehindBatchSize",
+    "target_class": "org.redisson.api.MapOptions"
+  },
+  {
+    "source_class": "org.redisson.micronaut.cache.BaseCacheConfiguration",
+    "source_method": "setWriteBehindDelay",
+    "target_class": "org.redisson.api.MapOptions"
+  },
+  {
+    "source_class": "org.redisson.micronaut.cache.BaseCacheConfiguration",
+    "source_method": "setWriter",
+    "target_class": "org.redisson.api.MapOptions"
+  },
+  {
+    "source_class": "org.redisson.micronaut.cache.BaseCacheConfiguration",
+    "source_method": "setWriteMode",
+    "target_class": "org.redisson.api.MapOptions"
+  },
+  {
+    "source_class": "org.redisson.micronaut.cache.BaseCacheConfiguration",
+    "source_method": "setLoader",
+    "target_class": "org.redisson.api.MapOptions"
+  },
+  {
+    "source_class": "org.redisson.micronaut.session.RedissonSessionStore",
+    "source_method": "getTopic",
+    "target_class": "org.redisson.client.codec.Codec):org.redisson.api.RTopic \t org.redisson.pubsub.PublishSubscribeService"
+  },
+  {
+    "source_class": "org.redisson.micronaut.session.RedissonSessionStore",
+    "source_method": "getCodec",
+    "target_class": "org.redisson.api.RedissonClient"
+  },
+  {
+    "source_class": "org.redisson.micronaut.session.RedissonSessionStore",
+    "source_method": "getNotificationBucket",
+    "target_class": "org.redisson.api.RedissonClient"
+  },
+  {
+    "source_class": "org.redisson.micronaut.RedissonFactory",
+    "source_method": "cache",
+    "target_class": "org.redisson.api.RedissonClient, org.redisson.micronaut.ConversionService<?>, java.util.concurrent.ExecutorService):org.redisson.micronaut.cache.RedissonSyncCache \t org.redisson.api.RedissonClient"
+  },
+  {
+    "source_class": "org.redisson.micronaut.cache.BaseCacheConfiguration",
+    "source_method": "setWriteBehindBatchSize",
+    "target_class": "org.redisson.api.MapOptions"
+  },
+  {
+    "source_class": "org.redisson.micronaut.cache.BaseCacheConfiguration",
+    "source_method": "setWriteBehindDelay",
+    "target_class": "org.redisson.api.MapOptions"
+  },
+  {
+    "source_class": "org.redisson.micronaut.cache.BaseCacheConfiguration",
+    "source_method": "setWriter",
+    "target_class": "org.redisson.api.MapOptions"
+  },
+  {
+    "source_class": "org.redisson.micronaut.cache.BaseCacheConfiguration",
+    "source_method": "setWriteMode",
+    "target_class": "org.redisson.api.MapOptions"
+  },
+  {
+    "source_class": "org.redisson.micronaut.cache.BaseCacheConfiguration",
+    "source_method": "setLoader",
+    "target_class": "org.redisson.api.MapOptions"
+  },
+  {
+    "source_class": "org.redisson.micronaut.session.RedissonSessionStore",
+    "source_method": "getTopic",
+    "target_class": "org.redisson.client.codec.Codec):org.redisson.api.RTopic \t org.redisson.pubsub.PublishSubscribeService"
+  },
+  {
+    "source_class": "org.redisson.micronaut.session.RedissonSessionStore",
+    "source_method": "getCodec",
+    "target_class": "org.redisson.api.RedissonClient"
+  },
+  {
+    "source_class": "org.redisson.micronaut.session.RedissonSessionStore",
+    "source_method": "getNotificationBucket",
+    "target_class": "org.redisson.api.RedissonClient"
+  },
+  {
+    "source_class": "org.redisson.micronaut.RedissonFactory",
+    "source_method": "cache",
+    "target_class": "org.redisson.api.RedissonClient, org.redisson.micronaut.ConversionService<?>, java.util.concurrent.ExecutorService):org.redisson.micronaut.cache.RedissonSyncCache \t org.redisson.api.RedissonClient"
+  },
+  {
+    "source_class": "org.redisson.micronaut.cache.BaseCacheConfiguration",
+    "source_method": "setWriteBehindBatchSize",
+    "target_class": "org.redisson.api.MapOptions"
+  },
+  {
+    "source_class": "org.redisson.micronaut.cache.BaseCacheConfiguration",
+    "source_method": "setWriteBehindDelay",
+    "target_class": "org.redisson.api.MapOptions"
+  },
+  {
+    "source_class": "org.redisson.micronaut.cache.BaseCacheConfiguration",
+    "source_method": "setWriter",
+    "target_class": "org.redisson.api.MapOptions"
+  },
+  {
+    "source_class": "org.redisson.micronaut.cache.BaseCacheConfiguration",
+    "source_method": "setWriteMode",
+    "target_class": "org.redisson.api.MapOptions"
+  },
+  {
+    "source_class": "org.redisson.micronaut.cache.BaseCacheConfiguration",
+    "source_method": "setLoader",
+    "target_class": "org.redisson.api.MapOptions"
+  },
+  {
+    "source_class": "org.redisson.micronaut.session.RedissonSessionStore",
+    "source_method": "getTopic",
+    "target_class": "org.redisson.client.codec.Codec):org.redisson.api.RTopic \t org.redisson.pubsub.PublishSubscribeService"
+  },
+  {
+    "source_class": "org.redisson.micronaut.session.RedissonSessionStore",
+    "source_method": "getCodec",
+    "target_class": "org.redisson.api.RedissonClient"
+  },
+  {
+    "source_class": "org.redisson.micronaut.session.RedissonSessionStore",
+    "source_method": "getNotificationBucket",
+    "target_class": "org.redisson.api.RedissonClient"
+  },
+  {
+    "source_class": "org.redisson.quarkus.client.it.QuarkusRedissonClientResource",
+    "source_method": "map",
+    "target_class": "org.redisson.api.RMap"
+  },
+  {
+    "source_class": "org.redisson.quarkus.client.it.QuarkusRedissonClientResource",
+    "source_method": "remoteService",
+    "target_class": "org.redisson.api.RRemoteService"
+  },
+  {
+    "source_class": "org.redisson.quarkus.client.it.QuarkusRedissonClientResource",
+    "source_method": "pingAll",
+    "target_class": "org.redisson.api.RedissonClient"
+  },
+  {
+    "source_class": "org.redisson.quarkus.client.it.QuarkusRedissonClientResource",
+    "source_method": "executeTask",
+    "target_class": "org.redisson.api.RedissonClient"
+  },
+  {
+    "source_class": "io.quarkus.redisson.client.runtime.RedissonClientProducer",
+    "source_method": "close",
+    "target_class": "org.redisson.api.RedissonClient"
+  },
+  {
+    "source_class": "io.quarkus.redisson.client.deployment.QuarkusRedissonClientProcessor",
+    "source_method": "build",
+    "target_class": "io.quarkus.redisson.client.runtime.RedissonClientRecorder"
+  },
+  {
+    "source_class": "org.redisson.quarkus.client.it.QuarkusRedissonClientResource",
+    "source_method": "map",
+    "target_class": "org.redisson.api.RMap"
+  },
+  {
+    "source_class": "org.redisson.quarkus.client.it.QuarkusRedissonClientResource",
+    "source_method": "remoteService",
+    "target_class": "org.redisson.api.RRemoteService"
+  },
+  {
+    "source_class": "org.redisson.quarkus.client.it.QuarkusRedissonClientResource",
+    "source_method": "pingAll",
+    "target_class": "org.redisson.api.RedissonClient"
+  },
+  {
+    "source_class": "org.redisson.quarkus.client.it.QuarkusRedissonClientResource",
+    "source_method": "executeTask",
+    "target_class": "org.redisson.api.RedissonClient"
+  },
+  {
+    "source_class": "io.quarkus.redisson.client.runtime.RedissonClientProducer",
+    "source_method": "close",
+    "target_class": "org.redisson.api.RedissonClient"
+  },
+  {
+    "source_class": "io.quarkus.redisson.client.deployment.QuarkusRedissonClientProcessor",
+    "source_method": "build",
+    "target_class": "io.quarkus.redisson.client.runtime.RedissonClientRecorder"
+  },
+  {
+    "source_class": "org.redisson.quarkus.client.it.QuarkusRedissonClientResource",
+    "source_method": "map",
+    "target_class": "org.redisson.api.RMap"
+  },
+  {
+    "source_class": "org.redisson.quarkus.client.it.QuarkusRedissonClientResource",
+    "source_method": "remoteService",
+    "target_class": "org.redisson.api.RRemoteService"
+  },
+  {
+    "source_class": "org.redisson.quarkus.client.it.QuarkusRedissonClientResource",
+    "source_method": "pingAll",
+    "target_class": "org.redisson.api.RedissonClient"
+  },
+  {
+    "source_class": "org.redisson.quarkus.client.it.QuarkusRedissonClientResource",
+    "source_method": "executeTask",
+    "target_class": "org.redisson.api.RedissonClient"
+  },
+  {
+    "source_class": "io.quarkus.redisson.client.runtime.RedissonClientProducer",
+    "source_method": "close",
+    "target_class": "org.redisson.api.RedissonClient"
+  },
+  {
+    "source_class": "io.quarkus.redisson.client.deployment.QuarkusRedissonClientProcessor",
+    "source_method": "build",
+    "target_class": "io.quarkus.redisson.client.runtime.RedissonClientRecorder"
+  }
+]

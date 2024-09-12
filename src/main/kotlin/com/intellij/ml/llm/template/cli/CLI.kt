@@ -6,10 +6,6 @@ import kotlinx.cli.*
 import java.nio.file.Files
 import kotlin.io.path.Path
 
-enum class ProgramOptions{
-    checkIfStatic,
-    findFieldTypes
-}
 
 @ExperimentalCli
 fun main(args: Array<String>){
@@ -18,7 +14,7 @@ fun main(args: Array<String>){
     val parser = ArgParser("example")
     val input by parser.option(ArgType.String, shortName = "i", description = "Input file").required()
     val output by parser.option(ArgType.String, shortName = "o", description = "Output file name").required()
-    class CheckIfStatic: Subcommand(ProgramOptions.checkIfStatic.name, "Check if method is static?") {
+    class CheckIfStatic: Subcommand("checkIfStatic", "Check if method is static?") {
         val methodSignatureString by option(ArgType.String, "methodSignature", "s", "method signature").required()
 
         override fun execute() {
@@ -41,9 +37,47 @@ fun main(args: Array<String>){
             )
         }
     }
-    val checkIfStatic = CheckIfStatic()
-    val findFieldTypes = FindFieldTypes()
-    parser.subcommands(checkIfStatic, findFieldTypes)
+    class CheckIfClassStatic: Subcommand("checkIfClassStatic", "Check if class is static?") {
+        val className by option(ArgType.String, shortName = "c", description = "Class name").required()
+
+        override fun execute() {
+            try {
+                Files.createFile(Path(output))
+            } catch (e: Exception) {
+                print("file exists.")
+            }
+            Files.write(
+                Path(output),
+                JavaParsingUtils.isClassStatic(
+                    Path(input), className
+                ).toString().toByteArray()
+            )
+        }
+    }
+
+    class CheckIfClassExists: Subcommand("checkIfClassExists", "Check if class is exists") {
+        val className by option(ArgType.String, shortName = "c", description = "Class name").required()
+
+        override fun execute() {
+            try {
+                Files.createFile(Path(output))
+            } catch (e: Exception) {
+                print("file exists.")
+            }
+            Files.write(
+                Path(output),
+                JavaParsingUtils.doesClassExist(
+                    Path(input), className
+                ).toString().toByteArray()
+            )
+        }
+    }
+
+    parser.subcommands(
+        CheckIfStatic(),
+        FindFieldTypes(),
+        CheckIfClassStatic(),
+        CheckIfClassExists())
     parser.parse(args)
 
 }

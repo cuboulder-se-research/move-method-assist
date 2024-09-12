@@ -45,6 +45,7 @@ class ApplyMMOnProjectAndCommitIntention: ApplyMoveMethodOnProjectIntention() {
                         newEditor = editorFilePair.first
                         newFile = editorFilePair.second
                     }
+                    Thread.sleep(5000)
                     DumbService.getInstance(project).smartInvokeLater {
                         super.invokePlugin(project, newEditor, newFile)
                         invokeLaterFinished = true

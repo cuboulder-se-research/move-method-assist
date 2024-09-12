@@ -23,14 +23,16 @@ class JavaParsingUtils {
 
         fun isMethodStatic(filePath: Path, methodSignature: MethodSignature): Boolean{
             val parsed = JavaParser(ParserConfiguration().setLanguageLevel(ParserConfiguration.LanguageLevel.JAVA_21)).parse(filePath)
-            return parsed.result.get().findAll(MethodDeclaration::class.java)
+            val matchedMethods = parsed.result.get().findAll(MethodDeclaration::class.java)
                 .filter {
-                    it.isStatic && methodSignature.compare(it.signature)
-                }.isNotEmpty()
+                    methodSignature.compare(it.signature)
+                }
+            if (matchedMethods.isEmpty()) throw Exception("Couldn't find method in class.")
+            return matchedMethods.filter { it.isStatic }.isNotEmpty()
         }
 
         fun isMethodStatic(filePath: Path, methodSignature: String): Boolean{
-            val signature = MethodSignature.getMethodSignatureParts(methodSignature) ?: return false
+            val signature = MethodSignature.getMethodSignatureParts(methodSignature) ?: throw Exception("Unable to parse method signature.")
             return isMethodStatic(filePath, signature)
         }
 
@@ -40,17 +42,51 @@ class JavaParsingUtils {
                 ParserConfiguration()
                     .setLanguageLevel(ParserConfiguration.LanguageLevel.JAVA_21)
             ).parse(path)
-            return parsed.result.get()
+            val matchedClasses = parsed.result.get()
                 .findAll(ClassOrInterfaceDeclaration::class.java)
                 .filter {
                     it.fullyQualifiedName.get() == className
                 }
+            if (matchedClasses.isEmpty()) throw Exception("class not found.")
+            return matchedClasses
                 .map {
                     it.fields.map {
                         ClassField(it.variables[0].nameAsString, it.elementType.asString(), it.toString())
                     }
                 }.reduce { acc, classFields -> acc + classFields }
         }
+
+        fun isClassStatic(path: Path, className: String): Boolean {
+
+            val parsed = JavaParser(
+                ParserConfiguration()
+                    .setLanguageLevel(ParserConfiguration.LanguageLevel.JAVA_21)
+            ).parse(path)
+            val matchedClasses = parsed.result.get()
+                .findAll(ClassOrInterfaceDeclaration::class.java)
+                .filter {
+                    it.fullyQualifiedName.get() == className
+                }
+                .map {
+                    it.isStatic
+                }
+            if (matchedClasses.isEmpty()) throw Exception("Couldn't find class.")
+            return matchedClasses[0]
+        }
+
+        fun doesClassExist(path: Path, className: String): Boolean {
+            val parsed = JavaParser(
+                ParserConfiguration()
+                    .setLanguageLevel(ParserConfiguration.LanguageLevel.JAVA_21)
+            ).parse(path)
+            val matchedClasses = parsed.result.get()
+                .findAll(ClassOrInterfaceDeclaration::class.java)
+                .filter {
+                    it.fullyQualifiedName.isPresent && it.fullyQualifiedName.get() == className
+                }
+            return matchedClasses.isNotEmpty()
+        }
+
 
 //        fun findFieldTypes2(path: Path, className: String): List<ClassField> {
 

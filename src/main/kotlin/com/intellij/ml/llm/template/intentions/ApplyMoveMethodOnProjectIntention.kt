@@ -4,10 +4,12 @@ import com.intellij.ml.llm.template.LLMBundle
 import com.intellij.ml.llm.template.utils.openFileFromQualifiedName
 import com.intellij.openapi.application.invokeLater
 import com.intellij.openapi.editor.Editor
+import com.intellij.openapi.progress.BackgroundTaskQueue
 import com.intellij.openapi.progress.ProgressIndicator
 import com.intellij.openapi.progress.ProgressManager
 import com.intellij.openapi.progress.Task
 import com.intellij.openapi.progress.impl.BackgroundableProcessIndicator
+import com.intellij.openapi.progress.util.BackgroundTaskUtil
 import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiFile
 import dev.langchain4j.data.message.ChatMessage
@@ -16,6 +18,7 @@ import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import java.io.File
+
 
 open class ApplyMoveMethodOnProjectIntention: ApplyMoveMethodInteractiveIntention() {
 
@@ -71,5 +74,9 @@ open class ApplyMoveMethodOnProjectIntention: ApplyMoveMethodInteractiveIntentio
         if(invokeLaterFinished && finishedBackgroundTask==true) return true
         delay(checkPeriod)
         return waitForBackgroundFinish(maxDelay - checkPeriod, checkPeriod)
+    }
+    fun waitForImportFinish(project: Project){
+//        val tasks: List<Task?> = BackgroundTaskUtil.getRunningBackgroundTasks(ProgressManager.getInstance())
+        BackgroundTaskUtil()
     }
 }

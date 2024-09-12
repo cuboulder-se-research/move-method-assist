@@ -331,7 +331,7 @@ open class ApplyMoveMethodInteractiveIntention : ApplySuggestRefactoringIntentio
         functionPsi: PsiElement,
         uniqueSuggestions: List<MoveMethodSuggestion>
     ): String {
-        if (functionPsi.text.split("\\s+".toRegex()).size > llmContextLimit) {
+        if (runReadAction{ functionPsi.text }.split("\\s+".toRegex()).size > llmContextLimit) {
             return runReadAction{
                 val classPsi = functionPsi as PsiClass
                 val onlyMethodNames = uniqueSuggestions.map { it.methodName }

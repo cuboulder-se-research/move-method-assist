@@ -1,0 +1,667 @@
+[
+  {
+    "source_class": "run.halo.app.notification.UserNotificationQuery",
+    "source_method": "buildParameters",
+    "target_class": "run.halo.app.extension.router.QueryParamBuildUtil"
+  },
+  {
+    "source_class": "run.halo.app.notification.DefaultNotificationTemplateRender",
+    "source_method": "getBasicSetting",
+    "target_class": "run.halo.app.infra.SystemConfigurableEnvironmentFetcher"
+  },
+  {
+    "source_class": "run.halo.app.notification.ReasonNotificationTemplateSelectorImpl",
+    "source_method": "lookupTemplateByLocale",
+    "target_class": "java.util.Map<java.lang.String,java.util.Optional<run.halo.app.core.extension.notification.NotificationTemplate>>):run.halo.app.core.extension.notification.NotificationTemplate \t run.halo.app.notification.LanguageUtils"
+  },
+  {
+    "source_class": "run.halo.app.notification.DefaultNotificationCenter",
+    "source_method": "getReasonType",
+    "target_class": "run.halo.app.extension.ReactiveExtensionClient"
+  },
+  {
+    "source_class": "run.halo.app.notification.DefaultNotificationCenter",
+    "source_method": "getSubscriptionFieldQuery",
+    "target_class": "run.halo.app.core.extension.notification.Subscription.ReasonSubject):run.halo.app.extension.index.query.Query \t run.halo.app.extension.index.query.QueryFactory"
+  },
+  {
+    "source_class": "run.halo.app.notification.EmailNotifier",
+    "source_method": "appendRawBodyFooter",
+    "target_class": "run.halo.app.notification.NotificationTemplateRender"
+  },
+  {
+    "source_class": "run.halo.app.notification.EmailNotifier",
+    "source_method": "appendHtmlBodyFooter",
+    "target_class": "run.halo.app.notification.NotificationTemplateRender"
+  },
+  {
+    "source_class": "run.halo.app.security.AuthProviderServiceImpl",
+    "source_method": "supportsBinding",
+    "target_class": "run.halo.app.extension.MetadataUtil"
+  },
+  {
+    "source_class": "run.halo.app.security.AuthProviderServiceImpl",
+    "source_method": "getAuthProvider",
+    "target_class": "run.halo.app.infra.utils.JsonUtils"
+  },
+  {
+    "source_class": "run.halo.app.extension.index.IndexEntryContainer",
+    "source_method": "add",
+    "target_class": "run.halo.app.extension.index.IndexEntry"
+  },
+  {
+    "source_class": "run.halo.app.extension.index.DefaultIndexer",
+    "source_method": "getObjectKey",
+    "target_class": "run.halo.app.extension.index.PrimaryKeySpecUtils"
+  },
+  {
+    "source_class": "run.halo.app.extension.index.PrimaryKeySpecUtils",
+    "source_method": "primaryKeyIndexSpec",
+    "target_class": "run.halo.app.extension.ExtensionOperator"
+  },
+  {
+    "source_class": "run.halo.app.extension.index.PrimaryKeySpecUtils",
+    "source_method": "getObjectPrimaryKey",
+    "target_class": "run.halo.app.extension.ExtensionOperator"
+  },
+  {
+    "source_class": "run.halo.app.extension.index.LabelIndexSpecUtils",
+    "source_method": "labelIndexSpec",
+    "target_class": "run.halo.app.extension.index.IndexAttributeFactory"
+  },
+  {
+    "source_class": "run.halo.app.extension.DefaultSchemeManager",
+    "source_method": "getWatchers",
+    "target_class": "run.halo.app.extension.SchemeWatcherManager"
+  },
+  {
+    "source_class": "run.halo.app.infra.SystemState",
+    "source_method": "deserialize",
+    "target_class": "run.halo.app.infra.utils.JsonUtils"
+  },
+  {
+    "source_class": "run.halo.app.infra.SystemState",
+    "source_method": "update",
+    "target_class": "run.halo.app.extension.ConfigMap):void \t run.halo.app.infra.utils.JsonUtils"
+  },
+  {
+    "source_class": "run.halo.app.infra.utils.FileUtils",
+    "source_method": "unzip",
+    "target_class": "java.nio.file.Path, run.halo.app.infra.utils.Scheduler):run.halo.app.infra.utils.Mono<java.lang.Void> \t run.halo.app.infra.utils.DataBufferUtils"
+  },
+  {
+    "source_class": "run.halo.app.theme.endpoint.CommentFinderEndpoint.CommentQuery",
+    "source_method": "buildParameters",
+    "target_class": "run.halo.app.extension.router.QueryParamBuildUtil"
+  },
+  {
+    "source_class": "run.halo.app.theme.endpoint.PublicApiUtils",
+    "source_method": "groupVersion",
+    "target_class": "run.halo.app.extension.ExtensionOperator"
+  },
+  {
+    "source_class": "run.halo.app.theme.endpoint.PublicApiUtils",
+    "source_method": "toAnotherListResult",
+    "target_class": "java.util.function.Function<T,R>):run.halo.app.extension.ListResult<R> \t run.halo.app.extension.ListResult"
+  },
+  {
+    "source_class": "run.halo.app.theme.finders.vo.SinglePageVo",
+    "source_method": "from",
+    "target_class": "run.halo.app.extension.ExtensionOperator"
+  },
+  {
+    "source_class": "run.halo.app.theme.finders.vo.MenuItemVo",
+    "source_method": "from",
+    "target_class": "run.halo.app.extension.ExtensionOperator"
+  },
+  {
+    "source_class": "run.halo.app.theme.finders.vo.ThemeVo",
+    "source_method": "from",
+    "target_class": "run.halo.app.extension.ExtensionOperator"
+  },
+  {
+    "source_class": "run.halo.app.theme.finders.vo.CategoryVo",
+    "source_method": "from",
+    "target_class": "run.halo.app.core.extension.content.Category"
+  },
+  {
+    "source_class": "run.halo.app.theme.finders.vo.CategoryTreeVo",
+    "source_method": "from",
+    "target_class": "run.halo.app.theme.finders.vo.ExtensionVoOperator"
+  },
+  {
+    "source_class": "run.halo.app.theme.finders.vo.ListedPostVo",
+    "source_method": "from",
+    "target_class": "run.halo.app.core.extension.content.Post"
+  },
+  {
+    "source_class": "run.halo.app.theme.finders.vo.SiteSettingVo",
+    "source_method": "toObject",
+    "target_class": "java.lang.Class<T>):T \t run.halo.app.infra.utils.JsonUtils"
+  },
+  {
+    "source_class": "run.halo.app.theme.finders.vo.UserVo",
+    "source_method": "from",
+    "target_class": "run.halo.app.infra.utils.JsonUtils"
+  },
+  {
+    "source_class": "run.halo.app.theme.finders.vo.PostVo",
+    "source_method": "from",
+    "target_class": "run.halo.app.core.extension.content.Post"
+  },
+  {
+    "source_class": "run.halo.app.theme.finders.vo.PostVo",
+    "source_method": "from",
+    "target_class": "run.halo.app.theme.finders.vo.ExtensionVoOperator"
+  },
+  {
+    "source_class": "run.halo.app.theme.finders.vo.ReplyVo",
+    "source_method": "from",
+    "target_class": "run.halo.app.extension.ExtensionOperator"
+  },
+  {
+    "source_class": "run.halo.app.theme.finders.vo.ListedSinglePageVo",
+    "source_method": "from",
+    "target_class": "run.halo.app.extension.ExtensionOperator"
+  },
+  {
+    "source_class": "run.halo.app.theme.finders.vo.ContributorVo",
+    "source_method": "from",
+    "target_class": "run.halo.app.extension.ExtensionOperator"
+  },
+  {
+    "source_class": "run.halo.app.theme.finders.vo.CommentWithReplyVo",
+    "source_method": "from",
+    "target_class": "run.halo.app.extension.ListResult"
+  },
+  {
+    "source_class": "run.halo.app.theme.finders.vo.TagVo",
+    "source_method": "from",
+    "target_class": "run.halo.app.core.extension.content.Tag"
+  },
+  {
+    "source_class": "run.halo.app.theme.finders.vo.CommentVo",
+    "source_method": "from",
+    "target_class": "run.halo.app.extension.ExtensionOperator"
+  },
+  {
+    "source_class": "run.halo.app.theme.finders.vo.MenuVo",
+    "source_method": "from",
+    "target_class": "run.halo.app.extension.ExtensionOperator"
+  },
+  {
+    "source_class": "run.halo.app.theme.router.factories.PostRouteFactory.PostPatternVariable",
+    "source_method": "from",
+    "target_class": "run.halo.app.theme.router.factories.PostRouteFactory"
+  },
+  {
+    "source_class": "run.halo.app.theme.router.factories.ArchiveRouteFactory.ArchivePathVariables",
+    "source_method": "from",
+    "target_class": "run.halo.app.infra.utils.JsonUtils"
+  },
+  {
+    "source_class": "run.halo.app.theme.router.ModelMapUtils",
+    "source_method": "postModel",
+    "target_class": "run.halo.app.extension.MetadataOperator"
+  },
+  {
+    "source_class": "run.halo.app.theme.router.ModelMapUtils",
+    "source_method": "singlePageModel",
+    "target_class": "run.halo.app.extension.MetadataOperator"
+  },
+  {
+    "source_class": "run.halo.app.theme.ThemeLinkBuilder",
+    "source_method": "linkInSite",
+    "target_class": "java.lang.String):boolean \t run.halo.app.infra.utils.PathUtils"
+  },
+  {
+    "source_class": "run.halo.app.theme.ThemeLinkBuilder",
+    "source_method": "isAssetsRequest",
+    "target_class": "run.halo.app.infra.ExternalUrlSupplier"
+  },
+  {
+    "source_class": "run.halo.app.theme.dialect.CommentEnabledVariableProcessor",
+    "source_method": "getCommentWidget",
+    "target_class": "run.halo.app.infra.SystemConfigurableEnvironmentFetcher"
+  },
+  {
+    "source_class": "run.halo.app.theme.dialect.DefaultFaviconHeadProcessor",
+    "source_method": "fetchBasicSetting",
+    "target_class": "run.halo.app.infra.SystemConfigurableEnvironmentFetcher"
+  },
+  {
+    "source_class": "run.halo.app.theme.dialect.TemplateGlobalHeadProcessor",
+    "source_method": "fetchCodeInjection",
+    "target_class": "run.halo.app.infra.SystemConfigurableEnvironmentFetcher"
+  },
+  {
+    "source_class": "run.halo.app.theme.dialect.expression.Annotations",
+    "source_method": "get",
+    "target_class": "java.lang.String):java.lang.String \t run.halo.app.theme.finders.vo.ExtensionVoOperator"
+  },
+  {
+    "source_class": "run.halo.app.theme.dialect.expression.Annotations",
+    "source_method": "getOrDefault",
+    "target_class": "java.lang.String, java.lang.String):java.lang.String \t run.halo.app.theme.finders.vo.ExtensionVoOperator"
+  },
+  {
+    "source_class": "run.halo.app.theme.dialect.expression.Annotations",
+    "source_method": "contains",
+    "target_class": "java.lang.String):boolean \t run.halo.app.theme.finders.vo.ExtensionVoOperator"
+  },
+  {
+    "source_class": "run.halo.app.plugin.DefaultPluginApplicationContextFactory.PluginWebSocketEndpointManager",
+    "source_method": "onApplicationEvent",
+    "target_class": "run.halo.app.core.endpoint.WebSocketEndpointManager"
+  },
+  {
+    "source_class": "run.halo.app.plugin.DefaultPluginApplicationContextFactory.PluginRouterFunctionManager",
+    "source_method": "onApplicationEvent",
+    "target_class": "run.halo.app.plugin.PluginRouterFunctionRegistry"
+  },
+  {
+    "source_class": "run.halo.app.plugin.DefaultPluginApplicationContextFactory.PluginHandlerMappingManager",
+    "source_method": "onApplicationEvent",
+    "target_class": "run.halo.app.plugin.PluginRequestMappingHandlerMapping"
+  },
+  {
+    "source_class": "run.halo.app.plugin.PluginUtils",
+    "source_method": "generateFileName",
+    "target_class": "run.halo.app.extension.ExtensionOperator"
+  },
+  {
+    "source_class": "run.halo.app.plugin.PluginUtils",
+    "source_method": "isDevelopmentMode",
+    "target_class": "run.halo.app.extension.ExtensionOperator"
+  },
+  {
+    "source_class": "run.halo.app.plugin.PluginExtensionLoaderUtils",
+    "source_method": "isSetting",
+    "target_class": "run.halo.app.extension.MetadataOperator"
+  },
+  {
+    "source_class": "run.halo.app.plugin.resources.BundleResourceUtils",
+    "source_method": "getJsBundleResource",
+    "target_class": "java.lang.String, java.lang.String):run.halo.app.plugin.resources.Resource \t run.halo.app.infra.utils.PathUtils"
+  },
+  {
+    "source_class": "run.halo.app.plugin.resources.ReverseProxyRouterFunctionFactory",
+    "source_method": "buildRoutePath",
+    "target_class": "run.halo.app.plugin.resources.ReverseProxyRule):java.lang.String \t run.halo.app.infra.utils.PathUtils"
+  },
+  {
+    "source_class": "run.halo.app.search.PostDocUtils",
+    "source_method": "from",
+    "target_class": "run.halo.app.extension.MetadataOperator"
+  },
+  {
+    "source_class": "run.halo.app.search.post.PostEventReconciler",
+    "source_method": "handlePostEvent",
+    "target_class": "run.halo.app.extension.controller.RequestQueue"
+  },
+  {
+    "source_class": "run.halo.app.core.extension.endpoint.PluginEndpoint.ListRequest",
+    "source_method": "buildParameters",
+    "target_class": "run.halo.app.extension.router.QueryParamBuildUtil"
+  },
+  {
+    "source_class": "run.halo.app.core.extension.endpoint.UserEndpoint.ListRequest",
+    "source_method": "buildParameters",
+    "target_class": "run.halo.app.extension.router.QueryParamBuildUtil"
+  },
+  {
+    "source_class": "run.halo.app.core.extension.endpoint.TagEndpoint.TagQuery",
+    "source_method": "buildParameters",
+    "target_class": "run.halo.app.extension.router.QueryParamBuildUtil"
+  },
+  {
+    "source_class": "run.halo.app.core.extension.attachment.endpoint.AttachmentEndpoint.ISearchRequest",
+    "source_method": "buildParameters",
+    "target_class": "run.halo.app.extension.router.QueryParamBuildUtil"
+  },
+  {
+    "source_class": "run.halo.app.core.extension.reconciler.ThemeReconciler",
+    "source_method": "addFinalizerIfNecessary",
+    "target_class": "run.halo.app.extension.ExtensionClient"
+  },
+  {
+    "source_class": "run.halo.app.core.extension.reconciler.ThemeReconciler",
+    "source_method": "cleanUpResourcesAndRemoveFinalizer",
+    "target_class": "run.halo.app.extension.ExtensionClient"
+  },
+  {
+    "source_class": "run.halo.app.core.extension.reconciler.ThemeReconciler",
+    "source_method": "listAnnotationSettingsByThemeName",
+    "target_class": "run.halo.app.extension.ExtensionClient"
+  },
+  {
+    "source_class": "run.halo.app.core.extension.reconciler.CategoryReconciler",
+    "source_method": "populatePermalinkPattern",
+    "target_class": "run.halo.app.content.permalinks.CategoryPermalinkPolicy"
+  },
+  {
+    "source_class": "run.halo.app.core.extension.reconciler.ReverseProxyReconciler",
+    "source_method": "addFinalizerIfNecessary",
+    "target_class": "run.halo.app.extension.ExtensionClient"
+  },
+  {
+    "source_class": "run.halo.app.core.extension.reconciler.ReverseProxyReconciler",
+    "source_method": "cleanUpResourcesAndRemoveFinalizer",
+    "target_class": "run.halo.app.extension.ExtensionClient"
+  },
+  {
+    "source_class": "run.halo.app.core.extension.reconciler.UserReconciler",
+    "source_method": "ensureRoleNamesAnno",
+    "target_class": "run.halo.app.extension.ExtensionClient"
+  },
+  {
+    "source_class": "run.halo.app.core.extension.reconciler.UserReconciler",
+    "source_method": "getUserPermalink",
+    "target_class": "run.halo.app.infra.ExternalUrlSupplier"
+  },
+  {
+    "source_class": "run.halo.app.core.extension.reconciler.UserReconciler",
+    "source_method": "addFinalizerIfNecessary",
+    "target_class": "run.halo.app.extension.ExtensionClient"
+  },
+  {
+    "source_class": "run.halo.app.core.extension.reconciler.UserReconciler",
+    "source_method": "cleanUpResourcesAndRemoveFinalizer",
+    "target_class": "run.halo.app.extension.ExtensionClient"
+  },
+  {
+    "source_class": "run.halo.app.core.extension.reconciler.RoleReconciler",
+    "source_method": "updateLabelsAndAnnotations",
+    "target_class": "run.halo.app.extension.ExtensionClient"
+  },
+  {
+    "source_class": "run.halo.app.core.extension.reconciler.CommentReconciler",
+    "source_method": "getBaseQuery",
+    "target_class": "run.halo.app.extension.index.query.QueryFactory"
+  },
+  {
+    "source_class": "run.halo.app.core.extension.reconciler.SystemSettingReconciler",
+    "source_method": "addFinalizerIfNecessary",
+    "target_class": "run.halo.app.extension.ExtensionClient"
+  },
+  {
+    "source_class": "run.halo.app.core.extension.reconciler.SystemSettingReconciler.RouteRuleReconciler",
+    "source_method": "changePostPatternPrefixIfNecessary",
+    "target_class": "run.halo.app.infra.SystemSetting.ThemeRouteRules):boolean \t run.halo.app.infra.utils.PathUtils"
+  },
+  {
+    "source_class": "run.halo.app.core.extension.reconciler.SystemSettingReconciler",
+    "source_method": "getConfigMap",
+    "target_class": "run.halo.app.infra.SystemConfigurableEnvironmentFetcher"
+  },
+  {
+    "source_class": "run.halo.app.core.extension.reconciler.SinglePageReconciler",
+    "source_method": "cleanUpResourcesAndRemoveFinalizer",
+    "target_class": "run.halo.app.extension.ExtensionClient"
+  },
+  {
+    "source_class": "run.halo.app.core.extension.reconciler.PostCounterReconciler",
+    "source_method": "isSameAsPost",
+    "target_class": "run.halo.app.metrics.MeterUtils"
+  },
+  {
+    "source_class": "run.halo.app.core.extension.service.impl.EmailPasswordRecoveryServiceImpl",
+    "source_method": "getResetPasswordLink",
+    "target_class": "java.lang.String):java.lang.String \t run.halo.app.infra.ExternalLinkProcessor"
+  },
+  {
+    "source_class": "run.halo.app.core.extension.theme.ThemeServiceImpl",
+    "source_method": "populateThemeNameLabel",
+    "target_class": "java.lang.String):void \t run.halo.app.extension.Unstructured"
+  },
+  {
+    "source_class": "run.halo.app.core.extension.theme.SettingUtils",
+    "source_method": "settingDefinedDefaultValueMap",
+    "target_class": "run.halo.app.infra.utils.JsonUtils"
+  },
+  {
+    "source_class": "run.halo.app.core.extension.theme.SettingUtils",
+    "source_method": "createOrUpdateConfigMap",
+    "target_class": "java.lang.String, java.lang.String):void \t run.halo.app.extension.ExtensionClient"
+  },
+  {
+    "source_class": "run.halo.app.core.extension.theme.SettingUtils",
+    "source_method": "populateDefaultConfig",
+    "target_class": "java.lang.String):run.halo.app.extension.ConfigMap \t run.halo.app.extension.ExtensionOperator"
+  },
+  {
+    "source_class": "run.halo.app.core.extension.theme.ThemeUtils",
+    "source_method": "findThemeManifest",
+    "target_class": "run.halo.app.infra.utils.YamlUnstructuredLoader"
+  },
+  {
+    "source_class": "run.halo.app.core.extension.theme.ThemeUtils",
+    "source_method": "loadThemeResources",
+    "target_class": "run.halo.app.infra.utils.YamlUnstructuredLoader"
+  },
+  {
+    "source_class": "run.halo.app.core.extension.theme.ThemeUtils",
+    "source_method": "unzipThemeTo",
+    "target_class": "java.nio.file.Path, boolean, run.halo.app.core.extension.theme.Scheduler):run.halo.app.core.extension.theme.Mono<run.halo.app.extension.Unstructured> \t run.halo.app.infra.utils.FileUtils"
+  },
+  {
+    "source_class": "run.halo.app.core.extension.theme.ThemeUtils",
+    "source_method": "loadThemeManifest",
+    "target_class": "run.halo.app.infra.utils.YamlUnstructuredLoader"
+  },
+  {
+    "source_class": "run.halo.app.migration.BackupReconciler",
+    "source_method": "isTerminal",
+    "target_class": "run.halo.app.migration.Backup.Phase"
+  },
+  {
+    "source_class": "run.halo.app.content.comment.CommentNotificationReasonPublisher.ReasonDataConverter",
+    "source_method": "toAttributeMap",
+    "target_class": "run.halo.app.infra.utils.JsonUtils"
+  },
+  {
+    "source_class": "run.halo.app.content.comment.CommentNotificationReasonPublisher",
+    "source_method": "identityFrom",
+    "target_class": "run.halo.app.core.extension.content.Comment.CommentOwner"
+  },
+  {
+    "source_class": "run.halo.app.content.comment.CommentQuery",
+    "source_method": "buildParameters",
+    "target_class": "run.halo.app.extension.router.QueryParamBuildUtil"
+  },
+  {
+    "source_class": "run.halo.app.content.comment.OwnerInfo",
+    "source_method": "from",
+    "target_class": "run.halo.app.core.extension.content.Comment.CommentOwner"
+  },
+  {
+    "source_class": "run.halo.app.content.comment.OwnerInfo",
+    "source_method": "from",
+    "target_class": "run.halo.app.extension.MetadataOperator"
+  },
+  {
+    "source_class": "run.halo.app.content.PostQuery",
+    "source_method": "buildParameters",
+    "target_class": "run.halo.app.extension.router.QueryParamBuildUtil"
+  },
+  {
+    "source_class": "run.halo.app.content.PostSorter",
+    "source_method": "from",
+    "target_class": "run.halo.app.extension.ExtensionOperator"
+  },
+  {
+    "source_class": "run.halo.app.content.ContentWrapper",
+    "source_method": "patchSnapshot",
+    "target_class": "run.halo.app.core.extension.content.Snapshot):run.halo.app.content.ContentWrapper \t run.halo.app.content.PatchUtils"
+  },
+  {
+    "source_class": "run.halo.app.content.CategoryPostCountUpdater.CategoryPostCountService",
+    "source_method": "basePostQuery",
+    "target_class": "run.halo.app.extension.index.query.QueryFactory"
+  },
+  {
+    "source_class": "run.halo.app.content.SinglePageQuery",
+    "source_method": "buildParameters",
+    "target_class": "run.halo.app.extension.router.QueryParamBuildUtil"
+  },
+  {
+    "source_class": "run.halo.app.content.ListedSnapshotDto",
+    "source_method": "from",
+    "target_class": "run.halo.app.extension.ExtensionOperator"
+  },
+  {
+    "source_class": "run.halo.app.content.PatchUtils",
+    "source_method": "create",
+    "target_class": "run.halo.app.infra.utils.JsonUtils"
+  },
+  {
+    "source_class": "run.halo.app.content.PatchUtils",
+    "source_method": "patchToJson",
+    "target_class": "run.halo.app.infra.utils.JsonUtils"
+  },
+  {
+    "source_class": "run.halo.app.extension.Ref",
+    "source_method": "of",
+    "target_class": "run.halo.app.extension.ExtensionOperator"
+  },
+  {
+    "source_class": "run.halo.app.extension.Comparators",
+    "source_method": "compareCreationTimestamp",
+    "target_class": "run.halo.app.extension.ExtensionOperator"
+  },
+  {
+    "source_class": "run.halo.app.extension.Comparators",
+    "source_method": "compareName",
+    "target_class": "run.halo.app.extension.ExtensionOperator"
+  },
+  {
+    "source_class": "run.halo.app.extension.MetadataUtil",
+    "source_method": "nullSafeLabels",
+    "target_class": "run.halo.app.extension.ExtensionOperator"
+  },
+  {
+    "source_class": "run.halo.app.extension.MetadataUtil",
+    "source_method": "nullSafeAnnotations",
+    "target_class": "run.halo.app.extension.ExtensionOperator"
+  },
+  {
+    "source_class": "run.halo.app.extension.index.query.GreaterThanQuery",
+    "source_method": "resultSetForRefValue",
+    "target_class": "run.halo.app.extension.index.query.QueryIndexView"
+  },
+  {
+    "source_class": "run.halo.app.extension.index.query.LessThanQuery",
+    "source_method": "resultSetForRefValue",
+    "target_class": "run.halo.app.extension.index.query.QueryIndexView"
+  },
+  {
+    "source_class": "run.halo.app.extension.index.query.EqualQuery",
+    "source_method": "resultSetForRefValue",
+    "target_class": "run.halo.app.extension.index.query.QueryIndexView"
+  },
+  {
+    "source_class": "run.halo.app.extension.index.query.EqualQuery",
+    "source_method": "resultSetForExactValue",
+    "target_class": "run.halo.app.extension.index.query.QueryIndexView"
+  },
+  {
+    "source_class": "run.halo.app.extension.router.SortableRequest",
+    "source_method": "buildParameters",
+    "target_class": "run.halo.app.extension.router.QueryParamBuildUtil"
+  },
+  {
+    "source_class": "run.halo.app.extension.router.selector.SelectorUtil",
+    "source_method": "labelAndFieldSelectorToListOptions",
+    "target_class": "java.util.List<java.lang.String>):run.halo.app.extension.ListOptions \t run.halo.app.extension.index.query.QueryFactory"
+  },
+  {
+    "source_class": "run.halo.app.extension.router.selector.EqualityMatcher",
+    "source_method": "equal",
+    "target_class": "java.lang.String):run.halo.app.extension.router.selector.EqualityMatcher \t run.halo.app.extension.router.selector.EqualityMatcher.Operator"
+  },
+  {
+    "source_class": "run.halo.app.extension.ExtensionUtil",
+    "source_method": "isDeleted",
+    "target_class": "run.halo.app.extension.MetadataOperator"
+  },
+  {
+    "source_class": "run.halo.app.extension.ExtensionUtil",
+    "source_method": "addFinalizers",
+    "target_class": "java.util.Set<java.lang.String>):boolean \t run.halo.app.extension.MetadataOperator"
+  },
+  {
+    "source_class": "run.halo.app.extension.ExtensionUtil",
+    "source_method": "removeFinalizers",
+    "target_class": "java.util.Set<java.lang.String>):boolean \t run.halo.app.extension.MetadataOperator"
+  },
+  {
+    "source_class": "run.halo.app.extension.WatcherExtensionMatchers",
+    "source_method": "emptyMatcher",
+    "target_class": "run.halo.app.extension.GroupVersionKind):run.halo.app.extension.ExtensionMatcher \t run.halo.app.extension.DefaultExtensionMatcher"
+  },
+  {
+    "source_class": "run.halo.app.extension.ListResult",
+    "source_method": "generateGenericClass",
+    "target_class": "run.halo.app.infra.utils.GenericClassUtils"
+  },
+  {
+    "source_class": "run.halo.app.extension.ListResult",
+    "source_method": "generateGenericClass",
+    "target_class": "run.halo.app.infra.utils.GenericClassUtils"
+  },
+  {
+    "source_class": "run.halo.app.infra.SystemSetting",
+    "source_method": "get",
+    "target_class": "java.lang.String, java.lang.Class<T>):T \t run.halo.app.infra.utils.JsonUtils"
+  },
+  {
+    "source_class": "run.halo.app.theme.router.PageUrlUtils",
+    "source_method": "nextPageUrl",
+    "target_class": "long):java.lang.String \t run.halo.app.infra.utils.PathUtils"
+  },
+  {
+    "source_class": "run.halo.app.theme.router.PageUrlUtils",
+    "source_method": "prevPageUrl",
+    "target_class": "run.halo.app.infra.utils.PathUtils"
+  },
+  {
+    "source_class": "run.halo.app.theme.router.PageUrlUtils",
+    "source_method": "appendPagePart",
+    "target_class": "long):java.lang.String \t run.halo.app.infra.utils.PathUtils"
+  },
+  {
+    "source_class": "run.halo.app.core.extension.Counter",
+    "source_method": "emptyCounter",
+    "target_class": "run.halo.app.extension.ExtensionOperator"
+  },
+  {
+    "source_class": "run.halo.app.core.extension.RoleBinding",
+    "source_method": "containsUser",
+    "target_class": "run.halo.app.extension.ExtensionOperator"
+  },
+  {
+    "source_class": "run.halo.app.core.extension.RoleBinding",
+    "source_method": "containsUser",
+    "target_class": "run.halo.app.extension.ExtensionOperator"
+  },
+  {
+    "source_class": "run.halo.app.core.extension.content.Comment",
+    "source_method": "getUnreadReplyCount",
+    "target_class": "java.time.Instant):int \t run.halo.app.extension.ExtensionOperator"
+  },
+  {
+    "source_class": "run.halo.app.core.extension.content.SinglePage",
+    "source_method": "changePublishedState",
+    "target_class": "boolean):void \t run.halo.app.extension.MetadataUtil"
+  },
+  {
+    "source_class": "run.halo.app.core.extension.content.Post",
+    "source_method": "isPublished",
+    "target_class": "run.halo.app.extension.MetadataOperator"
+  },
+  {
+    "source_class": "run.halo.app.core.extension.content.Post",
+    "source_method": "isPublic",
+    "target_class": "run.halo.app.core.extension.content.Post.VisibleEnum"
+  }
+]

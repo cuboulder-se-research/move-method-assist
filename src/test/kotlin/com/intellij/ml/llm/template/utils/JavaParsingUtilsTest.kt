@@ -37,6 +37,40 @@ class JavaParsingUtilsTest{
     }
 
     @Test
+    fun testIsStaticClass(){
+        val filePath = "/Users/abhiram/Documents/TBE/evaluation_projects/flink/flink-runtime/src/main/java/org/apache/flink/runtime/clusterframework/BootstrapTools.java"
+        val className = "org.apache.flink.runtime.clusterframework.BootstrapTools"
+        assertFalse(
+            JavaParsingUtils.isClassStatic(Path(filePath), className)
+        )
+
+    }
+
+
+    @Test
+    fun testIsStaticClass2(){
+        val filePath = "/Users/abhiram/Documents/TBE/evaluation_projects/flink/flink-runtime/src/main/java/org/apache/flink/runtime/io/network/partition/hybrid/HsSubpartitionFileReaderImpl.java"
+        val className = "org.apache.flink.runtime.io.network.partition.hybrid.HsSubpartitionFileReaderImpl.BufferIndexOrError"
+        assertTrue(
+            JavaParsingUtils.isClassStatic(Path(filePath), className)
+        )
+
+    }
+
+    @Test
+    fun testIsStaticClass3() {
+        val filePath =
+            "/Users/abhiram/Documents/TBE/evaluation_projects/ruoyi-vue-pro/yudao-module-crm/yudao-module-crm-biz/src/main/java/cn/iocoder/yudao/module/crm/util/CrmQueryWrapperUtils.java"
+        val className = "cn.iocoder.yudao.module.crm.util.CrmQueryWrapperUtils"
+        assertFalse(
+            JavaParsingUtils.isClassStatic(Path(filePath), className)
+        )
+    }
+
+
+
+
+        @Test
     fun testFindFields(){
         val filePath = "/Users/abhiram/Documents/TBE/RefactoringMiner/src/main/java/org/refactoringminer/util/AstUtils.java"
         assertTrue(
@@ -62,6 +96,15 @@ class JavaParsingUtilsTest{
         print(fields)
         assertTrue(
             fields.isNotEmpty()
+        )
+    }
+
+    @Test
+    fun testClassExists(){
+        val path = "/Users/abhiram/Documents/TBE/evaluation_projects/elasticsearch/test/framework/src/main/java/org/elasticsearch/common/logging/ChunkedLoggingStreamTestUtils.java"
+        val qualName= "org.elasticsearch.common.logging.ChunkedLoggingStreamTestUtils"
+        assertTrue(
+            JavaParsingUtils.doesClassExist(Path(path), qualName)
         )
     }
 }

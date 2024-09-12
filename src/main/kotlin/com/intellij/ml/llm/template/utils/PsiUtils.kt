@@ -4,15 +4,18 @@ import com.intellij.lang.Language
 import com.intellij.lang.java.JavaLanguage
 import com.intellij.openapi.application.runReadAction
 import com.intellij.openapi.editor.Editor
-import com.intellij.openapi.progress.ModalTaskOwner.project
 import com.intellij.openapi.project.Project
+import com.intellij.openapi.roots.ProjectRootManager
 import com.intellij.openapi.util.NlsSafe
-import com.intellij.patterns.PsiJavaPatterns.psiClass
+import com.intellij.openapi.vfs.VirtualFile
 import com.intellij.psi.*
 import com.intellij.psi.impl.source.PsiClassReferenceType
+import com.intellij.psi.search.GlobalSearchScope
+import com.intellij.psi.search.searches.AllClassesSearch
 import com.intellij.psi.util.PsiTreeUtil
 import com.intellij.psi.util.PsiUtilBase
 import com.intellij.psi.util.childrenOfType
+import com.intellij.util.Processor
 import org.jetbrains.kotlin.idea.KotlinLanguage
 import org.jetbrains.kotlin.idea.base.psi.getLineNumber
 import org.jetbrains.kotlin.idea.base.util.projectScope
@@ -20,6 +23,7 @@ import org.jetbrains.kotlin.j2k.accessModifier
 import org.jetbrains.kotlin.psi.*
 import org.jetbrains.kotlin.psi.psiUtil.startOffset
 import kotlin.math.sqrt
+
 
 class PsiUtils {
     companion object {
@@ -309,6 +313,36 @@ class PsiUtils {
             return emptyList()
         }
 
+
+        internal class MyGlobalSearchScope(project: Project?) : GlobalSearchScope(project) {
+            private val index = ProjectRootManager.getInstance(project!!).fileIndex
+            init {
+
+            }
+            override fun isSearchInLibraries(): Boolean {
+                return false
+            }
+            override fun contains(file: VirtualFile): Boolean {
+                return index.isInSourceContent(file)
+            }
+            override fun isSearchInModuleContent(aModule: com.intellij.openapi.module.Module): Boolean {
+                return false
+            }
+        }
+
+        fun fetchClassesInProject(containingClass: PsiClass, project: Project): List<PsiClass>{
+            val classList : MutableList<PsiClass> = mutableListOf()
+            AllClassesSearch.search(MyGlobalSearchScope(project), project).allowParallelProcessing()
+                .forEach(
+
+                    Processor<PsiClass> {
+                        psiClass: PsiClass-> classList.add(psiClass)
+                        true
+                    }
+                )
+            return classList
+        }
+
         fun fetchImportsInFile(file: PsiFile, project: Project): List<PsiClass> {
             return file.childrenOfType<PsiImportStatement>()
                 .map {
@@ -331,6 +365,8 @@ class PsiUtils {
         }
 
         fun computeCosineSimilarity(psiMethod: PsiMethod, psiClass: PsiClass): Double {
+            if (psiMethod.text==null) return 0.0
+            if (psiClass.text==null) return 0.0
             val methodBody = psiMethod.text
             val classBody = psiClass.text
 

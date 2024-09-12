@@ -1,0 +1,88 @@
+Refactoring Type	Source Method	Target Class	Similarity Indice
+Move Method	org.apache.kafka.clients.consumer.internals.ConsumerCoordinatorTest::teardown():void	org.apache.kafka.common.utils.MockTime	0.9479166666666667
+Move Method	org.apache.kafka.common.telemetry.internals.KafkaMetricsCollector.StateLedger::delta(MetricKey, Instant, Double):InstantAndValue<Double>	org.apache.kafka.common.telemetry.internals.LastValueTracker	1.0
+Move Method	org.apache.kafka.common.requests.ApiErrorTest::fromThrowableShouldReturnCorrectError(Throwable, Errors, String):void	org.apache.kafka.common.protocol.Errors	0.5845986984815618
+Move Method	org.apache.kafka.common.security.oauthbearer.internals.secured.RefreshingHttpsJwksTest::mockExecutorService(MockTime):ScheduledExecutorService	org.apache.kafka.common.utils.MockTime	1.0
+Move Method	org.apache.kafka.common.record.MemoryRecords::filterTo(TopicPartition, RecordFilter, ByteBuffer, int, BufferSupplier):FilterResult	org.apache.kafka.common.TopicPartition	0.6249999999999999
+Move Method	org.apache.kafka.clients.consumer.KafkaShareConsumerMetricsTest::createMetadata(SubscriptionState):ConsumerMetadata	org.apache.kafka.clients.consumer.internals.SubscriptionState	0.42475540056185235
+Move Method	org.apache.kafka.common.network.Tls12SelectorTest::testRenegotiationFails():void	org.apache.kafka.common.network.EchoServer	0.24363830613830614
+Move Method	org.apache.kafka.clients.consumer.internals.AsyncKafkaConsumer::processBackgroundEvents():boolean	org.apache.kafka.clients.consumer.internals.events.CompletableEventReaper	0.5739795918367347
+Move Method	org.apache.kafka.common.network.Tls13SelectorTest::testKeyUpdate():void	org.apache.kafka.common.network.EchoServer	0.24363830613830614
+Move Method	org.apache.kafka.clients.consumer.internals.FetcherTest::fetchRequestMatcher(short, TopicIdPartition, long, Optional<Integer>):MockClient.RequestMatcher	org.apache.kafka.common.TopicIdPartition	0.7195767195767194
+Move Method	org.apache.kafka.clients.admin.Admin::describeTopics(Collection<String>, DescribeTopicsOptions):DescribeTopicsResult	org.apache.kafka.clients.admin.DescribeTopicsOptions	1.0
+Move Method	org.apache.kafka.common.security.oauthbearer.OAuthBearerValidatorCallbackHandler::handleValidatorCallback(OAuthBearerValidatorCallback):void	org.apache.kafka.common.security.oauthbearer.internals.secured.AccessTokenValidator	1.0
+Move Method	org.apache.kafka.clients.consumer.internals.FetchMetricsManager::maybeUpdateAssignment(SubscriptionState):void	org.apache.kafka.common.metrics.Metrics	0.7785230642373502
+Move Method	org.apache.kafka.clients.admin.internals.AdminFetchMetricsManagerTest::mockSleepTimeWindow():void	org.apache.kafka.common.metrics.Metrics	0.9963519787751489
+Move Method	org.apache.kafka.common.network.Selector.SelectorMetrics::maybeRegisterConnectionMetrics(String):void	org.apache.kafka.common.metrics.Metrics	0.3880517762660621
+Move Method	org.apache.kafka.clients.producer.internals.RecordAccumulator::abortBatches(RuntimeException):void	org.apache.kafka.clients.producer.internals.IncompleteBatches	1.0
+Move Method	org.apache.kafka.clients.producer.internals.RecordAccumulator::awaitFlushCompletion():void	org.apache.kafka.clients.producer.internals.IncompleteBatches	0.8866666666666667
+Move Method	org.apache.kafka.clients.admin.Admin::describeClientQuotas(ClientQuotaFilter):DescribeClientQuotasResult	org.apache.kafka.common.quota.ClientQuotaFilter	1.0
+Move Method	org.apache.kafka.clients.admin.internals.ListConsumerGroupOffsetsHandler::handleGroupError(CoordinatorKey, Errors, Map<CoordinatorKey,Throwable>, List<CoordinatorKey>):void	org.apache.kafka.common.protocol.Errors	0.9702380952380951
+Move Method	org.apache.kafka.common.metrics.MetricsTest::measure(Measurable, MetricConfig):Double	org.apache.kafka.common.metrics.MetricConfig	0.7728085867620753
+Move Method	org.apache.kafka.clients.admin.Admin::describeAcls(AclBindingFilter):DescribeAclsResult	org.apache.kafka.common.acl.AclBindingFilter	0.7171428571428572
+Move Method	org.apache.kafka.common.metrics.MetricsTest::record(Rate, MetricConfig, int):void	org.apache.kafka.common.metrics.MetricConfig	0.8837970540098201
+Move Method	org.apache.kafka.common.network.SelectorTest::findUntaggedMetricByName(String):KafkaMetric	org.apache.kafka.common.metrics.Metrics	0.5573192239858907
+Move Method	org.apache.kafka.clients.admin.ListOffsetsResult::partitionResult(TopicPartition):KafkaFuture<ListOffsetsResultInfo>	org.apache.kafka.common.TopicPartition	0.5952380952380953
+Move Method	org.apache.kafka.clients.consumer.internals.AsyncKafkaConsumerTest::captureGroupMetadataUpdateListener(MockedStatic<RequestManagers>):MemberStateListener	org.apache.kafka.clients.consumer.internals.events.ApplicationEventHandler	0.07142857142857142
+Move Method	org.apache.kafka.clients.consumer.KafkaConsumerTest::newConsumer(Properties, Deserializer<K>, Deserializer<V>):KafkaConsumer<K,V>	org.apache.kafka.clients.consumer.KafkaConsumer	0.5815442561205272
+Move Method	org.apache.kafka.common.metrics.stats.Rate::windowSize(MetricConfig, long):long	org.apache.kafka.common.metrics.stats.SampledStat	0.5
+Move Method	org.apache.kafka.clients.admin.Admin::removeRaftVoter(int, Uuid):RemoveRaftVoterResult	org.apache.kafka.common.Uuid	0.958974358974359
+Move Method	org.apache.kafka.clients.producer.internals.TransactionManagerTest::setup():void	org.apache.kafka.common.utils.MockTime	0.7135714285714285
+Move Method	org.apache.kafka.clients.admin.KafkaAdminClient::configureDefaultApiTimeoutMs(AdminClientConfig):int	org.apache.kafka.clients.admin.AdminClientConfig	0.5429347826086957
+Move Method	org.apache.kafka.clients.admin.MockAdminClient::handleDeleteTopicsUsingIds(Collection<Uuid>, DeleteTopicsOptions):Map<Uuid,KafkaFuture<Void>>	org.apache.kafka.clients.admin.DeleteTopicsOptions	1.0
+Move Method	org.apache.kafka.common.security.oauthbearer.OAuthBearerLoginModuleTest.TestCallbackHandler::handleCallback(OAuthBearerTokenCallback):void	org.apache.kafka.common.security.oauthbearer.OAuthBearerTokenCallback	1.0
+Move Method	org.apache.kafka.clients.admin.MockAdminClient::handleDescribeTopicsByNames(Collection<String>, DescribeTopicsOptions):Map<String,KafkaFuture<TopicDescription>>	org.apache.kafka.clients.admin.DescribeTopicsOptions	1.0
+Move Method	org.apache.kafka.clients.consumer.internals.AbstractMembershipManager::markPendingRevocationToPauseFetching(Set<TopicPartition>):void	org.apache.kafka.clients.consumer.internals.SubscriptionState	0.650498712998713
+Move Method	org.apache.kafka.clients.admin.Admin::listConsumerGroupOffsets(String, ListConsumerGroupOffsetsOptions):ListConsumerGroupOffsetsResult	org.apache.kafka.clients.admin.ListConsumerGroupOffsetsOptions	0.9895833333333334
+Move Method	org.apache.kafka.common.security.oauthbearer.OAuthBearerValidatorCallbackHandlerTest::createHandler(Map<String,?>, AccessTokenBuilder):OAuthBearerValidatorCallbackHandler	org.apache.kafka.common.security.oauthbearer.internals.secured.AccessTokenBuilder	0.5172932330827068
+Move Method	org.apache.kafka.clients.admin.Admin::abortTransaction(AbortTransactionSpec):AbortTransactionResult	org.apache.kafka.clients.admin.AbortTransactionSpec	1.0
+Move Method	org.apache.kafka.clients.admin.DescribeProducersResult::partitionResult(TopicPartition):KafkaFuture<PartitionProducerState>	org.apache.kafka.common.TopicPartition	0.5952380952380953
+Move Method	org.apache.kafka.clients.consumer.KafkaShareConsumerMetricsTest::initMetadata(MockClient, Map<String,Integer>):void	org.apache.kafka.clients.MockClient	0.6477233936911355
+Move Method	org.apache.kafka.clients.consumer.KafkaConsumerTest::newConsumer(Map<String,Object>, Deserializer<K>, Deserializer<V>):KafkaConsumer<K,V>	org.apache.kafka.clients.consumer.KafkaConsumer	0.4292862907875013
+Move Method	org.apache.kafka.clients.consumer.internals.NetworkClientDelegate::nodeUnavailable(Node):boolean	org.apache.kafka.common.Node	0.4497590576476887
+Move Method	org.apache.kafka.clients.consumer.internals.events.ApplicationEventHandler::addAndGet(CompletableApplicationEvent<T>):T	org.apache.kafka.clients.consumer.internals.events.CompletableApplicationEvent	0.95
+Move Method	org.apache.kafka.clients.consumer.internals.AsyncKafkaConsumerTest::newConsumer(FetchBuffer, ConsumerInterceptors<String,String>, ConsumerRebalanceListenerInvoker, SubscriptionState, String, String):AsyncKafkaConsumer<String,String>	org.apache.kafka.clients.consumer.internals.ConsumerRebalanceListenerInvoker	1.0
+Move Method	org.apache.kafka.clients.producer.internals.RecordAccumulatorTest::drainAndCheckBatchAmount(MetadataSnapshot, Node, RecordAccumulator, long, int):Map<Integer,List<ProducerBatch>>	org.apache.kafka.common.Node	0.48491845865204214
+Move Method	org.apache.kafka.common.security.oauthbearer.OAuthBearerLoginCallbackHandler::handleExtensionsCallback(SaslExtensionsCallback):void	org.apache.kafka.common.security.auth.SaslExtensionsCallback	0.7875000000000001
+Move Method	org.apache.kafka.common.record.AbstractLegacyRecordBatch.ByteBufferLegacyRecordBatch::setTimestampAndUpdateCrc(TimestampType, long):void	org.apache.kafka.common.record.LegacyRecord	1.0
+Move Method	org.apache.kafka.clients.producer.KafkaProducer::close(Duration, boolean):void	org.apache.kafka.clients.producer.internals.Sender	0.8884123139131469
+Move Method	org.apache.kafka.common.requests.RequestContext::parseRequest(ByteBuffer):RequestAndSize	org.apache.kafka.common.network.ClientInformation	0.0
+Move Method	org.apache.kafka.clients.producer.internals.RecordAccumulator::deallocate(ProducerBatch):void	org.apache.kafka.clients.producer.internals.IncompleteBatches	1.0
+Move Method	org.apache.kafka.common.security.oauthbearer.OAuthBearerLoginModuleTest.TestCallbackHandler::handleExtensionsCallback(SaslExtensionsCallback):void	org.apache.kafka.common.security.auth.SaslExtensionsCallback	1.0
+Move Method	org.apache.kafka.common.network.Selector::attemptWrite(SelectionKey, KafkaChannel, long):void	org.apache.kafka.common.network.KafkaChannel	0.9484633569739951
+Move Method	org.apache.kafka.common.record.MemoryRecordsBuilder::writeDefaultBatchHeader():int	org.apache.kafka.common.utils.ByteBufferOutputStream	0.6402973560558245
+Move Method	org.apache.kafka.clients.ClusterConnectionStates::currentAddress(String):InetAddress	org.apache.kafka.clients.HostResolver	1.0
+Move Method	org.apache.kafka.clients.consumer.internals.FetcherTest::fetchRequestMatcher(short, Map<TopicIdPartition,PartitionData>, List<TopicIdPartition>):MockClient.RequestMatcher	org.apache.kafka.common.TopicIdPartition	0.6888888888888889
+Move Method	org.apache.kafka.clients.consumer.internals.ConsumerMetadataTest::topicMetadata(String, boolean):MetadataResponse.TopicMetadata	org.apache.kafka.common.Node	0.7621736062103035
+Move Method	org.apache.kafka.common.security.oauthbearer.internals.secured.OAuthBearerTest::configureHandler(AuthenticateCallbackHandler, Map<String,?>, Map<String,Object>):void	org.apache.kafka.common.security.auth.AuthenticateCallbackHandler	0.8091068301225919
+Move Method	org.apache.kafka.clients.consumer.internals.FetchRequestManagerTest::teardown():void	org.apache.kafka.common.metrics.Metrics	0.5920256991685563
+Move Method	org.apache.kafka.common.metrics.KafkaMbeanTest::objectName(MetricName):ObjectName	org.apache.kafka.common.MetricName	0.8499569785345531
+Move Method	org.apache.kafka.common.record.FileRecordsTest::cleanup():void	org.apache.kafka.common.record.FileRecords	0.8524183976689588
+Move Method	org.apache.kafka.clients.producer.internals.RecordAccumulator::drainBatchesForOneNode(MetadataSnapshot, Node, int, long):List<ProducerBatch>	org.apache.kafka.clients.MetadataSnapshot	0.621026273059843
+Move Method	org.apache.kafka.clients.consumer.internals.TopicMetadataFetcherTest::teardown():void	org.apache.kafka.common.metrics.Metrics	0.5565381708238851
+Move Method	org.apache.kafka.clients.consumer.internals.FetchRequestManagerTest::fetchRequestMatcher(short, TopicIdPartition, long, Optional<Integer>):MockClient.RequestMatcher	org.apache.kafka.common.TopicIdPartition	0.7195767195767194
+Move Method	org.apache.kafka.common.security.oauthbearer.internals.unsecured.OAuthBearerUnsecuredLoginCallbackHandler::handleExtensionsCallback(SaslExtensionsCallback):void	org.apache.kafka.common.security.auth.SaslExtensionsCallback	0.7875000000000001
+Move Method	org.apache.kafka.common.network.Selector.SelectorMetrics::createMeter(Metrics, String, Map<String,String>, SampledStat, String, String):Meter	org.apache.kafka.common.metrics.Metrics	0.7785230642373502
+Move Method	org.apache.kafka.common.security.scram.internals.ScramSaslServer::verifyClientProof(ClientFinalMessage):void	org.apache.kafka.common.security.scram.internals.ScramFormatter	1.0
+Move Method	org.apache.kafka.clients.consumer.internals.AsyncKafkaConsumer::canReusePendingOffsetFetchEvent(Set<TopicPartition>):boolean	org.apache.kafka.clients.consumer.internals.events.FetchCommittedOffsetsEvent	1.0
+Move Method	org.apache.kafka.clients.producer.internals.RecordAccumulator::batchReady(boolean, TopicPartition, Node, long, boolean, int, boolean, long, Set<Node>):long	org.apache.kafka.common.utils.ExponentialBackoff	1.0
+Move Method	org.apache.kafka.clients.consumer.internals.AbstractMembershipManager::updateSubscriptionAwaitingCallback(SortedSet<TopicIdPartition>, SortedSet<TopicPartition>):void	org.apache.kafka.clients.consumer.internals.SubscriptionState	0.6067991692991692
+Move Method	org.apache.kafka.clients.consumer.internals.OffsetFetcherTest::teardown():void	org.apache.kafka.common.metrics.Metrics	0.5565381708238851
+Move Method	org.apache.kafka.clients.consumer.internals.NetworkClientDelegate::maybePropagateMetadataError():void	org.apache.kafka.clients.Metadata	0.7406247806247808
+Move Method	org.apache.kafka.common.metrics.Sensor::checkQuotas(long):void	org.apache.kafka.common.metrics.MetricConfig	1.0
+Move Method	org.apache.kafka.clients.consumer.internals.FetchRequestManagerTest::fetchRequestMatcher(short, Map<TopicIdPartition,PartitionData>, List<TopicIdPartition>):MockClient.RequestMatcher	org.apache.kafka.common.TopicIdPartition	0.6888888888888889
+Move Method	org.apache.kafka.clients.consumer.internals.TopicMetadataFetcherTest::assignFromUser(Set<TopicPartition>):void	org.apache.kafka.clients.consumer.internals.ConsumerMetadata	0.40079365079365076
+Move Method	org.apache.kafka.clients.ClientUtilsTest::testFilterPreferredAddresses():void	org.apache.kafka.clients.HostResolver	1.0
+Move Method	org.apache.kafka.clients.consumer.internals.AsyncKafkaConsumer::subscribeInternal(Pattern, Optional<ConsumerRebalanceListener>):void	org.apache.kafka.clients.consumer.internals.ConsumerMetadata	0.7013888888888888
+Move Method	org.apache.kafka.clients.consumer.KafkaConsumerTest::initMetadata(MockClient, Map<String,Integer>):void	org.apache.kafka.clients.MockClient	0.6477233936911355
+Move Method	org.apache.kafka.common.security.oauthbearer.internals.unsecured.OAuthBearerUnsecuredValidatorCallbackHandler::handleCallback(OAuthBearerValidatorCallback):void	org.apache.kafka.common.security.oauthbearer.OAuthBearerValidatorCallback	0.7596153846153847
+Move Method	org.apache.kafka.clients.ClusterConnectionStates.NodeConnectionState::resolveAddresses():void	org.apache.kafka.clients.HostResolver	1.0
+Move Method	org.apache.kafka.clients.admin.Admin::addRaftVoter(int, Uuid, Set<RaftVoterEndpoint>):AddRaftVoterResult	org.apache.kafka.common.Uuid	0.9652014652014653
+Move Method	org.apache.kafka.clients.admin.Admin::deleteTopics(Collection<String>, DeleteTopicsOptions):DeleteTopicsResult	org.apache.kafka.clients.admin.DeleteTopicsOptions	1.0
+Move Method	org.apache.kafka.common.network.SelectorTest::injectNetworkReceive(KafkaChannel, int):void	org.apache.kafka.common.network.KafkaChannel	0.6589118301229597
+Move Method	org.apache.kafka.clients.Metadata::updateLatestMetadata(MetadataResponse.PartitionMetadata, boolean, Uuid, Uuid):Optional<MetadataResponse.PartitionMetadata>	org.apache.kafka.clients.MetadataSnapshot	0.8453637865402572
+Move Method	org.apache.kafka.clients.admin.MockAdminClient::handleDeleteTopicsUsingNames(Collection<String>, DeleteTopicsOptions):Map<String,KafkaFuture<Void>>	org.apache.kafka.clients.admin.DeleteTopicsOptions	1.0
+Move Method	org.apache.kafka.clients.producer.internals.RecordAccumulator::abortUndrainedBatches(RuntimeException):void	org.apache.kafka.clients.producer.internals.IncompleteBatches	1.0
+Move Method	org.apache.kafka.common.record.LazyDownConversionRecordsTest::testConversion(CompressionType, byte, boolean):void	org.apache.kafka.common.record.CompressionType	0.7083333333333333
+Move Method	org.apache.kafka.clients.consumer.internals.AsyncKafkaConsumer::updatePatternSubscription(Cluster):void	org.apache.kafka.clients.consumer.internals.ConsumerMetadata	0.7817460317460319
+Move Method	org.apache.kafka.common.record.MemoryRecordsBuilder::writeLegacyCompressedWrapperHeader():int	org.apache.kafka.common.utils.ByteBufferOutputStream	0.6758989310009718
