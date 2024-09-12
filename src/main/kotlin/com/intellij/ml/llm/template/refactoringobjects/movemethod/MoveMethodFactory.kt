@@ -470,7 +470,7 @@ class MoveMethodFactory {
                         )
                         myInvokeFinished = true
                     }
-                runBlocking{ waitForBackgroundFinish(1 * 60 * 1000, 1000) }
+                runBlocking{ waitForBackgroundFinish(5 * 60 * 1000, 1000) }
 
                 val method = processor!!.javaClass.getDeclaredMethod("findUsages")
                 method.setAccessible(true)

@@ -27,7 +27,6 @@ import com.intellij.psi.PsiFile
 import com.intellij.psi.impl.source.PsiJavaFileImpl
 import dev.langchain4j.data.message.ChatMessage
 import dev.langchain4j.model.chat.ChatLanguageModel
-import okhttp3.internal.wait
 import org.jetbrains.kotlin.util.capitalizeDecapitalize.toLowerCaseAsciiOnly
 import java.util.concurrent.TimeUnit
 
@@ -46,6 +45,7 @@ abstract class ApplySuggestRefactoringIntention(
     var apiResponseCache = mutableMapOf<String, MutableMap<String, LLMBaseResponse>>()
     val MAX_REFACTORINGS = 10
     var finishedBackgroundTask: Boolean? = null
+    protected val llmContextLimit = 50000
 
     open var prompter: MethodPromptBase = SuggestRefactoringPrompt();
 
@@ -110,14 +110,15 @@ abstract class ApplySuggestRefactoringIntention(
     //    abstract fun invokeLlm(text: String, project: Project, editor: Editor, file: PsiFile)
 fun getPromptAndRunBackgroundable(text: String, project: Project, editor: Editor, file: PsiFile) {
         logger.info("Invoking LLM with text: $text")
-        val messageList = prompter.getPrompt(text)
+        val promptIterator = createPromptIterator(text)
+//        val messageList = prompter.getPrompt(text)
 
         val task = object : Task.Backgroundable(
             project, LLMBundle.message("intentions.request.extract.function.background.process.title")
         ) {
             override fun run(indicator: ProgressIndicator) {
                 finishedBackgroundTask = false
-                invokeLLM(project, messageList, editor, file)
+                invokeLLM(project, promptIterator, editor, file)
             }
 
             override fun onFinished() {
@@ -129,15 +130,47 @@ fun getPromptAndRunBackgroundable(text: String, project: Project, editor: Editor
         ProgressManager.getInstance().runProcessWithProgressAsynchronously(task, BackgroundableProcessIndicator(task))
     }
 
+    private fun createPromptIterator(
+        text: String,
+    ): Iterator<MutableList<ChatMessage>> {
+        val promptIterator: Iterator<MutableList<ChatMessage>>
+        if (text.split("\\s+".toRegex()).size > llmContextLimit) {
+            promptIterator = object : Iterator<MutableList<ChatMessage>> {
+                private var currentIndex = 0
+
+                override fun hasNext(): Boolean {
+                    return true
+                }
+
+                override fun next(): MutableList<ChatMessage> {
+                    if (currentIndex >= text.length) {
+                        // Reset the index to loop from the beginning
+                        currentIndex = 0
+                    }
+                    val endIndex = (currentIndex + llmContextLimit).coerceAtMost(text.length)
+                    val chunk = text.substring(currentIndex, endIndex)
+                    currentIndex = endIndex
+                    return prompter.getPrompt(chunk)
+                }
+            }
+        } else {
+            promptIterator = sequence {
+                while(true)
+                    yield(prompter.getPrompt(text))
+            }.iterator()
+        }
+        return promptIterator
+    }
+
     open fun invokeLLM(
         project: Project,
-        messageList: MutableList<ChatMessage>,
+        promptIterator: Iterator<MutableList<ChatMessage>>,
         editor: Editor,
         file: PsiFile
     ) {
         val now = System.nanoTime()
         val response = llmResponseCache.get(functionSrc) ?: sendChatRequest(
-            project, messageList, llmChatModel
+            project, promptIterator.next(), llmChatModel
         )
         if (response != null) {
             llmResponseCache.get(functionSrc) ?: llmResponseCache.put(functionSrc, response)

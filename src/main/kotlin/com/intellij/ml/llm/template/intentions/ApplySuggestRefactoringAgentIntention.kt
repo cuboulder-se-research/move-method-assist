@@ -11,7 +11,6 @@ import com.intellij.ml.llm.template.suggestrefactoring.AbstractRefactoringValida
 import com.intellij.ml.llm.template.suggestrefactoring.AtomicSuggestion
 import com.intellij.ml.llm.template.suggestrefactoring.SimpleRefactoringValidator
 import com.intellij.ml.llm.template.telemetry.*
-import com.intellij.ml.llm.template.toolwindow.logViewer
 import com.intellij.ml.llm.template.ui.CompletedRefactoringsPanel
 import com.intellij.ml.llm.template.utils.*
 import com.intellij.openapi.application.invokeLater
@@ -21,12 +20,10 @@ import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.editor.LogicalPosition
 import com.intellij.openapi.editor.ScrollType
 import com.intellij.openapi.project.Project
-import com.intellij.openapi.ui.popup.IconButton
 import com.intellij.openapi.ui.popup.JBPopupFactory
 import com.intellij.openapi.ui.popup.JBPopupListener
 import com.intellij.openapi.ui.popup.LightweightWindowEvent
 import com.intellij.openapi.util.TextRange
-import com.intellij.openapi.wm.impl.customFrameDecorations.style.StyleProperty
 import com.intellij.psi.PsiFile
 import com.intellij.ui.awt.RelativePoint
 import dev.langchain4j.data.message.ChatMessage
@@ -40,9 +37,6 @@ import org.jetbrains.kotlin.util.capitalizeDecapitalize.toLowerCaseAsciiOnly
 import java.awt.Point
 import java.awt.Rectangle
 import java.util.concurrent.atomic.AtomicReference
-import javax.swing.Icon
-import javax.swing.JButton
-import kotlin.math.log
 
 
 @Suppress("UnstableApiUsage")
@@ -79,7 +73,7 @@ open class ApplySuggestRefactoringAgentIntention(
 
     override fun invokeLLM(
         project: Project,
-        messageList: MutableList<ChatMessage>,
+        promptIterator: Iterator<MutableList<ChatMessage>>,
         editor: Editor,
         file: PsiFile
     ) {

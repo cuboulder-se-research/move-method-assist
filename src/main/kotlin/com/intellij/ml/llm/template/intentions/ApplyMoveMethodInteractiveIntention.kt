@@ -25,12 +25,15 @@ import com.intellij.ml.llm.template.utils.EFNotification
 import com.intellij.ml.llm.template.utils.JsonUtils
 import com.intellij.notification.NotificationType
 import com.intellij.openapi.application.invokeLater
+import com.intellij.openapi.application.runReadAction
 import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.popup.JBPopupFactory
 import com.intellij.openapi.ui.popup.JBPopupListener
 import com.intellij.openapi.ui.popup.LightweightWindowEvent
+import com.intellij.psi.PsiClass
+import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
 import com.intellij.ui.awt.RelativePoint
 import dev.langchain4j.data.message.ChatMessage
@@ -71,9 +74,9 @@ open class ApplyMoveMethodInteractiveIntention : ApplySuggestRefactoringIntentio
         return LLMBundle.message("intentions.apply.suggest.refactoring.move.method.family.name")
     }
 
-    override fun invokeLLM(project: Project, messageList: MutableList<ChatMessage>, editor: Editor, file: PsiFile) {
+    override fun invokeLLM(project: Project, promptIterator: Iterator<MutableList<ChatMessage>>, editor: Editor, file: PsiFile) {
         try{
-            val totalPluginTime = measureTimeMillis { invokeMoveMethodPlugin(project, messageList, editor, file) }
+            val totalPluginTime = measureTimeMillis { invokeMoveMethodPlugin(project, promptIterator, editor, file) }
             telemetryDataManager.setTotalTime(totalPluginTime)
         } catch (e: Exception){
             telemetryDataManager.addCandidatesTelemetryData(buildCandidatesTelemetryData(0, emptyList()))
@@ -81,7 +84,7 @@ open class ApplyMoveMethodInteractiveIntention : ApplySuggestRefactoringIntentio
             sendTelemetryData()
         }
     }
-    private fun invokeMoveMethodPlugin(project: Project, messageList: MutableList<ChatMessage>, editor: Editor, file: PsiFile) {
+    private fun invokeMoveMethodPlugin(project: Project, promptIterator: Iterator<MutableList<ChatMessage>>, editor: Editor, file: PsiFile) {
 
         currentFile = file
         currentEditor = editor
@@ -97,7 +100,7 @@ open class ApplyMoveMethodInteractiveIntention : ApplySuggestRefactoringIntentio
             log2fileAndViewer("******** ITERATION-$iter ********", logger)
             val cacheKey = functionSrc + iter.toString()
             val response : LLMBaseResponse?
-            val llmRequestTime = measureTimeMillis{ response = llmResponseCache[cacheKey] ?: sendChatRequest(project, messageList, llmChatModel) }
+            val llmRequestTime = measureTimeMillis{ response = llmResponseCache[cacheKey] ?: sendChatRequest(project, promptIterator.next(), llmChatModel) }
 
             if (response!=null) {
                 val llmText = response.getSuggestions()[0]
@@ -290,7 +293,9 @@ open class ApplyMoveMethodInteractiveIntention : ApplySuggestRefactoringIntentio
         project: Project
     ) : List<MoveMethodSuggestion>? {
         val messages =
-            (prompter as MoveMethodRefactoringPrompt).askForMethodPriorityPrompt(functionSrc, uniqueSuggestions)
+            (prompter as MoveMethodRefactoringPrompt).askForMethodPriorityPrompt(
+                condenseMethodCode(functionPsiElement, uniqueSuggestions),
+                uniqueSuggestions)
         val response: LLMBaseResponse?
         val llmResponseTime = measureTimeMillis { response = llmResponseCache[messages.toString()]?:sendChatRequest(project, messages, llmChatModel)}
         if (response != null) {
@@ -320,6 +325,28 @@ open class ApplyMoveMethodInteractiveIntention : ApplySuggestRefactoringIntentio
             }
         }
         return null
+    }
+
+    private fun condenseMethodCode(
+        functionPsi: PsiElement,
+        uniqueSuggestions: List<MoveMethodSuggestion>
+    ): String {
+        if (functionPsi.text.split("\\s+".toRegex()).size > llmContextLimit) {
+            return runReadAction{
+                val classPsi = functionPsi as PsiClass
+                val onlyMethodNames = uniqueSuggestions.map { it.methodName }
+                val classSourceBuilder = StringBuilder()
+                classSourceBuilder.append(classPsi.text.substring(0, classPsi.lBrace?.textOffset ?: 0))
+                classPsi.methods.filter { method ->
+                    onlyMethodNames.contains(method.name)
+                }.forEach { method ->
+                    classSourceBuilder.append("\n").append(method.text).append("\n")
+                }
+                classSourceBuilder.append("}")
+                return@runReadAction classSourceBuilder.toString()
+            }
+        }else
+            return runReadAction{ functionPsi.text }
     }
 
     override fun processLLMResponse(response: LLMBaseResponse, project: Project, editor: Editor, file: PsiFile) {

@@ -1,7 +1,6 @@
 package com.intellij.ml.llm.template.intentions
 
 import com.intellij.ml.llm.template.LLMBundle
-import com.intellij.ml.llm.template.models.grazie.GrazieGPT4
 import com.intellij.ml.llm.template.settings.RefAgentSettingsManager
 import com.intellij.ml.llm.template.telemetry.EFTelemetryDataUtils
 import com.intellij.ml.llm.template.utils.GitUtils
@@ -16,13 +15,10 @@ import com.intellij.psi.PsiFile
 import com.intellij.psi.PsiManager
 import com.intellij.psi.impl.source.PsiJavaFileImpl
 import com.intellij.psi.search.FilenameIndex
-import com.intellij.testFramework.utils.editor.commitToPsi
-import com.intellij.testFramework.utils.vfs.getPsiFile
 import dev.langchain4j.data.message.ChatMessage
 import dev.langchain4j.model.chat.ChatLanguageModel
 import org.eclipse.jgit.diff.DiffEntry
 import org.jetbrains.kotlin.idea.base.util.projectScope
-import org.jetbrains.kotlin.j2k.getContainingClass
 import org.jetbrains.kotlin.util.capitalizeDecapitalize.toLowerCaseAsciiOnly
 
 
@@ -49,7 +45,7 @@ class ApplySuggestRefactoringOnCommitIntention(
         return editor != null && file != null
     }
 
-    override fun invokeLLM(project: Project, messageList: MutableList<ChatMessage>, editor: Editor, file: PsiFile) {
+    override fun invokeLLM(project: Project, promptIterator: Iterator<MutableList<ChatMessage>>, editor: Editor, file: PsiFile) {
 //        super.invokeLLM(project, messageList, editor, file)
 
     }

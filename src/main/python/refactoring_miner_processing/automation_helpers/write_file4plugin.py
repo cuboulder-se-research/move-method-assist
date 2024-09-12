@@ -22,7 +22,7 @@ project_basepath_map = {
     }
 
 
-project_name = "spring_framework"
+project_name = "vue_pro"
 project_basepath = "/Users/abhiram/Documents/TBE/evaluation_projects"
 refminer_filtered_file = f"../../../../../data/refminer_data/filter_fp/{project_name}_res.json"
 repo = git.Repo(os.path.join(project_basepath, project_basepath_map.get(project_name)))

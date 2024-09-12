@@ -1,7 +1,7 @@
 import json
 
 
-project_name = "spring_framework"
+project_name = "vue_pro"
 project_basepath = "/Users/abhiram/Documents/TBE/evaluation_projects"
 refminer_filtered_file = f"../../../../../data/refminer_data/filter_fp/{project_name}_res.json"
 mm_assist_outfile = f"../../../../../data/refminer_data/mm-assist/{project_name}_res.json"
