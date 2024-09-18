@@ -9,7 +9,6 @@ the reliability of IntelliJ IDE to carry out correctly the code transformations.
 ### Table of contents
 
 - [Installation](#installation)
-- [ChatGPT communication config](#chatgpt-communication-configuration)
 - [Trigger Move-Method Assistant](#triggering-move-method-assistant)
 - [Telemetry Data](#telemetry-data)
 
