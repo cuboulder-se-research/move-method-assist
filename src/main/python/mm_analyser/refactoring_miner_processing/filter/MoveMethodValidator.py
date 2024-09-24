@@ -50,6 +50,7 @@ class MoveMethodRef:
 
 
 class MoveMethodValidator(rm.RminerValidator):
+    type = "Move Method"
     gradle_path = "/Users/abhiram/Documents/TBE/RefactoringAgentProject/llm-guide-refactorings/gradlew"
 
     def preconditions(self, moveref: MoveMethodRef):
