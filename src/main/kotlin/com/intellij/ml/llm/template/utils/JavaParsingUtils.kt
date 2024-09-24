@@ -1,14 +1,10 @@
 package com.intellij.ml.llm.template.utils
 
-import com.github.javaparser.JavaParser
-import com.github.javaparser.ParserConfiguration
-import com.github.javaparser.StaticJavaParser
-import com.github.javaparser.ast.body.ClassOrInterfaceDeclaration
-import com.github.javaparser.ast.body.MethodDeclaration
-import com.github.javaparser.symbolsolver.JavaSymbolSolver
-import com.github.javaparser.symbolsolver.resolution.typesolvers.CombinedTypeSolver
-import com.github.javaparser.symbolsolver.resolution.typesolvers.JavaParserTypeSolver
-import com.github.javaparser.symbolsolver.resolution.typesolvers.ReflectionTypeSolver
+import com.github.javaparser.*
+import com.github.javaparser.ast.Node
+import com.github.javaparser.ast.body.*
+import com.github.javaparser.ast.expr.NameExpr
+import com.github.javaparser.ast.visitor.VoidVisitorWithDefaults
 import java.nio.file.Path
 
 
@@ -23,12 +19,15 @@ class JavaParsingUtils {
 
         fun isMethodStatic(filePath: Path, methodSignature: MethodSignature): Boolean{
             val parsed = JavaParser(ParserConfiguration().setLanguageLevel(ParserConfiguration.LanguageLevel.JAVA_21)).parse(filePath)
-            val matchedMethods = parsed.result.get().findAll(MethodDeclaration::class.java)
+            val parsedResult = parsed.result.get()
+            val matchedMethods = parsedResult.findAll(MethodDeclaration::class.java)
                 .filter {
                     methodSignature.compare(it.signature)
                 }
-            if (matchedMethods.isEmpty()) throw Exception("Couldn't find method in class.")
-            return matchedMethods.filter { it.isStatic }.isNotEmpty()
+            val matchedConstructors = parsedResult.findAll(ConstructorDeclaration::class.java)
+                .filter { methodSignature.compare(it.signature) }
+            if (matchedMethods.isEmpty() && matchedConstructors.isEmpty()) throw Exception("Couldn't find method in class.")
+            return matchedMethods.union(matchedConstructors).filter { it.isStatic }.isNotEmpty()
         }
 
         fun isMethodStatic(filePath: Path, methodSignature: String): Boolean{
@@ -42,13 +41,16 @@ class JavaParsingUtils {
                 ParserConfiguration()
                     .setLanguageLevel(ParserConfiguration.LanguageLevel.JAVA_21)
             ).parse(path)
-            val matchedClasses = parsed.result.get()
+            val parsedResult = parsed.result.get()
+            val matchedClasses = parsedResult
                 .findAll(ClassOrInterfaceDeclaration::class.java)
                 .filter {
                     it.fullyQualifiedName.get() == className
                 }
-            if (matchedClasses.isEmpty()) throw Exception("class not found.")
-            return matchedClasses
+            val matchedEnums = parsedResult.findAll(EnumDeclaration::class.java).filter { it.fullyQualifiedName.get()==className }
+            val matchedRecords = parsedResult.findAll(RecordDeclaration::class.java).filter { it.fullyQualifiedName.get()==className }
+            if (matchedClasses.isEmpty() && matchedEnums.isEmpty() && matchedRecords.isEmpty()) throw Exception("class not found.")
+            return matchedClasses.union(matchedEnums).union(matchedRecords)
                 .map {
                     it.fields.map {
                         ClassField(it.variables[0].nameAsString, it.elementType.asString(), it.toString())
@@ -79,34 +81,46 @@ class JavaParsingUtils {
                 ParserConfiguration()
                     .setLanguageLevel(ParserConfiguration.LanguageLevel.JAVA_21)
             ).parse(path)
-            val matchedClasses = parsed.result.get()
+            val parsedResult = parsed.result.get()
+            val matchedClasses = parsedResult
                 .findAll(ClassOrInterfaceDeclaration::class.java)
                 .filter {
                     it.fullyQualifiedName.isPresent && it.fullyQualifiedName.get() == className
                 }
-            return matchedClasses.isNotEmpty()
+            val matchedEnums = parsedResult.findAll(EnumDeclaration::class.java).filter { it.fullyQualifiedName.isPresent && it.fullyQualifiedName.get()==className }
+            val matchedRecords = parsedResult.findAll(RecordDeclaration::class.java).filter { it.fullyQualifiedName.isPresent && it.fullyQualifiedName.get()==className }
+            return matchedClasses.isNotEmpty() || matchedRecords.isNotEmpty() || matchedEnums.isNotEmpty()
         }
 
 
-//        fun findFieldTypes2(path: Path, className: String): List<ClassField> {
+        class RangeFinder : VoidVisitorWithDefaults<Range?>() {
+            var nodesFound: MutableList<Node> = ArrayList<Node>()
 
-//        val typeSolver = CombinedTypeSolver()
-//        typeSolver.add(ReflectionTypeSolver())
-//        val symbolSolver = JavaSymbolSolver(typeSolver)
-//            val parsed = JavaParser(ParserConfiguration().setLanguageLevel(ParserConfiguration.LanguageLevel.JAVA_21)).parse(path)
-//            return parsed.result.get()
-//                .findAll(ClassOrInterfaceDeclaration::class.java)
-//                .filter {
-//                    it.fullyQualifiedName.get() == className
-//                }
-//                .map {
-//                    it.resolve().allFields.map {
-//                        ClassField(it.variables[0].nameAsString, it.elementType.asString(), it.toString())
-//                    }
-//                }
-//                .reduce { acc, classFields -> acc + classFields }
-//        }
 
+            override fun defaultAction(n: Node?, givenRange: Range?) {
+                if (n==null) return
+                if (givenRange==null) return
+                //Range of element in your code
+                val rangeOfNode: Range = n.range.get()
+
+                //If your given two lines contain this node, add it
+                if (givenRange.contains(rangeOfNode)) nodesFound.add(n)
+                else if (givenRange.overlapsWith(rangeOfNode)) {
+                    n.getChildNodes().forEach { child -> child.accept(this, givenRange) }
+                }
+            }
+        }
+
+        fun findTypesInRange(path: Path, startLine: Int, endLine: Int){
+            val parsed = JavaParser(
+                ParserConfiguration()
+                    .setLanguageLevel(ParserConfiguration.LanguageLevel.JAVA_21)
+            ).parse(path)
+            val parsedResult = parsed.result.get()
+            val rangeFinder = RangeFinder()
+            rangeFinder.defaultAction(parsedResult, Range(Position(startLine, 0), Position(endLine, 0)))
+            val x =rangeFinder.nodesFound.filter { it is NameExpr }.map{(it as NameExpr)}
+        }
 
     }
 }

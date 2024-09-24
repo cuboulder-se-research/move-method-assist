@@ -1,10 +1,10 @@
 import pathlib
 import subprocess
 import os
-import git
 import json
 
 import mm_analyser.refactoring_miner_processing.MethodSignature as MethodSignature
+import mm_analyser.refactoring_miner_processing.filter.RminerValidator as rm
 
 
 class Field:
@@ -49,20 +49,8 @@ class MoveMethodRef:
                              refminer_move['description'])
 
 
-class MoveMethodValidator:
+class MoveMethodValidator(rm.RminerValidator):
     gradle_path = "/Users/abhiram/Documents/TBE/RefactoringAgentProject/llm-guide-refactorings/gradlew"
-
-    def __init__(self, refminer_commit_data, project_basepath):
-        self.refminer_commit_data = refminer_commit_data
-        self.tp_moves = []
-
-        self.project_basepath = project_basepath
-        self.repo = git.Repo(project_basepath)
-        self.commit_after = refminer_commit_data['sha1']
-        self.commit_before = self.repo.commit(self.commit_after).parents[0]
-
-    def validate(self):
-        return True
 
     def preconditions(self, moveref: MoveMethodRef):
         # checkout before after
@@ -71,20 +59,26 @@ class MoveMethodValidator:
             os.path.join(self.project_basepath, moveref.right_file_path)
         ) and os.path.exists(
             os.path.join(self.project_basepath, moveref.left_file_path)
-        ) and self.class_exists(moveref.original_class, moveref.left_file_path)
-          and self.class_exists(moveref.target_class, moveref.right_file_path))
+        )
+            # and 'test' not in moveref.left_file_path
+            # and 'test' not in moveref.right_file_path
+            and self.class_exists(moveref.original_class, moveref.left_file_path)
+            and self.class_exists(moveref.target_class, moveref.right_file_path)
+        )
 
         if not both_files_exist:
             return False
 
-        # checkout before before
+        # checkout commit before
         self.repo.git.checkout(self.commit_before, force=True)
         return (os.path.exists(
             os.path.join(self.project_basepath, moveref.right_file_path)
         ) and os.path.exists(
             os.path.join(self.project_basepath, moveref.left_file_path)
-        ) and self.class_exists(moveref.target_class, moveref.right_file_path)
-          and self.class_exists(moveref.original_class, moveref.left_file_path))
+        )
+          and self.class_exists(moveref.target_class, moveref.right_file_path)
+          and self.class_exists(moveref.original_class, moveref.left_file_path)
+                )
 
     def get_valid_moves(self):
 
@@ -140,7 +134,6 @@ class MoveMethodValidator:
         2. Moved to a type in the original class' fields
         3. New method signature contains a parameter of the original class.
         """
-
         for param in movemethod_obj.right_signature.params:
             if param.param_type == movemethod_obj.original_class.split('.')[-1]:
                 return True
@@ -162,15 +155,6 @@ class MoveMethodValidator:
 
     def is_tp_static_move(self, movemethod_obj: MoveMethodRef):
         return True
-
-    @staticmethod
-    def create_new_data(i, ref):
-        new_data = {
-            **i,
-            "move_method_refactoring": ref
-        }
-        new_data.pop("refactorings")
-        return new_data
 
     def find_field_types(self, left_file_path, original_class):
         self.repo.git.checkout(self.commit_before, force=True)
@@ -219,14 +203,9 @@ class MoveMethodValidator:
             f"checkIfClassExists -i {filepath} -o {outputpath} -c \'{class_qualified_name}\'"
         ], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         if result.returncode != 0:
-            raise Exception(f"Failed to find if class {class_qualified_name} exists.")
+            raise Exception(f"Failed to find if class {class_qualified_name}\
+                                 exists.")
         with open(outputpath) as f:
-            is_static = f.read() == 'true'
+            class_exists = f.read() == 'true'
         subprocess.run(['rm', outputpath])
-        return is_static
-
-    def checkout_before(self):
-        self.repo.git.checkout(self.commit_before, force=True)
-
-    def checkout_after(self):
-        self.repo.git.checkout(self.commit_after, force=True)
+        return class_exists

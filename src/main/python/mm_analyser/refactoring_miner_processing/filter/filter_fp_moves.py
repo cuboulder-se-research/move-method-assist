@@ -3,7 +3,6 @@ import os
 import re
 import traceback
 
-from MethodSignature import MethodSignature
 from MoveMethodValidator import MoveMethodValidator
 from mm_analyser import data_folder
 from mm_analyser.env import PROJECTS_BASE_PATH, PROJECT_ALIAS_MAP
@@ -38,13 +37,29 @@ def filter_fp_moves(data, project_path):
 
 
 if __name__ == '__main__':
-    filtered_path = data_folder.joinpath("refminer_data/filter_fp")
+    filtered_path = data_folder.joinpath("refminer_data/filter_fp_2")
     mm_path = data_folder.joinpath("refminer_data/contains_a_mm")
     files = [i for i in os.listdir(mm_path) if i.endswith(".json")]
+    SELECTED_PROJECTS = [
+        # 'vue_pro_res.json',
+        # 'flink_res.json',
+        # 'halo_res.json',
+        'elastic_res.json',
+        # 'graal_res.json',
+        # 'kafka_res.json',
+        # 'redisson_res.json',
+        # 'spring_framework_res.json',
+        # 'springboot_res.json',
+        # 'stirling_res.json',
+        # 'selenium_res.json',
+        # 'ghidra_res.json',
+        # 'dbeaver_res.json',
+        # 'dataease_res.json'
+    ]
     for fname in files:
         print(fname)
         project_name = PROJECT_ALIAS_MAP.get(fname)
-        if project_name=='' or project_name is None:
+        if project_name=='' or project_name is None or fname not in SELECTED_PROJECTS:
             print(f"skipping {fname}")
             continue
 

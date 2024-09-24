@@ -1,5 +1,7 @@
 package com.intellij.ml.llm.template.utils
 
+import com.intellij.ml.llm.template.refactoringobjects.extractfunction.EFCandidateFactory
+import junit.framework.TestCase
 import org.junit.Test
 import org.junit.jupiter.api.Assertions.*
 import kotlin.io.path.Path
@@ -33,7 +35,15 @@ class JavaParsingUtilsTest{
         assertTrue(
             JavaParsingUtils.isMethodStatic(Path(filePath), signature)
         )
+    }
 
+    @Test
+    fun testIsStatic4(){
+        val filePath = "/Users/abhiram/Documents/TBE/evaluation_projects/elasticsearch/server/src/main/java/org/elasticsearch/search/aggregations/bucket/BestBucketsDeferringCollector.java"
+        val signature = "package Entry(aggCtx AggregationExecutionContext, docDeltas PackedLongValues, buckets PackedLongValues) : record"
+        assertFalse(
+            JavaParsingUtils.isMethodStatic(Path(filePath), signature)
+        )
     }
 
     @Test
@@ -100,11 +110,36 @@ class JavaParsingUtilsTest{
     }
 
     @Test
+    fun testFindFields4(){
+        val filePath = "/Users/abhiram/Documents/TBE/evaluation_projects/elasticsearch/server/src/main/java/org/elasticsearch/cluster/SnapshotsInProgress.java"
+        val fields = JavaParsingUtils.findFieldTypes(Path(filePath), "org.elasticsearch.cluster.SnapshotsInProgress.ShardSnapshotStatus")
+        print(fields)
+        assertTrue(
+            fields.isNotEmpty()
+        )
+    }
+
+    @Test
     fun testClassExists(){
         val path = "/Users/abhiram/Documents/TBE/evaluation_projects/elasticsearch/test/framework/src/main/java/org/elasticsearch/common/logging/ChunkedLoggingStreamTestUtils.java"
         val qualName= "org.elasticsearch.common.logging.ChunkedLoggingStreamTestUtils"
         assertTrue(
             JavaParsingUtils.doesClassExist(Path(path), qualName)
         )
+    }
+
+    @Test
+    fun testClassExists2(){
+        val path = "/Users/abhiram/Documents/TBE/evaluation_projects/elasticsearch/server/src/main/java/org/elasticsearch/cluster/SnapshotsInProgress.java"
+        val qualName= "org.elasticsearch.cluster.SnapshotsInProgress.ShardSnapshotStatus"
+        assertTrue(
+            JavaParsingUtils.doesClassExist(Path(path), qualName)
+        )
+    }
+
+    fun testIsExtractable(){
+//        val candidates = EFCandidateFactory().buildCandidates(efs, editor, file).toTypedArray()
+//        TestCase.assertEquals(1, candidates.size)
+//        TestCase.assertTrue(isCandidateExtractable(candidates.get(0), editor, file))
     }
 }
