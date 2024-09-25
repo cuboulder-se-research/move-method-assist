@@ -1,7 +1,5 @@
 package com.intellij.ml.llm.template.utils
 
-import com.intellij.ml.llm.template.refactoringobjects.extractfunction.EFCandidateFactory
-import junit.framework.TestCase
 import org.junit.Test
 import org.junit.jupiter.api.Assertions.*
 import kotlin.io.path.Path
@@ -137,9 +135,18 @@ class JavaParsingUtilsTest{
         )
     }
 
+    @Test
     fun testIsExtractable(){
-//        val candidates = EFCandidateFactory().buildCandidates(efs, editor, file).toTypedArray()
-//        TestCase.assertEquals(1, candidates.size)
-//        TestCase.assertTrue(isCandidateExtractable(candidates.get(0), editor, file))
+        val path = "/Users/abhiram/Documents/TBE/evaluation_projects/elasticsearch/server/src/main/java/org/elasticsearch/cluster/SnapshotsInProgress.java"
+        val variableTypes = JavaParsingUtils.findTypesInRange(Path(path), 133, 139)
+        assertTrue(variableTypes.isNotEmpty())
+    }
+
+    @Test
+    fun testIsExtractable2(){
+        val path = "/Users/abhiram/Documents/TBE/evaluation_projects/elasticsearch/server/src/main/java/org/elasticsearch/cluster/SnapshotsInProgress.java"
+        val variableTypes = JavaParsingUtils.findTypesInRange(Path(path), 215, 248)
+        print(variableTypes)
+        assertTrue(variableTypes.isNotEmpty())
     }
 }

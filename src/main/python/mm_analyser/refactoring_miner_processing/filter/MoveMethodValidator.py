@@ -51,9 +51,9 @@ class MoveMethodRef:
 
 class MoveMethodValidator(rm.RminerValidator):
     type = "Move Method"
-    gradle_path = "/Users/abhiram/Documents/TBE/RefactoringAgentProject/llm-guide-refactorings/gradlew"
 
     def preconditions(self, moveref: MoveMethodRef):
+        # return True
         # checkout before after
         self.repo.git.checkout(self.commit_after, force=True)
         both_files_exist = (os.path.exists(
@@ -108,26 +108,6 @@ class MoveMethodValidator(rm.RminerValidator):
                         print("False-positive.")
         return self.tp_moves
 
-    def isStaticMove(self, ref: MoveMethodRef):
-        self.repo.git.checkout(self.commit_before, force=True)
-        outputpath = "/Users/abhiram/Documents/TBE/RefactoringAgentProject/llm-guide-refactorings/data/refminer_data/isStaticOut.txt"
-        filepath = os.path.join(self.project_basepath, ref.left_file_path)
-        result = subprocess.run([
-            MoveMethodValidator.gradle_path,
-            "-p", str(pathlib.Path(MoveMethodValidator.gradle_path).parent),
-            "run",
-            f"--args="
-            f"checkIfStatic -i {filepath} -o {outputpath} -s \'{ref.left_signature}\'"
-        ], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-        if result.returncode != 0:
-            # return False
-            raise Exception("Failed to find if method is static")
-        with open(outputpath) as f1:
-            isStatic = f1.read() == 'true'
-        subprocess.run(['rm', outputpath])
-
-        return isStatic
-
     def is_tp_instance_move(self, movemethod_obj):
         """
         MM is a TP if any of the following are true:
@@ -135,6 +115,7 @@ class MoveMethodValidator(rm.RminerValidator):
         2. Moved to a type in the original class' fields
         3. New method signature contains a parameter of the original class.
         """
+        # return True
         for param in movemethod_obj.right_signature.params:
             if param.param_type == movemethod_obj.original_class.split('.')[-1]:
                 return True
@@ -159,7 +140,7 @@ class MoveMethodValidator(rm.RminerValidator):
 
     def find_field_types(self, left_file_path, original_class):
         self.repo.git.checkout(self.commit_before, force=True)
-        outputpath = "/Users/abhiram/Documents/TBE/RefactoringAgentProject/llm-guide-refactorings/data/refminer_data/fieldTypes.json"
+        outputpath = f"{MoveMethodValidator.output_dir}/fieldTypes.json"
         filepath = os.path.join(self.project_basepath, left_file_path)
         result = subprocess.run([
             MoveMethodValidator.gradle_path,
@@ -177,7 +158,7 @@ class MoveMethodValidator(rm.RminerValidator):
 
     def is_class_static(self, class_qualified_name, file_path):
         self.repo.git.checkout(self.commit_before, force=True)
-        outputpath = "/Users/abhiram/Documents/TBE/RefactoringAgentProject/llm-guide-refactorings/data/refminer_data/isClassStatic.txt"
+        outputpath = f"{MoveMethodValidator.output_dir}/isClassStatic.txt"
         filepath = os.path.join(self.project_basepath, file_path)
         result = subprocess.run([
             MoveMethodValidator.gradle_path,
@@ -194,7 +175,7 @@ class MoveMethodValidator(rm.RminerValidator):
         return is_static
 
     def class_exists(self, class_qualified_name, file_path):
-        outputpath = "/Users/abhiram/Documents/TBE/RefactoringAgentProject/llm-guide-refactorings/data/refminer_data/classExists.txt"
+        outputpath = f"{MoveMethodValidator.output_dir}/classExists.txt"
         filepath = os.path.join(self.project_basepath, file_path)
         result = subprocess.run([
             MoveMethodValidator.gradle_path,

@@ -4,7 +4,13 @@ import com.github.javaparser.*
 import com.github.javaparser.ast.Node
 import com.github.javaparser.ast.body.*
 import com.github.javaparser.ast.expr.NameExpr
+import com.github.javaparser.ast.expr.VariableDeclarationExpr
 import com.github.javaparser.ast.visitor.VoidVisitorWithDefaults
+import com.github.javaparser.resolution.TypeSolver
+import com.github.javaparser.symbolsolver.JavaSymbolSolver
+import com.github.javaparser.symbolsolver.resolution.typesolvers.CombinedTypeSolver
+import com.intellij.ml.llm.template.refactoringobjects.extractfunction.EFCandidate
+import com.intellij.testFramework.LightPlatformCodeInsightTestCase
 import java.nio.file.Path
 
 
@@ -111,16 +117,53 @@ class JavaParsingUtils {
             }
         }
 
-        fun findTypesInRange(path: Path, startLine: Int, endLine: Int){
+        fun findTypesInRange(path: Path, startLine: Int, endLine: Int): List<String> {
+            val typeSolver: TypeSolver = CombinedTypeSolver()
             val parsed = JavaParser(
                 ParserConfiguration()
                     .setLanguageLevel(ParserConfiguration.LanguageLevel.JAVA_21)
+                    .setSymbolResolver(JavaSymbolSolver(typeSolver))
             ).parse(path)
+
             val parsedResult = parsed.result.get()
+
             val rangeFinder = RangeFinder()
-            rangeFinder.defaultAction(parsedResult, Range(Position(startLine, 0), Position(endLine, 0)))
-            val x =rangeFinder.nodesFound.filter { it is NameExpr }.map{(it as NameExpr)}
+            rangeFinder.defaultAction(parsedResult, Range(Position(startLine, 0), Position(endLine+1, 0)))
+            val nodesInRange = rangeFinder.nodesFound
+                .map{it.findAll(NameExpr::class.java)}
+                .reduce { acc, nameExprs -> acc + nameExprs }
+                .map {
+                    try{ it.resolve().toAst().get() }
+                    catch (e: Exception){null}
+                }
+                .filterNotNull()
+
+            return nodesInRange.filter{ it is VariableDeclarationExpr }.map { (it as VariableDeclarationExpr).variables[0].typeAsString } +
+            nodesInRange.filter{ it is FieldDeclaration }.map { (it as FieldDeclaration).variables[0].typeAsString }
+
         }
+
+
+    }
+}
+
+
+class MyExtractMethodHelper: LightPlatformCodeInsightTestCase(){
+    private var projectPath = "src/test"
+    override fun getTestDataPath(): String {
+        return projectPath
+    }
+    fun extract(fileName: String, fileText: String, startLine: Int, endLine: Int){
+        val document = configureFromFileText(fileName, fileText)
+
+        val offsetStart = document.getLineEndOffset(startLine)
+        val offsetEnd = document.getLineEndOffset(endLine)
+
+        val isItExtractable = isCandidateExtractable(
+            EFCandidate("test", offsetStart, offsetEnd, startLine, endLine),
+            editor,
+            file)
+        print(isItExtractable)
 
     }
 }

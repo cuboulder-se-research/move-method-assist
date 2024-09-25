@@ -55,6 +55,25 @@ fun main(args: Array<String>){
         }
     }
 
+    class FindTypesInRange: Subcommand("findTypesInRange", "Find the types of variables used in line ranges.") {
+        val lineStart by option(ArgType.Int, shortName = "s", description = "start line").required()
+        val lineEnd by option(ArgType.Int, shortName = "e", description = "end line").required()
+
+        override fun execute() {
+            try {
+                Files.createFile(Path(output))
+            } catch (e: Exception) {
+                print("file exists.")
+            }
+            Files.write(
+                Path(output),
+                JavaParsingUtils.findTypesInRange(
+                    Path(input), lineStart, lineEnd
+                ).toString().toByteArray()
+            )
+        }
+    }
+
     class CheckIfClassExists: Subcommand("checkIfClassExists", "Check if class is exists") {
         val className by option(ArgType.String, shortName = "c", description = "Class name").required()
 
@@ -66,9 +85,11 @@ fun main(args: Array<String>){
             }
             Files.write(
                 Path(output),
-                JavaParsingUtils.doesClassExist(
-                    Path(input), className
-                ).toString().toByteArray()
+                Gson().toJson(
+                    JavaParsingUtils.doesClassExist(
+                        Path(input), className
+                    )
+                ).toByteArray()
             )
         }
     }

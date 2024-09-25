@@ -48,7 +48,7 @@ class Processor:
 
 
 if __name__ == '__main__':
-    refactoring_type = MoveMethodValidator.type
+    refactoring_type = ExtractMoveMethodValidator.type
 
     filtered_path = data_folder.joinpath("refminer_data/filter_fp_2")
     mm_path = data_folder.joinpath("refminer_data/contains_a_mm")
