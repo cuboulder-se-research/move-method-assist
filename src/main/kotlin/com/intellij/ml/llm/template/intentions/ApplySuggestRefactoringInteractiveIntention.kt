@@ -3,9 +3,6 @@ package com.intellij.ml.llm.template.intentions
 import com.intellij.codeInsight.unwrap.ScopeHighlighter
 import com.intellij.ml.llm.template.LLMBundle
 import com.intellij.ml.llm.template.models.LLMBaseResponse
-import com.intellij.ml.llm.template.models.LLMRequestProvider
-import com.intellij.ml.llm.template.models.grazie.GrazieGPT4
-import com.intellij.ml.llm.template.models.grazie.GrazieGPT4RequestProvider
 import com.intellij.ml.llm.template.models.ollama.localOllamaMistral
 import com.intellij.ml.llm.template.refactoringobjects.AbstractRefactoring
 import com.intellij.ml.llm.template.settings.RefAgentSettingsManager
@@ -135,7 +132,7 @@ open class ApplySuggestRefactoringInteractiveIntention(
         // Create the popup
         val efPopup =
             JBPopupFactory.getInstance()
-                .createComponentPopupBuilder(panel, efPanel.myExtractFunctionsCandidateTable)
+                .createComponentPopupBuilder(panel, efPanel.myRefactoringCandidateTable)
                 .setRequestFocus(true)
                 .setTitle(LLMBundle.message("ef.candidates.popup.title"))
                 .setResizable(true)

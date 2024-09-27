@@ -253,7 +253,7 @@ open class ApplySuggestRefactoringAgentIntention(
         // Create the popup
         val efPopup =
             JBPopupFactory.getInstance()
-                .createComponentPopupBuilder(panel, efPanel.myExtractFunctionsCandidateTable)
+                .createComponentPopupBuilder(panel, efPanel.myRefactoringCandidateTable)
                 .setRequestFocus(true)
                 .setTitle(LLMBundle.message("ef.candidates.completed.popup.title"))
                 .setResizable(true)

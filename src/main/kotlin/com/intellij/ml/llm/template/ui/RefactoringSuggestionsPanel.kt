@@ -29,9 +29,7 @@ import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
 import com.intellij.psi.PsiMethod
 import com.intellij.refactoring.extractMethod.newImpl.MethodExtractor
-import com.intellij.refactoring.ui.MethodSignatureComponent
 import com.intellij.ui.components.JBScrollPane
-import com.intellij.ui.components.Label
 import com.intellij.ui.dsl.builder.AlignX
 import com.intellij.ui.dsl.builder.panel
 import com.intellij.ui.table.JBTable
@@ -48,10 +46,8 @@ import java.awt.Dimension
 import java.awt.event.KeyEvent
 import java.awt.event.MouseEvent
 import java.util.concurrent.atomic.AtomicReference
-import javax.swing.JComboBox
 import javax.swing.JComponent
-import javax.swing.JLabel
-import javax.swing.JSlider
+import javax.swing.JTextArea
 import javax.swing.KeyStroke
 import javax.swing.ListSelectionModel
 import javax.swing.table.DefaultTableModel
@@ -67,10 +63,10 @@ open class RefactoringSuggestionsPanel(
     efTelemetryDataManager: EFTelemetryDataManager? = null,
     val button_name: String
 ) : Observable() {
-    lateinit var myExtractFunctionsCandidateTable: JBTable
-    lateinit var myExtractFunctionsScrollPane: JBScrollPane
+    lateinit var myRefactoringCandidateTable: JBTable
+    lateinit var myRefactoringScrollPane: JBScrollPane
     val myProject: Project = project
-    lateinit var myMethodSignaturePreview: MethodSignatureComponent
+    lateinit var refactoringDescriptionBox: JTextArea
     val myCandidates = candidates
     val myEditor = editor
     var myPopup: JBPopup? = null
@@ -95,20 +91,20 @@ open class RefactoringSuggestionsPanel(
 
     fun initTable(){
         val tableModel = buildTableModel(myCandidates)
-        val candidateSignatureMap = buildCandidateSignatureMap(myCandidates)
-        myMethodSignaturePreview = buildMethodSignaturePreview()
-        myExtractFunctionsCandidateTable = buildRefactoringCandidatesTable(tableModel, candidateSignatureMap)
-        myExtractFunctionsScrollPane = buildExtractFunctionScrollPane()
+        val refactoringDescriptionMap = buildRefactoringDescriptionMap(myCandidates)
+        refactoringDescriptionBox = buildRefactoringDescriptionBox()
+        myRefactoringCandidateTable = buildRefactoringCandidatesTable(tableModel, refactoringDescriptionMap)
+        myRefactoringScrollPane = builScrollPane()
 
     }
 
 
-    private fun buildCandidateSignatureMap(candidates: List<AbstractRefactoring>): Map<AbstractRefactoring, String> {
+    private fun buildRefactoringDescriptionMap(candidates: List<AbstractRefactoring>): Map<AbstractRefactoring, String> {
         val candidateSignatureMap: MutableMap<AbstractRefactoring, String> = mutableMapOf()
 
         candidates.forEach { candidate ->
-            val descriptionWrapped = WordUtils.wrap(candidate.description, 50).prependIndent("// ")
-            candidateSignatureMap[candidate] = "// "+candidate.getRefactoringPreview() + "\n" + descriptionWrapped
+            val descriptionWrapped = WordUtils.wrap(candidate.description, 50)
+            candidateSignatureMap[candidate] = descriptionWrapped
         }
 
         return candidateSignatureMap
@@ -118,7 +114,7 @@ open class RefactoringSuggestionsPanel(
         tableModel: DefaultTableModel,
         candidateSignatureMap: Map<AbstractRefactoring, String>
     ): JBTable {
-        val extractFunctionCandidateTable = object : JBTable(tableModel) {
+        val refFunctionCandidateTable = object : JBTable(tableModel) {
             override fun processKeyBinding(ks: KeyStroke, e: KeyEvent, condition: Int, pressed: Boolean): Boolean {
                 if (e.keyCode == KeyEvent.VK_ENTER) {
                     if (e.id == KeyEvent.KEY_PRESSED) {
@@ -144,30 +140,30 @@ open class RefactoringSuggestionsPanel(
                 super.processMouseEvent(e)
             }
         }
-        extractFunctionCandidateTable.minimumSize = Dimension(-1, 500)
-        extractFunctionCandidateTable.tableHeader = null
+        refFunctionCandidateTable.minimumSize = Dimension(-1, 500)
+        refFunctionCandidateTable.tableHeader = null
 
-        extractFunctionCandidateTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION)
-        extractFunctionCandidateTable.selectionModel.addListSelectionListener {
-            highlightElement(extractFunctionCandidateTable, candidateSignatureMap)
+        refFunctionCandidateTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION)
+        refFunctionCandidateTable.selectionModel.addListSelectionListener {
+            highlightElement(refFunctionCandidateTable, candidateSignatureMap)
         }
-        extractFunctionCandidateTable.selectionModel.setSelectionInterval(0, 0)
-        extractFunctionCandidateTable.cellEditor = null
+        refFunctionCandidateTable.selectionModel.setSelectionInterval(0, 0)
+        refFunctionCandidateTable.cellEditor = null
 
-        extractFunctionCandidateTable.columnModel.getColumn(0).maxWidth = 50
-        extractFunctionCandidateTable.columnModel.getColumn(1).cellRenderer = FunctionNameTableCellRenderer()
-        extractFunctionCandidateTable.setShowGrid(false)
-        return extractFunctionCandidateTable
+        refFunctionCandidateTable.columnModel.getColumn(0).maxWidth = 50
+        refFunctionCandidateTable.columnModel.getColumn(1).cellRenderer = FunctionNameTableCellRenderer()
+        refFunctionCandidateTable.setShowGrid(false)
+        return refFunctionCandidateTable
     }
 
-    private fun buildExtractFunctionScrollPane(): JBScrollPane {
-        val extractFunctionsScrollPane = JBScrollPane(myExtractFunctionsCandidateTable)
+    private fun builScrollPane(): JBScrollPane {
+        val refFunctionsScrollPane = JBScrollPane(myRefactoringCandidateTable)
 
-        extractFunctionsScrollPane.border = JBUI.Borders.empty()
-        extractFunctionsScrollPane.maximumSize = Dimension(500, 500)
-        extractFunctionsScrollPane.minimumSize = Dimension(250, 250)
+        refFunctionsScrollPane.border = JBUI.Borders.empty()
+        refFunctionsScrollPane.maximumSize = Dimension(500, 500)
+        refFunctionsScrollPane.minimumSize = Dimension(250, 250)
 
-        return extractFunctionsScrollPane
+        return refFunctionsScrollPane
     }
 
     private fun buildTableModel(candidates: List<AbstractRefactoring>): DefaultTableModel {
@@ -191,35 +187,33 @@ open class RefactoringSuggestionsPanel(
         return model
     }
 
-    private fun buildMethodSignaturePreview(): MethodSignatureComponent {
-        val methodSignaturePreview =
-            MethodSignatureComponent("", myProject, com.intellij.ide.highlighter.JavaFileType.INSTANCE)
-        methodSignaturePreview.isFocusable = false
-        methodSignaturePreview.minimumSize = Dimension(500, 100)
-        methodSignaturePreview.preferredSize = Dimension(500, 150)
-        methodSignaturePreview.maximumSize = Dimension(500, 200)
+    private fun buildRefactoringDescriptionBox(): JTextArea {
+        val refactoringDescription =
+            JTextArea()
+        refactoringDescription.isFocusable = false
+        refactoringDescription.minimumSize = Dimension(500, 100)
+        refactoringDescription.preferredSize = Dimension(500, 150)
+        refactoringDescription.maximumSize = Dimension(500, 200)
 
-        return methodSignaturePreview
+        return refactoringDescription
     }
 
     fun createPanel(): JComponent {
         val popupPanel = panel {
             row {
-                cell(myExtractFunctionsScrollPane).align(AlignX.FILL)
+                cell(myRefactoringScrollPane).align(AlignX.FILL)
                     .applyToComponent { minimumSize = JBDimension(100, 500) }
             }
 
-            // TODO: Use the below if you would like to implement a nicer preview
-            //  of the refactoring, in a box
             row {
-                cell(myMethodSignaturePreview)
+                cell(refactoringDescriptionBox)
                     .align(AlignX.FILL)
                     .applyToComponent { minimumSize = JBDimension(100, 100) }
             }
 
             row {
                 button(button_name, actionListener = {
-                    performAction(myExtractFunctionsCandidateTable.selectedRow)
+                    performAction(myRefactoringCandidateTable.selectedRow)
                 }).comment(
                     LLMBundle.message(
                         "ef.candidates.popup.invoke.extract.function",
@@ -228,10 +222,10 @@ open class RefactoringSuggestionsPanel(
                 )
             }
             row {
-                cell(ratingsBox).comment("Rate the suggestion!").onChanged { registerRating(myExtractFunctionsCandidateTable.selectedRow, ratingsBox.selectedItem as String) }
+                cell(ratingsBox).comment("Rate the suggestion!").onChanged { registerRating(myRefactoringCandidateTable.selectedRow, ratingsBox.selectedItem as String) }
             }
         }
-        popupPanel.preferredFocusedComponent = myExtractFunctionsCandidateTable
+        popupPanel.preferredFocusedComponent = myRefactoringCandidateTable
         return popupPanel
     }
 
@@ -374,9 +368,9 @@ open class RefactoringSuggestionsPanel(
     fun refreshCandidates(index: Int, tag: String){
         completedIndices.add(index)
 //        ExtractFunctionPanel.showPopup(this, myEditor)
-        val selectedRow = myExtractFunctionsCandidateTable.selectedRow
-        val refName = myExtractFunctionsCandidateTable.getValueAt(selectedRow, 1)!! as String
-        myExtractFunctionsCandidateTable.setValueAt("$tag: $refName", selectedRow, 1)
+        val selectedRow = myRefactoringCandidateTable.selectedRow
+        val refName = myRefactoringCandidateTable.getValueAt(selectedRow, 1)!! as String
+        myRefactoringCandidateTable.setValueAt("$tag: $refName", selectedRow, 1)
     }
 
     open fun highlightElement(extractFuncationCandidateJBTable: JBTable, candidateSignatureMap: Map<AbstractRefactoring, String>){
@@ -385,7 +379,7 @@ open class RefactoringSuggestionsPanel(
         val endOffset = getEndOffset(extractFuncationCandidateJBTable.selectedRow)
         myEditor.selectionModel.setSelection(startOffset, endOffset)
 
-        myMethodSignaturePreview.setSignature(candidateSignatureMap[candidate])
+        refactoringDescriptionBox.text = candidateSignatureMap[candidate]
         val scopeHighlighter: ScopeHighlighter = myHighlighter.get()
         scopeHighlighter.dropHighlight()
         val range = TextRange(startOffset, endOffset)
@@ -394,9 +388,9 @@ open class RefactoringSuggestionsPanel(
         myEditor.scrollingModel.scrollTo(LogicalPosition(startLoc, 0), ScrollType.CENTER)
 
         // set rating value
-        if (::myExtractFunctionsCandidateTable.isInitialized) {
+        if (::myRefactoringCandidateTable.isInitialized) {
             resetRating = true
-            val indexOf = ratingOptions.indexOf(myCandidates[myExtractFunctionsCandidateTable.selectedRow].userRating)
+            val indexOf = ratingOptions.indexOf(myCandidates[myRefactoringCandidateTable.selectedRow].userRating)
             ratingsBox.selectedIndex = if(indexOf==-1) 0 else indexOf
             resetRating = false
         }

@@ -413,7 +413,7 @@ class MoveMethodFactory {
         ) : AbstractRefactoring(){
 
             init {
-                description = "Move method to ${classToMoveTo.qualifiedName}\n" +
+                description = "Move method ${methodToMove.name} to ${classToMoveTo.qualifiedName}\n" +
                         "Rationale: $rationale"
             }
             override fun performRefactoring(project: Project, editor: Editor, file: PsiFile) {
@@ -522,7 +522,7 @@ class MoveMethodFactory {
         val sourceClass: PsiClass = methodToMove.containingClass!!
         val methodName = methodToMove.name
         init {
-            description = "move method to $classToMoveTo\n" +
+            description = "move method ${methodToMove.name} to $classToMoveTo\n" +
                     "Rationale: $rationale"
         }
 

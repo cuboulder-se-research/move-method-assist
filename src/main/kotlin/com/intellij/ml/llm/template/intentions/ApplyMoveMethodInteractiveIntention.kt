@@ -6,7 +6,6 @@ import com.google.gson.JsonParser
 import com.google.gson.annotations.SerializedName
 import com.intellij.codeInsight.unwrap.ScopeHighlighter
 import com.intellij.icons.AllIcons
-import com.intellij.icons.AllIcons.Icons
 import com.intellij.ml.llm.template.LLMBundle
 import com.intellij.ml.llm.template.models.LLMBaseResponse
 import com.intellij.ml.llm.template.models.sendChatRequest
@@ -250,7 +249,7 @@ open class ApplyMoveMethodInteractiveIntention : ApplySuggestRefactoringIntentio
         // Create the popup
         val efPopup =
             JBPopupFactory.getInstance()
-                .createComponentPopupBuilder(panel, efPanel.myExtractFunctionsCandidateTable)
+                .createComponentPopupBuilder(panel, efPanel.myRefactoringCandidateTable)
                 .setRequestFocus(true)
                 .setTitle(LLMBundle.message("ef.candidates.popup.title"))
                 .setResizable(true)
