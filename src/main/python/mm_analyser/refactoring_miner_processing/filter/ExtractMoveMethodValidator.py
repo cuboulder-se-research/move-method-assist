@@ -3,8 +3,8 @@ import subprocess
 import pathlib
 import json
 
-import RminerValidator as rv
-import MoveMethodRef as mm
+import mm_analyser.refactoring_miner_processing.filter.RminerValidator as rv
+import mm_analyser.refactoring_miner_processing.filter.MoveMethodRef as mm
 import mm_analyser.refactoring_miner_processing.MethodSignature as MethodSignature
 import mm_analyser.refactoring_miner_processing.MethodInvocation as mi
 
@@ -47,10 +47,11 @@ class ExtractMoveMethodRef(mm.MoveMethodRef):
 
         extracted_code = [i for i in ref['leftSideLocations']
                           if i['description'] == "extracted code from source method declaration"]
-        extracted_range = ExtractedRange(extracted_code[0]['startLine'],
-                                         extracted_code[0]['startColumn'],
-                                         extracted_code[0]['endLine'],
-                                         extracted_code[0]['endColumn'])
+        # the last one of the "extracted_code" is usually the largest.
+        extracted_range = ExtractedRange(extracted_code[-1]['startLine'],
+                                         extracted_code[-1]['startColumn'],
+                                         extracted_code[-1]['endLine'],
+                                         extracted_code[-1]['endColumn'])
 
         extracted_method_invocation = [i for i in ref['rightSideLocations']
                                        if i['description'] == 'extracted method invocation'][0]
