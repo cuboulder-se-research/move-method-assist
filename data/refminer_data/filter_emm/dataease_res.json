@@ -71,7 +71,8 @@
                 }
             ],
             "isStatic": false
-        }
+        },
+        "ref_id": 911
     },
     {
         "repository": "https://github.com/dataease/dataease.git",
@@ -435,6 +436,7 @@
                 }
             ],
             "isStatic": false
-        }
+        },
+        "ref_id": 912
     }
 ]

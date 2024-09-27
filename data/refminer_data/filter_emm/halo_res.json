@@ -71,7 +71,8 @@
                 }
             ],
             "isStatic": true
-        }
+        },
+        "ref_id": 59
     },
     {
         "repository": "https://github.com/halo-dev/halo.git",
@@ -155,7 +156,8 @@
                 }
             ],
             "isStatic": true
-        }
+        },
+        "ref_id": 60
     },
     {
         "repository": "https://github.com/halo-dev/halo.git",
@@ -229,7 +231,8 @@
                 }
             ],
             "isStatic": true
-        }
+        },
+        "ref_id": 61
     },
     {
         "repository": "https://github.com/halo-dev/halo.git",
@@ -303,7 +306,8 @@
                 }
             ],
             "isStatic": true
-        }
+        },
+        "ref_id": 62
     },
     {
         "repository": "https://github.com/halo-dev/halo.git",
@@ -387,7 +391,8 @@
                 }
             ],
             "isStatic": true
-        }
+        },
+        "ref_id": 63
     },
     {
         "repository": "https://github.com/halo-dev/halo.git",
@@ -581,7 +586,8 @@
                 }
             ],
             "isStatic": false
-        }
+        },
+        "ref_id": 64
     },
     {
         "repository": "https://github.com/halo-dev/halo.git",
@@ -735,6 +741,7 @@
                 }
             ],
             "isStatic": false
-        }
+        },
+        "ref_id": 65
     }
 ]

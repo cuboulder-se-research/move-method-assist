@@ -131,7 +131,8 @@
                 }
             ],
             "isStatic": false
-        }
+        },
+        "ref_id": 783
     },
     {
         "repository": "https://github.com/spring-projects/spring-boot.git",
@@ -215,7 +216,8 @@
                 }
             ],
             "isStatic": false
-        }
+        },
+        "ref_id": 784
     },
     {
         "repository": "https://github.com/spring-projects/spring-boot.git",
@@ -289,7 +291,8 @@
                 }
             ],
             "isStatic": false
-        }
+        },
+        "ref_id": 785
     },
     {
         "repository": "https://github.com/spring-projects/spring-boot.git",
@@ -373,7 +376,8 @@
                 }
             ],
             "isStatic": false
-        }
+        },
+        "ref_id": 786
     },
     {
         "repository": "https://github.com/spring-projects/spring-boot.git",
@@ -457,7 +461,8 @@
                 }
             ],
             "isStatic": false
-        }
+        },
+        "ref_id": 787
     },
     {
         "repository": "https://github.com/spring-projects/spring-boot.git",
@@ -531,7 +536,8 @@
                 }
             ],
             "isStatic": false
-        }
+        },
+        "ref_id": 788
     },
     {
         "repository": "https://github.com/spring-projects/spring-boot.git",
@@ -605,7 +611,8 @@
                 }
             ],
             "isStatic": false
-        }
+        },
+        "ref_id": 789
     },
     {
         "repository": "https://github.com/spring-projects/spring-boot.git",
@@ -679,7 +686,8 @@
                 }
             ],
             "isStatic": false
-        }
+        },
+        "ref_id": 790
     },
     {
         "repository": "https://github.com/spring-projects/spring-boot.git",
@@ -843,6 +851,7 @@
                 }
             ],
             "isStatic": true
-        }
+        },
+        "ref_id": 791
     }
 ]

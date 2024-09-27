@@ -71,7 +71,8 @@
                 }
             ],
             "isStatic": false
-        }
+        },
+        "ref_id": 793
     },
     {
         "repository": "https://github.com/SeleniumHQ/selenium.git",
@@ -155,7 +156,8 @@
                 }
             ],
             "isStatic": false
-        }
+        },
+        "ref_id": 794
     },
     {
         "repository": "https://github.com/SeleniumHQ/selenium.git",
@@ -239,7 +241,8 @@
                 }
             ],
             "isStatic": false
-        }
+        },
+        "ref_id": 795
     },
     {
         "repository": "https://github.com/SeleniumHQ/selenium.git",
@@ -323,7 +326,8 @@
                 }
             ],
             "isStatic": false
-        }
+        },
+        "ref_id": 796
     },
     {
         "repository": "https://github.com/SeleniumHQ/selenium.git",
@@ -407,7 +411,8 @@
                 }
             ],
             "isStatic": false
-        }
+        },
+        "ref_id": 797
     },
     {
         "repository": "https://github.com/SeleniumHQ/selenium.git",
@@ -491,6 +496,7 @@
                 }
             ],
             "isStatic": false
-        }
+        },
+        "ref_id": 798
     }
 ]
