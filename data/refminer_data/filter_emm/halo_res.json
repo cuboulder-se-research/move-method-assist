@@ -1,0 +1,740 @@
+[
+    {
+        "repository": "https://github.com/halo-dev/halo.git",
+        "sha1": "20d80f8f6584561427224e6e1187e9e5a4dfc5e7",
+        "url": "https://github.com/halo-dev/halo/commit/20d80f8f6584561427224e6e1187e9e5a4dfc5e7",
+        "move_method_refactoring": {
+            "type": "Extract And Move Method",
+            "description": "Extract And Move Method public ownerIdentity(kind String, name String) : String extracted from private fixedCommentPredicate(ref Ref) : Mono<Predicate<Comment>> in class run.halo.app.theme.finders.impl.CommentPublicQueryServiceImpl & moved to class run.halo.app.core.extension.content.Comment.CommentOwner",
+            "leftSideLocations": [
+                {
+                    "filePath": "application/src/main/java/run/halo/app/theme/finders/impl/CommentPublicQueryServiceImpl.java",
+                    "startLine": 196,
+                    "endLine": 218,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration before extraction",
+                    "codeElement": "private fixedCommentPredicate(ref Ref) : Mono<Predicate<Comment>>"
+                },
+                {
+                    "filePath": "application/src/main/java/run/halo/app/theme/finders/impl/CommentPublicQueryServiceImpl.java",
+                    "startLine": 212,
+                    "endLine": 212,
+                    "startColumn": 21,
+                    "endColumn": 91,
+                    "codeElementType": "RETURN_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "api/src/main/java/run/halo/app/core/extension/content/Comment.java",
+                    "startLine": 120,
+                    "endLine": 122,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "extracted method declaration",
+                    "codeElement": "public ownerIdentity(kind String, name String) : String"
+                },
+                {
+                    "filePath": "api/src/main/java/run/halo/app/core/extension/content/Comment.java",
+                    "startLine": 121,
+                    "endLine": 121,
+                    "startColumn": 13,
+                    "endColumn": 38,
+                    "codeElementType": "RETURN_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "application/src/main/java/run/halo/app/theme/finders/impl/CommentPublicQueryServiceImpl.java",
+                    "startLine": 206,
+                    "endLine": 231,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration after extraction",
+                    "codeElement": "private fixedCommentFieldQuery(ref Ref) : Mono<FieldSelector>"
+                },
+                {
+                    "filePath": "application/src/main/java/run/halo/app/theme/finders/impl/CommentPublicQueryServiceImpl.java",
+                    "startLine": 225,
+                    "endLine": 225,
+                    "startColumn": 25,
+                    "endColumn": 80,
+                    "codeElementType": "METHOD_INVOCATION",
+                    "description": "extracted method invocation",
+                    "codeElement": "Comment.CommentOwner.ownerIdentity(User.KIND,username)"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/halo-dev/halo.git",
+        "sha1": "3c20ce3c55676721e20bb3722d9b0720a6d1635d",
+        "url": "https://github.com/halo-dev/halo/commit/3c20ce3c55676721e20bb3722d9b0720a6d1635d",
+        "move_method_refactoring": {
+            "type": "Extract And Move Method",
+            "description": "Extract And Move Method public buildParameters(builder Builder) : void extracted from public endpoint() : RouterFunction<ServerResponse> in class run.halo.app.theme.endpoint.CategoryQueryEndpoint & moved to class run.halo.app.theme.endpoint.CategoryQueryEndpoint.CategoryPublicQuery",
+            "leftSideLocations": [
+                {
+                    "filePath": "application/src/main/java/run/halo/app/theme/endpoint/CategoryQueryEndpoint.java",
+                    "startLine": 42,
+                    "endLine": 89,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration before extraction",
+                    "codeElement": "public endpoint() : RouterFunction<ServerResponse>"
+                },
+                {
+                    "filePath": "application/src/main/java/run/halo/app/theme/endpoint/CategoryQueryEndpoint.java",
+                    "startLine": 54,
+                    "endLine": 54,
+                    "startColumn": 21,
+                    "endColumn": 101,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "application/src/main/java/run/halo/app/theme/endpoint/CategoryQueryEndpoint.java",
+                    "startLine": 130,
+                    "endLine": 132,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "extracted method declaration",
+                    "codeElement": "public buildParameters(builder Builder) : void"
+                },
+                {
+                    "filePath": "application/src/main/java/run/halo/app/theme/endpoint/CategoryQueryEndpoint.java",
+                    "startLine": 131,
+                    "endLine": 131,
+                    "startColumn": 13,
+                    "endColumn": 54,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "application/src/main/java/run/halo/app/theme/endpoint/CategoryQueryEndpoint.java",
+                    "startLine": 42,
+                    "endLine": 89,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration after extraction",
+                    "codeElement": "public endpoint() : RouterFunction<ServerResponse>"
+                },
+                {
+                    "filePath": "application/src/main/java/run/halo/app/theme/endpoint/CategoryQueryEndpoint.java",
+                    "startLine": 54,
+                    "endLine": 54,
+                    "startColumn": 21,
+                    "endColumn": 65,
+                    "codeElementType": "METHOD_INVOCATION",
+                    "description": "extracted method invocation",
+                    "codeElement": "CategoryPublicQuery.buildParameters(builder)"
+                },
+                {
+                    "filePath": "application/src/main/java/run/halo/app/theme/endpoint/CategoryQueryEndpoint.java",
+                    "startLine": 85,
+                    "endLine": 85,
+                    "startColumn": 21,
+                    "endColumn": 61,
+                    "codeElementType": "METHOD_INVOCATION",
+                    "description": "extracted method invocation",
+                    "codeElement": "PostPublicQuery.buildParameters(builder)"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/halo-dev/halo.git",
+        "sha1": "3c20ce3c55676721e20bb3722d9b0720a6d1635d",
+        "url": "https://github.com/halo-dev/halo/commit/3c20ce3c55676721e20bb3722d9b0720a6d1635d",
+        "move_method_refactoring": {
+            "type": "Extract And Move Method",
+            "description": "Extract And Move Method public buildParameters(builder Builder) : void extracted from public endpoint() : RouterFunction<ServerResponse> in class run.halo.app.theme.endpoint.PostQueryEndpoint & moved to class run.halo.app.theme.endpoint.PostPublicQuery",
+            "leftSideLocations": [
+                {
+                    "filePath": "application/src/main/java/run/halo/app/theme/endpoint/PostQueryEndpoint.java",
+                    "startLine": 40,
+                    "endLine": 84,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration before extraction",
+                    "codeElement": "public endpoint() : RouterFunction<ServerResponse>"
+                },
+                {
+                    "filePath": "application/src/main/java/run/halo/app/theme/endpoint/PostQueryEndpoint.java",
+                    "startLine": 52,
+                    "endLine": 52,
+                    "startColumn": 21,
+                    "endColumn": 97,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "application/src/main/java/run/halo/app/theme/endpoint/PostPublicQuery.java",
+                    "startLine": 19,
+                    "endLine": 21,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "extracted method declaration",
+                    "codeElement": "public buildParameters(builder Builder) : void"
+                },
+                {
+                    "filePath": "application/src/main/java/run/halo/app/theme/endpoint/PostPublicQuery.java",
+                    "startLine": 20,
+                    "endLine": 20,
+                    "startColumn": 9,
+                    "endColumn": 50,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "application/src/main/java/run/halo/app/theme/endpoint/PostQueryEndpoint.java",
+                    "startLine": 39,
+                    "endLine": 83,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration after extraction",
+                    "codeElement": "public endpoint() : RouterFunction<ServerResponse>"
+                },
+                {
+                    "filePath": "application/src/main/java/run/halo/app/theme/endpoint/PostQueryEndpoint.java",
+                    "startLine": 51,
+                    "endLine": 51,
+                    "startColumn": 21,
+                    "endColumn": 61,
+                    "codeElementType": "METHOD_INVOCATION",
+                    "description": "extracted method invocation",
+                    "codeElement": "PostPublicQuery.buildParameters(builder)"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/halo-dev/halo.git",
+        "sha1": "3c20ce3c55676721e20bb3722d9b0720a6d1635d",
+        "url": "https://github.com/halo-dev/halo/commit/3c20ce3c55676721e20bb3722d9b0720a6d1635d",
+        "move_method_refactoring": {
+            "type": "Extract And Move Method",
+            "description": "Extract And Move Method public buildParameters(builder Builder) : void extracted from public endpoint() : RouterFunction<ServerResponse> in class run.halo.app.theme.endpoint.SinglePageQueryEndpoint & moved to class run.halo.app.theme.endpoint.SinglePageQueryEndpoint.SinglePagePublicQuery",
+            "leftSideLocations": [
+                {
+                    "filePath": "application/src/main/java/run/halo/app/theme/endpoint/SinglePageQueryEndpoint.java",
+                    "startLine": 38,
+                    "endLine": 70,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration before extraction",
+                    "codeElement": "public endpoint() : RouterFunction<ServerResponse>"
+                },
+                {
+                    "filePath": "application/src/main/java/run/halo/app/theme/endpoint/SinglePageQueryEndpoint.java",
+                    "startLine": 51,
+                    "endLine": 52,
+                    "startColumn": 21,
+                    "endColumn": 54,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "application/src/main/java/run/halo/app/theme/endpoint/SinglePageQueryEndpoint.java",
+                    "startLine": 99,
+                    "endLine": 101,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "extracted method declaration",
+                    "codeElement": "public buildParameters(builder Builder) : void"
+                },
+                {
+                    "filePath": "application/src/main/java/run/halo/app/theme/endpoint/SinglePageQueryEndpoint.java",
+                    "startLine": 100,
+                    "endLine": 100,
+                    "startColumn": 13,
+                    "endColumn": 54,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "application/src/main/java/run/halo/app/theme/endpoint/SinglePageQueryEndpoint.java",
+                    "startLine": 38,
+                    "endLine": 69,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration after extraction",
+                    "codeElement": "public endpoint() : RouterFunction<ServerResponse>"
+                },
+                {
+                    "filePath": "application/src/main/java/run/halo/app/theme/endpoint/SinglePageQueryEndpoint.java",
+                    "startLine": 51,
+                    "endLine": 51,
+                    "startColumn": 21,
+                    "endColumn": 67,
+                    "codeElementType": "METHOD_INVOCATION",
+                    "description": "extracted method invocation",
+                    "codeElement": "SinglePagePublicQuery.buildParameters(builder)"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/halo-dev/halo.git",
+        "sha1": "3c20ce3c55676721e20bb3722d9b0720a6d1635d",
+        "url": "https://github.com/halo-dev/halo/commit/3c20ce3c55676721e20bb3722d9b0720a6d1635d",
+        "move_method_refactoring": {
+            "type": "Extract And Move Method",
+            "description": "Extract And Move Method public buildParameters(builder Builder) : void extracted from public endpoint() : RouterFunction<ServerResponse> in class run.halo.app.theme.endpoint.TagQueryEndpoint & moved to class run.halo.app.theme.endpoint.TagQueryEndpoint.TagPublicQuery",
+            "leftSideLocations": [
+                {
+                    "filePath": "application/src/main/java/run/halo/app/theme/endpoint/TagQueryEndpoint.java",
+                    "startLine": 43,
+                    "endLine": 91,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration before extraction",
+                    "codeElement": "public endpoint() : RouterFunction<ServerResponse>"
+                },
+                {
+                    "filePath": "application/src/main/java/run/halo/app/theme/endpoint/TagQueryEndpoint.java",
+                    "startLine": 56,
+                    "endLine": 56,
+                    "startColumn": 21,
+                    "endColumn": 96,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "application/src/main/java/run/halo/app/theme/endpoint/TagQueryEndpoint.java",
+                    "startLine": 135,
+                    "endLine": 137,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "extracted method declaration",
+                    "codeElement": "public buildParameters(builder Builder) : void"
+                },
+                {
+                    "filePath": "application/src/main/java/run/halo/app/theme/endpoint/TagQueryEndpoint.java",
+                    "startLine": 136,
+                    "endLine": 136,
+                    "startColumn": 13,
+                    "endColumn": 54,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "application/src/main/java/run/halo/app/theme/endpoint/TagQueryEndpoint.java",
+                    "startLine": 43,
+                    "endLine": 91,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration after extraction",
+                    "codeElement": "public endpoint() : RouterFunction<ServerResponse>"
+                },
+                {
+                    "filePath": "application/src/main/java/run/halo/app/theme/endpoint/TagQueryEndpoint.java",
+                    "startLine": 56,
+                    "endLine": 56,
+                    "startColumn": 21,
+                    "endColumn": 60,
+                    "codeElementType": "METHOD_INVOCATION",
+                    "description": "extracted method invocation",
+                    "codeElement": "TagPublicQuery.buildParameters(builder)"
+                },
+                {
+                    "filePath": "application/src/main/java/run/halo/app/theme/endpoint/TagQueryEndpoint.java",
+                    "startLine": 87,
+                    "endLine": 87,
+                    "startColumn": 21,
+                    "endColumn": 61,
+                    "codeElementType": "METHOD_INVOCATION",
+                    "description": "extracted method invocation",
+                    "codeElement": "PostPublicQuery.buildParameters(builder)"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/halo-dev/halo.git",
+        "sha1": "f61f846a7f571f46e15930e4a0ce952a9c58932b",
+        "url": "https://github.com/halo-dev/halo/commit/f61f846a7f571f46e15930e4a0ce952a9c58932b",
+        "move_method_refactoring": {
+            "type": "Extract And Move Method",
+            "description": "Extract And Move Method public toListOptions() : ListOptions extracted from public toListOptions() : ListOptions in class run.halo.app.content.PostQuery & moved to class run.halo.app.content.SinglePageQuery",
+            "leftSideLocations": [
+                {
+                    "filePath": "application/src/main/java/run/halo/app/content/PostQuery.java",
+                    "startLine": 86,
+                    "endLine": 133,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration before extraction",
+                    "codeElement": "public toListOptions() : ListOptions"
+                },
+                {
+                    "filePath": "application/src/main/java/run/halo/app/content/PostQuery.java",
+                    "startLine": 97,
+                    "endLine": 97,
+                    "startColumn": 9,
+                    "endColumn": 60,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "application/src/main/java/run/halo/app/content/PostQuery.java",
+                    "startLine": 116,
+                    "endLine": 116,
+                    "startColumn": 24,
+                    "endColumn": 69,
+                    "codeElementType": "IF_STATEMENT_CONDITION",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "application/src/main/java/run/halo/app/content/PostQuery.java",
+                    "startLine": 111,
+                    "endLine": 111,
+                    "startColumn": 17,
+                    "endColumn": 69,
+                    "codeElementType": "IF_STATEMENT_CONDITION",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "application/src/main/java/run/halo/app/content/PostQuery.java",
+                    "startLine": 123,
+                    "endLine": 123,
+                    "startColumn": 13,
+                    "endColumn": 45,
+                    "codeElementType": "IF_STATEMENT_CONDITION",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "application/src/main/java/run/halo/app/content/PostQuery.java",
+                    "startLine": 116,
+                    "endLine": 120,
+                    "startColumn": 20,
+                    "endColumn": 14,
+                    "codeElementType": "IF_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "application/src/main/java/run/halo/app/content/SinglePageQuery.java",
+                    "startLine": 36,
+                    "endLine": 74,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "extracted method declaration",
+                    "codeElement": "public toListOptions() : ListOptions"
+                },
+                {
+                    "filePath": "application/src/main/java/run/halo/app/content/SinglePageQuery.java",
+                    "startLine": 38,
+                    "endLine": 38,
+                    "startColumn": 9,
+                    "endColumn": 66,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "application/src/main/java/run/halo/app/content/SinglePageQuery.java",
+                    "startLine": 57,
+                    "endLine": 57,
+                    "startColumn": 29,
+                    "endColumn": 61,
+                    "codeElementType": "LAMBDA_EXPRESSION_BODY",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "application/src/main/java/run/halo/app/content/SinglePageQuery.java",
+                    "startLine": 41,
+                    "endLine": 41,
+                    "startColumn": 21,
+                    "endColumn": 44,
+                    "codeElementType": "LAMBDA_EXPRESSION_BODY",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "application/src/main/java/run/halo/app/content/SinglePageQuery.java",
+                    "startLine": 56,
+                    "endLine": 61,
+                    "startColumn": 17,
+                    "endColumn": 23,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "application/src/main/java/run/halo/app/content/PostQuery.java",
+                    "startLine": 57,
+                    "endLine": 95,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration after extraction",
+                    "codeElement": "public toListOptions() : ListOptions"
+                },
+                {
+                    "filePath": "application/src/main/java/run/halo/app/content/PostQuery.java",
+                    "startLine": 64,
+                    "endLine": 64,
+                    "startColumn": 43,
+                    "endColumn": 64,
+                    "codeElementType": "SUPER_METHOD_INVOCATION",
+                    "description": "extracted method invocation",
+                    "codeElement": "super.toListOptions()"
+                },
+                {
+                    "filePath": "application/src/main/java/run/halo/app/content/SinglePageQuery.java",
+                    "startLine": 48,
+                    "endLine": 62,
+                    "startColumn": 9,
+                    "endColumn": 16,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "added statement in extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "application/src/main/java/run/halo/app/content/SinglePageQuery.java",
+                    "startLine": 64,
+                    "endLine": 67,
+                    "startColumn": 9,
+                    "endColumn": 92,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "added statement in extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "application/src/main/java/run/halo/app/content/SinglePageQuery.java",
+                    "startLine": 69,
+                    "endLine": 71,
+                    "startColumn": 9,
+                    "endColumn": 99,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "added statement in extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "application/src/main/java/run/halo/app/content/SinglePageQuery.java",
+                    "startLine": 73,
+                    "endLine": 73,
+                    "startColumn": 9,
+                    "endColumn": 32,
+                    "codeElementType": "RETURN_STATEMENT",
+                    "description": "added statement in extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "application/src/main/java/run/halo/app/content/SinglePageQuery.java",
+                    "startLine": 40,
+                    "endLine": 46,
+                    "startColumn": 9,
+                    "endColumn": 17,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "added statement in extracted method declaration",
+                    "codeElement": null
+                }
+            ],
+            "isStatic": false
+        }
+    },
+    {
+        "repository": "https://github.com/halo-dev/halo.git",
+        "sha1": "f61f846a7f571f46e15930e4a0ce952a9c58932b",
+        "url": "https://github.com/halo-dev/halo/commit/f61f846a7f571f46e15930e4a0ce952a9c58932b",
+        "move_method_refactoring": {
+            "type": "Extract And Move Method",
+            "description": "Extract And Move Method public toListOptions() : ListOptions extracted from public toListOptions() : ListOptions in class run.halo.app.content.comment.CommentQuery & moved to class run.halo.app.content.SinglePageQuery",
+            "leftSideLocations": [
+                {
+                    "filePath": "application/src/main/java/run/halo/app/content/comment/CommentQuery.java",
+                    "startLine": 67,
+                    "endLine": 89,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration before extraction",
+                    "codeElement": "public toListOptions() : ListOptions"
+                },
+                {
+                    "filePath": "application/src/main/java/run/halo/app/content/comment/CommentQuery.java",
+                    "startLine": 76,
+                    "endLine": 76,
+                    "startColumn": 13,
+                    "endColumn": 44,
+                    "codeElementType": "IF_STATEMENT_CONDITION",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "application/src/main/java/run/halo/app/content/comment/CommentQuery.java",
+                    "startLine": 81,
+                    "endLine": 81,
+                    "startColumn": 13,
+                    "endColumn": 46,
+                    "codeElementType": "IF_STATEMENT_CONDITION",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "application/src/main/java/run/halo/app/content/SinglePageQuery.java",
+                    "startLine": 36,
+                    "endLine": 74,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "extracted method declaration",
+                    "codeElement": "public toListOptions() : ListOptions"
+                },
+                {
+                    "filePath": "application/src/main/java/run/halo/app/content/SinglePageQuery.java",
+                    "startLine": 41,
+                    "endLine": 41,
+                    "startColumn": 21,
+                    "endColumn": 44,
+                    "codeElementType": "LAMBDA_EXPRESSION_BODY",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "application/src/main/java/run/halo/app/content/SinglePageQuery.java",
+                    "startLine": 49,
+                    "endLine": 49,
+                    "startColumn": 21,
+                    "endColumn": 44,
+                    "codeElementType": "LAMBDA_EXPRESSION_BODY",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "application/src/main/java/run/halo/app/content/comment/CommentQuery.java",
+                    "startLine": 55,
+                    "endLine": 78,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration after extraction",
+                    "codeElement": "public toListOptions() : ListOptions"
+                },
+                {
+                    "filePath": "application/src/main/java/run/halo/app/content/comment/CommentQuery.java",
+                    "startLine": 60,
+                    "endLine": 60,
+                    "startColumn": 43,
+                    "endColumn": 64,
+                    "codeElementType": "SUPER_METHOD_INVOCATION",
+                    "description": "extracted method invocation",
+                    "codeElement": "super.toListOptions()"
+                },
+                {
+                    "filePath": "application/src/main/java/run/halo/app/content/SinglePageQuery.java",
+                    "startLine": 38,
+                    "endLine": 38,
+                    "startColumn": 9,
+                    "endColumn": 66,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "added statement in extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "application/src/main/java/run/halo/app/content/SinglePageQuery.java",
+                    "startLine": 64,
+                    "endLine": 67,
+                    "startColumn": 9,
+                    "endColumn": 92,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "added statement in extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "application/src/main/java/run/halo/app/content/SinglePageQuery.java",
+                    "startLine": 69,
+                    "endLine": 71,
+                    "startColumn": 9,
+                    "endColumn": 99,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "added statement in extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "application/src/main/java/run/halo/app/content/SinglePageQuery.java",
+                    "startLine": 73,
+                    "endLine": 73,
+                    "startColumn": 9,
+                    "endColumn": 32,
+                    "codeElementType": "RETURN_STATEMENT",
+                    "description": "added statement in extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "application/src/main/java/run/halo/app/content/SinglePageQuery.java",
+                    "startLine": 40,
+                    "endLine": 46,
+                    "startColumn": 9,
+                    "endColumn": 17,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "added statement in extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "application/src/main/java/run/halo/app/content/SinglePageQuery.java",
+                    "startLine": 48,
+                    "endLine": 62,
+                    "startColumn": 9,
+                    "endColumn": 16,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "added statement in extracted method declaration",
+                    "codeElement": null
+                }
+            ],
+            "isStatic": false
+        }
+    }
+]
