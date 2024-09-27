@@ -5,8 +5,7 @@ import subprocess
 import git
 
 from mm_analyser import data_folder, project_root
-from mm_analyser.refactoring_miner_processing.filter.MoveMethodValidator import MoveMethodRef, MoveMethodValidator
-
+import mm_analyser.refactoring_miner_processing.filter.MoveMethodRef as MoveMethodRef
 
 class RminerValidator:
     output_dir = f"{data_folder}/refminer_data"
@@ -36,16 +35,23 @@ class RminerValidator:
     def checkout_before(self):
         self.repo.git.checkout(self.commit_before, force=True)
 
-    def isStaticMove(self, ref: MoveMethodRef):
+    def is_method_before_static(self, ref: MoveMethodRef.MoveMethodRef):
         self.repo.git.checkout(self.commit_before, force=True)
+        return self.is_method_static(ref.left_file_path, ref.left_signature)
+
+    def is_method_after_static(self, ref: MoveMethodRef.MoveMethodRef):
+        self.repo.git.checkout(self.commit_after, force=True)
+        return self.is_method_static(ref.right_file_path, ref.right_signature)
+
+    def is_method_static(self, file_path, signature):
         outputpath = f"{RminerValidator.output_dir}/isStaticOut.txt"
-        filepath = os.path.join(self.project_basepath, ref.left_file_path)
+        complete_filepath = os.path.join(self.project_basepath, file_path)
         result = subprocess.run([
-            MoveMethodValidator.gradle_path,
-            "-p", str(pathlib.Path(MoveMethodValidator.gradle_path).parent),
+            RminerValidator.gradle_path,
+            "-p", str(pathlib.Path(RminerValidator.gradle_path).parent),
             "run",
             f"--args="
-            f"checkIfStatic -i {filepath} -o {outputpath} -s \'{ref.left_signature}\'"
+            f"checkIfStatic -i {complete_filepath} -o {outputpath} -s \'{signature}\'"
         ], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         if result.returncode != 0:
             # return False
@@ -53,5 +59,4 @@ class RminerValidator:
         with open(outputpath) as f1:
             isStatic = f1.read() == 'true'
         subprocess.run(['rm', outputpath])
-
         return isStatic

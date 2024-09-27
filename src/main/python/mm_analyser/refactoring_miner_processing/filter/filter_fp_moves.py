@@ -50,24 +50,24 @@ class Processor:
 if __name__ == '__main__':
     refactoring_type = ExtractMoveMethodValidator.type
 
-    filtered_path = data_folder.joinpath("refminer_data/filter_fp_2")
+    filtered_path = data_folder.joinpath("refminer_data/filter_emm")
     mm_path = data_folder.joinpath("refminer_data/contains_a_mm")
     files = [i for i in os.listdir(mm_path) if i.endswith(".json")]
     SELECTED_PROJECTS = [
-        # 'vue_pro_res.json',
-        # 'flink_res.json',
-        # 'halo_res.json',
-        # 'elastic_res.json',
-        # 'graal_res.json',
+        'vue_pro_res.json',
+        'flink_res.json',
+        'halo_res.json',
+        'elastic_res.json',
+        'graal_res.json',
         'kafka_res.json',
-        # 'redisson_res.json',
-        # 'spring_framework_res.json',
-        # 'springboot_res.json',
-        # 'stirling_res.json',
-        # 'selenium_res.json',
-        # 'ghidra_res.json',
-        # 'dbeaver_res.json',
-        # 'dataease_res.json'
+        'redisson_res.json',
+        'spring_framework_res.json',
+        'springboot_res.json',
+        'stirling_res.json',
+        'selenium_res.json',
+        'ghidra_res.json',
+        'dbeaver_res.json',
+        'dataease_res.json'
     ]
     for fname in files:
         print(fname)
