@@ -5,6 +5,8 @@ import com.google.gson.JsonArray
 import com.google.gson.JsonParser
 import com.google.gson.annotations.SerializedName
 import com.intellij.codeInsight.unwrap.ScopeHighlighter
+import com.intellij.icons.AllIcons
+import com.intellij.icons.AllIcons.Icons
 import com.intellij.ml.llm.template.LLMBundle
 import com.intellij.ml.llm.template.models.LLMBaseResponse
 import com.intellij.ml.llm.template.models.grazie.GrazieResponse
@@ -29,6 +31,7 @@ import com.intellij.openapi.application.invokeLater
 import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
+import com.intellij.openapi.ui.popup.IconButton
 import com.intellij.openapi.ui.popup.JBPopupFactory
 import com.intellij.openapi.ui.popup.JBPopupListener
 import com.intellij.openapi.ui.popup.LightweightWindowEvent
@@ -242,6 +245,7 @@ class ApplyMoveMethodInteractiveIntention: ApplySuggestRefactoringIntention() {
                 .setResizable(true)
                 .setMovable(true)
                 .setCancelOnClickOutside(false)
+                .setCancelButton(IconButton("Close", AllIcons.Actions.Close))
                 .createPopup()
 
         // Add onClosed listener
