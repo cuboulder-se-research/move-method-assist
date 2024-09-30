@@ -10,7 +10,6 @@ import mm_analyser.refactoring_miner_processing.MethodSignature as MethodSignatu
 import mm_analyser.refactoring_miner_processing.MethodInvocation as mi
 
 
-@functools.total_ordering
 class ExtractedRange:
     def __init__(self, start_line, start_column, end_line, end_column):
         self.start_line = start_line
@@ -27,14 +26,24 @@ class ExtractedRange:
                 and other.end_column == self.end_column
                 )
 
-    def __lt__(self, other):
+    def __gt__(self, other):
         if not isinstance(other, ExtractedRange):
-            return False
+            return NotImplemented
         other_size = other.end_line - other.start_line
         this_size = self.end_line - self.start_line
         if other_size == this_size:
-            this_indices = self.start_column
+            this_start = self.start_column
+            other_start = other.start_column
+            return other_start > this_start if this_start != other_size \
+                else other.end_column > self.end_column
         return other_size < this_size
+
+    def __str__(self):
+        return f"{self.start_line}:{self.start_column} - {self.end_line}:{self.end_column}"
+
+    def __repr__(self):
+        return str(self)
+
 
 class ExtractMoveMethodRef(mm.MoveMethodRef):
 
@@ -66,11 +75,11 @@ class ExtractMoveMethodRef(mm.MoveMethodRef):
 
         extracted_code = [i for i in ref['leftSideLocations']
                           if i['description'] == "extracted code from source method declaration"]
-        # the last one of the "extracted_code" is usually the largest.
-        extracted_range = ExtractedRange(extracted_code[-1]['startLine'],
-                                         extracted_code[-1]['startColumn'],
-                                         extracted_code[-1]['endLine'],
-                                         extracted_code[-1]['endColumn'])
+
+        extracted_ranges = [ExtractedRange(ec['startLine'], ec['startColumn'],
+                                           ec['endLine'], ec['endColumn'])
+                            for ec in extracted_code]
+        extracted_range = max(extracted_ranges)
 
         extracted_method_invocation = [i for i in ref['rightSideLocations']
                                        if i['description'] == 'extracted method invocation'][0]

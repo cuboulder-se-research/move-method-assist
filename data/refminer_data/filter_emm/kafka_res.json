@@ -72,7 +72,12 @@
             ],
             "isStatic": false
         },
-        "ref_id": 566
+        "ref_id": 566,
+        "extraction_results": {
+            "success": true,
+            "newCommitHash": "5d9207c097766bead70cfb2f4160323d9a750cfc",
+            "newBranchName": "extract-flush-flush-c078e51"
+        }
     },
     {
         "repository": "https://github.com/apache/kafka.git",
@@ -187,7 +192,12 @@
             ],
             "isStatic": false
         },
-        "ref_id": 567
+        "ref_id": 567,
+        "extraction_results": {
+            "success": true,
+            "newCommitHash": "1f1c194190a2c0be33606d4db7188eb04925d32a",
+            "newBranchName": "extract-maybeThrowAsyncError-deliverMessages-72b7028"
+        }
     },
     {
         "repository": "https://github.com/apache/kafka.git",
@@ -382,7 +392,12 @@
             ],
             "isStatic": false
         },
-        "ref_id": 568
+        "ref_id": 568,
+        "extraction_results": {
+            "success": true,
+            "newCommitHash": "fd74defe96b3f3fc1d3616cb408a0bfdb81ca73a",
+            "newBranchName": "extract-getOrMaybeCreateGroup-testDeleteGroupAllOffsets-6ccc19c"
+        }
     },
     {
         "repository": "https://github.com/apache/kafka.git",
@@ -547,7 +562,12 @@
             ],
             "isStatic": true
         },
-        "ref_id": 569
+        "ref_id": 569,
+        "extraction_results": {
+            "success": true,
+            "newCommitHash": "194327a1030ebdb592a03af369090178521cf665",
+            "newBranchName": "extract-combineFutures-consumerGroupDescribe-016bd68"
+        }
     },
     {
         "repository": "https://github.com/apache/kafka.git",
@@ -712,7 +732,12 @@
             ],
             "isStatic": true
         },
-        "ref_id": 570
+        "ref_id": 570,
+        "extraction_results": {
+            "success": true,
+            "newCommitHash": "4188c4e8760841b9d5334cfe509818e000a01ad0",
+            "newBranchName": "extract-combineFutures-describeGroups-016bd68"
+        }
     },
     {
         "repository": "https://github.com/apache/kafka.git",
@@ -877,7 +902,12 @@
             ],
             "isStatic": true
         },
-        "ref_id": 571
+        "ref_id": 571,
+        "extraction_results": {
+            "success": true,
+            "newCommitHash": "05e534aa47ab77057acd03014cfa4c015157adbd",
+            "newBranchName": "extract-combineFutures-deleteGroups-016bd68"
+        }
     },
     {
         "repository": "https://github.com/apache/kafka.git",
@@ -952,7 +982,12 @@
             ],
             "isStatic": false
         },
-        "ref_id": 572
+        "ref_id": 572,
+        "extraction_results": {
+            "success": true,
+            "newCommitHash": "617c4dda13dda70600b65f8dc16964d46f996a68",
+            "newBranchName": "extract-tasksMax-connectorTaskConfigs-8da6508"
+        }
     },
     {
         "repository": "https://github.com/apache/kafka.git",
@@ -1067,7 +1102,12 @@
             ],
             "isStatic": true
         },
-        "ref_id": 573
+        "ref_id": 573,
+        "extraction_results": {
+            "success": true,
+            "newCommitHash": "d67ed1ff166294681b2b562d9437a2ba61f11db9",
+            "newBranchName": "extract-assertNoOrEmptyResult-testLastJoiningMembersAreKickedOutWhenRejoiningGroupWithMaxSize-be6653c"
+        }
     },
     {
         "repository": "https://github.com/apache/kafka.git",
@@ -1242,7 +1282,12 @@
             ],
             "isStatic": false
         },
-        "ref_id": 574
+        "ref_id": 574,
+        "extraction_results": {
+            "success": true,
+            "newCommitHash": "1d75be12be5762c23b7a31c0b37559f1ba8a719b",
+            "newBranchName": "extract-maybeCheckpoint-pollAndUpdate-2c0cab3"
+        }
     },
     {
         "repository": "https://github.com/apache/kafka.git",
@@ -1337,7 +1382,12 @@
             ],
             "isStatic": true
         },
-        "ref_id": 575
+        "ref_id": 575,
+        "extraction_results": {
+            "success": true,
+            "newCommitHash": "a7fa737b2cc8ece8e16aef27445f356bd1a14c8e",
+            "newBranchName": "extract-fromArgs-testDescribeGroupCliWithGroupDescribe-34d365f"
+        }
     },
     {
         "repository": "https://github.com/apache/kafka.git",
@@ -1442,7 +1492,12 @@
             ],
             "isStatic": true
         },
-        "ref_id": 576
+        "ref_id": 576,
+        "extraction_results": {
+            "success": true,
+            "newCommitHash": "7af27c6d699e8995dba400666005069a2daa5be0",
+            "newBranchName": "extract-fromArgs-getConsumerGroupService-34d365f"
+        }
     },
     {
         "repository": "https://github.com/apache/kafka.git",
@@ -1537,7 +1592,12 @@
             ],
             "isStatic": true
         },
-        "ref_id": 577
+        "ref_id": 577,
+        "extraction_results": {
+            "success": true,
+            "newCommitHash": "1b78c84f6d0cc6ae9d5dad0f09e845a861e84805",
+            "newBranchName": "extract-fromArgs-prepareConsumerGroupService-34d365f"
+        }
     },
     {
         "repository": "https://github.com/apache/kafka.git",
@@ -1722,7 +1782,10 @@
             ],
             "isStatic": true
         },
-        "ref_id": 578
+        "ref_id": 578,
+        "extraction_results": {
+            "success": false
+        }
     },
     {
         "repository": "https://github.com/apache/kafka.git",
@@ -1897,7 +1960,12 @@
             ],
             "isStatic": true
         },
-        "ref_id": 579
+        "ref_id": 579,
+        "extraction_results": {
+            "success": true,
+            "newCommitHash": "edafad4bfaf5f07b8323dc99a2100711712341ed",
+            "newBranchName": "extract-adminCall-listTopicAclBindings-f7eb962"
+        }
     },
     {
         "repository": "https://github.com/apache/kafka.git",
@@ -1972,7 +2040,12 @@
             ],
             "isStatic": false
         },
-        "ref_id": 580
+        "ref_id": 580,
+        "extraction_results": {
+            "success": true,
+            "newCommitHash": "fa9a5d390256649011d80f3a1cd77fecfe7dda76",
+            "newBranchName": "extract-shouldInitialize-resetInitializingPositions-a1ca788"
+        }
     },
     {
         "repository": "https://github.com/apache/kafka.git",
@@ -2197,7 +2270,12 @@
             ],
             "isStatic": false
         },
-        "ref_id": 581
+        "ref_id": 581,
+        "extraction_results": {
+            "success": true,
+            "newCommitHash": "f62b73b6006f87b0004fd8ae26fec3980db04ca8",
+            "newBranchName": "extract-hasAnyInflightRequest-pollFollowerAsObserver-8a882a7"
+        }
     },
     {
         "repository": "https://github.com/apache/kafka.git",
@@ -2362,7 +2440,12 @@
             ],
             "isStatic": false
         },
-        "ref_id": 582
+        "ref_id": 582,
+        "extraction_results": {
+            "success": true,
+            "newCommitHash": "c1a446eb827fb6a57b6199f41beca07a2b229185",
+            "newBranchName": "extract-onResponseResult-handleResponse-8a882a7"
+        }
     },
     {
         "repository": "https://github.com/apache/kafka.git",
@@ -3097,7 +3180,12 @@
             ],
             "isStatic": false
         },
-        "ref_id": 583
+        "ref_id": 583,
+        "extraction_results": {
+            "success": true,
+            "newCommitHash": "009fda06cd29dc3f6fa3a6a31a7b34eccf3695a2",
+            "newBranchName": "extract-append-run-39ffdea"
+        }
     },
     {
         "repository": "https://github.com/apache/kafka.git",
@@ -3372,7 +3460,12 @@
             ],
             "isStatic": false
         },
-        "ref_id": 584
+        "ref_id": 584,
+        "extraction_results": {
+            "success": true,
+            "newCommitHash": "fe9c6822775e39d22c74b77d5df030ccc5b570b0",
+            "newBranchName": "extract-completeTransaction-run-39ffdea"
+        }
     },
     {
         "repository": "https://github.com/apache/kafka.git",
@@ -3447,7 +3540,12 @@
             ],
             "isStatic": false
         },
-        "ref_id": 585
+        "ref_id": 585,
+        "extraction_results": {
+            "success": true,
+            "newCommitHash": "d737539bfd2a4db119995ea4d2d5e7126c5d9c02",
+            "newBranchName": "extract-registerStreamThread-createAndAddStreamThread-fc6f8b6"
+        }
     },
     {
         "repository": "https://github.com/apache/kafka.git",
@@ -3542,7 +3640,12 @@
             ],
             "isStatic": true
         },
-        "ref_id": 586
+        "ref_id": 586,
+        "extraction_results": {
+            "success": true,
+            "newCommitHash": "a1a79576cfdda1fadb6e45c03ef22dde5ee09052",
+            "newBranchName": "extract-of-handleVoteRequest-5b0e96d"
+        }
     },
     {
         "repository": "https://github.com/apache/kafka.git",
@@ -3637,7 +3740,12 @@
             ],
             "isStatic": true
         },
-        "ref_id": 587
+        "ref_id": 587,
+        "extraction_results": {
+            "success": true,
+            "newCommitHash": "07604225fbb2b54ae0e2274780d4869c6135d8c4",
+            "newBranchName": "extract-of-fromVotersRecord-5b0e96d"
+        }
     },
     {
         "repository": "https://github.com/apache/kafka.git",
@@ -3752,7 +3860,12 @@
             ],
             "isStatic": true
         },
-        "ref_id": 588
+        "ref_id": 588,
+        "extraction_results": {
+            "success": true,
+            "newCommitHash": "1213ba4ab5900b98825d3181ce4aaaade032185b",
+            "newBranchName": "extract-of-testVotedCandidateWithoutVotedDirectoryId-5b0e96d"
+        }
     },
     {
         "repository": "https://github.com/apache/kafka.git",
@@ -3847,7 +3960,12 @@
             ],
             "isStatic": true
         },
-        "ref_id": 589
+        "ref_id": 589,
+        "extraction_results": {
+            "success": true,
+            "newCommitHash": "c09364c40b313e17967ae8aecd005823c6716904",
+            "newBranchName": "extract-of-testRejectVotesFromSameEpochAfterResigningCandidacy-5b0e96d"
+        }
     },
     {
         "repository": "https://github.com/apache/kafka.git",
@@ -3942,7 +4060,12 @@
             ],
             "isStatic": true
         },
-        "ref_id": 590
+        "ref_id": 590,
+        "extraction_results": {
+            "success": true,
+            "newCommitHash": "4a35ba7fa81b0d225add0b085934b0ac100d809c",
+            "newBranchName": "extract-of-testGrantVotesFromHigherEpochAfterResigningCandidacy-5b0e96d"
+        }
     },
     {
         "repository": "https://github.com/apache/kafka.git",
@@ -4037,7 +4160,12 @@
             ],
             "isStatic": true
         },
-        "ref_id": 591
+        "ref_id": 591,
+        "extraction_results": {
+            "success": true,
+            "newCommitHash": "69922171830e9631f9ae21792260660ce528b49b",
+            "newBranchName": "extract-of-testCandidateIgnoreVoteRequestOnSameEpoch-5b0e96d"
+        }
     },
     {
         "repository": "https://github.com/apache/kafka.git",
@@ -4132,7 +4260,12 @@
             ],
             "isStatic": true
         },
-        "ref_id": 592
+        "ref_id": 592,
+        "extraction_results": {
+            "success": true,
+            "newCommitHash": "921989f3bae571a01a8168533f4a097f8463c251",
+            "newBranchName": "extract-of-voterNode-5b0e96d"
+        }
     },
     {
         "repository": "https://github.com/apache/kafka.git",
@@ -4227,7 +4360,12 @@
             ],
             "isStatic": true
         },
-        "ref_id": 593
+        "ref_id": 593,
+        "extraction_results": {
+            "success": true,
+            "newCommitHash": "1010b38457f76212ac13126d380b383dd5a07816",
+            "newBranchName": "extract-of-assertVotedCandidate-5b0e96d"
+        }
     },
     {
         "repository": "https://github.com/apache/kafka.git",
@@ -4342,7 +4480,12 @@
             ],
             "isStatic": true
         },
-        "ref_id": 594
+        "ref_id": 594,
+        "extraction_results": {
+            "success": true,
+            "newCommitHash": "a3dcbc8e1113d76e79c62cdfefc1178927822949",
+            "newBranchName": "extract-of-testCanGrantVoteWithoutDirectoryId-5b0e96d"
+        }
     },
     {
         "repository": "https://github.com/apache/kafka.git",
@@ -4457,7 +4600,12 @@
             ],
             "isStatic": true
         },
-        "ref_id": 595
+        "ref_id": 595,
+        "extraction_results": {
+            "success": true,
+            "newCommitHash": "a37b52583af45c77835ce95b947b845eb8ca5b72",
+            "newBranchName": "extract-of-testCanGrantVoteWithDirectoryId-5b0e96d"
+        }
     },
     {
         "repository": "https://github.com/apache/kafka.git",
@@ -4542,7 +4690,12 @@
             ],
             "isStatic": true
         },
-        "ref_id": 596
+        "ref_id": 596,
+        "extraction_results": {
+            "success": true,
+            "newCommitHash": "a067ca529f03eb9895605805a5db023875822a95",
+            "newBranchName": "extract-of-testRemoveVoter-5b0e96d"
+        }
     },
     {
         "repository": "https://github.com/apache/kafka.git",
@@ -4667,7 +4820,12 @@
             ],
             "isStatic": true
         },
-        "ref_id": 597
+        "ref_id": 597,
+        "extraction_results": {
+            "success": true,
+            "newCommitHash": "2a5f8c1975fbb531ec70cf01da080908a94bf7ce",
+            "newBranchName": "extract-of-testIsVoterWithoutDirectoryId-5b0e96d"
+        }
     },
     {
         "repository": "https://github.com/apache/kafka.git",
@@ -4842,7 +5000,12 @@
             ],
             "isStatic": false
         },
-        "ref_id": 598
+        "ref_id": 598,
+        "extraction_results": {
+            "success": true,
+            "newCommitHash": "a59dce86eeab4914e3eae243b556d5c0ee07379a",
+            "newBranchName": "extract-isVoter-isVoter-5b0e96d"
+        }
     },
     {
         "repository": "https://github.com/apache/kafka.git",
@@ -4917,7 +5080,12 @@
             ],
             "isStatic": false
         },
-        "ref_id": 599
+        "ref_id": 599,
+        "extraction_results": {
+            "success": true,
+            "newCommitHash": "62284eacd3fc8ac2c2d1c96aec657cfc93a1434c",
+            "newBranchName": "extract-voterKeys-advanceLocalLeaderHighWatermarkToLogEndOffset-5b0e96d"
+        }
     },
     {
         "repository": "https://github.com/apache/kafka.git",
@@ -4992,7 +5160,12 @@
             ],
             "isStatic": true
         },
-        "ref_id": 600
+        "ref_id": 600,
+        "extraction_results": {
+            "success": true,
+            "newCommitHash": "63c8e0264cfb6509f0c869bbaa1b5fe682252576",
+            "newBranchName": "extract-requiresKnownMemberId-classicGroupJoinToConsumerGroup-15a4501"
+        }
     },
     {
         "repository": "https://github.com/apache/kafka.git",
@@ -5217,7 +5390,12 @@
             ],
             "isStatic": false
         },
-        "ref_id": 601
+        "ref_id": 601,
+        "extraction_results": {
+            "success": true,
+            "newCommitHash": "a0c65163f3c3b5006b942822829c4c7c4acf3987",
+            "newBranchName": "extract-summarize-completeRequest-4550550"
+        }
     },
     {
         "repository": "https://github.com/apache/kafka.git",
@@ -5302,7 +5480,12 @@
             ],
             "isStatic": false
         },
-        "ref_id": 602
+        "ref_id": 602,
+        "extraction_results": {
+            "success": true,
+            "newCommitHash": "fa2cb0ebdf44479f6bad42bdb0f0cb5bc1cc37a7",
+            "newBranchName": "extract-init-initializeTopology-931bb62"
+        }
     },
     {
         "repository": "https://github.com/apache/kafka.git",
@@ -5377,7 +5560,10 @@
             ],
             "isStatic": false
         },
-        "ref_id": 603
+        "ref_id": 603,
+        "extraction_results": {
+            "success": false
+        }
     },
     {
         "repository": "https://github.com/apache/kafka.git",
@@ -5452,7 +5638,12 @@
             ],
             "isStatic": false
         },
-        "ref_id": 604
+        "ref_id": 604,
+        "extraction_results": {
+            "success": true,
+            "newCommitHash": "c20cab42e1d9996007ecc6fa1defd949297eb8be",
+            "newBranchName": "extract-idempotentCreateSnapshot-updateLastWrittenOffset-130af38"
+        }
     },
     {
         "repository": "https://github.com/apache/kafka.git",
@@ -5527,7 +5718,10 @@
             ],
             "isStatic": false
         },
-        "ref_id": 605
+        "ref_id": 605,
+        "extraction_results": {
+            "success": false
+        }
     },
     {
         "repository": "https://github.com/apache/kafka.git",
@@ -5602,7 +5796,12 @@
             ],
             "isStatic": false
         },
-        "ref_id": 606
+        "ref_id": 606,
+        "extraction_results": {
+            "success": true,
+            "newCommitHash": "2fcf6a3cc81b951b12e3a2d1b90d4149720c9bce",
+            "newBranchName": "extract-idempotentCreateSnapshot-replay-130af38"
+        }
     },
     {
         "repository": "https://github.com/apache/kafka.git",
@@ -5677,7 +5876,12 @@
             ],
             "isStatic": false
         },
-        "ref_id": 607
+        "ref_id": 607,
+        "extraction_results": {
+            "success": true,
+            "newCommitHash": "e62eecd5e8915b6e6f83df0729e7ecd1b5103dce",
+            "newBranchName": "extract-idempotentCreateSnapshot-replay-130af38"
+        }
     },
     {
         "repository": "https://github.com/apache/kafka.git",
@@ -5752,7 +5956,12 @@
             ],
             "isStatic": false
         },
-        "ref_id": 608
+        "ref_id": 608,
+        "extraction_results": {
+            "success": true,
+            "newCommitHash": "2d5adc292dd053243e3ad49fb9e5ee75e20fd598",
+            "newBranchName": "extract-idempotentCreateSnapshot-replayEndTransactionMarker-130af38"
+        }
     },
     {
         "repository": "https://github.com/apache/kafka.git",
@@ -5837,7 +6046,12 @@
             ],
             "isStatic": false
         },
-        "ref_id": 609
+        "ref_id": 609,
+        "extraction_results": {
+            "success": true,
+            "newCommitHash": "a90c2d6088f885dc16d184ed13771ee9623b805d",
+            "newBranchName": "extract-idempotentCreateSnapshot-testTimelineGaugeCounters-130af38"
+        }
     },
     {
         "repository": "https://github.com/apache/kafka.git",
@@ -5942,7 +6156,12 @@
             ],
             "isStatic": false
         },
-        "ref_id": 610
+        "ref_id": 610,
+        "extraction_results": {
+            "success": true,
+            "newCommitHash": "e118294a728c0c6eae034ce5820762d2b6315112",
+            "newBranchName": "extract-idempotentCreateSnapshot-testConsumerGroupStateTransitionMetrics-130af38"
+        }
     },
     {
         "repository": "https://github.com/apache/kafka.git",
@@ -6027,7 +6246,12 @@
             ],
             "isStatic": false
         },
-        "ref_id": 611
+        "ref_id": 611,
+        "extraction_results": {
+            "success": true,
+            "newCommitHash": "f76c771f07e85852f1fca4bd5e7c2e881fe59b87",
+            "newBranchName": "extract-idempotentCreateSnapshot-aggregateShards-130af38"
+        }
     },
     {
         "repository": "https://github.com/apache/kafka.git",
@@ -6112,7 +6336,12 @@
             ],
             "isStatic": false
         },
-        "ref_id": 612
+        "ref_id": 612,
+        "extraction_results": {
+            "success": true,
+            "newCommitHash": "8703298f378f5767ab7c5b8e0740c9b6b94fce07",
+            "newBranchName": "extract-idempotentCreateSnapshot-testAsListedGroup-130af38"
+        }
     },
     {
         "repository": "https://github.com/apache/kafka.git",
@@ -6187,7 +6416,12 @@
             ],
             "isStatic": false
         },
-        "ref_id": 613
+        "ref_id": 613,
+        "extraction_results": {
+            "success": true,
+            "newCommitHash": "34bebf3af2ff8ca4a4ac8a279765fc681c4b95ea",
+            "newBranchName": "extract-idempotentCreateSnapshot-testValidateOffsetFetch-130af38"
+        }
     },
     {
         "repository": "https://github.com/apache/kafka.git",
@@ -6272,7 +6506,12 @@
             ],
             "isStatic": false
         },
-        "ref_id": 614
+        "ref_id": 614,
+        "extraction_results": {
+            "success": true,
+            "newCommitHash": "7226b58c84508faac4518b8bf061266c17e4bdf7",
+            "newBranchName": "extract-idempotentCreateSnapshot-testAsDescribedGroup-130af38"
+        }
     },
     {
         "repository": "https://github.com/apache/kafka.git",
@@ -6357,7 +6596,12 @@
             ],
             "isStatic": false
         },
-        "ref_id": 615
+        "ref_id": 615,
+        "extraction_results": {
+            "success": true,
+            "newCommitHash": "2afeb4dfa4330fb206a36754f2ee15817ba410df",
+            "newBranchName": "extract-idempotentCreateSnapshot-testIsInStatesCaseInsensitive-130af38"
+        }
     },
     {
         "repository": "https://github.com/apache/kafka.git",
@@ -6442,7 +6686,12 @@
             ],
             "isStatic": false
         },
-        "ref_id": 616
+        "ref_id": 616,
+        "extraction_results": {
+            "success": true,
+            "newCommitHash": "615b67dc17c192240f1a481c9167bb8eb032c9f8",
+            "newBranchName": "extract-idempotentCreateSnapshot-testAsListedGroup-130af38"
+        }
     },
     {
         "repository": "https://github.com/apache/kafka.git",
@@ -6527,7 +6776,12 @@
             ],
             "isStatic": false
         },
-        "ref_id": 617
+        "ref_id": 617,
+        "extraction_results": {
+            "success": true,
+            "newCommitHash": "6763e67eb5b4151e73ba5a9ed1ee0dd90c71759f",
+            "newBranchName": "extract-idempotentCreateSnapshot-testAsDescribedGroup-130af38"
+        }
     },
     {
         "repository": "https://github.com/apache/kafka.git",
@@ -6612,7 +6866,12 @@
             ],
             "isStatic": false
         },
-        "ref_id": 618
+        "ref_id": 618,
+        "extraction_results": {
+            "success": true,
+            "newCommitHash": "7e477e8eadf30c6142f19bbb76cff3b1bf7d8587",
+            "newBranchName": "extract-idempotentCreateSnapshot-testIsInStatesCaseInsensitive-130af38"
+        }
     },
     {
         "repository": "https://github.com/apache/kafka.git",
@@ -6687,7 +6946,12 @@
             ],
             "isStatic": false
         },
-        "ref_id": 619
+        "ref_id": 619,
+        "extraction_results": {
+            "success": true,
+            "newCommitHash": "ebceb5d1219775a9e83c01195bca606578cff305",
+            "newBranchName": "extract-idempotentCreateSnapshot-testAddEntriesWithSnapshots-130af38"
+        }
     },
     {
         "repository": "https://github.com/apache/kafka.git",
@@ -6762,7 +7026,10 @@
             ],
             "isStatic": false
         },
-        "ref_id": 620
+        "ref_id": 620,
+        "extraction_results": {
+            "success": false
+        }
     },
     {
         "repository": "https://github.com/apache/kafka.git",
@@ -6837,7 +7104,12 @@
             ],
             "isStatic": false
         },
-        "ref_id": 621
+        "ref_id": 621,
+        "extraction_results": {
+            "success": true,
+            "newCommitHash": "9eea6895d62aec7465dfbc4811e8b0bc61445662",
+            "newBranchName": "extract-idempotentCreateSnapshot-activate-130af38"
+        }
     },
     {
         "repository": "https://github.com/apache/kafka.git",
@@ -6912,7 +7184,12 @@
             ],
             "isStatic": false
         },
-        "ref_id": 622
+        "ref_id": 622,
+        "extraction_results": {
+            "success": true,
+            "newCommitHash": "2e8ab6ec5591a47e6a5217eac0b790aacf3695fb",
+            "newBranchName": "extract-idempotentCreateSnapshot-handleScheduleAtomicAppend-130af38"
+        }
     },
     {
         "repository": "https://github.com/apache/kafka.git",
@@ -6987,7 +7264,12 @@
             ],
             "isStatic": false
         },
-        "ref_id": 623
+        "ref_id": 623,
+        "extraction_results": {
+            "success": true,
+            "newCommitHash": "f02c9361287ce0b3d5874fb1da2a212cf97ae04f",
+            "newBranchName": "extract-idempotentCreateSnapshot-maybeAdvanceLastStableOffset-130af38"
+        }
     },
     {
         "repository": "https://github.com/apache/kafka.git",
@@ -7062,7 +7344,12 @@
             ],
             "isStatic": false
         },
-        "ref_id": 624
+        "ref_id": 624,
+        "extraction_results": {
+            "success": true,
+            "newCommitHash": "e4bf466a438e0f393135b84ed4b5611c7608ac3e",
+            "newBranchName": "extract-idempotentCreateSnapshot-endLoadSnapshot-130af38"
+        }
     },
     {
         "repository": "https://github.com/apache/kafka.git",
@@ -7137,7 +7424,12 @@
             ],
             "isStatic": false
         },
-        "ref_id": 625
+        "ref_id": 625,
+        "extraction_results": {
+            "success": true,
+            "newCommitHash": "d0d1ef2e01ed6532f34cdbb087e241a4f6880007",
+            "newBranchName": "extract-idempotentCreateSnapshot-replay-130af38"
+        }
     },
     {
         "repository": "https://github.com/apache/kafka.git",
@@ -7212,7 +7504,12 @@
             ],
             "isStatic": false
         },
-        "ref_id": 626
+        "ref_id": 626,
+        "extraction_results": {
+            "success": true,
+            "newCommitHash": "41521201e2c0ea4f6a97d434a4a1b58e6b71b232",
+            "newBranchName": "extract-idempotentCreateSnapshot-testLoadSnapshot-130af38"
+        }
     },
     {
         "repository": "https://github.com/apache/kafka.git",
@@ -7287,7 +7584,12 @@
             ],
             "isStatic": false
         },
-        "ref_id": 627
+        "ref_id": 627,
+        "extraction_results": {
+            "success": true,
+            "newCommitHash": "37798d9b1c134ab3b36c3c31004ba933de6687bd",
+            "newBranchName": "extract-idempotentCreateSnapshot-testUpdateFeatures-130af38"
+        }
     },
     {
         "repository": "https://github.com/apache/kafka.git",
@@ -7372,7 +7674,12 @@
             ],
             "isStatic": false
         },
-        "ref_id": 628
+        "ref_id": 628,
+        "extraction_results": {
+            "success": true,
+            "newCommitHash": "8f45b80fb602932dd6473cbc2a55946fd956e4b5",
+            "newBranchName": "extract-idempotentCreateSnapshot-testReplay-130af38"
+        }
     },
     {
         "repository": "https://github.com/apache/kafka.git",
@@ -7447,7 +7754,12 @@
             ],
             "isStatic": false
         },
-        "ref_id": 629
+        "ref_id": 629,
+        "extraction_results": {
+            "success": true,
+            "newCommitHash": "bed236d73c831ae8aa19c7bdaed32680482e4f73",
+            "newBranchName": "extract-idempotentCreateSnapshot-testUpdateFeaturesErrorCases-130af38"
+        }
     },
     {
         "repository": "https://github.com/apache/kafka.git",
@@ -7522,7 +7834,12 @@
             ],
             "isStatic": false
         },
-        "ref_id": 630
+        "ref_id": 630,
+        "extraction_results": {
+            "success": true,
+            "newCommitHash": "0545041c57c66aa4d42a43367f40b0139da63df4",
+            "newBranchName": "extract-votedKey-testElectionTimeout-e1b2ade"
+        }
     },
     {
         "repository": "https://github.com/apache/kafka.git",
@@ -7647,7 +7964,12 @@
             ],
             "isStatic": true
         },
-        "ref_id": 631
+        "ref_id": 631,
+        "extraction_results": {
+            "success": true,
+            "newCommitHash": "66511a520a3e8ea05d6531fa7fe6989099db9164",
+            "newBranchName": "extract-newShareGroupSubscriptionMetadataRecord-shareGroupHeartbeat-ad08ec6"
+        }
     },
     {
         "repository": "https://github.com/apache/kafka.git",
@@ -7772,7 +8094,12 @@
             ],
             "isStatic": true
         },
-        "ref_id": 632
+        "ref_id": 632,
+        "extraction_results": {
+            "success": true,
+            "newCommitHash": "24a13d857757026051ebda38f04cfbee3cf54b2e",
+            "newBranchName": "extract-newShareGroupSubscriptionMetadataRecord-shareGroupFenceMember-ad08ec6"
+        }
     },
     {
         "repository": "https://github.com/apache/kafka.git",
@@ -7857,7 +8184,12 @@
             ],
             "isStatic": false
         },
-        "ref_id": 633
+        "ref_id": 633,
+        "extraction_results": {
+            "success": true,
+            "newCommitHash": "9194b45995ef8c7fbbc4b94df1922f14be6036c8",
+            "newBranchName": "extract-onClose-acknowledgeOnClose-f6bfa94"
+        }
     },
     {
         "repository": "https://github.com/apache/kafka.git",
@@ -7932,6 +8264,11 @@
             ],
             "isStatic": true
         },
-        "ref_id": 634
+        "ref_id": 634,
+        "extraction_results": {
+            "success": true,
+            "newCommitHash": "f843a212e5cfdf88c76494ff4f3dae817d2545f0",
+            "newBranchName": "extract-forConsumer-sendListOffsetRequest-3d436f5"
+        }
     }
 ]

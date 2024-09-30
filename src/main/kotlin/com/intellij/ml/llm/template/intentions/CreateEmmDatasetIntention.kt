@@ -23,6 +23,7 @@ import com.intellij.openapi.project.Project
 import com.intellij.openapi.vfs.VfsUtil
 import com.intellij.openapi.vfs.VirtualFile
 import com.intellij.psi.PsiFile
+import com.intellij.testFramework.utils.editor.saveToDisk
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.sync.Mutex
@@ -82,6 +83,9 @@ class CreateEmmDatasetIntention() : IntentionAction {
         for (jsonElement in json.asJsonArray) {
             runBlocking{ processExtract(jsonElement, gitRepo) }
         }
+        print("results---")
+        print(Gson().toJson(statusMap).toString())
+        print("end of results---")
         Files.write(
             Path.of(
                 CreateEmmDatasetIntention::class.java
@@ -134,14 +138,22 @@ class CreateEmmDatasetIntention() : IntentionAction {
                 waitForBenchmarkFinish(30 * 60 * 1000, 1000, benchmark)
                 openFileCompleted = false
                 invokeLater{
+                    FileDocumentManager.getInstance().saveDocumentAsIs(newEditor.document)
+                    openFileCompleted = true
+                }
+                waitForFileOpenFinish(10 * 60 * 1000, 1000)
+                myProject.save()
+                Thread.sleep(1000)
+                openFileCompleted = false
+                invokeLater{
                     FileEditorManager.getInstance(myProject).closeFile(newFile.virtualFile)
                     openFileCompleted = true
                 }
                 waitForFileOpenFinish(10 * 60 * 1000, 1000)
-
                 benchmark.createNewCommit(gitRepo)
                 statusMap.put(refId, Status(true, benchmark.newCommitHash, benchmark.newBranchName))
             } catch (e: Exception) {
+                e.printStackTrace()
                 statusMap.put(refId, Status(false, null, null))
             }
         }
