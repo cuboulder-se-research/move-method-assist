@@ -2,6 +2,7 @@ import os
 import subprocess
 import pathlib
 import json
+import functools
 
 import mm_analyser.refactoring_miner_processing.filter.RminerValidator as rv
 import mm_analyser.refactoring_miner_processing.filter.MoveMethodRef as mm
@@ -9,6 +10,7 @@ import mm_analyser.refactoring_miner_processing.MethodSignature as MethodSignatu
 import mm_analyser.refactoring_miner_processing.MethodInvocation as mi
 
 
+@functools.total_ordering
 class ExtractedRange:
     def __init__(self, start_line, start_column, end_line, end_column):
         self.start_line = start_line
@@ -16,6 +18,23 @@ class ExtractedRange:
         self.end_line = end_line
         self.end_column = end_column
 
+    def __eq__(self, other):
+        if not isinstance(other, ExtractedRange):
+            return False
+        return (other.start_line == self.end_line
+                and other.start_column == self.start_column
+                and other.end_line == self.end_line
+                and other.end_column == self.end_column
+                )
+
+    def __lt__(self, other):
+        if not isinstance(other, ExtractedRange):
+            return False
+        other_size = other.end_line - other.start_line
+        this_size = self.end_line - self.start_line
+        if other_size == this_size:
+            this_indices = self.start_column
+        return other_size < this_size
 
 class ExtractMoveMethodRef(mm.MoveMethodRef):
 
@@ -98,7 +117,7 @@ class ExtractMoveMethodValidator(rv.RminerValidator):
 
     def is_tp_instance_move(self, emm_obj):
         return emm_obj.extracted_method_invocation.var_name is not None \
-                and emm_obj.extracted_method_invocation.var_name[0].islower()
+            and emm_obj.extracted_method_invocation.var_name[0].islower()
 
     def is_tp_static_move(self, emm_obj):
         return True

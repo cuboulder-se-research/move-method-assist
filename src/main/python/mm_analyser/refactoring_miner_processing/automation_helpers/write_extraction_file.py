@@ -2,12 +2,12 @@ import json
 import git
 
 from mm_analyser.env import PROJECT_ALIAS_MAP, PROJECTS_BASE_PATH
-from mm_analyser import data_folder
+from mm_analyser import data_folder, resources_folder
 from mm_analyser.refactoring_miner_processing.filter.ExtractMoveMethodValidator import ExtractMoveMethodRef
 
 
 plugin_file_name = "extraction_files_and_ranges.json"
-plugin_file_path = f"{data_folder}/{plugin_file_name}"
+plugin_file_path = f"{resources_folder}/plugin_input_files/{plugin_file_name}"
 
 PROJECT_ALIAS_MAP_FLIPPED = {v:k for k,v in PROJECT_ALIAS_MAP.items()}
 project_name = "kafka"
@@ -28,6 +28,7 @@ for mm in emm_data:
     one_liners += emm_ref.extracted_range.start_line == emm_ref.extracted_range.end_line
     file_data.append(
         {
+            "ref_id": mm['ref_id'],
             "commit_hash": commit_hash,
             "prev_commit": prev_commit,
             "file_path": emm_ref.left_file_path,

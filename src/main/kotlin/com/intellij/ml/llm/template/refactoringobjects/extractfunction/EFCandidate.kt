@@ -32,4 +32,16 @@ data class EFCandidate(
     fun isValid(): Boolean {
         return type != EfCandidateType.INVALID
     }
+
+    companion object {
+        fun fromExtractionRange(
+            newMethodName: String,
+            startLine: Int,
+            endLine: Int,
+            startOffset: Int,
+            endOffset: Int
+        ): EFCandidate {
+            return EFCandidate(newMethodName, startOffset, endOffset, startLine, endLine).also { it.type = EfCandidateType.AS_IS }
+        }
+    }
 }

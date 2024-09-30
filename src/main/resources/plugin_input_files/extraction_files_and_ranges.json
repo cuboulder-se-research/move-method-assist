@@ -1,0 +1,50 @@
+[
+    {
+        "ref_id": 566,
+        "commit_hash": "5bc3aa428067dff1f2b9075ff5d1351fb05d4b10",
+        "prev_commit": "c078e51c8fd6d7aecb308a6b2ca64b5469297962",
+        "file_path": "streams/src/main/java/org/apache/kafka/streams/state/internals/RocksDBStore.java",
+        "method_extracted_from": "public flush() : void",
+        "extracted_start_line": 649,
+        "extracted_start_column": 13,
+        "extracted_end_line": 649,
+        "extracted_end_column": 32,
+        "extracted_method_name": "flush"
+    },
+    {
+        "ref_id": 567,
+        "commit_hash": "e45e032b8d90435de2f338f77a732c88f8cca66e",
+        "prev_commit": "72b70288eb8027bca8c1bd8e13bf04602cc8cf1a",
+        "file_path": "connect/runtime/src/main/java/org/apache/kafka/connect/runtime/WorkerSinkTask.java",
+        "method_extracted_from": "private deliverMessages() : void",
+        "extracted_start_line": 604,
+        "extracted_start_column": 109,
+        "extracted_end_line": 607,
+        "extracted_end_column": 14,
+        "extracted_method_name": "maybeThrowAsyncError"
+    },
+    {
+        "ref_id": 568,
+        "commit_hash": "e7fa0edd6351c0949b9082c626597046e9def854",
+        "prev_commit": "6ccc19c26d3c2973f4a4008be6f0501d1d86b4e4",
+        "file_path": "group-coordinator/src/test/java/org/apache/kafka/coordinator/group/OffsetMetadataManagerTest.java",
+        "method_extracted_from": "public testDeleteGroupAllOffsets(groupType Group.GroupType) : void",
+        "extracted_start_line": 2349,
+        "extracted_start_column": 9,
+        "extracted_end_line": 2364,
+        "extracted_end_column": 10,
+        "extracted_method_name": "getOrMaybeCreateGroup"
+    },
+    {
+        "ref_id": 569,
+        "commit_hash": "0472db2cd39d4f53c3855063117bdae15f4d0d86",
+        "prev_commit": "016bd682fe6353016e01ea69848d0d68bec86a90",
+        "file_path": "group-coordinator/src/main/java/org/apache/kafka/coordinator/group/GroupCoordinatorService.java",
+        "method_extracted_from": "public consumerGroupDescribe(context RequestContext, groupIds List<String>) : CompletableFuture<List<ConsumerGroupDescribeResponseData.DescribedGroup>>",
+        "extracted_start_line": 614,
+        "extracted_start_column": 9,
+        "extracted_end_line": 618,
+        "extracted_end_column": 12,
+        "extracted_method_name": "combineFutures"
+    }
+]

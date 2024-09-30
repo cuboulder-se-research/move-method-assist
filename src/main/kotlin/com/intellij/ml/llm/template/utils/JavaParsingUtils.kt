@@ -28,10 +28,14 @@ class JavaParsingUtils {
             val parsedResult = parsed.result.get()
             val matchedMethods = parsedResult.findAll(MethodDeclaration::class.java)
                 .filter {
-                    methodSignature.compare(it.signature)
+                    try{ methodSignature.compare(it.signature) }
+                    catch (e: Exception){false}
                 }
             val matchedConstructors = parsedResult.findAll(ConstructorDeclaration::class.java)
-                .filter { methodSignature.compare(it.signature) }
+                .filter {
+                   try { methodSignature.compare(it.signature) }
+                   catch (e: Exception){false}
+                }
             if (matchedMethods.isEmpty() && matchedConstructors.isEmpty()) throw Exception("Couldn't find method in class.")
             return matchedMethods.union(matchedConstructors).filter { it.isStatic }.isNotEmpty()
         }

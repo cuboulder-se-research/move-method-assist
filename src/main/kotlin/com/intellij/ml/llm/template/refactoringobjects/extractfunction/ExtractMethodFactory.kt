@@ -1,5 +1,6 @@
 package com.intellij.ml.llm.template.refactoringobjects.extractfunction
 
+import com.intellij.ml.llm.template.benchmark.ExtractionRange
 import com.intellij.ml.llm.template.refactoringobjects.AbstractRefactoring
 import com.intellij.ml.llm.template.refactoringobjects.MyRefactoringFactory
 import com.intellij.ml.llm.template.utils.PsiUtils

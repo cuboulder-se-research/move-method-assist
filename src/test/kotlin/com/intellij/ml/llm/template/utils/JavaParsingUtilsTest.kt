@@ -45,6 +45,15 @@ class JavaParsingUtilsTest{
     }
 
     @Test
+    fun testIsStatic5(){
+        val filePath = "/Users/abhiram/Documents/TBE/evaluation_projects/kafka/streams/src/main/java/org/apache/kafka/streams/state/internals/RocksDBStore.java"
+        val signature = "public flush(accessor DBAccessor) : void"
+        assertFalse(
+            JavaParsingUtils.isMethodStatic(Path(filePath), signature)
+        )
+    }
+
+    @Test
     fun testIsStaticClass(){
         val filePath = "/Users/abhiram/Documents/TBE/evaluation_projects/flink/flink-runtime/src/main/java/org/apache/flink/runtime/clusterframework/BootstrapTools.java"
         val className = "org.apache.flink.runtime.clusterframework.BootstrapTools"
