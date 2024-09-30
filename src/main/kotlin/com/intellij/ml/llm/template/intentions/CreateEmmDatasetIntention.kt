@@ -83,17 +83,23 @@ class CreateEmmDatasetIntention() : IntentionAction {
         for (jsonElement in json.asJsonArray) {
             runBlocking{ processExtract(jsonElement, gitRepo) }
         }
+        writeResults()
+
+    }
+
+    private fun writeResults() {
         print("results---")
         print(Gson().toJson(statusMap).toString())
         print("end of results---")
-        Files.write(
-            Path.of(
-                CreateEmmDatasetIntention::class.java
-                    .getResource("/plugin_output/extraction_results.json")?.path ?: throw Exception("couldn't create/find file.")
-            ),
-            Gson().toJson(statusMap).toString().toByteArray()
-        )
+        val workingFolder = File(".")
+        println("workingFolder=${workingFolder.canonicalPath}")
 
+        val parentFolder = File("src/main/resources/plugin_output")
+        println("parentFolder=${parentFolder.canonicalPath}")
+        require(parentFolder.exists())
+        val outFile = File(parentFolder, "extraction_results.json")
+        Files.write(outFile.toPath(), Gson().toJson(statusMap).toString().toByteArray())
+        println("Wrote to ${outFile.canonicalPath}")
     }
 
     private suspend fun processExtract(jsonElement: JsonElement, gitRepo: Git) {

@@ -72,7 +72,12 @@
             ],
             "isStatic": true
         },
-        "ref_id": 59
+        "ref_id": 59,
+        "extraction_results": {
+            "success": true,
+            "newCommitHash": "10ef200f68d280757889e78c0f56428dd5b27f6b",
+            "newBranchName": "extract-ownerIdentity-fixedCommentPredicate-92f2229"
+        }
     },
     {
         "repository": "https://github.com/halo-dev/halo.git",
@@ -157,7 +162,12 @@
             ],
             "isStatic": true
         },
-        "ref_id": 60
+        "ref_id": 60,
+        "extraction_results": {
+            "success": true,
+            "newCommitHash": "3028510377f2696d50d401e85e534da103d8efc1",
+            "newBranchName": "extract-buildParameters-endpoint-90e3c2c"
+        }
     },
     {
         "repository": "https://github.com/halo-dev/halo.git",
@@ -232,7 +242,12 @@
             ],
             "isStatic": true
         },
-        "ref_id": 61
+        "ref_id": 61,
+        "extraction_results": {
+            "success": true,
+            "newCommitHash": "80bc882ace1f3b8e38f5c4157b6de07d2d1e8d9b",
+            "newBranchName": "extract-buildParameters-endpoint-90e3c2c"
+        }
     },
     {
         "repository": "https://github.com/halo-dev/halo.git",
@@ -307,7 +322,12 @@
             ],
             "isStatic": true
         },
-        "ref_id": 62
+        "ref_id": 62,
+        "extraction_results": {
+            "success": true,
+            "newCommitHash": "c74965f4388ecef61f9707435af0e1ba7bc3dddb",
+            "newBranchName": "extract-buildParameters-endpoint-90e3c2c"
+        }
     },
     {
         "repository": "https://github.com/halo-dev/halo.git",
@@ -392,7 +412,12 @@
             ],
             "isStatic": true
         },
-        "ref_id": 63
+        "ref_id": 63,
+        "extraction_results": {
+            "success": true,
+            "newCommitHash": "dc0a4a7ee585897de1ce1ebb48974064c61cef93",
+            "newBranchName": "extract-buildParameters-endpoint-90e3c2c"
+        }
     },
     {
         "repository": "https://github.com/halo-dev/halo.git",
@@ -587,7 +612,12 @@
             ],
             "isStatic": false
         },
-        "ref_id": 64
+        "ref_id": 64,
+        "extraction_results": {
+            "success": true,
+            "newCommitHash": "f4248620e4cd066781e429329cb40b8bf45afc11",
+            "newBranchName": "extract-toListOptions-toListOptions-15a3e78"
+        }
     },
     {
         "repository": "https://github.com/halo-dev/halo.git",
@@ -742,6 +772,11 @@
             ],
             "isStatic": false
         },
-        "ref_id": 65
+        "ref_id": 65,
+        "extraction_results": {
+            "success": true,
+            "newCommitHash": "4d09b49f5023b29876fbc5b8c79c8e94f2a5a82c",
+            "newBranchName": "extract-toListOptions-toListOptions-15a3e78"
+        }
     }
 ]
