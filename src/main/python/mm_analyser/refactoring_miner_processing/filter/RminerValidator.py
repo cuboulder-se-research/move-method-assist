@@ -60,3 +60,21 @@ class RminerValidator:
             isStatic = f1.read() == 'true'
         subprocess.run(['rm', outputpath])
         return isStatic
+
+    def get_method_count(self, file_path):
+        outputpath = f"{RminerValidator.output_dir}/methodCount.txt"
+        complete_filepath = os.path.join(self.project_basepath, file_path)
+        result = subprocess.run([
+            RminerValidator.gradle_path,
+            "-p", str(pathlib.Path(RminerValidator.gradle_path).parent),
+            "run",
+            f"--args="
+            f"methodCount -i {complete_filepath} -o {outputpath}"
+        ], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        if result.returncode != 0:
+            # return False
+            raise Exception("Failed to find method count")
+        with open(outputpath) as f1:
+            method_count = int(f1.read())
+        subprocess.run(['rm', outputpath])
+        return method_count

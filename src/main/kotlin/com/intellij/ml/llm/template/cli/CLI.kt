@@ -94,11 +94,30 @@ fun main(args: Array<String>){
         }
     }
 
+    class MethodCounter: Subcommand("methodCount", "Count the number of method declarations in a file.") {
+        override fun execute() {
+            try {
+                Files.createFile(Path(output))
+            } catch (e: Exception) {
+                print("file exists.")
+            }
+            Files.write(
+                Path(output),
+                JavaParsingUtils.getMethodCount(
+                    Path(input)
+                ).toString().toByteArray()
+
+            )
+        }
+    }
+
     parser.subcommands(
         CheckIfStatic(),
         FindFieldTypes(),
         CheckIfClassStatic(),
-        CheckIfClassExists())
+        CheckIfClassExists(),
+        MethodCounter()
+        )
     parser.parse(args)
 
 }

@@ -147,6 +147,15 @@ class JavaParsingUtils {
 
         }
 
+        fun getMethodCount(path: Path): Int {
+            val parsed = JavaParser(
+                ParserConfiguration()
+                    .setLanguageLevel(ParserConfiguration.LanguageLevel.JAVA_21)
+            ).parse(path)
+            val parsedResult = parsed.result.get()
+            return parsedResult.findAll(MethodDeclaration::class.java).size
+        }
+
 
     }
 }
