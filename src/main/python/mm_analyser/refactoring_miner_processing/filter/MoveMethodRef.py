@@ -1,5 +1,6 @@
 import mm_analyser.refactoring_miner_processing.MethodSignature as MethodSignature
 
+
 class MoveMethodRef:
     def __init__(self, right_file_path, left_file_path,
                  right_signature: MethodSignature.MethodSignature, left_signature: MethodSignature.MethodSignature,

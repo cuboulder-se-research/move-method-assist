@@ -4,8 +4,9 @@ import json
 from collections import defaultdict
 from mm_analyser.env import PROJECTS_BASE_PATH
 from mm_analyser import data_folder, resources_folder
+from mm_analyser.refactoring_miner_processing.automation_helpers.AutmationHelpers import EmmHelper, MmHelper
 
-project_name = "springboot"
+project_name = "kafka"
 project_basepath_map = {
         'vue_pro': 'ruoyi-vue-pro',
         'flink': 'flink',
@@ -23,9 +24,13 @@ project_basepath_map = {
         'dataease': 'dataease'
     }
 
-
 project_basepath = str(PROJECTS_BASE_PATH)
-refminer_filtered_file = f"{data_folder}/refminer_data/filter_fp/{project_name}_res.json"
+helper = EmmHelper()
+# helper = MmHelper(os.path.join(project_basepath, project_basepath_map.get(project_name)))
+
+# filter_dir = "filter_emm" if emm_file else "filter_fp"
+filter_dir = helper.directory
+refminer_filtered_file = f"{data_folder}/refminer_data/{filter_dir}/{project_name}_res.json"
 repo = git.Repo(os.path.join(project_basepath, project_basepath_map.get(project_name)))
 
 with open(refminer_filtered_file) as f:
@@ -34,13 +39,15 @@ with open(refminer_filtered_file) as f:
 write_data = []
 duplication_counter = set()
 for ref in refdata:
-    parent_commit = repo.commit(ref['sha1']).parents[0]
+    parent_commit = helper.get_parent_commit(ref)
+    if parent_commit is None:
+        continue
     file_path = ref['move_method_refactoring']['leftSideLocations'][0]['filePath']
     if (parent_commit, file_path) in duplication_counter:
         continue
     write_data.append({
         "file_path": file_path,
-        "commit_hash": parent_commit.hexsha,
+        "commit_hash": parent_commit,
         "new_commit_hash": ref['sha1']
     })
     duplication_counter.add((parent_commit, file_path))

@@ -7,10 +7,10 @@ from mm_analyser.refactoring_miner_processing.filter.ExtractMoveMethodValidator 
 
 
 plugin_file_name = "extraction_files_and_ranges.json"
-plugin_file_path = f"{resources_folder}/plugin_input_files/{plugin_file_name}"
+plugin_file_path = f"{data_folder}/plugin_input_files/{plugin_file_name}"
 
 PROJECT_ALIAS_MAP_FLIPPED = {v:k for k,v in PROJECT_ALIAS_MAP.items()}
-project_name = "halo"
+project_name = "flink"
 emm_data_path = f"{data_folder}/refminer_data/filter_emm/{PROJECT_ALIAS_MAP_FLIPPED[project_name]}"
 repo = git.Repo(f"{PROJECTS_BASE_PATH}/{project_name}")
 with open(emm_data_path) as f:

@@ -1,287 +1,327 @@
 [
     {
-        "file_path": "server/src/main/java/org/elasticsearch/cluster/SnapshotsInProgress.java",
-        "commit_hash": "06b0f4e799a29468bc1879ef6d514b0fbba5944c",
-        "new_commit_hash": "1d525752af4f4c768d3a13604f13e5d3005d284a"
+        "file_path": "streams/src/main/java/org/apache/kafka/streams/state/internals/RocksDBStore.java",
+        "commit_hash": "5d9207c097766bead70cfb2f4160323d9a750cfc",
+        "new_commit_hash": "5bc3aa428067dff1f2b9075ff5d1351fb05d4b10"
     },
     {
-        "file_path": "test/yaml-rest-runner/src/main/java/org/elasticsearch/test/rest/yaml/section/SkipSection.java",
-        "commit_hash": "452fd668cb4c9c4efc0267086a06d5ac6803a1f1",
-        "new_commit_hash": "5a4f02670e85dcac55ffd2898b297258794248a4"
+        "file_path": "connect/runtime/src/main/java/org/apache/kafka/connect/runtime/WorkerSinkTask.java",
+        "commit_hash": "1f1c194190a2c0be33606d4db7188eb04925d32a",
+        "new_commit_hash": "e45e032b8d90435de2f338f77a732c88f8cca66e"
     },
     {
-        "file_path": "server/src/main/java/org/elasticsearch/action/admin/indices/settings/get/GetSettingsResponse.java",
-        "commit_hash": "c11f3297208a3acb7532897ab5f5b6bcceaa1c6c",
-        "new_commit_hash": "abccea00d11aef2815e48cfadf786b1ae5e50c4e"
+        "file_path": "group-coordinator/src/test/java/org/apache/kafka/coordinator/group/OffsetMetadataManagerTest.java",
+        "commit_hash": "fd74defe96b3f3fc1d3616cb408a0bfdb81ca73a",
+        "new_commit_hash": "e7fa0edd6351c0949b9082c626597046e9def854"
     },
     {
-        "file_path": "server/src/main/java/org/elasticsearch/action/bulk/BulkResponse.java",
-        "commit_hash": "c11f3297208a3acb7532897ab5f5b6bcceaa1c6c",
-        "new_commit_hash": "abccea00d11aef2815e48cfadf786b1ae5e50c4e"
+        "file_path": "group-coordinator/src/main/java/org/apache/kafka/coordinator/group/GroupCoordinatorService.java",
+        "commit_hash": "194327a1030ebdb592a03af369090178521cf665",
+        "new_commit_hash": "0472db2cd39d4f53c3855063117bdae15f4d0d86"
     },
     {
-        "file_path": "server/src/main/java/org/elasticsearch/action/get/MultiGetResponse.java",
-        "commit_hash": "ebe71f9fe04abadbae3ce7831ef86bb83408319b",
-        "new_commit_hash": "a3db0c7d5752c2d850a708808be6b10e45e140e4"
+        "file_path": "group-coordinator/src/main/java/org/apache/kafka/coordinator/group/GroupCoordinatorService.java",
+        "commit_hash": "4188c4e8760841b9d5334cfe509818e000a01ad0",
+        "new_commit_hash": "0472db2cd39d4f53c3855063117bdae15f4d0d86"
     },
     {
-        "file_path": "server/src/main/java/org/elasticsearch/index/reindex/BulkByScrollResponse.java",
-        "commit_hash": "ebe71f9fe04abadbae3ce7831ef86bb83408319b",
-        "new_commit_hash": "a3db0c7d5752c2d850a708808be6b10e45e140e4"
+        "file_path": "group-coordinator/src/main/java/org/apache/kafka/coordinator/group/GroupCoordinatorService.java",
+        "commit_hash": "05e534aa47ab77057acd03014cfa4c015157adbd",
+        "new_commit_hash": "0472db2cd39d4f53c3855063117bdae15f4d0d86"
     },
     {
-        "file_path": "server/src/main/java/org/elasticsearch/rest/RestResponse.java",
-        "commit_hash": "ebe71f9fe04abadbae3ce7831ef86bb83408319b",
-        "new_commit_hash": "a3db0c7d5752c2d850a708808be6b10e45e140e4"
+        "file_path": "connect/runtime/src/main/java/org/apache/kafka/connect/runtime/Worker.java",
+        "commit_hash": "617c4dda13dda70600b65f8dc16964d46f996a68",
+        "new_commit_hash": "4f0a40590833a141c78341ce95ffc782747c5ac8"
     },
     {
-        "file_path": "x-pack/plugin/inference/src/main/java/org/elasticsearch/xpack/inference/external/request/openai/OpenAiEmbeddingsRequest.java",
-        "commit_hash": "0f17ff416001c17798199749e57b1d1ab36abc00",
-        "new_commit_hash": "eb8c73f4fbf340f58144bd5d60460d9f02f7ca3f"
+        "file_path": "group-coordinator/src/test/java/org/apache/kafka/coordinator/group/GroupMetadataManagerTest.java",
+        "commit_hash": "d67ed1ff166294681b2b562d9437a2ba61f11db9",
+        "new_commit_hash": "d24abe0edebad37e554adea47408c3063037f744"
     },
     {
-        "file_path": "x-pack/plugin/inference/src/main/java/org/elasticsearch/xpack/inference/services/openai/OpenAiServiceSettings.java",
-        "commit_hash": "0f17ff416001c17798199749e57b1d1ab36abc00",
-        "new_commit_hash": "eb8c73f4fbf340f58144bd5d60460d9f02f7ca3f"
+        "file_path": "streams/src/main/java/org/apache/kafka/streams/processor/internals/GlobalStreamThread.java",
+        "commit_hash": "1d75be12be5762c23b7a31c0b37559f1ba8a719b",
+        "new_commit_hash": "7dbdc15c668dfb5a4a91c79f339c22fb7178c368"
     },
     {
-        "file_path": "server/src/main/java/org/elasticsearch/TransportVersions.java",
-        "commit_hash": "666774a8659643c6e779647023f26a5f4e54cce8",
-        "new_commit_hash": "1395edf8050584a0784e7d012005a26477b30ae4"
+        "file_path": "tools/src/test/java/org/apache/kafka/tools/consumer/group/AuthorizerIntegrationTest.java",
+        "commit_hash": "a7fa737b2cc8ece8e16aef27445f356bd1a14c8e",
+        "new_commit_hash": "b6183a41342c765daec9c88f9d2723a221131960"
     },
     {
-        "file_path": "server/src/main/java/org/elasticsearch/index/IndexVersions.java",
-        "commit_hash": "666774a8659643c6e779647023f26a5f4e54cce8",
-        "new_commit_hash": "1395edf8050584a0784e7d012005a26477b30ae4"
+        "file_path": "tools/src/test/java/org/apache/kafka/tools/consumer/group/ConsumerGroupCommandTest.java",
+        "commit_hash": "7af27c6d699e8995dba400666005069a2daa5be0",
+        "new_commit_hash": "b6183a41342c765daec9c88f9d2723a221131960"
     },
     {
-        "file_path": "server/src/main/java/org/elasticsearch/TransportVersions.java",
-        "commit_hash": "e1b74aa88ae25b8a66b2f34e4a1bb90a37d2012b",
-        "new_commit_hash": "47ca7aeb70935b2104053d605bb5aa5d1a55b0ba"
+        "file_path": "tools/src/test/java/org/apache/kafka/tools/consumer/group/SaslClientsWithInvalidCredentialsTest.java",
+        "commit_hash": "1b78c84f6d0cc6ae9d5dad0f09e845a861e84805",
+        "new_commit_hash": "b6183a41342c765daec9c88f9d2723a221131960"
     },
     {
-        "file_path": "server/src/main/java/org/elasticsearch/index/IndexVersions.java",
-        "commit_hash": "e1b74aa88ae25b8a66b2f34e4a1bb90a37d2012b",
-        "new_commit_hash": "47ca7aeb70935b2104053d605bb5aa5d1a55b0ba"
+        "file_path": "connect/mirror/src/main/java/org/apache/kafka/connect/mirror/MirrorSourceConnector.java",
+        "commit_hash": "edafad4bfaf5f07b8323dc99a2100711712341ed",
+        "new_commit_hash": "a1ca788c993e3b217a0904c3f4768f0682dc840b"
     },
     {
-        "file_path": "x-pack/plugin/security/src/main/java/org/elasticsearch/xpack/security/action/apikey/TransportQueryApiKeyAction.java",
-        "commit_hash": "14169c442e60a9cf18bed91307a88897846e5322",
-        "new_commit_hash": "7d522145def78ac55146eaf429d761d961ed1d42"
+        "file_path": "clients/src/main/java/org/apache/kafka/clients/consumer/internals/SubscriptionState.java",
+        "commit_hash": "fa9a5d390256649011d80f3a1cd77fecfe7dda76",
+        "new_commit_hash": "ebeef4eb64a36d46565629d2a370eeb1635a7293"
     },
     {
-        "file_path": "server/src/main/java/org/elasticsearch/plugins/PluginsService.java",
-        "commit_hash": "d8fdf6f04d03b36be8e58c85c2d6824781dfab89",
-        "new_commit_hash": "2ca6df71d6c4065fc45918281e4687a6ac600850"
+        "file_path": "raft/src/main/java/org/apache/kafka/raft/KafkaRaftClient.java",
+        "commit_hash": "f62b73b6006f87b0004fd8ae26fec3980db04ca8",
+        "new_commit_hash": "459da4795a511f6933e940fcf105a824bd9e589c"
     },
     {
-        "file_path": "modules/rank-eval/src/main/java/org/elasticsearch/index/rankeval/EvalQueryQuality.java",
-        "commit_hash": "fbddd5ee4a86aa645b0c6f2b1c4d420b135721f2",
-        "new_commit_hash": "5c8006499a0a430125e2a65e9edc69fae7fa8621"
+        "file_path": "raft/src/main/java/org/apache/kafka/raft/KafkaRaftClient.java",
+        "commit_hash": "c1a446eb827fb6a57b6199f41beca07a2b229185",
+        "new_commit_hash": "459da4795a511f6933e940fcf105a824bd9e589c"
     },
     {
-        "file_path": "server/src/main/java/org/elasticsearch/action/support/IndicesOptions.java",
-        "commit_hash": "5c8006499a0a430125e2a65e9edc69fae7fa8621",
-        "new_commit_hash": "f1aae380d97616b5ffc5fabb59ca0d3e2a28e411"
+        "file_path": "group-coordinator/src/main/java/org/apache/kafka/coordinator/group/runtime/CoordinatorRuntime.java",
+        "commit_hash": "009fda06cd29dc3f6fa3a6a31a7b34eccf3695a2",
+        "new_commit_hash": "638844f833b165d6f9ca52c173858d26b7254fac"
     },
     {
-        "file_path": "modules/transport-netty4/src/main/java/org/elasticsearch/transport/netty4/Netty4TcpChannel.java",
-        "commit_hash": "009a847273a48633e735c8934c6c994f0e9877f3",
-        "new_commit_hash": "d8e66259bbbf2be8285adcc4f06a5cff9798e7b7"
+        "file_path": "group-coordinator/src/main/java/org/apache/kafka/coordinator/group/runtime/CoordinatorRuntime.java",
+        "commit_hash": "fe9c6822775e39d22c74b77d5df030ccc5b570b0",
+        "new_commit_hash": "638844f833b165d6f9ca52c173858d26b7254fac"
     },
     {
-        "file_path": "x-pack/plugin/security/src/main/java/org/elasticsearch/xpack/security/rest/action/apikey/RestGrantApiKeyAction.java",
-        "commit_hash": "6a8c1d0480d742765bf07fb027a0dbb2e3937bd3",
-        "new_commit_hash": "b2e626e7df6e825c89ffaac17c649ec04ef69ddd"
+        "file_path": "streams/src/main/java/org/apache/kafka/streams/KafkaStreams.java",
+        "commit_hash": "d737539bfd2a4db119995ea4d2d5e7126c5d9c02",
+        "new_commit_hash": "9a239c6142a8f2eb36f1600d1012224c31e58e71"
     },
     {
-        "file_path": "server/src/main/java/org/elasticsearch/action/admin/cluster/snapshots/get/TransportGetSnapshotsAction.java",
-        "commit_hash": "92c2b36e6998d4da8ca18a97e9893bbcd31bc38b",
-        "new_commit_hash": "b95cb8c40dc701cbce18308cdcd5538fd60facb9"
+        "file_path": "raft/src/main/java/org/apache/kafka/raft/KafkaRaftClient.java",
+        "commit_hash": "a1a79576cfdda1fadb6e45c03ef22dde5ee09052",
+        "new_commit_hash": "adee6f0cc11c37edaf7b47c1f77457d66e80ebe4"
     },
     {
-        "file_path": "x-pack/plugin/write-load-forecaster/src/main/java/org/elasticsearch/xpack/writeloadforecaster/LicensedWriteLoadForecaster.java",
-        "commit_hash": "fa735a9b772842d643b7c8eb4248c550db8262c3",
-        "new_commit_hash": "882b92ab6092a8ea6b53a64e90cb12e812241483"
+        "file_path": "raft/src/main/java/org/apache/kafka/raft/internals/VoterSet.java",
+        "commit_hash": "07604225fbb2b54ae0e2274780d4869c6135d8c4",
+        "new_commit_hash": "adee6f0cc11c37edaf7b47c1f77457d66e80ebe4"
     },
     {
-        "file_path": "server/src/test/java/org/elasticsearch/search/aggregations/bucket/sampler/random/RandomSamplerAggregatorTests.java",
-        "commit_hash": "713f52167fb1a94f3f5fdc774daa35a5b2b21ff1",
-        "new_commit_hash": "1b8baf1cf860004a85d9368accb9f707f31202c7"
+        "file_path": "raft/src/test/java/org/apache/kafka/raft/ElectionStateTest.java",
+        "commit_hash": "1213ba4ab5900b98825d3181ce4aaaade032185b",
+        "new_commit_hash": "adee6f0cc11c37edaf7b47c1f77457d66e80ebe4"
     },
     {
-        "file_path": "server/src/main/java/org/elasticsearch/action/admin/cluster/snapshots/get/TransportGetSnapshotsAction.java",
-        "commit_hash": "8f5e5631473040a4145a31e080061b42f8a44766",
-        "new_commit_hash": "12e567d29e2156f8aa6e6664bd4283b478cf0860"
+        "file_path": "raft/src/test/java/org/apache/kafka/raft/KafkaRaftClientTest.java",
+        "commit_hash": "c09364c40b313e17967ae8aecd005823c6716904",
+        "new_commit_hash": "adee6f0cc11c37edaf7b47c1f77457d66e80ebe4"
     },
     {
-        "file_path": "x-pack/plugin/esql/src/test/java/org/elasticsearch/xpack/esql/optimizer/LogicalPlanOptimizerTests.java",
-        "commit_hash": "dcc3d830eaea1a1c83dec818d367f3b00a3b083b",
-        "new_commit_hash": "f617694e102c6e7503814a865daab3dbfd1dd038"
+        "file_path": "raft/src/test/java/org/apache/kafka/raft/KafkaRaftClientTest.java",
+        "commit_hash": "4a35ba7fa81b0d225add0b085934b0ac100d809c",
+        "new_commit_hash": "adee6f0cc11c37edaf7b47c1f77457d66e80ebe4"
     },
     {
-        "file_path": "x-pack/plugin/ql/src/test/java/org/elasticsearch/xpack/ql/optimizer/OptimizerRulesTests.java",
-        "commit_hash": "dcc3d830eaea1a1c83dec818d367f3b00a3b083b",
-        "new_commit_hash": "f617694e102c6e7503814a865daab3dbfd1dd038"
+        "file_path": "raft/src/test/java/org/apache/kafka/raft/KafkaRaftClientTest.java",
+        "commit_hash": "69922171830e9631f9ae21792260660ce528b49b",
+        "new_commit_hash": "adee6f0cc11c37edaf7b47c1f77457d66e80ebe4"
     },
     {
-        "file_path": "server/src/main/java/org/elasticsearch/action/explain/ExplainResponse.java",
-        "commit_hash": "a8188f8173caf07023aedc490d22fd9050cdab1e",
-        "new_commit_hash": "c41df745a6e0c954ee8827e7bac7fd0b71e2bb52"
+        "file_path": "raft/src/test/java/org/apache/kafka/raft/LeaderStateTest.java",
+        "commit_hash": "921989f3bae571a01a8168533f4a097f8463c251",
+        "new_commit_hash": "adee6f0cc11c37edaf7b47c1f77457d66e80ebe4"
     },
     {
-        "file_path": "server/src/main/java/org/elasticsearch/action/update/UpdateResponse.java",
-        "commit_hash": "a8188f8173caf07023aedc490d22fd9050cdab1e",
-        "new_commit_hash": "c41df745a6e0c954ee8827e7bac7fd0b71e2bb52"
+        "file_path": "raft/src/test/java/org/apache/kafka/raft/RaftClientTestContext.java",
+        "commit_hash": "1010b38457f76212ac13126d380b383dd5a07816",
+        "new_commit_hash": "adee6f0cc11c37edaf7b47c1f77457d66e80ebe4"
     },
     {
-        "file_path": "server/src/main/java/org/elasticsearch/action/admin/cluster/node/tasks/list/ListTasksResponse.java",
-        "commit_hash": "a8188f8173caf07023aedc490d22fd9050cdab1e",
-        "new_commit_hash": "c41df745a6e0c954ee8827e7bac7fd0b71e2bb52"
+        "file_path": "raft/src/test/java/org/apache/kafka/raft/VotedStateTest.java",
+        "commit_hash": "a3dcbc8e1113d76e79c62cdfefc1178927822949",
+        "new_commit_hash": "adee6f0cc11c37edaf7b47c1f77457d66e80ebe4"
     },
     {
-        "file_path": "server/src/main/java/org/elasticsearch/search/profile/SearchProfileResults.java",
-        "commit_hash": "a8188f8173caf07023aedc490d22fd9050cdab1e",
-        "new_commit_hash": "c41df745a6e0c954ee8827e7bac7fd0b71e2bb52"
+        "file_path": "raft/src/test/java/org/apache/kafka/raft/VotedStateTest.java",
+        "commit_hash": "a37b52583af45c77835ce95b947b845eb8ca5b72",
+        "new_commit_hash": "adee6f0cc11c37edaf7b47c1f77457d66e80ebe4"
     },
     {
-        "file_path": "server/src/main/java/org/elasticsearch/action/DocWriteResponse.java",
-        "commit_hash": "f51064aebdef0c66b4230b8306d1ad0de9d39c0d",
-        "new_commit_hash": "a279a302bfe9289e522a4bb32499af1304a70c0b"
+        "file_path": "raft/src/test/java/org/apache/kafka/raft/internals/VoterSetTest.java",
+        "commit_hash": "a067ca529f03eb9895605805a5db023875822a95",
+        "new_commit_hash": "adee6f0cc11c37edaf7b47c1f77457d66e80ebe4"
     },
     {
-        "file_path": "server/src/main/java/org/elasticsearch/action/support/broadcast/BaseBroadcastResponse.java",
-        "commit_hash": "f51064aebdef0c66b4230b8306d1ad0de9d39c0d",
-        "new_commit_hash": "a279a302bfe9289e522a4bb32499af1304a70c0b"
+        "file_path": "raft/src/test/java/org/apache/kafka/raft/internals/VoterSetTest.java",
+        "commit_hash": "2a5f8c1975fbb531ec70cf01da080908a94bf7ce",
+        "new_commit_hash": "adee6f0cc11c37edaf7b47c1f77457d66e80ebe4"
     },
     {
-        "file_path": "server/src/main/java/org/elasticsearch/search/suggest/completion/CompletionSuggestion.java",
-        "commit_hash": "24e18f67e42d562dc012a6cdd2ed024341b11e5a",
-        "new_commit_hash": "8022943c7600bec01ac2ff0b4befd79157cb7813"
+        "file_path": "raft/src/main/java/org/apache/kafka/raft/internals/VoterSet.java",
+        "commit_hash": "a59dce86eeab4914e3eae243b556d5c0ee07379a",
+        "new_commit_hash": "adee6f0cc11c37edaf7b47c1f77457d66e80ebe4"
     },
     {
-        "file_path": "server/src/main/java/org/elasticsearch/search/suggest/Suggest.java",
-        "commit_hash": "24e18f67e42d562dc012a6cdd2ed024341b11e5a",
-        "new_commit_hash": "8022943c7600bec01ac2ff0b4befd79157cb7813"
+        "file_path": "raft/src/test/java/org/apache/kafka/raft/RaftClientTestContext.java",
+        "commit_hash": "62284eacd3fc8ac2c2d1c96aec657cfc93a1434c",
+        "new_commit_hash": "adee6f0cc11c37edaf7b47c1f77457d66e80ebe4"
     },
     {
-        "file_path": "server/src/main/java/org/elasticsearch/search/SearchHit.java",
-        "commit_hash": "24e18f67e42d562dc012a6cdd2ed024341b11e5a",
-        "new_commit_hash": "8022943c7600bec01ac2ff0b4befd79157cb7813"
+        "file_path": "group-coordinator/src/main/java/org/apache/kafka/coordinator/group/GroupMetadataManager.java",
+        "commit_hash": "63c8e0264cfb6509f0c869bbaa1b5fe682252576",
+        "new_commit_hash": "9a78122fb0b1b37961139d5c62e49fa758dc08ac"
     },
     {
-        "file_path": "server/src/main/java/org/elasticsearch/cluster/metadata/MetadataCreateDataStreamService.java",
-        "commit_hash": "75f548765f3583f41aa3baeffbafdf861aa5a11e",
-        "new_commit_hash": "0cc19f32704cfd168d3d3fa3cb2200c27e3b4c6b"
+        "file_path": "connect/runtime/src/main/java/org/apache/kafka/connect/runtime/rest/HerderRequestHandler.java",
+        "commit_hash": "a0c65163f3c3b5006b942822829c4c7c4acf3987",
+        "new_commit_hash": "27220d146c5d043da4adc3d636036bd6e7b112d2"
     },
     {
-        "file_path": "x-pack/plugin/security/src/main/java/org/elasticsearch/xpack/security/rest/action/apikey/RestGrantApiKeyAction.java",
-        "commit_hash": "d11048e7ff24ac8f9995a3c0d24da71117ceb7b5",
-        "new_commit_hash": "4cca544ccb0c12e9c35cd7f1ba49c65d84456ba0"
+        "file_path": "streams/src/main/java/org/apache/kafka/streams/processor/internals/StreamTask.java",
+        "commit_hash": "fa2cb0ebdf44479f6bad42bdb0f0cb5bc1cc37a7",
+        "new_commit_hash": "4de83d38c926bd991ce3e2d2804537a392ae6691"
     },
     {
-        "file_path": "server/src/main/java/org/elasticsearch/index/mapper/TextFieldMapper.java",
-        "commit_hash": "4ef8b3825ec40051ead58d2c6180d6b80be060be",
-        "new_commit_hash": "e1d902d33ba3773123d651e2f60b51b0e9e95670"
+        "file_path": "group-coordinator/src/main/java/org/apache/kafka/coordinator/group/runtime/SnapshottableCoordinator.java",
+        "commit_hash": "c20cab42e1d9996007ecc6fa1defd949297eb8be",
+        "new_commit_hash": "4e862c0903195eb11a715271c29304d28036273d"
     },
     {
-        "file_path": "server/src/main/java/org/elasticsearch/cluster/metadata/DataStreamLifecycle.java",
-        "commit_hash": "0b747ac43ef3985cfd999029e9ac8cdba2debac7",
-        "new_commit_hash": "a6a29d0946e8344da4847fcd31c60ae0e9f630f3"
+        "file_path": "group-coordinator/src/test/java/org/apache/kafka/coordinator/group/GroupMetadataManagerTestContext.java",
+        "commit_hash": "2fcf6a3cc81b951b12e3a2d1b90d4149720c9bce",
+        "new_commit_hash": "4e862c0903195eb11a715271c29304d28036273d"
     },
     {
-        "file_path": "distribution/tools/server-cli/src/main/java/org/elasticsearch/server/cli/MachineDependentHeap.java",
-        "commit_hash": "658c01401696c4685e8f7acf18865e2061fa534e",
-        "new_commit_hash": "d7e524fcf9835f4b31369dd2cd0ef8da4994c9a3"
+        "file_path": "group-coordinator/src/test/java/org/apache/kafka/coordinator/group/OffsetMetadataManagerTest.java",
+        "commit_hash": "e62eecd5e8915b6e6f83df0729e7ecd1b5103dce",
+        "new_commit_hash": "4e862c0903195eb11a715271c29304d28036273d"
     },
     {
-        "file_path": "libs/native/src/main21/java/org/elasticsearch/nativeaccess/jdk/JdkVectorLibrary.java",
-        "commit_hash": "85942902638eae1a7288e5d25aeb8fbb938b30ee",
-        "new_commit_hash": "6ef486519549f37be893b39b7248b49b9518a9d5"
+        "file_path": "group-coordinator/src/test/java/org/apache/kafka/coordinator/group/OffsetMetadataManagerTest.java",
+        "commit_hash": "2d5adc292dd053243e3ad49fb9e5ee75e20fd598",
+        "new_commit_hash": "4e862c0903195eb11a715271c29304d28036273d"
     },
     {
-        "file_path": "server/src/main/java/org/elasticsearch/search/aggregations/bucket/prefix/IpPrefixAggregator.java",
-        "commit_hash": "a037e336595b1530cdf23d7a6404e49d79593033",
-        "new_commit_hash": "cca98af45619d31795b7b3e0f66872e20660a9cc"
+        "file_path": "group-coordinator/src/test/java/org/apache/kafka/coordinator/group/metrics/GroupCoordinatorMetricsShardTest.java",
+        "commit_hash": "a90c2d6088f885dc16d184ed13771ee9623b805d",
+        "new_commit_hash": "4e862c0903195eb11a715271c29304d28036273d"
     },
     {
-        "file_path": "server/src/main/java/org/elasticsearch/bootstrap/JNANatives.java",
-        "commit_hash": "04f1fcee51ae02f1a0074fb857c40dc29b47ccae",
-        "new_commit_hash": "062039b7f4706a0f42eb072067891bc5b2dad4a3"
+        "file_path": "group-coordinator/src/test/java/org/apache/kafka/coordinator/group/metrics/GroupCoordinatorMetricsShardTest.java",
+        "commit_hash": "e118294a728c0c6eae034ce5820762d2b6315112",
+        "new_commit_hash": "4e862c0903195eb11a715271c29304d28036273d"
     },
     {
-        "file_path": "x-pack/plugin/esql-core/src/main/java/org/elasticsearch/xpack/esql/core/util/SourceUtils.java",
-        "commit_hash": "1e58f3a48557e14c791a8f3c7c3d5329c9278cd8",
-        "new_commit_hash": "86652bde14e00b330402b2ed5366c0f3fe27300a"
+        "file_path": "group-coordinator/src/test/java/org/apache/kafka/coordinator/group/metrics/GroupCoordinatorMetricsTest.java",
+        "commit_hash": "f76c771f07e85852f1fca4bd5e7c2e881fe59b87",
+        "new_commit_hash": "4e862c0903195eb11a715271c29304d28036273d"
     },
     {
-        "file_path": "x-pack/plugin/esql/src/test/java/org/elasticsearch/xpack/esql/optimizer/OptimizerRulesTests.java",
-        "commit_hash": "bd550074db602b43f4654d3881158d824e38f622",
-        "new_commit_hash": "0d96d7c45430c2356100c9d1aa654e4640c7444e"
+        "file_path": "group-coordinator/src/test/java/org/apache/kafka/coordinator/group/modern/consumer/ConsumerGroupTest.java",
+        "commit_hash": "8703298f378f5767ab7c5b8e0740c9b6b94fce07",
+        "new_commit_hash": "4e862c0903195eb11a715271c29304d28036273d"
     },
     {
-        "file_path": "x-pack/plugin/esql/src/main/java/org/elasticsearch/xpack/esql/io/stream/PlanNamedTypes.java",
-        "commit_hash": "28c1cc63c41dd5d64f71c2df494e3630269b1142",
-        "new_commit_hash": "3bfecc8d22b3e48aef2b950ca41846dfa0fa0993"
+        "file_path": "group-coordinator/src/test/java/org/apache/kafka/coordinator/group/modern/consumer/ConsumerGroupTest.java",
+        "commit_hash": "34bebf3af2ff8ca4a4ac8a279765fc681c4b95ea",
+        "new_commit_hash": "4e862c0903195eb11a715271c29304d28036273d"
     },
     {
-        "file_path": "x-pack/plugin/esql/src/main/java/org/elasticsearch/xpack/esql/type/EsqlDataTypes.java",
-        "commit_hash": "3bfecc8d22b3e48aef2b950ca41846dfa0fa0993",
-        "new_commit_hash": "b35f0ed48d0325127bde45b17230218b7686e681"
+        "file_path": "group-coordinator/src/test/java/org/apache/kafka/coordinator/group/modern/consumer/ConsumerGroupTest.java",
+        "commit_hash": "7226b58c84508faac4518b8bf061266c17e4bdf7",
+        "new_commit_hash": "4e862c0903195eb11a715271c29304d28036273d"
     },
     {
-        "file_path": "build-tools-internal/src/main/java/org/elasticsearch/gradle/internal/release/UpdateVersionsTask.java",
-        "commit_hash": "95c9aad670cb8d3429444c197ddfbb0001df025a",
-        "new_commit_hash": "7106fa406e4ddb688ec0daaaa2d5858c40d1e6a0"
+        "file_path": "group-coordinator/src/test/java/org/apache/kafka/coordinator/group/modern/consumer/ConsumerGroupTest.java",
+        "commit_hash": "2afeb4dfa4330fb206a36754f2ee15817ba410df",
+        "new_commit_hash": "4e862c0903195eb11a715271c29304d28036273d"
     },
     {
-        "file_path": "x-pack/plugin/esql/src/main/java/org/elasticsearch/xpack/esql/io/stream/PlanNamedTypes.java",
-        "commit_hash": "8863497d87b7c265d909beaff3b0743443da1e0c",
-        "new_commit_hash": "97651dfb9f89cadffa377caba4fd87ebcda075b2"
+        "file_path": "group-coordinator/src/test/java/org/apache/kafka/coordinator/group/modern/share/ShareGroupTest.java",
+        "commit_hash": "615b67dc17c192240f1a481c9167bb8eb032c9f8",
+        "new_commit_hash": "4e862c0903195eb11a715271c29304d28036273d"
     },
     {
-        "file_path": "x-pack/plugin/esql-core/src/test/java/org/elasticsearch/xpack/esql/core/tree/NodeSubclassTests.java",
-        "commit_hash": "406b969c62a739b01caca0c6d6a505e01fde0617",
-        "new_commit_hash": "822b187af48f9a5560ad365743998315038dad85"
+        "file_path": "group-coordinator/src/test/java/org/apache/kafka/coordinator/group/modern/share/ShareGroupTest.java",
+        "commit_hash": "6763e67eb5b4151e73ba5a9ed1ee0dd90c71759f",
+        "new_commit_hash": "4e862c0903195eb11a715271c29304d28036273d"
     },
     {
-        "file_path": "server/src/main/java/org/elasticsearch/index/translog/Translog.java",
-        "commit_hash": "20565137a1193dc44833f732b3aa6575655c42c3",
-        "new_commit_hash": "5d26c67d22c5ecd9abd635908c8436d6cc85ef29"
+        "file_path": "group-coordinator/src/test/java/org/apache/kafka/coordinator/group/modern/share/ShareGroupTest.java",
+        "commit_hash": "7e477e8eadf30c6142f19bbb76cff3b1bf7d8587",
+        "new_commit_hash": "4e862c0903195eb11a715271c29304d28036273d"
     },
     {
-        "file_path": "x-pack/plugin/esql/src/main/java/org/elasticsearch/xpack/esql/action/ResponseValueUtils.java",
-        "commit_hash": "cc245c4022a5c744151e6512feea00209c115c84",
-        "new_commit_hash": "f49abb4c2837e51305d61b0c382f0393a28c5f42"
+        "file_path": "jmh-benchmarks/src/main/java/org/apache/kafka/jmh/timeline/TimelineHashMapBenchmark.java",
+        "commit_hash": "ebceb5d1219775a9e83c01195bca606578cff305",
+        "new_commit_hash": "4e862c0903195eb11a715271c29304d28036273d"
     },
     {
-        "file_path": "x-pack/plugin/esql/src/main/java/org/elasticsearch/xpack/esql/optimizer/rules/SubstituteSurrogates.java",
-        "commit_hash": "e7c418aeff5664b773f11ab406112ba55cc11df6",
-        "new_commit_hash": "e8a01bbd9c41ed77239a7b41761d1e58994a034f"
+        "file_path": "metadata/src/main/java/org/apache/kafka/controller/OffsetControlManager.java",
+        "commit_hash": "9eea6895d62aec7465dfbc4811e8b0bc61445662",
+        "new_commit_hash": "4e862c0903195eb11a715271c29304d28036273d"
     },
     {
-        "file_path": "x-pack/plugin/esql/src/test/java/org/elasticsearch/xpack/esql/parser/AbstractStatementParserTests.java",
-        "commit_hash": "e7c418aeff5664b773f11ab406112ba55cc11df6",
-        "new_commit_hash": "e8a01bbd9c41ed77239a7b41761d1e58994a034f"
+        "file_path": "metadata/src/main/java/org/apache/kafka/controller/OffsetControlManager.java",
+        "commit_hash": "2e8ab6ec5591a47e6a5217eac0b790aacf3695fb",
+        "new_commit_hash": "4e862c0903195eb11a715271c29304d28036273d"
     },
     {
-        "file_path": "x-pack/plugin/esql/src/main/java/org/elasticsearch/xpack/esql/io/stream/PlanNamedTypes.java",
-        "commit_hash": "7ed83fd12905bc24616807d87dc0b3ae8e033169",
-        "new_commit_hash": "9916aa9f957731c4bac944612bbc6b2485ae3447"
+        "file_path": "metadata/src/main/java/org/apache/kafka/controller/OffsetControlManager.java",
+        "commit_hash": "f02c9361287ce0b3d5874fb1da2a212cf97ae04f",
+        "new_commit_hash": "4e862c0903195eb11a715271c29304d28036273d"
     },
     {
-        "file_path": "x-pack/plugin/esql/src/test/java/org/elasticsearch/xpack/esql/expression/function/AbstractFunctionTestCase.java",
-        "commit_hash": "a78a21bc20b0981dab340626c978bcd2eb47cb66",
-        "new_commit_hash": "10b51179f97e493d38f3e81b71a429188df74ec9"
+        "file_path": "metadata/src/main/java/org/apache/kafka/controller/OffsetControlManager.java",
+        "commit_hash": "e4bf466a438e0f393135b84ed4b5611c7608ac3e",
+        "new_commit_hash": "4e862c0903195eb11a715271c29304d28036273d"
     },
     {
-        "file_path": "x-pack/plugin/esql/src/main/java/org/elasticsearch/xpack/esql/io/stream/PlanNamedTypes.java",
-        "commit_hash": "e7c0ba953a2f03ecdea9e848478356054689c137",
-        "new_commit_hash": "68b7b7f7fb520056ec9fcbbe5b6b66bce51027d2"
+        "file_path": "metadata/src/main/java/org/apache/kafka/controller/OffsetControlManager.java",
+        "commit_hash": "d0d1ef2e01ed6532f34cdbb087e241a4f6880007",
+        "new_commit_hash": "4e862c0903195eb11a715271c29304d28036273d"
     },
     {
-        "file_path": "x-pack/plugin/esql/src/main/java/org/elasticsearch/xpack/esql/optimizer/LogicalPlanOptimizer.java",
-        "commit_hash": "2fde9106188c9a348311592313f06f196feb2a30",
-        "new_commit_hash": "9b96665f5d6380702e98ed949acc0c07844faa15"
+        "file_path": "metadata/src/test/java/org/apache/kafka/controller/AclControlManagerTest.java",
+        "commit_hash": "41521201e2c0ea4f6a97d434a4a1b58e6b71b232",
+        "new_commit_hash": "4e862c0903195eb11a715271c29304d28036273d"
+    },
+    {
+        "file_path": "metadata/src/test/java/org/apache/kafka/controller/FeatureControlManagerTest.java",
+        "commit_hash": "37798d9b1c134ab3b36c3c31004ba933de6687bd",
+        "new_commit_hash": "4e862c0903195eb11a715271c29304d28036273d"
+    },
+    {
+        "file_path": "metadata/src/test/java/org/apache/kafka/controller/FeatureControlManagerTest.java",
+        "commit_hash": "8f45b80fb602932dd6473cbc2a55946fd956e4b5",
+        "new_commit_hash": "4e862c0903195eb11a715271c29304d28036273d"
+    },
+    {
+        "file_path": "metadata/src/test/java/org/apache/kafka/controller/FeatureControlManagerTest.java",
+        "commit_hash": "bed236d73c831ae8aa19c7bdaed32680482e4f73",
+        "new_commit_hash": "4e862c0903195eb11a715271c29304d28036273d"
+    },
+    {
+        "file_path": "raft/src/test/java/org/apache/kafka/raft/VotedStateTest.java",
+        "commit_hash": "0545041c57c66aa4d42a43367f40b0139da63df4",
+        "new_commit_hash": "b4d5f163a9c5a480efe0a1de3bebf12e35be2a7f"
+    },
+    {
+        "file_path": "group-coordinator/src/main/java/org/apache/kafka/coordinator/group/GroupMetadataManager.java",
+        "commit_hash": "66511a520a3e8ea05d6531fa7fe6989099db9164",
+        "new_commit_hash": "8d29bc1fa8ce75b6807b957ea35ad39e8dd9e04a"
+    },
+    {
+        "file_path": "group-coordinator/src/main/java/org/apache/kafka/coordinator/group/GroupMetadataManager.java",
+        "commit_hash": "24a13d857757026051ebda38f04cfbee3cf54b2e",
+        "new_commit_hash": "8d29bc1fa8ce75b6807b957ea35ad39e8dd9e04a"
+    },
+    {
+        "file_path": "clients/src/main/java/org/apache/kafka/clients/consumer/internals/ShareConsumeRequestManager.java",
+        "commit_hash": "9194b45995ef8c7fbbc4b94df1922f14be6036c8",
+        "new_commit_hash": "932e84096a96e199c0772c81bddf3ea3789377ba"
+    },
+    {
+        "file_path": "clients/src/main/java/org/apache/kafka/clients/consumer/internals/OffsetFetcher.java",
+        "commit_hash": "f843a212e5cfdf88c76494ff4f3dae817d2545f0",
+        "new_commit_hash": "d67c18b4aec66fec5d145c9ee737c7a469b8635c"
     }
 ]

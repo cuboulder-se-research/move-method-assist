@@ -1,10 +1,9 @@
 import json
 from collections import Counter
-import MoveMethodValidator
+import mm_analyser.refactoring_miner_processing.filter.MoveMethodRef as mref
 from collections import defaultdict
 import pandas as pd
 from mm_analyser import data_folder
-
 
 def myindex(list, ele):
     try:
@@ -58,7 +57,7 @@ combined_output = [i for i in combined_output if 'telemetry' in i
 oracle_group_by_file = defaultdict(list)
 for evaluation_data in combined_output:
     oracle = evaluation_data['move_method_refactoring']
-    mm_obj = MoveMethodValidator.MoveMethodRef.create_from(oracle)
+    mm_obj = mref.MoveMethodRef.create_from(oracle)
     method_name = mm_obj.left_signature.method_name
     target_class = mm_obj.target_class.split('.')[-1]
     oracle_key = (mm_obj.left_file_path, evaluation_data['sha1'])
@@ -68,7 +67,7 @@ for evaluation_data in combined_output:
 for evaluation_data in combined_output:
 
     oracle = evaluation_data['move_method_refactoring']
-    mm_obj = MoveMethodValidator.MoveMethodRef.create_from(oracle)
+    mm_obj = mref.MoveMethodRef.create_from(oracle)
     method_name = mm_obj.left_signature.method_name
     target_class = mm_obj.target_class.split('.')[-1]
     oracle_key = (mm_obj.left_file_path, evaluation_data['sha1'])
