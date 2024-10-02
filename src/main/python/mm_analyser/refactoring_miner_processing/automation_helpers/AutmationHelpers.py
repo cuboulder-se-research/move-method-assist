@@ -2,9 +2,10 @@ import git
 import os
 
 class EmmHelper:
-    def __init__(self):
+    def __init__(self, include_static=False):
         self.directory = "filter_emm"
         self.outdir = "mm-assist-emm"
+        self.include_static = include_static
     def get_parent_commit(self, ref):
         if ref['extraction_results']['success']:
             return ref['extraction_results']['newCommitHash']

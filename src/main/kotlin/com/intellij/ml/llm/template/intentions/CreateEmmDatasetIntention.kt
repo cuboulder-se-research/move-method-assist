@@ -71,8 +71,9 @@ class CreateEmmDatasetIntention() : IntentionAction {
     }
 
     private fun createDataset() {
-        val fileText = ApplyMMOnProjectAndCommitIntention::class.java
-            .getResource("/plugin_input_files/extraction_files_and_ranges.json")?.readText()?:return
+        val data_dir = System.getenv("DATA_DIR")
+        val extractionFilePath = Path.of(data_dir).resolve("plugin_input_files/extraction_files_and_ranges.json")
+        val fileText = Files.readString(extractionFilePath)?:return
         val json = JsonParser.parseString(fileText)
         val repo = FileRepositoryBuilder()
             .setGitDir(File("${myProject.basePath}/.git"))
@@ -91,15 +92,11 @@ class CreateEmmDatasetIntention() : IntentionAction {
         print("results---")
         print(Gson().toJson(statusMap).toString())
         print("end of results---")
-        val workingFolder = File(".")
-        println("workingFolder=${workingFolder.canonicalPath}")
 
-        val parentFolder = File("src/main/resources/plugin_output")
-        println("parentFolder=${parentFolder.canonicalPath}")
-        require(parentFolder.exists())
-        val outFile = File(parentFolder, "extraction_results.json")
-        Files.write(outFile.toPath(), Gson().toJson(statusMap).toString().toByteArray())
-        println("Wrote to ${outFile.canonicalPath}")
+        val data_dir = System.getenv("DATA_DIR")
+        val outfilePath = Path.of(data_dir).resolve("plugin_output/extraction_results.json")
+        Files.write(outfilePath, Gson().toJson(statusMap).toString().toByteArray())
+        println("Wrote to $outfilePath")
     }
 
     private suspend fun processExtract(jsonElement: JsonElement, gitRepo: Git) {
@@ -108,11 +105,11 @@ class CreateEmmDatasetIntention() : IntentionAction {
             val refId = jsonElement.asJsonObject.get("ref_id").asInt
             val filePath = jsonElement.asJsonObject.get("file_path").asString
             val newMethodName = jsonElement.asJsonObject.get("extracted_method_name").asString
-            gitRepo.checkout().setName(prevCommit).setForced(true).call()
-            reloadProjectFiles()
-            Thread.sleep(5000) // sleep to allow refresh.
 
             try {
+                gitRepo.checkout().setName(prevCommit).setForced(true).call()
+                reloadProjectFiles()
+                Thread.sleep(5000) // sleep to allow refresh.
                 var editorFilePair: Pair<Editor, PsiFile>? = null
                 openFileCompleted = false
                 DumbService.getInstance(myProject).smartInvokeLater {

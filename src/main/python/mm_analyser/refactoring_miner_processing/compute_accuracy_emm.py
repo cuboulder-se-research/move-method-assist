@@ -44,10 +44,10 @@ def calculate_vanilla_llm_recalls(telemetry, method_name, target_class, evaluati
 
 
 plugin_outfiles = [
-    # 'vue_pro_res.json',
+    'vue_pro_res.json',
     # 'elastic_res.json',
     # 'dbeaver_res.json',
-    # 'flink_res.json',
+    'flink_res.json',
     # 'spring_framework_res.json',
     # 'halo_res.json',
     # 'redisson_res.json',

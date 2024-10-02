@@ -15,12 +15,14 @@ import kotlinx.coroutines.sync.withLock
 import org.eclipse.jgit.api.Git
 import org.eclipse.jgit.storage.file.FileRepositoryBuilder
 import java.io.File
+import java.nio.file.Files
+import java.nio.file.Path
 
 class ApplyMMOnProjectAndCommitIntention: ApplyMoveMethodOnProjectIntention() {
     override fun runPluginOnSpecificFiles(project: Project) {
+        val data_dir = System.getenv("DATA_DIR")
+        val fileText = Files.readString(Path.of(data_dir).resolve("plugin_input_files/classes_and_commits.json")) ?: return
 
-        val fileText = ApplyMMOnProjectAndCommitIntention::class.java
-            .getResource("/plugin_input_files/classes_and_commits.json")?.readText()?:return
         val fileAndCommits = JsonParser.parseString(fileText).asJsonArray
         val repo = FileRepositoryBuilder()
             .setGitDir(File("${project.basePath}/.git"))

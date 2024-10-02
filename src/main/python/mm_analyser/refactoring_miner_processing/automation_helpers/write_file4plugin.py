@@ -6,7 +6,7 @@ from mm_analyser.env import PROJECTS_BASE_PATH
 from mm_analyser import data_folder, resources_folder
 from mm_analyser.refactoring_miner_processing.automation_helpers.AutmationHelpers import EmmHelper, MmHelper
 
-project_name = "kafka"
+project_name = "vue_pro"
 project_basepath_map = {
         'vue_pro': 'ruoyi-vue-pro',
         'flink': 'flink',
@@ -39,6 +39,9 @@ with open(refminer_filtered_file) as f:
 write_data = []
 duplication_counter = set()
 for ref in refdata:
+    if not helper.include_static and ref['move_method_refactoring']['isStatic']:
+        continue
+
     parent_commit = helper.get_parent_commit(ref)
     if parent_commit is None:
         continue
@@ -52,7 +55,7 @@ for ref in refdata:
     })
     duplication_counter.add((parent_commit, file_path))
 
-with open(f"{resources_folder}/plugin_input_files/classes_and_commits.json", "w") as f:
+with open(f"{data_folder}/plugin_input_files/classes_and_commits.json", "w") as f:
     json.dump(write_data, f, indent=4)
 
 
