@@ -91,6 +91,9 @@ class ExtractMoveMethodRef(mm.MoveMethodRef):
                                     extracted_range,
                                     method_invocation)
 
+    def key(self):
+        return self.left_file_path + self.right_signature.method_name
+
 
 class ExtractMoveMethodValidator(rv.RminerValidator):
     type = "Extract And Move Method"

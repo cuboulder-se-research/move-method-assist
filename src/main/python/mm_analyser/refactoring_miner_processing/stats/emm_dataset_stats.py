@@ -25,5 +25,12 @@ print(f"total={sum(per_project_numbers.values())}")
 all_moves = []
 for data in instance_moves_stats.values():
     all_moves += [i['move_method_refactoring']['description'].split('extracted from')[0] for i in data]
+all_moves_per_file = []
+for data in instance_moves_stats.values():
+    all_moves_per_file += [
+        i['move_method_refactoring']['description'].split('extracted from')[0] +
+        i['move_method_refactoring']['leftSideLocations'][0]['filePath']
+        for i in data]
 print(f"{len(all_moves)=}")
 print(f"{len(set(all_moves))=}")
+print(f"{len(set(all_moves_per_file))=}")
