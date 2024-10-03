@@ -1,15 +1,19 @@
 package com.intellij.ml.llm.template.models.grazie
 
+import ai.grazie.model.llm.annotation.ExperimentalLLM
+import ai.grazie.model.llm.profile.LLMProfileID
+import ai.grazie.model.llm.profile.OpenAIProfileIDs
 import com.intellij.ml.llm.template.models.openai.OpenAiChatMessage
 import com.intellij.ml.llm.template.models.openai.OpenAiChatRequestBody
+import com.intellij.ml.llm.template.settings.RefAgentSettings
+import com.intellij.ml.llm.template.settings.RefAgentSettingsManager
 import dev.langchain4j.data.message.AiMessage
 import dev.langchain4j.data.message.ChatMessage
 import dev.langchain4j.model.chat.ChatLanguageModel
 import dev.langchain4j.model.output.Response
 
 class GrazieModel(
-    val llm: String,
-    val temperature: Double
+    val llm: LLMProfileID
 ): ChatLanguageModel {
     override fun generate(messages: MutableList<ChatMessage>?): Response<AiMessage> {
         if (messages != null) {
@@ -21,7 +25,7 @@ class GrazieModel(
                             if(it.type().name=="AI") "assistant" else it.type().name.lowercase(),
                             it.text())
                                 },
-                    temperature = temperature
+                    temperature = RefAgentSettingsManager.getInstance().getTemperature()
                 )
             ).sendSync()
 
@@ -31,6 +35,7 @@ class GrazieModel(
     }
 }
 
-val GrazieGPT4 = GrazieModel("GPT-4", 0.5)
-val GrazieGPT4omini = GrazieModel("gpt-4o-mini", 0.5)
-val GrazieGPT4o = GrazieModel("gpt-4o", 0.5)
+val GrazieGPT4 = GrazieModel(OpenAIProfileIDs.Chat.GPT4)
+val GrazieGPT4omini = GrazieModel(LLMProfileID("gpt-4o-mini"))
+@OptIn(ExperimentalLLM::class)
+val GrazieGPT4o = GrazieModel(OpenAIProfileIDs.Chat.GPT4o)

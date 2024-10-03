@@ -7,6 +7,7 @@ import ai.grazie.client.ktor.GrazieKtorHTTPClient.Client
 import ai.grazie.model.auth.GrazieAgent
 import ai.grazie.model.auth.v5.AuthData
 import ai.grazie.model.cloud.AuthType
+import ai.grazie.model.llm.annotation.ExperimentalLLM
 import ai.grazie.model.llm.chat.v5.*
 import ai.grazie.model.llm.parameters.OpenAILLMParameters
 import ai.grazie.model.llm.profile.LLMProfileID
@@ -55,11 +56,7 @@ class GrazieBaseRequest(body: OpenAiChatRequestBody) : LLMBaseRequest<OpenAiChat
     }
 
     private fun getOpenAIProfileId(): LLMProfileID{
-        return when(body.model.uppercase()){
-            "GPT-4"-> OpenAIProfileIDs.Chat.GPT4
-            "GPT-3.5-TURBO"-> OpenAIProfileIDs.Chat.ChatGPT
-            else -> OpenAIProfileIDs.Chat.GPT4
-        }
+        return body.model
     }
 
     private fun getAttributes(): Attributes{
