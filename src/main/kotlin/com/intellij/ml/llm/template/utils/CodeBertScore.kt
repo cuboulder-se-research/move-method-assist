@@ -36,7 +36,7 @@ class CodeBertScore {
             val requestBody = RequestBody.create("application/json".toMediaTypeOrNull(), jsonBody)
 
             val request = Request.Builder()
-                .url("https://7fce-141-142-254-149.ngrok-free.app/compute_codebertscore")
+                .url("https://c3ffbf301f33bc4e9823374a29b45653.serveo.net/compute_codebertscore")
                 .post(requestBody)
                 .build()
 

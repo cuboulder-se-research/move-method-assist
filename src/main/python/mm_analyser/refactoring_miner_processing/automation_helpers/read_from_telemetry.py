@@ -16,13 +16,23 @@ with open(refminer_filtered_file) as f:
 
 with open(TELEMETRY_FILE_PATH) as f:
     telemetry = [json.loads(i) for i in f.read().split('\n') if i!=''][-len(mm_assist_runs):]
+
+# print(f"Length of refdata: {len(refdata)}")
+# print(f"Length of mm_assist_runs: {len(mm_assist_runs)}")
+# print(f"Length of telemetry: {len(telemetry)}")
+
 for ref in refdata:
-    matches = [1 if i['new_commit_hash']==ref['sha1'] and i['file_path']==ref['move_method_refactoring']['leftSideLocations'][0]['filePath'] else 0 for i in mm_assist_runs ]
+    matches = [1 if i['new_commit_hash']==ref['sha1'] and i['file_path']==ref['move_method_refactoring']['leftSideLocations'][0]['filePath'] else 0 for i in mm_assist_runs]
+    
     try:
         index = matches.index(1)
-    except:
+        if index < len(telemetry):
+            ref["telemetry"] = telemetry[index]
+        else:
+            print(f"Warning: Telemetry index {index} out of range. Skipping this entry.")
+    except ValueError:
+        print(f"Warning: No matching entry found for commit {ref['sha1']}. Skipping this entry.")
         continue
-    ref["telemetry"] = telemetry[index]
 
 for ref in refdata:
     if 'telemetry' in ref:
