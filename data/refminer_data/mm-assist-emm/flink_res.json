@@ -79,7 +79,7 @@
             "newBranchName": "extract-getWindowSize-createEndingState-639deec"
         },
         "telemetry": {
-            "id": "1f2a542a-8565-49ed-8841-985b1eaeeae9",
+            "id": "51aae142-94ab-4d0a-b8e4-5dc7a8ee16dd",
             "hostFunctionTelemetryData": {
                 "hostFunctionSize": 1032,
                 "lineStart": 54,
@@ -112,70 +112,70 @@
                             "method_name": "compileFactory",
                             "method_signature": "public static <T> NFAFactory<T> compileFactory(final Pattern<T, ?> pattern, boolean timeoutHandling)",
                             "target_class": "NFAFactoryCompiler",
-                            "rationale": "The compileFactory method is responsible for compiling a pattern into an NFAFactory, which is a core functionality of the NFAFactoryCompiler class. Moving it to NFAFactoryCompiler would enhance cohesion and encapsulation."
+                            "rationale": "The compileFactory method is responsible for compiling a pattern into an NFAFactory, which is a core functionality of the NFAFactoryCompiler class. Moving it there would enhance cohesion and encapsulation."
                         },
                         {
                             "method_name": "canProduceEmptyMatches",
                             "method_signature": "public static boolean canProduceEmptyMatches(final Pattern<?, ?> pattern)",
                             "target_class": "NFAFactoryCompiler",
-                            "rationale": "The canProduceEmptyMatches method checks if a pattern can generate empty matches, which is a specific functionality related to the NFA compilation process. It should be moved to NFAFactoryCompiler to maintain a clear separation of responsibilities."
+                            "rationale": "The canProduceEmptyMatches method is closely related to the compilation process and state management of patterns, making it more appropriate to reside within the NFAFactoryCompiler class."
                         },
                         {
                             "method_name": "getCurrentNotCondition",
                             "method_signature": "private List<Tuple2<IterativeCondition<T>, String>> getCurrentNotCondition()",
                             "target_class": "NFAFactoryCompiler",
-                            "rationale": "The getCurrentNotCondition method is used to retrieve conditions related to the current state of the NFA compilation process. It is closely tied to the logic of the NFAFactoryCompiler and should be moved there for better organization."
+                            "rationale": "This method is specifically used to retrieve conditions related to the current state of the NFA compilation process, which aligns with the responsibilities of the NFAFactoryCompiler."
                         },
                         {
                             "method_name": "checkPatternWindowTimes",
                             "method_signature": "private void checkPatternWindowTimes()",
                             "target_class": "NFAFactoryCompiler",
-                            "rationale": "The checkPatternWindowTimes method is responsible for validating window times in patterns, which is a specific concern of the NFA compilation process. Moving it to NFAFactoryCompiler would improve the class's focus."
+                            "rationale": "This method checks the window times between events for patterns, which is a specific concern of the NFAFactoryCompiler during the compilation process."
                         },
                         {
                             "method_name": "checkPatternSkipStrategy",
                             "method_signature": "private void checkPatternSkipStrategy()",
                             "target_class": "NFAFactoryCompiler",
-                            "rationale": "The checkPatternSkipStrategy method checks the skip strategy of patterns, which is relevant to the NFA compilation logic. It should be moved to NFAFactoryCompiler to enhance the class's clarity and purpose."
+                            "rationale": "This method verifies the skip strategy of patterns, which is a part of the compilation logic and should be encapsulated within the NFAFactoryCompiler."
                         },
                         {
                             "method_name": "checkPatternNameUniqueness",
                             "method_signature": "private void checkPatternNameUniqueness()",
                             "target_class": "NFAFactoryCompiler",
-                            "rationale": "The checkPatternNameUniqueness method ensures that pattern names are unique, which is a validation step in the NFA compilation process. It should be moved to NFAFactoryCompiler for better encapsulation."
+                            "rationale": "This method ensures that pattern names are unique, which is a validation step during the compilation process and should be part of the NFAFactoryCompiler."
                         },
                         {
                             "method_name": "createEndingState",
                             "method_signature": "private State<T> createEndingState()",
                             "target_class": "NFAFactoryCompiler",
-                            "rationale": "The createEndingState method is responsible for creating the final state of the NFA, which is a core part of the NFA compilation process. It should be moved to NFAFactoryCompiler to align with its responsibilities."
+                            "rationale": "The creation of the ending state is a part of the NFA compilation process and should be handled within the NFAFactoryCompiler class."
                         },
                         {
                             "method_name": "createMiddleStates",
                             "method_signature": "private State<T> createMiddleStates(final State<T> sinkState)",
                             "target_class": "NFAFactoryCompiler",
-                            "rationale": "The createMiddleStates method creates the states between the start and final states of the NFA, which is a fundamental part of the NFA compilation process. It should be moved to NFAFactoryCompiler for better organization."
+                            "rationale": "This method is responsible for creating the states between the start and final states, which is a core part of the NFA compilation process."
                         },
                         {
                             "method_name": "createStartState",
                             "method_signature": "private State<T> createStartState(State<T> sinkState)",
                             "target_class": "NFAFactoryCompiler",
-                            "rationale": "The createStartState method creates the starting state of the NFA, which is essential to the NFA compilation process. It should be moved to NFAFactoryCompiler to maintain a clear focus on NFA creation."
+                            "rationale": "The creation of the start state is integral to the NFA compilation process and should be encapsulated within the NFAFactoryCompiler."
                         },
                         {
                             "method_name": "convertPattern",
                             "method_signature": "private State<T> convertPattern(final State<T> sinkState)",
                             "target_class": "NFAFactoryCompiler",
-                            "rationale": "The convertPattern method is responsible for converting patterns into states, which is a key part of the NFA compilation process. It should be moved to NFAFactoryCompiler to enhance the class's clarity."
+                            "rationale": "This method converts patterns into states, which is a fundamental part of the NFA compilation process and should reside in the NFAFactoryCompiler."
                         },
                         {
                             "method_name": "createSingletonState",
                             "method_signature": "private State<T> createSingletonState(final State<T> sinkState)",
                             "target_class": "NFAFactoryCompiler",
-                            "rationale": "The createSingletonState method creates a single state for the NFA, which is a fundamental operation in the NFA compilation process. It should be moved to NFAFactoryCompiler for better organization."
+                            "rationale": "Creating singleton states is part of the state management during the NFA compilation process, making it suitable for the NFAFactoryCompiler."
                         }
                     ],
-                    "llm_response_time": 15497
+                    "llm_response_time": 14433
                 },
                 {
                     "iteration_num": 2,
@@ -184,70 +184,64 @@
                             "method_name": "compileFactory",
                             "method_signature": "public static <T> NFAFactory<T> compileFactory(final Pattern<T, ?> pattern, boolean timeoutHandling)",
                             "target_class": "NFAFactoryCompiler",
-                            "rationale": "The compileFactory method is responsible for compiling a pattern into an NFAFactory, which is a core functionality of the NFAFactoryCompiler class. Moving it to NFAFactoryCompiler would enhance cohesion and encapsulation."
+                            "rationale": "The compileFactory method is responsible for compiling a pattern into an NFAFactory, which is a core functionality of the NFAFactoryCompiler class. Moving it there would enhance cohesion."
                         },
                         {
                             "method_name": "canProduceEmptyMatches",
                             "method_signature": "public static boolean canProduceEmptyMatches(final Pattern<?, ?> pattern)",
                             "target_class": "NFAFactoryCompiler",
-                            "rationale": "The canProduceEmptyMatches method checks if a pattern can generate empty matches, which is a specific functionality related to the NFAFactoryCompiler's role in compiling patterns. Moving it to NFAFactoryCompiler would improve the organization of related functionalities."
+                            "rationale": "The canProduceEmptyMatches method checks if a pattern can generate empty matches, which is a specific functionality related to the NFAFactoryCompiler's role in handling patterns. It should be moved to maintain a clear separation of concerns."
                         },
                         {
-                            "method_name": "getCurrentNotCondition",
-                            "method_signature": "private List<Tuple2<IterativeCondition<T>, String>> getCurrentNotCondition()",
+                            "method_name": "NFAFactoryCompiler",
+                            "method_signature": "NFAFactoryCompiler(final Pattern<T, ?> pattern)",
                             "target_class": "NFAFactoryCompiler",
-                            "rationale": "The getCurrentNotCondition method is closely tied to the state transitions and conditions that the NFAFactoryCompiler manages. Moving it to NFAFactoryCompiler would enhance the clarity of the code structure."
-                        },
-                        {
-                            "method_name": "checkPatternWindowTimes",
-                            "method_signature": "private void checkPatternWindowTimes()",
-                            "target_class": "NFAFactoryCompiler",
-                            "rationale": "The checkPatternWindowTimes method is responsible for validating window times, which is a specific concern of the NFAFactoryCompiler. Moving it would align the method with the class's responsibilities."
-                        },
-                        {
-                            "method_name": "checkPatternSkipStrategy",
-                            "method_signature": "private void checkPatternSkipStrategy()",
-                            "target_class": "NFAFactoryCompiler",
-                            "rationale": "The checkPatternSkipStrategy method checks the skip strategy of patterns, which is relevant to the compilation process handled by NFAFactoryCompiler. Moving it would improve the organization of related logic."
-                        },
-                        {
-                            "method_name": "checkPatternNameUniqueness",
-                            "method_signature": "private void checkPatternNameUniqueness()",
-                            "target_class": "NFAFactoryCompiler",
-                            "rationale": "The checkPatternNameUniqueness method ensures that pattern names are unique, which is a validation step in the compilation process. Moving it to NFAFactoryCompiler would enhance the class's focus on pattern compilation."
+                            "rationale": "The constructor initializes the NFAFactoryCompiler with a pattern, which is directly related to its purpose. This is already correctly placed."
                         },
                         {
                             "method_name": "createEndingState",
                             "method_signature": "private State<T> createEndingState()",
                             "target_class": "NFAFactoryCompiler",
-                            "rationale": "The createEndingState method is responsible for creating the final state of the NFA, which is a core part of the NFAFactoryCompiler's functionality. Moving it would improve the cohesion of the class."
+                            "rationale": "The createEndingState method is responsible for creating the final state of the NFA, which is a specific task related to the NFAFactoryCompiler's functionality."
                         },
                         {
                             "method_name": "createMiddleStates",
                             "method_signature": "private State<T> createMiddleStates(final State<T> sinkState)",
                             "target_class": "NFAFactoryCompiler",
-                            "rationale": "The createMiddleStates method constructs the states between the start and final states of the NFA, which is a direct responsibility of the NFAFactoryCompiler. Moving it would enhance the clarity of the code structure."
+                            "rationale": "The createMiddleStates method is responsible for creating the states between the start and final states of the NFA, which is a core responsibility of the NFAFactoryCompiler."
                         },
                         {
                             "method_name": "createStartState",
                             "method_signature": "private State<T> createStartState(State<T> sinkState)",
                             "target_class": "NFAFactoryCompiler",
-                            "rationale": "The createStartState method creates the starting state of the NFA, which is a specific task related to the NFAFactoryCompiler's role. Moving it would improve the organization of related functionalities."
-                        },
-                        {
-                            "method_name": "convertPattern",
-                            "method_signature": "private State<T> convertPattern(final State<T> sinkState)",
-                            "target_class": "NFAFactoryCompiler",
-                            "rationale": "The convertPattern method is responsible for converting patterns into states, which is a core functionality of the NFAFactoryCompiler. Moving it would enhance the cohesion of the class."
+                            "rationale": "The createStartState method is responsible for creating the start state of the NFA, which is a specific task related to the NFAFactoryCompiler's functionality."
                         },
                         {
                             "method_name": "createSingletonState",
                             "method_signature": "private State<T> createSingletonState(final State<T> sinkState)",
                             "target_class": "NFAFactoryCompiler",
-                            "rationale": "The createSingletonState method creates a single state for the NFA, which is a specific task related to the NFAFactoryCompiler's responsibilities. Moving it would improve the organization of related logic."
+                            "rationale": "The createSingletonState method creates a simple single state for the NFA, which is a specific task related to the NFAFactoryCompiler's functionality."
+                        },
+                        {
+                            "method_name": "createLooping",
+                            "method_signature": "private State<T> createLooping(final State<T> sinkState)",
+                            "target_class": "NFAFactoryCompiler",
+                            "rationale": "The createLooping method creates a looping state for the NFA, which is a specific task related to the NFAFactoryCompiler's functionality."
+                        },
+                        {
+                            "method_name": "getCurrentNotCondition",
+                            "method_signature": "private List<Tuple2<IterativeCondition<T>, String>> getCurrentNotCondition()",
+                            "target_class": "NFAFactoryCompiler",
+                            "rationale": "The getCurrentNotCondition method retrieves conditions resulting in stop states, which is a specific task related to the NFAFactoryCompiler's functionality."
+                        },
+                        {
+                            "method_name": "addStopStates",
+                            "method_signature": "private void addStopStates(final State<T> state)",
+                            "target_class": "NFAFactoryCompiler",
+                            "rationale": "The addStopStates method adds stop states to the NFA, which is a specific task related to the NFAFactoryCompiler's functionality."
                         }
                     ],
-                    "llm_response_time": 13168
+                    "llm_response_time": 12124
                 },
                 {
                     "iteration_num": 3,
@@ -256,16 +250,70 @@
                             "method_name": "compileFactory",
                             "method_signature": "public static <T> NFAFactory<T> compileFactory(final Pattern<T, ?> pattern, boolean timeoutHandling)",
                             "target_class": "NFAFactoryCompiler",
-                            "rationale": "The compileFactory method is responsible for compiling a pattern into an NFAFactory, which is the primary responsibility of the NFAFactoryCompiler class. Moving it there would enhance cohesion."
+                            "rationale": "The compileFactory method is responsible for compiling a pattern into an NFAFactory, which is a core functionality of the NFAFactoryCompiler class. Moving it to NFAFactoryCompiler will enhance cohesion and encapsulation."
                         },
                         {
                             "method_name": "canProduceEmptyMatches",
                             "method_signature": "public static boolean canProduceEmptyMatches(final Pattern<?, ?> pattern)",
                             "target_class": "NFAFactoryCompiler",
-                            "rationale": "The canProduceEmptyMatches method checks if a pattern can generate empty matches, which is a specific functionality related to the NFAFactoryCompiler's role in handling patterns. It should be moved to maintain a clear separation of concerns."
+                            "rationale": "The canProduceEmptyMatches method checks if a pattern can generate empty matches, which is a specific functionality related to the NFAFactoryCompiler's role in handling patterns. Moving it will improve the organization of related functionalities."
+                        },
+                        {
+                            "method_name": "getCurrentNotCondition",
+                            "method_signature": "private List<Tuple2<IterativeCondition<T>, String>> getCurrentNotCondition()",
+                            "target_class": "NFAFactoryCompiler",
+                            "rationale": "The getCurrentNotCondition method is closely tied to the logic of the NFAFactoryCompiler, which deals with the states and transitions of the NFA. Moving it will enhance the clarity of the NFACompiler's responsibilities."
+                        },
+                        {
+                            "method_name": "checkPatternWindowTimes",
+                            "method_signature": "private void checkPatternWindowTimes()",
+                            "target_class": "NFAFactoryCompiler",
+                            "rationale": "The checkPatternWindowTimes method is responsible for validating window times, which is a specific concern of the NFAFactoryCompiler. Moving it will help keep related logic together."
+                        },
+                        {
+                            "method_name": "checkPatternSkipStrategy",
+                            "method_signature": "private void checkPatternSkipStrategy()",
+                            "target_class": "NFAFactoryCompiler",
+                            "rationale": "The checkPatternSkipStrategy method checks the skip strategy of patterns, which is a specific concern of the NFAFactoryCompiler. Moving it will improve the organization of the code."
+                        },
+                        {
+                            "method_name": "checkPatternNameUniqueness",
+                            "method_signature": "private void checkPatternNameUniqueness()",
+                            "target_class": "NFAFactoryCompiler",
+                            "rationale": "The checkPatternNameUniqueness method ensures that pattern names are unique, which is a specific concern of the NFAFactoryCompiler. Moving it will enhance the cohesion of the class."
+                        },
+                        {
+                            "method_name": "createEndingState",
+                            "method_signature": "private State<T> createEndingState()",
+                            "target_class": "NFAFactoryCompiler",
+                            "rationale": "The createEndingState method is responsible for creating the final state of the NFA, which is a core functionality of the NFAFactoryCompiler. Moving it will improve the organization of related functionalities."
+                        },
+                        {
+                            "method_name": "createMiddleStates",
+                            "method_signature": "private State<T> createMiddleStates(final State<T> sinkState)",
+                            "target_class": "NFAFactoryCompiler",
+                            "rationale": "The createMiddleStates method is responsible for creating the states between the start and final states of the NFA, which is a core functionality of the NFAFactoryCompiler. Moving it will enhance the clarity of the NFACompiler's responsibilities."
+                        },
+                        {
+                            "method_name": "createStartState",
+                            "method_signature": "private State<T> createStartState(State<T> sinkState)",
+                            "target_class": "NFAFactoryCompiler",
+                            "rationale": "The createStartState method is responsible for creating the start state of the NFA, which is a core functionality of the NFAFactoryCompiler. Moving it will improve the organization of related functionalities."
+                        },
+                        {
+                            "method_name": "convertPattern",
+                            "method_signature": "private State<T> convertPattern(final State<T> sinkState)",
+                            "target_class": "NFAFactoryCompiler",
+                            "rationale": "The convertPattern method is responsible for converting patterns into states, which is a core functionality of the NFAFactoryCompiler. Moving it will enhance the clarity of the NFACompiler's responsibilities."
+                        },
+                        {
+                            "method_name": "createSingletonState",
+                            "method_signature": "private State<T> createSingletonState(final State<T> sinkState)",
+                            "target_class": "NFAFactoryCompiler",
+                            "rationale": "The createSingletonState method is responsible for creating a single state in the NFA, which is a core functionality of the NFAFactoryCompiler. Moving it will improve the organization of related functionalities."
                         }
                     ],
-                    "llm_response_time": 3936
+                    "llm_response_time": 15100
                 },
                 {
                     "iteration_num": -1,
@@ -274,67 +322,85 @@
                             "method_name": "compileFactory",
                             "method_signature": "public static <T> NFAFactory<T> compileFactory(final Pattern<T, ?> pattern, boolean timeoutHandling)",
                             "target_class": "NFAFactoryCompiler",
-                            "rationale": "The compileFactory method is responsible for compiling a pattern into an NFAFactory, which is a core functionality of the NFAFactoryCompiler class. Moving it to NFAFactoryCompiler would enhance cohesion and encapsulation."
+                            "rationale": "The compileFactory method is responsible for compiling a pattern into an NFAFactory, which is a core functionality of the NFAFactoryCompiler class. Moving it there would enhance cohesion and encapsulation."
                         },
                         {
                             "method_name": "canProduceEmptyMatches",
                             "method_signature": "public static boolean canProduceEmptyMatches(final Pattern<?, ?> pattern)",
                             "target_class": "NFAFactoryCompiler",
-                            "rationale": "The canProduceEmptyMatches method checks if a pattern can generate empty matches, which is a specific functionality related to the NFA compilation process. It should be moved to NFAFactoryCompiler to maintain a clear separation of responsibilities."
+                            "rationale": "The canProduceEmptyMatches method is closely related to the compilation process and state management of patterns, making it more appropriate to reside within the NFAFactoryCompiler class."
                         },
                         {
                             "method_name": "getCurrentNotCondition",
                             "method_signature": "private List<Tuple2<IterativeCondition<T>, String>> getCurrentNotCondition()",
                             "target_class": "NFAFactoryCompiler",
-                            "rationale": "The getCurrentNotCondition method is used to retrieve conditions related to the current state of the NFA compilation process. It is closely tied to the logic of the NFAFactoryCompiler and should be moved there for better organization."
+                            "rationale": "This method is specifically used to retrieve conditions related to the current state of the NFA compilation process, which aligns with the responsibilities of the NFAFactoryCompiler."
                         },
                         {
                             "method_name": "checkPatternWindowTimes",
                             "method_signature": "private void checkPatternWindowTimes()",
                             "target_class": "NFAFactoryCompiler",
-                            "rationale": "The checkPatternWindowTimes method is responsible for validating window times in patterns, which is a specific concern of the NFA compilation process. Moving it to NFAFactoryCompiler would improve the class's focus."
+                            "rationale": "This method checks the window times between events for patterns, which is a specific concern of the NFAFactoryCompiler during the compilation process."
                         },
                         {
                             "method_name": "checkPatternSkipStrategy",
                             "method_signature": "private void checkPatternSkipStrategy()",
                             "target_class": "NFAFactoryCompiler",
-                            "rationale": "The checkPatternSkipStrategy method checks the skip strategy of patterns, which is relevant to the NFA compilation logic. It should be moved to NFAFactoryCompiler to enhance the class's clarity and purpose."
+                            "rationale": "This method verifies the skip strategy of patterns, which is a part of the compilation logic and should be encapsulated within the NFAFactoryCompiler."
                         },
                         {
                             "method_name": "checkPatternNameUniqueness",
                             "method_signature": "private void checkPatternNameUniqueness()",
                             "target_class": "NFAFactoryCompiler",
-                            "rationale": "The checkPatternNameUniqueness method ensures that pattern names are unique, which is a validation step in the NFA compilation process. It should be moved to NFAFactoryCompiler for better encapsulation."
+                            "rationale": "This method ensures that pattern names are unique, which is a validation step during the compilation process and should be part of the NFAFactoryCompiler."
                         },
                         {
                             "method_name": "createEndingState",
                             "method_signature": "private State<T> createEndingState()",
                             "target_class": "NFAFactoryCompiler",
-                            "rationale": "The createEndingState method is responsible for creating the final state of the NFA, which is a core part of the NFA compilation process. It should be moved to NFAFactoryCompiler to align with its responsibilities."
+                            "rationale": "The creation of the ending state is a part of the NFA compilation process and should be handled within the NFAFactoryCompiler class."
                         },
                         {
                             "method_name": "createMiddleStates",
                             "method_signature": "private State<T> createMiddleStates(final State<T> sinkState)",
                             "target_class": "NFAFactoryCompiler",
-                            "rationale": "The createMiddleStates method creates the states between the start and final states of the NFA, which is a fundamental part of the NFA compilation process. It should be moved to NFAFactoryCompiler for better organization."
+                            "rationale": "This method is responsible for creating the states between the start and final states, which is a core part of the NFA compilation process."
                         },
                         {
                             "method_name": "createStartState",
                             "method_signature": "private State<T> createStartState(State<T> sinkState)",
                             "target_class": "NFAFactoryCompiler",
-                            "rationale": "The createStartState method creates the starting state of the NFA, which is essential to the NFA compilation process. It should be moved to NFAFactoryCompiler to maintain a clear focus on NFA creation."
+                            "rationale": "The creation of the start state is integral to the NFA compilation process and should be encapsulated within the NFAFactoryCompiler."
                         },
                         {
                             "method_name": "convertPattern",
                             "method_signature": "private State<T> convertPattern(final State<T> sinkState)",
                             "target_class": "NFAFactoryCompiler",
-                            "rationale": "The convertPattern method is responsible for converting patterns into states, which is a key part of the NFA compilation process. It should be moved to NFAFactoryCompiler to enhance the class's clarity."
+                            "rationale": "This method converts patterns into states, which is a fundamental part of the NFA compilation process and should reside in the NFAFactoryCompiler."
                         },
                         {
                             "method_name": "createSingletonState",
                             "method_signature": "private State<T> createSingletonState(final State<T> sinkState)",
                             "target_class": "NFAFactoryCompiler",
-                            "rationale": "The createSingletonState method creates a single state for the NFA, which is a fundamental operation in the NFA compilation process. It should be moved to NFAFactoryCompiler for better organization."
+                            "rationale": "Creating singleton states is part of the state management during the NFA compilation process, making it suitable for the NFAFactoryCompiler."
+                        },
+                        {
+                            "method_name": "NFAFactoryCompiler",
+                            "method_signature": "NFAFactoryCompiler(final Pattern<T, ?> pattern)",
+                            "target_class": "NFAFactoryCompiler",
+                            "rationale": "The constructor initializes the NFAFactoryCompiler with a pattern, which is directly related to its purpose. This is already correctly placed."
+                        },
+                        {
+                            "method_name": "createLooping",
+                            "method_signature": "private State<T> createLooping(final State<T> sinkState)",
+                            "target_class": "NFAFactoryCompiler",
+                            "rationale": "The createLooping method creates a looping state for the NFA, which is a specific task related to the NFAFactoryCompiler's functionality."
+                        },
+                        {
+                            "method_name": "addStopStates",
+                            "method_signature": "private void addStopStates(final State<T> state)",
+                            "target_class": "NFAFactoryCompiler",
+                            "rationale": "The addStopStates method adds stop states to the NFA, which is a specific task related to the NFAFactoryCompiler's functionality."
                         }
                     ],
                     "llm_response_time": 0
@@ -344,37 +410,89 @@
                 "priority_method_names": [
                     "compileFactory",
                     "canProduceEmptyMatches",
-                    "checkPatternWindowTimes",
-                    "checkPatternSkipStrategy",
-                    "checkPatternNameUniqueness",
+                    "NFAFactoryCompiler",
                     "createEndingState",
                     "createMiddleStates",
                     "createStartState",
                     "convertPattern",
                     "createSingletonState",
-                    "getCurrentNotCondition"
+                    "addStopStates",
+                    "checkPatternWindowTimes",
+                    "checkPatternSkipStrategy",
+                    "checkPatternNameUniqueness",
+                    "getCurrentNotCondition",
+                    "createLooping"
                 ],
-                "llm_response_time": 1536
+                "llm_response_time": 1854
             },
             "targetClassMap": {
                 "compileFactory": {
                     "target_classes": [],
                     "target_classes_sorted_by_llm": [],
-                    "llm_response_time": 1591,
+                    "llm_response_time": 2578,
+                    "similarity_computation_time": 0,
+                    "similarity_metric": "cosine"
+                },
+                "NFAFactoryCompiler": {
+                    "target_classes": [],
+                    "target_classes_sorted_by_llm": [],
+                    "llm_response_time": 1989,
+                    "similarity_computation_time": 0,
+                    "similarity_metric": "cosine"
+                },
+                "createEndingState": {
+                    "target_classes": [],
+                    "target_classes_sorted_by_llm": [],
+                    "llm_response_time": 2273,
+                    "similarity_computation_time": 0,
+                    "similarity_metric": "cosine"
+                },
+                "createMiddleStates": {
+                    "target_classes": [],
+                    "target_classes_sorted_by_llm": [],
+                    "llm_response_time": 2314,
+                    "similarity_computation_time": 0,
+                    "similarity_metric": "cosine"
+                },
+                "createStartState": {
+                    "target_classes": [],
+                    "target_classes_sorted_by_llm": [],
+                    "llm_response_time": 2351,
+                    "similarity_computation_time": 0,
+                    "similarity_metric": "cosine"
+                },
+                "convertPattern": {
+                    "target_classes": [],
+                    "target_classes_sorted_by_llm": [],
+                    "llm_response_time": 2136,
+                    "similarity_computation_time": 0,
+                    "similarity_metric": "cosine"
+                },
+                "createSingletonState": {
+                    "target_classes": [],
+                    "target_classes_sorted_by_llm": [],
+                    "llm_response_time": 2068,
+                    "similarity_computation_time": 0,
+                    "similarity_metric": "cosine"
+                },
+                "addStopStates": {
+                    "target_classes": [],
+                    "target_classes_sorted_by_llm": [],
+                    "llm_response_time": 2205,
                     "similarity_computation_time": 0,
                     "similarity_metric": "cosine"
                 },
                 "checkPatternWindowTimes": {
                     "target_classes": [],
                     "target_classes_sorted_by_llm": [],
-                    "llm_response_time": 1617,
+                    "llm_response_time": 1674,
                     "similarity_computation_time": 0,
                     "similarity_metric": "cosine"
                 },
                 "checkPatternSkipStrategy": {
                     "target_classes": [],
                     "target_classes_sorted_by_llm": [],
-                    "llm_response_time": 1437,
+                    "llm_response_time": 2233,
                     "similarity_computation_time": 0,
                     "similarity_metric": "cosine"
                 },
@@ -388,49 +506,21 @@
                     "target_classes_sorted_by_llm": [
                         "NFAStateNameHandler"
                     ],
-                    "llm_response_time": 1110,
+                    "llm_response_time": 1260,
                     "similarity_computation_time": 6,
-                    "similarity_metric": "cosine"
-                },
-                "createEndingState": {
-                    "target_classes": [],
-                    "target_classes_sorted_by_llm": [],
-                    "llm_response_time": 2005,
-                    "similarity_computation_time": 0,
-                    "similarity_metric": "cosine"
-                },
-                "createMiddleStates": {
-                    "target_classes": [],
-                    "target_classes_sorted_by_llm": [],
-                    "llm_response_time": 1776,
-                    "similarity_computation_time": 0,
-                    "similarity_metric": "cosine"
-                },
-                "createStartState": {
-                    "target_classes": [],
-                    "target_classes_sorted_by_llm": [],
-                    "llm_response_time": 1708,
-                    "similarity_computation_time": 0,
-                    "similarity_metric": "cosine"
-                },
-                "convertPattern": {
-                    "target_classes": [],
-                    "target_classes_sorted_by_llm": [],
-                    "llm_response_time": 3193,
-                    "similarity_computation_time": 0,
-                    "similarity_metric": "cosine"
-                },
-                "createSingletonState": {
-                    "target_classes": [],
-                    "target_classes_sorted_by_llm": [],
-                    "llm_response_time": 1804,
-                    "similarity_computation_time": 0,
                     "similarity_metric": "cosine"
                 },
                 "getCurrentNotCondition": {
                     "target_classes": [],
                     "target_classes_sorted_by_llm": [],
-                    "llm_response_time": 2344,
+                    "llm_response_time": 2997,
+                    "similarity_computation_time": 0,
+                    "similarity_metric": "cosine"
+                },
+                "createLooping": {
+                    "target_classes": [],
+                    "target_classes_sorted_by_llm": [],
+                    "llm_response_time": 2180,
                     "similarity_computation_time": 0,
                     "similarity_metric": "cosine"
                 }
@@ -2639,7 +2729,7 @@
             "success": false
         },
         "telemetry": {
-            "id": "1d6bfd18-9e23-424f-943e-2318544b0b63",
+            "id": "95206d76-f0ae-461b-8fee-714333c8ad4d",
             "hostFunctionTelemetryData": {
                 "hostFunctionSize": 242,
                 "lineStart": 39,
@@ -2657,7 +2747,7 @@
                         "lineEnd": 239,
                         "refactoringType": "MyMoveMethodRefactoring",
                         "refactoringInfo": "Move method setCurrentRecordCtx to class CallbackRunner",
-                        "description": "Move method setCurrentRecordCtx to org.apache.flink.core.state.StateFutureImpl.CallbackRunner\nRationale: The method setCurrentRecordCtx likely deals with managing the context of a record during a callback operation, making it more relevant to the CallbackRunner class.",
+                        "description": "Move method setCurrentRecordCtx to org.apache.flink.core.state.StateFutureImpl.CallbackRunner\nRationale: The method setCurrentRecordCtx likely deals with managing the context of a record during a callback process, making it more relevant to the CallbackRunner class.",
                         "couldCreateRefObject": true,
                         "applied": false,
                         "undone": false
@@ -2675,43 +2765,55 @@
                             "rationale": "The method setCurrentRecordCtx() is specific to managing the current record context for the value state and should be part of the TestValueState class."
                         },
                         {
-                            "method_name": "getUnderlyingState",
-                            "method_signature": "public Optional<TestUnderlyingState> getUnderlyingState()",
-                            "target_class": "TestProcessingRequest",
-                            "rationale": "The method getUnderlyingState() is directly related to the processing request and should be part of the TestProcessingRequest class."
-                        },
-                        {
-                            "method_name": "update",
-                            "method_signature": "public void update(String key, Integer val)",
-                            "target_class": "TestUnderlyingState",
-                            "rationale": "The update() method is responsible for modifying the underlying state and should be part of the TestUnderlyingState class."
-                        },
-                        {
                             "method_name": "asyncClear",
                             "method_signature": "public StateFuture<Void> asyncClear()",
                             "target_class": "TestValueState",
-                            "rationale": "The asyncClear() method is specific to the value state operations and should be part of the TestValueState class."
+                            "rationale": "The asyncClear() method is directly related to the operations of the TestValueState and should be encapsulated within that class."
                         },
                         {
                             "method_name": "asyncValue",
                             "method_signature": "public StateFuture<Integer> asyncValue()",
                             "target_class": "TestValueState",
-                            "rationale": "The asyncValue() method is specific to the value state operations and should be part of the TestValueState class."
+                            "rationale": "The asyncValue() method is a core functionality of the TestValueState class, and it should reside within that class for better cohesion."
                         },
                         {
                             "method_name": "asyncUpdate",
                             "method_signature": "public StateFuture<Void> asyncUpdate(Integer value)",
                             "target_class": "TestValueState",
-                            "rationale": "The asyncUpdate() method is specific to the value state operations and should be part of the TestValueState class."
+                            "rationale": "The asyncUpdate() method is responsible for updating the state in the context of TestValueState and should be part of that class."
                         },
                         {
                             "method_name": "executeBatchRequests",
                             "method_signature": "public CompletableFuture<Boolean> executeBatchRequests(Iterable<ProcessingRequest<?>> processingRequests)",
                             "target_class": "TestStateExecutor",
-                            "rationale": "The executeBatchRequests() method is specific to the state execution logic and should be part of the TestStateExecutor class."
+                            "rationale": "The executeBatchRequests() method is specific to the execution of batch requests and should be part of the TestStateExecutor class."
+                        },
+                        {
+                            "method_name": "getUnderlyingState",
+                            "method_signature": "public Optional<TestUnderlyingState> getUnderlyingState()",
+                            "target_class": "TestProcessingRequest",
+                            "rationale": "The getUnderlyingState() method is related to the processing request and should be encapsulated within the TestProcessingRequest class."
+                        },
+                        {
+                            "method_name": "getParameter",
+                            "method_signature": "public Parameter getParameter()",
+                            "target_class": "TestProcessingRequest",
+                            "rationale": "The getParameter() method is part of the processing request's functionality and should be included in the TestProcessingRequest class."
+                        },
+                        {
+                            "method_name": "getFuture",
+                            "method_signature": "public StateFuture<OUT> getFuture()",
+                            "target_class": "TestProcessingRequest",
+                            "rationale": "The getFuture() method is related to the processing request's future state and should be part of the TestProcessingRequest class."
+                        },
+                        {
+                            "method_name": "getRequestType",
+                            "method_signature": "public RequestType getRequestType()",
+                            "target_class": "TestProcessingRequest",
+                            "rationale": "The getRequestType() method is specific to the processing request and should be encapsulated within the TestProcessingRequest class."
                         }
                     ],
-                    "llm_response_time": 6331
+                    "llm_response_time": 12639
                 },
                 {
                     "iteration_num": 2,
@@ -2759,70 +2861,10 @@
                             "rationale": "The executeBatchRequests() method is specific to the state execution logic and should be part of the TestStateExecutor class."
                         }
                     ],
-                    "llm_response_time": 6833
+                    "llm_response_time": 8905
                 },
                 {
                     "iteration_num": 3,
-                    "suggested_move_methods": [
-                        {
-                            "method_name": "setCurrentRecordCtx",
-                            "method_signature": "public void setCurrentRecordCtx(RecordContext<String, String> recordCtx)",
-                            "target_class": "TestValueState",
-                            "rationale": "The method setCurrentRecordCtx() is specific to managing the current record context for the value state and should be part of the TestValueState class."
-                        },
-                        {
-                            "method_name": "asyncClear",
-                            "method_signature": "public StateFuture<Void> asyncClear()",
-                            "target_class": "TestValueState",
-                            "rationale": "The asyncClear() method is directly related to the operations of the TestValueState and should be encapsulated within that class."
-                        },
-                        {
-                            "method_name": "asyncValue",
-                            "method_signature": "public StateFuture<Integer> asyncValue()",
-                            "target_class": "TestValueState",
-                            "rationale": "The asyncValue() method is responsible for retrieving the value state and should be part of the TestValueState class."
-                        },
-                        {
-                            "method_name": "asyncUpdate",
-                            "method_signature": "public StateFuture<Void> asyncUpdate(Integer value)",
-                            "target_class": "TestValueState",
-                            "rationale": "The asyncUpdate() method is related to updating the value state and should be encapsulated within the TestValueState class."
-                        },
-                        {
-                            "method_name": "executeBatchRequests",
-                            "method_signature": "public CompletableFuture<Boolean> executeBatchRequests(Iterable<ProcessingRequest<?>> processingRequests)",
-                            "target_class": "TestStateExecutor",
-                            "rationale": "The executeBatchRequests() method is specific to the execution of batch requests and should be part of the TestStateExecutor class."
-                        },
-                        {
-                            "method_name": "getUnderlyingState",
-                            "method_signature": "public Optional<TestUnderlyingState> getUnderlyingState()",
-                            "target_class": "TestProcessingRequest",
-                            "rationale": "The getUnderlyingState() method is specific to processing requests and should be part of the TestProcessingRequest class."
-                        },
-                        {
-                            "method_name": "getParameter",
-                            "method_signature": "public Parameter getParameter()",
-                            "target_class": "TestProcessingRequest",
-                            "rationale": "The getParameter() method is specific to processing requests and should be part of the TestProcessingRequest class."
-                        },
-                        {
-                            "method_name": "getFuture",
-                            "method_signature": "public StateFuture<OUT> getFuture()",
-                            "target_class": "TestProcessingRequest",
-                            "rationale": "The getFuture() method is specific to processing requests and should be part of the TestProcessingRequest class."
-                        },
-                        {
-                            "method_name": "getRequestType",
-                            "method_signature": "public RequestType getRequestType()",
-                            "target_class": "TestProcessingRequest",
-                            "rationale": "The getRequestType() method is specific to processing requests and should be part of the TestProcessingRequest class."
-                        }
-                    ],
-                    "llm_response_time": 7720
-                },
-                {
-                    "iteration_num": -1,
                     "suggested_move_methods": [
                         {
                             "method_name": "setCurrentRecordCtx",
@@ -2864,25 +2906,73 @@
                             "method_name": "executeBatchRequests",
                             "method_signature": "public CompletableFuture<Boolean> executeBatchRequests(Iterable<ProcessingRequest<?>> processingRequests)",
                             "target_class": "TestStateExecutor",
-                            "rationale": "The executeBatchRequests() method is specific to the state execution logic and should be part of the TestStateExecutor class."
+                            "rationale": "The executeBatchRequests() method is responsible for executing batch requests and should be part of the TestStateExecutor class."
+                        }
+                    ],
+                    "llm_response_time": 8707
+                },
+                {
+                    "iteration_num": -1,
+                    "suggested_move_methods": [
+                        {
+                            "method_name": "setCurrentRecordCtx",
+                            "method_signature": "public void setCurrentRecordCtx(RecordContext<String, String> recordCtx)",
+                            "target_class": "TestValueState",
+                            "rationale": "The method setCurrentRecordCtx() is specific to managing the current record context for the value state and should be part of the TestValueState class."
+                        },
+                        {
+                            "method_name": "asyncClear",
+                            "method_signature": "public StateFuture<Void> asyncClear()",
+                            "target_class": "TestValueState",
+                            "rationale": "The asyncClear() method is directly related to the operations of the TestValueState and should be encapsulated within that class."
+                        },
+                        {
+                            "method_name": "asyncValue",
+                            "method_signature": "public StateFuture<Integer> asyncValue()",
+                            "target_class": "TestValueState",
+                            "rationale": "The asyncValue() method is a core functionality of the TestValueState class, and it should reside within that class for better cohesion."
+                        },
+                        {
+                            "method_name": "asyncUpdate",
+                            "method_signature": "public StateFuture<Void> asyncUpdate(Integer value)",
+                            "target_class": "TestValueState",
+                            "rationale": "The asyncUpdate() method is responsible for updating the state in the context of TestValueState and should be part of that class."
+                        },
+                        {
+                            "method_name": "executeBatchRequests",
+                            "method_signature": "public CompletableFuture<Boolean> executeBatchRequests(Iterable<ProcessingRequest<?>> processingRequests)",
+                            "target_class": "TestStateExecutor",
+                            "rationale": "The executeBatchRequests() method is specific to the execution of batch requests and should be part of the TestStateExecutor class."
+                        },
+                        {
+                            "method_name": "getUnderlyingState",
+                            "method_signature": "public Optional<TestUnderlyingState> getUnderlyingState()",
+                            "target_class": "TestProcessingRequest",
+                            "rationale": "The getUnderlyingState() method is related to the processing request and should be encapsulated within the TestProcessingRequest class."
                         },
                         {
                             "method_name": "getParameter",
                             "method_signature": "public Parameter getParameter()",
                             "target_class": "TestProcessingRequest",
-                            "rationale": "The getParameter() method is specific to processing requests and should be part of the TestProcessingRequest class."
+                            "rationale": "The getParameter() method is part of the processing request's functionality and should be included in the TestProcessingRequest class."
                         },
                         {
                             "method_name": "getFuture",
                             "method_signature": "public StateFuture<OUT> getFuture()",
                             "target_class": "TestProcessingRequest",
-                            "rationale": "The getFuture() method is specific to processing requests and should be part of the TestProcessingRequest class."
+                            "rationale": "The getFuture() method is related to the processing request's future state and should be part of the TestProcessingRequest class."
                         },
                         {
                             "method_name": "getRequestType",
                             "method_signature": "public RequestType getRequestType()",
                             "target_class": "TestProcessingRequest",
-                            "rationale": "The getRequestType() method is specific to processing requests and should be part of the TestProcessingRequest class."
+                            "rationale": "The getRequestType() method is specific to the processing request and should be encapsulated within the TestProcessingRequest class."
+                        },
+                        {
+                            "method_name": "update",
+                            "method_signature": "public void update(String key, Integer val)",
+                            "target_class": "TestUnderlyingState",
+                            "rationale": "The update() method is responsible for modifying the underlying state and should be part of the TestUnderlyingState class."
                         }
                     ],
                     "llm_response_time": 0
@@ -2890,20 +2980,83 @@
             ],
             "llmMethodPriority": {
                 "priority_method_names": [
-                    "setCurrentRecordCtx",
-                    "getUnderlyingState",
-                    "update",
                     "asyncClear",
                     "asyncValue",
                     "asyncUpdate",
                     "executeBatchRequests",
+                    "getUnderlyingState",
                     "getParameter",
                     "getFuture",
-                    "getRequestType"
+                    "getRequestType",
+                    "update",
+                    "setCurrentRecordCtx"
                 ],
-                "llm_response_time": 932
+                "llm_response_time": 1400
             },
             "targetClassMap": {
+                "asyncClear": {
+                    "target_classes": [],
+                    "target_classes_sorted_by_llm": [],
+                    "llm_response_time": 2408,
+                    "similarity_computation_time": 0,
+                    "similarity_metric": "cosine"
+                },
+                "asyncValue": {
+                    "target_classes": [],
+                    "target_classes_sorted_by_llm": [],
+                    "llm_response_time": 2024,
+                    "similarity_computation_time": 0,
+                    "similarity_metric": "cosine"
+                },
+                "asyncUpdate": {
+                    "target_classes": [],
+                    "target_classes_sorted_by_llm": [],
+                    "llm_response_time": 4487,
+                    "similarity_computation_time": 0,
+                    "similarity_metric": "cosine"
+                },
+                "executeBatchRequests": {
+                    "target_classes": [],
+                    "target_classes_sorted_by_llm": [],
+                    "llm_response_time": 1519,
+                    "similarity_computation_time": 0,
+                    "similarity_metric": "cosine"
+                },
+                "getUnderlyingState": {
+                    "target_classes": [],
+                    "target_classes_sorted_by_llm": [],
+                    "llm_response_time": 1713,
+                    "similarity_computation_time": 0,
+                    "similarity_metric": "cosine"
+                },
+                "getParameter": {
+                    "target_classes": [],
+                    "target_classes_sorted_by_llm": [],
+                    "llm_response_time": 1335,
+                    "similarity_computation_time": 0,
+                    "similarity_metric": "cosine"
+                },
+                "getFuture": {
+                    "target_classes": [],
+                    "target_classes_sorted_by_llm": [],
+                    "llm_response_time": 1894,
+                    "similarity_computation_time": 0,
+                    "similarity_metric": "cosine"
+                },
+                "getRequestType": {
+                    "target_classes": [],
+                    "target_classes_sorted_by_llm": [],
+                    "llm_response_time": 3832,
+                    "similarity_computation_time": 0,
+                    "similarity_metric": "cosine"
+                },
+                "update": {
+                    "target_classes": [],
+                    "target_classes_sorted_by_llm": [],
+                    "llm_response_time": 1760,
+                    "similarity_computation_time": 0,
+                    "similarity_metric": "cosine"
+                },
                 "setCurrentRecordCtx": {
                     "target_classes": [
                         {
@@ -2919,71 +3072,8 @@
                         "CallbackRunner",
                         "TestUnderlyingState"
                     ],
-                    "llm_response_time": 2083,
-                    "similarity_computation_time": 15,
-                    "similarity_metric": "cosine"
-                },
-                "getUnderlyingState": {
-                    "target_classes": [],
-                    "target_classes_sorted_by_llm": [],
-                    "llm_response_time": 1904,
-                    "similarity_computation_time": 0,
-                    "similarity_metric": "cosine"
-                },
-                "update": {
-                    "target_classes": [],
-                    "target_classes_sorted_by_llm": [],
-                    "llm_response_time": 1372,
-                    "similarity_computation_time": 0,
-                    "similarity_metric": "cosine"
-                },
-                "asyncClear": {
-                    "target_classes": [],
-                    "target_classes_sorted_by_llm": [],
-                    "llm_response_time": 1951,
-                    "similarity_computation_time": 0,
-                    "similarity_metric": "cosine"
-                },
-                "asyncValue": {
-                    "target_classes": [],
-                    "target_classes_sorted_by_llm": [],
-                    "llm_response_time": 3278,
-                    "similarity_computation_time": 0,
-                    "similarity_metric": "cosine"
-                },
-                "asyncUpdate": {
-                    "target_classes": [],
-                    "target_classes_sorted_by_llm": [],
-                    "llm_response_time": 3311,
-                    "similarity_computation_time": 0,
-                    "similarity_metric": "cosine"
-                },
-                "executeBatchRequests": {
-                    "target_classes": [],
-                    "target_classes_sorted_by_llm": [],
-                    "llm_response_time": 1512,
-                    "similarity_computation_time": 0,
-                    "similarity_metric": "cosine"
-                },
-                "getParameter": {
-                    "target_classes": [],
-                    "target_classes_sorted_by_llm": [],
-                    "llm_response_time": 1438,
-                    "similarity_computation_time": 0,
-                    "similarity_metric": "cosine"
-                },
-                "getFuture": {
-                    "target_classes": [],
-                    "target_classes_sorted_by_llm": [],
-                    "llm_response_time": 1831,
-                    "similarity_computation_time": 0,
-                    "similarity_metric": "cosine"
-                },
-                "getRequestType": {
-                    "target_classes": [],
-                    "target_classes_sorted_by_llm": [],
-                    "llm_response_time": 2029,
-                    "similarity_computation_time": 0,
+                    "llm_response_time": 1654,
+                    "similarity_computation_time": 2,
                     "similarity_metric": "cosine"
                 }
             }
@@ -3149,7 +3239,7 @@
             "newBranchName": "extract-handleRequest-asyncValue-60c771b"
         },
         "telemetry": {
-            "id": "1d6bfd18-9e23-424f-943e-2318544b0b63",
+            "id": "95206d76-f0ae-461b-8fee-714333c8ad4d",
             "hostFunctionTelemetryData": {
                 "hostFunctionSize": 242,
                 "lineStart": 39,
@@ -3167,7 +3257,7 @@
                         "lineEnd": 239,
                         "refactoringType": "MyMoveMethodRefactoring",
                         "refactoringInfo": "Move method setCurrentRecordCtx to class CallbackRunner",
-                        "description": "Move method setCurrentRecordCtx to org.apache.flink.core.state.StateFutureImpl.CallbackRunner\nRationale: The method setCurrentRecordCtx likely deals with managing the context of a record during a callback operation, making it more relevant to the CallbackRunner class.",
+                        "description": "Move method setCurrentRecordCtx to org.apache.flink.core.state.StateFutureImpl.CallbackRunner\nRationale: The method setCurrentRecordCtx likely deals with managing the context of a record during a callback process, making it more relevant to the CallbackRunner class.",
                         "couldCreateRefObject": true,
                         "applied": false,
                         "undone": false
@@ -3185,43 +3275,55 @@
                             "rationale": "The method setCurrentRecordCtx() is specific to managing the current record context for the value state and should be part of the TestValueState class."
                         },
                         {
-                            "method_name": "getUnderlyingState",
-                            "method_signature": "public Optional<TestUnderlyingState> getUnderlyingState()",
-                            "target_class": "TestProcessingRequest",
-                            "rationale": "The method getUnderlyingState() is directly related to the processing request and should be part of the TestProcessingRequest class."
-                        },
-                        {
-                            "method_name": "update",
-                            "method_signature": "public void update(String key, Integer val)",
-                            "target_class": "TestUnderlyingState",
-                            "rationale": "The update() method is responsible for modifying the underlying state and should be part of the TestUnderlyingState class."
-                        },
-                        {
                             "method_name": "asyncClear",
                             "method_signature": "public StateFuture<Void> asyncClear()",
                             "target_class": "TestValueState",
-                            "rationale": "The asyncClear() method is specific to the value state operations and should be part of the TestValueState class."
+                            "rationale": "The asyncClear() method is directly related to the operations of the TestValueState and should be encapsulated within that class."
                         },
                         {
                             "method_name": "asyncValue",
                             "method_signature": "public StateFuture<Integer> asyncValue()",
                             "target_class": "TestValueState",
-                            "rationale": "The asyncValue() method is specific to the value state operations and should be part of the TestValueState class."
+                            "rationale": "The asyncValue() method is a core functionality of the TestValueState class, and it should reside within that class for better cohesion."
                         },
                         {
                             "method_name": "asyncUpdate",
                             "method_signature": "public StateFuture<Void> asyncUpdate(Integer value)",
                             "target_class": "TestValueState",
-                            "rationale": "The asyncUpdate() method is specific to the value state operations and should be part of the TestValueState class."
+                            "rationale": "The asyncUpdate() method is responsible for updating the state in the context of TestValueState and should be part of that class."
                         },
                         {
                             "method_name": "executeBatchRequests",
                             "method_signature": "public CompletableFuture<Boolean> executeBatchRequests(Iterable<ProcessingRequest<?>> processingRequests)",
                             "target_class": "TestStateExecutor",
-                            "rationale": "The executeBatchRequests() method is specific to the state execution logic and should be part of the TestStateExecutor class."
+                            "rationale": "The executeBatchRequests() method is specific to the execution of batch requests and should be part of the TestStateExecutor class."
+                        },
+                        {
+                            "method_name": "getUnderlyingState",
+                            "method_signature": "public Optional<TestUnderlyingState> getUnderlyingState()",
+                            "target_class": "TestProcessingRequest",
+                            "rationale": "The getUnderlyingState() method is related to the processing request and should be encapsulated within the TestProcessingRequest class."
+                        },
+                        {
+                            "method_name": "getParameter",
+                            "method_signature": "public Parameter getParameter()",
+                            "target_class": "TestProcessingRequest",
+                            "rationale": "The getParameter() method is part of the processing request's functionality and should be included in the TestProcessingRequest class."
+                        },
+                        {
+                            "method_name": "getFuture",
+                            "method_signature": "public StateFuture<OUT> getFuture()",
+                            "target_class": "TestProcessingRequest",
+                            "rationale": "The getFuture() method is related to the processing request's future state and should be part of the TestProcessingRequest class."
+                        },
+                        {
+                            "method_name": "getRequestType",
+                            "method_signature": "public RequestType getRequestType()",
+                            "target_class": "TestProcessingRequest",
+                            "rationale": "The getRequestType() method is specific to the processing request and should be encapsulated within the TestProcessingRequest class."
                         }
                     ],
-                    "llm_response_time": 6331
+                    "llm_response_time": 12639
                 },
                 {
                     "iteration_num": 2,
@@ -3269,70 +3371,10 @@
                             "rationale": "The executeBatchRequests() method is specific to the state execution logic and should be part of the TestStateExecutor class."
                         }
                     ],
-                    "llm_response_time": 6833
+                    "llm_response_time": 8905
                 },
                 {
                     "iteration_num": 3,
-                    "suggested_move_methods": [
-                        {
-                            "method_name": "setCurrentRecordCtx",
-                            "method_signature": "public void setCurrentRecordCtx(RecordContext<String, String> recordCtx)",
-                            "target_class": "TestValueState",
-                            "rationale": "The method setCurrentRecordCtx() is specific to managing the current record context for the value state and should be part of the TestValueState class."
-                        },
-                        {
-                            "method_name": "asyncClear",
-                            "method_signature": "public StateFuture<Void> asyncClear()",
-                            "target_class": "TestValueState",
-                            "rationale": "The asyncClear() method is directly related to the operations of the TestValueState and should be encapsulated within that class."
-                        },
-                        {
-                            "method_name": "asyncValue",
-                            "method_signature": "public StateFuture<Integer> asyncValue()",
-                            "target_class": "TestValueState",
-                            "rationale": "The asyncValue() method is responsible for retrieving the value state and should be part of the TestValueState class."
-                        },
-                        {
-                            "method_name": "asyncUpdate",
-                            "method_signature": "public StateFuture<Void> asyncUpdate(Integer value)",
-                            "target_class": "TestValueState",
-                            "rationale": "The asyncUpdate() method is related to updating the value state and should be encapsulated within the TestValueState class."
-                        },
-                        {
-                            "method_name": "executeBatchRequests",
-                            "method_signature": "public CompletableFuture<Boolean> executeBatchRequests(Iterable<ProcessingRequest<?>> processingRequests)",
-                            "target_class": "TestStateExecutor",
-                            "rationale": "The executeBatchRequests() method is specific to the execution of batch requests and should be part of the TestStateExecutor class."
-                        },
-                        {
-                            "method_name": "getUnderlyingState",
-                            "method_signature": "public Optional<TestUnderlyingState> getUnderlyingState()",
-                            "target_class": "TestProcessingRequest",
-                            "rationale": "The getUnderlyingState() method is specific to processing requests and should be part of the TestProcessingRequest class."
-                        },
-                        {
-                            "method_name": "getParameter",
-                            "method_signature": "public Parameter getParameter()",
-                            "target_class": "TestProcessingRequest",
-                            "rationale": "The getParameter() method is specific to processing requests and should be part of the TestProcessingRequest class."
-                        },
-                        {
-                            "method_name": "getFuture",
-                            "method_signature": "public StateFuture<OUT> getFuture()",
-                            "target_class": "TestProcessingRequest",
-                            "rationale": "The getFuture() method is specific to processing requests and should be part of the TestProcessingRequest class."
-                        },
-                        {
-                            "method_name": "getRequestType",
-                            "method_signature": "public RequestType getRequestType()",
-                            "target_class": "TestProcessingRequest",
-                            "rationale": "The getRequestType() method is specific to processing requests and should be part of the TestProcessingRequest class."
-                        }
-                    ],
-                    "llm_response_time": 7720
-                },
-                {
-                    "iteration_num": -1,
                     "suggested_move_methods": [
                         {
                             "method_name": "setCurrentRecordCtx",
@@ -3374,25 +3416,73 @@
                             "method_name": "executeBatchRequests",
                             "method_signature": "public CompletableFuture<Boolean> executeBatchRequests(Iterable<ProcessingRequest<?>> processingRequests)",
                             "target_class": "TestStateExecutor",
-                            "rationale": "The executeBatchRequests() method is specific to the state execution logic and should be part of the TestStateExecutor class."
+                            "rationale": "The executeBatchRequests() method is responsible for executing batch requests and should be part of the TestStateExecutor class."
+                        }
+                    ],
+                    "llm_response_time": 8707
+                },
+                {
+                    "iteration_num": -1,
+                    "suggested_move_methods": [
+                        {
+                            "method_name": "setCurrentRecordCtx",
+                            "method_signature": "public void setCurrentRecordCtx(RecordContext<String, String> recordCtx)",
+                            "target_class": "TestValueState",
+                            "rationale": "The method setCurrentRecordCtx() is specific to managing the current record context for the value state and should be part of the TestValueState class."
+                        },
+                        {
+                            "method_name": "asyncClear",
+                            "method_signature": "public StateFuture<Void> asyncClear()",
+                            "target_class": "TestValueState",
+                            "rationale": "The asyncClear() method is directly related to the operations of the TestValueState and should be encapsulated within that class."
+                        },
+                        {
+                            "method_name": "asyncValue",
+                            "method_signature": "public StateFuture<Integer> asyncValue()",
+                            "target_class": "TestValueState",
+                            "rationale": "The asyncValue() method is a core functionality of the TestValueState class, and it should reside within that class for better cohesion."
+                        },
+                        {
+                            "method_name": "asyncUpdate",
+                            "method_signature": "public StateFuture<Void> asyncUpdate(Integer value)",
+                            "target_class": "TestValueState",
+                            "rationale": "The asyncUpdate() method is responsible for updating the state in the context of TestValueState and should be part of that class."
+                        },
+                        {
+                            "method_name": "executeBatchRequests",
+                            "method_signature": "public CompletableFuture<Boolean> executeBatchRequests(Iterable<ProcessingRequest<?>> processingRequests)",
+                            "target_class": "TestStateExecutor",
+                            "rationale": "The executeBatchRequests() method is specific to the execution of batch requests and should be part of the TestStateExecutor class."
+                        },
+                        {
+                            "method_name": "getUnderlyingState",
+                            "method_signature": "public Optional<TestUnderlyingState> getUnderlyingState()",
+                            "target_class": "TestProcessingRequest",
+                            "rationale": "The getUnderlyingState() method is related to the processing request and should be encapsulated within the TestProcessingRequest class."
                         },
                         {
                             "method_name": "getParameter",
                             "method_signature": "public Parameter getParameter()",
                             "target_class": "TestProcessingRequest",
-                            "rationale": "The getParameter() method is specific to processing requests and should be part of the TestProcessingRequest class."
+                            "rationale": "The getParameter() method is part of the processing request's functionality and should be included in the TestProcessingRequest class."
                         },
                         {
                             "method_name": "getFuture",
                             "method_signature": "public StateFuture<OUT> getFuture()",
                             "target_class": "TestProcessingRequest",
-                            "rationale": "The getFuture() method is specific to processing requests and should be part of the TestProcessingRequest class."
+                            "rationale": "The getFuture() method is related to the processing request's future state and should be part of the TestProcessingRequest class."
                         },
                         {
                             "method_name": "getRequestType",
                             "method_signature": "public RequestType getRequestType()",
                             "target_class": "TestProcessingRequest",
-                            "rationale": "The getRequestType() method is specific to processing requests and should be part of the TestProcessingRequest class."
+                            "rationale": "The getRequestType() method is specific to the processing request and should be encapsulated within the TestProcessingRequest class."
+                        },
+                        {
+                            "method_name": "update",
+                            "method_signature": "public void update(String key, Integer val)",
+                            "target_class": "TestUnderlyingState",
+                            "rationale": "The update() method is responsible for modifying the underlying state and should be part of the TestUnderlyingState class."
                         }
                     ],
                     "llm_response_time": 0
@@ -3400,20 +3490,83 @@
             ],
             "llmMethodPriority": {
                 "priority_method_names": [
-                    "setCurrentRecordCtx",
-                    "getUnderlyingState",
-                    "update",
                     "asyncClear",
                     "asyncValue",
                     "asyncUpdate",
                     "executeBatchRequests",
+                    "getUnderlyingState",
                     "getParameter",
                     "getFuture",
-                    "getRequestType"
+                    "getRequestType",
+                    "update",
+                    "setCurrentRecordCtx"
                 ],
-                "llm_response_time": 932
+                "llm_response_time": 1400
             },
             "targetClassMap": {
+                "asyncClear": {
+                    "target_classes": [],
+                    "target_classes_sorted_by_llm": [],
+                    "llm_response_time": 2408,
+                    "similarity_computation_time": 0,
+                    "similarity_metric": "cosine"
+                },
+                "asyncValue": {
+                    "target_classes": [],
+                    "target_classes_sorted_by_llm": [],
+                    "llm_response_time": 2024,
+                    "similarity_computation_time": 0,
+                    "similarity_metric": "cosine"
+                },
+                "asyncUpdate": {
+                    "target_classes": [],
+                    "target_classes_sorted_by_llm": [],
+                    "llm_response_time": 4487,
+                    "similarity_computation_time": 0,
+                    "similarity_metric": "cosine"
+                },
+                "executeBatchRequests": {
+                    "target_classes": [],
+                    "target_classes_sorted_by_llm": [],
+                    "llm_response_time": 1519,
+                    "similarity_computation_time": 0,
+                    "similarity_metric": "cosine"
+                },
+                "getUnderlyingState": {
+                    "target_classes": [],
+                    "target_classes_sorted_by_llm": [],
+                    "llm_response_time": 1713,
+                    "similarity_computation_time": 0,
+                    "similarity_metric": "cosine"
+                },
+                "getParameter": {
+                    "target_classes": [],
+                    "target_classes_sorted_by_llm": [],
+                    "llm_response_time": 1335,
+                    "similarity_computation_time": 0,
+                    "similarity_metric": "cosine"
+                },
+                "getFuture": {
+                    "target_classes": [],
+                    "target_classes_sorted_by_llm": [],
+                    "llm_response_time": 1894,
+                    "similarity_computation_time": 0,
+                    "similarity_metric": "cosine"
+                },
+                "getRequestType": {
+                    "target_classes": [],
+                    "target_classes_sorted_by_llm": [],
+                    "llm_response_time": 3832,
+                    "similarity_computation_time": 0,
+                    "similarity_metric": "cosine"
+                },
+                "update": {
+                    "target_classes": [],
+                    "target_classes_sorted_by_llm": [],
+                    "llm_response_time": 1760,
+                    "similarity_computation_time": 0,
+                    "similarity_metric": "cosine"
+                },
                 "setCurrentRecordCtx": {
                     "target_classes": [
                         {
@@ -3429,71 +3582,8 @@
                         "CallbackRunner",
                         "TestUnderlyingState"
                     ],
-                    "llm_response_time": 2083,
-                    "similarity_computation_time": 15,
-                    "similarity_metric": "cosine"
-                },
-                "getUnderlyingState": {
-                    "target_classes": [],
-                    "target_classes_sorted_by_llm": [],
-                    "llm_response_time": 1904,
-                    "similarity_computation_time": 0,
-                    "similarity_metric": "cosine"
-                },
-                "update": {
-                    "target_classes": [],
-                    "target_classes_sorted_by_llm": [],
-                    "llm_response_time": 1372,
-                    "similarity_computation_time": 0,
-                    "similarity_metric": "cosine"
-                },
-                "asyncClear": {
-                    "target_classes": [],
-                    "target_classes_sorted_by_llm": [],
-                    "llm_response_time": 1951,
-                    "similarity_computation_time": 0,
-                    "similarity_metric": "cosine"
-                },
-                "asyncValue": {
-                    "target_classes": [],
-                    "target_classes_sorted_by_llm": [],
-                    "llm_response_time": 3278,
-                    "similarity_computation_time": 0,
-                    "similarity_metric": "cosine"
-                },
-                "asyncUpdate": {
-                    "target_classes": [],
-                    "target_classes_sorted_by_llm": [],
-                    "llm_response_time": 3311,
-                    "similarity_computation_time": 0,
-                    "similarity_metric": "cosine"
-                },
-                "executeBatchRequests": {
-                    "target_classes": [],
-                    "target_classes_sorted_by_llm": [],
-                    "llm_response_time": 1512,
-                    "similarity_computation_time": 0,
-                    "similarity_metric": "cosine"
-                },
-                "getParameter": {
-                    "target_classes": [],
-                    "target_classes_sorted_by_llm": [],
-                    "llm_response_time": 1438,
-                    "similarity_computation_time": 0,
-                    "similarity_metric": "cosine"
-                },
-                "getFuture": {
-                    "target_classes": [],
-                    "target_classes_sorted_by_llm": [],
-                    "llm_response_time": 1831,
-                    "similarity_computation_time": 0,
-                    "similarity_metric": "cosine"
-                },
-                "getRequestType": {
-                    "target_classes": [],
-                    "target_classes_sorted_by_llm": [],
-                    "llm_response_time": 2029,
-                    "similarity_computation_time": 0,
+                    "llm_response_time": 1654,
+                    "similarity_computation_time": 2,
                     "similarity_metric": "cosine"
                 }
             }
@@ -3737,7 +3827,7 @@
             "newBranchName": "extract-valueIsNull-process-ffa3869"
         },
         "telemetry": {
-            "id": "ce22ca78-8389-46bc-a109-e64a67136706",
+            "id": "cbc8081f-d694-4430-9254-35313232de29",
             "hostFunctionTelemetryData": {
                 "hostFunctionSize": 82,
                 "lineStart": 32,
@@ -3754,7 +3844,7 @@
             "processingTime": {
                 "llmResponseTime": -1,
                 "pluginProcessingTime": -1,
-                "totalTime": 7590
+                "totalTime": 8880
             },
             "iterationData": [
                 {
@@ -3764,10 +3854,10 @@
                             "method_name": "valueIsNull",
                             "method_signature": "private boolean valueIsNull(PutRequest<K, V> request)",
                             "target_class": "PutRequest",
-                            "rationale": "The valueIsNull method is directly related to the PutRequest class, as it checks if the value of a PutRequest is null. Moving it to the PutRequest class would encapsulate the logic related to the request itself."
+                            "rationale": "The valueIsNull method is directly related to the PutRequest class, as it checks the value of a PutRequest instance. Moving it to the PutRequest class would encapsulate the logic related to the request itself."
                         }
                     ],
-                    "llm_response_time": 1604
+                    "llm_response_time": 2536
                 },
                 {
                     "iteration_num": 2,
@@ -3776,10 +3866,10 @@
                             "method_name": "valueIsNull",
                             "method_signature": "private boolean valueIsNull(PutRequest<K, V> request)",
                             "target_class": "PutRequest",
-                            "rationale": "The valueIsNull method is directly related to the PutRequest class, as it checks the value of a PutRequest instance. Moving it to the PutRequest class would encapsulate the logic related to the request itself."
+                            "rationale": "The valueIsNull method is directly related to the PutRequest class, as it checks the value of a PutRequest instance. Moving it to PutRequest would encapsulate the logic related to the request itself."
                         }
                     ],
-                    "llm_response_time": 1786
+                    "llm_response_time": 2274
                 },
                 {
                     "iteration_num": 3,
@@ -3791,7 +3881,7 @@
                             "rationale": "The valueIsNull method is directly related to the PutRequest class, as it checks the value of a PutRequest instance. Moving it to the PutRequest class would encapsulate the logic related to the request itself."
                         }
                     ],
-                    "llm_response_time": 1890
+                    "llm_response_time": 2031
                 },
                 {
                     "iteration_num": -1,
@@ -3800,7 +3890,7 @@
                             "method_name": "valueIsNull",
                             "method_signature": "private boolean valueIsNull(PutRequest<K, V> request)",
                             "target_class": "PutRequest",
-                            "rationale": "The valueIsNull method is directly related to the PutRequest class, as it checks if the value of a PutRequest is null. Moving it to the PutRequest class would encapsulate the logic related to the request itself."
+                            "rationale": "The valueIsNull method is directly related to the PutRequest class, as it checks the value of a PutRequest instance. Moving it to the PutRequest class would encapsulate the logic related to the request itself."
                         }
                     ],
                     "llm_response_time": 0
@@ -3810,13 +3900,13 @@
                 "priority_method_names": [
                     "valueIsNull"
                 ],
-                "llm_response_time": 556
+                "llm_response_time": 474
             },
             "targetClassMap": {
                 "valueIsNull": {
                     "target_classes": [],
                     "target_classes_sorted_by_llm": [],
-                    "llm_response_time": 1638,
+                    "llm_response_time": 1494,
                     "similarity_computation_time": 0,
                     "similarity_metric": "cosine"
                 }
@@ -3931,7 +4021,7 @@
             "success": false
         },
         "telemetry": {
-            "id": "ce22ca78-8389-46bc-a109-e64a67136706",
+            "id": "cbc8081f-d694-4430-9254-35313232de29",
             "hostFunctionTelemetryData": {
                 "hostFunctionSize": 82,
                 "lineStart": 32,
@@ -3948,7 +4038,7 @@
             "processingTime": {
                 "llmResponseTime": -1,
                 "pluginProcessingTime": -1,
-                "totalTime": 7590
+                "totalTime": 8880
             },
             "iterationData": [
                 {
@@ -3958,10 +4048,10 @@
                             "method_name": "valueIsNull",
                             "method_signature": "private boolean valueIsNull(PutRequest<K, V> request)",
                             "target_class": "PutRequest",
-                            "rationale": "The valueIsNull method is directly related to the PutRequest class, as it checks if the value of a PutRequest is null. Moving it to the PutRequest class would encapsulate the logic related to the request itself."
+                            "rationale": "The valueIsNull method is directly related to the PutRequest class, as it checks the value of a PutRequest instance. Moving it to the PutRequest class would encapsulate the logic related to the request itself."
                         }
                     ],
-                    "llm_response_time": 1604
+                    "llm_response_time": 2536
                 },
                 {
                     "iteration_num": 2,
@@ -3970,10 +4060,10 @@
                             "method_name": "valueIsNull",
                             "method_signature": "private boolean valueIsNull(PutRequest<K, V> request)",
                             "target_class": "PutRequest",
-                            "rationale": "The valueIsNull method is directly related to the PutRequest class, as it checks the value of a PutRequest instance. Moving it to the PutRequest class would encapsulate the logic related to the request itself."
+                            "rationale": "The valueIsNull method is directly related to the PutRequest class, as it checks the value of a PutRequest instance. Moving it to PutRequest would encapsulate the logic related to the request itself."
                         }
                     ],
-                    "llm_response_time": 1786
+                    "llm_response_time": 2274
                 },
                 {
                     "iteration_num": 3,
@@ -3985,7 +4075,7 @@
                             "rationale": "The valueIsNull method is directly related to the PutRequest class, as it checks the value of a PutRequest instance. Moving it to the PutRequest class would encapsulate the logic related to the request itself."
                         }
                     ],
-                    "llm_response_time": 1890
+                    "llm_response_time": 2031
                 },
                 {
                     "iteration_num": -1,
@@ -3994,7 +4084,7 @@
                             "method_name": "valueIsNull",
                             "method_signature": "private boolean valueIsNull(PutRequest<K, V> request)",
                             "target_class": "PutRequest",
-                            "rationale": "The valueIsNull method is directly related to the PutRequest class, as it checks if the value of a PutRequest is null. Moving it to the PutRequest class would encapsulate the logic related to the request itself."
+                            "rationale": "The valueIsNull method is directly related to the PutRequest class, as it checks the value of a PutRequest instance. Moving it to the PutRequest class would encapsulate the logic related to the request itself."
                         }
                     ],
                     "llm_response_time": 0
@@ -4004,13 +4094,13 @@
                 "priority_method_names": [
                     "valueIsNull"
                 ],
-                "llm_response_time": 556
+                "llm_response_time": 474
             },
             "targetClassMap": {
                 "valueIsNull": {
                     "target_classes": [],
                     "target_classes_sorted_by_llm": [],
-                    "llm_response_time": 1638,
+                    "llm_response_time": 1494,
                     "similarity_computation_time": 0,
                     "similarity_metric": "cosine"
                 }
@@ -4117,7 +4207,7 @@
             "newBranchName": "extract-getColumnFamilyHandle-testValueStateWriteBatch-ffa3869"
         },
         "telemetry": {
-            "id": "5ca6fd7f-7c7e-4561-8579-d13161378a02",
+            "id": "ad05a0ae-f64b-4c05-9c83-8eb4518017aa",
             "hostFunctionTelemetryData": {
                 "hostFunctionSize": 76,
                 "lineStart": 33,
@@ -4134,7 +4224,7 @@
             "processingTime": {
                 "llmResponseTime": -1,
                 "pluginProcessingTime": -1,
-                "totalTime": 9074
+                "totalTime": 9873
             },
             "iterationData": [
                 {
@@ -4147,7 +4237,7 @@
                             "rationale": "The method getColumnFamilyHandle is primarily concerned with retrieving data from the database, which aligns more closely with the responsibilities of the ForStWriteBatchOperation class. Moving it there would enhance cohesion."
                         }
                     ],
-                    "llm_response_time": 2320
+                    "llm_response_time": 2510
                 },
                 {
                     "iteration_num": 2,
@@ -4155,11 +4245,11 @@
                         {
                             "method_name": "getColumnFamilyHandle",
                             "method_signature": "private byte[] getColumnFamilyHandle(ForStInnerTable<ContextKey<Integer>, String> table, byte[] keyBytes) throws RocksDBException",
-                            "target_class": "ForStInnerTable",
-                            "rationale": "The method getColumnFamilyHandle is primarily concerned with retrieving data from the ForStInnerTable, making it more appropriate for it to reside within the ForStInnerTable class."
+                            "target_class": "ForStWriteBatchOperation",
+                            "rationale": "The method getColumnFamilyHandle is primarily concerned with retrieving data from the database, which aligns more closely with the responsibilities of the ForStWriteBatchOperation class. Moving it there would enhance cohesion."
                         }
                     ],
-                    "llm_response_time": 2073
+                    "llm_response_time": 2562
                 },
                 {
                     "iteration_num": 3,
@@ -4171,7 +4261,7 @@
                             "rationale": "The method getColumnFamilyHandle is primarily concerned with retrieving data from the database, which aligns more closely with the responsibilities of the ForStWriteBatchOperation class. Moving it there would enhance cohesion."
                         }
                     ],
-                    "llm_response_time": 1861
+                    "llm_response_time": 2367
                 },
                 {
                     "iteration_num": -1,
@@ -4190,13 +4280,13 @@
                 "priority_method_names": [
                     "getColumnFamilyHandle"
                 ],
-                "llm_response_time": 664
+                "llm_response_time": 502
             },
             "targetClassMap": {
                 "getColumnFamilyHandle": {
                     "target_classes": [],
                     "target_classes_sorted_by_llm": [],
-                    "llm_response_time": 1945,
+                    "llm_response_time": 1779,
                     "similarity_computation_time": 0,
                     "similarity_metric": "cosine"
                 }
@@ -4301,7 +4391,7 @@
             "success": false
         },
         "telemetry": {
-            "id": "5ca6fd7f-7c7e-4561-8579-d13161378a02",
+            "id": "ad05a0ae-f64b-4c05-9c83-8eb4518017aa",
             "hostFunctionTelemetryData": {
                 "hostFunctionSize": 76,
                 "lineStart": 33,
@@ -4318,7 +4408,7 @@
             "processingTime": {
                 "llmResponseTime": -1,
                 "pluginProcessingTime": -1,
-                "totalTime": 9074
+                "totalTime": 9873
             },
             "iterationData": [
                 {
@@ -4331,7 +4421,7 @@
                             "rationale": "The method getColumnFamilyHandle is primarily concerned with retrieving data from the database, which aligns more closely with the responsibilities of the ForStWriteBatchOperation class. Moving it there would enhance cohesion."
                         }
                     ],
-                    "llm_response_time": 2320
+                    "llm_response_time": 2510
                 },
                 {
                     "iteration_num": 2,
@@ -4339,11 +4429,11 @@
                         {
                             "method_name": "getColumnFamilyHandle",
                             "method_signature": "private byte[] getColumnFamilyHandle(ForStInnerTable<ContextKey<Integer>, String> table, byte[] keyBytes) throws RocksDBException",
-                            "target_class": "ForStInnerTable",
-                            "rationale": "The method getColumnFamilyHandle is primarily concerned with retrieving data from the ForStInnerTable, making it more appropriate for it to reside within the ForStInnerTable class."
+                            "target_class": "ForStWriteBatchOperation",
+                            "rationale": "The method getColumnFamilyHandle is primarily concerned with retrieving data from the database, which aligns more closely with the responsibilities of the ForStWriteBatchOperation class. Moving it there would enhance cohesion."
                         }
                     ],
-                    "llm_response_time": 2073
+                    "llm_response_time": 2562
                 },
                 {
                     "iteration_num": 3,
@@ -4355,7 +4445,7 @@
                             "rationale": "The method getColumnFamilyHandle is primarily concerned with retrieving data from the database, which aligns more closely with the responsibilities of the ForStWriteBatchOperation class. Moving it there would enhance cohesion."
                         }
                     ],
-                    "llm_response_time": 1861
+                    "llm_response_time": 2367
                 },
                 {
                     "iteration_num": -1,
@@ -4374,13 +4464,13 @@
                 "priority_method_names": [
                     "getColumnFamilyHandle"
                 ],
-                "llm_response_time": 664
+                "llm_response_time": 502
             },
             "targetClassMap": {
                 "getColumnFamilyHandle": {
                     "target_classes": [],
                     "target_classes_sorted_by_llm": [],
-                    "llm_response_time": 1945,
+                    "llm_response_time": 1779,
                     "similarity_computation_time": 0,
                     "similarity_metric": "cosine"
                 }
@@ -4477,7 +4567,7 @@
             "newBranchName": "extract-buildSerializedKey-process-ffa3869"
         },
         "telemetry": {
-            "id": "ce22ca78-8389-46bc-a109-e64a67136706",
+            "id": "cbc8081f-d694-4430-9254-35313232de29",
             "hostFunctionTelemetryData": {
                 "hostFunctionSize": 82,
                 "lineStart": 32,
@@ -4494,7 +4584,7 @@
             "processingTime": {
                 "llmResponseTime": -1,
                 "pluginProcessingTime": -1,
-                "totalTime": 7590
+                "totalTime": 8880
             },
             "iterationData": [
                 {
@@ -4504,10 +4594,10 @@
                             "method_name": "valueIsNull",
                             "method_signature": "private boolean valueIsNull(PutRequest<K, V> request)",
                             "target_class": "PutRequest",
-                            "rationale": "The valueIsNull method is directly related to the PutRequest class, as it checks if the value of a PutRequest is null. Moving it to the PutRequest class would encapsulate the logic related to the request itself."
+                            "rationale": "The valueIsNull method is directly related to the PutRequest class, as it checks the value of a PutRequest instance. Moving it to the PutRequest class would encapsulate the logic related to the request itself."
                         }
                     ],
-                    "llm_response_time": 1604
+                    "llm_response_time": 2536
                 },
                 {
                     "iteration_num": 2,
@@ -4516,10 +4606,10 @@
                             "method_name": "valueIsNull",
                             "method_signature": "private boolean valueIsNull(PutRequest<K, V> request)",
                             "target_class": "PutRequest",
-                            "rationale": "The valueIsNull method is directly related to the PutRequest class, as it checks the value of a PutRequest instance. Moving it to the PutRequest class would encapsulate the logic related to the request itself."
+                            "rationale": "The valueIsNull method is directly related to the PutRequest class, as it checks the value of a PutRequest instance. Moving it to PutRequest would encapsulate the logic related to the request itself."
                         }
                     ],
-                    "llm_response_time": 1786
+                    "llm_response_time": 2274
                 },
                 {
                     "iteration_num": 3,
@@ -4531,7 +4621,7 @@
                             "rationale": "The valueIsNull method is directly related to the PutRequest class, as it checks the value of a PutRequest instance. Moving it to the PutRequest class would encapsulate the logic related to the request itself."
                         }
                     ],
-                    "llm_response_time": 1890
+                    "llm_response_time": 2031
                 },
                 {
                     "iteration_num": -1,
@@ -4540,7 +4630,7 @@
                             "method_name": "valueIsNull",
                             "method_signature": "private boolean valueIsNull(PutRequest<K, V> request)",
                             "target_class": "PutRequest",
-                            "rationale": "The valueIsNull method is directly related to the PutRequest class, as it checks if the value of a PutRequest is null. Moving it to the PutRequest class would encapsulate the logic related to the request itself."
+                            "rationale": "The valueIsNull method is directly related to the PutRequest class, as it checks the value of a PutRequest instance. Moving it to the PutRequest class would encapsulate the logic related to the request itself."
                         }
                     ],
                     "llm_response_time": 0
@@ -4550,13 +4640,13 @@
                 "priority_method_names": [
                     "valueIsNull"
                 ],
-                "llm_response_time": 556
+                "llm_response_time": 474
             },
             "targetClassMap": {
                 "valueIsNull": {
                     "target_classes": [],
                     "target_classes_sorted_by_llm": [],
-                    "llm_response_time": 1638,
+                    "llm_response_time": 1494,
                     "similarity_computation_time": 0,
                     "similarity_metric": "cosine"
                 }
@@ -4641,7 +4731,7 @@
             "success": false
         },
         "telemetry": {
-            "id": "5ca6fd7f-7c7e-4561-8579-d13161378a02",
+            "id": "ad05a0ae-f64b-4c05-9c83-8eb4518017aa",
             "hostFunctionTelemetryData": {
                 "hostFunctionSize": 76,
                 "lineStart": 33,
@@ -4658,7 +4748,7 @@
             "processingTime": {
                 "llmResponseTime": -1,
                 "pluginProcessingTime": -1,
-                "totalTime": 9074
+                "totalTime": 9873
             },
             "iterationData": [
                 {
@@ -4671,7 +4761,7 @@
                             "rationale": "The method getColumnFamilyHandle is primarily concerned with retrieving data from the database, which aligns more closely with the responsibilities of the ForStWriteBatchOperation class. Moving it there would enhance cohesion."
                         }
                     ],
-                    "llm_response_time": 2320
+                    "llm_response_time": 2510
                 },
                 {
                     "iteration_num": 2,
@@ -4679,11 +4769,11 @@
                         {
                             "method_name": "getColumnFamilyHandle",
                             "method_signature": "private byte[] getColumnFamilyHandle(ForStInnerTable<ContextKey<Integer>, String> table, byte[] keyBytes) throws RocksDBException",
-                            "target_class": "ForStInnerTable",
-                            "rationale": "The method getColumnFamilyHandle is primarily concerned with retrieving data from the ForStInnerTable, making it more appropriate for it to reside within the ForStInnerTable class."
+                            "target_class": "ForStWriteBatchOperation",
+                            "rationale": "The method getColumnFamilyHandle is primarily concerned with retrieving data from the database, which aligns more closely with the responsibilities of the ForStWriteBatchOperation class. Moving it there would enhance cohesion."
                         }
                     ],
-                    "llm_response_time": 2073
+                    "llm_response_time": 2562
                 },
                 {
                     "iteration_num": 3,
@@ -4695,7 +4785,7 @@
                             "rationale": "The method getColumnFamilyHandle is primarily concerned with retrieving data from the database, which aligns more closely with the responsibilities of the ForStWriteBatchOperation class. Moving it there would enhance cohesion."
                         }
                     ],
-                    "llm_response_time": 1861
+                    "llm_response_time": 2367
                 },
                 {
                     "iteration_num": -1,
@@ -4714,13 +4804,13 @@
                 "priority_method_names": [
                     "getColumnFamilyHandle"
                 ],
-                "llm_response_time": 664
+                "llm_response_time": 502
             },
             "targetClassMap": {
                 "getColumnFamilyHandle": {
                     "target_classes": [],
                     "target_classes_sorted_by_llm": [],
-                    "llm_response_time": 1945,
+                    "llm_response_time": 1779,
                     "similarity_computation_time": 0,
                     "similarity_metric": "cosine"
                 }
@@ -4807,7 +4897,7 @@
             "newBranchName": "extract-buildSerializedKey-testWriteBatchWithNullValue-ffa3869"
         },
         "telemetry": {
-            "id": "5ca6fd7f-7c7e-4561-8579-d13161378a02",
+            "id": "ad05a0ae-f64b-4c05-9c83-8eb4518017aa",
             "hostFunctionTelemetryData": {
                 "hostFunctionSize": 76,
                 "lineStart": 33,
@@ -4824,7 +4914,7 @@
             "processingTime": {
                 "llmResponseTime": -1,
                 "pluginProcessingTime": -1,
-                "totalTime": 9074
+                "totalTime": 9873
             },
             "iterationData": [
                 {
@@ -4837,7 +4927,7 @@
                             "rationale": "The method getColumnFamilyHandle is primarily concerned with retrieving data from the database, which aligns more closely with the responsibilities of the ForStWriteBatchOperation class. Moving it there would enhance cohesion."
                         }
                     ],
-                    "llm_response_time": 2320
+                    "llm_response_time": 2510
                 },
                 {
                     "iteration_num": 2,
@@ -4845,11 +4935,11 @@
                         {
                             "method_name": "getColumnFamilyHandle",
                             "method_signature": "private byte[] getColumnFamilyHandle(ForStInnerTable<ContextKey<Integer>, String> table, byte[] keyBytes) throws RocksDBException",
-                            "target_class": "ForStInnerTable",
-                            "rationale": "The method getColumnFamilyHandle is primarily concerned with retrieving data from the ForStInnerTable, making it more appropriate for it to reside within the ForStInnerTable class."
+                            "target_class": "ForStWriteBatchOperation",
+                            "rationale": "The method getColumnFamilyHandle is primarily concerned with retrieving data from the database, which aligns more closely with the responsibilities of the ForStWriteBatchOperation class. Moving it there would enhance cohesion."
                         }
                     ],
-                    "llm_response_time": 2073
+                    "llm_response_time": 2562
                 },
                 {
                     "iteration_num": 3,
@@ -4861,7 +4951,7 @@
                             "rationale": "The method getColumnFamilyHandle is primarily concerned with retrieving data from the database, which aligns more closely with the responsibilities of the ForStWriteBatchOperation class. Moving it there would enhance cohesion."
                         }
                     ],
-                    "llm_response_time": 1861
+                    "llm_response_time": 2367
                 },
                 {
                     "iteration_num": -1,
@@ -4880,13 +4970,13 @@
                 "priority_method_names": [
                     "getColumnFamilyHandle"
                 ],
-                "llm_response_time": 664
+                "llm_response_time": 502
             },
             "targetClassMap": {
                 "getColumnFamilyHandle": {
                     "target_classes": [],
                     "target_classes_sorted_by_llm": [],
-                    "llm_response_time": 1945,
+                    "llm_response_time": 1779,
                     "similarity_computation_time": 0,
                     "similarity_metric": "cosine"
                 }
@@ -5469,7 +5559,7 @@
             "newBranchName": "extract-rewrite-rewrite-54f037f"
         },
         "telemetry": {
-            "id": "3cafdd8d-eaed-4950-8a71-78b569947a59",
+            "id": "78841082-738a-49f2-ad85-ba977a241fa0",
             "hostFunctionTelemetryData": {
                 "hostFunctionSize": 446,
                 "lineStart": 40,
@@ -5486,7 +5576,7 @@
             "processingTime": {
                 "llmResponseTime": -1,
                 "pluginProcessingTime": -1,
-                "totalTime": 29162
+                "totalTime": 28902
             },
             "iterationData": [
                 {
@@ -5517,7 +5607,7 @@
                             "rationale": "This method checks if a statement can be grouped as a single statement, which is a utility function that could be moved to a utility class like StatementGroupingUtil for better organization."
                         }
                     ],
-                    "llm_response_time": 5442
+                    "llm_response_time": 5221
                 },
                 {
                     "iteration_num": 2,
@@ -5531,17 +5621,23 @@
                         {
                             "method_name": "shouldExtract",
                             "method_signature": "private boolean shouldExtract(StatementContext ctx)",
-                            "target_class": "ExtractionCriteriaEvaluator",
-                            "rationale": "The logic for determining whether a statement should be extracted could be better encapsulated in a dedicated class focused on evaluating extraction criteria, improving separation of concerns."
+                            "target_class": "StatementExtractor",
+                            "rationale": "The logic for determining whether a statement should be extracted is a distinct responsibility that could be encapsulated in a separate StatementExtractor class, improving the Single Responsibility Principle."
                         },
                         {
-                            "method_name": "rewrite",
-                            "method_signature": "private void rewrite()",
-                            "target_class": "CodeRewriter",
-                            "rationale": "The rewrite method is responsible for modifying the code structure, which is a core responsibility of a rewriter. Moving it to a CodeRewriter class would clarify the purpose and responsibilities of each class."
+                            "method_name": "addLocalGroup",
+                            "method_signature": "private boolean addLocalGroup(List<LocalGroupElement> localGroup, String context, TokenStreamRewriter rewriter)",
+                            "target_class": "LocalGroupManager",
+                            "rationale": "This method manages the addition of local groups, which could be better handled by a dedicated LocalGroupManager class, promoting separation of concerns."
+                        },
+                        {
+                            "method_name": "canGroupAsSingleStatement",
+                            "method_signature": "private boolean canGroupAsSingleStatement(ParserRuleContext context)",
+                            "target_class": "StatementGrouper",
+                            "rationale": "The logic for determining if a statement can be grouped as a single statement is specific to grouping logic and should be moved to a StatementGrouper class for better organization."
                         }
                     ],
-                    "llm_response_time": 3265
+                    "llm_response_time": 5526
                 },
                 {
                     "iteration_num": 3,
@@ -5550,28 +5646,28 @@
                             "method_name": "getNumOfReturnOrJumpStatements",
                             "method_signature": "private int getNumOfReturnOrJumpStatements(ParserRuleContext ctx)",
                             "target_class": "ReturnAndJumpCounter",
-                            "rationale": "This method is responsible for counting return or jump statements in a given context, which aligns with the responsibilities of the ReturnAndJumpCounter class. Moving it there would enhance cohesion."
+                            "rationale": "This method is responsible for counting return or jump statements in a given context, which aligns with the responsibilities of the ReturnAndJumpCounter class. Moving it there would adhere to the Single Responsibility Principle."
                         },
                         {
                             "method_name": "shouldExtract",
                             "method_signature": "private boolean shouldExtract(StatementContext ctx)",
                             "target_class": "StatementExtractor",
-                            "rationale": "The logic for determining whether a statement should be extracted belongs to a dedicated class that handles statement extraction logic, improving separation of concerns."
+                            "rationale": "The logic for determining whether a statement should be extracted is specific to statement processing and could be better encapsulated in a dedicated StatementExtractor class."
                         },
                         {
                             "method_name": "addLocalGroup",
                             "method_signature": "private boolean addLocalGroup(List<LocalGroupElement> localGroup, String context, TokenStreamRewriter rewriter)",
                             "target_class": "LocalGroupManager",
-                            "rationale": "This method manages the addition of local groups, which is a specific responsibility that could be encapsulated in a LocalGroupManager class, enhancing clarity and maintainability."
+                            "rationale": "This method manages the addition of local groups, which could be more appropriately handled by a LocalGroupManager class, separating concerns and improving code organization."
                         },
                         {
                             "method_name": "canGroupAsSingleStatement",
                             "method_signature": "private boolean canGroupAsSingleStatement(ParserRuleContext context)",
                             "target_class": "StatementGroupingUtil",
-                            "rationale": "This method checks if a statement can be grouped as a single statement, which is a utility function that would fit well in a utility class dedicated to statement grouping."
+                            "rationale": "The logic for determining if a statement can be grouped as a single statement is utility-like and could be moved to a StatementGroupingUtil class for better separation of concerns."
                         }
                     ],
-                    "llm_response_time": 9259
+                    "llm_response_time": 6490
                 },
                 {
                     "iteration_num": -1,
@@ -5599,12 +5695,6 @@
                             "method_signature": "private boolean canGroupAsSingleStatement(ParserRuleContext context)",
                             "target_class": "StatementGroupingUtil",
                             "rationale": "This method checks if a statement can be grouped as a single statement, which is a utility function that could be moved to a utility class like StatementGroupingUtil for better organization."
-                        },
-                        {
-                            "method_name": "rewrite",
-                            "method_signature": "private void rewrite()",
-                            "target_class": "CodeRewriter",
-                            "rationale": "The rewrite method is responsible for modifying the code structure, which is a core responsibility of a rewriter. Moving it to a CodeRewriter class would clarify the purpose and responsibilities of each class."
                         }
                     ],
                     "llm_response_time": 0
@@ -5614,45 +5704,37 @@
                 "priority_method_names": [
                     "shouldExtract",
                     "addLocalGroup",
-                    "getNumOfReturnOrJumpStatements",
                     "canGroupAsSingleStatement",
-                    "rewrite"
+                    "getNumOfReturnOrJumpStatements"
                 ],
-                "llm_response_time": 901
+                "llm_response_time": 1519
             },
             "targetClassMap": {
                 "shouldExtract": {
                     "target_classes": [],
                     "target_classes_sorted_by_llm": [],
-                    "llm_response_time": 1936,
+                    "llm_response_time": 1508,
                     "similarity_computation_time": 0,
                     "similarity_metric": "cosine"
                 },
                 "addLocalGroup": {
                     "target_classes": [],
                     "target_classes_sorted_by_llm": [],
-                    "llm_response_time": 2830,
-                    "similarity_computation_time": 0,
-                    "similarity_metric": "cosine"
-                },
-                "getNumOfReturnOrJumpStatements": {
-                    "target_classes": [],
-                    "target_classes_sorted_by_llm": [],
-                    "llm_response_time": 2266,
+                    "llm_response_time": 3994,
                     "similarity_computation_time": 0,
                     "similarity_metric": "cosine"
                 },
                 "canGroupAsSingleStatement": {
                     "target_classes": [],
                     "target_classes_sorted_by_llm": [],
-                    "llm_response_time": 1536,
+                    "llm_response_time": 2350,
                     "similarity_computation_time": 0,
                     "similarity_metric": "cosine"
                 },
-                "rewrite": {
+                "getNumOfReturnOrJumpStatements": {
                     "target_classes": [],
                     "target_classes_sorted_by_llm": [],
-                    "llm_response_time": 1443,
+                    "llm_response_time": 2150,
                     "similarity_computation_time": 0,
                     "similarity_metric": "cosine"
                 }
@@ -5847,7 +5929,7 @@
             "newBranchName": "extract-addPartitionAndGetShuffleDescriptor-testAddAndReleasePartition-fe74f74"
         },
         "telemetry": {
-            "id": "45c7e9f0-b710-45c2-a553-b4e63a365acd",
+            "id": "91938c19-9fd7-4383-960c-a86d6909dd57",
             "hostFunctionTelemetryData": {
                 "hostFunctionSize": 29,
                 "lineStart": 35,
@@ -5865,7 +5947,7 @@
                         "lineEnd": 61,
                         "refactoringType": "MyMoveMethodRefactoring",
                         "refactoringInfo": "Move method addPartitionAndGetShuffleDescriptor to class RemoteTierMasterAgent",
-                        "description": "Move method addPartitionAndGetShuffleDescriptor to org.apache.flink.runtime.io.network.partition.hybrid.tiered.tier.remote.RemoteTierMasterAgent\nRationale: The method directly interacts with the RemoteTierMasterAgent instance by calling its releasePartition method, indicating that it is more relevant to the functionality of the RemoteTierMasterAgent class.",
+                        "description": "Move method addPartitionAndGetShuffleDescriptor to org.apache.flink.runtime.io.network.partition.hybrid.tiered.tier.remote.RemoteTierMasterAgent\nRationale: The method addPartitionAndGetShuffleDescriptor directly interacts with the RemoteTierMasterAgent by calling its releasePartition method, indicating that it is more relevant to the functionality of the RemoteTierMasterAgent class.",
                         "couldCreateRefObject": true,
                         "applied": false,
                         "undone": false
@@ -5880,10 +5962,10 @@
                             "method_name": "addPartitionAndGetShuffleDescriptor",
                             "method_signature": "private void addPartitionAndGetShuffleDescriptor(TieredStoragePartitionId partitionId, RemoteTierMasterAgent masterAgent)",
                             "target_class": "RemoteTierMasterAgent",
-                            "rationale": "The method addPartitionAndGetShuffleDescriptor is primarily operating on the RemoteTierMasterAgent instance and is essentially a helper method for its functionality. Moving it to the RemoteTierMasterAgent class would encapsulate related behavior and improve cohesion."
+                            "rationale": "The method addPartitionAndGetShuffleDescriptor is primarily operating on the RemoteTierMasterAgent instance and is essentially a utility function that directly interacts with its methods. Moving it to the RemoteTierMasterAgent class would encapsulate related functionality and improve cohesion."
                         }
                     ],
-                    "llm_response_time": 2140
+                    "llm_response_time": 3559
                 },
                 {
                     "iteration_num": 2,
@@ -5895,7 +5977,7 @@
                             "rationale": "The method addPartitionAndGetShuffleDescriptor is primarily operating on the RemoteTierMasterAgent instance, and it directly calls its method releasePartition. Moving this method to the RemoteTierMasterAgent class would encapsulate the functionality related to partition management within the class itself."
                         }
                     ],
-                    "llm_response_time": 2414
+                    "llm_response_time": 2637
                 },
                 {
                     "iteration_num": 3,
@@ -5907,7 +5989,7 @@
                             "rationale": "The method addPartitionAndGetShuffleDescriptor is primarily operating on the RemoteTierMasterAgent instance and is essentially a utility function that could be part of the RemoteTierMasterAgent class itself."
                         }
                     ],
-                    "llm_response_time": 2961
+                    "llm_response_time": 2143
                 },
                 {
                     "iteration_num": -1,
@@ -5916,7 +5998,7 @@
                             "method_name": "addPartitionAndGetShuffleDescriptor",
                             "method_signature": "private void addPartitionAndGetShuffleDescriptor(TieredStoragePartitionId partitionId, RemoteTierMasterAgent masterAgent)",
                             "target_class": "RemoteTierMasterAgent",
-                            "rationale": "The method addPartitionAndGetShuffleDescriptor is primarily operating on the RemoteTierMasterAgent instance and is essentially a helper method for its functionality. Moving it to the RemoteTierMasterAgent class would encapsulate related behavior and improve cohesion."
+                            "rationale": "The method addPartitionAndGetShuffleDescriptor is primarily operating on the RemoteTierMasterAgent instance and is essentially a utility function that directly interacts with its methods. Moving it to the RemoteTierMasterAgent class would encapsulate related functionality and improve cohesion."
                         }
                     ],
                     "llm_response_time": 0
@@ -5926,7 +6008,7 @@
                 "priority_method_names": [
                     "addPartitionAndGetShuffleDescriptor"
                 ],
-                "llm_response_time": 513
+                "llm_response_time": 509
             },
             "targetClassMap": {
                 "addPartitionAndGetShuffleDescriptor": {
@@ -5944,8 +6026,8 @@
                         "RemoteTierMasterAgent",
                         "TieredStoragePartitionId"
                     ],
-                    "llm_response_time": 1977,
-                    "similarity_computation_time": 3,
+                    "llm_response_time": 3038,
+                    "similarity_computation_time": 2,
                     "similarity_metric": "cosine"
                 }
             }
@@ -6339,7 +6421,7 @@
             "newBranchName": "extract-scheduleOperation-rescaleWhenCooldownPeriodIsOver-7fc3aac"
         },
         "telemetry": {
-            "id": "09af8ca3-047f-4663-abcf-cda95d732e5e",
+            "id": "9273ea66-af02-404e-b33d-c0d6295e8d12",
             "hostFunctionTelemetryData": {
                 "hostFunctionSize": 292,
                 "lineStart": 51,
@@ -6350,34 +6432,14 @@
                 "sourceCode": "/** State which represents a running job with an {@link ExecutionGraph} and assigned slots. */\nclass Executing extends StateWithExecutionGraph implements ResourceListener {\n\n    private final Context context;\n    private final Instant lastRescale;\n    // only one schedule at the time\n    private boolean rescaleScheduled = false;\n    @VisibleForTesting final Duration scalingIntervalMin;\n    @VisibleForTesting @Nullable final Duration scalingIntervalMax;\n\n    Executing(\n            ExecutionGraph executionGraph,\n            ExecutionGraphHandler executionGraphHandler,\n            OperatorCoordinatorHandler operatorCoordinatorHandler,\n            Logger logger,\n            Context context,\n            ClassLoader userCodeClassLoader,\n            List<ExceptionHistoryEntry> failureCollection,\n            Duration scalingIntervalMin,\n            @Nullable Duration scalingIntervalMax,\n            Instant lastRescale) {\n        super(\n                context,\n                executionGraph,\n                executionGraphHandler,\n                operatorCoordinatorHandler,\n                logger,\n                userCodeClassLoader,\n                failureCollection);\n        this.context = context;\n        Preconditions.checkState(\n                executionGraph.getState() == JobStatus.RUNNING, \"Assuming running execution graph\");\n        this.scalingIntervalMin = scalingIntervalMin;\n        this.scalingIntervalMax = scalingIntervalMax;\n        // Executing is recreated with each restart (when we rescale)\n        // we consider the first execution of the pipeline as a rescale event\n        this.lastRescale = lastRescale;\n\n        deploy();\n\n        // check if new resources have come available in the meantime\n        context.runIfState(this, this::rescaleWhenCooldownPeriodIsOver, Duration.ZERO);\n    }\n\n    @Override\n    public JobStatus getJobStatus() {\n        return JobStatus.RUNNING;\n    }\n\n    @Override\n    public void cancel() {\n        context.goToCanceling(\n                getExecutionGraph(),\n                getExecutionGraphHandler(),\n                getOperatorCoordinatorHandler(),\n                getFailures());\n    }\n\n    @Override\n    void onFailure(Throwable cause, CompletableFuture<Map<String, String>> failureLabels) {\n        FailureResultUtil.restartOrFail(\n                context.howToHandleFailure(cause, failureLabels), context, this);\n    }\n\n    @Override\n    void onGloballyTerminalState(JobStatus globallyTerminalState) {\n        context.goToFinished(ArchivedExecutionGraph.createFrom(getExecutionGraph()));\n    }\n\n    private void deploy() {\n        for (ExecutionJobVertex executionJobVertex :\n                getExecutionGraph().getVerticesTopologically()) {\n            for (ExecutionVertex executionVertex : executionJobVertex.getTaskVertices()) {\n                if (executionVertex.getExecutionState() == ExecutionState.CREATED\n                        || executionVertex.getExecutionState() == ExecutionState.SCHEDULED) {\n                    deploySafely(executionVertex);\n                }\n            }\n        }\n    }\n\n    private void deploySafely(ExecutionVertex executionVertex) {\n        try {\n            executionVertex.deploy();\n        } catch (JobException e) {\n            handleDeploymentFailure(executionVertex, e);\n        }\n    }\n\n    private void handleDeploymentFailure(ExecutionVertex executionVertex, JobException e) {\n        executionVertex.markFailed(e);\n    }\n\n    @Override\n    public void onNewResourcesAvailable() {\n        rescaleWhenCooldownPeriodIsOver();\n    }\n\n    @Override\n    public void onNewResourceRequirements() {\n        rescaleWhenCooldownPeriodIsOver();\n    }\n\n    /** Force rescaling as long as the target parallelism is different from the current one. */\n    private void forceRescale() {\n        if (context.shouldRescale(getExecutionGraph(), true)) {\n            getLogger()\n                    .info(\n                            \"Added resources are still there after {} time({}), force a rescale.\",\n                            JobManagerOptions.SCHEDULER_SCALING_INTERVAL_MAX.key(),\n                            scalingIntervalMax);\n            context.goToRestarting(\n                    getExecutionGraph(),\n                    getExecutionGraphHandler(),\n                    getOperatorCoordinatorHandler(),\n                    Duration.ofMillis(0L),\n                    getFailures());\n        }\n    }\n\n    /**\n     * Rescale the job if {@link Context#shouldRescale} is true. Otherwise, force a rescale using\n     * {@link Executing#forceRescale()} after {@link\n     * JobManagerOptions#SCHEDULER_SCALING_INTERVAL_MAX}.\n     */\n    private void maybeRescale() {\n        rescaleScheduled = false;\n        if (context.shouldRescale(getExecutionGraph(), false)) {\n            getLogger().info(\"Can change the parallelism of the job. Restarting the job.\");\n            context.goToRestarting(\n                    getExecutionGraph(),\n                    getExecutionGraphHandler(),\n                    getOperatorCoordinatorHandler(),\n                    Duration.ofMillis(0L),\n                    getFailures());\n        } else if (scalingIntervalMax != null) {\n            getLogger()\n                    .info(\n                            \"The longer the pipeline runs, the more the (small) resource gain is worth the restarting time. \"\n                                    + \"Last resource added does not meet {}, force a rescale after {} time({}) if the resource is still there.\",\n                            JobManagerOptions.MIN_PARALLELISM_INCREASE,\n                            JobManagerOptions.SCHEDULER_SCALING_INTERVAL_MAX.key(),\n                            scalingIntervalMax);\n            if (timeSinceLastRescale().compareTo(scalingIntervalMax) > 0) {\n                forceRescale();\n            } else {\n                // schedule a force rescale in JobManagerOptions.SCHEDULER_SCALING_INTERVAL_MAX time\n                context.runIfState(this, this::forceRescale, scalingIntervalMax);\n            }\n        }\n    }\n\n    private Duration timeSinceLastRescale() {\n        return Duration.between(lastRescale, Instant.now());\n    }\n\n    private void rescaleWhenCooldownPeriodIsOver() {\n        if (timeSinceLastRescale().compareTo(scalingIntervalMin) > 0) {\n            maybeRescale();\n        } else if (!rescaleScheduled) {\n            rescaleScheduled = true;\n            // schedule maybeRescale resetting the cooldown period\n            scheduleOperation();\n        }\n    }\n\n    private void scheduleOperation() {\n        context.runIfState(this, this::maybeRescale, scalingIntervalMin);\n    }\n\n    CompletableFuture<String> stopWithSavepoint(\n            @Nullable final String targetDirectory,\n            boolean terminate,\n            SavepointFormatType formatType) {\n        final ExecutionGraph executionGraph = getExecutionGraph();\n\n        StopWithSavepointTerminationManager.checkSavepointActionPreconditions(\n                executionGraph.getCheckpointCoordinator(),\n                targetDirectory,\n                executionGraph.getJobID(),\n                getLogger());\n\n        getLogger().info(\"Triggering stop-with-savepoint for job {}.\", executionGraph.getJobID());\n\n        CheckpointScheduling schedulingProvider = new CheckpointSchedulingProvider(executionGraph);\n\n        schedulingProvider.stopCheckpointScheduler();\n\n        final CompletableFuture<String> savepointFuture =\n                Objects.requireNonNull(executionGraph.getCheckpointCoordinator())\n                        .triggerSynchronousSavepoint(terminate, targetDirectory, formatType)\n                        .thenApply(CompletedCheckpoint::getExternalPointer);\n        return context.goToStopWithSavepoint(\n                executionGraph,\n                getExecutionGraphHandler(),\n                getOperatorCoordinatorHandler(),\n                schedulingProvider,\n                savepointFuture,\n                getFailures());\n    }\n\n    /** Context of the {@link Executing} state. */\n    interface Context\n            extends StateWithExecutionGraph.Context,\n                    StateTransitions.ToCancelling,\n                    StateTransitions.ToFailing,\n                    StateTransitions.ToRestarting,\n                    StateTransitions.ToStopWithSavepoint {\n\n        /**\n         * Asks how to handle the failure.\n         *\n         * @param failure failure describing the failure cause\n         * @param failureLabels future of labels from error classification.\n         * @return {@link FailureResult} which describes how to handle the failure\n         */\n        FailureResult howToHandleFailure(\n                Throwable failure, CompletableFuture<Map<String, String>> failureLabels);\n\n        /**\n         * Asks if we should rescale the currently executing job.\n         *\n         * @param executionGraph executionGraph for making the scaling decision.\n         * @param forceRescale should we force rescaling\n         * @return true, if we should rescale\n         */\n        boolean shouldRescale(ExecutionGraph executionGraph, boolean forceRescale);\n\n        /**\n         * Runs the given action after a delay if the state at this time equals the expected state.\n         *\n         * @param expectedState expectedState describes the required state at the time of running\n         *     the action\n         * @param action action to run if the expected state equals the actual state\n         * @param delay delay after which to run the action\n         * @return a ScheduledFuture representing pending completion of the task\n         */\n        ScheduledFuture<?> runIfState(State expectedState, Runnable action, Duration delay);\n    }\n\n    static class Factory implements StateFactory<Executing> {\n\n        private final Context context;\n        private final Logger log;\n        private final ExecutionGraph executionGraph;\n        private final ExecutionGraphHandler executionGraphHandler;\n        private final OperatorCoordinatorHandler operatorCoordinatorHandler;\n        private final ClassLoader userCodeClassLoader;\n        private final List<ExceptionHistoryEntry> failureCollection;\n        private final Duration scalingIntervalMin;\n        private final Duration scalingIntervalMax;\n\n        Factory(\n                ExecutionGraph executionGraph,\n                ExecutionGraphHandler executionGraphHandler,\n                OperatorCoordinatorHandler operatorCoordinatorHandler,\n                Logger log,\n                Context context,\n                ClassLoader userCodeClassLoader,\n                List<ExceptionHistoryEntry> failureCollection,\n                Duration scalingIntervalMin,\n                Duration scalingIntervalMax) {\n            this.context = context;\n            this.log = log;\n            this.executionGraph = executionGraph;\n            this.executionGraphHandler = executionGraphHandler;\n            this.operatorCoordinatorHandler = operatorCoordinatorHandler;\n            this.userCodeClassLoader = userCodeClassLoader;\n            this.failureCollection = failureCollection;\n            this.scalingIntervalMin = scalingIntervalMin;\n            this.scalingIntervalMax = scalingIntervalMax;\n        }\n\n        public Class<Executing> getStateClass() {\n            return Executing.class;\n        }\n\n        public Executing getState() {\n            return new Executing(\n                    executionGraph,\n                    executionGraphHandler,\n                    operatorCoordinatorHandler,\n                    log,\n                    context,\n                    userCodeClassLoader,\n                    failureCollection,\n                    scalingIntervalMin,\n                    scalingIntervalMax,\n                    Instant.now());\n        }\n    }\n}"
             },
             "candidatesTelemetryData": {
-                "numberOfSuggestions": 7,
+                "numberOfSuggestions": 5,
                 "candidates": [
                     {
                         "lineStart": 220,
                         "lineEnd": 249,
                         "refactoringType": "MyMoveMethodRefactoring",
                         "refactoringInfo": "Move method stopWithSavepoint to class Context",
-                        "description": "Move method stopWithSavepoint to org.apache.flink.runtime.scheduler.adaptive.Executing.Context\nRationale: The method stopWithSavepoint() interacts with the execution context and manages the transition to a stop-with-savepoint state, making it more appropriate for the Context class.",
-                        "couldCreateRefObject": true,
-                        "applied": false,
-                        "undone": false
-                    },
-                    {
-                        "lineStart": 139,
-                        "lineEnd": 141,
-                        "refactoringType": "MyMoveMethodRefactoring",
-                        "refactoringInfo": "Move method handleDeploymentFailure to class ExecutionVertex",
-                        "description": "Move method handleDeploymentFailure to org.apache.flink.runtime.executiongraph.ExecutionVertex\nRationale: The method handleDeploymentFailure directly interacts with the ExecutionVertex instance by calling markFailed, indicating that it is closely related to the state and behavior of ExecutionVertex.",
-                        "couldCreateRefObject": true,
-                        "applied": false,
-                        "undone": false
-                    },
-                    {
-                        "lineStart": 153,
-                        "lineEnd": 168,
-                        "refactoringType": "MyMoveMethodRefactoring",
-                        "refactoringInfo": "Move method forceRescale to class Context",
-                        "description": "Move method forceRescale to org.apache.flink.runtime.scheduler.adaptive.Executing.Context\nRationale: The method forceRescale() interacts directly with the context to determine if rescaling is necessary and initiates a restart process, making it more appropriate for the Context class.",
+                        "description": "Move method stopWithSavepoint to org.apache.flink.runtime.scheduler.adaptive.Executing.Context\nRationale: The method stopWithSavepoint interacts with the execution context and manages the state transitions related to stopping with a savepoint, making it more appropriate to reside within the Context class.",
                         "couldCreateRefObject": true,
                         "applied": false,
                         "undone": false
@@ -6393,6 +6455,16 @@
                         "undone": false
                     },
                     {
+                        "lineStart": 153,
+                        "lineEnd": 168,
+                        "refactoringType": "MyMoveMethodRefactoring",
+                        "refactoringInfo": "Move method forceRescale to class Context",
+                        "description": "Move method forceRescale to org.apache.flink.runtime.scheduler.adaptive.Executing.Context\nRationale: The forceRescale() method interacts directly with the context to determine if rescaling is necessary and initiates a restart process, making it more appropriate for the Context class, which likely manages the state and behavior of the execution environment.",
+                        "couldCreateRefObject": true,
+                        "applied": false,
+                        "undone": false
+                    },
+                    {
                         "lineStart": 206,
                         "lineEnd": 214,
                         "refactoringType": "MyMoveMethodRefactoring",
@@ -6403,21 +6475,11 @@
                         "undone": false
                     },
                     {
-                        "lineStart": 202,
-                        "lineEnd": 204,
+                        "lineStart": 139,
+                        "lineEnd": 141,
                         "refactoringType": "MyMoveMethodRefactoring",
-                        "refactoringInfo": "Move method timeSinceLastRescale to class Context",
-                        "description": "Move method timeSinceLastRescale to org.apache.flink.runtime.scheduler.adaptive.Executing.Context\nRationale: The method timeSinceLastRescale() likely relates to the state or timing of a process within the Context class, making it more appropriate to handle timing-related calculations there.",
-                        "couldCreateRefObject": true,
-                        "applied": false,
-                        "undone": false
-                    },
-                    {
-                        "lineStart": 216,
-                        "lineEnd": 218,
-                        "refactoringType": "MyMoveMethodRefactoring",
-                        "refactoringInfo": "Move method scheduleOperation to class Context",
-                        "description": "Move method scheduleOperation to org.apache.flink.runtime.scheduler.adaptive.Executing.Context\nRationale: The scheduleOperation() method interacts directly with the context to run operations based on its state, making it more appropriate for the Context class, which likely manages the state and operations.",
+                        "refactoringInfo": "Move method handleDeploymentFailure to class ExecutionVertex",
+                        "description": "Move method handleDeploymentFailure to org.apache.flink.runtime.executiongraph.ExecutionVertex\nRationale: The method handleDeploymentFailure directly interacts with the ExecutionVertex instance by calling markFailed, indicating that it is closely related to the state and behavior of ExecutionVertex.",
                         "couldCreateRefObject": true,
                         "applied": false,
                         "undone": false
@@ -6438,28 +6500,28 @@
                             "method_name": "handleDeploymentFailure",
                             "method_signature": "private void handleDeploymentFailure(ExecutionVertex executionVertex, JobException e)",
                             "target_class": "ExecutionVertex",
-                            "rationale": "The handleDeploymentFailure method deals specifically with the failure of an execution vertex, which is a responsibility that should belong to the ExecutionVertex class."
+                            "rationale": "The handleDeploymentFailure method deals specifically with the failure of an execution vertex, making it more appropriate to be part of the ExecutionVertex class."
                         },
                         {
                             "method_name": "forceRescale",
                             "method_signature": "private void forceRescale()",
                             "target_class": "ResourceManager",
-                            "rationale": "The forceRescale method is related to resource management and scaling decisions, which would be more appropriately handled by a ResourceManager class."
+                            "rationale": "The forceRescale method is related to resource management and scaling decisions, which would be better suited in a ResourceManager class that handles resource allocation and scaling."
                         },
                         {
                             "method_name": "maybeRescale",
                             "method_signature": "private void maybeRescale()",
                             "target_class": "ResourceManager",
-                            "rationale": "The maybeRescale method is also related to resource scaling decisions and should be moved to a ResourceManager class to separate concerns."
+                            "rationale": "The maybeRescale method also pertains to resource scaling logic, and moving it to a ResourceManager class would improve separation of concerns."
                         },
                         {
-                            "method_name": "timeSinceLastRescale",
-                            "method_signature": "private Duration timeSinceLastRescale()",
-                            "target_class": "RescaleTracker",
-                            "rationale": "The timeSinceLastRescale method is focused on tracking rescale timing, which could be better encapsulated in a dedicated RescaleTracker class."
+                            "method_name": "rescaleWhenCooldownPeriodIsOver",
+                            "method_signature": "private void rescaleWhenCooldownPeriodIsOver()",
+                            "target_class": "ResourceManager",
+                            "rationale": "Similar to the other scaling methods, rescaleWhenCooldownPeriodIsOver is focused on resource management and should be part of a dedicated ResourceManager class."
                         }
                     ],
-                    "llm_response_time": 6461
+                    "llm_response_time": 9473
                 },
                 {
                     "iteration_num": 2,
@@ -6467,35 +6529,29 @@
                         {
                             "method_name": "stopWithSavepoint",
                             "method_signature": "CompletableFuture<String> stopWithSavepoint(@Nullable final String targetDirectory, boolean terminate, SavepointFormatType formatType)",
-                            "target_class": "CheckpointCoordinator",
-                            "rationale": "The stopWithSavepoint method is primarily concerned with checkpointing logic, which is more aligned with the responsibilities of a CheckpointCoordinator class. Moving it there would adhere to the Single Responsibility Principle."
+                            "target_class": "CheckpointSchedulingProvider",
+                            "rationale": "The stopWithSavepoint method is responsible for managing savepoint actions, which is more aligned with the responsibilities of a CheckpointSchedulingProvider. Moving it there would adhere to the Single Responsibility Principle."
                         },
                         {
                             "method_name": "handleDeploymentFailure",
                             "method_signature": "private void handleDeploymentFailure(ExecutionVertex executionVertex, JobException e)",
                             "target_class": "ExecutionVertex",
-                            "rationale": "The handleDeploymentFailure method deals specifically with the failure of an ExecutionVertex. It would be more appropriate for this logic to reside within the ExecutionVertex class, which can encapsulate its own failure handling."
+                            "rationale": "The handleDeploymentFailure method directly interacts with the ExecutionVertex to mark it as failed. This logic is more appropriate within the ExecutionVertex class, which should manage its own state."
                         },
                         {
                             "method_name": "forceRescale",
                             "method_signature": "private void forceRescale()",
                             "target_class": "ResourceManager",
-                            "rationale": "The forceRescale method is related to resource management and scaling decisions, which should be handled by a dedicated ResourceManager class. This would help separate concerns and improve maintainability."
+                            "rationale": "The forceRescale method deals with resource management and scaling decisions, which is typically the responsibility of a ResourceManager class. Moving it there would improve the separation of concerns."
                         },
                         {
                             "method_name": "maybeRescale",
                             "method_signature": "private void maybeRescale()",
                             "target_class": "ResourceManager",
-                            "rationale": "The maybeRescale method is also related to resource scaling logic. Moving it to a ResourceManager class would centralize scaling logic and improve the clarity of the Executing class."
-                        },
-                        {
-                            "method_name": "rescaleWhenCooldownPeriodIsOver",
-                            "method_signature": "private void rescaleWhenCooldownPeriodIsOver()",
-                            "target_class": "ResourceManager",
-                            "rationale": "Similar to the previous methods, rescaleWhenCooldownPeriodIsOver is focused on resource scaling. It should be moved to a ResourceManager class to better encapsulate resource-related operations."
+                            "rationale": "The maybeRescale method is also related to resource management and scaling logic, which should be encapsulated within a ResourceManager class to enhance clarity and maintainability."
                         }
                     ],
-                    "llm_response_time": 5783
+                    "llm_response_time": 6115
                 },
                 {
                     "iteration_num": 3,
@@ -6504,34 +6560,34 @@
                             "method_name": "stopWithSavepoint",
                             "method_signature": "CompletableFuture<String> stopWithSavepoint(@Nullable final String targetDirectory, boolean terminate, SavepointFormatType formatType)",
                             "target_class": "CheckpointCoordinator",
-                            "rationale": "The stopWithSavepoint method is primarily concerned with checkpointing logic, which is more aligned with the responsibilities of a CheckpointCoordinator class. Moving it there would adhere to the Single Responsibility Principle."
+                            "rationale": "The stopWithSavepoint method is primarily concerned with checkpointing and savepoint management, which aligns more closely with the responsibilities of a CheckpointCoordinator class."
                         },
                         {
                             "method_name": "handleDeploymentFailure",
                             "method_signature": "private void handleDeploymentFailure(ExecutionVertex executionVertex, JobException e)",
                             "target_class": "ExecutionVertex",
-                            "rationale": "The handleDeploymentFailure method deals specifically with the failure of an execution vertex, which is a responsibility that should belong to the ExecutionVertex class."
+                            "rationale": "The handleDeploymentFailure method deals specifically with the failure of an ExecutionVertex, making it more appropriate to be part of the ExecutionVertex class."
                         },
                         {
                             "method_name": "forceRescale",
                             "method_signature": "private void forceRescale()",
                             "target_class": "ResourceManager",
-                            "rationale": "The forceRescale method is related to resource management and scaling decisions, which would be more appropriately handled by a ResourceManager class."
+                            "rationale": "The forceRescale method is related to resource management and scaling decisions, which would be better suited in a ResourceManager class that handles resource allocation and scaling."
                         },
                         {
                             "method_name": "maybeRescale",
                             "method_signature": "private void maybeRescale()",
                             "target_class": "ResourceManager",
-                            "rationale": "The maybeRescale method is also related to resource scaling logic, and moving it to a ResourceManager class would help separate concerns related to resource management."
+                            "rationale": "The maybeRescale method is also related to resource scaling decisions and should be moved to a ResourceManager class that encapsulates scaling logic."
                         },
                         {
-                            "method_name": "scheduleOperation",
-                            "method_signature": "private void scheduleOperation()",
-                            "target_class": "Scheduler",
-                            "rationale": "The scheduleOperation method is responsible for scheduling tasks, which is a core responsibility of a Scheduler class. Moving it there would improve code organization."
+                            "method_name": "rescaleWhenCooldownPeriodIsOver",
+                            "method_signature": "private void rescaleWhenCooldownPeriodIsOver()",
+                            "target_class": "ResourceManager",
+                            "rationale": "The rescaleWhenCooldownPeriodIsOver method is concerned with managing the cooldown period for rescaling, which fits better in a ResourceManager class."
                         }
                     ],
-                    "llm_response_time": 7035
+                    "llm_response_time": 5576
                 },
                 {
                     "iteration_num": -1,
@@ -6546,37 +6602,25 @@
                             "method_name": "handleDeploymentFailure",
                             "method_signature": "private void handleDeploymentFailure(ExecutionVertex executionVertex, JobException e)",
                             "target_class": "ExecutionVertex",
-                            "rationale": "The handleDeploymentFailure method deals specifically with the failure of an execution vertex, which is a responsibility that should belong to the ExecutionVertex class."
+                            "rationale": "The handleDeploymentFailure method deals specifically with the failure of an execution vertex, making it more appropriate to be part of the ExecutionVertex class."
                         },
                         {
                             "method_name": "forceRescale",
                             "method_signature": "private void forceRescale()",
                             "target_class": "ResourceManager",
-                            "rationale": "The forceRescale method is related to resource management and scaling decisions, which would be more appropriately handled by a ResourceManager class."
+                            "rationale": "The forceRescale method is related to resource management and scaling decisions, which would be better suited in a ResourceManager class that handles resource allocation and scaling."
                         },
                         {
                             "method_name": "maybeRescale",
                             "method_signature": "private void maybeRescale()",
                             "target_class": "ResourceManager",
-                            "rationale": "The maybeRescale method is also related to resource scaling decisions and should be moved to a ResourceManager class to separate concerns."
-                        },
-                        {
-                            "method_name": "timeSinceLastRescale",
-                            "method_signature": "private Duration timeSinceLastRescale()",
-                            "target_class": "RescaleTracker",
-                            "rationale": "The timeSinceLastRescale method is focused on tracking rescale timing, which could be better encapsulated in a dedicated RescaleTracker class."
+                            "rationale": "The maybeRescale method also pertains to resource scaling logic, and moving it to a ResourceManager class would improve separation of concerns."
                         },
                         {
                             "method_name": "rescaleWhenCooldownPeriodIsOver",
                             "method_signature": "private void rescaleWhenCooldownPeriodIsOver()",
                             "target_class": "ResourceManager",
-                            "rationale": "Similar to the previous methods, rescaleWhenCooldownPeriodIsOver is focused on resource scaling. It should be moved to a ResourceManager class to better encapsulate resource-related operations."
-                        },
-                        {
-                            "method_name": "scheduleOperation",
-                            "method_signature": "private void scheduleOperation()",
-                            "target_class": "Scheduler",
-                            "rationale": "The scheduleOperation method is responsible for scheduling tasks, which is a core responsibility of a Scheduler class. Moving it there would improve code organization."
+                            "rationale": "Similar to the other scaling methods, rescaleWhenCooldownPeriodIsOver is focused on resource management and should be part of a dedicated ResourceManager class."
                         }
                     ],
                     "llm_response_time": 0
@@ -6585,14 +6629,12 @@
             "llmMethodPriority": {
                 "priority_method_names": [
                     "stopWithSavepoint",
-                    "handleDeploymentFailure",
-                    "forceRescale",
                     "maybeRescale",
+                    "forceRescale",
                     "rescaleWhenCooldownPeriodIsOver",
-                    "timeSinceLastRescale",
-                    "scheduleOperation"
+                    "handleDeploymentFailure"
                 ],
-                "llm_response_time": 1143
+                "llm_response_time": 1609
             },
             "targetClassMap": {
                 "stopWithSavepoint": {
@@ -6605,8 +6647,50 @@
                     "target_classes_sorted_by_llm": [
                         "Context"
                     ],
-                    "llm_response_time": 1149,
+                    "llm_response_time": 998,
                     "similarity_computation_time": 1,
+                    "similarity_metric": "cosine"
+                },
+                "maybeRescale": {
+                    "target_classes": [
+                        {
+                            "class_name": "Context",
+                            "similarity_score": 0.5049253156878059
+                        }
+                    ],
+                    "target_classes_sorted_by_llm": [
+                        "Context"
+                    ],
+                    "llm_response_time": 1485,
+                    "similarity_computation_time": 0,
+                    "similarity_metric": "cosine"
+                },
+                "forceRescale": {
+                    "target_classes": [
+                        {
+                            "class_name": "Context",
+                            "similarity_score": 0.24697177918005664
+                        }
+                    ],
+                    "target_classes_sorted_by_llm": [
+                        "Context"
+                    ],
+                    "llm_response_time": 1196,
+                    "similarity_computation_time": 0,
+                    "similarity_metric": "cosine"
+                },
+                "rescaleWhenCooldownPeriodIsOver": {
+                    "target_classes": [
+                        {
+                            "class_name": "Context",
+                            "similarity_score": 0.15413218701427758
+                        }
+                    ],
+                    "target_classes_sorted_by_llm": [
+                        "Context"
+                    ],
+                    "llm_response_time": 1268,
+                    "similarity_computation_time": 0,
                     "similarity_metric": "cosine"
                 },
                 "handleDeploymentFailure": {
@@ -6629,78 +6713,8 @@
                         "JobException",
                         "Context"
                     ],
-                    "llm_response_time": 1832,
-                    "similarity_computation_time": 4,
-                    "similarity_metric": "cosine"
-                },
-                "forceRescale": {
-                    "target_classes": [
-                        {
-                            "class_name": "Context",
-                            "similarity_score": 0.24697177918005664
-                        }
-                    ],
-                    "target_classes_sorted_by_llm": [
-                        "Context"
-                    ],
-                    "llm_response_time": 828,
-                    "similarity_computation_time": 1,
-                    "similarity_metric": "cosine"
-                },
-                "maybeRescale": {
-                    "target_classes": [
-                        {
-                            "class_name": "Context",
-                            "similarity_score": 0.5049253156878059
-                        }
-                    ],
-                    "target_classes_sorted_by_llm": [
-                        "Context"
-                    ],
-                    "llm_response_time": 1868,
-                    "similarity_computation_time": 1,
-                    "similarity_metric": "cosine"
-                },
-                "rescaleWhenCooldownPeriodIsOver": {
-                    "target_classes": [
-                        {
-                            "class_name": "Context",
-                            "similarity_score": 0.15413218701427758
-                        }
-                    ],
-                    "target_classes_sorted_by_llm": [
-                        "Context"
-                    ],
-                    "llm_response_time": 992,
-                    "similarity_computation_time": 0,
-                    "similarity_metric": "cosine"
-                },
-                "timeSinceLastRescale": {
-                    "target_classes": [
-                        {
-                            "class_name": "Context",
-                            "similarity_score": 0.03531612070110083
-                        }
-                    ],
-                    "target_classes_sorted_by_llm": [
-                        "Context"
-                    ],
-                    "llm_response_time": 1210,
-                    "similarity_computation_time": 1,
-                    "similarity_metric": "cosine"
-                },
-                "scheduleOperation": {
-                    "target_classes": [
-                        {
-                            "class_name": "Context",
-                            "similarity_score": 0.02354408046740055
-                        }
-                    ],
-                    "target_classes_sorted_by_llm": [
-                        "Context"
-                    ],
-                    "llm_response_time": 923,
-                    "similarity_computation_time": 1,
+                    "llm_response_time": 2015,
+                    "similarity_computation_time": 7,
                     "similarity_metric": "cosine"
                 }
             }

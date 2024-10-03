@@ -79,7 +79,7 @@
             "newBranchName": "extract-selectOne-getCustomerPoolConfig-63db275"
         },
         "telemetry": {
-            "id": "cf6fddbf-8338-41b4-af22-665ddefa58c3",
+            "id": "0a4f6b24-0348-4014-b2fe-d70396b2e63d",
             "hostFunctionTelemetryData": {
                 "hostFunctionSize": 54,
                 "lineStart": 18,
@@ -97,7 +97,7 @@
                         "lineEnd": 42,
                         "refactoringType": "MyMoveMethodRefactoring",
                         "refactoringInfo": "Move method selectOne to class CrmCustomerPoolConfigMapper",
-                        "description": "Move method selectOne to cn.iocoder.yudao.module.crm.dal.mysql.customer.CrmCustomerPoolConfigMapper\nRationale: The selectOne() method is directly interacting with the customerPoolConfigMapper to retrieve a single configuration, making it more appropriate for the CrmCustomerPoolConfigMapper class, which is responsible for data access operations.",
+                        "description": "Move method selectOne to cn.iocoder.yudao.module.crm.dal.mysql.customer.CrmCustomerPoolConfigMapper\nRationale: The selectOne() method is directly interacting with the customerPoolConfigMapper to retrieve a single configuration object, making it more appropriate for the data access layer represented by CrmCustomerPoolConfigMapper.",
                         "couldCreateRefObject": true,
                         "applied": false,
                         "undone": false
@@ -112,22 +112,28 @@
                             "method_name": "selectOne",
                             "method_signature": "private CrmCustomerPoolConfigDO selectOne()",
                             "target_class": "CrmCustomerPoolConfigMapper",
-                            "rationale": "The selectOne() method is primarily responsible for querying the database and should be part of the mapper class to adhere to the single responsibility principle."
+                            "rationale": "The selectOne() method is primarily responsible for querying the database, which aligns more closely with the responsibilities of the CrmCustomerPoolConfigMapper class. Moving it there would adhere to the Single Responsibility Principle."
                         }
                     ],
-                    "llm_response_time": 2056
+                    "llm_response_time": 1949
                 },
                 {
                     "iteration_num": 2,
                     "suggested_move_methods": [
                         {
+                            "method_name": "getCustomerPoolConfig",
+                            "method_signature": "public CrmCustomerPoolConfigDO getCustomerPoolConfig()",
+                            "target_class": "CrmCustomerPoolConfigMapper",
+                            "rationale": "The method getCustomerPoolConfig() is primarily responsible for retrieving configuration data, which is a direct responsibility of the mapper. Moving it to CrmCustomerPoolConfigMapper would align the method with the data access layer."
+                        },
+                        {
                             "method_name": "selectOne",
                             "method_signature": "private CrmCustomerPoolConfigDO selectOne()",
                             "target_class": "CrmCustomerPoolConfigMapper",
-                            "rationale": "The selectOne() method is primarily responsible for querying the database and should be part of the mapper class to adhere to the single responsibility principle."
+                            "rationale": "The selectOne() method is a data access operation that directly interacts with the mapper. It should be moved to CrmCustomerPoolConfigMapper to encapsulate data retrieval logic within the mapper class."
                         }
                     ],
-                    "llm_response_time": 1185
+                    "llm_response_time": 3511
                 },
                 {
                     "iteration_num": 3,
@@ -136,10 +142,10 @@
                             "method_name": "selectOne",
                             "method_signature": "private CrmCustomerPoolConfigDO selectOne()",
                             "target_class": "CrmCustomerPoolConfigMapper",
-                            "rationale": "The selectOne() method is primarily responsible for querying the database and should be part of the mapper class to adhere to the single responsibility principle."
+                            "rationale": "The selectOne() method is directly interacting with the customerPoolConfigMapper to retrieve data. It would be more appropriate for this method to reside in the CrmCustomerPoolConfigMapper class, as it encapsulates the data access logic."
                         }
                     ],
-                    "llm_response_time": 1031
+                    "llm_response_time": 1966
                 },
                 {
                     "iteration_num": -1,
@@ -148,7 +154,13 @@
                             "method_name": "selectOne",
                             "method_signature": "private CrmCustomerPoolConfigDO selectOne()",
                             "target_class": "CrmCustomerPoolConfigMapper",
-                            "rationale": "The selectOne() method is primarily responsible for querying the database and should be part of the mapper class to adhere to the single responsibility principle."
+                            "rationale": "The selectOne() method is primarily responsible for querying the database, which aligns more closely with the responsibilities of the CrmCustomerPoolConfigMapper class. Moving it there would adhere to the Single Responsibility Principle."
+                        },
+                        {
+                            "method_name": "getCustomerPoolConfig",
+                            "method_signature": "public CrmCustomerPoolConfigDO getCustomerPoolConfig()",
+                            "target_class": "CrmCustomerPoolConfigMapper",
+                            "rationale": "The method getCustomerPoolConfig() is primarily responsible for retrieving configuration data, which is a direct responsibility of the mapper. Moving it to CrmCustomerPoolConfigMapper would align the method with the data access layer."
                         }
                     ],
                     "llm_response_time": 0
@@ -156,9 +168,10 @@
             ],
             "llmMethodPriority": {
                 "priority_method_names": [
-                    "selectOne"
+                    "selectOne",
+                    "getCustomerPoolConfig"
                 ],
-                "llm_response_time": 492
+                "llm_response_time": 831
             },
             "targetClassMap": {
                 "selectOne": {
@@ -171,8 +184,15 @@
                     "target_classes_sorted_by_llm": [
                         "CrmCustomerPoolConfigMapper"
                     ],
-                    "llm_response_time": 2166,
+                    "llm_response_time": 1718,
                     "similarity_computation_time": 2,
+                    "similarity_metric": "cosine"
+                },
+                "getCustomerPoolConfig": {
+                    "target_classes": [],
+                    "target_classes_sorted_by_llm": [],
+                    "llm_response_time": 3568,
+                    "similarity_computation_time": 0,
                     "similarity_metric": "cosine"
                 }
             }
@@ -318,7 +338,7 @@
             "newBranchName": "extract-selectByUserIdAndSpuId-createBrowseHistory-bbee720"
         },
         "telemetry": {
-            "id": "d17b77bb-2c3a-4c82-b342-d7f04f0e9e9c",
+            "id": "49c1e635-01c1-48e8-af9c-06ebba4a9bd8",
             "hostFunctionTelemetryData": {
                 "hostFunctionSize": 61,
                 "lineStart": 15,
@@ -335,7 +355,7 @@
             "processingTime": {
                 "llmResponseTime": -1,
                 "pluginProcessingTime": -1,
-                "totalTime": 11488
+                "totalTime": 14703
             },
             "iterationData": [
                 {
@@ -351,10 +371,10 @@
                             "method_name": "selectByUserIdAndSpuId",
                             "method_signature": "private ProductBrowseHistoryDO selectByUserIdAndSpuId(Long userId, Long spuId)",
                             "target_class": "ProductBrowseHistoryRepository",
-                            "rationale": "The selectByUserIdAndSpuId method is primarily concerned with data retrieval, which aligns more closely with the responsibilities of a repository class."
+                            "rationale": "The selectByUserIdAndSpuId method is primarily concerned with data retrieval, which aligns more closely with repository responsibilities. Moving it to a repository class would adhere to the single responsibility principle."
                         }
                     ],
-                    "llm_response_time": 2264
+                    "llm_response_time": 3167
                 },
                 {
                     "iteration_num": 2,
@@ -369,10 +389,10 @@
                             "method_name": "selectByUserIdAndSpuId",
                             "method_signature": "private ProductBrowseHistoryDO selectByUserIdAndSpuId(Long userId, Long spuId)",
                             "target_class": "ProductBrowseHistoryRepository",
-                            "rationale": "The selectByUserIdAndSpuId method is primarily concerned with data retrieval, which aligns more closely with repository responsibilities. Moving it to a repository class would adhere to the single responsibility principle."
+                            "rationale": "The selectByUserIdAndSpuId method is primarily concerned with data retrieval, which aligns more closely with the responsibilities of a repository class that handles data access logic."
                         }
                     ],
-                    "llm_response_time": 2355
+                    "llm_response_time": 3052
                 },
                 {
                     "iteration_num": 3,
@@ -387,10 +407,10 @@
                             "method_name": "selectByUserIdAndSpuId",
                             "method_signature": "private ProductBrowseHistoryDO selectByUserIdAndSpuId(Long userId, Long spuId)",
                             "target_class": "ProductBrowseHistoryRepository",
-                            "rationale": "The selectByUserIdAndSpuId method is primarily concerned with data retrieval, which aligns more closely with repository responsibilities. Moving it to a repository class would adhere to the single responsibility principle."
+                            "rationale": "The selectByUserIdAndSpuId method is primarily concerned with data retrieval, which aligns more closely with the responsibilities of a repository class."
                         }
                     ],
-                    "llm_response_time": 2557
+                    "llm_response_time": 3195
                 },
                 {
                     "iteration_num": -1,
@@ -405,7 +425,7 @@
                             "method_name": "selectByUserIdAndSpuId",
                             "method_signature": "private ProductBrowseHistoryDO selectByUserIdAndSpuId(Long userId, Long spuId)",
                             "target_class": "ProductBrowseHistoryRepository",
-                            "rationale": "The selectByUserIdAndSpuId method is primarily concerned with data retrieval, which aligns more closely with the responsibilities of a repository class."
+                            "rationale": "The selectByUserIdAndSpuId method is primarily concerned with data retrieval, which aligns more closely with repository responsibilities. Moving it to a repository class would adhere to the single responsibility principle."
                         }
                     ],
                     "llm_response_time": 0
@@ -416,20 +436,20 @@
                     "selectByUserIdAndSpuId",
                     "createBrowseHistory"
                 ],
-                "llm_response_time": 744
+                "llm_response_time": 570
             },
             "targetClassMap": {
                 "selectByUserIdAndSpuId": {
                     "target_classes": [],
                     "target_classes_sorted_by_llm": [],
-                    "llm_response_time": 1584,
+                    "llm_response_time": 2488,
                     "similarity_computation_time": 0,
                     "similarity_metric": "cosine"
                 },
                 "createBrowseHistory": {
                     "target_classes": [],
                     "target_classes_sorted_by_llm": [],
-                    "llm_response_time": 1824,
+                    "llm_response_time": 2094,
                     "similarity_computation_time": 0,
                     "similarity_metric": "cosine"
                 }
@@ -526,7 +546,7 @@
             "newBranchName": "extract-selectByIdAndName-validateBusinessStatusTypeExists-ed34b18"
         },
         "telemetry": {
-            "id": "86cb85a0-98a0-4203-ba12-e34851a6e92e",
+            "id": "c8e4352e-05ad-4201-aa60-cc84a464d513",
             "hostFunctionTelemetryData": {
                 "hostFunctionSize": 105,
                 "lineStart": 29,
@@ -568,7 +588,7 @@
                             "rationale": "Similar to the previous method, this validation logic is also a separate concern and should be moved to a dedicated validator class to improve code organization and maintainability."
                         }
                     ],
-                    "llm_response_time": 2770
+                    "llm_response_time": 3447
                 },
                 {
                     "iteration_num": 2,
@@ -577,16 +597,16 @@
                             "method_name": "validateBusinessStatusTypeExists",
                             "method_signature": "private void validateBusinessStatusTypeExists(Long id)",
                             "target_class": "CrmBusinessStatusTypeValidator",
-                            "rationale": "The validation logic for checking if a business status type exists is a separate concern and should be moved to a dedicated validator class to adhere to the Single Responsibility Principle."
+                            "rationale": "The method validateBusinessStatusTypeExists is responsible for checking the existence of a business status type, which is a validation concern. Moving it to a dedicated validator class will separate validation logic from service logic, adhering to the Single Responsibility Principle."
                         },
                         {
                             "method_name": "validateBusinessStatusTypeExists",
                             "method_signature": "private void validateBusinessStatusTypeExists(String name, Long id)",
                             "target_class": "CrmBusinessStatusTypeValidator",
-                            "rationale": "Similar to the previous method, this validation logic is also a separate concern and should be moved to a dedicated validator class to improve code organization and maintainability."
+                            "rationale": "Similar to the previous method, this method also deals with validation. Moving it to a dedicated validator class will help maintain a clean separation of concerns and improve the maintainability of the code."
                         }
                     ],
-                    "llm_response_time": 3143
+                    "llm_response_time": 3532
                 },
                 {
                     "iteration_num": 3,
@@ -604,7 +624,7 @@
                             "rationale": "Similar to the previous method, this validation logic is also a separate concern and should be moved to a dedicated validator class to improve code organization and maintainability."
                         }
                     ],
-                    "llm_response_time": 2115
+                    "llm_response_time": 2873
                 },
                 {
                     "iteration_num": -1,
@@ -623,7 +643,7 @@
                 "priority_method_names": [
                     "validateBusinessStatusTypeExists"
                 ],
-                "llm_response_time": 741
+                "llm_response_time": 586
             },
             "targetClassMap": {
                 "validateBusinessStatusTypeExists": {
@@ -641,8 +661,8 @@
                         "CrmBusinessStatusTypeMapper",
                         "CrmBusinessStatusMapper"
                     ],
-                    "llm_response_time": 1590,
-                    "similarity_computation_time": 2,
+                    "llm_response_time": 1643,
+                    "similarity_computation_time": 1,
                     "similarity_metric": "cosine"
                 }
             }
@@ -868,7 +888,7 @@
             "newBranchName": "extract-selectCountByCategoryId-getProductByCategoryId-7dd35f3"
         },
         "telemetry": {
-            "id": "688f00e7-dcab-44e4-af4b-f8f77e284fb6",
+            "id": "8644d3f6-624b-4ab7-a4fc-300e756c3d2e",
             "hostFunctionTelemetryData": {
                 "hostFunctionSize": 135,
                 "lineStart": 36,
@@ -886,7 +906,7 @@
                         "lineEnd": 104,
                         "refactoringType": "MyMoveMethodRefactoring",
                         "refactoringInfo": "Move method validateProductExists to class CrmProductMapper",
-                        "description": "Move method validateProductExists to cn.iocoder.yudao.module.crm.dal.mysql.product.CrmProductMapper\nRationale: The validateProductExists method directly interacts with the productMapper to check for the existence of a product by its ID, making it a logical fit for the CrmProductMapper class.",
+                        "description": "Move method validateProductExists to cn.iocoder.yudao.module.crm.dal.mysql.product.CrmProductMapper\nRationale: The validateProductExists method directly interacts with the productMapper to check for the existence of a product by its ID, making it more appropriate for the CrmProductMapper class, which is responsible for data access related to products.",
                         "couldCreateRefObject": true,
                         "applied": false,
                         "undone": false
@@ -931,19 +951,49 @@
                             "method_name": "validateProductExists",
                             "method_signature": "private CrmProductDO validateProductExists(Long id)",
                             "target_class": "CrmProductValidator",
-                            "rationale": "This method is responsible for validating the existence of a product, which is a validation concern. Moving it to a dedicated validator class will separate validation logic from service logic."
+                            "rationale": "This method is responsible for validating the existence of a product, which is a validation concern. Moving it to a dedicated validator class will separate validation logic from service logic, adhering to the Single Responsibility Principle."
                         },
                         {
                             "method_name": "validateProductNoDuplicate",
                             "method_signature": "private void validateProductNoDuplicate(Long id, String no)",
                             "target_class": "CrmProductValidator",
-                            "rationale": "This method checks for duplicate product numbers, which is also a validation concern. It should be moved to a dedicated validator class to maintain separation of concerns."
+                            "rationale": "This method checks for duplicate product numbers, which is also a validation concern. It should be moved to a dedicated validator class to keep the service class focused on business logic."
                         },
                         {
                             "method_name": "validateProductCategoryExists",
                             "method_signature": "private void validateProductCategoryExists(Long categoryId)",
                             "target_class": "CrmProductValidator",
-                            "rationale": "This method validates the existence of a product category, which is a validation concern. Moving it to a dedicated validator class will help keep the service class focused on business logic."
+                            "rationale": "This method validates the existence of a product category, which is a validation concern. Moving it to a dedicated validator class will help maintain a clean separation of concerns."
+                        },
+                        {
+                            "method_name": "selectCountByCategoryId",
+                            "method_signature": "private CrmProductDO selectCountByCategoryId(Long categoryId)",
+                            "target_class": "CrmProductRepository",
+                            "rationale": "This method is primarily concerned with data retrieval based on category ID. Moving it to a repository class will align it with data access responsibilities, improving code organization."
+                        }
+                    ],
+                    "llm_response_time": 6221
+                },
+                {
+                    "iteration_num": 2,
+                    "suggested_move_methods": [
+                        {
+                            "method_name": "validateProductExists",
+                            "method_signature": "private CrmProductDO validateProductExists(Long id)",
+                            "target_class": "CrmProductValidator",
+                            "rationale": "This method is responsible for validating the existence of a product, which is a validation concern. Moving it to a dedicated validator class will separate validation logic from service logic, adhering to the Single Responsibility Principle."
+                        },
+                        {
+                            "method_name": "validateProductNoDuplicate",
+                            "method_signature": "private void validateProductNoDuplicate(Long id, String no)",
+                            "target_class": "CrmProductValidator",
+                            "rationale": "This method checks for duplicate product numbers, which is also a validation concern. Moving it to a dedicated validator class will help keep the service class focused on business logic."
+                        },
+                        {
+                            "method_name": "validateProductCategoryExists",
+                            "method_signature": "private void validateProductCategoryExists(Long categoryId)",
+                            "target_class": "CrmProductValidator",
+                            "rationale": "This method validates the existence of a product category, which is a validation concern. Moving it to a dedicated validator class will improve code organization and maintainability."
                         },
                         {
                             "method_name": "selectCountByCategoryId",
@@ -952,10 +1002,40 @@
                             "rationale": "This method is primarily concerned with data retrieval based on category ID. Moving it to a repository class will better align it with data access responsibilities."
                         }
                     ],
-                    "llm_response_time": 5514
+                    "llm_response_time": 5268
                 },
                 {
-                    "iteration_num": 2,
+                    "iteration_num": 3,
+                    "suggested_move_methods": [
+                        {
+                            "method_name": "validateProductExists",
+                            "method_signature": "private CrmProductDO validateProductExists(Long id)",
+                            "target_class": "CrmProductValidator",
+                            "rationale": "This method is responsible for validating the existence of a product, which is a validation concern. Moving it to a dedicated validator class will improve separation of concerns and make the code more maintainable."
+                        },
+                        {
+                            "method_name": "validateProductNoDuplicate",
+                            "method_signature": "private void validateProductNoDuplicate(Long id, String no)",
+                            "target_class": "CrmProductValidator",
+                            "rationale": "This method checks for duplicate product numbers, which is also a validation concern. It should be moved to a dedicated validator class to enhance code organization and clarity."
+                        },
+                        {
+                            "method_name": "validateProductCategoryExists",
+                            "method_signature": "private void validateProductCategoryExists(Long categoryId)",
+                            "target_class": "CrmProductCategoryValidator",
+                            "rationale": "This method validates the existence of a product category, which is a specific validation task. Moving it to a dedicated category validator class will improve the structure and maintainability of the code."
+                        },
+                        {
+                            "method_name": "selectCountByCategoryId",
+                            "method_signature": "private CrmProductDO selectCountByCategoryId(Long categoryId)",
+                            "target_class": "CrmProductRepository",
+                            "rationale": "This method is primarily concerned with data retrieval based on category ID. Moving it to a repository class will better align it with data access responsibilities."
+                        }
+                    ],
+                    "llm_response_time": 4998
+                },
+                {
+                    "iteration_num": -1,
                     "suggested_move_methods": [
                         {
                             "method_name": "validateProductExists",
@@ -973,73 +1053,13 @@
                             "method_name": "validateProductCategoryExists",
                             "method_signature": "private void validateProductCategoryExists(Long categoryId)",
                             "target_class": "CrmProductValidator",
-                            "rationale": "This method validates the existence of a product category, which is part of the validation logic. Moving it to a dedicated validator class will improve code organization and maintainability."
+                            "rationale": "This method validates the existence of a product category, which is a validation concern. Moving it to a dedicated validator class will help maintain a clean separation of concerns."
                         },
                         {
                             "method_name": "selectCountByCategoryId",
                             "method_signature": "private CrmProductDO selectCountByCategoryId(Long categoryId)",
                             "target_class": "CrmProductRepository",
-                            "rationale": "This method is primarily concerned with data retrieval based on category ID. Moving it to a repository class will better align it with data access responsibilities."
-                        }
-                    ],
-                    "llm_response_time": 4301
-                },
-                {
-                    "iteration_num": 3,
-                    "suggested_move_methods": [
-                        {
-                            "method_name": "validateProductExists",
-                            "method_signature": "private CrmProductDO validateProductExists(Long id)",
-                            "target_class": "CrmProductValidator",
-                            "rationale": "This method is responsible for validating the existence of a product, which is a validation concern. Moving it to a dedicated validator class will separate validation logic from service logic."
-                        },
-                        {
-                            "method_name": "validateProductNoDuplicate",
-                            "method_signature": "private void validateProductNoDuplicate(Long id, String no)",
-                            "target_class": "CrmProductValidator",
-                            "rationale": "This method checks for duplicate product numbers, which is also a validation concern. It should be moved to a dedicated validator class to maintain separation of concerns."
-                        },
-                        {
-                            "method_name": "validateProductCategoryExists",
-                            "method_signature": "private void validateProductCategoryExists(Long categoryId)",
-                            "target_class": "CrmProductValidator",
-                            "rationale": "This method validates the existence of a product category, which is a validation concern. Moving it to a dedicated validator class will help keep the service class focused on business logic."
-                        },
-                        {
-                            "method_name": "selectCountByCategoryId",
-                            "method_signature": "private CrmProductDO selectCountByCategoryId(Long categoryId)",
-                            "target_class": "CrmProductRepository",
-                            "rationale": "This method is primarily concerned with data retrieval based on category ID. Moving it to a repository class will better align it with data access responsibilities."
-                        }
-                    ],
-                    "llm_response_time": 3756
-                },
-                {
-                    "iteration_num": -1,
-                    "suggested_move_methods": [
-                        {
-                            "method_name": "validateProductExists",
-                            "method_signature": "private CrmProductDO validateProductExists(Long id)",
-                            "target_class": "CrmProductValidator",
-                            "rationale": "This method is responsible for validating the existence of a product, which is a validation concern. Moving it to a dedicated validator class will separate validation logic from service logic."
-                        },
-                        {
-                            "method_name": "validateProductNoDuplicate",
-                            "method_signature": "private void validateProductNoDuplicate(Long id, String no)",
-                            "target_class": "CrmProductValidator",
-                            "rationale": "This method checks for duplicate product numbers, which is also a validation concern. It should be moved to a dedicated validator class to maintain separation of concerns."
-                        },
-                        {
-                            "method_name": "validateProductCategoryExists",
-                            "method_signature": "private void validateProductCategoryExists(Long categoryId)",
-                            "target_class": "CrmProductValidator",
-                            "rationale": "This method validates the existence of a product category, which is a validation concern. Moving it to a dedicated validator class will help keep the service class focused on business logic."
-                        },
-                        {
-                            "method_name": "selectCountByCategoryId",
-                            "method_signature": "private CrmProductDO selectCountByCategoryId(Long categoryId)",
-                            "target_class": "CrmProductRepository",
-                            "rationale": "This method is primarily concerned with data retrieval based on category ID. Moving it to a repository class will better align it with data access responsibilities."
+                            "rationale": "This method is primarily concerned with data retrieval based on category ID. Moving it to a repository class will align it with data access responsibilities, improving code organization."
                         }
                     ],
                     "llm_response_time": 0
@@ -1052,7 +1072,7 @@
                     "validateProductCategoryExists",
                     "selectCountByCategoryId"
                 ],
-                "llm_response_time": 665
+                "llm_response_time": 892
             },
             "targetClassMap": {
                 "validateProductExists": {
@@ -1080,8 +1100,8 @@
                         "AdminUserApi",
                         "CrmPermissionService"
                     ],
-                    "llm_response_time": 2621,
-                    "similarity_computation_time": 2,
+                    "llm_response_time": 3291,
+                    "similarity_computation_time": 3,
                     "similarity_metric": "cosine"
                 },
                 "validateProductNoDuplicate": {
@@ -1109,7 +1129,7 @@
                         "AdminUserApi",
                         "CrmPermissionService"
                     ],
-                    "llm_response_time": 2807,
+                    "llm_response_time": 3187,
                     "similarity_computation_time": 1,
                     "similarity_metric": "cosine"
                 },
@@ -1138,7 +1158,7 @@
                         "AdminUserApi",
                         "CrmPermissionService"
                     ],
-                    "llm_response_time": 2214,
+                    "llm_response_time": 2227,
                     "similarity_computation_time": 1,
                     "similarity_metric": "cosine"
                 },
@@ -1167,8 +1187,8 @@
                         "AdminUserApi",
                         "CrmPermissionService"
                     ],
-                    "llm_response_time": 5970,
-                    "similarity_computation_time": 1,
+                    "llm_response_time": 7548,
+                    "similarity_computation_time": 2,
                     "similarity_metric": "cosine"
                 }
             }
@@ -1394,7 +1414,7 @@
             "newBranchName": "extract-getBusinessMap-buildContractDetailList-3f8fa6b"
         },
         "telemetry": {
-            "id": "6cbf9de2-7c53-4fe8-bf2c-7cee7de09e52",
+            "id": "5732ba62-23f5-4f0f-8f47-0cf851b98024",
             "hostFunctionTelemetryData": {
                 "hostFunctionSize": 176,
                 "lineStart": 54,
@@ -1412,7 +1432,7 @@
                         "lineEnd": 206,
                         "refactoringType": "MyMoveMethodRefactoring",
                         "refactoringInfo": "Move method buildContractDetailList to class CrmCustomerService",
-                        "description": "Move method buildContractDetailList to cn.iocoder.yudao.module.crm.service.customer.CrmCustomerService\nRationale: The method buildContractDetailList is primarily focused on constructing detailed contract results, which involves retrieving customer information and mapping it to contract data. This aligns closely with the responsibilities of the CrmCustomerService class.",
+                        "description": "Move method buildContractDetailList to cn.iocoder.yudao.module.crm.service.customer.CrmCustomerService\nRationale: The method buildContractDetailList is primarily focused on constructing detailed contract results, which involves retrieving customer information and mapping it to contract data. This aligns closely with the responsibilities of the CrmCustomerService, which should handle customer-related operations.",
                         "couldCreateRefObject": true,
                         "applied": false,
                         "undone": false
@@ -1453,16 +1473,16 @@
                             "method_name": "buildContractDetailList",
                             "method_signature": "private List<CrmContractRespVO> buildContractDetailList(List<CrmContractDO> contractList)",
                             "target_class": "CrmContractService",
-                            "rationale": "The method buildContractDetailList is responsible for transforming a list of contract data into a list of response objects, which is a service-level operation that should be handled by the CrmContractService."
+                            "rationale": "The method buildContractDetailList is responsible for transforming a list of contract data objects into response value objects, which is a service-level responsibility that should reside in the CrmContractService."
                         },
                         {
                             "method_name": "getBusinessMap",
                             "method_signature": "private Map<Long, CrmBusinessDO> getBusinessMap(List<CrmContractDO> contractList)",
                             "target_class": "CrmBusinessService",
-                            "rationale": "The method getBusinessMap retrieves business data related to contracts, which is more appropriately handled by the CrmBusinessService, as it deals with business entities."
+                            "rationale": "The method getBusinessMap is focused on retrieving business data related to contracts, which is a core responsibility of the CrmBusinessService."
                         }
                     ],
-                    "llm_response_time": 4758
+                    "llm_response_time": 4214
                 },
                 {
                     "iteration_num": 2,
@@ -1471,22 +1491,22 @@
                             "method_name": "buildContractDetail",
                             "method_signature": "private CrmContractRespVO buildContractDetail(CrmContractDO contract)",
                             "target_class": "CrmContractService",
-                            "rationale": "The method buildContractDetail is primarily concerned with constructing a detailed representation of a contract, which aligns more closely with the responsibilities of the CrmContractService class."
+                            "rationale": "The method buildContractDetail is responsible for constructing a detailed contract response, which is more aligned with the responsibilities of the CrmContractService class, as it deals with contract-related logic."
                         },
                         {
                             "method_name": "buildContractDetailList",
                             "method_signature": "private List<CrmContractRespVO> buildContractDetailList(List<CrmContractDO> contractList)",
                             "target_class": "CrmContractService",
-                            "rationale": "The method buildContractDetailList is responsible for transforming a list of contract data into a list of response objects, which is a service-level operation that should be handled by the CrmContractService."
+                            "rationale": "The method buildContractDetailList is focused on transforming a list of contract data into response objects, which fits better within the CrmContractService class that handles contract operations."
                         },
                         {
                             "method_name": "getBusinessMap",
                             "method_signature": "private Map<Long, CrmBusinessDO> getBusinessMap(List<CrmContractDO> contractList)",
                             "target_class": "CrmBusinessService",
-                            "rationale": "The method getBusinessMap retrieves business data related to contracts, which is more appropriately handled by the CrmBusinessService, as it deals with business entities."
+                            "rationale": "The method getBusinessMap retrieves business data related to contracts, which is a responsibility that should belong to the CrmBusinessService class, as it deals with business-related operations."
                         }
                     ],
-                    "llm_response_time": 4294
+                    "llm_response_time": 7055
                 },
                 {
                     "iteration_num": 3,
@@ -1495,22 +1515,22 @@
                             "method_name": "buildContractDetail",
                             "method_signature": "private CrmContractRespVO buildContractDetail(CrmContractDO contract)",
                             "target_class": "CrmContractService",
-                            "rationale": "The method buildContractDetail is responsible for constructing a detailed contract response, which is a service-level operation. It should be moved to CrmContractService to adhere to the single responsibility principle."
+                            "rationale": "The method buildContractDetail is responsible for constructing a detailed contract response, which is a service-level operation that should be encapsulated within the CrmContractService class."
                         },
                         {
                             "method_name": "buildContractDetailList",
                             "method_signature": "private List<CrmContractRespVO> buildContractDetailList(List<CrmContractDO> contractList)",
                             "target_class": "CrmContractService",
-                            "rationale": "Similar to buildContractDetail, this method is focused on transforming contract data into a response format, which aligns with the responsibilities of the CrmContractService."
+                            "rationale": "The method buildContractDetailList is also focused on transforming contract data into a response format, which aligns with the responsibilities of the CrmContractService class."
                         },
                         {
                             "method_name": "getBusinessMap",
                             "method_signature": "private Map<Long, CrmBusinessDO> getBusinessMap(List<CrmContractDO> contractList)",
                             "target_class": "CrmBusinessService",
-                            "rationale": "The getBusinessMap method retrieves business data related to contracts, which is a responsibility that fits better within the CrmBusinessService."
+                            "rationale": "The method getBusinessMap retrieves business data related to contracts, which is a responsibility that fits better within the CrmBusinessService class."
                         }
                     ],
-                    "llm_response_time": 3372
+                    "llm_response_time": 4901
                 },
                 {
                     "iteration_num": -1,
@@ -1525,13 +1545,13 @@
                             "method_name": "buildContractDetailList",
                             "method_signature": "private List<CrmContractRespVO> buildContractDetailList(List<CrmContractDO> contractList)",
                             "target_class": "CrmContractService",
-                            "rationale": "The method buildContractDetailList is responsible for transforming a list of contract data into a list of response objects, which is a service-level operation that should be handled by the CrmContractService."
+                            "rationale": "The method buildContractDetailList is responsible for transforming a list of contract data objects into response value objects, which is a service-level responsibility that should reside in the CrmContractService."
                         },
                         {
                             "method_name": "getBusinessMap",
                             "method_signature": "private Map<Long, CrmBusinessDO> getBusinessMap(List<CrmContractDO> contractList)",
                             "target_class": "CrmBusinessService",
-                            "rationale": "The method getBusinessMap retrieves business data related to contracts, which is more appropriately handled by the CrmBusinessService, as it deals with business entities."
+                            "rationale": "The method getBusinessMap is focused on retrieving business data related to contracts, which is a core responsibility of the CrmBusinessService."
                         }
                     ],
                     "llm_response_time": 0
@@ -1543,7 +1563,7 @@
                     "buildContractDetail",
                     "getBusinessMap"
                 ],
-                "llm_response_time": 730
+                "llm_response_time": 905
             },
             "targetClassMap": {
                 "buildContractDetailList": {
@@ -1584,8 +1604,8 @@
                         "DeptApi",
                         "CrmProductService"
                     ],
-                    "llm_response_time": 2860,
-                    "similarity_computation_time": 6,
+                    "llm_response_time": 3837,
+                    "similarity_computation_time": 8,
                     "similarity_metric": "cosine"
                 },
                 "buildContractDetail": {
@@ -1626,8 +1646,8 @@
                         "AdminUserApi",
                         "CrmContactService"
                     ],
-                    "llm_response_time": 2495,
-                    "similarity_computation_time": 2,
+                    "llm_response_time": 2575,
+                    "similarity_computation_time": 3,
                     "similarity_metric": "cosine"
                 },
                 "getBusinessMap": {
@@ -1668,7 +1688,7 @@
                         "DeptApi",
                         "AdminUserApi"
                     ],
-                    "llm_response_time": 2309,
+                    "llm_response_time": 4383,
                     "similarity_computation_time": 2,
                     "similarity_metric": "cosine"
                 }
@@ -1775,7 +1795,7 @@
             "newBranchName": "extract-getBusinessMap-getFollowUpRecordPage-3f8fa6b"
         },
         "telemetry": {
-            "id": "ae624da9-8344-4112-98ba-9610b0315fe8",
+            "id": "6ae0d0a5-10a1-4695-82e2-52cc7229c1f4",
             "hostFunctionTelemetryData": {
                 "hostFunctionSize": 64,
                 "lineStart": 34,
@@ -1808,10 +1828,10 @@
                             "method_name": "getBusinessMap",
                             "method_signature": "private Map<Long, CrmBusinessDO> getBusinessMap(PageResult<CrmFollowUpRecordDO> pageResult)",
                             "target_class": "CrmBusinessService",
-                            "rationale": "The getBusinessMap method is primarily concerned with retrieving business data based on follow-up records, which aligns more closely with the responsibilities of the CrmBusinessService class."
+                            "rationale": "The getBusinessMap method is primarily concerned with retrieving business data based on follow-up records. It would be more appropriate for this method to reside in the CrmBusinessService class, which is responsible for business-related operations."
                         }
                     ],
-                    "llm_response_time": 2137
+                    "llm_response_time": 2337
                 },
                 {
                     "iteration_num": 2,
@@ -1823,7 +1843,7 @@
                             "rationale": "The getBusinessMap method is primarily concerned with retrieving business data based on follow-up records, which aligns more closely with the responsibilities of the CrmBusinessService class."
                         }
                     ],
-                    "llm_response_time": 2544
+                    "llm_response_time": 2640
                 },
                 {
                     "iteration_num": 3,
@@ -1832,16 +1852,10 @@
                             "method_name": "getBusinessMap",
                             "method_signature": "private Map<Long, CrmBusinessDO> getBusinessMap(PageResult<CrmFollowUpRecordDO> pageResult)",
                             "target_class": "CrmBusinessService",
-                            "rationale": "The getBusinessMap method is primarily concerned with retrieving business data based on follow-up records. It would be more appropriate for this method to reside in the CrmBusinessService class, which is responsible for business-related operations."
-                        },
-                        {
-                            "method_name": "getContactList",
-                            "method_signature": "private Map<Long, CrmContactDO> getContactList(Set<Long> contactIds)",
-                            "target_class": "CrmContactService",
-                            "rationale": "The logic for retrieving contact information is closely related to the CrmContactService. Moving this method to CrmContactService would enhance cohesion and maintainability."
+                            "rationale": "The getBusinessMap method is primarily concerned with retrieving business data based on follow-up records. It would be more appropriate for this logic to reside within the CrmBusinessService class, which is responsible for business-related operations."
                         }
                     ],
-                    "llm_response_time": 2456
+                    "llm_response_time": 2694
                 },
                 {
                     "iteration_num": -1,
@@ -1850,13 +1864,7 @@
                             "method_name": "getBusinessMap",
                             "method_signature": "private Map<Long, CrmBusinessDO> getBusinessMap(PageResult<CrmFollowUpRecordDO> pageResult)",
                             "target_class": "CrmBusinessService",
-                            "rationale": "The getBusinessMap method is primarily concerned with retrieving business data based on follow-up records, which aligns more closely with the responsibilities of the CrmBusinessService class."
-                        },
-                        {
-                            "method_name": "getContactList",
-                            "method_signature": "private Map<Long, CrmContactDO> getContactList(Set<Long> contactIds)",
-                            "target_class": "CrmContactService",
-                            "rationale": "The logic for retrieving contact information is closely related to the CrmContactService. Moving this method to CrmContactService would enhance cohesion and maintainability."
+                            "rationale": "The getBusinessMap method is primarily concerned with retrieving business data based on follow-up records. It would be more appropriate for this method to reside in the CrmBusinessService class, which is responsible for business-related operations."
                         }
                     ],
                     "llm_response_time": 0
@@ -1864,10 +1872,9 @@
             ],
             "llmMethodPriority": {
                 "priority_method_names": [
-                    "getBusinessMap",
-                    "getContactList"
+                    "getBusinessMap"
                 ],
-                "llm_response_time": 529
+                "llm_response_time": 594
             },
             "targetClassMap": {
                 "getBusinessMap": {
@@ -1890,8 +1897,8 @@
                         "CrmFollowUpRecordService",
                         "CrmContactService"
                     ],
-                    "llm_response_time": 3509,
-                    "similarity_computation_time": 4,
+                    "llm_response_time": 2288,
+                    "similarity_computation_time": 3,
                     "similarity_metric": "cosine"
                 }
             }
@@ -2437,7 +2444,7 @@
             "newBranchName": "extract-validateAvailable-updateConversation-f86e24b"
         },
         "telemetry": {
-            "id": "905aace1-0237-4ec2-a49c-e3fb684c11bb",
+            "id": "8c9b7513-4d8e-47d7-be69-77d295c03fa3",
             "hostFunctionTelemetryData": {
                 "hostFunctionSize": 107,
                 "lineStart": 29,
@@ -2454,7 +2461,7 @@
             "processingTime": {
                 "llmResponseTime": -1,
                 "pluginProcessingTime": -1,
-                "totalTime": 18054
+                "totalTime": 28766
             },
             "iterationData": [
                 {
@@ -2475,11 +2482,11 @@
                         {
                             "method_name": "validateExists",
                             "method_signature": "private @NotNull AiChatConversationDO validateExists(Long id)",
-                            "target_class": "AiChatConversationService",
-                            "rationale": "The validateExists method is a validation utility that checks for the existence of a conversation. It could be moved to a dedicated validation class or utility within the AiChatConversationService to enhance code organization and reusability."
+                            "target_class": "AiChatConversationRepository",
+                            "rationale": "The validateExists method is primarily concerned with checking the existence of a conversation in the database. Moving it to a repository class (AiChatConversationRepository) would better encapsulate data access logic."
                         }
                     ],
-                    "llm_response_time": 3435
+                    "llm_response_time": 7399
                 },
                 {
                     "iteration_num": 2,
@@ -2494,16 +2501,16 @@
                             "method_name": "validateAvailable",
                             "method_signature": "private void validateAvailable(AiChatModalRes chatModal)",
                             "target_class": "AiChatModalService",
-                            "rationale": "The validateAvailable method checks the availability of a chat modal, which is closely related to the responsibilities of the AiChatModalService. Moving it there would improve cohesion and keep related logic together."
+                            "rationale": "The validateAvailable method checks the availability of a chat modal, which is closely related to the responsibilities of the AiChatModalService. Moving it there would improve cohesion and keep related validation logic together."
                         },
                         {
                             "method_name": "validateExists",
                             "method_signature": "private @NotNull AiChatConversationDO validateExists(Long id)",
-                            "target_class": "AiChatConversationService",
-                            "rationale": "The validateExists method is primarily concerned with checking the existence of a conversation. It could be moved to a dedicated validation class or service that handles all validation logic related to conversations, improving separation of concerns."
+                            "target_class": "AiChatConversationValidator",
+                            "rationale": "The validateExists method is focused on checking the existence of a conversation. Moving it to a dedicated validator class (AiChatConversationValidator) would enhance the separation of concerns and make the validation logic reusable."
                         }
                     ],
-                    "llm_response_time": 5028
+                    "llm_response_time": 5432
                 },
                 {
                     "iteration_num": 3,
@@ -2524,10 +2531,10 @@
                             "method_name": "validateExists",
                             "method_signature": "private @NotNull AiChatConversationDO validateExists(Long id)",
                             "target_class": "AiChatConversationValidator",
-                            "rationale": "The validateExists method is focused on validating the existence of a conversation. Moving it to a dedicated validator class (AiChatConversationValidator) would enhance code organization and maintainability."
+                            "rationale": "The validateExists method is responsible for checking the existence of a conversation. Moving it to a dedicated validator class (AiChatConversationValidator) would enhance the separation of concerns and make the code more maintainable."
                         }
                     ],
-                    "llm_response_time": 3654
+                    "llm_response_time": 6288
                 },
                 {
                     "iteration_num": -1,
@@ -2547,8 +2554,8 @@
                         {
                             "method_name": "validateExists",
                             "method_signature": "private @NotNull AiChatConversationDO validateExists(Long id)",
-                            "target_class": "AiChatConversationService",
-                            "rationale": "The validateExists method is a validation utility that checks for the existence of a conversation. It could be moved to a dedicated validation class or utility within the AiChatConversationService to enhance code organization and reusability."
+                            "target_class": "AiChatConversationRepository",
+                            "rationale": "The validateExists method is primarily concerned with checking the existence of a conversation in the database. Moving it to a repository class (AiChatConversationRepository) would better encapsulate data access logic."
                         }
                     ],
                     "llm_response_time": 0
@@ -2560,27 +2567,27 @@
                     "validateAvailable",
                     "saveConversation"
                 ],
-                "llm_response_time": 955
+                "llm_response_time": 1152
             },
             "targetClassMap": {
                 "validateExists": {
                     "target_classes": [],
                     "target_classes_sorted_by_llm": [],
-                    "llm_response_time": 1779,
+                    "llm_response_time": 2992,
                     "similarity_computation_time": 0,
                     "similarity_metric": "cosine"
                 },
                 "validateAvailable": {
                     "target_classes": [],
                     "target_classes_sorted_by_llm": [],
-                    "llm_response_time": 1680,
+                    "llm_response_time": 2449,
                     "similarity_computation_time": 0,
                     "similarity_metric": "cosine"
                 },
                 "saveConversation": {
                     "target_classes": [],
                     "target_classes_sorted_by_llm": [],
-                    "llm_response_time": 1306,
+                    "llm_response_time": 2896,
                     "similarity_computation_time": 0,
                     "similarity_metric": "cosine"
                 }
@@ -2707,7 +2714,7 @@
             "newBranchName": "extract-selectByStatusAndPlatform-execute-aa7c2cb"
         },
         "telemetry": {
-            "id": "985e946e-8279-4b7a-a6dd-1ecf904a5981",
+            "id": "c167f508-58c6-411a-b8eb-191c4cfd50dc",
             "hostFunctionTelemetryData": {
                 "hostFunctionSize": 68,
                 "lineStart": 22,
@@ -2724,7 +2731,7 @@
             "processingTime": {
                 "llmResponseTime": -1,
                 "pluginProcessingTime": -1,
-                "totalTime": 12378
+                "totalTime": 14862
             },
             "iterationData": [
                 {
@@ -2734,7 +2741,7 @@
                             "method_name": "execute",
                             "method_signature": "public String execute(String param) throws Exception",
                             "target_class": "AiImageService",
-                            "rationale": "The execute method contains logic that is closely related to image processing and synchronization, which would be more appropriately handled within the AiImageService class."
+                            "rationale": "The execute method contains logic that is closely related to image processing and synchronization, which would be better encapsulated within the AiImageService class for better separation of concerns."
                         },
                         {
                             "method_name": "selectByStatusAndPlatform",
@@ -2743,7 +2750,7 @@
                             "rationale": "The selectByStatusAndPlatform method is primarily concerned with data retrieval from the database, which aligns more closely with the responsibilities of the AiImageMapper class."
                         }
                     ],
-                    "llm_response_time": 3399
+                    "llm_response_time": 3092
                 },
                 {
                     "iteration_num": 2,
@@ -2752,16 +2759,16 @@
                             "method_name": "execute",
                             "method_signature": "public String execute(String param) throws Exception",
                             "target_class": "AiImageService",
-                            "rationale": "The execute method contains logic that is primarily concerned with managing and updating image statuses, which aligns more closely with the responsibilities of the AiImageService. Moving this method would help adhere to the Single Responsibility Principle."
+                            "rationale": "The execute method contains logic that is closely related to image processing and synchronization, which would be better suited in the AiImageService class to adhere to the Single Responsibility Principle."
                         },
                         {
                             "method_name": "selectByStatusAndPlatform",
                             "method_signature": "private List<AiImageDO> selectByStatusAndPlatform()",
                             "target_class": "AiImageMapper",
-                            "rationale": "The selectByStatusAndPlatform method is directly interacting with the database to retrieve image data based on specific criteria. This functionality is more appropriate for the AiImageMapper class, which is responsible for data access operations."
+                            "rationale": "The selectByStatusAndPlatform method is primarily concerned with data retrieval from the database, which aligns more closely with the responsibilities of the AiImageMapper class."
                         }
                     ],
-                    "llm_response_time": 2348
+                    "llm_response_time": 3056
                 },
                 {
                     "iteration_num": 3,
@@ -2770,16 +2777,16 @@
                             "method_name": "execute",
                             "method_signature": "public String execute(String param) throws Exception",
                             "target_class": "AiImageService",
-                            "rationale": "The execute method contains logic that is primarily concerned with managing and updating image statuses, which aligns more closely with the responsibilities of the AiImageService. Moving it there would adhere to the Single Responsibility Principle."
+                            "rationale": "The execute method contains logic that is closely related to image processing and synchronization, which would be better encapsulated within the AiImageService class for better separation of concerns."
                         },
                         {
                             "method_name": "selectByStatusAndPlatform",
                             "method_signature": "private List<AiImageDO> selectByStatusAndPlatform()",
                             "target_class": "AiImageMapper",
-                            "rationale": "The selectByStatusAndPlatform method is directly querying the database for AiImageDO objects based on specific criteria. This functionality is more appropriate for the AiImageMapper class, which is responsible for data access operations."
+                            "rationale": "The selectByStatusAndPlatform method is primarily responsible for data retrieval from the database, which aligns more closely with the responsibilities of the AiImageMapper class."
                         }
                     ],
-                    "llm_response_time": 2149
+                    "llm_response_time": 3843
                 },
                 {
                     "iteration_num": -1,
@@ -2788,7 +2795,7 @@
                             "method_name": "execute",
                             "method_signature": "public String execute(String param) throws Exception",
                             "target_class": "AiImageService",
-                            "rationale": "The execute method contains logic that is closely related to image processing and synchronization, which would be more appropriately handled within the AiImageService class."
+                            "rationale": "The execute method contains logic that is closely related to image processing and synchronization, which would be better encapsulated within the AiImageService class for better separation of concerns."
                         },
                         {
                             "method_name": "selectByStatusAndPlatform",
@@ -2805,20 +2812,20 @@
                     "execute",
                     "selectByStatusAndPlatform"
                 ],
-                "llm_response_time": 505
+                "llm_response_time": 415
             },
             "targetClassMap": {
                 "execute": {
                     "target_classes": [],
                     "target_classes_sorted_by_llm": [],
-                    "llm_response_time": 1965,
+                    "llm_response_time": 2381,
                     "similarity_computation_time": 0,
                     "similarity_metric": "cosine"
                 },
                 "selectByStatusAndPlatform": {
                     "target_classes": [],
                     "target_classes_sorted_by_llm": [],
-                    "llm_response_time": 1858,
+                    "llm_response_time": 1901,
                     "similarity_computation_time": 0,
                     "similarity_metric": "cosine"
                 }
@@ -2995,7 +3002,7 @@
             "newBranchName": "extract-updateConversationLastMessage-sendKefuMessage-d89a19a"
         },
         "telemetry": {
-            "id": "394c98cc-3671-47d4-a017-54248e015d98",
+            "id": "23aa4619-ca1d-44e9-a128-fa38742dad78",
             "hostFunctionTelemetryData": {
                 "hostFunctionSize": 112,
                 "lineStart": 28,
@@ -3012,7 +3019,7 @@
             "processingTime": {
                 "llmResponseTime": -1,
                 "pluginProcessingTime": -1,
-                "totalTime": 23733
+                "totalTime": 23406
             },
             "iterationData": [
                 {
@@ -3028,7 +3035,7 @@
                             "method_name": "sendAsyncMessage",
                             "method_signature": "public void sendAsyncMessage(Integer userType, Long userId, Object content)",
                             "target_class": "WebSocketService",
-                            "rationale": "The sendAsyncMessage() method is focused on sending messages via WebSocket. It should be moved to a WebSocketService class that handles all WebSocket-related operations."
+                            "rationale": "The sendAsyncMessage() method is focused on sending messages via WebSocket. It would be more appropriate to move this method to a WebSocketService class that handles all WebSocket-related operations."
                         },
                         {
                             "method_name": "updateConversationLastMessage",
@@ -3037,7 +3044,7 @@
                             "rationale": "The updateConversationLastMessage() method deals with updating the last message in a conversation, which is a responsibility that fits better within the ConversationService class."
                         }
                     ],
-                    "llm_response_time": 3688
+                    "llm_response_time": 5629
                 },
                 {
                     "iteration_num": 2,
@@ -3052,16 +3059,16 @@
                             "method_name": "sendAsyncMessage",
                             "method_signature": "public void sendAsyncMessage(Integer userType, Long userId, Object content)",
                             "target_class": "WebSocketService",
-                            "rationale": "The method sendAsyncMessage() is focused on sending messages asynchronously via WebSocket. It should be moved to a WebSocketService class that handles all WebSocket-related operations."
+                            "rationale": "The sendAsyncMessage() method is focused on sending messages via WebSocket. It should be moved to a WebSocketService class that handles all WebSocket-related operations."
                         },
                         {
                             "method_name": "updateConversationLastMessage",
                             "method_signature": "private void updateConversationLastMessage(KeFuConversationDO conversation, KeFuMessageDO kefuMessage)",
                             "target_class": "ConversationService",
-                            "rationale": "The method updateConversationLastMessage() deals with updating the last message in a conversation, which is a responsibility that fits better within the ConversationService class."
+                            "rationale": "The updateConversationLastMessage() method deals with updating the last message in a conversation, which is a responsibility that fits better within the ConversationService class."
                         }
                     ],
-                    "llm_response_time": 4650
+                    "llm_response_time": 5165
                 },
                 {
                     "iteration_num": 3,
@@ -3076,22 +3083,16 @@
                             "method_name": "sendAsyncMessage",
                             "method_signature": "public void sendAsyncMessage(Integer userType, Long userId, Object content)",
                             "target_class": "WebSocketService",
-                            "rationale": "The sendAsyncMessage() method is focused on sending messages via WebSocket. It should be moved to a WebSocketService class that handles all WebSocket-related operations."
-                        },
-                        {
-                            "method_name": "updateConversationLastMessage",
-                            "method_signature": "private void updateConversationLastMessage(KeFuConversationDO conversation, KeFuMessageDO kefuMessage)",
-                            "target_class": "ConversationService",
-                            "rationale": "The updateConversationLastMessage() method deals with updating the last message in a conversation, which is a responsibility that fits better within the ConversationService class."
+                            "rationale": "The method sendAsyncMessage() is focused on sending messages via WebSocket. It should be moved to a WebSocketService class that handles all WebSocket-related operations."
                         },
                         {
                             "method_name": "getSelf",
                             "method_signature": "private KeFuMessageServiceImpl getSelf()",
                             "target_class": "ServiceLocator",
-                            "rationale": "The getSelf() method is used to retrieve the current instance of the service. This functionality is more appropriate in a ServiceLocator class that can manage service instances."
+                            "rationale": "The method getSelf() is used to retrieve the current instance of the service. This functionality is more appropriate in a ServiceLocator class that can manage service instances."
                         }
                     ],
-                    "llm_response_time": 5625
+                    "llm_response_time": 3818
                 },
                 {
                     "iteration_num": -1,
@@ -3106,7 +3107,7 @@
                             "method_name": "sendAsyncMessage",
                             "method_signature": "public void sendAsyncMessage(Integer userType, Long userId, Object content)",
                             "target_class": "WebSocketService",
-                            "rationale": "The sendAsyncMessage() method is focused on sending messages via WebSocket. It should be moved to a WebSocketService class that handles all WebSocket-related operations."
+                            "rationale": "The sendAsyncMessage() method is focused on sending messages via WebSocket. It would be more appropriate to move this method to a WebSocketService class that handles all WebSocket-related operations."
                         },
                         {
                             "method_name": "updateConversationLastMessage",
@@ -3118,7 +3119,7 @@
                             "method_name": "getSelf",
                             "method_signature": "private KeFuMessageServiceImpl getSelf()",
                             "target_class": "ServiceLocator",
-                            "rationale": "The getSelf() method is used to retrieve the current instance of the service. This functionality is more appropriate in a ServiceLocator class that can manage service instances."
+                            "rationale": "The method getSelf() is used to retrieve the current instance of the service. This functionality is more appropriate in a ServiceLocator class that can manage service instances."
                         }
                     ],
                     "llm_response_time": 0
@@ -3131,34 +3132,34 @@
                     "updateConversationLastMessage",
                     "getSelf"
                 ],
-                "llm_response_time": 754
+                "llm_response_time": 725
             },
             "targetClassMap": {
                 "validateReceiverExist": {
                     "target_classes": [],
                     "target_classes_sorted_by_llm": [],
-                    "llm_response_time": 1476,
+                    "llm_response_time": 2283,
                     "similarity_computation_time": 0,
                     "similarity_metric": "cosine"
                 },
                 "sendAsyncMessage": {
                     "target_classes": [],
                     "target_classes_sorted_by_llm": [],
-                    "llm_response_time": 1625,
+                    "llm_response_time": 1930,
                     "similarity_computation_time": 0,
                     "similarity_metric": "cosine"
                 },
                 "updateConversationLastMessage": {
                     "target_classes": [],
                     "target_classes_sorted_by_llm": [],
-                    "llm_response_time": 4329,
+                    "llm_response_time": 1824,
                     "similarity_computation_time": 0,
                     "similarity_metric": "cosine"
                 },
                 "getSelf": {
                     "target_classes": [],
                     "target_classes_sorted_by_llm": [],
-                    "llm_response_time": 1389,
+                    "llm_response_time": 1854,
                     "similarity_computation_time": 0,
                     "similarity_metric": "cosine"
                 }
@@ -3265,7 +3266,7 @@
             "newBranchName": "extract-selectByUserId-getConversationByUserId-866b385"
         },
         "telemetry": {
-            "id": "176150c0-6fe3-4367-85bd-4b6743e779c1",
+            "id": "ab17479f-bcae-4aed-b77a-91625e6bd3c4",
             "hostFunctionTelemetryData": {
                 "hostFunctionSize": 98,
                 "lineStart": 21,
@@ -3282,7 +3283,7 @@
             "processingTime": {
                 "llmResponseTime": -1,
                 "pluginProcessingTime": -1,
-                "totalTime": 12750
+                "totalTime": 33318
             },
             "iterationData": [
                 {
@@ -3291,17 +3292,17 @@
                         {
                             "method_name": "validateKefuConversationExists",
                             "method_signature": "public KeFuConversationDO validateKefuConversationExists(Long id)",
-                            "target_class": "KeFuConversationValidator",
-                            "rationale": "The method validateKefuConversationExists() is primarily responsible for validating the existence of a conversation. Moving it to a dedicated validator class would separate concerns and improve the readability and maintainability of the service class."
+                            "target_class": "KefuConversationValidator",
+                            "rationale": "The method validateKefuConversationExists() is primarily responsible for validating the existence of a conversation. It would be more appropriate to move this method to a dedicated validation class, such as KefuConversationValidator, to separate concerns and improve code organization."
                         },
                         {
                             "method_name": "selectByUserId",
                             "method_signature": "private KeFuConversationDO selectByUserId(Long userId)",
-                            "target_class": "KeFuConversationRepository",
-                            "rationale": "The method selectByUserId() is a data access operation that retrieves a conversation based on user ID. It should be moved to a repository class to adhere to the single responsibility principle and to keep data access logic separate from business logic."
+                            "target_class": "KefuConversationRepository",
+                            "rationale": "The method selectByUserId() is a data access operation that retrieves a conversation based on the user ID. It should be moved to a repository class, such as KefuConversationRepository, to adhere to the single responsibility principle and keep data access logic separate from service logic."
                         }
                     ],
-                    "llm_response_time": 2868
+                    "llm_response_time": 5535
                 },
                 {
                     "iteration_num": 2,
@@ -3309,17 +3310,17 @@
                         {
                             "method_name": "validateKefuConversationExists",
                             "method_signature": "public KeFuConversationDO validateKefuConversationExists(Long id)",
-                            "target_class": "KeFuConversationValidator",
-                            "rationale": "The method validateKefuConversationExists() is primarily responsible for validating the existence of a conversation. Moving it to a dedicated validator class would separate concerns and improve the readability and maintainability of the service class."
+                            "target_class": "KefuConversationValidator",
+                            "rationale": "The method validateKefuConversationExists() is primarily responsible for validating the existence of a conversation. Moving it to a dedicated validator class would separate concerns and improve the single responsibility principle."
                         },
                         {
                             "method_name": "selectByUserId",
                             "method_signature": "private KeFuConversationDO selectByUserId(Long userId)",
-                            "target_class": "KeFuConversationRepository",
-                            "rationale": "The method selectByUserId() is a data access operation that retrieves a conversation based on the user ID. It should be moved to a repository class to adhere to the single responsibility principle and to keep data access logic separate from business logic."
+                            "target_class": "KefuConversationRepository",
+                            "rationale": "The method selectByUserId() is a data access operation that retrieves a conversation based on user ID. It should be moved to a repository class to adhere to the repository pattern and keep the service layer focused on business logic."
                         }
                     ],
-                    "llm_response_time": 2761
+                    "llm_response_time": 4598
                 },
                 {
                     "iteration_num": 3,
@@ -3328,16 +3329,34 @@
                             "method_name": "validateKefuConversationExists",
                             "method_signature": "public KeFuConversationDO validateKefuConversationExists(Long id)",
                             "target_class": "KefuConversationValidator",
-                            "rationale": "This method is responsible for validating the existence of a conversation, which is a validation concern. Moving it to a dedicated validator class will separate concerns and improve code organization."
+                            "rationale": "The method validateKefuConversationExists() is primarily responsible for validating the existence of a conversation. Moving it to a dedicated validator class would separate concerns and improve the single responsibility principle."
                         },
                         {
-                            "method_name": "selectByUserId",
-                            "method_signature": "private KeFuConversationDO selectByUserId(Long userId)",
-                            "target_class": "KefuConversationRepository",
-                            "rationale": "This method directly interacts with the data layer to retrieve a conversation by user ID. It should be moved to a repository class to adhere to the repository pattern and keep data access logic separate from service logic."
+                            "method_name": "updateConversationAdminDeleted",
+                            "method_signature": "public void updateConversationAdminDeleted(Long id, Boolean adminDeleted)",
+                            "target_class": "KefuConversationAdminService",
+                            "rationale": "The method updateConversationAdminDeleted() deals specifically with the admin's actions on the conversation's deletion status. It would be more appropriate in a service class that handles admin-related operations."
+                        },
+                        {
+                            "method_name": "updateAdminUnreadMessageCountWithZero",
+                            "method_signature": "public void updateAdminUnreadMessageCountWithZero(Long id)",
+                            "target_class": "KefuConversationAdminService",
+                            "rationale": "This method updates the admin's unread message count, which is an admin-specific operation. Moving it to a service that focuses on admin functionalities would enhance clarity and organization."
+                        },
+                        {
+                            "method_name": "getOrCreateConversation",
+                            "method_signature": "public KeFuConversationDO getOrCreateConversation(Long userId)",
+                            "target_class": "KefuConversationFactory",
+                            "rationale": "The method getOrCreateConversation() is responsible for creating a new conversation if none exists. This factory-like behavior is better suited for a dedicated factory class that handles the creation logic."
+                        },
+                        {
+                            "method_name": "getConversationByUserId",
+                            "method_signature": "public KeFuConversationDO getConversationByUserId(Long userId)",
+                            "target_class": "KefuConversationQueryService",
+                            "rationale": "The method getConversationByUserId() is focused on querying conversations based on user ID. Moving it to a query service class would align it with the query responsibility and improve separation of concerns."
                         }
                     ],
-                    "llm_response_time": 2592
+                    "llm_response_time": 9240
                 },
                 {
                     "iteration_num": -1,
@@ -3345,14 +3364,38 @@
                         {
                             "method_name": "validateKefuConversationExists",
                             "method_signature": "public KeFuConversationDO validateKefuConversationExists(Long id)",
-                            "target_class": "KeFuConversationValidator",
-                            "rationale": "The method validateKefuConversationExists() is primarily responsible for validating the existence of a conversation. Moving it to a dedicated validator class would separate concerns and improve the readability and maintainability of the service class."
+                            "target_class": "KefuConversationValidator",
+                            "rationale": "The method validateKefuConversationExists() is primarily responsible for validating the existence of a conversation. It would be more appropriate to move this method to a dedicated validation class, such as KefuConversationValidator, to separate concerns and improve code organization."
                         },
                         {
                             "method_name": "selectByUserId",
                             "method_signature": "private KeFuConversationDO selectByUserId(Long userId)",
-                            "target_class": "KeFuConversationRepository",
-                            "rationale": "The method selectByUserId() is a data access operation that retrieves a conversation based on user ID. It should be moved to a repository class to adhere to the single responsibility principle and to keep data access logic separate from business logic."
+                            "target_class": "KefuConversationRepository",
+                            "rationale": "The method selectByUserId() is a data access operation that retrieves a conversation based on the user ID. It should be moved to a repository class, such as KefuConversationRepository, to adhere to the single responsibility principle and keep data access logic separate from service logic."
+                        },
+                        {
+                            "method_name": "updateConversationAdminDeleted",
+                            "method_signature": "public void updateConversationAdminDeleted(Long id, Boolean adminDeleted)",
+                            "target_class": "KefuConversationAdminService",
+                            "rationale": "The method updateConversationAdminDeleted() deals specifically with the admin's actions on the conversation's deletion status. It would be more appropriate in a service class that handles admin-related operations."
+                        },
+                        {
+                            "method_name": "updateAdminUnreadMessageCountWithZero",
+                            "method_signature": "public void updateAdminUnreadMessageCountWithZero(Long id)",
+                            "target_class": "KefuConversationAdminService",
+                            "rationale": "This method updates the admin's unread message count, which is an admin-specific operation. Moving it to a service that focuses on admin functionalities would enhance clarity and organization."
+                        },
+                        {
+                            "method_name": "getOrCreateConversation",
+                            "method_signature": "public KeFuConversationDO getOrCreateConversation(Long userId)",
+                            "target_class": "KefuConversationFactory",
+                            "rationale": "The method getOrCreateConversation() is responsible for creating a new conversation if none exists. This factory-like behavior is better suited for a dedicated factory class that handles the creation logic."
+                        },
+                        {
+                            "method_name": "getConversationByUserId",
+                            "method_signature": "public KeFuConversationDO getConversationByUserId(Long userId)",
+                            "target_class": "KefuConversationQueryService",
+                            "rationale": "The method getConversationByUserId() is focused on querying conversations based on user ID. Moving it to a query service class would align it with the query responsibility and improve separation of concerns."
                         }
                     ],
                     "llm_response_time": 0
@@ -3361,22 +3404,54 @@
             "llmMethodPriority": {
                 "priority_method_names": [
                     "validateKefuConversationExists",
+                    "updateConversationAdminDeleted",
+                    "updateAdminUnreadMessageCountWithZero",
+                    "getOrCreateConversation",
+                    "getConversationByUserId",
                     "selectByUserId"
                 ],
-                "llm_response_time": 584
+                "llm_response_time": 908
             },
             "targetClassMap": {
                 "validateKefuConversationExists": {
                     "target_classes": [],
                     "target_classes_sorted_by_llm": [],
-                    "llm_response_time": 1616,
+                    "llm_response_time": 1547,
+                    "similarity_computation_time": 0,
+                    "similarity_metric": "cosine"
+                },
+                "updateConversationAdminDeleted": {
+                    "target_classes": [],
+                    "target_classes_sorted_by_llm": [],
+                    "llm_response_time": 2505,
+                    "similarity_computation_time": 0,
+                    "similarity_metric": "cosine"
+                },
+                "updateAdminUnreadMessageCountWithZero": {
+                    "target_classes": [],
+                    "target_classes_sorted_by_llm": [],
+                    "llm_response_time": 2333,
+                    "similarity_computation_time": 0,
+                    "similarity_metric": "cosine"
+                },
+                "getOrCreateConversation": {
+                    "target_classes": [],
+                    "target_classes_sorted_by_llm": [],
+                    "llm_response_time": 1495,
+                    "similarity_computation_time": 0,
+                    "similarity_metric": "cosine"
+                },
+                "getConversationByUserId": {
+                    "target_classes": [],
+                    "target_classes_sorted_by_llm": [],
+                    "llm_response_time": 1847,
                     "similarity_computation_time": 0,
                     "similarity_metric": "cosine"
                 },
                 "selectByUserId": {
                     "target_classes": [],
                     "target_classes_sorted_by_llm": [],
-                    "llm_response_time": 2204,
+                    "llm_response_time": 3051,
                     "similarity_computation_time": 0,
                     "similarity_metric": "cosine"
                 }
@@ -3593,7 +3668,7 @@
             "newBranchName": "extract-getSpuMap-getBrowseHistoryPage-65ef6ff"
         },
         "telemetry": {
-            "id": "05fc39d5-eac9-47dd-be7f-992258129499",
+            "id": "26f266bc-b647-47b3-9e06-b2289cb6ff36",
             "hostFunctionTelemetryData": {
                 "hostFunctionSize": 34,
                 "lineStart": 31,
@@ -3610,7 +3685,7 @@
             "processingTime": {
                 "llmResponseTime": -1,
                 "pluginProcessingTime": -1,
-                "totalTime": 8247
+                "totalTime": 8416
             },
             "iterationData": [
                 {
@@ -3620,10 +3695,10 @@
                             "method_name": "getSpuMap",
                             "method_signature": "private Map<Long, ProductSpuDO> getSpuMap(Set<Long> spuIds)",
                             "target_class": "ProductSpuService",
-                            "rationale": "The getSpuMap method is primarily responsible for retrieving and mapping ProductSpuDO objects, which is a core responsibility of the ProductSpuService. Moving it there would adhere to the Single Responsibility Principle."
+                            "rationale": "The getSpuMap method is primarily responsible for retrieving and mapping ProductSpuDO objects based on their IDs, which aligns more closely with the responsibilities of the ProductSpuService class."
                         }
                     ],
-                    "llm_response_time": 2066
+                    "llm_response_time": 1852
                 },
                 {
                     "iteration_num": 2,
@@ -3632,10 +3707,10 @@
                             "method_name": "getSpuMap",
                             "method_signature": "private Map<Long, ProductSpuDO> getSpuMap(Set<Long> spuIds)",
                             "target_class": "ProductSpuService",
-                            "rationale": "The getSpuMap method is primarily responsible for retrieving and mapping ProductSpuDO objects based on their IDs, which aligns more closely with the responsibilities of the ProductSpuService class."
+                            "rationale": "The getSpuMap method is primarily concerned with retrieving and mapping ProductSpuDO objects, which aligns more closely with the responsibilities of the ProductSpuService class."
                         }
                     ],
-                    "llm_response_time": 1535
+                    "llm_response_time": 2272
                 },
                 {
                     "iteration_num": 3,
@@ -3644,10 +3719,10 @@
                             "method_name": "getSpuMap",
                             "method_signature": "private Map<Long, ProductSpuDO> getSpuMap(Set<Long> spuIds)",
                             "target_class": "ProductSpuService",
-                            "rationale": "The getSpuMap method is primarily responsible for retrieving and mapping ProductSpuDO objects based on their IDs, which aligns more closely with the responsibilities of the ProductSpuService class."
+                            "rationale": "The getSpuMap method is primarily concerned with retrieving and mapping ProductSpuDO objects, which aligns more closely with the responsibilities of the ProductSpuService class."
                         }
                     ],
-                    "llm_response_time": 1634
+                    "llm_response_time": 2150
                 },
                 {
                     "iteration_num": -1,
@@ -3656,7 +3731,7 @@
                             "method_name": "getSpuMap",
                             "method_signature": "private Map<Long, ProductSpuDO> getSpuMap(Set<Long> spuIds)",
                             "target_class": "ProductSpuService",
-                            "rationale": "The getSpuMap method is primarily responsible for retrieving and mapping ProductSpuDO objects, which is a core responsibility of the ProductSpuService. Moving it there would adhere to the Single Responsibility Principle."
+                            "rationale": "The getSpuMap method is primarily responsible for retrieving and mapping ProductSpuDO objects based on their IDs, which aligns more closely with the responsibilities of the ProductSpuService class."
                         }
                     ],
                     "llm_response_time": 0
@@ -3666,13 +3741,13 @@
                 "priority_method_names": [
                     "getSpuMap"
                 ],
-                "llm_response_time": 397
+                "llm_response_time": 506
             },
             "targetClassMap": {
                 "getSpuMap": {
                     "target_classes": [],
                     "target_classes_sorted_by_llm": [],
-                    "llm_response_time": 2475,
+                    "llm_response_time": 1475,
                     "similarity_computation_time": 0,
                     "similarity_metric": "cosine"
                 }

@@ -24,6 +24,7 @@ class RefAgentConfigurable : BoundConfigurable(LLMBundle.message("settings.confi
                     listOf(
                         "grazie-gpt-4",
                         "grazie-gpt-4o-mini",
+                        "grazie-gpt-4o",
                         "openai-gpt-4",
                         "openai-gpt-3.5-turbo",
                         "openai-gpt-4o-mini",

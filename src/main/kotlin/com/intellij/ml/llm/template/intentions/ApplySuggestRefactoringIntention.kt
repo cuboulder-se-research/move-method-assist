@@ -45,7 +45,7 @@ abstract class ApplySuggestRefactoringIntention(
     var apiResponseCache = mutableMapOf<String, MutableMap<String, LLMBaseResponse>>()
     val MAX_REFACTORINGS = 10
     var finishedBackgroundTask: Boolean? = null
-    protected val llmContextLimit = 7000
+    protected val llmContextLimit = 128000
 
     open var prompter: MethodPromptBase = SuggestRefactoringPrompt();
 
