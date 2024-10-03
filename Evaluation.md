@@ -15,7 +15,10 @@ To trigger the automated run on mm-assist, follow the steps below:
     Optional: Use [this helper](/src/main/python/mm_analyser/refactoring_miner_processing/automation_helpers/write_file4plugin.py) script to write to the file.
 3. Launch the plugin by executing the "runIde" gradle target.
 4. De-anonymize telemetry. Open Main | Settings | Tools | Large Language Models | Uncheck "Anonymize Telemetry Data"
-5. Right click on _any_ class | Show Intention Actions | "Move-Method Assistant" 
+5. Open the relevant project. 
+
+Optional 
+6. Right click on _any_ class | Show Intention Actions | "Move-Method Assistant" 
 
     Ensure to click on the intention which displays the following text when you hover over it:
 
@@ -24,6 +27,6 @@ To trigger the automated run on mm-assist, follow the steps below:
    {"file_path": ..., "commit_hash": ...}
    ]
 
-6. Each entry in the telemetry log corresponds with the (file_path, commit_hash) pair in the [input](/src/main/resources/plugin_input_files/classes_and_commits.json) resource file
+7. Each entry in the telemetry log corresponds with the (file_path, commit_hash) pair in the [input](/src/main/resources/plugin_input_files/classes_and_commits.json) resource file
     
    Optional: Use [this helper script](/src/main/python/mm_analyser/refactoring_miner_processing/automation_helpers/read_from_telemetry.py) to read from the MM-assist telemetry data
