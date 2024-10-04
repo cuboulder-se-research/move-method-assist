@@ -36,6 +36,6 @@ class GrazieModel(
 }
 
 val GrazieGPT4 = GrazieModel(OpenAIProfileIDs.Chat.GPT4)
-val GrazieGPT4omini = GrazieModel(LLMProfileID("gpt-4o-mini"))
+val GrazieGPT4omini = GrazieModel(LLMProfileID("openai-gpt-4o-mini"))
 @OptIn(ExperimentalLLM::class)
 val GrazieGPT4o = GrazieModel(OpenAIProfileIDs.Chat.GPT4o)

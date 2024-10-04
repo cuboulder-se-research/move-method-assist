@@ -1,5 +1,6 @@
 package com.intellij.ml.llm.template.intentions
 
+import ai.grazie.utils.isCapitalized
 import ai.grazie.utils.isUppercase
 import com.google.gson.Gson
 import com.google.gson.JsonArray
@@ -37,10 +38,13 @@ import com.intellij.psi.PsiClass
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
 import com.intellij.psi.PsiMethod
+import com.intellij.refactoring.suggested.startOffset
 import com.intellij.ui.awt.RelativePoint
 import dev.langchain4j.data.message.ChatMessage
 import org.jetbrains.kotlin.idea.search.declarationsSearch.isOverridableElement
 import org.jetbrains.kotlin.j2k.getContainingClass
+import org.jetbrains.kotlin.psi.psiUtil.endOffset
+import org.jetbrains.kotlin.psi.psiUtil.startOffset
 import java.awt.Point
 import java.awt.Rectangle
 import java.util.concurrent.atomic.AtomicReference
@@ -133,22 +137,28 @@ open class ApplyMoveMethodInteractiveIntention : ApplySuggestRefactoringIntentio
                 }
                 if (refactoringSuggestions!=null) {
                     llmResponseCache[cacheKey] ?: llmResponseCache.put(cacheKey, response) // cache response
+//                    val augSuggestions = refactoringSuggestions.map {
+//                        functionPsiElement
+////                        it.methodSignature
+////                        val psiMethod = PsiUtils.getMethodWithSignatureFromClass(functionPsiElement)
+////                        MoveMethodSuggestion(it.methodName, it.methodSignature, it.targetClass, it.rationale, psiMethod)
+//                    }
                     vanillaLLMSuggestions.addAll(refactoringSuggestions)
                     logMethods(refactoringSuggestions, iter, llmRequestTime)
                 }
             }
         }
         val uniqueSuggestions = vanillaLLMSuggestions.distinctBy { it.methodName }
-//        val uniqueSuggestions = runReadAction {
-//            PsiUtils.getAllMethodsInClass(functionPsiElement as PsiClass)
-//                .filter { !it.name.isUppercase() }
-//                .filter { !(it.name.startsWith("get") && it.parameterList.isEmpty)} // filter out getters and setters.
-//                .filter { !(it.name.startsWith("set") && it.parameterList.parameters.size==1)} // filter out getters and setters.
-//                .filter{ !it.isOverridableElement() }
-//                .map { MoveMethodSuggestion(it.name, it.parameterList.toString(), "", "", it) }
-//        }
-//            .toList()
-//            .map { MoveMethodSuggestion(it, "") }
+        val bruteForceSuggestions = runReadAction {
+            PsiUtils.getAllMethodsInClass(functionPsiElement as PsiClass)
+                .filter { !it.name.isCapitalized() } // filter constructors
+                .filter { !(it.name.startsWith("get") && it.parameterList.isEmpty)} // filter out getters and setters.
+                .filter { !(it.name.startsWith("set") && it.parameterList.parameters.size==1)} // filter out getters and setters.
+                .filter{ !it.isOverridableElement() }
+                .map { MoveMethodSuggestion(it.name, it.parameterList.toString(), "", "", it) }
+        }
+        val methodCompatibilitySuggestions = getMethodCompatibility(bruteForceSuggestions, functionPsiElement as PsiClass)
+
 
         log2fileAndViewer("*** Combining responses from iterations ***", logger)
         logMethods(uniqueSuggestions, -1, 0)
@@ -317,31 +327,10 @@ open class ApplyMoveMethodInteractiveIntention : ApplySuggestRefactoringIntentio
             log2fileAndViewer("Error: functionPsiElement is not a PsiClass", logger)
             return emptyList()
         }
-        val methodSimilarity = runReadAction {
-            uniqueSuggestions.map { suggestion ->
-                if (suggestion.psiMethod == null) {
-                    log2fileAndViewer("Method ${suggestion.methodName} not found in class", logger)
-                    return@map Pair(suggestion, -1.0)
-                }
-
-                val methodText = suggestion.psiMethod.text
-                val classTextWithoutMethod = psiClass.methods
-                    .filter { it != suggestion.psiMethod }
-                    .joinToString("\n") { it.text }
-
-                val similarity = computeCosineSimilarity(methodText, classTextWithoutMethod)
-                Pair(suggestion, similarity)
-            }.sortedBy { it.second }
-//                .map { it.first }
-        }
-
-        val top15Suggestions = methodSimilarity.subList(0, min(15, methodSimilarity.size))
-        val top15MM = top15Suggestions.map { it.first }
-        logMethods(top15MM, -2, 0)
         val messages =
-            (prompter as MoveMethodRefactoringPrompt).askForMethodPriorityPromptWithSimilarity(
+            (prompter as MoveMethodRefactoringPrompt).askForMethodPriorityPrompt(
                 condenseMethodCode(functionPsiElement, uniqueSuggestions),
-                top15Suggestions
+                uniqueSuggestions
             )
         val response: LLMBaseResponse?
         val llmResponseTime = measureTimeMillis { response = llmResponseCache[messages.toString()]?:sendChatRequest(project, messages, llmChatModel)}
@@ -359,7 +348,7 @@ open class ApplyMoveMethodInteractiveIntention : ApplySuggestRefactoringIntentio
             }
             if (methodPriority2!=null) {
                 llmResponseCache.put(messages.toString(), response)
-                val sortedSuggestions = top15MM.sortedBy {
+                val sortedSuggestions = uniqueSuggestions.sortedBy {
                     val index = methodPriority2.indexOf(it.methodName)
                     if (index == -1) {
                         uniqueSuggestions.size + 1
@@ -372,6 +361,40 @@ open class ApplyMoveMethodInteractiveIntention : ApplySuggestRefactoringIntentio
             }
         }
         return null
+    }
+
+    private fun getMethodCompatibility(
+        uniqueSuggestions: List<MoveMethodSuggestion>,
+        psiClass: PsiClass
+    ): List<MoveMethodSuggestion> {
+        val methodSimilarity = runReadAction {
+            uniqueSuggestions.map { suggestion ->
+                if (suggestion.psiMethod == null) {
+                    log2fileAndViewer("Method ${suggestion.methodName} not found in class", logger)
+                    return@map Pair(suggestion, -1.0)
+                }
+                val methodIndex = psiClass.text.indexOf(suggestion.psiMethod.text)
+                val classTextWithoutMethod = if (methodIndex==-1){
+                    psiClass.text
+                }else {
+
+                    psiClass.text.substring(
+                        0,
+                        methodIndex
+                    ) + psiClass.text.substring(methodIndex + suggestion.psiMethod.text.length, psiClass.text.length)
+                }
+                val methodText = suggestion.psiMethod.text
+
+                val similarity = computeCosineSimilarity(methodText, classTextWithoutMethod)
+                Pair(suggestion, similarity)
+            }.sortedBy { it.second }
+    //                .map { it.first }
+        }
+
+        val top15Suggestions = methodSimilarity.subList(0, min(15, methodSimilarity.size))
+        val top15MM = top15Suggestions.map { it.first }
+        logMethods(top15MM, -2, 0)
+        return top15MM
     }
 
     private fun condenseMethodCode(

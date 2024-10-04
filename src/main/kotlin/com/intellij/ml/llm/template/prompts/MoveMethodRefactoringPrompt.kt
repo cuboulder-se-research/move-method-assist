@@ -53,25 +53,25 @@ class MoveMethodRefactoringPrompt: MethodPromptBase() {
             UserMessage.from(methodCode)
         )
     }
-//    fun askForMethodPriorityPrompt(classCode: String, moveMethodSuggetions: List<ApplyMoveMethodInteractiveIntention.MoveMethodSuggestion>, methodSimilarity: List<Pair<ApplyMoveMethodInteractiveIntention.MoveMethodSuggestion, Double>>): MutableList<ChatMessage> {
-//        return mutableListOf(
-//            SystemMessage.from("You are an expert Java developer who prioritises move-method refactoring suggestions based on your expertise."),
-//            UserMessage.from("""
-//                Here is a java class:
-//                ${classCode}
-//
-//
-//
-//                Please rank the following move-method suggestions:
-//                 ${
-//                     Gson().toJson(moveMethodSuggetions.map{it.methodName})
-//                 }
-//
-//                Respond in a JSON list, with the most important move-method suggestion at the beginning of the list.
-//                If you think it is not important to move some any of these methods, exclude them from the response list.
-//                     """.trimIndent()),
-//        )
-//    }
+    fun askForMethodPriorityPrompt(classCode: String, moveMethodSuggetions: List<ApplyMoveMethodInteractiveIntention.MoveMethodSuggestion>, methodSimilarity: List<Pair<ApplyMoveMethodInteractiveIntention.MoveMethodSuggestion, Double>>): MutableList<ChatMessage> {
+        return mutableListOf(
+            SystemMessage.from("You are an expert Java developer who prioritises move-method refactoring suggestions based on your expertise."),
+            UserMessage.from("""
+                Here is a java class:
+                ${classCode}
+
+
+
+                Please rank the following move-method suggestions:
+                 ${
+                     Gson().toJson(moveMethodSuggetions.map{it.methodName})
+                 }
+
+                Respond in a JSON list, with the most important move-method suggestion at the beginning of the list.
+                If you think it is not important to move some any of these methods, exclude them from the response list.
+                     """.trimIndent()),
+        )
+    }
 
     fun askForMethodPriorityPromptWithSimilarity(
         classCode: String,
