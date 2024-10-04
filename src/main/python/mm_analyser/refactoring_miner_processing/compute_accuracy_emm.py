@@ -157,7 +157,8 @@ def calculate_vanilla_llm_recalls(telemetry, method_name, target_class, evaluati
     if (len(vanilla_llm_suggestions_) == 0):
         evaluation_data['vanilla_recall'] = RecallPosition()
         return evaluation_data['vanilla_recall']
-    method_order = [i['method_name'] for i in vanilla_llm_suggestions_[0]['suggested_move_methods']]
+    # method_order = [i['method_name'] for i in vanilla_llm_suggestions_[0]['suggested_move_methods']]
+    method_order = telemetry['llmMethodPriority']['priority_method_names']
     alias_method_name = method_name + '1'
     vanilla_recall: int = max(myindex(method_order, method_name),
                               myindex(method_order, alias_method_name))
@@ -175,21 +176,21 @@ def calculate_vanilla_llm_recalls(telemetry, method_name, target_class, evaluati
 
 
 plugin_outfiles = [
-    'vue_pro_res.json',
+    # 'vue_pro_res.json',
     # 'elastic_res.json',
     # 'dbeaver_res.json',
     'flink_res.json',
     # 'spring_framework_res.json',
     # 'halo_res.json',
     # 'redisson_res.json',
-    'kafka_res.json',
+    # 'kafka_res.json',
     # 'springboot_res.json'
 ]
 
 combined_output = []
 # df = pd.read_csv(f'{data_folder}/refminer_data/static_moves.csv')
 for file_name in plugin_outfiles:
-    with open(f'{data_folder}/refminer_data/mm-assist-emm-gpt-4o-mini/{file_name}') as f:
+    with open(f'{data_folder}/refminer_data/mm-assist-emm/{file_name}') as f:
         data = json.load(f)
     combined_output += data
 combined_output = [i for i in combined_output if 'telemetry' in i

@@ -1,5 +1,6 @@
 package com.intellij.ml.llm.template.intentions
 
+import ai.grazie.utils.isUppercase
 import com.google.gson.Gson
 import com.google.gson.JsonArray
 import com.google.gson.JsonParser
@@ -20,10 +21,7 @@ import com.intellij.ml.llm.template.telemetry.TelemetryDataAction
 import com.intellij.ml.llm.template.telemetry.TelemetryElapsedTimeObserver
 import com.intellij.ml.llm.template.toolwindow.logViewer
 import com.intellij.ml.llm.template.ui.RefactoringSuggestionsPanel
-import com.intellij.ml.llm.template.utils.CodeTransformer
-import com.intellij.ml.llm.template.utils.EFCandidatesApplicationTelemetryObserver
-import com.intellij.ml.llm.template.utils.EFNotification
-import com.intellij.ml.llm.template.utils.JsonUtils
+import com.intellij.ml.llm.template.utils.*
 import com.intellij.ml.llm.template.utils.PsiUtils.Companion.computeCosineSimilarity
 import com.intellij.notification.NotificationType
 import com.intellij.openapi.application.invokeLater
@@ -38,8 +36,11 @@ import com.intellij.openapi.ui.popup.LightweightWindowEvent
 import com.intellij.psi.PsiClass
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
+import com.intellij.psi.PsiMethod
 import com.intellij.ui.awt.RelativePoint
 import dev.langchain4j.data.message.ChatMessage
+import org.jetbrains.kotlin.idea.search.declarationsSearch.isOverridableElement
+import org.jetbrains.kotlin.j2k.getContainingClass
 import java.awt.Point
 import java.awt.Rectangle
 import java.util.concurrent.atomic.AtomicReference
@@ -66,7 +67,10 @@ open class ApplyMoveMethodInteractiveIntention : ApplySuggestRefactoringIntentio
         @SerializedName("target_class")
         val targetClass: String,
         @SerializedName("rationale")
-        val rationale:String
+        val rationale:String,
+
+        @Transient
+        val psiMethod: PsiMethod?
     )
 
     override fun getFamilyName(): String {
@@ -122,7 +126,9 @@ open class ApplyMoveMethodInteractiveIntention : ApplySuggestRefactoringIntentio
                     print("Failed to parse ${processed}")
                     log2fileAndViewer("LLM response: ${processed}", logger)
                     e.printStackTrace()
-                    logMethods(listOf(MoveMethodSuggestion("failed to unparse","failed to unparse","failed to unparse", processed)), iter, llmRequestTime)
+                    logMethods(listOf(MoveMethodSuggestion("failed to unparse",
+                        "failed to unparse","failed to unparse",
+                        processed, null)), iter, llmRequestTime)
                     null
                 }
                 if (refactoringSuggestions!=null) {
@@ -133,6 +139,16 @@ open class ApplyMoveMethodInteractiveIntention : ApplySuggestRefactoringIntentio
             }
         }
         val uniqueSuggestions = vanillaLLMSuggestions.distinctBy { it.methodName }
+//        val uniqueSuggestions = runReadAction {
+//            PsiUtils.getAllMethodsInClass(functionPsiElement as PsiClass)
+//                .filter { !it.name.isUppercase() }
+//                .filter { !(it.name.startsWith("get") && it.parameterList.isEmpty)} // filter out getters and setters.
+//                .filter { !(it.name.startsWith("set") && it.parameterList.parameters.size==1)} // filter out getters and setters.
+//                .filter{ !it.isOverridableElement() }
+//                .map { MoveMethodSuggestion(it.name, it.parameterList.toString(), "", "", it) }
+//        }
+//            .toList()
+//            .map { MoveMethodSuggestion(it, "") }
 
         log2fileAndViewer("*** Combining responses from iterations ***", logger)
         logMethods(uniqueSuggestions, -1, 0)
@@ -303,15 +319,14 @@ open class ApplyMoveMethodInteractiveIntention : ApplySuggestRefactoringIntentio
         }
         val methodSimilarity = runReadAction {
             uniqueSuggestions.map { suggestion ->
-                val method = psiClass.findMethodsByName(suggestion.methodName, false).firstOrNull()
-                if (method == null) {
+                if (suggestion.psiMethod == null) {
                     log2fileAndViewer("Method ${suggestion.methodName} not found in class", logger)
                     return@map Pair(suggestion, -1.0)
                 }
 
-                val methodText = method.text
+                val methodText = suggestion.psiMethod.text
                 val classTextWithoutMethod = psiClass.methods
-                    .filter { it != method }
+                    .filter { it != suggestion.psiMethod }
                     .joinToString("\n") { it.text }
 
                 val similarity = computeCosineSimilarity(methodText, classTextWithoutMethod)
@@ -320,10 +335,14 @@ open class ApplyMoveMethodInteractiveIntention : ApplySuggestRefactoringIntentio
 //                .map { it.first }
         }
 
+        val top15Suggestions = methodSimilarity.subList(0, min(15, methodSimilarity.size))
+        val top15MM = top15Suggestions.map { it.first }
+        logMethods(top15MM, -2, 0)
         val messages =
-            (prompter as MoveMethodRefactoringPrompt).askForMethodPriorityPrompt(
+            (prompter as MoveMethodRefactoringPrompt).askForMethodPriorityPromptWithSimilarity(
                 condenseMethodCode(functionPsiElement, uniqueSuggestions),
-                uniqueSuggestions, methodSimilarity)
+                top15Suggestions
+            )
         val response: LLMBaseResponse?
         val llmResponseTime = measureTimeMillis { response = llmResponseCache[messages.toString()]?:sendChatRequest(project, messages, llmChatModel)}
         if (response != null) {
@@ -340,7 +359,7 @@ open class ApplyMoveMethodInteractiveIntention : ApplySuggestRefactoringIntentio
             }
             if (methodPriority2!=null) {
                 llmResponseCache.put(messages.toString(), response)
-                val sortedSuggestions = uniqueSuggestions.sortedBy {
+                val sortedSuggestions = top15MM.sortedBy {
                     val index = methodPriority2.indexOf(it.methodName)
                     if (index == -1) {
                         uniqueSuggestions.size + 1

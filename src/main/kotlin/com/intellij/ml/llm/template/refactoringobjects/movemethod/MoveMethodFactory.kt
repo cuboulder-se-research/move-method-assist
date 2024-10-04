@@ -428,8 +428,10 @@ class MoveMethodFactory {
         ) : AbstractRefactoring(){
 
             init {
-                description = "Move method ${methodToMove.name} to ${classToMoveTo.qualifiedName}\n" +
-                        "Rationale: $rationale"
+                description = runReadAction{
+                    "Move method ${methodToMove.name} to ${classToMoveTo.qualifiedName}\n" +
+                            "Rationale: $rationale"
+                }
             }
             override fun performRefactoring(project: Project, editor: Editor, file: PsiFile) {
                 super.performRefactoring(project, editor, file)

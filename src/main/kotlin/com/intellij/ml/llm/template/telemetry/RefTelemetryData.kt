@@ -337,7 +337,7 @@ class EFTelemetryDataManager {
         val transformedMethodNames = if (anonimizeTelemetry) {
             moveSuggestions.map {
                 ApplyMoveMethodInteractiveIntention.MoveMethodSuggestion(
-                    getAndSetAnonMethodName(it.methodName), "", getAndSetAnonClassName(it.targetClass), "")
+                    getAndSetAnonMethodName(it.methodName), "", getAndSetAnonClassName(it.targetClass), "", null)
 
             }
         }else{ moveSuggestions}

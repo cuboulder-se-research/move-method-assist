@@ -6,7 +6,7 @@ from mm_analyser.env import PROJECTS_BASE_PATH
 from mm_analyser import data_folder, resources_folder
 from mm_analyser.refactoring_miner_processing.automation_helpers.AutmationHelpers import EmmHelper, MmHelper
 
-project_name = "vue_pro"
+project_name = "kafka"
 project_basepath_map = {
         'vue_pro': 'ruoyi-vue-pro',
         'flink': 'flink',

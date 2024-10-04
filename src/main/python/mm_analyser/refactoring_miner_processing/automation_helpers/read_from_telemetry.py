@@ -3,7 +3,7 @@ from mm_analyser import data_folder, resources_folder
 from mm_analyser.env import TELEMETRY_FILE_PATH
 from mm_analyser.refactoring_miner_processing.automation_helpers.AutmationHelpers import MmHelper, EmmHelper
 
-project_name = "vue_pro"
+project_name = "kafka"
 # helper = MmHelper(project_name)
 helper = EmmHelper()
 refminer_filtered_file = f"{data_folder}/refminer_data/{helper.directory}/{project_name}_res.json"
@@ -22,17 +22,17 @@ with open(TELEMETRY_FILE_PATH) as f:
 # print(f"Length of telemetry: {len(telemetry)}")
 
 for ref in refdata:
-    matches = [1 if i['new_commit_hash']==ref['sha1'] and i['file_path']==ref['move_method_refactoring']['leftSideLocations'][0]['filePath'] else 0 for i in mm_assist_runs]
-    
+    if not ref['extraction_results']['success']:
+        continue
+    matches = [1 if i['new_commit_hash'] == ref['sha1'] and i['file_path'] ==
+                    ref['move_method_refactoring']['leftSideLocations'][0]['filePath'] and
+                    ref['extraction_results']['newCommitHash'] == i['commit_hash']
+               else 0 for i in mm_assist_runs]
     try:
         index = matches.index(1)
-        if index < len(telemetry):
-            ref["telemetry"] = telemetry[index]
-        else:
-            print(f"Warning: Telemetry index {index} out of range. Skipping this entry.")
-    except ValueError:
-        print(f"Warning: No matching entry found for commit {ref['sha1']}. Skipping this entry.")
+    except:
         continue
+    ref["telemetry"] = telemetry[index]
 
 for ref in refdata:
     if 'telemetry' in ref:

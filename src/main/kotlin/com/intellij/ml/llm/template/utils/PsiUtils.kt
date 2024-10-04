@@ -598,6 +598,22 @@ class PsiUtils {
             return match
         }
 
+        fun getAllMethodsInClass(containingClass: PsiClass?): List<PsiMethod> {
+            if (containingClass==null)
+                return emptyList()
+
+            val visitedMethods = mutableSetOf<PsiMethod>()
+            class MethodFinder: JavaRecursiveElementVisitor() {
+                override fun visitMethod(method: PsiMethod) {
+                    super.visitMethod(method)
+                    visitedMethods.add(method)
+                }
+
+            }
+            containingClass.accept(MethodFinder())
+            return visitedMethods.toList()
+        }
+
     }
 
 

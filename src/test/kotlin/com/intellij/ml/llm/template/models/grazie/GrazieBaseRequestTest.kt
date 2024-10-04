@@ -1,5 +1,7 @@
 package com.intellij.ml.llm.template.models.grazie
 
+import ai.grazie.model.llm.profile.LLMProfileID
+import ai.grazie.model.llm.profile.OpenAIProfileIDs
 import com.intellij.ml.llm.template.models.openai.OpenAiChatMessage
 import com.intellij.ml.llm.template.models.openai.OpenAiChatRequestBody
 import com.intellij.testFramework.LightPlatformCodeInsightTestCase
@@ -13,7 +15,7 @@ class GrazieBaseRequestTest: LightPlatformCodeInsightTestCase() {
     fun testGrazieSanity() {
         val response= GrazieBaseRequest(
             OpenAiChatRequestBody(
-                "GPT-4",
+                OpenAIProfileIDs.Chat.GPT4,
                 listOf(OpenAiChatMessage("user", "What is code refactoring?")))
         ).sendSync()
         if (response != null) {

@@ -73,9 +73,8 @@ class MoveMethodRefactoringPrompt: MethodPromptBase() {
 //        )
 //    }
 
-    fun askForMethodPriorityPrompt(
+    fun askForMethodPriorityPromptWithSimilarity(
         classCode: String,
-        moveMethodSuggestions: List<ApplyMoveMethodInteractiveIntention.MoveMethodSuggestion>,
         methodSimilarity: List<Pair<ApplyMoveMethodInteractiveIntention.MoveMethodSuggestion, Double>>
     ): MutableList<ChatMessage> {
         // Construct a list of methods with their similarity scores
@@ -108,6 +107,24 @@ class MoveMethodRefactoringPrompt: MethodPromptBase() {
             
             Respond with a JSON list of method names ordered from highest to lowest priority. 
         """.trimIndent())
+        )
+    }
+
+    fun askForMethodPriorityPrompt(methodCode: String, moveMethodSuggetions: List<ApplyMoveMethodInteractiveIntention.MoveMethodSuggestion>): MutableList<ChatMessage> {
+        return mutableListOf(
+            SystemMessage.from("You are an expert Java developer who prioritises move-method refactoring suggestions based on your expertise."),
+            UserMessage.from("""
+                Here is a java class:
+                ${methodCode}
+                
+                Please rank the following move-method suggestions:
+                 ${
+                Gson().toJson(moveMethodSuggetions.map{it.methodName})
+            }
+                    
+                Respond in a JSON list, with the most important move-method suggestion at the beginning of the list. 
+                If you think it is not important to move some any of these methods, exclude them from the response list.
+                     """.trimIndent()),
         )
     }
 
