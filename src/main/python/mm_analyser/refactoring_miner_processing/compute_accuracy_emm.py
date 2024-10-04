@@ -65,6 +65,9 @@ def present_recall(combined_output):
     print()
 
     recalled_methods = [i for i in combined_output if i['recall_position'].method_position != -1]
+    if len(recalled_methods)==0:
+        print("0 methods were recalled")
+        return
     recall_class_1 = len([i for i in recalled_methods if i['recall_position'].class_position == 0]) / len(
         recalled_methods)
     recall_class_2 = len([i for i in recalled_methods if i['recall_position'].class_position in [0, 1]]) / len(
@@ -123,6 +126,9 @@ def present_vanilla_lmm_recall(combined_output):
     print()
 
     vanilla_recalled_methods = [i for i in combined_output if i['vanilla_recall'].method_position != -1]
+    if len(vanilla_recalled_methods)==0:
+        print("0 methods were recalled")
+        return
     vanilla_recall_class_1 = len(
         [i for i in vanilla_recalled_methods if i['vanilla_recall'].class_position == 0]) / len(
         vanilla_recalled_methods)
@@ -144,8 +150,10 @@ def present_vanilla_lmm_recall(combined_output):
 
 
 def calculate_vanilla_llm_recalls(telemetry, method_name, target_class, evaluation_data):
-    # Calculating recall for iteration-3
-    vanilla_llm_suggestions_ = [i for i in telemetry['iterationData'] if i['iteration_num'] == 3]
+    # Calculating recall for all iterations
+    vanilla_llm_suggestions_ = [i for i in telemetry['iterationData']
+                                # if i['iteration_num'] == 3
+                                ]
     if (len(vanilla_llm_suggestions_) == 0):
         evaluation_data['vanilla_recall'] = RecallPosition()
         return evaluation_data['vanilla_recall']
@@ -181,7 +189,7 @@ plugin_outfiles = [
 combined_output = []
 # df = pd.read_csv(f'{data_folder}/refminer_data/static_moves.csv')
 for file_name in plugin_outfiles:
-    with open(f'{data_folder}/refminer_data/mm-assist-emm/{file_name}') as f:
+    with open(f'{data_folder}/refminer_data/mm-assist-emm-gpt-4o-mini/{file_name}') as f:
         data = json.load(f)
     combined_output += data
 combined_output = [i for i in combined_output if 'telemetry' in i
