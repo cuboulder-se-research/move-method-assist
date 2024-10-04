@@ -3,17 +3,20 @@ package com.intellij.ml.llm.template.utils
 class JsonUtils {
     companion object{
         fun sanitizeJson(jsonText: String): String {
-            val t1 =  jsonText.removePrefix("```json").removeSuffix("```")
-            if (t1.contains("```json")){
-                return t1.split("```json")[1].split("```")[0]
+            val regex = Regex("```json(.*?)```", RegexOption.DOT_MATCHES_ALL)
+            val match = regex.find(jsonText)
+            if (match!=null){
+                return match.groups.get(1)!!.value
             }
-            if (t1.contains("```JSON")){
-                return t1.split("```JSON")[1].split("```")[0]
+
+            val regex2 = Regex("```JSON(.*?)```",  RegexOption.DOT_MATCHES_ALL)
+            val match2 = regex2.find(jsonText)
+            if (match2!=null){
+                return match2.groups.get(1)!!.value
             }
-            if (t1.contains("```")){
-                return t1.split("```")[1]
-            }
-            return t1
+
+            return jsonText
+
         }
     }
 }
