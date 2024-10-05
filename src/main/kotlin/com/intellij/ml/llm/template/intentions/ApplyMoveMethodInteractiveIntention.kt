@@ -31,10 +31,7 @@ import com.intellij.openapi.ui.popup.IconButton
 import com.intellij.openapi.ui.popup.JBPopupFactory
 import com.intellij.openapi.ui.popup.JBPopupListener
 import com.intellij.openapi.ui.popup.LightweightWindowEvent
-import com.intellij.psi.PsiClass
-import com.intellij.psi.PsiElement
-import com.intellij.psi.PsiFile
-import com.intellij.psi.PsiMethod
+import com.intellij.psi.*
 import com.intellij.ui.awt.RelativePoint
 import dev.langchain4j.data.message.ChatMessage
 import org.jetbrains.kotlin.idea.search.declarationsSearch.isOverridableElement
@@ -104,7 +101,7 @@ open class ApplyMoveMethodInteractiveIntention : ApplySuggestRefactoringIntentio
                 .filter { !(it.name.startsWith("get") && it.parameterList.isEmpty)} // filter out getters and setters.
                 .filter { !(it.name.startsWith("set") && it.parameterList.parameters.size==1)} // filter out getters and setters.
                 .filter{ !it.isOverridableElement() }
-                .map { MoveMethodSuggestion(it.name, it.parameterList.toString(), "", "", it) }
+                .map { MoveMethodSuggestion(it.name, it.getSignature(PsiSubstitutor.EMPTY).toString(), "", "", it) }
         }
         val methodCompatibilitySuggestionsWithSore = getMethodCompatibility(bruteForceSuggestions, functionPsiElement as PsiClass)
         val methodCompatibilitySuggestions = methodCompatibilitySuggestionsWithSore.map { it.first }
