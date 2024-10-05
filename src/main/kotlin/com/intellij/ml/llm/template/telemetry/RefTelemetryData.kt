@@ -36,6 +36,9 @@ data class RefTelemetryData(
     @SerializedName("iterationData")
     var iterationData: MutableList<MoveMethodIterationData> = mutableListOf()
 
+    @SerializedName("methodCompatibilityScores")
+    var methodCompatibility: MutableMap<String, Pair<ApplyMoveMethodInteractiveIntention.MoveMethodSuggestion, Double>> = mutableMapOf()
+
     @SerializedName("llmMethodPriority")
     lateinit var llmPriority: LlmMovePriority
 
@@ -431,6 +434,12 @@ class EFTelemetryDataManager {
                 if(anonimizeTelemetry) "LLM gave some reasoning. Hiding for anonymity." else unparseableResponse
             targetClassData.llmResponseTime = llmResponseTime
         }
+    }
+
+    fun addMethodCompatibility(methodCompatibilitySuggestions: List<Pair<ApplyMoveMethodInteractiveIntention.MoveMethodSuggestion, Double>>) {
+        currentTelemetryData.methodCompatibility.putAll(
+            methodCompatibilitySuggestions.map { it.first.methodSignature to Pair(it.first, it.second) }
+        )
     }
 }
 
