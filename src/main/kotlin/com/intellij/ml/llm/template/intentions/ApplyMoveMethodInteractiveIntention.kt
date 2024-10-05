@@ -101,6 +101,7 @@ open class ApplyMoveMethodInteractiveIntention : ApplySuggestRefactoringIntentio
                 .filter { !(it.name.startsWith("get") && it.parameterList.isEmpty)} // filter out getters and setters.
                 .filter { !(it.name.startsWith("set") && it.parameterList.parameters.size==1)} // filter out getters and setters.
                 .filter{ !it.isOverridableElement() }
+                .filter { !it.text.startsWith("@Override") }
                 .map { MoveMethodSuggestion(it.name, it.getSignature(PsiSubstitutor.EMPTY).toString(), "", "", it) }
         }
         val methodCompatibilitySuggestionsWithSore = getMethodCompatibility(bruteForceSuggestions, functionPsiElement as PsiClass)
