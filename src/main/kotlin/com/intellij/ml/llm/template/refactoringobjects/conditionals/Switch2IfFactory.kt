@@ -85,9 +85,8 @@ class Switch2IfFactory {
     ) : AbstractRefactoring() {
         override fun performRefactoring(project: Project, editor: Editor, file: PsiFile) {
             super.performRefactoring(project, editor, file)
-            val intention = ConvertSwitchToIfIntention(switchStatement)
             WriteCommandAction.runWriteCommandAction(project,
-                Runnable { intention.invoke(project, editor, file) })
+                Runnable { ConvertSwitchToIfIntention.doProcessIntention(switchStatement) })
             reverseRefactoring = getReverseRefactoringObject(project, editor, file)
         }
 

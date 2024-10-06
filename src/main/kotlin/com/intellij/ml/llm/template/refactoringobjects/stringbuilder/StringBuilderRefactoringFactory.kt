@@ -13,8 +13,8 @@ import com.intellij.psi.*
 import com.intellij.refactoring.suggested.startOffset
 import com.siyeh.ig.performance.StringConcatenationInLoopsInspection
 import com.siyeh.ipp.concatenation.ReplaceConcatenationWithStringBufferIntention
-import org.jetbrains.kotlin.idea.editor.fixers.endLine
-import org.jetbrains.kotlin.idea.editor.fixers.startLine
+import org.jetbrains.kotlin.idea.base.codeInsight.handlers.fixers.endLine
+import org.jetbrains.kotlin.idea.base.codeInsight.handlers.fixers.startLine
 import org.jetbrains.kotlin.psi.psiUtil.endOffset
 import org.jetbrains.kotlin.psi.psiUtil.getChildOfType
 

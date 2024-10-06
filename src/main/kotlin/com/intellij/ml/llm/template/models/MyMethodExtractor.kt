@@ -82,7 +82,7 @@ class MyMethodExtractor (private val functionNameProvider: FunctionNameProvider?
             val allOptionsToExtract: List<ExtractOptions> = computeWithAnalyzeProgress<List<ExtractOptions>, ExtractException>(file.project) {
                 findAllOptionsToExtract(elements)
             }
-            return selectOptionWithTargetClass(editor, allOptionsToExtract)
+            return selectOptionWithTargetClass(editor, file.project, allOptionsToExtract)
         }
         catch (e: ExtractException) {
             val message = JavaRefactoringBundle.message("extract.method.error.prefix") + " " + (e.message ?: "")

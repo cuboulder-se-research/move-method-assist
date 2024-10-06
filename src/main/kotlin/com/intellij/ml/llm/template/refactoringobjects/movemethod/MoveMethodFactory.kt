@@ -29,12 +29,12 @@ import com.intellij.usageView.UsageInfo
 import dev.langchain4j.model.chat.ChatLanguageModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.runBlocking
-import org.jetbrains.kotlin.idea.editor.fixers.endLine
-import org.jetbrains.kotlin.idea.editor.fixers.startLine
 import org.jetbrains.kotlin.psi.psiUtil.endOffset
 import org.jetbrains.kotlin.psi.psiUtil.getChildOfType
 import kotlin.math.min
 import kotlin.system.measureTimeMillis
+import org.jetbrains.kotlin.idea.base.codeInsight.handlers.fixers.endLine
+import org.jetbrains.kotlin.idea.base.codeInsight.handlers.fixers.startLine
 
 
 class MoveMethodFactory {

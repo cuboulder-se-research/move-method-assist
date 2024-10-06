@@ -31,8 +31,8 @@ import dev.langchain4j.data.message.ChatMessage
 import dev.langchain4j.model.chat.ChatLanguageModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.runBlocking
-import org.jetbrains.kotlin.idea.editor.fixers.endLine
-import org.jetbrains.kotlin.idea.editor.fixers.startLine
+import org.jetbrains.kotlin.idea.base.codeInsight.handlers.fixers.endLine
+import org.jetbrains.kotlin.idea.base.codeInsight.handlers.fixers.startLine
 import org.jetbrains.kotlin.psi.psiUtil.startOffset
 import org.jetbrains.kotlin.util.capitalizeDecapitalize.toLowerCaseAsciiOnly
 import java.awt.Point

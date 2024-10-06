@@ -6,6 +6,7 @@ import com.intellij.ml.llm.template.utils.Observer
 import com.intellij.openapi.application.PathManager
 import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.util.io.toNioPath
+import com.intellij.openapi.util.io.toNioPathOrNull
 import com.intellij.util.io.createDirectories
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.runBlocking
@@ -17,7 +18,7 @@ class TelemetryDataObserver : Observer {
         const val LOG_FILE_NAME = "ref_telemetry_data.jsonl"
     }
 
-    private val logFile = PathManager.getLogPath().toNioPath()
+    private val logFile = PathManager.getLogPath().toNioPathOrNull()!!
         .resolve(LOG_DIR_NAME)
         .resolve(LOG_FILE_NAME).toFile()
 
@@ -25,7 +26,7 @@ class TelemetryDataObserver : Observer {
         runBlocking {
             withContext(Dispatchers.IO) {
                 if (!logFile.exists()) {
-                    logFile.parent.toNioPath().createDirectories()
+                    logFile.parent.toNioPathOrNull()?.createDirectories()
                     logFile.createNewFile()
                 }
             }
