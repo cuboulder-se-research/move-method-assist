@@ -508,19 +508,18 @@ class MoveMethodFactory {
                     return@runReadAction false
 //                return@runReadAction true
                 myInvokeFinished = false
-                var processor: MoveStaticMethodValidator?= null
-                    invokeLater{
-                        processor = MoveStaticMethodValidator(
-                            project,
-                            methodToMove.containingClass!!,
-                            movePivot.psiClass,
-                            methodToMove
-                        )
-                        myInvokeFinished = true
-                    }
-                runBlocking{ waitForBackgroundFinish(5 * 60 * 1000, 1000) }
+//                    invokeLater{
+                val processor = MoveStaticMethodValidator(
+                    project,
+                    methodToMove.containingClass!!,
+                    movePivot.psiClass,
+                    methodToMove
+                )
+                myInvokeFinished = true
+//                    }
+//                runBlocking{ waitForBackgroundFinish(5 * 60 * 1000, 1000) }
 
-                val method = processor!!.javaClass.getDeclaredMethod("findUsages")
+                val method = processor.javaClass.getDeclaredMethod("findUsages")
                 method.setAccessible(true)
                 val usages = method.invoke(processor)
                 val refUsages = Ref<Array<UsageInfo>>(usages as Array<UsageInfo>)
