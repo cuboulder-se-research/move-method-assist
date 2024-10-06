@@ -144,6 +144,7 @@ class MoveMethodRefactoringPrompt: MethodPromptBase() {
                    ${Gson().toJson(movePivots.map { it.psiClass.name }) }} 
 
                 Respond with ONLY a JSON list of objects (with keys "target_class" and "rationale"), with the most important target class suggestion at the beginning of the list. 
+                Include detailed information in the rationale, including why the method needs to move out the existing class, and why it should move to the target class.  
                 Ex:
                  [
                     {
