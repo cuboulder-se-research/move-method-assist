@@ -157,7 +157,7 @@ class RefAgentSettings : BaseState() {
     var useOpenAi by property(true)
 
     @get:OptionTag("ai_model")
-    var aiModel = "grazie-gpt-4"
+    var aiModel = "grazie-gpt-4o"
 
     @get:OptionTag("use_local_llm")
     var useOllamaToCreateObj = false

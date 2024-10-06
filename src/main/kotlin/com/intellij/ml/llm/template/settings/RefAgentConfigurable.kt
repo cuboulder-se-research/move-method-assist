@@ -22,9 +22,9 @@ class RefAgentConfigurable : BoundConfigurable(LLMBundle.message("settings.confi
             row(LLMBundle.message("settings.configurable.openai.model.label")) {
                 comboBox(
                     listOf(
-                        "grazie-gpt-4",
-                        "grazie-gpt-4o-mini",
                         "grazie-gpt-4o",
+                        "grazie-gpt-4o-mini",
+                        "grazie-gpt-4",
                         "openai-gpt-4",
                         "openai-gpt-3.5-turbo",
                         "openai-gpt-4o-mini",
