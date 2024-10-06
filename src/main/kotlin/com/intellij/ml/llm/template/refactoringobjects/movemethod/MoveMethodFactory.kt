@@ -13,7 +13,6 @@ import com.intellij.ml.llm.template.refactoringobjects.MyRefactoringFactory
 import com.intellij.ml.llm.template.telemetry.EFTelemetryDataManager
 import com.intellij.ml.llm.template.utils.JsonUtils
 import com.intellij.ml.llm.template.utils.PsiUtils
-import com.intellij.openapi.application.invokeLater
 import com.intellij.openapi.application.runReadAction
 import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.editor.Editor
@@ -22,19 +21,20 @@ import com.intellij.openapi.util.Ref
 import com.intellij.psi.*
 import com.intellij.psi.search.GlobalSearchScope
 import com.intellij.refactoring.move.MoveInstanceMembersUtil
+import com.intellij.refactoring.move.moveInstanceMethod.MoveInstanceMethodDialog
 import com.intellij.refactoring.move.moveInstanceMethod.MoveInstanceMethodProcessor
 import com.intellij.refactoring.openapi.impl.JavaRefactoringFactoryImpl
 import com.intellij.refactoring.suggested.startOffset
 import com.intellij.usageView.UsageInfo
 import dev.langchain4j.model.chat.ChatLanguageModel
 import kotlinx.coroutines.delay
-import kotlinx.coroutines.runBlocking
 import org.jetbrains.kotlin.psi.psiUtil.endOffset
 import org.jetbrains.kotlin.psi.psiUtil.getChildOfType
 import kotlin.math.min
 import kotlin.system.measureTimeMillis
 import org.jetbrains.kotlin.idea.base.codeInsight.handlers.fixers.endLine
 import org.jetbrains.kotlin.idea.base.codeInsight.handlers.fixers.startLine
+import org.jetbrains.kotlin.idea.refactoring.showWithTransaction
 
 
 class MoveMethodFactory {
@@ -176,22 +176,22 @@ class MoveMethodFactory {
             val moveMethods = pivotsSortedByLLM
                 .map {
                     if (it.psiElement!=null) {
-                        val processor = runReadAction {
-                            MoveInstanceMethodProcessor(
-                                project, methodToMove, it.psiElement as PsiVariable, "public",
-                                runReadAction {
-                                    getParamNamesIfNeeded(
-                                        MoveInstanceMembersUtil.getThisClassesToMembers(methodToMove),
-                                        it.psiElement as? PsiField
-                                    )
-                                }
-                            )
-                        }
-                        MyMoveMethodRefactoring(
+//                        val processor = runReadAction {
+//                            MoveInstanceMethodProcessor(
+//                                project, methodToMove, it.psiElement as PsiVariable, "public",
+//                                runReadAction {
+//                                    getParamNamesIfNeeded(
+//                                        MoveInstanceMembersUtil.getThisClassesToMembers(methodToMove),
+//                                        it.psiElement as? PsiField
+//                                    )
+//                                }
+//                            )
+//                        }
+                        MyMoveInstanceMethodRefactoring(
                             methodToMove.startLine(editor.document),
                             methodToMove.endLine(editor.document),
                             methodToMove,
-                            processor,
+                            it.psiElement as PsiVariable,
                             classToMoveTo = it.psiClass,
                             rationale = it.rationale
                         )
@@ -429,11 +429,11 @@ class MoveMethodFactory {
 
 
 
-        class MyMoveMethodRefactoring(
+        class MyMoveInstanceMethodRefactoring(
             override val startLoc: Int,
             override val endLoc: Int,
             val methodToMove: PsiMethod,
-            val processor: MoveInstanceMethodProcessor,
+            val psiVariable: PsiVariable,
             val classToMoveTo: PsiClass,
             val rationale: String? = null
         ) : AbstractRefactoring(){
@@ -446,7 +446,9 @@ class MoveMethodFactory {
             }
             override fun performRefactoring(project: Project, editor: Editor, file: PsiFile) {
                 super.performRefactoring(project, editor, file)
-                processor.run()
+                val moveDialog = MyMoveInstanceMethodDialog(methodToMove, arrayOf(psiVariable))
+                moveDialog.showAndGet()
+                applied = moveDialog.triggeredRefactoring
                 reverseRefactoring = getReverseRefactoringObject(project, editor, file)
             }
 

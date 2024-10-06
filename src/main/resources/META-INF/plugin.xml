@@ -32,22 +32,22 @@
             <bundleName>messages.LLMBundle</bundleName>
             <categoryKey>intention.category.suggest.refactoring</categoryKey>
         </intentionAction>
-        <intentionAction>
-            <className>com.intellij.ml.llm.template.intentions.ApplyMoveMethodOnProjectIntention</className>
-            <bundleName>messages.LLMBundle</bundleName>
-            <categoryKey>intention.category.suggest.refactoring</categoryKey>
-        </intentionAction>
-        <intentionAction>
-            <className>com.intellij.ml.llm.template.intentions.ApplyMMOnProjectAndCommitIntention</className>
-            <bundleName>messages.LLMBundle</bundleName>
-            <categoryKey>intention.category.suggest.refactoring</categoryKey>
-        </intentionAction>
-        <intentionAction>
-            <language>JAVA</language>
-            <className>com.intellij.ml.llm.template.intentions.CreateEmmDatasetIntention</className>
-            <bundleName>messages.LLMBundle</bundleName>
-            <categoryKey>intention.category.suggest.refactoring</categoryKey>
-        </intentionAction>
+<!--        <intentionAction>-->
+<!--            <className>com.intellij.ml.llm.template.intentions.ApplyMoveMethodOnProjectIntention</className>-->
+<!--            <bundleName>messages.LLMBundle</bundleName>-->
+<!--            <categoryKey>intention.category.suggest.refactoring</categoryKey>-->
+<!--        </intentionAction>-->
+<!--        <intentionAction>-->
+<!--            <className>com.intellij.ml.llm.template.intentions.ApplyMMOnProjectAndCommitIntention</className>-->
+<!--            <bundleName>messages.LLMBundle</bundleName>-->
+<!--            <categoryKey>intention.category.suggest.refactoring</categoryKey>-->
+<!--        </intentionAction>-->
+<!--        <intentionAction>-->
+<!--            <language>JAVA</language>-->
+<!--            <className>com.intellij.ml.llm.template.intentions.CreateEmmDatasetIntention</className>-->
+<!--            <bundleName>messages.LLMBundle</bundleName>-->
+<!--            <categoryKey>intention.category.suggest.refactoring</categoryKey>-->
+<!--        </intentionAction>-->
 
         <registryKey defaultValue="false"
                      description="If enabled, emulates requests instead of using OpenAI API. Used for debug purposes."
