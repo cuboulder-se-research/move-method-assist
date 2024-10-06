@@ -7,7 +7,9 @@ import com.intellij.ml.llm.template.refactoringobjects.UncreatableRefactoring
 import com.intellij.ml.llm.template.refactoringobjects.extractfunction.EfCandidateType
 import com.intellij.ml.llm.template.settings.RefAgentSettingsManager
 import com.intellij.ml.llm.template.utils.EFCandidateApplicationPayload
+import com.intellij.ml.llm.template.utils.PsiUtils
 import com.intellij.openapi.util.TextRange
+import com.intellij.psi.PsiClass
 import com.intellij.psi.PsiFile
 import com.intellij.psi.PsiWhiteSpace
 import com.intellij.psi.util.elementType
@@ -69,7 +71,10 @@ data class HostFunctionTelemetryData(
     var filePath: String,
 
     @SerializedName("sourceCode")
-    var sourceCode: String
+    var sourceCode: String,
+
+    @SerializedName("methodCount")
+    var methodCount: Int
 )
 
 data class RefCandidatesTelemetryData(
@@ -450,7 +455,8 @@ class EFTelemetryDataUtils {
             lineStart: Int,
             bodyLineStart: Int,
             language: String,
-            filePath: String
+            filePath: String,
+            hostClassPsi: PsiClass?
         ): HostFunctionTelemetryData {
             val functionSize = codeSnippet.lines().size
             return HostFunctionTelemetryData(
@@ -460,7 +466,8 @@ class EFTelemetryDataUtils {
                 bodyLineStart = bodyLineStart,
                 language = language,
                 sourceCode = if (RefAgentSettingsManager.getInstance().getAnonymizeTelemetry()) "" else codeSnippet,
-                filePath = filePath
+                filePath = filePath,
+                methodCount = PsiUtils.getAllMethodsInClass(hostClassPsi).size
             )
         }
 

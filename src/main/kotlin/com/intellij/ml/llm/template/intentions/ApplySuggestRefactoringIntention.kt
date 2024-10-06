@@ -98,7 +98,8 @@ abstract class ApplySuggestRefactoringIntention(
                     lineStart = startLineNumber,
                     bodyLineStart = bodyLineStart,
                     language = file.language.id.toLowerCaseAsciiOnly(),
-                    filePath = file.virtualFile.path
+                    filePath = file.virtualFile.path,
+                    hostClassPsi = functionPsiElement as? PsiClass
                 )
             )
 

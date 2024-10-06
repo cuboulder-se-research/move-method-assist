@@ -24,6 +24,7 @@ import com.intellij.openapi.ui.popup.JBPopupFactory
 import com.intellij.openapi.ui.popup.JBPopupListener
 import com.intellij.openapi.ui.popup.LightweightWindowEvent
 import com.intellij.openapi.util.TextRange
+import com.intellij.psi.PsiClass
 import com.intellij.psi.PsiFile
 import com.intellij.ui.awt.RelativePoint
 import dev.langchain4j.data.message.ChatMessage
@@ -122,7 +123,8 @@ open class ApplySuggestRefactoringAgentIntention(
                 lineStart = functionPsiElement.startLine(editor.document),
                 bodyLineStart = functionPsiElement.endLine(editor.document),
                 language = file.language.id.toLowerCaseAsciiOnly(),
-                filePath = file.virtualFile.path
+                filePath = file.virtualFile.path,
+                hostClassPsi = functionPsiElement as? PsiClass
             )
         )
 

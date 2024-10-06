@@ -123,7 +123,7 @@ class MoveMethodRefactoringPrompt: MethodPromptBase() {
             }
                     
                 Respond in a JSON list, with the most important move-method suggestion at the beginning of the list. 
-                If you think it is not important to move some any of these methods, exclude them from the response list.
+                If you think it is not important to move some/any of these methods, exclude them from the response list.
                      """.trimIndent()),
         )
     }

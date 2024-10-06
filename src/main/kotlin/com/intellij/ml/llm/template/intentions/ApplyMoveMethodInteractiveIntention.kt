@@ -288,21 +288,21 @@ open class ApplyMoveMethodInteractiveIntention : ApplySuggestRefactoringIntentio
         val response: LLMBaseResponse?
         val llmResponseTime = measureTimeMillis { response = llmResponseCache[messages.toString()]?:sendChatRequest(project, messages, llmChatModel)}
         if (response != null) {
-            var methodPriority = mutableListOf<String>()
-            val methodPriority2 = try {
+            val methodPriority = try {
                 Gson().fromJson(
                     JsonUtils.sanitizeJson(response.getSuggestions()[0].text),
-                    methodPriority::class.java
+                    mutableListOf<String>()::class.java
                 )
             } catch (e: Exception) {
                 log2fileAndViewer("LLM Response: " + response.getSuggestions()[0].text, logger)
                 telemetryDataManager.addLLMPriorityResponse(response.getSuggestions()[0].text, llmResponseTime)
                 null
             }
-            if (methodPriority2!=null) {
+            if (methodPriority!=null) {
                 llmResponseCache.put(messages.toString(), response)
-                val sortedSuggestions = uniqueSuggestions.sortedBy {
-                    val index = methodPriority2.indexOf(it.methodName)
+                val filteredSuggestions = uniqueSuggestions.filter { it.methodName in methodPriority }
+                val sortedSuggestions = filteredSuggestions.sortedBy {
+                    val index = methodPriority.indexOf(it.methodName)
                     if (index == -1) {
                         uniqueSuggestions.size + 1
                     } else {
