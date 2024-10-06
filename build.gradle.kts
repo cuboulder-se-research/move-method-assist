@@ -21,14 +21,12 @@ dependencies {
     implementation("dev.langchain4j:langchain4j:0.33.0")
     implementation("dev.langchain4j:langchain4j-ollama:0.33.0")
     implementation("dev.langchain4j:langchain4j-open-ai:0.33.0")
-    implementation("org.testcontainers:testcontainers:1.19.1")
+//    implementation("org.testcontainers:testcontainers:1.19.1")
 
     implementation("org.eclipse.jgit:org.eclipse.jgit:6.4.0.202211300538-r")
     implementation("com.github.javaparser:javaparser-symbol-solver-core:3.26.2")
 
-    implementation("com.github.tsantalis:refactoring-miner:3.0.7")
     implementation("org.jetbrains.kotlinx:kotlinx-cli:0.3.6")
-
 
     testImplementation(kotlin("test"))
 }
