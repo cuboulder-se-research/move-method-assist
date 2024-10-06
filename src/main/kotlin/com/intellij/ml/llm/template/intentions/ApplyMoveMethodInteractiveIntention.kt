@@ -80,6 +80,7 @@ open class ApplyMoveMethodInteractiveIntention : ApplySuggestRefactoringIntentio
             val totalPluginTime = measureTimeMillis { invokeMoveMethodPlugin(project, promptIterator, editor, file) }
             telemetryDataManager.setTotalTime(totalPluginTime)
         } catch (e: Exception){
+            e.printStackTrace()
             telemetryDataManager.addCandidatesTelemetryData(buildCandidatesTelemetryData(0, emptyList()))
             telemetryDataManager.setRefactoringObjects(emptyList())
             sendTelemetryData()

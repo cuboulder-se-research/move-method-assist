@@ -42,7 +42,7 @@ class MoveStaticMethodValidator(
     methodToMove: PsiMethod
 ): MoveMembersProcessor(
     project,
-    MyMockMoveMembersOptions(targetClass.qualifiedName!!, arrayOf(methodToMove))
+    MyMockMoveMembersOptions(targetClass.qualifiedName?:"", arrayOf(methodToMove))
 ) {
     override fun preprocessUsages(refUsages: Ref<Array<UsageInfo>>): Boolean {
         return super.preprocessUsages(refUsages)
@@ -50,6 +50,14 @@ class MoveStaticMethodValidator(
 
     override fun findUsages(): Array<UsageInfo> {
         return super.findUsages()
+    }
+
+    fun delegateFindUsages(): Array<UsageInfo>{
+        return findUsages()
+    }
+
+    fun delegatePreprocessUsages(refUsages: Ref<Array<UsageInfo>>): Boolean{
+        return preprocessUsages(refUsages)
     }
 
     override fun showConflicts(conflicts: MultiMap<PsiElement, String>, usages: Array<out UsageInfo>?): Boolean {

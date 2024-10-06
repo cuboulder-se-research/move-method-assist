@@ -116,8 +116,7 @@ class MoveMethodFactory {
             telemetryDataManager: EFTelemetryDataManager?
         ): List<AbstractRefactoring> {
 
-            val validMovePivots = getPotentialMovePivots(project, editor, file, methodToMove)
-//            val validMovePivots = getValidPivots(project, editor, file, methodToMove, targetPivots)
+            val validMovePivots = getPotentialMovePivots(project, editor, file, methodToMove) // these pivots are also valid.
             val targetPivotsWithSimilarity: List<Pair<MovePivot, Double>>
             val similarityComputationTime = measureTimeMillis {
                 targetPivotsWithSimilarity =
@@ -245,16 +244,8 @@ class MoveMethodFactory {
                         )
                     }
                 )
-                // Reflection. This is a hacky way to call intellij API.
-                val method = processor.javaClass.getDeclaredMethod("findUsages")
-                method.setAccessible(true)
-                val usages = method.invoke(processor)
-                val refUsages = Ref<Array<UsageInfo>>(usages as Array<UsageInfo>)
-
-                val preprocessUsagesMethod =
-                    processor.javaClass.getDeclaredMethod("preprocessUsages", refUsages::class.java)
-                preprocessUsagesMethod.setAccessible(true)
-                return@runReadAction preprocessUsagesMethod.invoke(processor, refUsages) as Boolean
+                val refUsages = Ref<Array<UsageInfo>>(processor.delegateFindUsages())
+                return@runReadAction processor.delegatePreprocessUsages(refUsages)
             }
         }
 
@@ -367,7 +358,7 @@ class MoveMethodFactory {
                 return validMovePivots.subList(0, min(validMovePivots.size, 100)).map { MovePivot(it.psiClass, null) }
             }else{
                 val handler = MoveInstanceMethodHandlerForPlugin()
-                return runReadAction {
+                val potentialPivots = runReadAction {
                     handler.invoke(project, arrayOf(methodToMove), null)
                     handler.suitableVariablesToMove.map {
                         val clazz = PsiUtils.findClassFromQualifier(it.type.canonicalText, project)
@@ -377,6 +368,7 @@ class MoveMethodFactory {
                             null
                     }.filterNotNull()
                 }
+                return getValidPivots(project, editor, file, methodToMove, potentialPivots)
             }
         }
 
@@ -507,27 +499,15 @@ class MoveMethodFactory {
                 if (methodToMove.containingClass!!.name==movePivot.psiClass.name)
                     return@runReadAction false
 //                return@runReadAction true
-                myInvokeFinished = false
-//                    invokeLater{
+                if (movePivot.psiClass.qualifiedName==null) return@runReadAction false
                 val processor = MoveStaticMethodValidator(
                     project,
                     methodToMove.containingClass!!,
                     movePivot.psiClass,
                     methodToMove
                 )
-                myInvokeFinished = true
-//                    }
-//                runBlocking{ waitForBackgroundFinish(5 * 60 * 1000, 1000) }
-
-                val method = processor.javaClass.getDeclaredMethod("findUsages")
-                method.setAccessible(true)
-                val usages = method.invoke(processor)
-                val refUsages = Ref<Array<UsageInfo>>(usages as Array<UsageInfo>)
-
-                val preprocessUsagesMethod =
-                    processor!!.javaClass.getDeclaredMethod("preprocessUsages", refUsages::class.java)
-                preprocessUsagesMethod.setAccessible(true)
-                return@runReadAction preprocessUsagesMethod.invoke(processor, refUsages) as Boolean
+                val refUsages = Ref<Array<UsageInfo>>(processor.delegateFindUsages())
+                return@runReadAction processor.delegatePreprocessUsages(refUsages)
             }
         }
         tailrec suspend fun waitForBackgroundFinish(maxDelay: Long, checkPeriod: Long) : Boolean{

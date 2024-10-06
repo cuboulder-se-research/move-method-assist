@@ -32,4 +32,12 @@ class MoveInstanceMethodProcessorAutoValidator(project: Project,
     override fun preprocessUsages(refUsages: Ref<Array<UsageInfo>>): Boolean { //to make reflection work.
         return super.preprocessUsages(refUsages)
     }
+
+    fun delegateFindUsages(): Array<UsageInfo>{
+        return findUsages()
+    }
+
+    fun delegatePreprocessUsages(refUsages: Ref<Array<UsageInfo>>): Boolean{
+        return preprocessUsages(refUsages)
+    }
 }
