@@ -13,6 +13,7 @@ import com.intellij.ml.llm.template.refactoringobjects.MyRefactoringFactory
 import com.intellij.ml.llm.template.telemetry.EFTelemetryDataManager
 import com.intellij.ml.llm.template.utils.JsonUtils
 import com.intellij.ml.llm.template.utils.PsiUtils
+import com.intellij.openapi.application.invokeLater
 import com.intellij.openapi.application.runReadAction
 import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.editor.Editor
@@ -20,14 +21,17 @@ import com.intellij.openapi.project.Project
 import com.intellij.openapi.util.Ref
 import com.intellij.psi.*
 import com.intellij.psi.search.GlobalSearchScope
+import com.intellij.refactoring.move.MoveCallback
 import com.intellij.refactoring.move.MoveInstanceMembersUtil
 import com.intellij.refactoring.move.moveInstanceMethod.MoveInstanceMethodDialog
 import com.intellij.refactoring.move.moveInstanceMethod.MoveInstanceMethodProcessor
+import com.intellij.refactoring.move.moveMembers.MoveMembersDialog
 import com.intellij.refactoring.openapi.impl.JavaRefactoringFactoryImpl
 import com.intellij.refactoring.suggested.startOffset
 import com.intellij.usageView.UsageInfo
 import dev.langchain4j.model.chat.ChatLanguageModel
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.runBlocking
 import org.jetbrains.kotlin.psi.psiUtil.endOffset
 import org.jetbrains.kotlin.psi.psiUtil.getChildOfType
 import kotlin.math.min
@@ -158,12 +162,18 @@ class MoveMethodFactory {
                 return runReadAction {
                     val moveMethods = pivotsSortedByLLM.map {
                         it.psiClass.qualifiedName?.let { it1 ->
-                            MyMoveStaticMethodRefactoring(
-                                methodToMove.startLine(editor.document),
-                                methodToMove.endLine(editor.document),
-                                methodToMove, it1,
-                                rationale = it.rationale
-                            )
+                            val classToMoveTo = JavaPsiFacade.getInstance(project).findClass(it1, GlobalSearchScope.projectScope(project))
+                            if (classToMoveTo != null) {
+                                MyMoveStaticMethodRefactoring(
+                                    methodToMove.startLine(editor.document),
+                                    methodToMove.endLine(editor.document),
+                                    methodToMove, classToMoveTo,
+                                    rationale = it.rationale
+                                )
+                            }
+                            else{
+                                null
+                            }
                         }
                     }.filterNotNull()
 
@@ -400,11 +410,16 @@ class MoveMethodFactory {
             editor: Editor,
             qualifiedClassName: String
         ): List<MyMoveStaticMethodRefactoring> {
+
+            val classToMoveTo = JavaPsiFacade.getInstance(methodToMove.project)
+                .findClass(qualifiedClassName, GlobalSearchScope.projectScope(methodToMove.project))
+            if (classToMoveTo==null) return emptyList()
+
             return listOf(
                 MyMoveStaticMethodRefactoring(
                     methodToMove.startLine(editor.document),
                     methodToMove.endLine(editor.document),
-                    methodToMove, qualifiedClassName
+                    methodToMove, classToMoveTo
                 )
             )
         }
@@ -491,29 +506,29 @@ class MoveMethodFactory {
             return runReadAction {
                 if (methodToMove.containingClass!!.name==movePivot.psiClass.name)
                     return@runReadAction false
-                return@runReadAction true
-//                myInvokeFinished = false
-//                var processor: MoveStaticMethodValidator?= null
-//                    invokeLater{
-//                        processor = MoveStaticMethodValidator(
-//                            project,
-//                            methodToMove.containingClass!!,
-//                            movePivot.psiClass,
-//                            methodToMove
-//                        )
-//                        myInvokeFinished = true
-//                    }
-//                runBlocking{ waitForBackgroundFinish(5 * 60 * 1000, 1000) }
-//
-//                val method = processor!!.javaClass.getDeclaredMethod("findUsages")
-//                method.setAccessible(true)
-//                val usages = method.invoke(processor)
-//                val refUsages = Ref<Array<UsageInfo>>(usages as Array<UsageInfo>)
-//
-//                val preprocessUsagesMethod =
-//                    processor!!.javaClass.getDeclaredMethod("preprocessUsages", refUsages::class.java)
-//                preprocessUsagesMethod.setAccessible(true)
-//                return@runReadAction preprocessUsagesMethod.invoke(processor, refUsages) as Boolean
+//                return@runReadAction true
+                myInvokeFinished = false
+                var processor: MoveStaticMethodValidator?= null
+                    invokeLater{
+                        processor = MoveStaticMethodValidator(
+                            project,
+                            methodToMove.containingClass!!,
+                            movePivot.psiClass,
+                            methodToMove
+                        )
+                        myInvokeFinished = true
+                    }
+                runBlocking{ waitForBackgroundFinish(5 * 60 * 1000, 1000) }
+
+                val method = processor!!.javaClass.getDeclaredMethod("findUsages")
+                method.setAccessible(true)
+                val usages = method.invoke(processor)
+                val refUsages = Ref<Array<UsageInfo>>(usages as Array<UsageInfo>)
+
+                val preprocessUsagesMethod =
+                    processor!!.javaClass.getDeclaredMethod("preprocessUsages", refUsages::class.java)
+                preprocessUsagesMethod.setAccessible(true)
+                return@runReadAction preprocessUsagesMethod.invoke(processor, refUsages) as Boolean
             }
         }
         tailrec suspend fun waitForBackgroundFinish(maxDelay: Long, checkPeriod: Long) : Boolean{
@@ -546,7 +561,7 @@ class MoveMethodFactory {
         override val startLoc: Int,
         override val endLoc: Int,
         val methodToMove: PsiMethod,
-        val classToMoveTo: String,
+        val classToMoveTo: PsiClass,
         val rationale: String?=null
     ) : AbstractRefactoring(){
         val sourceClass: PsiClass = methodToMove.containingClass!!
@@ -556,14 +571,25 @@ class MoveMethodFactory {
                     "Rationale: $rationale"
         }
 
+        class StaticMoveCallBack(val ref: MyMoveStaticMethodRefactoring): MoveCallback {
+            override fun refactoringCompleted() {
+                ref.applied = true
+            }
+        }
+
         override fun performRefactoring(project: Project, editor: Editor, file: PsiFile) {
-            val refFactory = JavaRefactoringFactoryImpl(project)
-            val moveRefactoring =
-                refFactory.createMoveMembers(
-                    arrayOf(methodToMove),
-                    classToMoveTo,
-                    "public")
-            moveRefactoring.run()
+            super.performRefactoring(project, editor, file)
+//            val refFactory = JavaRefactoringFactoryImpl(project)
+//            val moveRefactoring =
+//                refFactory.createMoveMembers(
+//                    arrayOf(methodToMove),
+//                    classToMoveTo,
+//                    "public")
+//            moveRefactoring.run()
+            applied = false
+            val dialog = MoveMembersDialog(
+                file.project, methodToMove.containingClass!!, classToMoveTo, setOf(methodToMove), StaticMoveCallBack(this))
+            dialog.show()
             reverseRefactoring = getReverseRefactoringObject(project, editor, file)
         }
 
@@ -573,7 +599,7 @@ class MoveMethodFactory {
         }
 
         override fun getRefactoringPreview(): String {
-            return "Move Static method ${methodToMove.name} to class ${classToMoveTo.split(".").last()}"
+            return "Move Static method ${methodToMove.name} to class ${classToMoveTo.name?.split(".")?.last()}"
         }
 
         override fun getStartOffset(): Int {
@@ -590,17 +616,12 @@ class MoveMethodFactory {
             file: PsiFile
         ): AbstractRefactoring? {
 
-            val destClass = JavaPsiFacade.getInstance(project).findClass(
-                classToMoveTo,
-                GlobalSearchScope.projectScope(project))
-            if (destClass!=null){
-                val foundMethod = PsiUtils.getMethodNameFromClass(destClass, methodName)
-                if (foundMethod!=null)
-                    return MyMoveStaticMethodRefactoring(
-                        foundMethod.startLine(editor.document),
-                        foundMethod.endLine(editor.document),
-                        foundMethod, sourceClass.qualifiedName!!)
-            }
+            val foundMethod = PsiUtils.getMethodNameFromClass(classToMoveTo, methodName)
+            if (foundMethod!=null)
+                return MyMoveStaticMethodRefactoring(
+                    foundMethod.startLine(editor.document),
+                    foundMethod.endLine(editor.document),
+                    foundMethod, sourceClass)
             return null
         }
 
