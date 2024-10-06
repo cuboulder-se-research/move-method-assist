@@ -64,7 +64,7 @@ open class ApplyMoveMethodInteractiveIntention : ApplySuggestRefactoringIntentio
         val rationale:String,
 
         @Transient
-        val psiMethod: PsiMethod?
+        val psiMethod: PsiMethod
     )
 
     override fun getFamilyName(): String {
@@ -102,11 +102,12 @@ open class ApplyMoveMethodInteractiveIntention : ApplySuggestRefactoringIntentio
                 .filter { !(it.name.startsWith("set") && it.parameterList.parameters.size==1)} // filter out getters and setters.
                 .filter{ !it.isOverridableElement() }
                 .filter { !it.text.startsWith("@Override") }
-                .map { MoveMethodSuggestion(it.name, it.getSignature(PsiSubstitutor.EMPTY).toString(), "", "", it) }
+                .map { MoveMethodSuggestion(it.name, getSignatureString(it), "", "", it) }
         }
         val methodCompatibilitySuggestionsWithSore = getMethodCompatibility(bruteForceSuggestions, functionPsiElement as PsiClass)
         val methodCompatibilitySuggestions = methodCompatibilitySuggestionsWithSore.map { it.first }
         addMethodCompatibilityData(methodCompatibilitySuggestionsWithSore)
+        logMethods(bruteForceSuggestions, -2, 0)
 
 //        log2fileAndViewer("*** Combining responses from iterations ***", logger)
 //        logMethods(methodCompatibilitySuggestions, -1, 0)
@@ -163,13 +164,15 @@ open class ApplyMoveMethodInteractiveIntention : ApplySuggestRefactoringIntentio
 
     }
 
+    private fun getSignatureString(psiMethod: PsiMethod) = "${psiMethod.modifierList.text} ${psiMethod.name}${psiMethod.parameterList.text}"
+
     private fun createRefactoringObjectsAndShowSuggestions(moveMethodSuggestions: List<MoveMethodSuggestion>) {
             val refObjs = moveMethodSuggestions
                 .map {
-                    MoveMethodFactory.createMoveMethodFromName(
+                    MoveMethodFactory.createMoveMethodFromPsiMethod(
                         currentEditor,
                         currentFile,
-                        it.methodName,
+                        it.psiMethod,
                         currentProject,
                         llmChatModel,
                         telemetryDataManager
@@ -288,7 +291,7 @@ open class ApplyMoveMethodInteractiveIntention : ApplySuggestRefactoringIntentio
         val response: LLMBaseResponse?
         val llmResponseTime = measureTimeMillis { response = llmResponseCache[messages.toString()]?:sendChatRequest(project, messages, llmChatModel)}
         if (response != null) {
-            val methodPriority = try {
+            val methodPrioritySignatures = try {
                 Gson().fromJson(
                     JsonUtils.sanitizeJson(response.getSuggestions()[0].text),
                     mutableListOf<String>()::class.java
@@ -298,18 +301,18 @@ open class ApplyMoveMethodInteractiveIntention : ApplySuggestRefactoringIntentio
                 telemetryDataManager.addLLMPriorityResponse(response.getSuggestions()[0].text, llmResponseTime)
                 null
             }
-            if (methodPriority!=null) {
+            if (methodPrioritySignatures!=null) {
                 llmResponseCache.put(messages.toString(), response)
-                val filteredSuggestions = uniqueSuggestions.filter { it.methodName in methodPriority }
+                val filteredSuggestions = uniqueSuggestions.filter { it.methodSignature in methodPrioritySignatures }
                 val sortedSuggestions = filteredSuggestions.sortedBy {
-                    val index = methodPriority.indexOf(it.methodName)
+                    val index = methodPrioritySignatures.indexOf(it.methodSignature)
                     if (index == -1) {
                         uniqueSuggestions.size + 1
                     } else {
                         index
                     }
                 }
-                telemetryDataManager.addLLMPriorityResponse(sortedSuggestions.map{it.methodName}, llmResponseTime)
+                telemetryDataManager.addLLMPriorityResponse(sortedSuggestions.map{it.methodSignature}, llmResponseTime)
                 return sortedSuggestions
             }
         }
@@ -385,7 +388,7 @@ open class ApplyMoveMethodInteractiveIntention : ApplySuggestRefactoringIntentio
 
         log2fileAndViewer(logMessage = "LLM suggested to move:", logger = logger)
         moveMethodSuggestions.forEachIndexed {
-             index, moveMethodSuggestion ->  log2fileAndViewer(logMessage = "${index+1}. ${moveMethodSuggestion.methodName}", logger = logger)
+             index, moveMethodSuggestion ->  log2fileAndViewer(logMessage = "${index+1}. ${moveMethodSuggestion.methodSignature}", logger = logger)
         }
         log2fileAndViewer(logMessage = "LLM took $llmRequestTime ms to respond", logger = logger)
         telemetryDataManager.addMovesSuggestedInIteration(
@@ -405,7 +408,7 @@ open class ApplyMoveMethodInteractiveIntention : ApplySuggestRefactoringIntentio
     private fun logPriority(moveMethodSuggestions: List<MoveMethodSuggestion>){
         log2fileAndViewer(logMessage = "Priority of methods to move, according to LLM:", logger = logger)
         moveMethodSuggestions.forEachIndexed {
-                index, moveMethodSuggestion ->  log2fileAndViewer(logMessage = "${index+1}. ${moveMethodSuggestion.methodName}", logger = logger)
+                index, moveMethodSuggestion ->  log2fileAndViewer(logMessage = "${index+1}. ${moveMethodSuggestion.methodSignature}", logger = logger)
         }
     }
 

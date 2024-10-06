@@ -119,7 +119,7 @@ class MoveMethodRefactoringPrompt: MethodPromptBase() {
                 
                 Please rank the following move-method suggestions:
                  ${
-                Gson().toJson(moveMethodSuggetions.map{it.methodName})
+                Gson().toJson(moveMethodSuggetions.map{it.methodSignature})
             }
                     
                 Respond in a JSON list, with the most important move-method suggestion at the beginning of the list. 

@@ -92,6 +92,17 @@ class MoveMethodFactory {
             return createMoveMethodRefactorings(project, methodToMove, editor, file, llmChatModel, telemetyDataManager)
         }
 
+        fun createMoveMethodFromPsiMethod(
+            editor: Editor,
+            file: PsiFile,
+            methodPsi: PsiMethod,
+            project: Project,
+            llmChatModel: ChatLanguageModel? = null,
+            telemetyDataManager: EFTelemetryDataManager? =null
+        ): List<AbstractRefactoring> {
+            return createMoveMethodRefactorings(project, methodPsi, editor, file, llmChatModel, telemetyDataManager)
+        }
+
         private fun createMoveMethodRefactorings(
             project: Project,
             methodToMove: PsiMethod,
