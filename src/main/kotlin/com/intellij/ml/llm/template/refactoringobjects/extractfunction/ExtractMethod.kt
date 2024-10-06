@@ -107,7 +107,7 @@ class ExtractMethod(
     }
 
     override fun getRefactoringPreview(): String {
-        return "${REFACTORING_NAME}: $newFuncName"
+        return "${REFACTORING_NAME} lines($startLoc, $endLoc): $newFuncName"
     }
 
 

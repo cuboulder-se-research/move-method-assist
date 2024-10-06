@@ -1,0 +1,2518 @@
+[
+    {
+        "repository": "https://github.com/apache/kafka.git",
+        "sha1": "e45e032b8d90435de2f338f77a732c88f8cca66e",
+        "url": "https://github.com/apache/kafka/commit/e45e032b8d90435de2f338f77a732c88f8cca66e",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public report() : Future<Void> from class org.apache.kafka.connect.runtime.errors.ProcessingContext to package report(context ProcessingContext<?>) : Future<Void> from class org.apache.kafka.connect.runtime.errors.RetryWithToleranceOperator",
+            "leftSideLocations": [
+                {
+                    "filePath": "connect/runtime/src/main/java/org/apache/kafka/connect/runtime/errors/ProcessingContext.java",
+                    "startLine": 139,
+                    "endLine": 157,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public report() : Future<Void>"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "connect/runtime/src/main/java/org/apache/kafka/connect/runtime/errors/RetryWithToleranceOperator.java",
+                    "startLine": 131,
+                    "endLine": 149,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "package report(context ProcessingContext<?>) : Future<Void>"
+                }
+            ],
+            "isStatic": false
+        }
+    },
+    {
+        "repository": "https://github.com/apache/kafka.git",
+        "sha1": "d1d6b5096f2fc91621192d88a98703d7d9c278fc",
+        "url": "https://github.com/apache/kafka/commit/d1d6b5096f2fc91621192d88a98703d7d9c278fc",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public toString(includeMessage boolean) : String from class org.apache.kafka.connect.runtime.errors.ProcessingContext to private toString(context ProcessingContext<T>, includeMessage boolean) : String from class org.apache.kafka.connect.runtime.errors.LogReporter",
+            "leftSideLocations": [
+                {
+                    "filePath": "connect/runtime/src/main/java/org/apache/kafka/connect/runtime/errors/ProcessingContext.java",
+                    "startLine": 98,
+                    "endLine": 124,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public toString(includeMessage boolean) : String"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "connect/runtime/src/main/java/org/apache/kafka/connect/runtime/errors/LogReporter.java",
+                    "startLine": 80,
+                    "endLine": 92,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "private toString(context ProcessingContext<T>, includeMessage boolean) : String"
+                }
+            ],
+            "isStatic": false
+        }
+    },
+    {
+        "repository": "https://github.com/apache/kafka.git",
+        "sha1": "d1d6b5096f2fc91621192d88a98703d7d9c278fc",
+        "url": "https://github.com/apache/kafka/commit/d1d6b5096f2fc91621192d88a98703d7d9c278fc",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public testCloseErrorReportersExceptionPropagation() : void from class org.apache.kafka.connect.runtime.ErrorHandlingTaskTest to public testCloseErrorReportersExceptionPropagation() : void from class org.apache.kafka.connect.runtime.errors.RetryWithToleranceOperatorTest",
+            "leftSideLocations": [
+                {
+                    "filePath": "connect/runtime/src/test/java/org/apache/kafka/connect/runtime/ErrorHandlingTaskTest.java",
+                    "startLine": 266,
+                    "endLine": 286,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public testCloseErrorReportersExceptionPropagation() : void"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "connect/runtime/src/test/java/org/apache/kafka/connect/runtime/errors/RetryWithToleranceOperatorTest.java",
+                    "startLine": 446,
+                    "endLine": 463,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public testCloseErrorReportersExceptionPropagation() : void"
+                }
+            ],
+            "isStatic": false
+        }
+    },
+    {
+        "repository": "https://github.com/apache/kafka.git",
+        "sha1": "794c52802c0bcc2676d750613fefe14006d03a44",
+        "url": "https://github.com/apache/kafka/commit/794c52802c0bcc2676d750613fefe14006d03a44",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public testPollRedelivery() : void from class org.apache.kafka.connect.runtime.WorkerSinkTaskTest to public testPollRedelivery() : void from class org.apache.kafka.connect.runtime.WorkerSinkTaskMockitoTest",
+            "leftSideLocations": [
+                {
+                    "filePath": "connect/runtime/src/test/java/org/apache/kafka/connect/runtime/WorkerSinkTaskTest.java",
+                    "startLine": 206,
+                    "endLine": 301,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public testPollRedelivery() : void"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "connect/runtime/src/test/java/org/apache/kafka/connect/runtime/WorkerSinkTaskMockitoTest.java",
+                    "startLine": 357,
+                    "endLine": 448,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public testPollRedelivery() : void"
+                }
+            ],
+            "isStatic": false
+        }
+    },
+    {
+        "repository": "https://github.com/apache/kafka.git",
+        "sha1": "794c52802c0bcc2676d750613fefe14006d03a44",
+        "url": "https://github.com/apache/kafka/commit/794c52802c0bcc2676d750613fefe14006d03a44",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public testDeliveryWithMutatingTransform() : void from class org.apache.kafka.connect.runtime.WorkerSinkTaskTest to public testDeliveryWithMutatingTransform() : void from class org.apache.kafka.connect.runtime.WorkerSinkTaskMockitoTest",
+            "leftSideLocations": [
+                {
+                    "filePath": "connect/runtime/src/test/java/org/apache/kafka/connect/runtime/WorkerSinkTaskTest.java",
+                    "startLine": 1321,
+                    "endLine": 1373,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public testDeliveryWithMutatingTransform() : void"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "connect/runtime/src/test/java/org/apache/kafka/connect/runtime/WorkerSinkTaskMockitoTest.java",
+                    "startLine": 645,
+                    "endLine": 684,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public testDeliveryWithMutatingTransform() : void"
+                }
+            ],
+            "isStatic": false
+        }
+    },
+    {
+        "repository": "https://github.com/apache/kafka.git",
+        "sha1": "794c52802c0bcc2676d750613fefe14006d03a44",
+        "url": "https://github.com/apache/kafka/commit/794c52802c0bcc2676d750613fefe14006d03a44",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public testMissingTimestampPropagation() : void from class org.apache.kafka.connect.runtime.WorkerSinkTaskTest to public testMissingTimestampPropagation() : void from class org.apache.kafka.connect.runtime.WorkerSinkTaskMockitoTest",
+            "leftSideLocations": [
+                {
+                    "filePath": "connect/runtime/src/test/java/org/apache/kafka/connect/runtime/WorkerSinkTaskTest.java",
+                    "startLine": 1375,
+                    "endLine": 1403,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public testMissingTimestampPropagation() : void"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "connect/runtime/src/test/java/org/apache/kafka/connect/runtime/WorkerSinkTaskMockitoTest.java",
+                    "startLine": 686,
+                    "endLine": 712,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public testMissingTimestampPropagation() : void"
+                }
+            ],
+            "isStatic": false
+        }
+    },
+    {
+        "repository": "https://github.com/apache/kafka.git",
+        "sha1": "794c52802c0bcc2676d750613fefe14006d03a44",
+        "url": "https://github.com/apache/kafka/commit/794c52802c0bcc2676d750613fefe14006d03a44",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public testTimestampPropagation() : void from class org.apache.kafka.connect.runtime.WorkerSinkTaskTest to public testTimestampPropagation() : void from class org.apache.kafka.connect.runtime.WorkerSinkTaskMockitoTest",
+            "leftSideLocations": [
+                {
+                    "filePath": "connect/runtime/src/test/java/org/apache/kafka/connect/runtime/WorkerSinkTaskTest.java",
+                    "startLine": 1405,
+                    "endLine": 1434,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public testTimestampPropagation() : void"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "connect/runtime/src/test/java/org/apache/kafka/connect/runtime/WorkerSinkTaskMockitoTest.java",
+                    "startLine": 714,
+                    "endLine": 742,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public testTimestampPropagation() : void"
+                }
+            ],
+            "isStatic": false
+        }
+    },
+    {
+        "repository": "https://github.com/apache/kafka.git",
+        "sha1": "794c52802c0bcc2676d750613fefe14006d03a44",
+        "url": "https://github.com/apache/kafka/commit/794c52802c0bcc2676d750613fefe14006d03a44",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public testTopicsRegex() : void from class org.apache.kafka.connect.runtime.WorkerSinkTaskTest to public testTopicsRegex() : void from class org.apache.kafka.connect.runtime.WorkerSinkTaskMockitoTest",
+            "leftSideLocations": [
+                {
+                    "filePath": "connect/runtime/src/test/java/org/apache/kafka/connect/runtime/WorkerSinkTaskTest.java",
+                    "startLine": 1436,
+                    "endLine": 1467,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public testTopicsRegex() : void"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "connect/runtime/src/test/java/org/apache/kafka/connect/runtime/WorkerSinkTaskMockitoTest.java",
+                    "startLine": 744,
+                    "endLine": 769,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public testTopicsRegex() : void"
+                }
+            ],
+            "isStatic": false
+        }
+    },
+    {
+        "repository": "https://github.com/apache/kafka.git",
+        "sha1": "794c52802c0bcc2676d750613fefe14006d03a44",
+        "url": "https://github.com/apache/kafka/commit/794c52802c0bcc2676d750613fefe14006d03a44",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public testHeaders() : void from class org.apache.kafka.connect.runtime.WorkerSinkTaskTest to public testHeaders() : void from class org.apache.kafka.connect.runtime.WorkerSinkTaskMockitoTest",
+            "leftSideLocations": [
+                {
+                    "filePath": "connect/runtime/src/test/java/org/apache/kafka/connect/runtime/WorkerSinkTaskTest.java",
+                    "startLine": 1469,
+                    "endLine": 1493,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public testHeaders() : void"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "connect/runtime/src/test/java/org/apache/kafka/connect/runtime/WorkerSinkTaskMockitoTest.java",
+                    "startLine": 832,
+                    "endLine": 859,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public testHeaders() : void"
+                }
+            ],
+            "isStatic": false
+        }
+    },
+    {
+        "repository": "https://github.com/apache/kafka.git",
+        "sha1": "794c52802c0bcc2676d750613fefe14006d03a44",
+        "url": "https://github.com/apache/kafka/commit/794c52802c0bcc2676d750613fefe14006d03a44",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public testHeadersWithCustomConverter() : void from class org.apache.kafka.connect.runtime.WorkerSinkTaskTest to public testHeadersWithCustomConverter() : void from class org.apache.kafka.connect.runtime.WorkerSinkTaskMockitoTest",
+            "leftSideLocations": [
+                {
+                    "filePath": "connect/runtime/src/test/java/org/apache/kafka/connect/runtime/WorkerSinkTaskTest.java",
+                    "startLine": 1495,
+                    "endLine": 1548,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public testHeadersWithCustomConverter() : void"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "connect/runtime/src/test/java/org/apache/kafka/connect/runtime/WorkerSinkTaskMockitoTest.java",
+                    "startLine": 861,
+                    "endLine": 913,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public testHeadersWithCustomConverter() : void"
+                }
+            ],
+            "isStatic": false
+        }
+    },
+    {
+        "repository": "https://github.com/apache/kafka.git",
+        "sha1": "794c52802c0bcc2676d750613fefe14006d03a44",
+        "url": "https://github.com/apache/kafka/commit/794c52802c0bcc2676d750613fefe14006d03a44",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public testOriginalTopicWithTopicMutatingTransformations() : void from class org.apache.kafka.connect.runtime.WorkerSinkTaskTest to public testOriginalTopicWithTopicMutatingTransformations() : void from class org.apache.kafka.connect.runtime.WorkerSinkTaskMockitoTest",
+            "leftSideLocations": [
+                {
+                    "filePath": "connect/runtime/src/test/java/org/apache/kafka/connect/runtime/WorkerSinkTaskTest.java",
+                    "startLine": 1550,
+                    "endLine": 1581,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public testOriginalTopicWithTopicMutatingTransformations() : void"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "connect/runtime/src/test/java/org/apache/kafka/connect/runtime/WorkerSinkTaskMockitoTest.java",
+                    "startLine": 915,
+                    "endLine": 939,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public testOriginalTopicWithTopicMutatingTransformations() : void"
+                }
+            ],
+            "isStatic": false
+        }
+    },
+    {
+        "repository": "https://github.com/apache/kafka.git",
+        "sha1": "794c52802c0bcc2676d750613fefe14006d03a44",
+        "url": "https://github.com/apache/kafka/commit/794c52802c0bcc2676d750613fefe14006d03a44",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public testPartitionCountInCaseOfPartitionRevocation() : void from class org.apache.kafka.connect.runtime.WorkerSinkTaskTest to public testPartitionCountInCaseOfPartitionRevocation() : void from class org.apache.kafka.connect.runtime.WorkerSinkTaskMockitoTest",
+            "leftSideLocations": [
+                {
+                    "filePath": "connect/runtime/src/test/java/org/apache/kafka/connect/runtime/WorkerSinkTaskTest.java",
+                    "startLine": 1583,
+                    "endLine": 1607,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public testPartitionCountInCaseOfPartitionRevocation() : void"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "connect/runtime/src/test/java/org/apache/kafka/connect/runtime/WorkerSinkTaskMockitoTest.java",
+                    "startLine": 941,
+                    "endLine": 967,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public testPartitionCountInCaseOfPartitionRevocation() : void"
+                }
+            ],
+            "isStatic": false
+        }
+    },
+    {
+        "repository": "https://github.com/apache/kafka.git",
+        "sha1": "794c52802c0bcc2676d750613fefe14006d03a44",
+        "url": "https://github.com/apache/kafka/commit/794c52802c0bcc2676d750613fefe14006d03a44",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method private expectConsumerPoll(numMessages int, headers Headers) : void from class org.apache.kafka.connect.runtime.WorkerSinkTaskTest to private expectConsumerPoll(numMessages int, headers Headers) : Answer<ConsumerRecords<byte[],byte[]>> from class org.apache.kafka.connect.runtime.WorkerSinkTaskMockitoTest",
+            "leftSideLocations": [
+                {
+                    "filePath": "connect/runtime/src/test/java/org/apache/kafka/connect/runtime/WorkerSinkTaskTest.java",
+                    "startLine": 1639,
+                    "endLine": 1641,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "private expectConsumerPoll(numMessages int, headers Headers) : void"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "connect/runtime/src/test/java/org/apache/kafka/connect/runtime/WorkerSinkTaskMockitoTest.java",
+                    "startLine": 1010,
+                    "endLine": 1012,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "private expectConsumerPoll(numMessages int, headers Headers) : Answer<ConsumerRecords<byte[],byte[]>>"
+                }
+            ],
+            "isStatic": false
+        }
+    },
+    {
+        "repository": "https://github.com/apache/kafka.git",
+        "sha1": "77ba06fa620ad9cc42af92f42354661308676135",
+        "url": "https://github.com/apache/kafka/commit/77ba06fa620ad9cc42af92f42354661308676135",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method package createOffsetCommitRequest(offsets Map<TopicPartition,OffsetAndMetadata>, jitter OptionalDouble, expirationTimeMs Optional<Long>, retryOnStaleEpoch boolean) : OffsetCommitRequestState from class org.apache.kafka.clients.consumer.internals.CommitRequestManager.PendingRequests to private createOffsetCommitRequest(offsets Map<TopicPartition,OffsetAndMetadata>, expirationTimeMs Optional<Long>) : OffsetCommitRequestState from class org.apache.kafka.clients.consumer.internals.CommitRequestManager",
+            "leftSideLocations": [
+                {
+                    "filePath": "clients/src/main/java/org/apache/kafka/clients/consumer/internals/CommitRequestManager.java",
+                    "startLine": 1025,
+                    "endLine": 1049,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "package createOffsetCommitRequest(offsets Map<TopicPartition,OffsetAndMetadata>, jitter OptionalDouble, expirationTimeMs Optional<Long>, retryOnStaleEpoch boolean) : OffsetCommitRequestState"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "clients/src/main/java/org/apache/kafka/clients/consumer/internals/CommitRequestManager.java",
+                    "startLine": 384,
+                    "endLine": 404,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "private createOffsetCommitRequest(offsets Map<TopicPartition,OffsetAndMetadata>, expirationTimeMs Optional<Long>) : OffsetCommitRequestState"
+                }
+            ],
+            "isStatic": false
+        }
+    },
+    {
+        "repository": "https://github.com/apache/kafka.git",
+        "sha1": "41f5bf844df1ee94ab69c341d216a334a0d8c7f7",
+        "url": "https://github.com/apache/kafka/commit/41f5bf844df1ee94ab69c341d216a334a0d8c7f7",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public testPutConnectorConfigProducerError() : void from class org.apache.kafka.connect.storage.KafkaConfigBackingStoreTest to public testPutConnectorConfigProducerError() : void from class org.apache.kafka.connect.storage.KafkaConfigBackingStoreMockitoTest",
+            "leftSideLocations": [
+                {
+                    "filePath": "connect/runtime/src/test/java/org/apache/kafka/connect/storage/KafkaConfigBackingStoreTest.java",
+                    "startLine": 229,
+                    "endLine": 262,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public testPutConnectorConfigProducerError() : void"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "connect/runtime/src/test/java/org/apache/kafka/connect/storage/KafkaConfigBackingStoreMockitoTest.java",
+                    "startLine": 403,
+                    "endLine": 432,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public testPutConnectorConfigProducerError() : void"
+                }
+            ],
+            "isStatic": false
+        }
+    },
+    {
+        "repository": "https://github.com/apache/kafka.git",
+        "sha1": "41f5bf844df1ee94ab69c341d216a334a0d8c7f7",
+        "url": "https://github.com/apache/kafka/commit/41f5bf844df1ee94ab69c341d216a334a0d8c7f7",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public testRemoveConnectorConfigSlowProducer() : void from class org.apache.kafka.connect.storage.KafkaConfigBackingStoreTest to public testRemoveConnectorConfigSlowProducer() : void from class org.apache.kafka.connect.storage.KafkaConfigBackingStoreMockitoTest",
+            "leftSideLocations": [
+                {
+                    "filePath": "connect/runtime/src/test/java/org/apache/kafka/connect/storage/KafkaConfigBackingStoreTest.java",
+                    "startLine": 264,
+                    "endLine": 314,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public testRemoveConnectorConfigSlowProducer() : void"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "connect/runtime/src/test/java/org/apache/kafka/connect/storage/KafkaConfigBackingStoreMockitoTest.java",
+                    "startLine": 434,
+                    "endLine": 479,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public testRemoveConnectorConfigSlowProducer() : void"
+                }
+            ],
+            "isStatic": false
+        }
+    },
+    {
+        "repository": "https://github.com/apache/kafka.git",
+        "sha1": "41f5bf844df1ee94ab69c341d216a334a0d8c7f7",
+        "url": "https://github.com/apache/kafka/commit/41f5bf844df1ee94ab69c341d216a334a0d8c7f7",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public testWritePrivileges() : void from class org.apache.kafka.connect.storage.KafkaConfigBackingStoreTest to public testWritePrivileges() : void from class org.apache.kafka.connect.storage.KafkaConfigBackingStoreMockitoTest",
+            "leftSideLocations": [
+                {
+                    "filePath": "connect/runtime/src/test/java/org/apache/kafka/connect/storage/KafkaConfigBackingStoreTest.java",
+                    "startLine": 316,
+                    "endLine": 403,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public testWritePrivileges() : void"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "connect/runtime/src/test/java/org/apache/kafka/connect/storage/KafkaConfigBackingStoreMockitoTest.java",
+                    "startLine": 481,
+                    "endLine": 562,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public testWritePrivileges() : void"
+                }
+            ],
+            "isStatic": false
+        }
+    },
+    {
+        "repository": "https://github.com/apache/kafka.git",
+        "sha1": "41f5bf844df1ee94ab69c341d216a334a0d8c7f7",
+        "url": "https://github.com/apache/kafka/commit/41f5bf844df1ee94ab69c341d216a334a0d8c7f7",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public testRestoreTargetStateUnexpectedDeletion() : void from class org.apache.kafka.connect.storage.KafkaConfigBackingStoreTest to public testRestoreTargetStateUnexpectedDeletion() : void from class org.apache.kafka.connect.storage.KafkaConfigBackingStoreMockitoTest",
+            "leftSideLocations": [
+                {
+                    "filePath": "connect/runtime/src/test/java/org/apache/kafka/connect/storage/KafkaConfigBackingStoreTest.java",
+                    "startLine": 916,
+                    "endLine": 959,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public testRestoreTargetStateUnexpectedDeletion() : void"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "connect/runtime/src/test/java/org/apache/kafka/connect/storage/KafkaConfigBackingStoreMockitoTest.java",
+                    "startLine": 564,
+                    "endLine": 600,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public testRestoreTargetStateUnexpectedDeletion() : void"
+                }
+            ],
+            "isStatic": false
+        }
+    },
+    {
+        "repository": "https://github.com/apache/kafka.git",
+        "sha1": "41f5bf844df1ee94ab69c341d216a334a0d8c7f7",
+        "url": "https://github.com/apache/kafka/commit/41f5bf844df1ee94ab69c341d216a334a0d8c7f7",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public testRestoreTargetState() : void from class org.apache.kafka.connect.storage.KafkaConfigBackingStoreTest to public testRestoreTargetState() : void from class org.apache.kafka.connect.storage.KafkaConfigBackingStoreMockitoTest",
+            "leftSideLocations": [
+                {
+                    "filePath": "connect/runtime/src/test/java/org/apache/kafka/connect/storage/KafkaConfigBackingStoreTest.java",
+                    "startLine": 691,
+                    "endLine": 739,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public testRestoreTargetState() : void"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "connect/runtime/src/test/java/org/apache/kafka/connect/storage/KafkaConfigBackingStoreMockitoTest.java",
+                    "startLine": 602,
+                    "endLine": 645,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public testRestoreTargetState() : void"
+                }
+            ],
+            "isStatic": false
+        }
+    },
+    {
+        "repository": "https://github.com/apache/kafka.git",
+        "sha1": "41f5bf844df1ee94ab69c341d216a334a0d8c7f7",
+        "url": "https://github.com/apache/kafka/commit/41f5bf844df1ee94ab69c341d216a334a0d8c7f7",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public testRestore() : void from class org.apache.kafka.connect.storage.KafkaConfigBackingStoreTest to public testRestore() : void from class org.apache.kafka.connect.storage.KafkaConfigBackingStoreMockitoTest",
+            "leftSideLocations": [
+                {
+                    "filePath": "connect/runtime/src/test/java/org/apache/kafka/connect/storage/KafkaConfigBackingStoreTest.java",
+                    "startLine": 961,
+                    "endLine": 1030,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public testRestore() : void"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "connect/runtime/src/test/java/org/apache/kafka/connect/storage/KafkaConfigBackingStoreMockitoTest.java",
+                    "startLine": 647,
+                    "endLine": 711,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public testRestore() : void"
+                }
+            ],
+            "isStatic": false
+        }
+    },
+    {
+        "repository": "https://github.com/apache/kafka.git",
+        "sha1": "41f5bf844df1ee94ab69c341d216a334a0d8c7f7",
+        "url": "https://github.com/apache/kafka/commit/41f5bf844df1ee94ab69c341d216a334a0d8c7f7",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public testRestoreConnectorDeletion() : void from class org.apache.kafka.connect.storage.KafkaConfigBackingStoreTest to public testRestoreConnectorDeletion() : void from class org.apache.kafka.connect.storage.KafkaConfigBackingStoreMockitoTest",
+            "leftSideLocations": [
+                {
+                    "filePath": "connect/runtime/src/test/java/org/apache/kafka/connect/storage/KafkaConfigBackingStoreTest.java",
+                    "startLine": 1032,
+                    "endLine": 1082,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public testRestoreConnectorDeletion() : void"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "connect/runtime/src/test/java/org/apache/kafka/connect/storage/KafkaConfigBackingStoreMockitoTest.java",
+                    "startLine": 713,
+                    "endLine": 757,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public testRestoreConnectorDeletion() : void"
+                }
+            ],
+            "isStatic": false
+        }
+    },
+    {
+        "repository": "https://github.com/apache/kafka.git",
+        "sha1": "41f5bf844df1ee94ab69c341d216a334a0d8c7f7",
+        "url": "https://github.com/apache/kafka/commit/41f5bf844df1ee94ab69c341d216a334a0d8c7f7",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public testRestoreZeroTasks() : void from class org.apache.kafka.connect.storage.KafkaConfigBackingStoreTest to public testRestoreZeroTasks() : void from class org.apache.kafka.connect.storage.KafkaConfigBackingStoreMockitoTest",
+            "leftSideLocations": [
+                {
+                    "filePath": "connect/runtime/src/test/java/org/apache/kafka/connect/storage/KafkaConfigBackingStoreTest.java",
+                    "startLine": 1084,
+                    "endLine": 1144,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public testRestoreZeroTasks() : void"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "connect/runtime/src/test/java/org/apache/kafka/connect/storage/KafkaConfigBackingStoreMockitoTest.java",
+                    "startLine": 759,
+                    "endLine": 814,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public testRestoreZeroTasks() : void"
+                }
+            ],
+            "isStatic": false
+        }
+    },
+    {
+        "repository": "https://github.com/apache/kafka.git",
+        "sha1": "41f5bf844df1ee94ab69c341d216a334a0d8c7f7",
+        "url": "https://github.com/apache/kafka/commit/41f5bf844df1ee94ab69c341d216a334a0d8c7f7",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public testExceptionOnStartWhenConfigTopicHasMultiplePartitions() : void from class org.apache.kafka.connect.storage.KafkaConfigBackingStoreTest to public testExceptionOnStartWhenConfigTopicHasMultiplePartitions() : void from class org.apache.kafka.connect.storage.KafkaConfigBackingStoreMockitoTest",
+            "leftSideLocations": [
+                {
+                    "filePath": "connect/runtime/src/test/java/org/apache/kafka/connect/storage/KafkaConfigBackingStoreTest.java",
+                    "startLine": 1373,
+                    "endLine": 1387,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public testExceptionOnStartWhenConfigTopicHasMultiplePartitions() : void"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "connect/runtime/src/test/java/org/apache/kafka/connect/storage/KafkaConfigBackingStoreMockitoTest.java",
+                    "startLine": 898,
+                    "endLine": 906,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public testExceptionOnStartWhenConfigTopicHasMultiplePartitions() : void"
+                }
+            ],
+            "isStatic": false
+        }
+    },
+    {
+        "repository": "https://github.com/apache/kafka.git",
+        "sha1": "41f5bf844df1ee94ab69c341d216a334a0d8c7f7",
+        "url": "https://github.com/apache/kafka/commit/41f5bf844df1ee94ab69c341d216a334a0d8c7f7",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public testFencableProducerPropertiesInsertedByDefault() : void from class org.apache.kafka.connect.storage.KafkaConfigBackingStoreTest to public testFencableProducerPropertiesInsertedByDefault() : void from class org.apache.kafka.connect.storage.KafkaConfigBackingStoreMockitoTest",
+            "leftSideLocations": [
+                {
+                    "filePath": "connect/runtime/src/test/java/org/apache/kafka/connect/storage/KafkaConfigBackingStoreTest.java",
+                    "startLine": 1389,
+                    "endLine": 1405,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public testFencableProducerPropertiesInsertedByDefault() : void"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "connect/runtime/src/test/java/org/apache/kafka/connect/storage/KafkaConfigBackingStoreMockitoTest.java",
+                    "startLine": 908,
+                    "endLine": 920,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public testFencableProducerPropertiesInsertedByDefault() : void"
+                }
+            ],
+            "isStatic": false
+        }
+    },
+    {
+        "repository": "https://github.com/apache/kafka.git",
+        "sha1": "41f5bf844df1ee94ab69c341d216a334a0d8c7f7",
+        "url": "https://github.com/apache/kafka/commit/41f5bf844df1ee94ab69c341d216a334a0d8c7f7",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public testConsumerPropertiesInsertedByDefaultWithExactlyOnceSourceEnabled() : void from class org.apache.kafka.connect.storage.KafkaConfigBackingStoreTest to public testConsumerPropertiesInsertedByDefaultWithExactlyOnceSourceEnabled() : void from class org.apache.kafka.connect.storage.KafkaConfigBackingStoreMockitoTest",
+            "leftSideLocations": [
+                {
+                    "filePath": "connect/runtime/src/test/java/org/apache/kafka/connect/storage/KafkaConfigBackingStoreTest.java",
+                    "startLine": 1407,
+                    "endLine": 1424,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public testConsumerPropertiesInsertedByDefaultWithExactlyOnceSourceEnabled() : void"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "connect/runtime/src/test/java/org/apache/kafka/connect/storage/KafkaConfigBackingStoreMockitoTest.java",
+                    "startLine": 922,
+                    "endLine": 935,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public testConsumerPropertiesInsertedByDefaultWithExactlyOnceSourceEnabled() : void"
+                }
+            ],
+            "isStatic": false
+        }
+    },
+    {
+        "repository": "https://github.com/apache/kafka.git",
+        "sha1": "41f5bf844df1ee94ab69c341d216a334a0d8c7f7",
+        "url": "https://github.com/apache/kafka/commit/41f5bf844df1ee94ab69c341d216a334a0d8c7f7",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public testConsumerPropertiesOverrideUserSuppliedValuesWithExactlyOnceSourceEnabled() : void from class org.apache.kafka.connect.storage.KafkaConfigBackingStoreTest to public testConsumerPropertiesOverrideUserSuppliedValuesWithExactlyOnceSourceEnabled() : void from class org.apache.kafka.connect.storage.KafkaConfigBackingStoreMockitoTest",
+            "leftSideLocations": [
+                {
+                    "filePath": "connect/runtime/src/test/java/org/apache/kafka/connect/storage/KafkaConfigBackingStoreTest.java",
+                    "startLine": 1426,
+                    "endLine": 1443,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public testConsumerPropertiesOverrideUserSuppliedValuesWithExactlyOnceSourceEnabled() : void"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "connect/runtime/src/test/java/org/apache/kafka/connect/storage/KafkaConfigBackingStoreMockitoTest.java",
+                    "startLine": 937,
+                    "endLine": 950,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public testConsumerPropertiesOverrideUserSuppliedValuesWithExactlyOnceSourceEnabled() : void"
+                }
+            ],
+            "isStatic": false
+        }
+    },
+    {
+        "repository": "https://github.com/apache/kafka.git",
+        "sha1": "41f5bf844df1ee94ab69c341d216a334a0d8c7f7",
+        "url": "https://github.com/apache/kafka/commit/41f5bf844df1ee94ab69c341d216a334a0d8c7f7",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public testConsumerPropertiesNotInsertedByDefaultWithoutExactlyOnceSourceEnabled() : void from class org.apache.kafka.connect.storage.KafkaConfigBackingStoreTest to public testConsumerPropertiesNotInsertedByDefaultWithoutExactlyOnceSourceEnabled() : void from class org.apache.kafka.connect.storage.KafkaConfigBackingStoreMockitoTest",
+            "leftSideLocations": [
+                {
+                    "filePath": "connect/runtime/src/test/java/org/apache/kafka/connect/storage/KafkaConfigBackingStoreTest.java",
+                    "startLine": 1445,
+                    "endLine": 1459,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public testConsumerPropertiesNotInsertedByDefaultWithoutExactlyOnceSourceEnabled() : void"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "connect/runtime/src/test/java/org/apache/kafka/connect/storage/KafkaConfigBackingStoreMockitoTest.java",
+                    "startLine": 952,
+                    "endLine": 962,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public testConsumerPropertiesNotInsertedByDefaultWithoutExactlyOnceSourceEnabled() : void"
+                }
+            ],
+            "isStatic": false
+        }
+    },
+    {
+        "repository": "https://github.com/apache/kafka.git",
+        "sha1": "93a5efc4b7209f4e0bcdeee134e308941dc4766f",
+        "url": "https://github.com/apache/kafka/commit/93a5efc4b7209f4e0bcdeee134e308941dc4766f",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public testBackgroundConnectorDeletion() : void from class org.apache.kafka.connect.storage.KafkaConfigBackingStoreTest to public testBackgroundConnectorDeletion() : void from class org.apache.kafka.connect.storage.KafkaConfigBackingStoreMockitoTest",
+            "leftSideLocations": [
+                {
+                    "filePath": "connect/runtime/src/test/java/org/apache/kafka/connect/storage/KafkaConfigBackingStoreTest.java",
+                    "startLine": 594,
+                    "endLine": 658,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public testBackgroundConnectorDeletion() : void"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "connect/runtime/src/test/java/org/apache/kafka/connect/storage/KafkaConfigBackingStoreMockitoTest.java",
+                    "startLine": 963,
+                    "endLine": 1022,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public testBackgroundConnectorDeletion() : void"
+                }
+            ],
+            "isStatic": false
+        }
+    },
+    {
+        "repository": "https://github.com/apache/kafka.git",
+        "sha1": "93a5efc4b7209f4e0bcdeee134e308941dc4766f",
+        "url": "https://github.com/apache/kafka/commit/93a5efc4b7209f4e0bcdeee134e308941dc4766f",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public testPutTaskConfigsDoesNotResolveAllInconsistencies() : void from class org.apache.kafka.connect.storage.KafkaConfigBackingStoreTest to public testPutTaskConfigsDoesNotResolveAllInconsistencies() : void from class org.apache.kafka.connect.storage.KafkaConfigBackingStoreMockitoTest",
+            "leftSideLocations": [
+                {
+                    "filePath": "connect/runtime/src/test/java/org/apache/kafka/connect/storage/KafkaConfigBackingStoreTest.java",
+                    "startLine": 660,
+                    "endLine": 738,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public testPutTaskConfigsDoesNotResolveAllInconsistencies() : void"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "connect/runtime/src/test/java/org/apache/kafka/connect/storage/KafkaConfigBackingStoreMockitoTest.java",
+                    "startLine": 1024,
+                    "endLine": 1099,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public testPutTaskConfigsDoesNotResolveAllInconsistencies() : void"
+                }
+            ],
+            "isStatic": false
+        }
+    },
+    {
+        "repository": "https://github.com/apache/kafka.git",
+        "sha1": "93a5efc4b7209f4e0bcdeee134e308941dc4766f",
+        "url": "https://github.com/apache/kafka/commit/93a5efc4b7209f4e0bcdeee134e308941dc4766f",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public testPutRestartRequestOnlyFailed() : void from class org.apache.kafka.connect.storage.KafkaConfigBackingStoreTest to public testPutRestartRequestOnlyFailed() : void from class org.apache.kafka.connect.storage.KafkaConfigBackingStoreMockitoTest",
+            "leftSideLocations": [
+                {
+                    "filePath": "connect/runtime/src/test/java/org/apache/kafka/connect/storage/KafkaConfigBackingStoreTest.java",
+                    "startLine": 740,
+                    "endLine": 744,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public testPutRestartRequestOnlyFailed() : void"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "connect/runtime/src/test/java/org/apache/kafka/connect/storage/KafkaConfigBackingStoreMockitoTest.java",
+                    "startLine": 1101,
+                    "endLine": 1105,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public testPutRestartRequestOnlyFailed() : void"
+                }
+            ],
+            "isStatic": false
+        }
+    },
+    {
+        "repository": "https://github.com/apache/kafka.git",
+        "sha1": "93a5efc4b7209f4e0bcdeee134e308941dc4766f",
+        "url": "https://github.com/apache/kafka/commit/93a5efc4b7209f4e0bcdeee134e308941dc4766f",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public testPutRestartRequestOnlyFailedIncludingTasks() : void from class org.apache.kafka.connect.storage.KafkaConfigBackingStoreTest to public testPutRestartRequestOnlyFailedIncludingTasks() : void from class org.apache.kafka.connect.storage.KafkaConfigBackingStoreMockitoTest",
+            "leftSideLocations": [
+                {
+                    "filePath": "connect/runtime/src/test/java/org/apache/kafka/connect/storage/KafkaConfigBackingStoreTest.java",
+                    "startLine": 746,
+                    "endLine": 750,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public testPutRestartRequestOnlyFailedIncludingTasks() : void"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "connect/runtime/src/test/java/org/apache/kafka/connect/storage/KafkaConfigBackingStoreMockitoTest.java",
+                    "startLine": 1107,
+                    "endLine": 1111,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public testPutRestartRequestOnlyFailedIncludingTasks() : void"
+                }
+            ],
+            "isStatic": false
+        }
+    },
+    {
+        "repository": "https://github.com/apache/kafka.git",
+        "sha1": "93a5efc4b7209f4e0bcdeee134e308941dc4766f",
+        "url": "https://github.com/apache/kafka/commit/93a5efc4b7209f4e0bcdeee134e308941dc4766f",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method private testPutRestartRequest(restartRequest RestartRequest) : void from class org.apache.kafka.connect.storage.KafkaConfigBackingStoreTest to private testPutRestartRequest(restartRequest RestartRequest) : void from class org.apache.kafka.connect.storage.KafkaConfigBackingStoreMockitoTest",
+            "leftSideLocations": [
+                {
+                    "filePath": "connect/runtime/src/test/java/org/apache/kafka/connect/storage/KafkaConfigBackingStoreTest.java",
+                    "startLine": 752,
+                    "endLine": 781,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "private testPutRestartRequest(restartRequest RestartRequest) : void"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "connect/runtime/src/test/java/org/apache/kafka/connect/storage/KafkaConfigBackingStoreMockitoTest.java",
+                    "startLine": 1113,
+                    "endLine": 1143,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "private testPutRestartRequest(restartRequest RestartRequest) : void"
+                }
+            ],
+            "isStatic": false
+        }
+    },
+    {
+        "repository": "https://github.com/apache/kafka.git",
+        "sha1": "93a5efc4b7209f4e0bcdeee134e308941dc4766f",
+        "url": "https://github.com/apache/kafka/commit/93a5efc4b7209f4e0bcdeee134e308941dc4766f",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public testRestoreRestartRequestInconsistentState() : void from class org.apache.kafka.connect.storage.KafkaConfigBackingStoreTest to public testRestoreRestartRequestInconsistentState() : void from class org.apache.kafka.connect.storage.KafkaConfigBackingStoreMockitoTest",
+            "leftSideLocations": [
+                {
+                    "filePath": "connect/runtime/src/test/java/org/apache/kafka/connect/storage/KafkaConfigBackingStoreTest.java",
+                    "startLine": 783,
+                    "endLine": 820,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public testRestoreRestartRequestInconsistentState() : void"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "connect/runtime/src/test/java/org/apache/kafka/connect/storage/KafkaConfigBackingStoreMockitoTest.java",
+                    "startLine": 1145,
+                    "endLine": 1185,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public testRestoreRestartRequestInconsistentState() : void"
+                }
+            ],
+            "isStatic": false
+        }
+    },
+    {
+        "repository": "https://github.com/apache/kafka.git",
+        "sha1": "93a5efc4b7209f4e0bcdeee134e308941dc4766f",
+        "url": "https://github.com/apache/kafka/commit/93a5efc4b7209f4e0bcdeee134e308941dc4766f",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public testPutLogLevel() : void from class org.apache.kafka.connect.storage.KafkaConfigBackingStoreTest to public testPutLogLevel() : void from class org.apache.kafka.connect.storage.KafkaConfigBackingStoreMockitoTest",
+            "leftSideLocations": [
+                {
+                    "filePath": "connect/runtime/src/test/java/org/apache/kafka/connect/storage/KafkaConfigBackingStoreTest.java",
+                    "startLine": 822,
+                    "endLine": 885,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public testPutLogLevel() : void"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "connect/runtime/src/test/java/org/apache/kafka/connect/storage/KafkaConfigBackingStoreMockitoTest.java",
+                    "startLine": 1187,
+                    "endLine": 1246,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public testPutLogLevel() : void"
+                }
+            ],
+            "isStatic": false
+        }
+    },
+    {
+        "repository": "https://github.com/apache/kafka.git",
+        "sha1": "9eb05fc72963fbb5667ecf00a252654b0cc1f8cc",
+        "url": "https://github.com/apache/kafka/commit/9eb05fc72963fbb5667ecf00a252654b0cc1f8cc",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public testPutTaskConfigsZeroTasks() : void from class org.apache.kafka.connect.storage.KafkaConfigBackingStoreTest to public testPutTaskConfigsZeroTasks() : void from class org.apache.kafka.connect.storage.KafkaConfigBackingStoreMockitoTest",
+            "leftSideLocations": [
+                {
+                    "filePath": "connect/runtime/src/test/java/org/apache/kafka/connect/storage/KafkaConfigBackingStoreTest.java",
+                    "startLine": 433,
+                    "endLine": 483,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public testPutTaskConfigsZeroTasks() : void"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "connect/runtime/src/test/java/org/apache/kafka/connect/storage/KafkaConfigBackingStoreMockitoTest.java",
+                    "startLine": 1188,
+                    "endLine": 1230,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public testPutTaskConfigsZeroTasks() : void"
+                }
+            ],
+            "isStatic": false
+        }
+    },
+    {
+        "repository": "https://github.com/apache/kafka.git",
+        "sha1": "9eb05fc72963fbb5667ecf00a252654b0cc1f8cc",
+        "url": "https://github.com/apache/kafka/commit/9eb05fc72963fbb5667ecf00a252654b0cc1f8cc",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public testBackgroundUpdateTargetState() : void from class org.apache.kafka.connect.storage.KafkaConfigBackingStoreTest to public testBackgroundUpdateTargetState() : void from class org.apache.kafka.connect.storage.KafkaConfigBackingStoreMockitoTest",
+            "leftSideLocations": [
+                {
+                    "filePath": "connect/runtime/src/test/java/org/apache/kafka/connect/storage/KafkaConfigBackingStoreTest.java",
+                    "startLine": 485,
+                    "endLine": 544,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public testBackgroundUpdateTargetState() : void"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "connect/runtime/src/test/java/org/apache/kafka/connect/storage/KafkaConfigBackingStoreMockitoTest.java",
+                    "startLine": 1232,
+                    "endLine": 1285,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public testBackgroundUpdateTargetState() : void"
+                }
+            ],
+            "isStatic": false
+        }
+    },
+    {
+        "repository": "https://github.com/apache/kafka.git",
+        "sha1": "9eb05fc72963fbb5667ecf00a252654b0cc1f8cc",
+        "url": "https://github.com/apache/kafka/commit/9eb05fc72963fbb5667ecf00a252654b0cc1f8cc",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public testSameTargetState() : void from class org.apache.kafka.connect.storage.KafkaConfigBackingStoreTest to public testSameTargetState() : void from class org.apache.kafka.connect.storage.KafkaConfigBackingStoreMockitoTest",
+            "leftSideLocations": [
+                {
+                    "filePath": "connect/runtime/src/test/java/org/apache/kafka/connect/storage/KafkaConfigBackingStoreTest.java",
+                    "startLine": 546,
+                    "endLine": 592,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public testSameTargetState() : void"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "connect/runtime/src/test/java/org/apache/kafka/connect/storage/KafkaConfigBackingStoreMockitoTest.java",
+                    "startLine": 1287,
+                    "endLine": 1326,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public testSameTargetState() : void"
+                }
+            ],
+            "isStatic": false
+        }
+    },
+    {
+        "repository": "https://github.com/apache/kafka.git",
+        "sha1": "9eb05fc72963fbb5667ecf00a252654b0cc1f8cc",
+        "url": "https://github.com/apache/kafka/commit/9eb05fc72963fbb5667ecf00a252654b0cc1f8cc",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method private expectRead(key String, serializedValue byte[], deserializedValue Struct) : void from class org.apache.kafka.connect.storage.KafkaConfigBackingStoreTest to private expectRead(key String, serializedValue byte[], deserializedValue Struct) : void from class org.apache.kafka.connect.storage.KafkaConfigBackingStoreMockitoTest",
+            "leftSideLocations": [
+                {
+                    "filePath": "connect/runtime/src/test/java/org/apache/kafka/connect/storage/KafkaConfigBackingStoreTest.java",
+                    "startLine": 639,
+                    "endLine": 643,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "private expectRead(key String, serializedValue byte[], deserializedValue Struct) : void"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "connect/runtime/src/test/java/org/apache/kafka/connect/storage/KafkaConfigBackingStoreMockitoTest.java",
+                    "startLine": 1438,
+                    "endLine": 1442,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "private expectRead(key String, serializedValue byte[], deserializedValue Struct) : void"
+                }
+            ],
+            "isStatic": false
+        }
+    },
+    {
+        "repository": "https://github.com/apache/kafka.git",
+        "sha1": "52514a89e34b28fa6564d5c93c15461c6fab3f0f",
+        "url": "https://github.com/apache/kafka/commit/52514a89e34b28fa6564d5c93c15461c6fab3f0f",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public testValidateFieldWithInvalidValueType() : void from class org.apache.kafka.connect.data.StructTest to public testValidateFieldWithInvalidValueType() : void from class org.apache.kafka.connect.data.ConnectSchemaTest",
+            "leftSideLocations": [
+                {
+                    "filePath": "connect/api/src/test/java/org/apache/kafka/connect/data/StructTest.java",
+                    "startLine": 307,
+                    "endLine": 324,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public testValidateFieldWithInvalidValueType() : void"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "connect/api/src/test/java/org/apache/kafka/connect/data/ConnectSchemaTest.java",
+                    "startLine": 338,
+                    "endLine": 347,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public testValidateFieldWithInvalidValueType() : void"
+                }
+            ],
+            "isStatic": false
+        }
+    },
+    {
+        "repository": "https://github.com/apache/kafka.git",
+        "sha1": "52514a89e34b28fa6564d5c93c15461c6fab3f0f",
+        "url": "https://github.com/apache/kafka/commit/52514a89e34b28fa6564d5c93c15461c6fab3f0f",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public testValidateFieldWithInvalidValueMismatchTimestamp() : void from class org.apache.kafka.connect.data.StructTest to public testValidateFieldWithInvalidValueMismatchTimestamp() : void from class org.apache.kafka.connect.data.ConnectSchemaTest",
+            "leftSideLocations": [
+                {
+                    "filePath": "connect/api/src/test/java/org/apache/kafka/connect/data/StructTest.java",
+                    "startLine": 326,
+                    "endLine": 338,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public testValidateFieldWithInvalidValueMismatchTimestamp() : void"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "connect/api/src/test/java/org/apache/kafka/connect/data/ConnectSchemaTest.java",
+                    "startLine": 349,
+                    "endLine": 359,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public testValidateFieldWithInvalidValueMismatchTimestamp() : void"
+                }
+            ],
+            "isStatic": false
+        }
+    },
+    {
+        "repository": "https://github.com/apache/kafka.git",
+        "sha1": "247132569e7bc9ddf08f910a82aec596a21ba7a9",
+        "url": "https://github.com/apache/kafka/commit/247132569e7bc9ddf08f910a82aec596a21ba7a9",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method package testPollResultTimer() : void from class org.apache.kafka.clients.consumer.internals.ConsumerNetworkThreadTest to package testPollResultTimer() : void from class org.apache.kafka.clients.consumer.internals.NetworkClientDelegateTest",
+            "leftSideLocations": [
+                {
+                    "filePath": "clients/src/test/java/org/apache/kafka/clients/consumer/internals/ConsumerNetworkThreadTest.java",
+                    "startLine": 247,
+                    "endLine": 267,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "package testPollResultTimer() : void"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "clients/src/test/java/org/apache/kafka/clients/consumer/internals/NetworkClientDelegateTest.java",
+                    "startLine": 67,
+                    "endLine": 89,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "package testPollResultTimer() : void"
+                }
+            ],
+            "isStatic": false
+        }
+    },
+    {
+        "repository": "https://github.com/apache/kafka.git",
+        "sha1": "824900b97a3b674d5c46bf54226745196f433d7e",
+        "url": "https://github.com/apache/kafka/commit/824900b97a3b674d5c46bf54226745196f433d7e",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method package validateTaskAssignment(applicationState ApplicationState, taskAssignment TaskAssignment) : AssignmentError from class org.apache.kafka.streams.processor.internals.StreamsPartitionAssignor to public validateTaskAssignment(applicationState ApplicationState, taskAssignment TaskAssignment) : AssignmentError from class org.apache.kafka.streams.processor.assignment.TaskAssignmentUtils",
+            "leftSideLocations": [
+                {
+                    "filePath": "streams/src/main/java/org/apache/kafka/streams/processor/internals/StreamsPartitionAssignor.java",
+                    "startLine": 1590,
+                    "endLine": 1649,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "package validateTaskAssignment(applicationState ApplicationState, taskAssignment TaskAssignment) : AssignmentError"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "streams/src/main/java/org/apache/kafka/streams/processor/assignment/TaskAssignmentUtils.java",
+                    "startLine": 58,
+                    "endLine": 122,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public validateTaskAssignment(applicationState ApplicationState, taskAssignment TaskAssignment) : AssignmentError"
+                }
+            ],
+            "isStatic": false
+        }
+    },
+    {
+        "repository": "https://github.com/apache/kafka.git",
+        "sha1": "16e2b68b73426fc6b77efa9a820afadc9b412627",
+        "url": "https://github.com/apache/kafka/commit/16e2b68b73426fc6b77efa9a820afadc9b412627",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public testValidateTaskAssignment() : void from class org.apache.kafka.streams.processor.internals.StreamsPartitionAssignorTest to public testValidateTaskAssignment() : void from class org.apache.kafka.streams.processor.internals.assignment.TaskAssignmentUtilsTest",
+            "leftSideLocations": [
+                {
+                    "filePath": "streams/src/test/java/org/apache/kafka/streams/processor/internals/StreamsPartitionAssignorTest.java",
+                    "startLine": 2619,
+                    "endLine": 2734,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public testValidateTaskAssignment() : void"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "streams/src/test/java/org/apache/kafka/streams/processor/internals/assignment/TaskAssignmentUtilsTest.java",
+                    "startLine": 337,
+                    "endLine": 428,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public testValidateTaskAssignment() : void"
+                }
+            ],
+            "isStatic": false
+        }
+    },
+    {
+        "repository": "https://github.com/apache/kafka.git",
+        "sha1": "3a3f9ce48e59fafefd8b3fae50e5d8428b6bb4f0",
+        "url": "https://github.com/apache/kafka/commit/3a3f9ce48e59fafefd8b3fae50e5d8428b6bb4f0",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public testFailureInPollAfterCancel() : void from class org.apache.kafka.connect.runtime.WorkerSourceTaskTest to public testFailureInPollAfterCancel(enableTopicCreation boolean) : void from class org.apache.kafka.connect.runtime.ExactlyOnceWorkerSourceTaskTest",
+            "leftSideLocations": [
+                {
+                    "filePath": "connect/runtime/src/test/java/org/apache/kafka/connect/runtime/WorkerSourceTaskTest.java",
+                    "startLine": 389,
+                    "endLine": 426,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public testFailureInPollAfterCancel() : void"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "connect/runtime/src/test/java/org/apache/kafka/connect/runtime/ExactlyOnceWorkerSourceTaskTest.java",
+                    "startLine": 492,
+                    "endLine": 518,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public testFailureInPollAfterCancel(enableTopicCreation boolean) : void"
+                }
+            ],
+            "isStatic": false
+        }
+    },
+    {
+        "repository": "https://github.com/apache/kafka.git",
+        "sha1": "3a3f9ce48e59fafefd8b3fae50e5d8428b6bb4f0",
+        "url": "https://github.com/apache/kafka/commit/3a3f9ce48e59fafefd8b3fae50e5d8428b6bb4f0",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public testFailureInPollAfterStop() : void from class org.apache.kafka.connect.runtime.WorkerSourceTaskTest to public testFailureInPollAfterStop(enableTopicCreation boolean) : void from class org.apache.kafka.connect.runtime.ExactlyOnceWorkerSourceTaskTest",
+            "leftSideLocations": [
+                {
+                    "filePath": "connect/runtime/src/test/java/org/apache/kafka/connect/runtime/WorkerSourceTaskTest.java",
+                    "startLine": 428,
+                    "endLine": 459,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public testFailureInPollAfterStop() : void"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "connect/runtime/src/test/java/org/apache/kafka/connect/runtime/ExactlyOnceWorkerSourceTaskTest.java",
+                    "startLine": 520,
+                    "endLine": 549,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public testFailureInPollAfterStop(enableTopicCreation boolean) : void"
+                }
+            ],
+            "isStatic": false
+        }
+    },
+    {
+        "repository": "https://github.com/apache/kafka.git",
+        "sha1": "3a3f9ce48e59fafefd8b3fae50e5d8428b6bb4f0",
+        "url": "https://github.com/apache/kafka/commit/3a3f9ce48e59fafefd8b3fae50e5d8428b6bb4f0",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public testFailureInPollAfterStop() : void from class org.apache.kafka.connect.runtime.ExactlyOnceWorkerSourceTaskTest to public testFailureInPollAfterStop(enableTopicCreation boolean) : void from class org.apache.kafka.connect.runtime.WorkerSourceTaskTest",
+            "leftSideLocations": [
+                {
+                    "filePath": "connect/runtime/src/test/java/org/apache/kafka/connect/runtime/ExactlyOnceWorkerSourceTaskTest.java",
+                    "startLine": 511,
+                    "endLine": 538,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public testFailureInPollAfterStop() : void"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "connect/runtime/src/test/java/org/apache/kafka/connect/runtime/WorkerSourceTaskTest.java",
+                    "startLine": 424,
+                    "endLine": 457,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public testFailureInPollAfterStop(enableTopicCreation boolean) : void"
+                }
+            ],
+            "isStatic": false
+        }
+    },
+    {
+        "repository": "https://github.com/apache/kafka.git",
+        "sha1": "26b9163487a9faf6afd78abea6b65e710ed82ed1",
+        "url": "https://github.com/apache/kafka/commit/26b9163487a9faf6afd78abea6b65e710ed82ed1",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public shouldRecoverBufferAfterShutdown() : void from class org.apache.kafka.streams.integration.SuppressionDurabilityIntegrationTest to public shouldRecoverBufferAfterShutdown(processingGuarantee String, testInfo TestInfo) : void from class org.apache.kafka.streams.integration.JoinGracePeriodDurabilityIntegrationTest",
+            "leftSideLocations": [
+                {
+                    "filePath": "streams/src/test/java/org/apache/kafka/streams/integration/SuppressionDurabilityIntegrationTest.java",
+                    "startLine": 130,
+                    "endLine": 272,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public shouldRecoverBufferAfterShutdown() : void"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "streams/src/test/java/org/apache/kafka/streams/integration/JoinGracePeriodDurabilityIntegrationTest.java",
+                    "startLine": 94,
+                    "endLine": 203,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public shouldRecoverBufferAfterShutdown(processingGuarantee String, testInfo TestInfo) : void"
+                }
+            ],
+            "isStatic": false
+        }
+    },
+    {
+        "repository": "https://github.com/apache/kafka.git",
+        "sha1": "26b9163487a9faf6afd78abea6b65e710ed82ed1",
+        "url": "https://github.com/apache/kafka/commit/26b9163487a9faf6afd78abea6b65e710ed82ed1",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public shouldAggregateWindowedWithNoGrace() : void from class org.apache.kafka.streams.integration.TimeWindowedKStreamIntegrationTest to public shouldAggregateWindowedWithNoGrace(strategyType StrategyType, withCache boolean) : void from class org.apache.kafka.streams.integration.SlidingWindowedKStreamIntegrationTest",
+            "leftSideLocations": [
+                {
+                    "filePath": "streams/src/test/java/org/apache/kafka/streams/integration/TimeWindowedKStreamIntegrationTest.java",
+                    "startLine": 173,
+                    "endLine": 239,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public shouldAggregateWindowedWithNoGrace() : void"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "streams/src/test/java/org/apache/kafka/streams/integration/SlidingWindowedKStreamIntegrationTest.java",
+                    "startLine": 132,
+                    "endLine": 196,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public shouldAggregateWindowedWithNoGrace(strategyType StrategyType, withCache boolean) : void"
+                }
+            ],
+            "isStatic": false
+        }
+    },
+    {
+        "repository": "https://github.com/apache/kafka.git",
+        "sha1": "26b9163487a9faf6afd78abea6b65e710ed82ed1",
+        "url": "https://github.com/apache/kafka/commit/26b9163487a9faf6afd78abea6b65e710ed82ed1",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public shouldAggregateWindowedWithGrace() : void from class org.apache.kafka.streams.integration.TimeWindowedKStreamIntegrationTest to public shouldAggregateWindowedWithGrace(strategyType StrategyType, withCache boolean) : void from class org.apache.kafka.streams.integration.SlidingWindowedKStreamIntegrationTest",
+            "leftSideLocations": [
+                {
+                    "filePath": "streams/src/test/java/org/apache/kafka/streams/integration/TimeWindowedKStreamIntegrationTest.java",
+                    "startLine": 241,
+                    "endLine": 307,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public shouldAggregateWindowedWithGrace() : void"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "streams/src/test/java/org/apache/kafka/streams/integration/SlidingWindowedKStreamIntegrationTest.java",
+                    "startLine": 198,
+                    "endLine": 271,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public shouldAggregateWindowedWithGrace(strategyType StrategyType, withCache boolean) : void"
+                }
+            ],
+            "isStatic": false
+        }
+    },
+    {
+        "repository": "https://github.com/apache/kafka.git",
+        "sha1": "26b9163487a9faf6afd78abea6b65e710ed82ed1",
+        "url": "https://github.com/apache/kafka/commit/26b9163487a9faf6afd78abea6b65e710ed82ed1",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public shouldRestoreAfterJoinRestart() : void from class org.apache.kafka.streams.integration.TimeWindowedKStreamIntegrationTest to public shouldRestoreAfterJoinRestart(strategyType StrategyType, withCache boolean) : void from class org.apache.kafka.streams.integration.SlidingWindowedKStreamIntegrationTest",
+            "leftSideLocations": [
+                {
+                    "filePath": "streams/src/test/java/org/apache/kafka/streams/integration/TimeWindowedKStreamIntegrationTest.java",
+                    "startLine": 309,
+                    "endLine": 443,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public shouldRestoreAfterJoinRestart() : void"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "streams/src/test/java/org/apache/kafka/streams/integration/SlidingWindowedKStreamIntegrationTest.java",
+                    "startLine": 273,
+                    "endLine": 399,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public shouldRestoreAfterJoinRestart(strategyType StrategyType, withCache boolean) : void"
+                }
+            ],
+            "isStatic": false
+        }
+    },
+    {
+        "repository": "https://github.com/apache/kafka.git",
+        "sha1": "26b9163487a9faf6afd78abea6b65e710ed82ed1",
+        "url": "https://github.com/apache/kafka/commit/26b9163487a9faf6afd78abea6b65e710ed82ed1",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public shouldAggregateWindowedWithNoGrace() : void from class org.apache.kafka.streams.integration.SlidingWindowedKStreamIntegrationTest to public shouldAggregateWindowedWithNoGrace(type StrategyType, withCache boolean) : void from class org.apache.kafka.streams.integration.TimeWindowedKStreamIntegrationTest",
+            "leftSideLocations": [
+                {
+                    "filePath": "streams/src/test/java/org/apache/kafka/streams/integration/SlidingWindowedKStreamIntegrationTest.java",
+                    "startLine": 166,
+                    "endLine": 228,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public shouldAggregateWindowedWithNoGrace() : void"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "streams/src/test/java/org/apache/kafka/streams/integration/TimeWindowedKStreamIntegrationTest.java",
+                    "startLine": 139,
+                    "endLine": 207,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public shouldAggregateWindowedWithNoGrace(type StrategyType, withCache boolean) : void"
+                }
+            ],
+            "isStatic": false
+        }
+    },
+    {
+        "repository": "https://github.com/apache/kafka.git",
+        "sha1": "26b9163487a9faf6afd78abea6b65e710ed82ed1",
+        "url": "https://github.com/apache/kafka/commit/26b9163487a9faf6afd78abea6b65e710ed82ed1",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public shouldAggregateWindowedWithGrace() : void from class org.apache.kafka.streams.integration.SlidingWindowedKStreamIntegrationTest to public shouldAggregateWindowedWithGrace(type StrategyType, withCache boolean) : void from class org.apache.kafka.streams.integration.TimeWindowedKStreamIntegrationTest",
+            "leftSideLocations": [
+                {
+                    "filePath": "streams/src/test/java/org/apache/kafka/streams/integration/SlidingWindowedKStreamIntegrationTest.java",
+                    "startLine": 230,
+                    "endLine": 301,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public shouldAggregateWindowedWithGrace() : void"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "streams/src/test/java/org/apache/kafka/streams/integration/TimeWindowedKStreamIntegrationTest.java",
+                    "startLine": 209,
+                    "endLine": 277,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public shouldAggregateWindowedWithGrace(type StrategyType, withCache boolean) : void"
+                }
+            ],
+            "isStatic": false
+        }
+    },
+    {
+        "repository": "https://github.com/apache/kafka.git",
+        "sha1": "26b9163487a9faf6afd78abea6b65e710ed82ed1",
+        "url": "https://github.com/apache/kafka/commit/26b9163487a9faf6afd78abea6b65e710ed82ed1",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public shouldRestoreAfterJoinRestart() : void from class org.apache.kafka.streams.integration.SlidingWindowedKStreamIntegrationTest to public shouldRestoreAfterJoinRestart(type StrategyType, withCache boolean) : void from class org.apache.kafka.streams.integration.TimeWindowedKStreamIntegrationTest",
+            "leftSideLocations": [
+                {
+                    "filePath": "streams/src/test/java/org/apache/kafka/streams/integration/SlidingWindowedKStreamIntegrationTest.java",
+                    "startLine": 303,
+                    "endLine": 427,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public shouldRestoreAfterJoinRestart() : void"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "streams/src/test/java/org/apache/kafka/streams/integration/TimeWindowedKStreamIntegrationTest.java",
+                    "startLine": 279,
+                    "endLine": 415,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public shouldRestoreAfterJoinRestart(type StrategyType, withCache boolean) : void"
+                }
+            ],
+            "isStatic": false
+        }
+    },
+    {
+        "repository": "https://github.com/apache/kafka.git",
+        "sha1": "0e346d31036d06f88b0344ed7d0452460ce11c7e",
+        "url": "https://github.com/apache/kafka/commit/0e346d31036d06f88b0344ed7d0452460ce11c7e",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public shouldAssignStandbyTasksToDifferentClientThanCorrespondingActiveTaskIsAssignedTo() : void from class org.apache.kafka.streams.processor.internals.assignment.LegacyStickyTaskAssignorTest to public shouldAssignStandbyTasksToDifferentClientThanCorrespondingActiveTaskIsAssignedTo(rackAwareStrategy String) : void from class org.apache.kafka.streams.processor.internals.assignment.CustomStickyTaskAssignorTest",
+            "leftSideLocations": [
+                {
+                    "filePath": "streams/src/test/java/org/apache/kafka/streams/processor/internals/assignment/LegacyStickyTaskAssignorTest.java",
+                    "startLine": 304,
+                    "endLine": 331,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public shouldAssignStandbyTasksToDifferentClientThanCorrespondingActiveTaskIsAssignedTo() : void"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "streams/src/test/java/org/apache/kafka/streams/processor/internals/assignment/CustomStickyTaskAssignorTest.java",
+                    "startLine": 402,
+                    "endLine": 452,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public shouldAssignStandbyTasksToDifferentClientThanCorrespondingActiveTaskIsAssignedTo(rackAwareStrategy String) : void"
+                }
+            ],
+            "isStatic": false
+        }
+    },
+    {
+        "repository": "https://github.com/apache/kafka.git",
+        "sha1": "0e346d31036d06f88b0344ed7d0452460ce11c7e",
+        "url": "https://github.com/apache/kafka/commit/0e346d31036d06f88b0344ed7d0452460ce11c7e",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public shouldNotAssignStandbyTaskReplicasWhenNoClientAvailableWithoutHavingTheTaskAssigned() : void from class org.apache.kafka.streams.processor.internals.assignment.LegacyStickyTaskAssignorTest to public shouldNotAssignStandbyTaskReplicasWhenNoClientAvailableWithoutHavingTheTaskAssigned(rackAwareStrategy String) : void from class org.apache.kafka.streams.processor.internals.assignment.CustomStickyTaskAssignorTest",
+            "leftSideLocations": [
+                {
+                    "filePath": "streams/src/test/java/org/apache/kafka/streams/processor/internals/assignment/LegacyStickyTaskAssignorTest.java",
+                    "startLine": 347,
+                    "endLine": 353,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public shouldNotAssignStandbyTaskReplicasWhenNoClientAvailableWithoutHavingTheTaskAssigned() : void"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "streams/src/test/java/org/apache/kafka/streams/processor/internals/assignment/CustomStickyTaskAssignorTest.java",
+                    "startLine": 484,
+                    "endLine": 502,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public shouldNotAssignStandbyTaskReplicasWhenNoClientAvailableWithoutHavingTheTaskAssigned(rackAwareStrategy String) : void"
+                }
+            ],
+            "isStatic": false
+        }
+    },
+    {
+        "repository": "https://github.com/apache/kafka.git",
+        "sha1": "0e346d31036d06f88b0344ed7d0452460ce11c7e",
+        "url": "https://github.com/apache/kafka/commit/0e346d31036d06f88b0344ed7d0452460ce11c7e",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public shouldAssignRandomInput() : void from class org.apache.kafka.streams.processor.internals.assignment.LegacyStickyTaskAssignorTest to public shouldAssignRandomInput(rackAwareStrategy String, enableRackAwareTaskAssignor boolean, maxSkew int) : void from class org.apache.kafka.streams.processor.internals.assignment.HighAvailabilityTaskAssignorTest",
+            "leftSideLocations": [
+                {
+                    "filePath": "streams/src/test/java/org/apache/kafka/streams/processor/internals/assignment/LegacyStickyTaskAssignorTest.java",
+                    "startLine": 900,
+                    "endLine": 960,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public shouldAssignRandomInput() : void"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "streams/src/test/java/org/apache/kafka/streams/processor/internals/assignment/HighAvailabilityTaskAssignorTest.java",
+                    "startLine": 1561,
+                    "endLine": 1614,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public shouldAssignRandomInput(rackAwareStrategy String, enableRackAwareTaskAssignor boolean, maxSkew int) : void"
+                }
+            ],
+            "isStatic": false
+        }
+    },
+    {
+        "repository": "https://github.com/apache/kafka.git",
+        "sha1": "0e346d31036d06f88b0344ed7d0452460ce11c7e",
+        "url": "https://github.com/apache/kafka/commit/0e346d31036d06f88b0344ed7d0452460ce11c7e",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public shouldRemainOriginalAssignmentWithoutTrafficCostForMinCostStrategy() : void from class org.apache.kafka.streams.processor.internals.assignment.LegacyStickyTaskAssignorTest to public shouldRemainOriginalAssignmentWithoutTrafficCostForMinCostStrategy(rackAwareStrategy String, enableRackAwareTaskAssignor boolean, maxSkew int) : void from class org.apache.kafka.streams.processor.internals.assignment.HighAvailabilityTaskAssignorTest",
+            "leftSideLocations": [
+                {
+                    "filePath": "streams/src/test/java/org/apache/kafka/streams/processor/internals/assignment/LegacyStickyTaskAssignorTest.java",
+                    "startLine": 962,
+                    "endLine": 1062,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public shouldRemainOriginalAssignmentWithoutTrafficCostForMinCostStrategy() : void"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "streams/src/test/java/org/apache/kafka/streams/processor/internals/assignment/HighAvailabilityTaskAssignorTest.java",
+                    "startLine": 1616,
+                    "endLine": 1720,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public shouldRemainOriginalAssignmentWithoutTrafficCostForMinCostStrategy(rackAwareStrategy String, enableRackAwareTaskAssignor boolean, maxSkew int) : void"
+                }
+            ],
+            "isStatic": false
+        }
+    },
+    {
+        "repository": "https://github.com/apache/kafka.git",
+        "sha1": "0e346d31036d06f88b0344ed7d0452460ce11c7e",
+        "url": "https://github.com/apache/kafka/commit/0e346d31036d06f88b0344ed7d0452460ce11c7e",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public shouldAssignStandbyTasksToDifferentClientThanCorrespondingActiveTaskIsAssignedTo() : void from class org.apache.kafka.streams.processor.internals.assignment.CustomStickyTaskAssignorTest to public shouldAssignStandbyTasksToDifferentClientThanCorrespondingActiveTaskIsAssignedTo(rackAwareStrategy String) : void from class org.apache.kafka.streams.processor.internals.assignment.LegacyStickyTaskAssignorTest",
+            "leftSideLocations": [
+                {
+                    "filePath": "streams/src/test/java/org/apache/kafka/streams/processor/internals/assignment/CustomStickyTaskAssignorTest.java",
+                    "startLine": 359,
+                    "endLine": 403,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public shouldAssignStandbyTasksToDifferentClientThanCorrespondingActiveTaskIsAssignedTo() : void"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "streams/src/test/java/org/apache/kafka/streams/processor/internals/assignment/LegacyStickyTaskAssignorTest.java",
+                    "startLine": 346,
+                    "endLine": 379,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public shouldAssignStandbyTasksToDifferentClientThanCorrespondingActiveTaskIsAssignedTo(rackAwareStrategy String) : void"
+                }
+            ],
+            "isStatic": false
+        }
+    },
+    {
+        "repository": "https://github.com/apache/kafka.git",
+        "sha1": "0e346d31036d06f88b0344ed7d0452460ce11c7e",
+        "url": "https://github.com/apache/kafka/commit/0e346d31036d06f88b0344ed7d0452460ce11c7e",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public shouldAssignRandomInput() : void from class org.apache.kafka.streams.processor.internals.assignment.HighAvailabilityTaskAssignorTest to public shouldAssignRandomInput(rackAwareStrategy String) : void from class org.apache.kafka.streams.processor.internals.assignment.LegacyStickyTaskAssignorTest",
+            "leftSideLocations": [
+                {
+                    "filePath": "streams/src/test/java/org/apache/kafka/streams/processor/internals/assignment/HighAvailabilityTaskAssignorTest.java",
+                    "startLine": 1514,
+                    "endLine": 1566,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public shouldAssignRandomInput() : void"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "streams/src/test/java/org/apache/kafka/streams/processor/internals/assignment/LegacyStickyTaskAssignorTest.java",
+                    "startLine": 1093,
+                    "endLine": 1159,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public shouldAssignRandomInput(rackAwareStrategy String) : void"
+                }
+            ],
+            "isStatic": false
+        }
+    },
+    {
+        "repository": "https://github.com/apache/kafka.git",
+        "sha1": "0e346d31036d06f88b0344ed7d0452460ce11c7e",
+        "url": "https://github.com/apache/kafka/commit/0e346d31036d06f88b0344ed7d0452460ce11c7e",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public shouldRemainOriginalAssignmentWithoutTrafficCostForMinCostStrategy() : void from class org.apache.kafka.streams.processor.internals.assignment.HighAvailabilityTaskAssignorTest to public shouldRemainOriginalAssignmentWithoutTrafficCostForMinCostStrategy(rackAwareStrategy String) : void from class org.apache.kafka.streams.processor.internals.assignment.LegacyStickyTaskAssignorTest",
+            "leftSideLocations": [
+                {
+                    "filePath": "streams/src/test/java/org/apache/kafka/streams/processor/internals/assignment/HighAvailabilityTaskAssignorTest.java",
+                    "startLine": 1568,
+                    "endLine": 1669,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public shouldRemainOriginalAssignmentWithoutTrafficCostForMinCostStrategy() : void"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "streams/src/test/java/org/apache/kafka/streams/processor/internals/assignment/LegacyStickyTaskAssignorTest.java",
+                    "startLine": 1161,
+                    "endLine": 1267,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public shouldRemainOriginalAssignmentWithoutTrafficCostForMinCostStrategy(rackAwareStrategy String) : void"
+                }
+            ],
+            "isStatic": false
+        }
+    },
+    {
+        "repository": "https://github.com/apache/kafka.git",
+        "sha1": "0e346d31036d06f88b0344ed7d0452460ce11c7e",
+        "url": "https://github.com/apache/kafka/commit/0e346d31036d06f88b0344ed7d0452460ce11c7e",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public shouldAssignMultipleReplicasOfStandbyTask() : void from class org.apache.kafka.streams.processor.internals.assignment.CustomStickyTaskAssignorTest to public shouldAssignMultipleReplicasOfStandbyTask(rackAwareStrategy String) : void from class org.apache.kafka.streams.processor.internals.assignment.LegacyStickyTaskAssignorTest",
+            "leftSideLocations": [
+                {
+                    "filePath": "streams/src/test/java/org/apache/kafka/streams/processor/internals/assignment/CustomStickyTaskAssignorTest.java",
+                    "startLine": 406,
+                    "endLine": 428,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public shouldAssignMultipleReplicasOfStandbyTask() : void"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "streams/src/test/java/org/apache/kafka/streams/processor/internals/assignment/LegacyStickyTaskAssignorTest.java",
+                    "startLine": 381,
+                    "endLine": 399,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public shouldAssignMultipleReplicasOfStandbyTask(rackAwareStrategy String) : void"
+                }
+            ],
+            "isStatic": false
+        }
+    },
+    {
+        "repository": "https://github.com/apache/kafka.git",
+        "sha1": "adee6f0cc11c37edaf7b47c1f77457d66e80ebe4",
+        "url": "https://github.com/apache/kafka/commit/adee6f0cc11c37edaf7b47c1f77457d66e80ebe4",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method private snapshotFetchResponse(topicPartition TopicPartition, topicId Uuid, epoch int, leaderId int, snapshotId OffsetAndEpoch, highWatermark long) : FetchResponseData from class org.apache.kafka.raft.KafkaRaftClientSnapshotTest to package snapshotFetchResponse(epoch int, leaderId int, snapshotId OffsetAndEpoch, highWatermark long) : FetchResponseData from class org.apache.kafka.raft.RaftClientTestContext",
+            "leftSideLocations": [
+                {
+                    "filePath": "raft/src/test/java/org/apache/kafka/raft/KafkaRaftClientSnapshotTest.java",
+                    "startLine": 1919,
+                    "endLine": 1938,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "private snapshotFetchResponse(topicPartition TopicPartition, topicId Uuid, epoch int, leaderId int, snapshotId OffsetAndEpoch, highWatermark long) : FetchResponseData"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "raft/src/test/java/org/apache/kafka/raft/RaftClientTestContext.java",
+                    "startLine": 1354,
+                    "endLine": 1380,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "package snapshotFetchResponse(epoch int, leaderId int, snapshotId OffsetAndEpoch, highWatermark long) : FetchResponseData"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/apache/kafka.git",
+        "sha1": "60114a46a775e597410131dd67ac236d62f57b0c",
+        "url": "https://github.com/apache/kafka/commit/60114a46a775e597410131dd67ac236d62f57b0c",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method private decValue(key String, value Integer) : Integer from class org.apache.kafka.coordinator.group.consumer.ConsumerGroup to public decValue(key String, value Integer) : Integer from class org.apache.kafka.coordinator.group.Utils",
+            "leftSideLocations": [
+                {
+                    "filePath": "group-coordinator/src/main/java/org/apache/kafka/coordinator/group/consumer/ConsumerGroup.java",
+                    "startLine": 1256,
+                    "endLine": 1263,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "private decValue(key String, value Integer) : Integer"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "group-coordinator/src/main/java/org/apache/kafka/coordinator/group/Utils.java",
+                    "startLine": 86,
+                    "endLine": 93,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public decValue(key String, value Integer) : Integer"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/apache/kafka.git",
+        "sha1": "60114a46a775e597410131dd67ac236d62f57b0c",
+        "url": "https://github.com/apache/kafka/commit/60114a46a775e597410131dd67ac236d62f57b0c",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method private incValue(key String, value Integer) : Integer from class org.apache.kafka.coordinator.group.consumer.ConsumerGroup to public incValue(key String, value Integer) : Integer from class org.apache.kafka.coordinator.group.Utils",
+            "leftSideLocations": [
+                {
+                    "filePath": "group-coordinator/src/main/java/org/apache/kafka/coordinator/group/consumer/ConsumerGroup.java",
+                    "startLine": 1265,
+                    "endLine": 1270,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "private incValue(key String, value Integer) : Integer"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "group-coordinator/src/main/java/org/apache/kafka/coordinator/group/Utils.java",
+                    "startLine": 95,
+                    "endLine": 100,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public incValue(key String, value Integer) : Integer"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/apache/kafka.git",
+        "sha1": "60114a46a775e597410131dd67ac236d62f57b0c",
+        "url": "https://github.com/apache/kafka/commit/60114a46a775e597410131dd67ac236d62f57b0c",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method private assignmentFromTopicPartitions(topicPartitionsList List<ConsumerGroupCurrentMemberAssignmentValue.TopicPartitions>) : Map<Uuid,Set<Integer>> from class org.apache.kafka.coordinator.group.consumer.ConsumerGroupMember.Builder to public assignmentFromTopicPartitions(topicPartitionsList List<ConsumerGroupCurrentMemberAssignmentValue.TopicPartitions>) : Map<Uuid,Set<Integer>> from class org.apache.kafka.coordinator.group.Utils",
+            "leftSideLocations": [
+                {
+                    "filePath": "group-coordinator/src/main/java/org/apache/kafka/coordinator/group/consumer/ConsumerGroupMember.java",
+                    "startLine": 222,
+                    "endLine": 228,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "private assignmentFromTopicPartitions(topicPartitionsList List<ConsumerGroupCurrentMemberAssignmentValue.TopicPartitions>) : Map<Uuid,Set<Integer>>"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "group-coordinator/src/main/java/org/apache/kafka/coordinator/group/Utils.java",
+                    "startLine": 181,
+                    "endLine": 193,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public assignmentFromTopicPartitions(topicPartitionsList List<ConsumerGroupCurrentMemberAssignmentValue.TopicPartitions>) : Map<Uuid,Set<Integer>>"
+                }
+            ],
+            "isStatic": false
+        }
+    },
+    {
+        "repository": "https://github.com/apache/kafka.git",
+        "sha1": "0b6086ed88e00248e0383d3663615bd1257165d5",
+        "url": "https://github.com/apache/kafka/commit/0b6086ed88e00248e0383d3663615bd1257165d5",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method private messageOrNull(apiMessageAndVersion ApiMessageAndVersion) : ApiMessage from class org.apache.kafka.coordinator.group.GroupCoordinatorShard to public messageOrNull(apiMessageAndVersion ApiMessageAndVersion) : ApiMessage from class org.apache.kafka.coordinator.group.Utils",
+            "leftSideLocations": [
+                {
+                    "filePath": "group-coordinator/src/main/java/org/apache/kafka/coordinator/group/GroupCoordinatorShard.java",
+                    "startLine": 660,
+                    "endLine": 669,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "private messageOrNull(apiMessageAndVersion ApiMessageAndVersion) : ApiMessage"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "group-coordinator/src/main/java/org/apache/kafka/coordinator/group/Utils.java",
+                    "startLine": 197,
+                    "endLine": 206,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public messageOrNull(apiMessageAndVersion ApiMessageAndVersion) : ApiMessage"
+                }
+            ],
+            "isStatic": false
+        }
+    },
+    {
+        "repository": "https://github.com/apache/kafka.git",
+        "sha1": "0b6086ed88e00248e0383d3663615bd1257165d5",
+        "url": "https://github.com/apache/kafka/commit/0b6086ed88e00248e0383d3663615bd1257165d5",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public shareGroupSessionTimeoutMs() : int from class org.apache.kafka.server.config.ShareGroupConfig to public shareGroupSessionTimeoutMs() : int from class org.apache.kafka.coordinator.group.GroupCoordinatorConfig",
+            "leftSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/apache/kafka/server/config/ShareGroupConfig.java",
+                    "startLine": 160,
+                    "endLine": 162,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public shareGroupSessionTimeoutMs() : int"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "group-coordinator/src/main/java/org/apache/kafka/coordinator/group/GroupCoordinatorConfig.java",
+                    "startLine": 570,
+                    "endLine": 575,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public shareGroupSessionTimeoutMs() : int"
+                }
+            ],
+            "isStatic": false
+        }
+    },
+    {
+        "repository": "https://github.com/apache/kafka.git",
+        "sha1": "0b6086ed88e00248e0383d3663615bd1257165d5",
+        "url": "https://github.com/apache/kafka/commit/0b6086ed88e00248e0383d3663615bd1257165d5",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public shareGroupMinSessionTimeoutMs() : int from class org.apache.kafka.server.config.ShareGroupConfig to public shareGroupMinSessionTimeoutMs() : int from class org.apache.kafka.coordinator.group.GroupCoordinatorConfig",
+            "leftSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/apache/kafka/server/config/ShareGroupConfig.java",
+                    "startLine": 164,
+                    "endLine": 166,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public shareGroupMinSessionTimeoutMs() : int"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "group-coordinator/src/main/java/org/apache/kafka/coordinator/group/GroupCoordinatorConfig.java",
+                    "startLine": 591,
+                    "endLine": 596,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public shareGroupMinSessionTimeoutMs() : int"
+                }
+            ],
+            "isStatic": false
+        }
+    },
+    {
+        "repository": "https://github.com/apache/kafka.git",
+        "sha1": "0b6086ed88e00248e0383d3663615bd1257165d5",
+        "url": "https://github.com/apache/kafka/commit/0b6086ed88e00248e0383d3663615bd1257165d5",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public shareGroupMaxSessionTimeoutMs() : int from class org.apache.kafka.server.config.ShareGroupConfig to public shareGroupMaxSessionTimeoutMs() : int from class org.apache.kafka.coordinator.group.GroupCoordinatorConfig",
+            "leftSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/apache/kafka/server/config/ShareGroupConfig.java",
+                    "startLine": 168,
+                    "endLine": 170,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public shareGroupMaxSessionTimeoutMs() : int"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "group-coordinator/src/main/java/org/apache/kafka/coordinator/group/GroupCoordinatorConfig.java",
+                    "startLine": 598,
+                    "endLine": 603,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public shareGroupMaxSessionTimeoutMs() : int"
+                }
+            ],
+            "isStatic": false
+        }
+    },
+    {
+        "repository": "https://github.com/apache/kafka.git",
+        "sha1": "0b6086ed88e00248e0383d3663615bd1257165d5",
+        "url": "https://github.com/apache/kafka/commit/0b6086ed88e00248e0383d3663615bd1257165d5",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public shareGroupHeartbeatIntervalMs() : int from class org.apache.kafka.server.config.ShareGroupConfig to public shareGroupHeartbeatIntervalMs() : int from class org.apache.kafka.coordinator.group.GroupCoordinatorConfig",
+            "leftSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/apache/kafka/server/config/ShareGroupConfig.java",
+                    "startLine": 172,
+                    "endLine": 174,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public shareGroupHeartbeatIntervalMs() : int"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "group-coordinator/src/main/java/org/apache/kafka/coordinator/group/GroupCoordinatorConfig.java",
+                    "startLine": 577,
+                    "endLine": 582,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public shareGroupHeartbeatIntervalMs() : int"
+                }
+            ],
+            "isStatic": false
+        }
+    },
+    {
+        "repository": "https://github.com/apache/kafka.git",
+        "sha1": "0b6086ed88e00248e0383d3663615bd1257165d5",
+        "url": "https://github.com/apache/kafka/commit/0b6086ed88e00248e0383d3663615bd1257165d5",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public shareGroupMinHeartbeatIntervalMs() : int from class org.apache.kafka.server.config.ShareGroupConfig to public shareGroupMinHeartbeatIntervalMs() : int from class org.apache.kafka.coordinator.group.GroupCoordinatorConfig",
+            "leftSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/apache/kafka/server/config/ShareGroupConfig.java",
+                    "startLine": 176,
+                    "endLine": 178,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public shareGroupMinHeartbeatIntervalMs() : int"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "group-coordinator/src/main/java/org/apache/kafka/coordinator/group/GroupCoordinatorConfig.java",
+                    "startLine": 605,
+                    "endLine": 610,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public shareGroupMinHeartbeatIntervalMs() : int"
+                }
+            ],
+            "isStatic": false
+        }
+    },
+    {
+        "repository": "https://github.com/apache/kafka.git",
+        "sha1": "0b6086ed88e00248e0383d3663615bd1257165d5",
+        "url": "https://github.com/apache/kafka/commit/0b6086ed88e00248e0383d3663615bd1257165d5",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public shareGroupMaxHeartbeatIntervalMs() : int from class org.apache.kafka.server.config.ShareGroupConfig to public shareGroupMaxHeartbeatIntervalMs() : int from class org.apache.kafka.coordinator.group.GroupCoordinatorConfig",
+            "leftSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/apache/kafka/server/config/ShareGroupConfig.java",
+                    "startLine": 180,
+                    "endLine": 182,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public shareGroupMaxHeartbeatIntervalMs() : int"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "group-coordinator/src/main/java/org/apache/kafka/coordinator/group/GroupCoordinatorConfig.java",
+                    "startLine": 612,
+                    "endLine": 617,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public shareGroupMaxHeartbeatIntervalMs() : int"
+                }
+            ],
+            "isStatic": false
+        }
+    },
+    {
+        "repository": "https://github.com/apache/kafka.git",
+        "sha1": "21dd5cd421139d6134d738d6e7555f0db6e1f622",
+        "url": "https://github.com/apache/kafka/commit/21dd5cd421139d6134d738d6e7555f0db6e1f622",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method private applicationEvents() : Stream<Arguments> from class org.apache.kafka.clients.consumer.internals.ConsumerNetworkThreadTest to private applicationEvents() : Stream<Arguments> from class org.apache.kafka.clients.consumer.internals.events.ApplicationEventProcessorTest",
+            "leftSideLocations": [
+                {
+                    "filePath": "clients/src/test/java/org/apache/kafka/clients/consumer/internals/ConsumerNetworkThreadTest.java",
+                    "startLine": 258,
+                    "endLine": 270,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "private applicationEvents() : Stream<Arguments>"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "clients/src/test/java/org/apache/kafka/clients/consumer/internals/events/ApplicationEventProcessorTest.java",
+                    "startLine": 116,
+                    "endLine": 128,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "private applicationEvents() : Stream<Arguments>"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/apache/kafka.git",
+        "sha1": "6a2789cf70665bc564bfa582fec17f42b93f3616",
+        "url": "https://github.com/apache/kafka/commit/6a2789cf70665bc564bfa582fec17f42b93f3616",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method private handleCoordinatorDisconnect(exception Throwable, currentTimeMs long) : void from class org.apache.kafka.clients.consumer.internals.CommitRequestManager to public handleCoordinatorDisconnect(exception Throwable, currentTimeMs long) : void from class org.apache.kafka.clients.consumer.internals.CoordinatorRequestManager",
+            "leftSideLocations": [
+                {
+                    "filePath": "clients/src/main/java/org/apache/kafka/clients/consumer/internals/CommitRequestManager.java",
+                    "startLine": 568,
+                    "endLine": 572,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "private handleCoordinatorDisconnect(exception Throwable, currentTimeMs long) : void"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "clients/src/main/java/org/apache/kafka/clients/consumer/internals/CoordinatorRequestManager.java",
+                    "startLine": 126,
+                    "endLine": 139,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public handleCoordinatorDisconnect(exception Throwable, currentTimeMs long) : void"
+                }
+            ],
+            "isStatic": false
+        }
+    }
+]

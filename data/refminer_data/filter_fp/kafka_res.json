@@ -1,0 +1,376 @@
+[
+    {
+        "repository": "https://github.com/apache/kafka.git",
+        "sha1": "643db430a707479c9e87eec1ad67e1d4f43c9268",
+        "url": "https://github.com/apache/kafka/commit/643db430a707479c9e87eec1ad67e1d4f43c9268",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method private buildAdminClient() : MockAdminClient from class org.apache.kafka.tools.FeatureCommandUnitTest to private buildAdminClient() : MockAdminClient from class org.apache.kafka.tools.FeatureCommandTest",
+            "leftSideLocations": [
+                {
+                    "filePath": "tools/src/test/java/org/apache/kafka/tools/FeatureCommandTest.java",
+                    "startLine": 198,
+                    "endLine": 215,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "private buildAdminClient() : MockAdminClient"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "tools/src/test/java/org/apache/kafka/tools/FeatureCommandTest.java",
+                    "startLine": 192,
+                    "endLine": 209,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "private buildAdminClient() : MockAdminClient"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/apache/kafka.git",
+        "sha1": "11ad5e8bca2444d8c51cd6b81ee84dcb41a047c2",
+        "url": "https://github.com/apache/kafka/commit/11ad5e8bca2444d8c51cd6b81ee84dcb41a047c2",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method protected canParseSingleTokenLiteral(parser Parser, embedded boolean, tokenLiteral String) : boolean from class org.apache.kafka.connect.data.Values to private canParseSingleTokenLiteral(embedded boolean, tokenLiteral String) : boolean from class org.apache.kafka.connect.data.Values.ValueParser",
+            "leftSideLocations": [
+                {
+                    "filePath": "connect/api/src/main/java/org/apache/kafka/connect/data/Values.java",
+                    "startLine": 747,
+                    "endLine": 764,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "protected canParseSingleTokenLiteral(parser Parser, embedded boolean, tokenLiteral String) : boolean"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "connect/api/src/main/java/org/apache/kafka/connect/data/Values.java",
+                    "startLine": 826,
+                    "endLine": 843,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "private canParseSingleTokenLiteral(embedded boolean, tokenLiteral String) : boolean"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/apache/kafka.git",
+        "sha1": "11ad5e8bca2444d8c51cd6b81ee84dcb41a047c2",
+        "url": "https://github.com/apache/kafka/commit/11ad5e8bca2444d8c51cd6b81ee84dcb41a047c2",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method private parseAsTemporal(token String) : SchemaAndValue from class org.apache.kafka.connect.data.Values to private parseAsTemporal(token String) : SchemaAndValue from class org.apache.kafka.connect.data.Values.ValueParser",
+            "leftSideLocations": [
+                {
+                    "filePath": "connect/api/src/main/java/org/apache/kafka/connect/data/Values.java",
+                    "startLine": 980,
+                    "endLine": 1007,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "private parseAsTemporal(token String) : SchemaAndValue"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "connect/api/src/main/java/org/apache/kafka/connect/data/Values.java",
+                    "startLine": 1067,
+                    "endLine": 1083,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "private parseAsTemporal(token String) : SchemaAndValue"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/apache/kafka.git",
+        "sha1": "11ad5e8bca2444d8c51cd6b81ee84dcb41a047c2",
+        "url": "https://github.com/apache/kafka/commit/11ad5e8bca2444d8c51cd6b81ee84dcb41a047c2",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method protected parse(parser Parser, embedded boolean) : SchemaAndValue from class org.apache.kafka.connect.data.Values to public parse(embedded boolean) : SchemaAndValue from class org.apache.kafka.connect.data.Values.ValueParser",
+            "leftSideLocations": [
+                {
+                    "filePath": "connect/api/src/main/java/org/apache/kafka/connect/data/Values.java",
+                    "startLine": 766,
+                    "endLine": 978,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "protected parse(parser Parser, embedded boolean) : SchemaAndValue"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "connect/api/src/main/java/org/apache/kafka/connect/data/Values.java",
+                    "startLine": 845,
+                    "endLine": 877,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public parse(embedded boolean) : SchemaAndValue"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/apache/kafka.git",
+        "sha1": "d5592d8fe62ec88e202ace61414233a730b48367",
+        "url": "https://github.com/apache/kafka/commit/d5592d8fe62ec88e202ace61414233a730b48367",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method private buildThrowingMockRequest(t Throwable) : Request from class org.apache.kafka.connect.runtime.rest.RestClientTest.RequestFailureParameterizedTest to private buildThrowingMockRequest(t Throwable) : Request from class org.apache.kafka.connect.runtime.rest.RestClientTest",
+            "leftSideLocations": [
+                {
+                    "filePath": "connect/runtime/src/test/java/org/apache/kafka/connect/runtime/rest/RestClientTest.java",
+                    "startLine": 130,
+                    "endLine": 135,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "private buildThrowingMockRequest(t Throwable) : Request"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "connect/runtime/src/test/java/org/apache/kafka/connect/runtime/rest/RestClientTest.java",
+                    "startLine": 116,
+                    "endLine": 121,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "private buildThrowingMockRequest(t Throwable) : Request"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/apache/kafka.git",
+        "sha1": "adee6f0cc11c37edaf7b47c1f77457d66e80ebe4",
+        "url": "https://github.com/apache/kafka/commit/adee6f0cc11c37edaf7b47c1f77457d66e80ebe4",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method private snapshotFetchResponse(topicPartition TopicPartition, topicId Uuid, epoch int, leaderId int, snapshotId OffsetAndEpoch, highWatermark long) : FetchResponseData from class org.apache.kafka.raft.KafkaRaftClientSnapshotTest to package snapshotFetchResponse(epoch int, leaderId int, snapshotId OffsetAndEpoch, highWatermark long) : FetchResponseData from class org.apache.kafka.raft.RaftClientTestContext",
+            "leftSideLocations": [
+                {
+                    "filePath": "raft/src/test/java/org/apache/kafka/raft/KafkaRaftClientSnapshotTest.java",
+                    "startLine": 1919,
+                    "endLine": 1938,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "private snapshotFetchResponse(topicPartition TopicPartition, topicId Uuid, epoch int, leaderId int, snapshotId OffsetAndEpoch, highWatermark long) : FetchResponseData"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "raft/src/test/java/org/apache/kafka/raft/RaftClientTestContext.java",
+                    "startLine": 1354,
+                    "endLine": 1380,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "package snapshotFetchResponse(epoch int, leaderId int, snapshotId OffsetAndEpoch, highWatermark long) : FetchResponseData"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/apache/kafka.git",
+        "sha1": "60114a46a775e597410131dd67ac236d62f57b0c",
+        "url": "https://github.com/apache/kafka/commit/60114a46a775e597410131dd67ac236d62f57b0c",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method private decValue(key String, value Integer) : Integer from class org.apache.kafka.coordinator.group.consumer.ConsumerGroup to public decValue(key String, value Integer) : Integer from class org.apache.kafka.coordinator.group.Utils",
+            "leftSideLocations": [
+                {
+                    "filePath": "group-coordinator/src/main/java/org/apache/kafka/coordinator/group/consumer/ConsumerGroup.java",
+                    "startLine": 1256,
+                    "endLine": 1263,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "private decValue(key String, value Integer) : Integer"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "group-coordinator/src/main/java/org/apache/kafka/coordinator/group/Utils.java",
+                    "startLine": 86,
+                    "endLine": 93,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public decValue(key String, value Integer) : Integer"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/apache/kafka.git",
+        "sha1": "60114a46a775e597410131dd67ac236d62f57b0c",
+        "url": "https://github.com/apache/kafka/commit/60114a46a775e597410131dd67ac236d62f57b0c",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method private incValue(key String, value Integer) : Integer from class org.apache.kafka.coordinator.group.consumer.ConsumerGroup to public incValue(key String, value Integer) : Integer from class org.apache.kafka.coordinator.group.Utils",
+            "leftSideLocations": [
+                {
+                    "filePath": "group-coordinator/src/main/java/org/apache/kafka/coordinator/group/consumer/ConsumerGroup.java",
+                    "startLine": 1265,
+                    "endLine": 1270,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "private incValue(key String, value Integer) : Integer"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "group-coordinator/src/main/java/org/apache/kafka/coordinator/group/Utils.java",
+                    "startLine": 95,
+                    "endLine": 100,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public incValue(key String, value Integer) : Integer"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/apache/kafka.git",
+        "sha1": "e1b2adea07cebaac6d1138ec18778c575aef57f4",
+        "url": "https://github.com/apache/kafka/commit/e1b2adea07cebaac6d1138ec18778c575aef57f4",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method package findMetric(name String) : Metric from class org.apache.kafka.server.AssignmentsManagerTest to package findMetric(name MetricName) : Metric from class org.apache.kafka.server.AssignmentsManagerTest.TestEnv",
+            "leftSideLocations": [
+                {
+                    "filePath": "server/src/test/java/org/apache/kafka/server/AssignmentsManagerTest.java",
+                    "startLine": 384,
+                    "endLine": 392,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "package findMetric(name String) : Metric"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "server/src/test/java/org/apache/kafka/server/AssignmentsManagerTest.java",
+                    "startLine": 232,
+                    "endLine": 239,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "package findMetric(name MetricName) : Metric"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/apache/kafka.git",
+        "sha1": "21dd5cd421139d6134d738d6e7555f0db6e1f622",
+        "url": "https://github.com/apache/kafka/commit/21dd5cd421139d6134d738d6e7555f0db6e1f622",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method private applicationEvents() : Stream<Arguments> from class org.apache.kafka.clients.consumer.internals.ConsumerNetworkThreadTest to private applicationEvents() : Stream<Arguments> from class org.apache.kafka.clients.consumer.internals.events.ApplicationEventProcessorTest",
+            "leftSideLocations": [
+                {
+                    "filePath": "clients/src/test/java/org/apache/kafka/clients/consumer/internals/ConsumerNetworkThreadTest.java",
+                    "startLine": 258,
+                    "endLine": 270,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "private applicationEvents() : Stream<Arguments>"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "clients/src/test/java/org/apache/kafka/clients/consumer/internals/events/ApplicationEventProcessorTest.java",
+                    "startLine": 116,
+                    "endLine": 128,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "private applicationEvents() : Stream<Arguments>"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/apache/kafka.git",
+        "sha1": "6a2789cf70665bc564bfa582fec17f42b93f3616",
+        "url": "https://github.com/apache/kafka/commit/6a2789cf70665bc564bfa582fec17f42b93f3616",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method private handleCoordinatorDisconnect(exception Throwable, currentTimeMs long) : void from class org.apache.kafka.clients.consumer.internals.CommitRequestManager to public handleCoordinatorDisconnect(exception Throwable, currentTimeMs long) : void from class org.apache.kafka.clients.consumer.internals.CoordinatorRequestManager",
+            "leftSideLocations": [
+                {
+                    "filePath": "clients/src/main/java/org/apache/kafka/clients/consumer/internals/CommitRequestManager.java",
+                    "startLine": 568,
+                    "endLine": 572,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "private handleCoordinatorDisconnect(exception Throwable, currentTimeMs long) : void"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "clients/src/main/java/org/apache/kafka/clients/consumer/internals/CoordinatorRequestManager.java",
+                    "startLine": 126,
+                    "endLine": 139,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public handleCoordinatorDisconnect(exception Throwable, currentTimeMs long) : void"
+                }
+            ],
+            "isStatic": false
+        }
+    }
+]

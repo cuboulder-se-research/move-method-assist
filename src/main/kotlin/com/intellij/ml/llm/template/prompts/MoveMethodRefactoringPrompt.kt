@@ -53,6 +53,63 @@ class MoveMethodRefactoringPrompt: MethodPromptBase() {
             UserMessage.from(methodCode)
         )
     }
+    fun askForMethodPriorityPrompt(classCode: String, moveMethodSuggetions: List<ApplyMoveMethodInteractiveIntention.MoveMethodSuggestion>, methodSimilarity: List<Pair<ApplyMoveMethodInteractiveIntention.MoveMethodSuggestion, Double>>): MutableList<ChatMessage> {
+        return mutableListOf(
+            SystemMessage.from("You are an expert Java developer who prioritises move-method refactoring suggestions based on your expertise."),
+            UserMessage.from("""
+                Here is a java class:
+                ${classCode}
+
+
+
+                Please rank the following move-method suggestions:
+                 ${
+                     Gson().toJson(moveMethodSuggetions.map{it.methodName})
+                 }
+
+                Respond in a JSON list, with the most important move-method suggestion at the beginning of the list.
+                If you think it is not important to move some any of these methods, exclude them from the response list.
+                     """.trimIndent()),
+        )
+    }
+
+    fun askForMethodPriorityPromptWithSimilarity(
+        classCode: String,
+        methodSimilarity: List<Pair<ApplyMoveMethodInteractiveIntention.MoveMethodSuggestion, Double>>
+    ): MutableList<ChatMessage> {
+        // Construct a list of methods with their similarity scores
+        val methodsWithScores = methodSimilarity.map { (suggestion, score) ->
+            mapOf(
+                "methodName" to suggestion.methodName,
+                "similarityScore" to score
+            )
+        }
+
+        // Convert the list to a JSON string for structured representation
+        val methodsJson = Gson().toJson(methodsWithScores)
+
+        // Construct the prompt messages
+        return mutableListOf(
+            SystemMessage.from("You are an expert Java developer who specializes in move-method refactoring."),
+            UserMessage.from("""
+            Here is a Java class:
+            ```java
+            ${classCode}
+            ```
+            
+            Below are the move-method suggestions along with their similarity scores:
+            ```json
+            $methodsJson
+            ```
+            
+            Please rank the following move-method suggestions based on their importance for refactoring. 
+            Consider both the provided similarity scores and your own expertise to determine the priority.
+            
+            Respond with a JSON list of method names ordered from highest to lowest priority. 
+        """.trimIndent())
+        )
+    }
+
     fun askForMethodPriorityPrompt(methodCode: String, moveMethodSuggetions: List<ApplyMoveMethodInteractiveIntention.MoveMethodSuggestion>): MutableList<ChatMessage> {
         return mutableListOf(
             SystemMessage.from("You are an expert Java developer who prioritises move-method refactoring suggestions based on your expertise."),
@@ -62,16 +119,17 @@ class MoveMethodRefactoringPrompt: MethodPromptBase() {
                 
                 Please rank the following move-method suggestions:
                  ${
-                     Gson().toJson(moveMethodSuggetions.map{it.methodName})
-                 }
+                Gson().toJson(moveMethodSuggetions.map{it.methodSignature})
+            }
                     
                 Respond in a JSON list, with the most important move-method suggestion at the beginning of the list. 
-                If you think it is not important to move some any of these methods, exclude them from the response list.
+                If you think it is not important to move some/any of these methods, exclude them from the response list.
                      """.trimIndent()),
         )
     }
 
     fun askForTargetClassPriorityPrompt(methodCode: String,
+                                        potentialClassBody: String?,
                                         movePivots: List<MoveMethodFactory.MovePivot>): MutableList<ChatMessage>{
         return mutableListOf(
             SystemMessage.from("You are an expert Java developer. " +
@@ -80,11 +138,13 @@ class MoveMethodRefactoringPrompt: MethodPromptBase() {
                     " based on your expertise. "),
             UserMessage.from("""
                 Here is the method that needs to move:
-                ${methodCode}
+                    ${methodCode}
                 
                 Please decide which target class is the best option:
                    ${Gson().toJson(movePivots.map { it.psiClass.name }) }} 
+
                 Respond with ONLY a JSON list of objects (with keys "target_class" and "rationale"), with the most important target class suggestion at the beginning of the list. 
+                Include detailed information in the rationale, including why the method needs to move out the existing class, and why it should move to the target class.  
                 Ex:
                  [
                     {
@@ -92,6 +152,10 @@ class MoveMethodRefactoringPrompt: MethodPromptBase() {
                         "rationale": "calculateDiscount() relies heavily on the Customer class, so it might be more appropriate to move this method to the Customer class.",
                     }
                 ]
+                
+                Here are the class body of the potential target classes for your reference:
+                    ${potentialClassBody}
+                    
                      """.trimIndent()),
         )
     }

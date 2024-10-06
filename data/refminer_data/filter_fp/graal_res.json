@@ -1,0 +1,1226 @@
+[
+    {
+        "repository": "https://github.com/oracle/graal.git",
+        "sha1": "ecc2da11b7afc9548fe77980e628c7be8a609723",
+        "url": "https://github.com/oracle/graal/commit/ecc2da11b7afc9548fe77980e628c7be8a609723",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public beginTest(eventSampleSize long, periodMs long) : void from class com.oracle.svm.core.jfr.JfrThrottler to public beginTest(throttler JfrThrottler, eventSampleSize long, periodMs long) : void from class com.oracle.svm.core.jfr.JfrThrottler.TestingBackDoor",
+            "leftSideLocations": [
+                {
+                    "filePath": "substratevm/src/com.oracle.svm.core/src/com/oracle/svm/core/jfr/JfrThrottler.java",
+                    "startLine": 325,
+                    "endLine": 332,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public beginTest(eventSampleSize long, periodMs long) : void"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "substratevm/src/com.oracle.svm.core/src/com/oracle/svm/core/jfr/JfrThrottler.java",
+                    "startLine": 253,
+                    "endLine": 259,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public beginTest(throttler JfrThrottler, eventSampleSize long, periodMs long) : void"
+                }
+            ],
+            "isStatic": false
+        }
+    },
+    {
+        "repository": "https://github.com/oracle/graal.git",
+        "sha1": "ecc2da11b7afc9548fe77980e628c7be8a609723",
+        "url": "https://github.com/oracle/graal/commit/ecc2da11b7afc9548fe77980e628c7be8a609723",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public getActiveWindowProjectedPopulationSize() : double from class com.oracle.svm.core.jfr.JfrThrottler to public getActiveWindowProjectedPopulationSize(throttler JfrThrottler) : double from class com.oracle.svm.core.jfr.JfrThrottler.TestingBackDoor",
+            "leftSideLocations": [
+                {
+                    "filePath": "substratevm/src/com.oracle.svm.core/src/com/oracle/svm/core/jfr/JfrThrottler.java",
+                    "startLine": 334,
+                    "endLine": 337,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public getActiveWindowProjectedPopulationSize() : double"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "substratevm/src/com.oracle.svm.core/src/com/oracle/svm/core/jfr/JfrThrottler.java",
+                    "startLine": 261,
+                    "endLine": 263,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public getActiveWindowProjectedPopulationSize(throttler JfrThrottler) : double"
+                }
+            ],
+            "isStatic": false
+        }
+    },
+    {
+        "repository": "https://github.com/oracle/graal.git",
+        "sha1": "ecc2da11b7afc9548fe77980e628c7be8a609723",
+        "url": "https://github.com/oracle/graal/commit/ecc2da11b7afc9548fe77980e628c7be8a609723",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public getActiveWindowDebt() : long from class com.oracle.svm.core.jfr.JfrThrottler to public getActiveWindowDebt(throttler JfrThrottler) : long from class com.oracle.svm.core.jfr.JfrThrottler.TestingBackDoor",
+            "leftSideLocations": [
+                {
+                    "filePath": "substratevm/src/com.oracle.svm.core/src/com/oracle/svm/core/jfr/JfrThrottler.java",
+                    "startLine": 344,
+                    "endLine": 347,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public getActiveWindowDebt() : long"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "substratevm/src/com.oracle.svm.core/src/com/oracle/svm/core/jfr/JfrThrottler.java",
+                    "startLine": 265,
+                    "endLine": 267,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public getActiveWindowDebt(throttler JfrThrottler) : long"
+                }
+            ],
+            "isStatic": false
+        }
+    },
+    {
+        "repository": "https://github.com/oracle/graal.git",
+        "sha1": "ecc2da11b7afc9548fe77980e628c7be8a609723",
+        "url": "https://github.com/oracle/graal/commit/ecc2da11b7afc9548fe77980e628c7be8a609723",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public getWindowLookback() : double from class com.oracle.svm.core.jfr.JfrThrottler to public getWindowLookback(throttler JfrThrottler) : double from class com.oracle.svm.core.jfr.JfrThrottler.TestingBackDoor",
+            "leftSideLocations": [
+                {
+                    "filePath": "substratevm/src/com.oracle.svm.core/src/com/oracle/svm/core/jfr/JfrThrottler.java",
+                    "startLine": 349,
+                    "endLine": 351,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public getWindowLookback() : double"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "substratevm/src/com.oracle.svm.core/src/com/oracle/svm/core/jfr/JfrThrottler.java",
+                    "startLine": 269,
+                    "endLine": 271,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public getWindowLookback(throttler JfrThrottler) : double"
+                }
+            ],
+            "isStatic": false
+        }
+    },
+    {
+        "repository": "https://github.com/oracle/graal.git",
+        "sha1": "ecc2da11b7afc9548fe77980e628c7be8a609723",
+        "url": "https://github.com/oracle/graal/commit/ecc2da11b7afc9548fe77980e628c7be8a609723",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public isActiveWindowExpired() : boolean from class com.oracle.svm.core.jfr.JfrThrottler to public isActiveWindowExpired(throttler JfrThrottler) : boolean from class com.oracle.svm.core.jfr.JfrThrottler.TestingBackDoor",
+            "leftSideLocations": [
+                {
+                    "filePath": "substratevm/src/com.oracle.svm.core/src/com/oracle/svm/core/jfr/JfrThrottler.java",
+                    "startLine": 353,
+                    "endLine": 356,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public isActiveWindowExpired() : boolean"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "substratevm/src/com.oracle.svm.core/src/com/oracle/svm/core/jfr/JfrThrottler.java",
+                    "startLine": 273,
+                    "endLine": 275,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public isActiveWindowExpired(throttler JfrThrottler) : boolean"
+                }
+            ],
+            "isStatic": false
+        }
+    },
+    {
+        "repository": "https://github.com/oracle/graal.git",
+        "sha1": "ecc2da11b7afc9548fe77980e628c7be8a609723",
+        "url": "https://github.com/oracle/graal/commit/ecc2da11b7afc9548fe77980e628c7be8a609723",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public getPeriodNs() : long from class com.oracle.svm.core.jfr.JfrThrottler to public getPeriodNs(throttler JfrThrottler) : long from class com.oracle.svm.core.jfr.JfrThrottler.TestingBackDoor",
+            "leftSideLocations": [
+                {
+                    "filePath": "substratevm/src/com.oracle.svm.core/src/com/oracle/svm/core/jfr/JfrThrottler.java",
+                    "startLine": 358,
+                    "endLine": 361,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public getPeriodNs() : long"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "substratevm/src/com.oracle.svm.core/src/com/oracle/svm/core/jfr/JfrThrottler.java",
+                    "startLine": 277,
+                    "endLine": 279,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public getPeriodNs(throttler JfrThrottler) : long"
+                }
+            ],
+            "isStatic": false
+        }
+    },
+    {
+        "repository": "https://github.com/oracle/graal.git",
+        "sha1": "ecc2da11b7afc9548fe77980e628c7be8a609723",
+        "url": "https://github.com/oracle/graal/commit/ecc2da11b7afc9548fe77980e628c7be8a609723",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public getEventSampleSize() : long from class com.oracle.svm.core.jfr.JfrThrottler to public getEventSampleSize(throttler JfrThrottler) : long from class com.oracle.svm.core.jfr.JfrThrottler.TestingBackDoor",
+            "leftSideLocations": [
+                {
+                    "filePath": "substratevm/src/com.oracle.svm.core/src/com/oracle/svm/core/jfr/JfrThrottler.java",
+                    "startLine": 363,
+                    "endLine": 366,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public getEventSampleSize() : long"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "substratevm/src/com.oracle.svm.core/src/com/oracle/svm/core/jfr/JfrThrottler.java",
+                    "startLine": 281,
+                    "endLine": 283,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public getEventSampleSize(throttler JfrThrottler) : long"
+                }
+            ],
+            "isStatic": false
+        }
+    },
+    {
+        "repository": "https://github.com/oracle/graal.git",
+        "sha1": "ecc2da11b7afc9548fe77980e628c7be8a609723",
+        "url": "https://github.com/oracle/graal/commit/ecc2da11b7afc9548fe77980e628c7be8a609723",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public expireActiveWindow() : void from class com.oracle.svm.core.jfr.JfrThrottler to public expireActiveWindow(throttler JfrThrottler) : void from class com.oracle.svm.core.jfr.JfrThrottler.TestingBackDoor",
+            "leftSideLocations": [
+                {
+                    "filePath": "substratevm/src/com.oracle.svm.core/src/com/oracle/svm/core/jfr/JfrThrottler.java",
+                    "startLine": 368,
+                    "endLine": 376,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public expireActiveWindow() : void"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "substratevm/src/com.oracle.svm.core/src/com/oracle/svm/core/jfr/JfrThrottler.java",
+                    "startLine": 285,
+                    "endLine": 292,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public expireActiveWindow(throttler JfrThrottler) : void"
+                }
+            ],
+            "isStatic": false
+        }
+    },
+    {
+        "repository": "https://github.com/oracle/graal.git",
+        "sha1": "d4eb4016a9a7b41975445198eaefac53b358ec08",
+        "url": "https://github.com/oracle/graal/commit/d4eb4016a9a7b41975445198eaefac53b358ec08",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public getWindowLookback(throttler JfrThrottler) : double from class com.oracle.svm.core.jfr.JfrThrottler.TestingBackDoor to public getWindowLookback() : double from class com.oracle.svm.test.jfr.TestThrottler.JfrTestThrottler",
+            "leftSideLocations": [
+                {
+                    "filePath": "substratevm/src/com.oracle.svm.core/src/com/oracle/svm/core/jfr/JfrThrottler.java",
+                    "startLine": 290,
+                    "endLine": 292,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public getWindowLookback(throttler JfrThrottler) : double"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "substratevm/src/com.oracle.svm.test/src/com/oracle/svm/test/jfr/TestThrottler.java",
+                    "startLine": 423,
+                    "endLine": 425,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public getWindowLookback() : double"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/oracle/graal.git",
+        "sha1": "241802796ce65354fd3e7a8ea5551a005b6eba15",
+        "url": "https://github.com/oracle/graal/commit/241802796ce65354fd3e7a8ea5551a005b6eba15",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public interceptValue(suppliedMetaAccess UniverseMetaAccess, field AnalysisField, value JavaConstant) : JavaConstant from class com.oracle.svm.hosted.ameta.AnalysisConstantReflectionProvider to private interceptValue(field AnalysisField, value JavaConstant) : JavaConstant from class com.oracle.svm.hosted.ameta.FieldValueInterceptionSupport",
+            "leftSideLocations": [
+                {
+                    "filePath": "substratevm/src/com.oracle.svm.hosted/src/com/oracle/svm/hosted/ameta/AnalysisConstantReflectionProvider.java",
+                    "startLine": 294,
+                    "endLine": 303,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public interceptValue(suppliedMetaAccess UniverseMetaAccess, field AnalysisField, value JavaConstant) : JavaConstant"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "substratevm/src/com.oracle.svm.hosted/src/com/oracle/svm/hosted/ameta/FieldValueInterceptionSupport.java",
+                    "startLine": 266,
+                    "endLine": 274,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "private interceptValue(field AnalysisField, value JavaConstant) : JavaConstant"
+                }
+            ],
+            "isStatic": false
+        }
+    },
+    {
+        "repository": "https://github.com/oracle/graal.git",
+        "sha1": "241802796ce65354fd3e7a8ea5551a005b6eba15",
+        "url": "https://github.com/oracle/graal/commit/241802796ce65354fd3e7a8ea5551a005b6eba15",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method private filterInjectedAccessor(field AnalysisField, value JavaConstant) : JavaConstant from class com.oracle.svm.hosted.ameta.AnalysisConstantReflectionProvider to private filterInjectedAccessor(field AnalysisField, value JavaConstant) : JavaConstant from class com.oracle.svm.hosted.ameta.FieldValueInterceptionSupport",
+            "leftSideLocations": [
+                {
+                    "filePath": "substratevm/src/com.oracle.svm.hosted/src/com/oracle/svm/hosted/ameta/AnalysisConstantReflectionProvider.java",
+                    "startLine": 305,
+                    "endLine": 316,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "private filterInjectedAccessor(field AnalysisField, value JavaConstant) : JavaConstant"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "substratevm/src/com.oracle.svm.hosted/src/com/oracle/svm/hosted/ameta/FieldValueInterceptionSupport.java",
+                    "startLine": 276,
+                    "endLine": 287,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "private filterInjectedAccessor(field AnalysisField, value JavaConstant) : JavaConstant"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/oracle/graal.git",
+        "sha1": "241802796ce65354fd3e7a8ea5551a005b6eba15",
+        "url": "https://github.com/oracle/graal/commit/241802796ce65354fd3e7a8ea5551a005b6eba15",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method private interceptAssertionStatus(field AnalysisField, value JavaConstant) : JavaConstant from class com.oracle.svm.hosted.ameta.AnalysisConstantReflectionProvider to private interceptAssertionStatus(field AnalysisField, value JavaConstant) : JavaConstant from class com.oracle.svm.hosted.ameta.FieldValueInterceptionSupport",
+            "leftSideLocations": [
+                {
+                    "filePath": "substratevm/src/com.oracle.svm.hosted/src/com/oracle/svm/hosted/ameta/AnalysisConstantReflectionProvider.java",
+                    "startLine": 339,
+                    "endLine": 353,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "private interceptAssertionStatus(field AnalysisField, value JavaConstant) : JavaConstant"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "substratevm/src/com.oracle.svm.hosted/src/com/oracle/svm/hosted/ameta/FieldValueInterceptionSupport.java",
+                    "startLine": 289,
+                    "endLine": 303,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "private interceptAssertionStatus(field AnalysisField, value JavaConstant) : JavaConstant"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/oracle/graal.git",
+        "sha1": "241802796ce65354fd3e7a8ea5551a005b6eba15",
+        "url": "https://github.com/oracle/graal/commit/241802796ce65354fd3e7a8ea5551a005b6eba15",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method private interceptWordField(suppliedMetaAccess UniverseMetaAccess, field AnalysisField, value JavaConstant) : JavaConstant from class com.oracle.svm.hosted.ameta.AnalysisConstantReflectionProvider to private interceptWordField(field AnalysisField, value JavaConstant) : JavaConstant from class com.oracle.svm.hosted.ameta.FieldValueInterceptionSupport",
+            "leftSideLocations": [
+                {
+                    "filePath": "substratevm/src/com.oracle.svm.hosted/src/com/oracle/svm/hosted/ameta/AnalysisConstantReflectionProvider.java",
+                    "startLine": 355,
+                    "endLine": 371,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "private interceptWordField(suppliedMetaAccess UniverseMetaAccess, field AnalysisField, value JavaConstant) : JavaConstant"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "substratevm/src/com.oracle.svm.hosted/src/com/oracle/svm/hosted/ameta/FieldValueInterceptionSupport.java",
+                    "startLine": 305,
+                    "endLine": 314,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "private interceptWordField(field AnalysisField, value JavaConstant) : JavaConstant"
+                }
+            ],
+            "isStatic": false
+        }
+    },
+    {
+        "repository": "https://github.com/oracle/graal.git",
+        "sha1": "97eee36574b45860ac3c776b1e953795727920ed",
+        "url": "https://github.com/oracle/graal/commit/97eee36574b45860ac3c776b1e953795727920ed",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public validateRawObjectConstant(object Object) : void from class com.oracle.svm.hosted.ameta.AnalysisConstantReflectionProvider to public validateRawObjectConstant(object Object) : void from class com.oracle.svm.hosted.meta.HostedSnippetReflectionProvider",
+            "leftSideLocations": [
+                {
+                    "filePath": "substratevm/src/com.oracle.svm.hosted/src/com/oracle/svm/hosted/ameta/AnalysisConstantReflectionProvider.java",
+                    "startLine": 315,
+                    "endLine": 324,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public validateRawObjectConstant(object Object) : void"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "substratevm/src/com.oracle.svm.hosted/src/com/oracle/svm/hosted/meta/HostedSnippetReflectionProvider.java",
+                    "startLine": 68,
+                    "endLine": 77,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public validateRawObjectConstant(object Object) : void"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/oracle/graal.git",
+        "sha1": "3cdcf36af8ea6ae29a41e38432e1c6890b24316f",
+        "url": "https://github.com/oracle/graal/commit/3cdcf36af8ea6ae29a41e38432e1c6890b24316f",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public getWordKind() : JavaKind from class com.oracle.svm.core.FrameAccess to public getWordKind() : JavaKind from class com.oracle.svm.core.config.ConfigurationValues",
+            "leftSideLocations": [
+                {
+                    "filePath": "substratevm/src/com.oracle.svm.core/src/com/oracle/svm/core/FrameAccess.java",
+                    "startLine": 89,
+                    "endLine": 91,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public getWordKind() : JavaKind"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "substratevm/src/com.oracle.svm.core/src/com/oracle/svm/core/config/ConfigurationValues.java",
+                    "startLine": 50,
+                    "endLine": 53,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public getWordKind() : JavaKind"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/oracle/graal.git",
+        "sha1": "c87d63264fec8ddd1368bc93fa6659a96994fe5c",
+        "url": "https://github.com/oracle/graal/commit/c87d63264fec8ddd1368bc93fa6659a96994fe5c",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method package hasStaticMemberInheritanceBug() : boolean from class com.oracle.truffle.dsl.processor.java.compiler.JDTCompiler to package hasStaticMemberInheritanceBug() : boolean from class com.oracle.truffle.dsl.processor.java.compiler.JDTCompiler.CompilerVersionSpecifics",
+            "leftSideLocations": [
+                {
+                    "filePath": "truffle/src/com.oracle.truffle.dsl.processor/src/com/oracle/truffle/dsl/processor/java/compiler/JDTCompiler.java",
+                    "startLine": 105,
+                    "endLine": 131,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "package hasStaticMemberInheritanceBug() : boolean"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "truffle/src/com.oracle.truffle.dsl.processor/src/com/oracle/truffle/dsl/processor/java/compiler/JDTCompiler.java",
+                    "startLine": 130,
+                    "endLine": 137,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "package hasStaticMemberInheritanceBug() : boolean"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/oracle/graal.git",
+        "sha1": "85649ce15e37c67e94e2def9281e9a802c60e298",
+        "url": "https://github.com/oracle/graal/commit/85649ce15e37c67e94e2def9281e9a802c60e298",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method private getStringFieldOffset(name String) : long from class com.oracle.truffle.espresso.meta.StringConversion.Offsets to private getStringFieldOffset(name String) : long from class com.oracle.truffle.espresso.meta.StringConversion.HostConstants",
+            "leftSideLocations": [
+                {
+                    "filePath": "espresso/src/com.oracle.truffle.espresso/src/com/oracle/truffle/espresso/meta/StringConversion.java",
+                    "startLine": 42,
+                    "endLine": 46,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "private getStringFieldOffset(name String) : long"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "espresso/src/com.oracle.truffle.espresso/src/com/oracle/truffle/espresso/meta/StringConversion.java",
+                    "startLine": 50,
+                    "endLine": 54,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "private getStringFieldOffset(name String) : long"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/oracle/graal.git",
+        "sha1": "6df4b4bce8ad546797b327d3e068b067663f104e",
+        "url": "https://github.com/oracle/graal/commit/6df4b4bce8ad546797b327d3e068b067663f104e",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public charAt(string String, index int) : char from class com.oracle.svm.core.jdk.JavaLangSubstitutions.StringUtil to public charAt(string String, index int) : char from class com.oracle.svm.core.jdk.UninterruptibleUtils.String",
+            "leftSideLocations": [
+                {
+                    "filePath": "substratevm/src/com.oracle.svm.core/src/com/oracle/svm/core/jdk/JavaLangSubstitutions.java",
+                    "startLine": 693,
+                    "endLine": 705,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public charAt(string String, index int) : char"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "substratevm/src/com.oracle.svm.core/src/com/oracle/svm/core/jdk/UninterruptibleUtils.java",
+                    "startLine": 644,
+                    "endLine": 656,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public charAt(string String, index int) : char"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/oracle/graal.git",
+        "sha1": "6df4b4bce8ad546797b327d3e068b067663f104e",
+        "url": "https://github.com/oracle/graal/commit/6df4b4bce8ad546797b327d3e068b067663f104e",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public coder(string String) : byte from class com.oracle.svm.core.jdk.JavaLangSubstitutions.StringUtil to public coder(string String) : byte from class com.oracle.svm.core.jdk.UninterruptibleUtils.String",
+            "leftSideLocations": [
+                {
+                    "filePath": "substratevm/src/com.oracle.svm.core/src/com/oracle/svm/core/jdk/JavaLangSubstitutions.java",
+                    "startLine": 707,
+                    "endLine": 709,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public coder(string String) : byte"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "substratevm/src/com.oracle.svm.core/src/com/oracle/svm/core/jdk/UninterruptibleUtils.java",
+                    "startLine": 658,
+                    "endLine": 661,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public coder(string String) : byte"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/oracle/graal.git",
+        "sha1": "7bc9b6e65e0acaf475d837bae0562b638aeb428f",
+        "url": "https://github.com/oracle/graal/commit/7bc9b6e65e0acaf475d837bae0562b638aeb428f",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method private stringify(paths List<Path>) : String from class com.oracle.truffle.espresso.vm.VM to private stringify(paths List<Path>) : String from class com.oracle.truffle.espresso.vm.VM.PropertiesMap",
+            "leftSideLocations": [
+                {
+                    "filePath": "espresso/src/com.oracle.truffle.espresso/src/com/oracle/truffle/espresso/vm/VM.java",
+                    "startLine": 202,
+                    "endLine": 208,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "private stringify(paths List<Path>) : String"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "espresso/src/com.oracle.truffle.espresso/src/com/oracle/truffle/espresso/vm/VM.java",
+                    "startLine": 2281,
+                    "endLine": 2287,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "private stringify(paths List<Path>) : String"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/oracle/graal.git",
+        "sha1": "7bc9b6e65e0acaf475d837bae0562b638aeb428f",
+        "url": "https://github.com/oracle/graal/commit/7bc9b6e65e0acaf475d837bae0562b638aeb428f",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method private setNumberedProperty(map Map<String,String>, property String, values List<String>) : void from class com.oracle.truffle.espresso.vm.VM to public setNumberedProperty(property String, values List<String>, provenance String) : int from class com.oracle.truffle.espresso.vm.VM.PropertiesMap",
+            "leftSideLocations": [
+                {
+                    "filePath": "espresso/src/com.oracle.truffle.espresso/src/com/oracle/truffle/espresso/vm/VM.java",
+                    "startLine": 2280,
+                    "endLine": 2285,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "private setNumberedProperty(map Map<String,String>, property String, values List<String>) : void"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "espresso/src/com.oracle.truffle.espresso/src/com/oracle/truffle/espresso/vm/VM.java",
+                    "startLine": 2301,
+                    "endLine": 2312,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public setNumberedProperty(property String, values List<String>, provenance String) : int"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/oracle/graal.git",
+        "sha1": "54a27b9508b10cc8f7cc7623d42f67f7e5071918",
+        "url": "https://github.com/oracle/graal/commit/54a27b9508b10cc8f7cc7623d42f67f7e5071918",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method private addModules(meta Meta, originalResult StaticObject, extensions ModuleExtension[]) : StaticObject from class com.oracle.truffle.espresso.substitutions.Target_jdk_internal_module_ModuleLoaderMap.BootModules to private addModules(meta Meta, originalResult StaticObject, extensions ModuleExtension[]) : StaticObject from class com.oracle.truffle.espresso.substitutions.Target_jdk_internal_module_ModuleLoaderMap",
+            "leftSideLocations": [
+                {
+                    "filePath": "espresso/src/com.oracle.truffle.espresso/src/com/oracle/truffle/espresso/substitutions/Target_jdk_internal_module_ModuleLoaderMap.java",
+                    "startLine": 68,
+                    "endLine": 75,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "private addModules(meta Meta, originalResult StaticObject, extensions ModuleExtension[]) : StaticObject"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "espresso/src/com.oracle.truffle.espresso/src/com/oracle/truffle/espresso/substitutions/Target_jdk_internal_module_ModuleLoaderMap.java",
+                    "startLine": 87,
+                    "endLine": 94,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "private addModules(meta Meta, originalResult StaticObject, extensions ModuleExtension[]) : StaticObject"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/oracle/graal.git",
+        "sha1": "1941e24197e4644815483d7324aa6bf8681b8972",
+        "url": "https://github.com/oracle/graal/commit/1941e24197e4644815483d7324aa6bf8681b8972",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method private getAnnotationsByType(optionDescriptor OptionDescriptor, annotationClass Class<T>) : List<T> from class com.oracle.svm.driver.PathsOptionInfo to public getAnnotationsByType(optionDescriptor OptionDescriptor, annotationClass Class<T>) : List<T> from class com.oracle.svm.core.option.OptionUtils",
+            "leftSideLocations": [
+                {
+                    "filePath": "substratevm/src/com.oracle.svm.driver/src/com/oracle/svm/driver/APIOptionHandler.java",
+                    "startLine": 288,
+                    "endLine": 295,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "private getAnnotationsByType(optionDescriptor OptionDescriptor, annotationClass Class<T>) : List<T>"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "substratevm/src/com.oracle.svm.core/src/com/oracle/svm/core/option/OptionUtils.java",
+                    "startLine": 128,
+                    "endLine": 135,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public getAnnotationsByType(optionDescriptor OptionDescriptor, annotationClass Class<T>) : List<T>"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/oracle/graal.git",
+        "sha1": "260f5d32a00d863cac38027b608d63674ccbaa51",
+        "url": "https://github.com/oracle/graal/commit/260f5d32a00d863cac38027b608d63674ccbaa51",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public positivePi(n int) : int from class jdk.graal.compiler.core.test.CountedLoopMaxTripCountPiTest to public positivePi(n int) : int from class jdk.graal.compiler.api.directives.GraalDirectives",
+            "leftSideLocations": [
+                {
+                    "filePath": "compiler/src/jdk.graal.compiler.test/src/jdk/graal/compiler/core/test/CountedLoopMaxTripCountPiTest.java",
+                    "startLine": 61,
+                    "endLine": 63,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public positivePi(n int) : int"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "compiler/src/jdk.graal.compiler/src/jdk/graal/compiler/api/directives/GraalDirectives.java",
+                    "startLine": 163,
+                    "endLine": 169,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public positivePi(n int) : int"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/oracle/graal.git",
+        "sha1": "2de54decfa96ed15e6df7e82036e762e54058b33",
+        "url": "https://github.com/oracle/graal/commit/2de54decfa96ed15e6df7e82036e762e54058b33",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public guardTrySkipPi(guard GuardingNode, condition LogicNode, negated boolean) : boolean from class jdk.graal.compiler.nodes.util.GraphUtil to public guardTrySkipPi(guard GuardingNode, condition LogicNode, negated boolean) : boolean from class jdk.graal.compiler.nodes.PiNode",
+            "leftSideLocations": [
+                {
+                    "filePath": "compiler/src/jdk.graal.compiler/src/jdk/graal/compiler/nodes/util/GraphUtil.java",
+                    "startLine": 1468,
+                    "endLine": 1579,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public guardTrySkipPi(guard GuardingNode, condition LogicNode, negated boolean) : boolean"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "compiler/src/jdk.graal.compiler/src/jdk/graal/compiler/nodes/PiNode.java",
+                    "startLine": 532,
+                    "endLine": 652,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public guardTrySkipPi(guard GuardingNode, condition LogicNode, negated boolean) : boolean"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/oracle/graal.git",
+        "sha1": "4ac1d2e237cebfa7dac788928f5df7303031e68c",
+        "url": "https://github.com/oracle/graal/commit/4ac1d2e237cebfa7dac788928f5df7303031e68c",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public useRememberedSet() : boolean from class com.oracle.svm.core.SubstrateOptions to public useRememberedSet() : boolean from class com.oracle.svm.core.genscavenge.SerialAndEpsilonGCOptions",
+            "leftSideLocations": [
+                {
+                    "filePath": "substratevm/src/com.oracle.svm.core/src/com/oracle/svm/core/SubstrateOptions.java",
+                    "startLine": 837,
+                    "endLine": 840,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public useRememberedSet() : boolean"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "substratevm/src/com.oracle.svm.core.genscavenge/src/com/oracle/svm/core/genscavenge/SerialAndEpsilonGCOptions.java",
+                    "startLine": 92,
+                    "endLine": 95,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public useRememberedSet() : boolean"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/oracle/graal.git",
+        "sha1": "68e7fa168191140f9b7847b73f0e31fd06f7c49f",
+        "url": "https://github.com/oracle/graal/commit/68e7fa168191140f9b7847b73f0e31fd06f7c49f",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public useRememberedSet() : boolean from class com.oracle.svm.core.genscavenge.SerialAndEpsilonGCOptions to public useRememberedSet() : boolean from class com.oracle.svm.core.genscavenge.SerialGCOptions",
+            "leftSideLocations": [
+                {
+                    "filePath": "substratevm/src/com.oracle.svm.core.genscavenge/src/com/oracle/svm/core/genscavenge/SerialAndEpsilonGCOptions.java",
+                    "startLine": 92,
+                    "endLine": 95,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public useRememberedSet() : boolean"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "substratevm/src/com.oracle.svm.core.genscavenge/src/com/oracle/svm/core/genscavenge/SerialGCOptions.java",
+                    "startLine": 130,
+                    "endLine": 133,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public useRememberedSet() : boolean"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/oracle/graal.git",
+        "sha1": "074a0db2d90fcb7676248681fd4eae77fab8f638",
+        "url": "https://github.com/oracle/graal/commit/074a0db2d90fcb7676248681fd4eae77fab8f638",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method package resume0(self StaticObject, lang EspressoLanguage, meta Meta, context EspressoContext) : void from class com.oracle.truffle.espresso.substitutions.Target_com_oracle_truffle_espresso_continuations_Continuation to package resume0(self StaticObject, lang EspressoLanguage, meta Meta, rewind DirectCallNode) : void from class com.oracle.truffle.espresso.substitutions.Target_com_oracle_truffle_espresso_continuations_Continuation.Resume0",
+            "leftSideLocations": [
+                {
+                    "filePath": "espresso/src/com.oracle.truffle.espresso/src/com/oracle/truffle/espresso/substitutions/Target_com_oracle_truffle_espresso_continuations_Continuation.java",
+                    "startLine": 59,
+                    "endLine": 90,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "package resume0(self StaticObject, lang EspressoLanguage, meta Meta, context EspressoContext) : void"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "espresso/src/com.oracle.truffle.espresso/src/com/oracle/truffle/espresso/substitutions/Target_com_oracle_truffle_espresso_continuations_Continuation.java",
+                    "startLine": 67,
+                    "endLine": 99,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "package resume0(self StaticObject, lang EspressoLanguage, meta Meta, rewind DirectCallNode) : void"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/oracle/graal.git",
+        "sha1": "074a0db2d90fcb7676248681fd4eae77fab8f638",
+        "url": "https://github.com/oracle/graal/commit/074a0db2d90fcb7676248681fd4eae77fab8f638",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method package start0(self StaticObject, meta Meta) : void from class com.oracle.truffle.espresso.substitutions.Target_com_oracle_truffle_espresso_continuations_Continuation to package start0(self StaticObject, meta Meta, lang EspressoLanguage, runCall DirectCallNode) : void from class com.oracle.truffle.espresso.substitutions.Target_com_oracle_truffle_espresso_continuations_Continuation.Start0",
+            "leftSideLocations": [
+                {
+                    "filePath": "espresso/src/com.oracle.truffle.espresso/src/com/oracle/truffle/espresso/substitutions/Target_com_oracle_truffle_espresso_continuations_Continuation.java",
+                    "startLine": 92,
+                    "endLine": 116,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "package start0(self StaticObject, meta Meta) : void"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "espresso/src/com.oracle.truffle.espresso/src/com/oracle/truffle/espresso/substitutions/Target_com_oracle_truffle_espresso_continuations_Continuation.java",
+                    "startLine": 106,
+                    "endLine": 131,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "package start0(self StaticObject, meta Meta, lang EspressoLanguage, runCall DirectCallNode) : void"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/oracle/graal.git",
+        "sha1": "945618756f6cd89f01fa8246b3e09c4abafbf986",
+        "url": "https://github.com/oracle/graal/commit/945618756f6cd89f01fa8246b3e09c4abafbf986",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public registerOverrideReachabilityNotification(declaredMethod AnalysisMethod, notification MethodOverrideReachableNotification) : void from class com.oracle.graal.pointsto.meta.AnalysisType to public registerOverrideReachabilityNotification(declaredMethod AnalysisMethod, notification MethodOverrideReachableNotification) : void from class com.oracle.graal.pointsto.meta.AnalysisUniverse",
+            "leftSideLocations": [
+                {
+                    "filePath": "substratevm/src/com.oracle.graal.pointsto/src/com/oracle/graal/pointsto/meta/AnalysisType.java",
+                    "startLine": 636,
+                    "endLine": 641,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public registerOverrideReachabilityNotification(declaredMethod AnalysisMethod, notification MethodOverrideReachableNotification) : void"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "substratevm/src/com.oracle.graal.pointsto/src/com/oracle/graal/pointsto/meta/AnalysisUniverse.java",
+                    "startLine": 608,
+                    "endLine": 610,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public registerOverrideReachabilityNotification(declaredMethod AnalysisMethod, notification MethodOverrideReachableNotification) : void"
+                }
+            ],
+            "isStatic": false
+        }
+    },
+    {
+        "repository": "https://github.com/oracle/graal.git",
+        "sha1": "1d769c7ffe3fec32a6738ba96d803bf06cf9f444",
+        "url": "https://github.com/oracle/graal/commit/1d769c7ffe3fec32a6738ba96d803bf06cf9f444",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method private startupLibGraal(runtime HotSpotGraalRuntime) : void from class com.oracle.svm.graal.hotspot.libgraal.Target_jdk_graal_compiler_hotspot_HotSpotGraalRuntime to public startupLibGraal() : void from class com.oracle.svm.graal.hotspot.libgraal.Target_jdk_graal_compiler_serviceprovider_VMSupport",
+            "leftSideLocations": [
+                {
+                    "filePath": "substratevm/src/com.oracle.svm.graal.hotspot.libgraal/src/com/oracle/svm/graal/hotspot/libgraal/LibGraalFeature.java",
+                    "startLine": 778,
+                    "endLine": 782,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "private startupLibGraal(runtime HotSpotGraalRuntime) : void"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "substratevm/src/com.oracle.svm.graal.hotspot.libgraal/src/com/oracle/svm/graal/hotspot/libgraal/LibGraalSubstitutions.java",
+                    "startLine": 171,
+                    "endLine": 174,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public startupLibGraal() : void"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/oracle/graal.git",
+        "sha1": "1d769c7ffe3fec32a6738ba96d803bf06cf9f444",
+        "url": "https://github.com/oracle/graal/commit/1d769c7ffe3fec32a6738ba96d803bf06cf9f444",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method private notifyLowMemoryPoint(hintFullGC boolean, forceFullGC boolean) : void from class com.oracle.svm.graal.hotspot.libgraal.Target_jdk_graal_compiler_serviceprovider_GraalServices to public notifyLowMemoryPoint(hintFullGC boolean, forceFullGC boolean) : void from class com.oracle.svm.graal.hotspot.libgraal.Target_jdk_graal_compiler_serviceprovider_VMSupport",
+            "leftSideLocations": [
+                {
+                    "filePath": "substratevm/src/com.oracle.svm.graal.hotspot.libgraal/src/com/oracle/svm/graal/hotspot/libgraal/LibGraalFeature.java",
+                    "startLine": 814,
+                    "endLine": 822,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "private notifyLowMemoryPoint(hintFullGC boolean, forceFullGC boolean) : void"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "substratevm/src/com.oracle.svm.graal.hotspot.libgraal/src/com/oracle/svm/graal/hotspot/libgraal/LibGraalSubstitutions.java",
+                    "startLine": 193,
+                    "endLine": 201,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public notifyLowMemoryPoint(hintFullGC boolean, forceFullGC boolean) : void"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/oracle/graal.git",
+        "sha1": "1d769c7ffe3fec32a6738ba96d803bf06cf9f444",
+        "url": "https://github.com/oracle/graal/commit/1d769c7ffe3fec32a6738ba96d803bf06cf9f444",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method private notifyCrash(crashMessage String) : boolean from class com.oracle.svm.graal.hotspot.libgraal.Target_jdk_graal_compiler_core_GraalCompiler to public notifyCrash(options OptionValues, crashMessage String) : boolean from class jdk.graal.compiler.hotspot.HotSpotGraalCompiler",
+            "leftSideLocations": [
+                {
+                    "filePath": "substratevm/src/com.oracle.svm.graal.hotspot.libgraal/src/com/oracle/svm/graal/hotspot/libgraal/LibGraalFeature.java",
+                    "startLine": 904,
+                    "endLine": 931,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "private notifyCrash(crashMessage String) : boolean"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "compiler/src/jdk.graal.compiler/src/jdk/graal/compiler/hotspot/HotSpotGraalCompiler.java",
+                    "startLine": 370,
+                    "endLine": 393,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public notifyCrash(options OptionValues, crashMessage String) : boolean"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/oracle/graal.git",
+        "sha1": "89837ba44e2c49e9068a5c56edb8167def2b4e52",
+        "url": "https://github.com/oracle/graal/commit/89837ba44e2c49e9068a5c56edb8167def2b4e52",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method private getUsedSizeFromProcMemInfo() : long from class com.oracle.svm.core.heap.PhysicalMemory to private getUsedSizeFromProcMemInfo() : long from class com.oracle.svm.core.posix.linux.LinuxPhysicalMemorySupportImpl",
+            "leftSideLocations": [
+                {
+                    "filePath": "substratevm/src/com.oracle.svm.core/src/com/oracle/svm/core/heap/PhysicalMemory.java",
+                    "startLine": 116,
+                    "endLine": 128,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "private getUsedSizeFromProcMemInfo() : long"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "substratevm/src/com.oracle.svm.core.posix/src/com/oracle/svm/core/posix/linux/LinuxPhysicalMemorySupportImpl.java",
+                    "startLine": 70,
+                    "endLine": 82,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "private getUsedSizeFromProcMemInfo() : long"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/oracle/graal.git",
+        "sha1": "89837ba44e2c49e9068a5c56edb8167def2b4e52",
+        "url": "https://github.com/oracle/graal/commit/89837ba44e2c49e9068a5c56edb8167def2b4e52",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method private readAllLines(fileName String) : List<String> from class com.oracle.svm.core.heap.PhysicalMemory to private readAllLines(fileName String) : List<String> from class com.oracle.svm.core.posix.linux.LinuxPhysicalMemorySupportImpl",
+            "leftSideLocations": [
+                {
+                    "filePath": "substratevm/src/com.oracle.svm.core/src/com/oracle/svm/core/heap/PhysicalMemory.java",
+                    "startLine": 130,
+                    "endLine": 139,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "private readAllLines(fileName String) : List<String>"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "substratevm/src/com.oracle.svm.core.posix/src/com/oracle/svm/core/posix/linux/LinuxPhysicalMemorySupportImpl.java",
+                    "startLine": 84,
+                    "endLine": 93,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "private readAllLines(fileName String) : List<String>"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/oracle/graal.git",
+        "sha1": "89837ba44e2c49e9068a5c56edb8167def2b4e52",
+        "url": "https://github.com/oracle/graal/commit/89837ba44e2c49e9068a5c56edb8167def2b4e52",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method private parseFirstNumber(str String) : long from class com.oracle.svm.core.heap.PhysicalMemory to private parseFirstNumber(str String) : long from class com.oracle.svm.core.posix.linux.LinuxPhysicalMemorySupportImpl",
+            "leftSideLocations": [
+                {
+                    "filePath": "substratevm/src/com.oracle.svm.core/src/com/oracle/svm/core/heap/PhysicalMemory.java",
+                    "startLine": 141,
+                    "endLine": 162,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "private parseFirstNumber(str String) : long"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "substratevm/src/com.oracle.svm.core.posix/src/com/oracle/svm/core/posix/linux/LinuxPhysicalMemorySupportImpl.java",
+                    "startLine": 95,
+                    "endLine": 116,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "private parseFirstNumber(str String) : long"
+                }
+            ],
+            "isStatic": true
+        }
+    }
+]

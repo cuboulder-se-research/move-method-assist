@@ -1,0 +1,722 @@
+[
+  {
+    "source_class": "org.jgroups.tests.AckReceiverWindowTest",
+    "source_method": "testConcurrentAddsAndRemoves",
+    "target_class": "org.jgroups.tests.AckReceiverWindowTest.Remover"
+  },
+  {
+    "source_class": "org.jgroups.tests.QueueTest",
+    "source_method": "testRemoveAndCloseWithTimeout",
+    "target_class": "org.jgroups.util.Util"
+  },
+  {
+    "source_class": "org.jgroups.tests.QueueTest",
+    "source_method": "testConcurrentAccess",
+    "target_class": "org.jgroups.util.Util"
+  },
+  {
+    "source_class": "org.jgroups.tests.SizeTest",
+    "source_method": "testPingData",
+    "target_class": "org.jgroups.util.Util"
+  },
+  {
+    "source_class": "org.jgroups.tests.SizeTest",
+    "source_method": "_testWriteAddress",
+    "target_class": "org.jgroups.util.Util"
+  },
+  {
+    "source_class": "org.jgroups.tests.SizeTest",
+    "source_method": "testUUID",
+    "target_class": "org.jgroups.util.Util"
+  },
+  {
+    "source_class": "org.jgroups.tests.PromiseTest",
+    "source_method": "testGetResultNoTimeout_ResultAlreadySet",
+    "target_class": "org.jgroups.util.Util"
+  },
+  {
+    "source_class": "org.jgroups.tests.UNICAST_ConnectionTests",
+    "source_method": "sendAndCheck",
+    "target_class": "org.jgroups.Address, int, org.jgroups.tests.UNICAST_ConnectionTests.MyReceiver):void \t org.jgroups.util.Util"
+  },
+  {
+    "source_class": "org.jgroups.tests.TimeSchedulerTest",
+    "source_method": "testTaskCancellationAfterHasRun",
+    "target_class": "org.jgroups.tests.TimeSchedulerTest.StressTask"
+  },
+  {
+    "source_class": "org.jgroups.tests.BARRIERTest",
+    "source_method": "testThreadsBlockedOnBarrier",
+    "target_class": "org.jgroups.protocols.PING"
+  },
+  {
+    "source_class": "org.jgroups.tests.UNICAST2_ConnectionTests",
+    "source_method": "sendAndCheck",
+    "target_class": "org.jgroups.Address, int, org.jgroups.tests.UNICAST2_ConnectionTests.MyReceiver):void \t org.jgroups.util.Util"
+  },
+  {
+    "source_class": "org.jgroups.tests.AckReceiverWindowStressTest",
+    "source_method": "start",
+    "target_class": "int, int):void \t org.jgroups.util.Util"
+  },
+  {
+    "source_class": "org.jgroups.tests.MessageTest",
+    "source_method": "testComputeFragOffsets",
+    "target_class": "org.jgroups.util.Util"
+  },
+  {
+    "source_class": "org.jgroups.tests.MessageTest",
+    "source_method": "testComputeFragOffsetsWithOffsets",
+    "target_class": "org.jgroups.util.Util"
+  },
+  {
+    "source_class": "org.jgroups.tests.MessageTest",
+    "source_method": "testComputeFragOffsets2",
+    "target_class": "org.jgroups.util.Util"
+  },
+  {
+    "source_class": "org.jgroups.tests.MessageTest",
+    "source_method": "testComputeFragOffsets3",
+    "target_class": "org.jgroups.util.Util"
+  },
+  {
+    "source_class": "org.jgroups.tests.MessageTest",
+    "source_method": "testComputeFragOffsets4",
+    "target_class": "org.jgroups.util.Util"
+  },
+  {
+    "source_class": "org.jgroups.tests.IpAddressTest",
+    "source_method": "testEqualityWithDnsRoundRobin",
+    "target_class": "org.jgroups.util.Util"
+  },
+  {
+    "source_class": "org.jgroups.tests.IpAddressTest",
+    "source_method": "testIPv6WithExternalization",
+    "target_class": "org.jgroups.util.Util"
+  },
+  {
+    "source_class": "org.jgroups.tests.IpAddressTest",
+    "source_method": "testIPv6WithStreamable",
+    "target_class": "org.jgroups.util.Util"
+  },
+  {
+    "source_class": "org.jgroups.tests.IpAddressTest",
+    "source_method": "createStackConformantAddress",
+    "target_class": "org.jgroups.util.Util"
+  },
+  {
+    "source_class": "org.jgroups.tests.UtilTest",
+    "source_method": "testFlags",
+    "target_class": "org.jgroups.util.Util"
+  },
+  {
+    "source_class": "org.jgroups.tests.UtilTest",
+    "source_method": "testPrintBytes",
+    "target_class": "org.jgroups.util.Util"
+  },
+  {
+    "source_class": "org.jgroups.tests.UtilTest",
+    "source_method": "testObjectToFromByteBuffer",
+    "target_class": "org.jgroups.util.Util"
+  },
+  {
+    "source_class": "org.jgroups.tests.UtilTest",
+    "source_method": "testMessageToByteBuffer",
+    "target_class": "org.jgroups.util.Util"
+  },
+  {
+    "source_class": "org.jgroups.tests.UtilTest",
+    "source_method": "testWriteStreamable",
+    "target_class": "org.jgroups.util.Util"
+  },
+  {
+    "source_class": "org.jgroups.tests.UtilTest",
+    "source_method": "testWriteViewIdWithNullCoordinator",
+    "target_class": "org.jgroups.util.Util"
+  },
+  {
+    "source_class": "org.jgroups.tests.UtilTest",
+    "source_method": "testWriteView",
+    "target_class": "org.jgroups.util.Util"
+  },
+  {
+    "source_class": "org.jgroups.tests.UtilTest",
+    "source_method": "testWriteString",
+    "target_class": "org.jgroups.util.Util"
+  },
+  {
+    "source_class": "org.jgroups.tests.UtilTest",
+    "source_method": "writeAddress",
+    "target_class": "org.jgroups.util.Util"
+  },
+  {
+    "source_class": "org.jgroups.tests.UtilTest",
+    "source_method": "testLeftMembers",
+    "target_class": "org.jgroups.util.Util"
+  },
+  {
+    "source_class": "org.jgroups.tests.UtilTest",
+    "source_method": "testLeftMembers2",
+    "target_class": "org.jgroups.util.Util"
+  },
+  {
+    "source_class": "org.jgroups.tests.UtilTest",
+    "source_method": "testNewMembers",
+    "target_class": "org.jgroups.util.Util"
+  },
+  {
+    "source_class": "org.jgroups.tests.UtilTest",
+    "source_method": "testParseCommaDelimitedString",
+    "target_class": "org.jgroups.util.Util"
+  },
+  {
+    "source_class": "org.jgroups.tests.UtilTest",
+    "source_method": "testReadLine",
+    "target_class": "org.jgroups.util.Util"
+  },
+  {
+    "source_class": "org.jgroups.tests.UtilTest",
+    "source_method": "testVariableSubstitution",
+    "target_class": "org.jgroups.util.Util"
+  },
+  {
+    "source_class": "org.jgroups.tests.UtilTest",
+    "source_method": "testDetermineMergeParticipantsAndMergeCoords",
+    "target_class": "org.jgroups.util.Util"
+  },
+  {
+    "source_class": "org.jgroups.tests.UtilTest",
+    "source_method": "testDetermineMergeParticipantsAndMergeCoords2",
+    "target_class": "org.jgroups.util.Util"
+  },
+  {
+    "source_class": "org.jgroups.tests.UtilTest",
+    "source_method": "testDetermineMergeParticipantsAndMergeCoords3",
+    "target_class": "org.jgroups.util.Util"
+  },
+  {
+    "source_class": "org.jgroups.tests.UtilTest",
+    "source_method": "testDetermineMergeParticipantsAndMergeCoords4",
+    "target_class": "org.jgroups.util.Util"
+  },
+  {
+    "source_class": "org.jgroups.tests.UtilTest",
+    "source_method": "_testMethodNameToAttributeName",
+    "target_class": "java.lang.String):void \t org.jgroups.util.Util"
+  },
+  {
+    "source_class": "org.jgroups.tests.UtilTest",
+    "source_method": "_testAttributeNameToMethodName",
+    "target_class": "java.lang.String):void \t org.jgroups.util.Util"
+  },
+  {
+    "source_class": "org.jgroups.tests.MethodCallTest",
+    "source_method": "testInheritanceMETHOD",
+    "target_class": "org.jgroups.blocks.MethodCall"
+  },
+  {
+    "source_class": "org.jgroups.protocols.NAKACK_Delivery_Test",
+    "source_method": "testSendingOfRandomMessages",
+    "target_class": "org.jgroups.protocols.pbcast.NAKACK"
+  },
+  {
+    "source_class": "org.jgroups.protocols.UNICAST2_StressTest",
+    "source_method": "start",
+    "target_class": "int, boolean, int):void \t org.jgroups.util.Util"
+  },
+  {
+    "source_class": "org.jgroups.protocols.ENCRYPTAsymmetricTest",
+    "source_method": "testInitNoProperties",
+    "target_class": "org.jgroups.protocols.ENCRYPT"
+  },
+  {
+    "source_class": "org.jgroups.protocols.ENCRYPTAsymmetricTest",
+    "source_method": "testInitAESProperties",
+    "target_class": "org.jgroups.util.Util"
+  },
+  {
+    "source_class": "org.jgroups.protocols.ENCRYPTAsymmetricTest",
+    "source_method": "testViewChangeBecomeKeyserver",
+    "target_class": "org.jgroups.protocols.ENCRYPT"
+  },
+  {
+    "source_class": "org.jgroups.protocols.ENCRYPTAsymmetricTest",
+    "source_method": "testViewChangeNewKeyServer",
+    "target_class": "org.jgroups.protocols.ENCRYPT"
+  },
+  {
+    "source_class": "org.jgroups.protocols.ENCRYPTAsymmetricTest",
+    "source_method": "testViewChangeNewKeyServerNewKey",
+    "target_class": "org.jgroups.protocols.ENCRYPT"
+  },
+  {
+    "source_class": "org.jgroups.protocols.ENCRYPT14KeystoreTest",
+    "source_method": "testInitWrongKeystoreProperties",
+    "target_class": "org.jgroups.protocols.ENCRYPT"
+  },
+  {
+    "source_class": "org.jgroups.protocols.ENCRYPT14KeystoreTest",
+    "source_method": "testInitKeystoreProperties",
+    "target_class": "org.jgroups.protocols.ENCRYPT"
+  },
+  {
+    "source_class": "org.jgroups.protocols.ENCRYPT14KeystoreTest",
+    "source_method": "testMessageDownEncode",
+    "target_class": "org.jgroups.protocols.ENCRYPT"
+  },
+  {
+    "source_class": "org.jgroups.protocols.ENCRYPT14KeystoreTest",
+    "source_method": "testMessageUpDecode",
+    "target_class": "org.jgroups.protocols.ENCRYPT"
+  },
+  {
+    "source_class": "org.jgroups.protocols.ENCRYPT14KeystoreTest",
+    "source_method": "testMessageUpWrongKey",
+    "target_class": "org.jgroups.protocols.ENCRYPT"
+  },
+  {
+    "source_class": "org.jgroups.protocols.ENCRYPT14KeystoreTest",
+    "source_method": "testMessageUpNoEncryptHeader",
+    "target_class": "org.jgroups.protocols.ENCRYPT"
+  },
+  {
+    "source_class": "org.jgroups.protocols.ENCRYPT14KeystoreTest",
+    "source_method": "testEventUpNoMessage",
+    "target_class": "org.jgroups.protocols.ENCRYPT"
+  },
+  {
+    "source_class": "org.jgroups.protocols.ENCRYPT14KeystoreTest",
+    "source_method": "testMessageUpNoBuffer",
+    "target_class": "org.jgroups.protocols.ENCRYPT"
+  },
+  {
+    "source_class": "org.jgroups.protocols.AUTHTest",
+    "source_method": "testSHAToken",
+    "target_class": "org.jgroups.auth.MD5Token"
+  },
+  {
+    "source_class": "org.jgroups.protocols.AUTHTest",
+    "source_method": "testSHATokenMismatch",
+    "target_class": "org.jgroups.auth.MD5Token"
+  },
+  {
+    "source_class": "org.jgroups.protocols.AUTHTest",
+    "source_method": "testAuthHeader",
+    "target_class": "org.jgroups.protocols.AuthHeader"
+  },
+  {
+    "source_class": "org.jgroups.protocols.UNICAST_StressTest",
+    "source_method": "start",
+    "target_class": "int, boolean, int):void \t org.jgroups.util.Util"
+  },
+  {
+    "source_class": "org.jgroups.blocks.LazyRemovalCacheTest",
+    "source_method": "testRemoveAll",
+    "target_class": "org.jgroups.util.UUID"
+  },
+  {
+    "source_class": "org.jgroups.tests.BundlerTest",
+    "source_method": "testMessageReceptionUnderHighLoad",
+    "target_class": "org.jgroups.util.Util"
+  },
+  {
+    "source_class": "org.jgroups.tests.SharedTransportTest",
+    "source_method": "makeUnique",
+    "target_class": "int):void \t org.jgroups.util.Util"
+  },
+  {
+    "source_class": "org.jgroups.tests.TCPGOSSIP_Test",
+    "source_method": "testAddInitialHosts",
+    "target_class": "org.jgroups.protocols.TCPGOSSIP"
+  },
+  {
+    "source_class": "org.jgroups.tests.TUNNEL_Test2",
+    "source_method": "tearDown",
+    "target_class": "org.jgroups.stack.GossipRouter"
+  },
+  {
+    "source_class": "org.jgroups.tests.TUNNEL_Test2",
+    "source_method": "testConnectSendMessageSecondGRDown",
+    "target_class": "org.jgroups.stack.GossipRouter"
+  },
+  {
+    "source_class": "org.jgroups.tests.TUNNEL_Test2",
+    "source_method": "testConnectSendMessageBothGRDown",
+    "target_class": "org.jgroups.stack.GossipRouter"
+  },
+  {
+    "source_class": "org.jgroups.tests.TUNNEL_Test2",
+    "source_method": "testConnectSendMessageBothGRDownOnlyOneUp",
+    "target_class": "org.jgroups.stack.GossipRouter"
+  },
+  {
+    "source_class": "org.jgroups.tests.TUNNEL_Test2",
+    "source_method": "testConnectSendMessageFirstGRDown",
+    "target_class": "org.jgroups.stack.GossipRouter"
+  },
+  {
+    "source_class": "org.jgroups.protocols.UNICAST_ContentionTest",
+    "source_method": "getNumberOfRetransmissions",
+    "target_class": "org.jgroups.JChannel"
+  },
+  {
+    "source_class": "org.jgroups.protocols.GMS_MergeTest",
+    "source_method": "_testMergeRequestTimeout",
+    "target_class": "java.lang.String):void \t org.jgroups.util.Util"
+  },
+  {
+    "source_class": "org.jgroups.protocols.GMS_MergeTest",
+    "source_method": "_testMergeAsymmetricPartitions",
+    "target_class": "java.lang.String):void \t org.jgroups.util.Util"
+  },
+  {
+    "source_class": "org.jgroups.protocols.GMS_MergeTest",
+    "source_method": "_testMergeAsymmetricPartitions2",
+    "target_class": "java.lang.String):void \t org.jgroups.util.Util"
+  },
+  {
+    "source_class": "org.jgroups.protocols.GMS_MergeTest",
+    "source_method": "waitForNumMessages",
+    "target_class": "long, long, org.jgroups.protocols.GMS_MergeTest.MyReceiver[]):void \t org.jgroups.util.Util"
+  },
+  {
+    "source_class": "org.jgroups.blocks.RpcDispatcherUnitTest",
+    "source_method": "testInvocationOnEntireGroup",
+    "target_class": "org.jgroups.blocks.RpcDispatcher"
+  },
+  {
+    "source_class": "org.jgroups.blocks.RpcDispatcherUnitTest",
+    "source_method": "testInvocationOnEntireGroupWithTargetList",
+    "target_class": "org.jgroups.blocks.RpcDispatcher"
+  },
+  {
+    "source_class": "org.jgroups.blocks.RpcDispatcherSerializationTest",
+    "source_method": "testTargetMethodNotFound",
+    "target_class": "org.jgroups.blocks.RpcDispatcher"
+  },
+  {
+    "source_class": "org.jgroups.blocks.RpcDispatcherInterruptTest.ServerObject",
+    "source_method": "foo",
+    "target_class": "org.jgroups.util.Util"
+  },
+  {
+    "source_class": "org.jgroups.protocols.S3_PING.AWSAuthConnection",
+    "source_method": "createBucket",
+    "target_class": "java.lang.String, java.util.Map):org.jgroups.protocols.S3_PING.Response \t org.jgroups.protocols.S3_PING.CallingFormat"
+  },
+  {
+    "source_class": "org.jgroups.protocols.S3_PING.AWSAuthConnection",
+    "source_method": "addMetadataHeaders",
+    "target_class": "java.util.Map):void \t org.jgroups.protocols.S3_PING.Utils"
+  },
+  {
+    "source_class": "org.jgroups.protocols.S3_PING.GetResponse",
+    "source_method": "extractMetadata",
+    "target_class": "org.jgroups.protocols.S3_PING.Utils"
+  },
+  {
+    "source_class": "org.jgroups.protocols.MERGE2",
+    "source_method": "isMergeTaskRunning",
+    "target_class": "org.jgroups.protocols.MERGE2.FindSubgroupsTask"
+  },
+  {
+    "source_class": "org.jgroups.protocols.MERGE2",
+    "source_method": "stopMergeTask",
+    "target_class": "org.jgroups.protocols.MERGE2.FindSubgroupsTask"
+  },
+  {
+    "source_class": "org.jgroups.protocols.ENCRYPT",
+    "source_method": "_decrypt",
+    "target_class": "org.jgroups.Message, boolean):org.jgroups.Message \t org.jgroups.util.Util"
+  },
+  {
+    "source_class": "org.jgroups.protocols.TP",
+    "source_method": "sendToAllPhysicalAddresses",
+    "target_class": "int, int):void \t org.jgroups.blocks.LazyRemovalCache"
+  },
+  {
+    "source_class": "org.jgroups.protocols.STATS",
+    "source_method": "handleViewChange",
+    "target_class": "org.jgroups.View"
+  },
+  {
+    "source_class": "org.jgroups.protocols.STATS",
+    "source_method": "updateStats",
+    "target_class": "short):void \t org.jgroups.Message"
+  },
+  {
+    "source_class": "org.jgroups.protocols.Discovery",
+    "source_method": "findInitialMembers",
+    "target_class": "int, boolean, boolean):java.util.List<org.jgroups.protocols.PingData> \t org.jgroups.protocols.Discovery.Responses"
+  },
+  {
+    "source_class": "org.jgroups.protocols.pbcast.Merger",
+    "source_method": "handleMergeResponse",
+    "target_class": "org.jgroups.util.MergeId):void \t org.jgroups.protocols.pbcast.MergeData"
+  },
+  {
+    "source_class": "org.jgroups.protocols.pbcast.Merger",
+    "source_method": "handleMergeView",
+    "target_class": "org.jgroups.util.MergeId):void \t org.jgroups.protocols.pbcast.GMS.GmsHeader"
+  },
+  {
+    "source_class": "org.jgroups.protocols.pbcast.Merger",
+    "source_method": "handleDigestResponse",
+    "target_class": "org.jgroups.util.Digest):void \t org.jgroups.util.ResponseCollector"
+  },
+  {
+    "source_class": "org.jgroups.protocols.pbcast.Merger",
+    "source_method": "fetchDigestsFromAllMembersInSubPartition",
+    "target_class": "org.jgroups.util.ResponseCollector"
+  },
+  {
+    "source_class": "org.jgroups.protocols.pbcast.Merger",
+    "source_method": "fixDigests",
+    "target_class": "org.jgroups.protocols.pbcast.GMS.GmsHeader"
+  },
+  {
+    "source_class": "org.jgroups.protocols.pbcast.GMS",
+    "source_method": "dumpViewHandlerQueue",
+    "target_class": "org.jgroups.protocols.pbcast.GMS.ViewHandler"
+  },
+  {
+    "source_class": "org.jgroups.protocols.pbcast.STREAMING_STATE_TRANSFER",
+    "source_method": "handleViewChange",
+    "target_class": "org.jgroups.View"
+  },
+  {
+    "source_class": "org.jgroups.protocols.pbcast.STATE_TRANSFER",
+    "source_method": "handleViewChange",
+    "target_class": "org.jgroups.protocols.pbcast.STATE_TRANSFER.StateHeader"
+  },
+  {
+    "source_class": "org.jgroups.protocols.TCPGOSSIP",
+    "source_method": "removeInitialHost",
+    "target_class": "int):boolean \t org.jgroups.stack.RouterStubManager"
+  },
+  {
+    "source_class": "org.jgroups.protocols.HDRS",
+    "source_method": "print",
+    "target_class": "java.util.Map<java.lang.Short,org.jgroups.Header>):java.lang.String \t org.jgroups.Header"
+  },
+  {
+    "source_class": "org.jgroups.debug.ProtocolTester",
+    "source_method": "start",
+    "target_class": "org.jgroups.stack.Protocol"
+  },
+  {
+    "source_class": "org.jgroups.util.Util",
+    "source_method": "setScope",
+    "target_class": "short):void \t org.jgroups.Message"
+  },
+  {
+    "source_class": "org.jgroups.util.Util",
+    "source_method": "getScope",
+    "target_class": "org.jgroups.protocols.SCOPE.ScopeHeader"
+  },
+  {
+    "source_class": "org.jgroups.util.Util",
+    "source_method": "objectToByteBuffer",
+    "target_class": "org.jgroups.Global"
+  },
+  {
+    "source_class": "org.jgroups.util.Util",
+    "source_method": "writeAuthToken",
+    "target_class": "java.io.DataOutputStream):void \t org.jgroups.util.Streamable"
+  },
+  {
+    "source_class": "org.jgroups.util.Util",
+    "source_method": "writeView",
+    "target_class": "java.io.DataOutputStream):void \t org.jgroups.View"
+  },
+  {
+    "source_class": "org.jgroups.util.Util",
+    "source_method": "readView",
+    "target_class": "org.jgroups.View"
+  },
+  {
+    "source_class": "org.jgroups.util.Util",
+    "source_method": "writeAddress",
+    "target_class": "java.io.DataOutputStream):void \t org.jgroups.util.Streamable"
+  },
+  {
+    "source_class": "org.jgroups.util.Util",
+    "source_method": "writeStreamable",
+    "target_class": "java.io.DataOutputStream):void \t org.jgroups.util.Streamable"
+  },
+  {
+    "source_class": "org.jgroups.util.Util",
+    "source_method": "readStreamable",
+    "target_class": "java.io.DataInputStream):org.jgroups.util.Streamable \t org.jgroups.util.Streamable"
+  },
+  {
+    "source_class": "org.jgroups.util.Util",
+    "source_method": "writeGenericStreamable",
+    "target_class": "java.io.DataOutputStream):void \t org.jgroups.util.Streamable"
+  },
+  {
+    "source_class": "org.jgroups.util.Util",
+    "source_method": "readGenericStreamable",
+    "target_class": "org.jgroups.util.Streamable"
+  },
+  {
+    "source_class": "org.jgroups.util.Util",
+    "source_method": "byteBufferToMessage",
+    "target_class": "int, int):org.jgroups.Message \t org.jgroups.Message"
+  },
+  {
+    "source_class": "org.jgroups.util.Util",
+    "source_method": "dumpQueue",
+    "target_class": "org.jgroups.Header"
+  },
+  {
+    "source_class": "org.jgroups.util.Util",
+    "source_method": "printMessage",
+    "target_class": "org.jgroups.Message"
+  },
+  {
+    "source_class": "org.jgroups.util.Util",
+    "source_method": "printMethodCall",
+    "target_class": "org.jgroups.Message"
+  },
+  {
+    "source_class": "org.jgroups.util.Util",
+    "source_method": "readBytesLong",
+    "target_class": "org.jgroups.util.Tuple"
+  },
+  {
+    "source_class": "org.jgroups.util.Util",
+    "source_method": "readBytesInteger",
+    "target_class": "org.jgroups.util.Tuple"
+  },
+  {
+    "source_class": "org.jgroups.util.Util",
+    "source_method": "determineMergeParticipants",
+    "target_class": "org.jgroups.View"
+  },
+  {
+    "source_class": "org.jgroups.util.Util",
+    "source_method": "determineMergeCoords",
+    "target_class": "org.jgroups.View"
+  },
+  {
+    "source_class": "org.jgroups.util.Util",
+    "source_method": "printViews",
+    "target_class": "org.jgroups.View"
+  },
+  {
+    "source_class": "org.jgroups.util.Util",
+    "source_method": "sizeOf",
+    "target_class": "org.jgroups.util.Streamable"
+  },
+  {
+    "source_class": "org.jgroups.util.Util",
+    "source_method": "isCoordinator",
+    "target_class": "org.jgroups.View"
+  },
+  {
+    "source_class": "org.jgroups.util.PropertiesToXML",
+    "source_method": "convertToDocbookTable",
+    "target_class": "java.lang.Class<?>):void \t org.jgroups.util.Util"
+  },
+  {
+    "source_class": "org.jgroups.blocks.TwoPhaseVotingAdapter",
+    "source_method": "vote",
+    "target_class": "long, org.jgroups.blocks.VoteResponseProcessor):boolean \t org.jgroups.blocks.TwoPhaseVotingAdapter.TwoPhaseWrapper"
+  },
+  {
+    "source_class": "org.jgroups.blocks.DistributedQueue",
+    "source_method": "sendViewChangeNotifications",
+    "target_class": "java.util.Vector):void \t org.jgroups.blocks.DistributedQueue.Notification"
+  },
+  {
+    "source_class": "org.jgroups.blocks.GridFile",
+    "source_method": "isChildOf",
+    "target_class": "java.lang.String):boolean \t org.jgroups.util.Util"
+  },
+  {
+    "source_class": "org.jgroups.blocks.GridFile",
+    "source_method": "filename",
+    "target_class": "org.jgroups.util.Util"
+  },
+  {
+    "source_class": "org.jgroups.blocks.GridFile",
+    "source_method": "trim",
+    "target_class": "org.jgroups.util.Util"
+  },
+  {
+    "source_class": "org.jgroups.blocks.ReplicatedTree",
+    "source_method": "findParentNode",
+    "target_class": "org.jgroups.blocks.ReplicatedTree.StringHolder, boolean):org.jgroups.blocks.ReplicatedTree.Node \t org.jgroups.blocks.ReplicatedTree.StringHolder"
+  },
+  {
+    "source_class": "org.jgroups.blocks.ReplicatedTree",
+    "source_method": "findNode",
+    "target_class": "org.jgroups.blocks.ReplicatedTree.StringHolder"
+  },
+  {
+    "source_class": "org.jgroups.blocks.DistributedTree",
+    "source_method": "_set",
+    "target_class": "java.io.Serializable):void \t org.jgroups.blocks.DistributedTree.Node"
+  },
+  {
+    "source_class": "org.jgroups.blocks.DistributedTree",
+    "source_method": "clearTable",
+    "target_class": "org.jgroups.demos.DistributedTreeDemo"
+  },
+  {
+    "source_class": "org.jgroups.stack.Configurator",
+    "source_method": "setupProtocolStack",
+    "target_class": "org.jgroups.stack.ProtocolStack):org.jgroups.stack.Protocol \t org.jgroups.util.Util"
+  },
+  {
+    "source_class": "org.jgroups.stack.Configurator",
+    "source_method": "createInetAddressMap",
+    "target_class": "java.util.Vector<org.jgroups.stack.Protocol>):java.util.Map<java.lang.String,java.util.Map<java.lang.String,org.jgroups.stack.Configurator.InetAddressInfo>> \t org.jgroups.conf.PropertyHelper"
+  },
+  {
+    "source_class": "org.jgroups.stack.Configurator",
+    "source_method": "setDefaultValues",
+    "target_class": "java.util.Vector<org.jgroups.stack.Protocol>, org.jgroups.util.StackType):void \t org.jgroups.util.Util"
+  },
+  {
+    "source_class": "org.jgroups.stack.Configurator",
+    "source_method": "resolveAndInvokePropertyMethod",
+    "target_class": "java.lang.reflect.Method, java.util.Map<java.lang.String,java.lang.String>):void \t org.jgroups.conf.PropertyHelper"
+  },
+  {
+    "source_class": "org.jgroups.stack.Configurator",
+    "source_method": "grabSystemProp",
+    "target_class": "org.jgroups.util.Util"
+  },
+  {
+    "source_class": "org.jgroups.stack.ProtocolStack",
+    "source_method": "dumpTimerQueue",
+    "target_class": "org.jgroups.protocols.TP"
+  },
+  {
+    "source_class": "org.jgroups.stack.ProtocolStack",
+    "source_method": "getProps",
+    "target_class": "org.jgroups.util.Util"
+  },
+  {
+    "source_class": "org.jgroups.conf.PropertyHelper",
+    "source_method": "getPropertyName",
+    "target_class": "org.jgroups.util.Util"
+  },
+  {
+    "source_class": "org.jgroups.conf.ConfiguratorFactory",
+    "source_method": "substituteVariables",
+    "target_class": "org.jgroups.util.Util"
+  },
+  {
+    "source_class": "org.jgroups.conf.ClassConfigurator",
+    "source_method": "init",
+    "target_class": "org.jgroups.util.Util"
+  },
+  {
+    "source_class": "org.jgroups.conf.ClassConfigurator",
+    "source_method": "readMappings",
+    "target_class": "org.jgroups.util.Util"
+  }
+]

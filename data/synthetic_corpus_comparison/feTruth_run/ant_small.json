@@ -1,0 +1,787 @@
+[
+  {
+    "source_class": "org.apache.tools.zip.UTF8ZipFilesTest",
+    "source_method": "createTestFile",
+    "target_class": "java.lang.String, boolean, boolean):void \t org.apache.tools.zip.ZipEncodingHelper"
+  },
+  {
+    "source_class": "org.apache.tools.zip.UTF8ZipFilesTest",
+    "source_method": "assertUnicodeName",
+    "target_class": "java.lang.String, java.lang.String):void \t org.apache.tools.zip.ZipEncodingHelper"
+  },
+  {
+    "source_class": "org.apache.tools.ant.taskdefs.optional.vss.MSVSSTest",
+    "source_method": "testGetCommandLine",
+    "target_class": "org.apache.tools.ant.taskdefs.optional.vss.MSVSSGET"
+  },
+  {
+    "source_class": "org.apache.tools.ant.taskdefs.optional.vss.MSVSSTest",
+    "source_method": "testHistoryCommandLine3",
+    "target_class": "org.apache.tools.ant.Project"
+  },
+  {
+    "source_class": "org.apache.tools.ant.taskdefs.optional.vss.MSVSSTest",
+    "source_method": "testCheckinCommandLine",
+    "target_class": "org.apache.tools.ant.taskdefs.optional.vss.MSVSSCHECKIN"
+  },
+  {
+    "source_class": "org.apache.tools.ant.taskdefs.optional.vss.MSVSSTest",
+    "source_method": "testCheckoutCommandLine",
+    "target_class": "org.apache.tools.ant.taskdefs.optional.vss.MSVSSCHECKOUT"
+  },
+  {
+    "source_class": "org.apache.tools.ant.taskdefs.optional.vss.MSVSSTest",
+    "source_method": "testAddCommandLine",
+    "target_class": "org.apache.tools.ant.taskdefs.optional.vss.MSVSSADD"
+  },
+  {
+    "source_class": "org.apache.tools.ant.taskdefs.optional.vss.MSVSSTest",
+    "source_method": "testCpCommandLine",
+    "target_class": "org.apache.tools.ant.taskdefs.optional.vss.MSVSSCP"
+  },
+  {
+    "source_class": "org.apache.tools.ant.taskdefs.optional.vss.MSVSSTest",
+    "source_method": "testCreateCommandLine",
+    "target_class": "org.apache.tools.ant.taskdefs.optional.vss.MSVSSCREATE"
+  },
+  {
+    "source_class": "org.apache.tools.ant.taskdefs.optional.sos.SOSTest",
+    "source_method": "testCheckinFileFlags",
+    "target_class": "org.apache.tools.ant.Project"
+  },
+  {
+    "source_class": "org.apache.tools.ant.taskdefs.optional.sos.SOSTest",
+    "source_method": "testCheckoutFileFlags",
+    "target_class": "org.apache.tools.ant.Project"
+  },
+  {
+    "source_class": "org.apache.tools.ant.util.LineOrientedOutputStreamTest",
+    "source_method": "testLineWithCariagereturnLinefeedSingleBytes",
+    "target_class": "org.apache.tools.ant.util.LineOrientedOutputStreamTest.DummyStream"
+  },
+  {
+    "source_class": "org.apache.tools.ant.util.FileUtilsTest",
+    "source_method": "testGetDefaultEncoding",
+    "target_class": "org.apache.tools.ant.util.FileUtils"
+  },
+  {
+    "source_class": "org.apache.tools.zip.ExtraFieldUtils",
+    "source_method": "parse",
+    "target_class": "boolean, org.apache.tools.zip.ExtraFieldUtils.UnparseableExtraField):org.apache.tools.zip.ZipExtraField[] \t org.apache.tools.zip.ZipExtraField"
+  },
+  {
+    "source_class": "org.apache.tools.zip.ZipFile",
+    "source_method": "getUnicodeStringIfOriginalMatches",
+    "target_class": "byte[]):java.lang.String \t org.apache.tools.zip.AbstractUnicodeExtraField"
+  },
+  {
+    "source_class": "org.apache.tools.ant.Main",
+    "source_method": "handleLogfile",
+    "target_class": "org.apache.tools.ant.util.FileUtils"
+  },
+  {
+    "source_class": "org.apache.tools.ant.Main",
+    "source_method": "processArgs",
+    "target_class": "org.apache.tools.ant.ProjectHelper"
+  },
+  {
+    "source_class": "org.apache.tools.ant.Main",
+    "source_method": "printTargets",
+    "target_class": "boolean, boolean):void \t org.apache.tools.ant.Project"
+  },
+  {
+    "source_class": "org.apache.tools.ant.types.CommandlineJava",
+    "source_method": "createVmArgument",
+    "target_class": "org.apache.tools.ant.types.Commandline"
+  },
+  {
+    "source_class": "org.apache.tools.ant.types.CommandlineJava",
+    "source_method": "setClassname",
+    "target_class": "org.apache.tools.ant.types.Commandline"
+  },
+  {
+    "source_class": "org.apache.tools.ant.types.CommandlineJava",
+    "source_method": "getClassname",
+    "target_class": "org.apache.tools.ant.types.Commandline"
+  },
+  {
+    "source_class": "org.apache.tools.ant.types.CommandlineJava",
+    "source_method": "addCommandsToList",
+    "target_class": "org.apache.tools.ant.types.Assertions"
+  },
+  {
+    "source_class": "org.apache.tools.ant.types.CommandlineJava",
+    "source_method": "size",
+    "target_class": "org.apache.tools.ant.types.Assertions"
+  },
+  {
+    "source_class": "org.apache.tools.ant.types.optional.ScriptSelector",
+    "source_method": "init",
+    "target_class": "org.apache.tools.ant.util.ScriptRunnerHelper"
+  },
+  {
+    "source_class": "org.apache.tools.ant.types.optional.ScriptFilter",
+    "source_method": "init",
+    "target_class": "org.apache.tools.ant.util.ScriptRunnerHelper"
+  },
+  {
+    "source_class": "org.apache.tools.ant.types.optional.AbstractScriptComponent",
+    "source_method": "initScriptRunner",
+    "target_class": "org.apache.tools.ant.util.ScriptRunnerHelper"
+  },
+  {
+    "source_class": "org.apache.tools.ant.types.Assertions",
+    "source_method": "addVmArgument",
+    "target_class": "java.lang.String):void \t org.apache.tools.ant.types.CommandlineJava"
+  },
+  {
+    "source_class": "org.apache.tools.ant.types.selectors.TokenizedPath",
+    "source_method": "findFile",
+    "target_class": "boolean):java.io.File \t org.apache.tools.ant.util.FileUtils"
+  },
+  {
+    "source_class": "org.apache.tools.ant.types.selectors.TokenizedPath",
+    "source_method": "isSymlink",
+    "target_class": "org.apache.tools.ant.util.SymbolicLinkUtils"
+  },
+  {
+    "source_class": "org.apache.tools.ant.types.selectors.SelectorUtils",
+    "source_method": "tokenizePath",
+    "target_class": "java.lang.String):java.util.Vector \t org.apache.tools.ant.util.FileUtils"
+  },
+  {
+    "source_class": "org.apache.tools.ant.types.selectors.SelectorUtils",
+    "source_method": "tokenizePathAsArray",
+    "target_class": "org.apache.tools.ant.util.FileUtils"
+  },
+  {
+    "source_class": "org.apache.tools.ant.types.Description",
+    "source_method": "findElementInTarget",
+    "target_class": "org.apache.tools.ant.Target, java.lang.String):java.util.Vector \t org.apache.tools.ant.Task"
+  },
+  {
+    "source_class": "org.apache.tools.ant.types.TimeComparison",
+    "source_method": "evaluate",
+    "target_class": "long):boolean \t org.apache.tools.ant.util.FileUtils"
+  },
+  {
+    "source_class": "org.apache.tools.ant.types.TimeComparison",
+    "source_method": "compare",
+    "target_class": "long):int \t org.apache.tools.ant.util.FileUtils"
+  },
+  {
+    "source_class": "org.apache.tools.ant.types.resolver.ApacheCatalogResolver",
+    "source_method": "addPublicEntry",
+    "target_class": "java.lang.String, java.net.URL):void \t org.apache.tools.ant.types.XMLCatalog"
+  },
+  {
+    "source_class": "org.apache.tools.ant.types.resolver.ApacheCatalogResolver",
+    "source_method": "addURIEntry",
+    "target_class": "java.lang.String, java.net.URL):void \t org.apache.tools.ant.types.XMLCatalog"
+  },
+  {
+    "source_class": "org.apache.tools.ant.types.Commandline",
+    "source_method": "describeArguments",
+    "target_class": "int):java.lang.String \t org.apache.tools.ant.util.StringUtils"
+  },
+  {
+    "source_class": "org.apache.tools.ant.helper.ProjectHelperImpl.TargetHandler",
+    "source_method": "init",
+    "target_class": "org.xml.sax.AttributeList):void \t org.apache.tools.ant.helper.ProjectHelperImpl"
+  },
+  {
+    "source_class": "org.apache.tools.ant.helper.ProjectHelperImpl.TaskHandler",
+    "source_method": "init",
+    "target_class": "org.xml.sax.AttributeList):void \t org.apache.tools.ant.helper.ProjectHelperImpl"
+  },
+  {
+    "source_class": "org.apache.tools.ant.helper.ProjectHelper2",
+    "source_method": "parseUnknownElement",
+    "target_class": "java.net.URL):org.apache.tools.ant.UnknownElement \t org.apache.tools.ant.Target"
+  },
+  {
+    "source_class": "org.apache.tools.ant.Diagnostics",
+    "source_method": "getNamespaceParserName",
+    "target_class": "org.apache.tools.ant.util.JAXPUtils"
+  },
+  {
+    "source_class": "org.apache.tools.ant.Diagnostics",
+    "source_method": "doReportAntProperties",
+    "target_class": "org.apache.tools.ant.util.JavaEnvUtils"
+  },
+  {
+    "source_class": "org.apache.tools.ant.Diagnostics",
+    "source_method": "doReportTempDir",
+    "target_class": "org.apache.tools.ant.util.FileUtils"
+  },
+  {
+    "source_class": "org.apache.tools.ant.Diagnostics",
+    "source_method": "doReportProxy",
+    "target_class": "org.apache.tools.ant.util.JavaEnvUtils"
+  },
+  {
+    "source_class": "org.apache.tools.ant.taskdefs.Patch",
+    "source_method": "setDestfile",
+    "target_class": "org.apache.tools.ant.types.Commandline"
+  },
+  {
+    "source_class": "org.apache.tools.ant.taskdefs.Patch",
+    "source_method": "setBackups",
+    "target_class": "org.apache.tools.ant.types.Commandline"
+  },
+  {
+    "source_class": "org.apache.tools.ant.taskdefs.Patch",
+    "source_method": "setReverse",
+    "target_class": "org.apache.tools.ant.types.Commandline"
+  },
+  {
+    "source_class": "org.apache.tools.ant.taskdefs.Javac",
+    "source_method": "getCurrentCompilerArgs",
+    "target_class": "org.apache.tools.ant.util.facade.FacadeTaskHelper"
+  },
+  {
+    "source_class": "org.apache.tools.ant.taskdefs.Javac",
+    "source_method": "scanDir",
+    "target_class": "java.io.File, java.lang.String[]):void \t org.apache.tools.ant.util.SourceFileScanner"
+  },
+  {
+    "source_class": "org.apache.tools.ant.taskdefs.Javac",
+    "source_method": "setCompiler",
+    "target_class": "org.apache.tools.ant.util.facade.FacadeTaskHelper"
+  },
+  {
+    "source_class": "org.apache.tools.ant.taskdefs.Execute",
+    "source_method": "getEnvironmentVariables",
+    "target_class": "org.apache.tools.ant.util.JavaEnvUtils"
+  },
+  {
+    "source_class": "org.apache.tools.ant.taskdefs.Execute",
+    "source_method": "closeStreams",
+    "target_class": "org.apache.tools.ant.util.FileUtils"
+  },
+  {
+    "source_class": "org.apache.tools.ant.taskdefs.optional.testing.Funtest",
+    "source_method": "newParallel",
+    "target_class": "org.apache.tools.ant.taskdefs.Parallel"
+  },
+  {
+    "source_class": "org.apache.tools.ant.taskdefs.optional.vss.MSVSS",
+    "source_method": "formatCommandLine",
+    "target_class": "org.apache.tools.ant.types.Commandline"
+  },
+  {
+    "source_class": "org.apache.tools.ant.taskdefs.optional.native2ascii.DefaultNative2Ascii",
+    "source_method": "setup",
+    "target_class": "org.apache.tools.ant.taskdefs.optional.Native2Ascii):void \t org.apache.tools.ant.taskdefs.optional.Native2Ascii"
+  },
+  {
+    "source_class": "org.apache.tools.ant.taskdefs.optional.native2ascii.Native2AsciiAdapterFactory",
+    "source_method": "getDefault",
+    "target_class": "org.apache.tools.ant.util.JavaEnvUtils"
+  },
+  {
+    "source_class": "org.apache.tools.ant.taskdefs.optional.native2ascii.Native2AsciiAdapterFactory",
+    "source_method": "getAdapter",
+    "target_class": "org.apache.tools.ant.ProjectComponent, org.apache.tools.ant.types.Path):org.apache.tools.ant.taskdefs.optional.native2ascii.Native2AsciiAdapter \t org.apache.tools.ant.util.JavaEnvUtils"
+  },
+  {
+    "source_class": "org.apache.tools.ant.taskdefs.optional.native2ascii.Native2AsciiAdapterFactory",
+    "source_method": "resolveClassName",
+    "target_class": "java.lang.ClassLoader):org.apache.tools.ant.taskdefs.optional.native2ascii.Native2AsciiAdapter \t org.apache.tools.ant.util.ClasspathUtils"
+  },
+  {
+    "source_class": "org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner",
+    "source_method": "transferFormatters",
+    "target_class": "org.apache.tools.ant.taskdefs.optional.junit.JUnitTest):void \t org.apache.tools.ant.taskdefs.optional.junit.JUnitVersionHelper"
+  },
+  {
+    "source_class": "org.apache.tools.ant.taskdefs.optional.junit.FormatterElement",
+    "source_method": "shouldUse",
+    "target_class": "org.apache.tools.ant.PropertyHelper"
+  },
+  {
+    "source_class": "org.apache.tools.ant.taskdefs.optional.depend.constantpool.ConstantPool",
+    "source_method": "getNameAndTypeEntry",
+    "target_class": "java.lang.String):int \t org.apache.tools.ant.taskdefs.optional.depend.constantpool.NameAndTypeCPInfo"
+  },
+  {
+    "source_class": "org.apache.tools.ant.taskdefs.optional.Native2Ascii",
+    "source_method": "getCurrentArgs",
+    "target_class": "org.apache.tools.ant.util.facade.FacadeTaskHelper"
+  },
+  {
+    "source_class": "org.apache.tools.ant.taskdefs.optional.net.FTPTaskMirrorImpl",
+    "source_method": "transferFiles",
+    "target_class": "org.apache.tools.ant.taskdefs.optional.net.FTPTask"
+  },
+  {
+    "source_class": "org.apache.tools.ant.taskdefs.optional.net.FTPTaskMirrorImpl",
+    "source_method": "resolveFile",
+    "target_class": "org.apache.tools.ant.taskdefs.optional.net.FTPTask"
+  },
+  {
+    "source_class": "org.apache.tools.ant.taskdefs.optional.net.FTPTask",
+    "source_method": "mustSplit",
+    "target_class": "org.apache.tools.ant.util.LoaderUtils"
+  },
+  {
+    "source_class": "org.apache.tools.ant.taskdefs.optional.net.RExecTask",
+    "source_method": "handleMultipleTasks",
+    "target_class": "org.apache.tools.ant.taskdefs.optional.net.RExecTask.RExecSubTask"
+  },
+  {
+    "source_class": "org.apache.tools.ant.taskdefs.optional.javacc.JavaCC",
+    "source_method": "getMainClass",
+    "target_class": "int):java.lang.String \t org.apache.tools.ant.AntClassLoader"
+  },
+  {
+    "source_class": "org.apache.tools.ant.taskdefs.optional.extension.ExtensionUtil",
+    "source_method": "loadExtensions",
+    "target_class": "java.util.List, boolean, boolean):void \t org.apache.tools.ant.taskdefs.optional.extension.Extension"
+  },
+  {
+    "source_class": "org.apache.tools.ant.taskdefs.optional.extension.ExtensionUtil",
+    "source_method": "addExtension",
+    "target_class": "org.apache.tools.ant.taskdefs.optional.extension.Extension, boolean, boolean):void \t org.apache.tools.ant.taskdefs.optional.extension.Extension"
+  },
+  {
+    "source_class": "org.apache.tools.ant.taskdefs.optional.TraXLiaison",
+    "source_method": "logError",
+    "target_class": "java.lang.String):void \t org.apache.tools.ant.util.FileUtils"
+  },
+  {
+    "source_class": "org.apache.tools.ant.taskdefs.optional.Javah",
+    "source_method": "getCurrentArgs",
+    "target_class": "org.apache.tools.ant.util.facade.FacadeTaskHelper"
+  },
+  {
+    "source_class": "org.apache.tools.ant.taskdefs.optional.jdepend.JDependTask",
+    "source_method": "createJvmarg",
+    "target_class": "org.apache.tools.ant.types.CommandlineJava"
+  },
+  {
+    "source_class": "org.apache.tools.ant.taskdefs.optional.clearcase.CCMkattr",
+    "source_method": "getVersionCommand",
+    "target_class": "org.apache.tools.ant.types.Commandline"
+  },
+  {
+    "source_class": "org.apache.tools.ant.taskdefs.optional.clearcase.CCMkattr",
+    "source_method": "getTypeValueCommand",
+    "target_class": "org.apache.tools.ant.types.Commandline"
+  },
+  {
+    "source_class": "org.apache.tools.ant.taskdefs.optional.ejb.IPlanetEjbc",
+    "source_method": "buildArgumentList",
+    "target_class": "org.apache.tools.ant.taskdefs.optional.ejb.IPlanetEjbc.EjbInfo"
+  },
+  {
+    "source_class": "org.apache.tools.ant.taskdefs.optional.ejb.GenericDeploymentTool",
+    "source_method": "createAnalyzer",
+    "target_class": "org.apache.tools.ant.Task"
+  },
+  {
+    "source_class": "org.apache.tools.ant.taskdefs.optional.ejb.GenericDeploymentTool",
+    "source_method": "checkAndAddDependants",
+    "target_class": "org.apache.tools.ant.util.depend.DependencyAnalyzer"
+  },
+  {
+    "source_class": "org.apache.tools.ant.taskdefs.optional.unix.Symlink",
+    "source_method": "recreate",
+    "target_class": "org.apache.tools.ant.util.SymbolicLinkUtils"
+  },
+  {
+    "source_class": "org.apache.tools.ant.taskdefs.optional.unix.Symlink",
+    "source_method": "deleteSymlink",
+    "target_class": "org.apache.tools.ant.util.SymbolicLinkUtils"
+  },
+  {
+    "source_class": "org.apache.tools.ant.taskdefs.optional.unix.Symlink",
+    "source_method": "deleteSymlink",
+    "target_class": "org.apache.tools.ant.util.SymbolicLinkUtils"
+  },
+  {
+    "source_class": "org.apache.tools.ant.taskdefs.optional.javah.Kaffeh",
+    "source_method": "setupKaffehCommand",
+    "target_class": "org.apache.tools.ant.taskdefs.optional.Javah"
+  },
+  {
+    "source_class": "org.apache.tools.ant.taskdefs.optional.javah.Gcjh",
+    "source_method": "setupGcjhCommand",
+    "target_class": "org.apache.tools.ant.taskdefs.optional.Javah"
+  },
+  {
+    "source_class": "org.apache.tools.ant.taskdefs.optional.javah.JavahAdapterFactory",
+    "source_method": "getDefault",
+    "target_class": "org.apache.tools.ant.util.JavaEnvUtils"
+  },
+  {
+    "source_class": "org.apache.tools.ant.taskdefs.optional.javah.JavahAdapterFactory",
+    "source_method": "getAdapter",
+    "target_class": "org.apache.tools.ant.ProjectComponent, org.apache.tools.ant.types.Path):org.apache.tools.ant.taskdefs.optional.javah.JavahAdapter \t org.apache.tools.ant.taskdefs.optional.javah.SunJavah"
+  },
+  {
+    "source_class": "org.apache.tools.ant.taskdefs.optional.javah.JavahAdapterFactory",
+    "source_method": "resolveClassName",
+    "target_class": "java.lang.ClassLoader):org.apache.tools.ant.taskdefs.optional.javah.JavahAdapter \t org.apache.tools.ant.util.ClasspathUtils"
+  },
+  {
+    "source_class": "org.apache.tools.ant.taskdefs.Zip",
+    "source_method": "renameFile",
+    "target_class": "org.apache.tools.ant.util.FileUtils"
+  },
+  {
+    "source_class": "org.apache.tools.ant.taskdefs.Zip",
+    "source_method": "addResource",
+    "target_class": "java.lang.String, java.lang.String, org.apache.tools.zip.ZipOutputStream, int, org.apache.tools.zip.ZipFile, java.io.File):void \t org.apache.tools.ant.util.FileUtils"
+  },
+  {
+    "source_class": "org.apache.tools.ant.taskdefs.Zip",
+    "source_method": "zipDir",
+    "target_class": "org.apache.tools.zip.ZipOutputStream, java.lang.String, int, org.apache.tools.zip.ZipExtraField[]):void \t org.apache.tools.ant.types.Resource"
+  },
+  {
+    "source_class": "org.apache.tools.ant.taskdefs.Antlib",
+    "source_method": "createAntlib",
+    "target_class": "java.net.URL, java.lang.String):org.apache.tools.ant.taskdefs.Antlib \t org.apache.tools.ant.ProjectHelper"
+  },
+  {
+    "source_class": "org.apache.tools.ant.taskdefs.MacroInstance",
+    "source_method": "getNsElements",
+    "target_class": "org.apache.tools.ant.taskdefs.MacroDef"
+  },
+  {
+    "source_class": "org.apache.tools.ant.taskdefs.ExecuteOn",
+    "source_method": "getCommandline",
+    "target_class": "java.io.File[]):java.lang.String[] \t org.apache.tools.ant.types.Commandline"
+  },
+  {
+    "source_class": "org.apache.tools.ant.taskdefs.rmic.DefaultRmicAdapter",
+    "source_method": "addStubVersionOptions",
+    "target_class": "org.apache.tools.ant.taskdefs.Rmic"
+  },
+  {
+    "source_class": "org.apache.tools.ant.taskdefs.rmic.RmicAdapterFactory",
+    "source_method": "getRmic",
+    "target_class": "org.apache.tools.ant.Task, org.apache.tools.ant.types.Path):org.apache.tools.ant.taskdefs.rmic.RmicAdapter \t org.apache.tools.ant.taskdefs.rmic.ForkingSunRmic"
+  },
+  {
+    "source_class": "org.apache.tools.ant.taskdefs.rmic.RmicAdapterFactory",
+    "source_method": "resolveClassName",
+    "target_class": "java.lang.ClassLoader):org.apache.tools.ant.taskdefs.rmic.RmicAdapter \t org.apache.tools.ant.util.ClasspathUtils"
+  },
+  {
+    "source_class": "org.apache.tools.ant.taskdefs.ImportTask",
+    "source_method": "setProjectHelperProps",
+    "target_class": "java.lang.String, boolean):void \t org.apache.tools.ant.ProjectHelper"
+  },
+  {
+    "source_class": "org.apache.tools.ant.taskdefs.Javadoc",
+    "source_method": "setMaxmemory",
+    "target_class": "org.apache.tools.ant.types.Commandline"
+  },
+  {
+    "source_class": "org.apache.tools.ant.taskdefs.Javadoc",
+    "source_method": "setAdditionalparam",
+    "target_class": "org.apache.tools.ant.types.Commandline"
+  },
+  {
+    "source_class": "org.apache.tools.ant.taskdefs.Javadoc",
+    "source_method": "setDestdir",
+    "target_class": "org.apache.tools.ant.types.Commandline"
+  },
+  {
+    "source_class": "org.apache.tools.ant.taskdefs.Javadoc",
+    "source_method": "setOverview",
+    "target_class": "org.apache.tools.ant.types.Commandline"
+  },
+  {
+    "source_class": "org.apache.tools.ant.taskdefs.Javadoc",
+    "source_method": "setAccess",
+    "target_class": "org.apache.tools.ant.types.Commandline"
+  },
+  {
+    "source_class": "org.apache.tools.ant.taskdefs.Javadoc",
+    "source_method": "setExtdirs",
+    "target_class": "org.apache.tools.ant.types.Commandline"
+  },
+  {
+    "source_class": "org.apache.tools.ant.taskdefs.Javadoc",
+    "source_method": "setExtdirs",
+    "target_class": "org.apache.tools.ant.types.Commandline"
+  },
+  {
+    "source_class": "org.apache.tools.ant.taskdefs.Javadoc",
+    "source_method": "checkPackages",
+    "target_class": "org.apache.tools.ant.types.Path):void \t org.apache.tools.ant.types.Path"
+  },
+  {
+    "source_class": "org.apache.tools.ant.taskdefs.Javadoc",
+    "source_method": "doSourcePath",
+    "target_class": "org.apache.tools.ant.types.Path):void \t org.apache.tools.ant.types.Commandline"
+  },
+  {
+    "source_class": "org.apache.tools.ant.taskdefs.Javadoc",
+    "source_method": "doGroups",
+    "target_class": "org.apache.tools.ant.taskdefs.Javadoc.GroupArgument"
+  },
+  {
+    "source_class": "org.apache.tools.ant.taskdefs.Javadoc",
+    "source_method": "doDocFilesSubDirs",
+    "target_class": "org.apache.tools.ant.types.Commandline"
+  },
+  {
+    "source_class": "org.apache.tools.ant.taskdefs.Rmic",
+    "source_method": "setCompiler",
+    "target_class": "org.apache.tools.ant.util.facade.FacadeTaskHelper"
+  },
+  {
+    "source_class": "org.apache.tools.ant.taskdefs.Rmic",
+    "source_method": "createCompilerArg",
+    "target_class": "org.apache.tools.ant.util.facade.FacadeTaskHelper"
+  },
+  {
+    "source_class": "org.apache.tools.ant.taskdefs.Rmic",
+    "source_method": "getCurrentCompilerArgs",
+    "target_class": "org.apache.tools.ant.util.facade.FacadeTaskHelper"
+  },
+  {
+    "source_class": "org.apache.tools.ant.taskdefs.compilers.DefaultCompilerAdapter",
+    "source_method": "setupJavacCommandlineSwitches",
+    "target_class": "boolean):org.apache.tools.ant.types.Commandline \t org.apache.tools.ant.taskdefs.Javac"
+  },
+  {
+    "source_class": "org.apache.tools.ant.taskdefs.compilers.DefaultCompilerAdapter",
+    "source_method": "logAndAddFilesToCompile",
+    "target_class": "org.apache.tools.ant.types.Commandline"
+  },
+  {
+    "source_class": "org.apache.tools.ant.taskdefs.compilers.DefaultCompilerAdapter",
+    "source_method": "executeExternalCompile",
+    "target_class": "int, boolean):int \t org.apache.tools.ant.util.FileUtils"
+  },
+  {
+    "source_class": "org.apache.tools.ant.taskdefs.compilers.DefaultCompilerAdapter",
+    "source_method": "addCurrentCompilerArgs",
+    "target_class": "org.apache.tools.ant.types.Commandline"
+  },
+  {
+    "source_class": "org.apache.tools.ant.taskdefs.compilers.CompilerAdapterFactory",
+    "source_method": "getCompiler",
+    "target_class": "org.apache.tools.ant.Task, org.apache.tools.ant.types.Path):org.apache.tools.ant.taskdefs.compilers.CompilerAdapter \t org.apache.tools.ant.util.JavaEnvUtils"
+  },
+  {
+    "source_class": "org.apache.tools.ant.taskdefs.compilers.CompilerAdapterFactory",
+    "source_method": "resolveClassName",
+    "target_class": "java.lang.ClassLoader):org.apache.tools.ant.taskdefs.compilers.CompilerAdapter \t org.apache.tools.ant.util.ClasspathUtils"
+  },
+  {
+    "source_class": "org.apache.tools.ant.taskdefs.ExecuteJava",
+    "source_method": "setupCommandLineForVMS",
+    "target_class": "java.lang.String[]):void \t org.apache.tools.ant.util.JavaEnvUtils"
+  },
+  {
+    "source_class": "org.apache.tools.ant.taskdefs.XSLTProcess",
+    "source_method": "processResources",
+    "target_class": "org.apache.tools.ant.types.resources.FileResource"
+  },
+  {
+    "source_class": "org.apache.tools.ant.taskdefs.XSLTProcess",
+    "source_method": "setLiaisonDynamicFileParameters",
+    "target_class": "java.io.File):void \t org.apache.tools.ant.taskdefs.XSLTLiaison"
+  },
+  {
+    "source_class": "org.apache.tools.ant.ComponentHelper",
+    "source_method": "createComponent",
+    "target_class": "java.lang.String, java.lang.String):java.lang.Object \t org.apache.tools.ant.Task"
+  },
+  {
+    "source_class": "org.apache.tools.ant.ComponentHelper",
+    "source_method": "updateDataTypeDefinition",
+    "target_class": "org.apache.tools.ant.Project"
+  },
+  {
+    "source_class": "org.apache.tools.ant.ComponentHelper",
+    "source_method": "getClassLoader",
+    "target_class": "org.apache.tools.ant.Project"
+  },
+  {
+    "source_class": "org.apache.tools.ant.AntClassLoader",
+    "source_method": "getResourceURL",
+    "target_class": "java.lang.String):java.net.URL \t org.apache.tools.ant.util.FileUtils"
+  },
+  {
+    "source_class": "org.apache.tools.ant.AntClassLoader",
+    "source_method": "findClassInComponents",
+    "target_class": "org.apache.tools.ant.util.FileUtils"
+  },
+  {
+    "source_class": "org.apache.tools.ant.AntClassLoader",
+    "source_method": "newAntClassLoader",
+    "target_class": "org.apache.tools.ant.Project, org.apache.tools.ant.types.Path, boolean):org.apache.tools.ant.AntClassLoader \t org.apache.tools.ant.util.ReflectUtil"
+  },
+  {
+    "source_class": "org.apache.tools.ant.ProjectHelper",
+    "source_method": "configureProject",
+    "target_class": "java.io.File):void \t org.apache.tools.ant.Project"
+  },
+  {
+    "source_class": "org.apache.tools.ant.ProjectHelper",
+    "source_method": "configure",
+    "target_class": "org.xml.sax.AttributeList, org.apache.tools.ant.Project):void \t org.apache.tools.ant.IntrospectionHelper"
+  },
+  {
+    "source_class": "org.apache.tools.ant.ProjectHelper",
+    "source_method": "storeChild",
+    "target_class": "java.lang.Object, java.lang.Object, java.lang.String):void \t org.apache.tools.ant.IntrospectionHelper"
+  },
+  {
+    "source_class": "org.apache.tools.ant.Project",
+    "source_method": "setBaseDir",
+    "target_class": "org.apache.tools.ant.util.FileUtils"
+  },
+  {
+    "source_class": "org.apache.tools.ant.Project",
+    "source_method": "getProject",
+    "target_class": "org.apache.tools.ant.ProjectComponent"
+  },
+  {
+    "source_class": "org.apache.tools.ant.util.JavaEnvUtils",
+    "source_method": "findInDir",
+    "target_class": "java.lang.String):java.io.File \t org.apache.tools.ant.util.FileUtils"
+  },
+  {
+    "source_class": "org.apache.tools.ant.util.JavaEnvUtils",
+    "source_method": "createVmsJavaOptionFile",
+    "target_class": "org.apache.tools.ant.util.FileUtils"
+  },
+  {
+    "source_class": "org.apache.tools.ant.util.SymbolicLinkUtils",
+    "source_method": "deleteSymbolicLink",
+    "target_class": "org.apache.tools.ant.Task):void \t org.apache.tools.ant.util.FileUtils"
+  },
+  {
+    "source_class": "org.apache.tools.ant.util.ClasspathUtils",
+    "source_method": "getClassLoaderForPath",
+    "target_class": "org.apache.tools.ant.types.Reference, boolean):java.lang.ClassLoader \t org.apache.tools.ant.Project"
+  },
+  {
+    "source_class": "org.apache.tools.ant.util.ClasspathUtils",
+    "source_method": "getClassLoaderForPath",
+    "target_class": "org.apache.tools.ant.types.Path, java.lang.String, boolean, boolean):java.lang.ClassLoader \t org.apache.tools.ant.Project"
+  },
+  {
+    "source_class": "org.apache.tools.ant.util.ClasspathUtils",
+    "source_method": "isMagicPropertySet",
+    "target_class": "org.apache.tools.ant.Project"
+  },
+  {
+    "source_class": "org.apache.tools.ant.util.ClasspathUtils.Delegate",
+    "source_method": "getContextProject",
+    "target_class": "org.apache.tools.ant.ProjectComponent"
+  },
+  {
+    "source_class": "org.apache.tools.ant.util.DOMUtils",
+    "source_method": "newDocument",
+    "target_class": "org.apache.tools.ant.util.JAXPUtils"
+  },
+  {
+    "source_class": "org.apache.tools.ant.util.ResourceUtils",
+    "source_method": "selectSources",
+    "target_class": "org.apache.tools.ant.types.ResourceCollection, org.apache.tools.ant.util.FileNameMapper, org.apache.tools.ant.types.ResourceFactory, org.apache.tools.ant.util.ResourceUtils.ResourceSelectorProvider):org.apache.tools.ant.types.ResourceCollection \t org.apache.tools.ant.ProjectComponent"
+  },
+  {
+    "source_class": "org.apache.tools.ant.util.ResourceUtils",
+    "source_method": "copyResource",
+    "target_class": "org.apache.tools.ant.types.Resource, org.apache.tools.ant.types.FilterSetCollection, java.util.Vector, boolean, boolean, boolean, java.lang.String, java.lang.String, org.apache.tools.ant.Project, boolean):void \t org.apache.tools.ant.util.FileUtils"
+  },
+  {
+    "source_class": "org.apache.tools.ant.util.ResourceUtils",
+    "source_method": "asFileResource",
+    "target_class": "org.apache.tools.ant.ProjectComponent"
+  },
+  {
+    "source_class": "org.apache.tools.ant.util.ResourceUtils",
+    "source_method": "binaryCompare",
+    "target_class": "org.apache.tools.ant.types.Resource):int \t org.apache.tools.ant.util.FileUtils"
+  },
+  {
+    "source_class": "org.apache.tools.ant.util.ResourceUtils",
+    "source_method": "textCompare",
+    "target_class": "org.apache.tools.ant.types.Resource):int \t org.apache.tools.ant.util.FileUtils"
+  },
+  {
+    "source_class": "org.apache.tools.ant.util.LoaderUtils",
+    "source_method": "normalizeSource",
+    "target_class": "org.apache.tools.ant.util.FileUtils"
+  },
+  {
+    "source_class": "org.apache.tools.ant.util.JAXPUtils",
+    "source_method": "getSystemId",
+    "target_class": "org.apache.tools.ant.util.FileUtils"
+  },
+  {
+    "source_class": "org.apache.tools.ant.DirectoryScanner",
+    "source_method": "normalizePattern",
+    "target_class": "org.apache.tools.ant.types.selectors.SelectorUtils"
+  },
+  {
+    "source_class": "org.apache.tools.ant.DirectoryScanner",
+    "source_method": "shouldSkipPattern",
+    "target_class": "org.apache.tools.ant.util.FileUtils"
+  },
+  {
+    "source_class": "org.apache.tools.ant.DirectoryScanner",
+    "source_method": "causesIllegalSymlinkLoop",
+    "target_class": "java.io.File, java.util.LinkedList):boolean \t org.apache.tools.ant.util.SymbolicLinkUtils"
+  },
+  {
+    "source_class": "org.apache.tools.ant.DefaultLogger",
+    "source_method": "throwableMessage",
+    "target_class": "java.lang.Throwable, boolean):void \t org.apache.tools.ant.util.StringUtils"
+  },
+  {
+    "source_class": "org.apache.tools.ant.DefaultLogger",
+    "source_method": "formatTime",
+    "target_class": "org.apache.tools.ant.util.DateUtils"
+  },
+  {
+    "source_class": "org.apache.tools.ant.IntrospectionHelper",
+    "source_method": "throwNotSupported",
+    "target_class": "java.lang.Object, java.lang.String):void \t org.apache.tools.ant.Project"
+  },
+  {
+    "source_class": "org.apache.tools.ant.IntrospectionHelper.Creator",
+    "source_method": "create",
+    "target_class": "org.apache.tools.ant.ComponentHelper"
+  },
+  {
+    "source_class": "org.apache.tools.ant.IntrospectionHelper",
+    "source_method": "createAddTypeCreator",
+    "target_class": "java.lang.Object, java.lang.String):org.apache.tools.ant.IntrospectionHelper.NestedCreator \t org.apache.tools.ant.ComponentHelper"
+  },
+  {
+    "source_class": "org.apache.tools.ant.IntrospectionHelper",
+    "source_method": "findRestrictedDefinition",
+    "target_class": "java.lang.String, java.util.List):org.apache.tools.ant.AntTypeDefinition \t org.apache.tools.ant.ComponentHelper"
+  },
+  {
+    "source_class": "org.apache.tools.ant.IntrospectionHelper",
+    "source_method": "createRestricted",
+    "target_class": "java.lang.String, java.util.List):org.apache.tools.ant.IntrospectionHelper.MethodAndObject \t org.apache.tools.ant.ComponentHelper"
+  },
+  {
+    "source_class": "org.apache.tools.ant.IntrospectionHelper",
+    "source_method": "createTopLevel",
+    "target_class": "java.lang.String, java.util.List):org.apache.tools.ant.IntrospectionHelper.MethodAndObject \t org.apache.tools.ant.ComponentHelper"
+  },
+  {
+    "source_class": "org.apache.tools.ant.filters.TokenFilter",
+    "source_method": "convertRegexOptions",
+    "target_class": "org.apache.tools.ant.util.regexp.RegexpUtil"
+  },
+  {
+    "source_class": "org.apache.tools.mail.MailMessage",
+    "source_method": "disconnect",
+    "target_class": "org.apache.tools.mail.SmtpResponseReader"
+  }
+]

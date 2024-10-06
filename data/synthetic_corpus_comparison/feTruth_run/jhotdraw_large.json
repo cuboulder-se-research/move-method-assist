@@ -1,0 +1,382 @@
+[
+  {
+    "source_class": "org.jhotdraw.app.AbstractApplication",
+    "source_method": "createOpenRecentFileMenu",
+    "target_class": "org.jhotdraw.util.ResourceBundleUtil"
+  },
+  {
+    "source_class": "org.jhotdraw.app.action.app.ExitAction",
+    "source_method": "saveToFile",
+    "target_class": "org.jhotdraw.gui.URIChooser):void \t org.jhotdraw.util.ResourceBundleUtil"
+  },
+  {
+    "source_class": "org.jhotdraw.app.action.app.ExitAction",
+    "source_method": "saveToFileAndReviewNext",
+    "target_class": "org.jhotdraw.gui.URIChooser):void \t org.jhotdraw.util.ResourceBundleUtil"
+  },
+  {
+    "source_class": "org.jhotdraw.app.action.AbstractApplicationAction",
+    "source_method": "uninstallApplicationListeners",
+    "target_class": "org.jhotdraw.app.Application"
+  },
+  {
+    "source_class": "org.jhotdraw.app.action.AbstractSaveUnsavedChangesAction",
+    "source_method": "saveViewToURI",
+    "target_class": "java.net.URI, org.jhotdraw.gui.URIChooser):void \t org.jhotdraw.util.ResourceBundleUtil"
+  },
+  {
+    "source_class": "org.jhotdraw.app.action.file.SaveFileAction",
+    "source_method": "saveViewToURI",
+    "target_class": "java.net.URI, org.jhotdraw.gui.URIChooser):void \t org.jhotdraw.util.ResourceBundleUtil"
+  },
+  {
+    "source_class": "org.jhotdraw.app.action.AbstractViewAction",
+    "source_method": "uninstallViewListeners",
+    "target_class": "org.jhotdraw.app.View"
+  },
+  {
+    "source_class": "org.jhotdraw.app.action.window.FocusWindowAction",
+    "source_method": "getTitle",
+    "target_class": "org.jhotdraw.util.ResourceBundleUtil"
+  },
+  {
+    "source_class": "org.jhotdraw.samples.net.NetApplicationModel",
+    "source_method": "addCreationButtonsTo",
+    "target_class": "org.jhotdraw.draw.DrawingEditor):void \t org.jhotdraw.util.ResourceBundleUtil"
+  },
+  {
+    "source_class": "org.jhotdraw.samples.svg.io.SVGOutputFormat",
+    "source_method": "writeGElement",
+    "target_class": "org.jhotdraw.samples.svg.figures.SVGGroupFigure):void \t org.jhotdraw.samples.svg.figures.SVGGroupFigure"
+  },
+  {
+    "source_class": "org.jhotdraw.samples.svg.io.SVGOutputFormat",
+    "source_method": "writePolygonElement",
+    "target_class": "org.jhotdraw.samples.svg.figures.SVGPathFigure):void \t org.jhotdraw.samples.svg.figures.SVGPathFigure"
+  },
+  {
+    "source_class": "org.jhotdraw.samples.svg.io.SVGOutputFormat",
+    "source_method": "writeLineElement",
+    "target_class": "org.jhotdraw.samples.svg.figures.SVGPathFigure):void \t org.jhotdraw.samples.svg.figures.SVGPathFigure"
+  },
+  {
+    "source_class": "org.jhotdraw.samples.svg.io.SVGOutputFormat",
+    "source_method": "writeShapeAttributes",
+    "target_class": "java.util.Map<org.jhotdraw.draw.AttributeKey,java.lang.Object>):void \t net.n3.nanoxml.IXMLElement"
+  },
+  {
+    "source_class": "org.jhotdraw.samples.svg.io.SVGInputFormat",
+    "source_method": "readRadialGradientElement",
+    "target_class": "org.jhotdraw.samples.svg.io.SVGFigureFactory"
+  },
+  {
+    "source_class": "org.jhotdraw.samples.svg.gui.CanvasToolBar",
+    "source_method": "setDrawing",
+    "target_class": "org.jhotdraw.draw.Drawing):void \t org.jhotdraw.samples.svg.SVGDrawingPanel"
+  },
+  {
+    "source_class": "org.jhotdraw.samples.svg.SVGAttributeKeys",
+    "source_method": "getFillPaint",
+    "target_class": "org.jhotdraw.samples.svg.Gradient"
+  },
+  {
+    "source_class": "org.jhotdraw.samples.svg.SVGAttributeKeys",
+    "source_method": "getStrokePaint",
+    "target_class": "org.jhotdraw.samples.svg.Gradient"
+  },
+  {
+    "source_class": "org.jhotdraw.samples.teddy.TeddyView",
+    "source_method": "isLineWrap",
+    "target_class": "org.jhotdraw.samples.teddy.TeddyView.EditorPanel"
+  },
+  {
+    "source_class": "org.jhotdraw.samples.draw.DrawingPanel",
+    "source_method": "addDefaultCreationButtonsTo",
+    "target_class": "org.jhotdraw.draw.DrawingEditor, java.util.Collection<javax.swing.Action>, java.util.Collection<javax.swing.Action>):void \t org.jhotdraw.draw.ConnectionFigure"
+  },
+  {
+    "source_class": "org.jhotdraw.samples.draw.DrawApplicationModel",
+    "source_method": "addDefaultCreationButtonsTo",
+    "target_class": "org.jhotdraw.draw.DrawingEditor, java.util.Collection<javax.swing.Action>, java.util.Collection<javax.swing.Action>):void \t org.jhotdraw.util.ResourceBundleUtil"
+  },
+  {
+    "source_class": "org.jhotdraw.samples.odg.io.ODGInputFormat",
+    "source_method": "readCommonDrawingShapeAttributes",
+    "target_class": "java.util.HashMap<org.jhotdraw.draw.AttributeKey,java.lang.Object>):void \t net.n3.nanoxml.IXMLElement"
+  },
+  {
+    "source_class": "org.jhotdraw.samples.odg.ODGDrawingPanel",
+    "source_method": "addCreationButtonsTo",
+    "target_class": "org.jhotdraw.draw.DrawingEditor):void \t org.jhotdraw.util.ResourceBundleUtil"
+  },
+  {
+    "source_class": "org.jhotdraw.samples.odg.ODGAttributeKeys",
+    "source_method": "getStrokePaint",
+    "target_class": "org.jhotdraw.samples.odg.Gradient"
+  },
+  {
+    "source_class": "org.jhotdraw.samples.pert.PertApplicationModel",
+    "source_method": "addCreationButtonsTo",
+    "target_class": "org.jhotdraw.draw.DrawingEditor):void \t org.jhotdraw.util.ResourceBundleUtil"
+  },
+  {
+    "source_class": "org.jhotdraw.geom.QuadTree",
+    "source_method": "getFiguresFrontToBack2",
+    "target_class": "org.jhotdraw.draw.QuadTreeDrawing"
+  },
+  {
+    "source_class": "org.jhotdraw.gui.plaf.palette.PaletteToolBarUI",
+    "source_method": "loadActionMap",
+    "target_class": "org.jhotdraw.gui.plaf.palette.PaletteToolBarUI.Actions"
+  },
+  {
+    "source_class": "org.jhotdraw.gui.plaf.palette.PaletteToolBarUI",
+    "source_method": "paintDragWindow",
+    "target_class": "org.jhotdraw.gui.plaf.palette.PaletteToolBarUI.DragWindow"
+  },
+  {
+    "source_class": "org.jhotdraw.draw.text.FloatingTextField",
+    "source_method": "updateWidget",
+    "target_class": "org.jhotdraw.draw.TextHolderFigure"
+  },
+  {
+    "source_class": "org.jhotdraw.draw.text.FloatingTextField",
+    "source_method": "creationFinished2",
+    "target_class": "org.jhotdraw.draw.Figure):void \t org.jhotdraw.draw.tool.TextCreationTool"
+  },
+  {
+    "source_class": "org.jhotdraw.draw.QuadTreeCompositeFigure",
+    "source_method": "findFigure",
+    "target_class": "org.jhotdraw.draw.Figure"
+  },
+  {
+    "source_class": "org.jhotdraw.draw.QuadTreeCompositeFigure",
+    "source_method": "findFigureExcept",
+    "target_class": "org.jhotdraw.draw.Figure):org.jhotdraw.draw.Figure \t org.jhotdraw.draw.Figure"
+  },
+  {
+    "source_class": "org.jhotdraw.draw.QuadTreeCompositeFigure",
+    "source_method": "findFigureExcept",
+    "target_class": "java.util.Collection):org.jhotdraw.draw.Figure \t org.jhotdraw.draw.Figure"
+  },
+  {
+    "source_class": "org.jhotdraw.draw.QuadTreeCompositeFigure",
+    "source_method": "findFigureBehind",
+    "target_class": "org.jhotdraw.draw.Figure):org.jhotdraw.draw.Figure \t org.jhotdraw.draw.Figure"
+  },
+  {
+    "source_class": "org.jhotdraw.draw.QuadTreeCompositeFigure",
+    "source_method": "findFigures",
+    "target_class": "org.jhotdraw.geom.QuadTree"
+  },
+  {
+    "source_class": "org.jhotdraw.draw.handle.ConnectorHandle",
+    "source_method": "getLocation",
+    "target_class": "org.jhotdraw.draw.connector.Connector"
+  },
+  {
+    "source_class": "org.jhotdraw.draw.action.ButtonFactory",
+    "source_method": "addToolTo",
+    "target_class": "org.jhotdraw.draw.DrawingEditor, org.jhotdraw.draw.tool.Tool, java.lang.String, org.jhotdraw.util.ResourceBundleUtil):javax.swing.JToggleButton \t org.jhotdraw.util.ResourceBundleUtil"
+  },
+  {
+    "source_class": "org.jhotdraw.draw.action.ButtonFactory",
+    "source_method": "createZoomButton",
+    "target_class": "org.jhotdraw.util.ResourceBundleUtil"
+  },
+  {
+    "source_class": "org.jhotdraw.draw.action.ButtonFactory",
+    "source_method": "createZoomButton",
+    "target_class": "double[]):javax.swing.AbstractButton \t org.jhotdraw.util.ResourceBundleUtil"
+  },
+  {
+    "source_class": "org.jhotdraw.draw.action.ButtonFactory",
+    "source_method": "addColorButtonsTo",
+    "target_class": "org.jhotdraw.draw.DrawingEditor, java.util.List<org.jhotdraw.draw.action.ColorIcon>, int):void \t org.jhotdraw.util.ResourceBundleUtil"
+  },
+  {
+    "source_class": "org.jhotdraw.draw.action.ButtonFactory",
+    "source_method": "createEditorColorButton",
+    "target_class": "org.jhotdraw.draw.AttributeKey<java.awt.Color>, java.util.List<org.jhotdraw.draw.action.ColorIcon>, int, java.lang.String, org.jhotdraw.util.ResourceBundleUtil, java.util.Map<org.jhotdraw.draw.AttributeKey,java.lang.Object>, java.awt.Shape):org.jhotdraw.gui.JPopupButton \t org.jhotdraw.util.ResourceBundleUtil"
+  },
+  {
+    "source_class": "org.jhotdraw.draw.action.ButtonFactory",
+    "source_method": "createSelectionColorButton",
+    "target_class": "org.jhotdraw.draw.AttributeKey<java.awt.Color>, java.util.List<org.jhotdraw.draw.action.ColorIcon>, int, java.lang.String, org.jhotdraw.util.ResourceBundleUtil, java.util.Map<org.jhotdraw.draw.AttributeKey,java.lang.Object>, java.awt.Shape, java.util.List<org.jhotdraw.app.Disposable>):org.jhotdraw.gui.JPopupButton \t org.jhotdraw.util.ResourceBundleUtil"
+  },
+  {
+    "source_class": "org.jhotdraw.draw.action.ButtonFactory",
+    "source_method": "createSelectionColorChooserButton",
+    "target_class": "org.jhotdraw.draw.AttributeKey<java.awt.Color>, java.lang.String, org.jhotdraw.util.ResourceBundleUtil, java.util.Map<org.jhotdraw.draw.AttributeKey,java.lang.Object>, java.awt.Shape, java.lang.Class, java.util.List<org.jhotdraw.app.Disposable>):org.jhotdraw.gui.JPopupButton \t org.jhotdraw.util.ResourceBundleUtil"
+  },
+  {
+    "source_class": "org.jhotdraw.draw.action.ButtonFactory",
+    "source_method": "createDrawingColorButton",
+    "target_class": "org.jhotdraw.draw.AttributeKey<java.awt.Color>, java.util.List<org.jhotdraw.draw.action.ColorIcon>, int, java.lang.String, org.jhotdraw.util.ResourceBundleUtil, java.util.Map<org.jhotdraw.draw.AttributeKey,java.lang.Object>, java.awt.Shape, java.util.List<org.jhotdraw.app.Disposable>):org.jhotdraw.gui.JPopupButton \t org.jhotdraw.util.ResourceBundleUtil"
+  },
+  {
+    "source_class": "org.jhotdraw.draw.action.ButtonFactory",
+    "source_method": "createDrawingColorChooserButton",
+    "target_class": "org.jhotdraw.draw.AttributeKey<java.awt.Color>, java.lang.String, org.jhotdraw.util.ResourceBundleUtil, java.util.Map<org.jhotdraw.draw.AttributeKey,java.lang.Object>, java.awt.Shape, java.lang.Class, java.util.List<org.jhotdraw.app.Disposable>):org.jhotdraw.gui.JPopupButton \t org.jhotdraw.util.ResourceBundleUtil"
+  },
+  {
+    "source_class": "org.jhotdraw.draw.action.ButtonFactory",
+    "source_method": "createStrokeWidthButton",
+    "target_class": "org.jhotdraw.util.ResourceBundleUtil"
+  },
+  {
+    "source_class": "org.jhotdraw.draw.action.ButtonFactory",
+    "source_method": "createStrokeWidthButton",
+    "target_class": "double[]):org.jhotdraw.gui.JPopupButton \t org.jhotdraw.util.ResourceBundleUtil"
+  },
+  {
+    "source_class": "org.jhotdraw.draw.action.ButtonFactory",
+    "source_method": "createStrokeWidthButton",
+    "target_class": "double[], org.jhotdraw.util.ResourceBundleUtil):org.jhotdraw.gui.JPopupButton \t org.jhotdraw.util.ResourceBundleUtil"
+  },
+  {
+    "source_class": "org.jhotdraw.draw.action.ButtonFactory",
+    "source_method": "createStrokeDecorationButton",
+    "target_class": "org.jhotdraw.util.ResourceBundleUtil"
+  },
+  {
+    "source_class": "org.jhotdraw.draw.action.ButtonFactory",
+    "source_method": "createStrokeDashesButton",
+    "target_class": "org.jhotdraw.util.ResourceBundleUtil"
+  },
+  {
+    "source_class": "org.jhotdraw.draw.action.ButtonFactory",
+    "source_method": "createStrokeDashesButton",
+    "target_class": "double[][]):org.jhotdraw.gui.JPopupButton \t org.jhotdraw.util.ResourceBundleUtil"
+  },
+  {
+    "source_class": "org.jhotdraw.draw.action.ButtonFactory",
+    "source_method": "createStrokeDashesButton",
+    "target_class": "double[][], org.jhotdraw.util.ResourceBundleUtil, java.util.List<org.jhotdraw.app.Disposable>):org.jhotdraw.gui.JPopupButton \t org.jhotdraw.util.ResourceBundleUtil"
+  },
+  {
+    "source_class": "org.jhotdraw.draw.action.ButtonFactory",
+    "source_method": "createStrokeTypeButton",
+    "target_class": "org.jhotdraw.util.ResourceBundleUtil"
+  },
+  {
+    "source_class": "org.jhotdraw.draw.action.ButtonFactory",
+    "source_method": "createStrokePlacementButton",
+    "target_class": "org.jhotdraw.util.ResourceBundleUtil"
+  },
+  {
+    "source_class": "org.jhotdraw.draw.action.ButtonFactory",
+    "source_method": "createFontButton",
+    "target_class": "org.jhotdraw.util.ResourceBundleUtil"
+  },
+  {
+    "source_class": "org.jhotdraw.draw.action.ButtonFactory",
+    "source_method": "createFontButton",
+    "target_class": "org.jhotdraw.draw.AttributeKey<java.awt.Font>, org.jhotdraw.util.ResourceBundleUtil, java.util.List<org.jhotdraw.app.Disposable>):org.jhotdraw.gui.JPopupButton \t org.jhotdraw.util.ResourceBundleUtil"
+  },
+  {
+    "source_class": "org.jhotdraw.draw.action.ButtonFactory",
+    "source_method": "createFontStyleBoldButton",
+    "target_class": "org.jhotdraw.util.ResourceBundleUtil, java.util.List<org.jhotdraw.app.Disposable>):javax.swing.JButton \t org.jhotdraw.util.ResourceBundleUtil"
+  },
+  {
+    "source_class": "org.jhotdraw.draw.action.ButtonFactory",
+    "source_method": "createFontStyleItalicButton",
+    "target_class": "org.jhotdraw.util.ResourceBundleUtil"
+  },
+  {
+    "source_class": "org.jhotdraw.draw.action.ButtonFactory",
+    "source_method": "createFontStyleItalicButton",
+    "target_class": "org.jhotdraw.util.ResourceBundleUtil, java.util.List<org.jhotdraw.app.Disposable>):javax.swing.JButton \t org.jhotdraw.util.ResourceBundleUtil"
+  },
+  {
+    "source_class": "org.jhotdraw.draw.action.ButtonFactory",
+    "source_method": "createFontStyleUnderlineButton",
+    "target_class": "org.jhotdraw.util.ResourceBundleUtil, java.util.List<org.jhotdraw.app.Disposable>):javax.swing.JButton \t org.jhotdraw.util.ResourceBundleUtil"
+  },
+  {
+    "source_class": "org.jhotdraw.draw.action.ButtonFactory",
+    "source_method": "createToggleGridButton",
+    "target_class": "org.jhotdraw.util.ResourceBundleUtil"
+  },
+  {
+    "source_class": "org.jhotdraw.draw.action.ButtonFactory",
+    "source_method": "createStrokeCapButton",
+    "target_class": "org.jhotdraw.util.ResourceBundleUtil"
+  },
+  {
+    "source_class": "org.jhotdraw.draw.action.ButtonFactory",
+    "source_method": "createStrokeCapButton",
+    "target_class": "org.jhotdraw.util.ResourceBundleUtil, java.util.List<org.jhotdraw.app.Disposable>):org.jhotdraw.gui.JPopupButton \t org.jhotdraw.util.ResourceBundleUtil"
+  },
+  {
+    "source_class": "org.jhotdraw.draw.action.ButtonFactory",
+    "source_method": "createStrokeJoinButton",
+    "target_class": "org.jhotdraw.util.ResourceBundleUtil"
+  },
+  {
+    "source_class": "org.jhotdraw.draw.action.ButtonFactory",
+    "source_method": "createStrokeJoinButton",
+    "target_class": "org.jhotdraw.util.ResourceBundleUtil, java.util.List<org.jhotdraw.app.Disposable>):org.jhotdraw.gui.JPopupButton \t org.jhotdraw.util.ResourceBundleUtil"
+  },
+  {
+    "source_class": "org.jhotdraw.draw.gui.JAttributeTextField",
+    "source_method": "setDrawing",
+    "target_class": "org.jhotdraw.draw.Drawing):void \t org.jhotdraw.draw.action.EditCanvasPanel"
+  },
+  {
+    "source_class": "org.jhotdraw.draw.DefaultDrawingView",
+    "source_method": "drawHandles",
+    "target_class": "org.jhotdraw.draw.DrawingEditor"
+  },
+  {
+    "source_class": "org.jhotdraw.draw.DefaultDrawingView",
+    "source_method": "drawTool",
+    "target_class": "org.jhotdraw.draw.DrawingEditor"
+  },
+  {
+    "source_class": "org.jhotdraw.draw.DefaultDrawingView",
+    "source_method": "setDrawing",
+    "target_class": "org.jhotdraw.draw.Drawing):void \t org.jhotdraw.samples.draw.DrawingPanel"
+  },
+  {
+    "source_class": "org.jhotdraw.draw.locator.BezierLabelLocator",
+    "source_method": "getRelativeLabelPoint",
+    "target_class": "org.jhotdraw.draw.Figure):java.awt.geom.Point2D.Double \t org.jhotdraw.draw.Figure"
+  },
+  {
+    "source_class": "org.jhotdraw.draw.DefaultDrawingEditor",
+    "source_method": "updateActiveView",
+    "target_class": "org.jhotdraw.draw.DrawingView"
+  },
+  {
+    "source_class": "org.jhotdraw.draw.event.SelectionComponentDisplayer",
+    "source_method": "updateVisibility",
+    "target_class": "org.jhotdraw.draw.DrawingView"
+  },
+  {
+    "source_class": "org.jhotdraw.draw.AttributeKey",
+    "source_method": "getPresentationName",
+    "target_class": "org.jhotdraw.util.ResourceBundleUtil"
+  },
+  {
+    "source_class": "org.jhotdraw.undo.UndoRedoManager",
+    "source_method": "getLabels",
+    "target_class": "org.jhotdraw.util.ResourceBundleUtil"
+  },
+  {
+    "source_class": "org.jhotdraw.color.ColorUtil",
+    "source_method": "toToolTipText",
+    "target_class": "org.jhotdraw.text.ColorToolTipTextFormatter"
+  },
+  {
+    "source_class": "net.n3.nanoxml.StdXMLParser",
+    "source_method": "processElement",
+    "target_class": "java.util.Properties):void \t net.n3.nanoxml.IXMLBuilder"
+  },
+  {
+    "source_class": "net.n3.nanoxml.XMLEntityResolver",
+    "source_method": "openExternalEntity",
+    "target_class": "java.lang.String, java.lang.String):java.io.Reader \t net.n3.nanoxml.IXMLReader"
+  }
+]

@@ -1,0 +1,117 @@
+[
+    {
+        "file_path": "server/src/main/java/org/elasticsearch/cluster/metadata/MetadataCreateDataStreamService.java",
+        "commit_hash": "75f548765f3583f41aa3baeffbafdf861aa5a11e",
+        "new_commit_hash": "0cc19f32704cfd168d3d3fa3cb2200c27e3b4c6b"
+    },
+    {
+        "file_path": "x-pack/plugin/security/src/main/java/org/elasticsearch/xpack/security/rest/action/apikey/RestGrantApiKeyAction.java",
+        "commit_hash": "d11048e7ff24ac8f9995a3c0d24da71117ceb7b5",
+        "new_commit_hash": "4cca544ccb0c12e9c35cd7f1ba49c65d84456ba0"
+    },
+    {
+        "file_path": "server/src/main/java/org/elasticsearch/index/mapper/TextFieldMapper.java",
+        "commit_hash": "4ef8b3825ec40051ead58d2c6180d6b80be060be",
+        "new_commit_hash": "e1d902d33ba3773123d651e2f60b51b0e9e95670"
+    },
+    {
+        "file_path": "server/src/main/java/org/elasticsearch/cluster/metadata/DataStreamLifecycle.java",
+        "commit_hash": "0b747ac43ef3985cfd999029e9ac8cdba2debac7",
+        "new_commit_hash": "a6a29d0946e8344da4847fcd31c60ae0e9f630f3"
+    },
+    {
+        "file_path": "distribution/tools/server-cli/src/main/java/org/elasticsearch/server/cli/MachineDependentHeap.java",
+        "commit_hash": "658c01401696c4685e8f7acf18865e2061fa534e",
+        "new_commit_hash": "d7e524fcf9835f4b31369dd2cd0ef8da4994c9a3"
+    },
+    {
+        "file_path": "libs/native/src/main21/java/org/elasticsearch/nativeaccess/jdk/JdkVectorLibrary.java",
+        "commit_hash": "85942902638eae1a7288e5d25aeb8fbb938b30ee",
+        "new_commit_hash": "6ef486519549f37be893b39b7248b49b9518a9d5"
+    },
+    {
+        "file_path": "server/src/main/java/org/elasticsearch/search/aggregations/bucket/prefix/IpPrefixAggregator.java",
+        "commit_hash": "a037e336595b1530cdf23d7a6404e49d79593033",
+        "new_commit_hash": "cca98af45619d31795b7b3e0f66872e20660a9cc"
+    },
+    {
+        "file_path": "server/src/main/java/org/elasticsearch/bootstrap/JNANatives.java",
+        "commit_hash": "04f1fcee51ae02f1a0074fb857c40dc29b47ccae",
+        "new_commit_hash": "062039b7f4706a0f42eb072067891bc5b2dad4a3"
+    },
+    {
+        "file_path": "x-pack/plugin/esql-core/src/main/java/org/elasticsearch/xpack/esql/core/util/SourceUtils.java",
+        "commit_hash": "1e58f3a48557e14c791a8f3c7c3d5329c9278cd8",
+        "new_commit_hash": "86652bde14e00b330402b2ed5366c0f3fe27300a"
+    },
+    {
+        "file_path": "x-pack/plugin/esql/src/test/java/org/elasticsearch/xpack/esql/optimizer/OptimizerRulesTests.java",
+        "commit_hash": "bd550074db602b43f4654d3881158d824e38f622",
+        "new_commit_hash": "0d96d7c45430c2356100c9d1aa654e4640c7444e"
+    },
+    {
+        "file_path": "x-pack/plugin/esql/src/main/java/org/elasticsearch/xpack/esql/io/stream/PlanNamedTypes.java",
+        "commit_hash": "28c1cc63c41dd5d64f71c2df494e3630269b1142",
+        "new_commit_hash": "3bfecc8d22b3e48aef2b950ca41846dfa0fa0993"
+    },
+    {
+        "file_path": "x-pack/plugin/esql/src/main/java/org/elasticsearch/xpack/esql/type/EsqlDataTypes.java",
+        "commit_hash": "3bfecc8d22b3e48aef2b950ca41846dfa0fa0993",
+        "new_commit_hash": "b35f0ed48d0325127bde45b17230218b7686e681"
+    },
+    {
+        "file_path": "build-tools-internal/src/main/java/org/elasticsearch/gradle/internal/release/UpdateVersionsTask.java",
+        "commit_hash": "95c9aad670cb8d3429444c197ddfbb0001df025a",
+        "new_commit_hash": "7106fa406e4ddb688ec0daaaa2d5858c40d1e6a0"
+    },
+    {
+        "file_path": "x-pack/plugin/esql/src/main/java/org/elasticsearch/xpack/esql/io/stream/PlanNamedTypes.java",
+        "commit_hash": "8863497d87b7c265d909beaff3b0743443da1e0c",
+        "new_commit_hash": "97651dfb9f89cadffa377caba4fd87ebcda075b2"
+    },
+    {
+        "file_path": "x-pack/plugin/esql-core/src/test/java/org/elasticsearch/xpack/esql/core/tree/NodeSubclassTests.java",
+        "commit_hash": "406b969c62a739b01caca0c6d6a505e01fde0617",
+        "new_commit_hash": "822b187af48f9a5560ad365743998315038dad85"
+    },
+    {
+        "file_path": "server/src/main/java/org/elasticsearch/index/translog/Translog.java",
+        "commit_hash": "20565137a1193dc44833f732b3aa6575655c42c3",
+        "new_commit_hash": "5d26c67d22c5ecd9abd635908c8436d6cc85ef29"
+    },
+    {
+        "file_path": "x-pack/plugin/esql/src/main/java/org/elasticsearch/xpack/esql/action/ResponseValueUtils.java",
+        "commit_hash": "cc245c4022a5c744151e6512feea00209c115c84",
+        "new_commit_hash": "f49abb4c2837e51305d61b0c382f0393a28c5f42"
+    },
+    {
+        "file_path": "x-pack/plugin/esql/src/main/java/org/elasticsearch/xpack/esql/optimizer/rules/SubstituteSurrogates.java",
+        "commit_hash": "e7c418aeff5664b773f11ab406112ba55cc11df6",
+        "new_commit_hash": "e8a01bbd9c41ed77239a7b41761d1e58994a034f"
+    },
+    {
+        "file_path": "x-pack/plugin/esql/src/test/java/org/elasticsearch/xpack/esql/parser/AbstractStatementParserTests.java",
+        "commit_hash": "e7c418aeff5664b773f11ab406112ba55cc11df6",
+        "new_commit_hash": "e8a01bbd9c41ed77239a7b41761d1e58994a034f"
+    },
+    {
+        "file_path": "x-pack/plugin/esql/src/main/java/org/elasticsearch/xpack/esql/io/stream/PlanNamedTypes.java",
+        "commit_hash": "7ed83fd12905bc24616807d87dc0b3ae8e033169",
+        "new_commit_hash": "9916aa9f957731c4bac944612bbc6b2485ae3447"
+    },
+    {
+        "file_path": "x-pack/plugin/esql/src/test/java/org/elasticsearch/xpack/esql/expression/function/AbstractFunctionTestCase.java",
+        "commit_hash": "a78a21bc20b0981dab340626c978bcd2eb47cb66",
+        "new_commit_hash": "10b51179f97e493d38f3e81b71a429188df74ec9"
+    },
+    {
+        "file_path": "x-pack/plugin/esql/src/main/java/org/elasticsearch/xpack/esql/io/stream/PlanNamedTypes.java",
+        "commit_hash": "e7c0ba953a2f03ecdea9e848478356054689c137",
+        "new_commit_hash": "68b7b7f7fb520056ec9fcbbe5b6b66bce51027d2"
+    },
+    {
+        "file_path": "x-pack/plugin/esql/src/main/java/org/elasticsearch/xpack/esql/optimizer/LogicalPlanOptimizer.java",
+        "commit_hash": "2fde9106188c9a348311592313f06f196feb2a30",
+        "new_commit_hash": "9b96665f5d6380702e98ed949acc0c07844faa15"
+    }
+]

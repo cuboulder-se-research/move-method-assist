@@ -1,0 +1,857 @@
+[
+    {
+        "repository": "https://github.com/spring-projects/spring-boot.git",
+        "sha1": "ca799f7b2151616a7c3d47747e58704ed5daa7ce",
+        "url": "https://github.com/spring-projects/spring-boot/commit/ca799f7b2151616a7c3d47747e58704ed5daa7ce",
+        "move_method_refactoring": {
+            "type": "Extract And Move Method",
+            "description": "Extract And Move Method public addIfAbsent(metadata ItemMetadata) : boolean extracted from private processEndpoint(annotation AnnotationMirror, element TypeElement) : void in class org.springframework.boot.configurationprocessor.ConfigurationMetadataAnnotationProcessor & moved to class org.springframework.boot.configurationprocessor.MetadataCollector",
+            "leftSideLocations": [
+                {
+                    "filePath": "spring-boot-project/spring-boot-tools/spring-boot-configuration-processor/src/main/java/org/springframework/boot/configurationprocessor/ConfigurationMetadataAnnotationProcessor.java",
+                    "startLine": 287,
+                    "endLine": 304,
+                    "startColumn": 2,
+                    "endColumn": 3,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration before extraction",
+                    "codeElement": "private processEndpoint(annotation AnnotationMirror, element TypeElement) : void"
+                },
+                {
+                    "filePath": "spring-boot-project/spring-boot-tools/spring-boot-configuration-processor/src/main/java/org/springframework/boot/configurationprocessor/ConfigurationMetadataAnnotationProcessor.java",
+                    "startLine": 296,
+                    "endLine": 296,
+                    "startColumn": 3,
+                    "endColumn": 84,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "spring-boot-project/spring-boot-tools/spring-boot-configuration-processor/src/main/java/org/springframework/boot/configurationprocessor/MetadataCollector.java",
+                    "startLine": 90,
+                    "endLine": 97,
+                    "startColumn": 2,
+                    "endColumn": 3,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "extracted method declaration",
+                    "codeElement": "public addIfAbsent(metadata ItemMetadata) : boolean"
+                },
+                {
+                    "filePath": "spring-boot-project/spring-boot-tools/spring-boot-configuration-processor/src/main/java/org/springframework/boot/configurationprocessor/MetadataCollector.java",
+                    "startLine": 95,
+                    "endLine": 95,
+                    "startColumn": 3,
+                    "endColumn": 17,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "spring-boot-project/spring-boot-tools/spring-boot-configuration-processor/src/main/java/org/springframework/boot/configurationprocessor/ConfigurationMetadataAnnotationProcessor.java",
+                    "startLine": 288,
+                    "endLine": 306,
+                    "startColumn": 2,
+                    "endColumn": 3,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration after extraction",
+                    "codeElement": "private processEndpoint(annotation AnnotationMirror, element TypeElement) : void"
+                },
+                {
+                    "filePath": "spring-boot-project/spring-boot-tools/spring-boot-configuration-processor/src/main/java/org/springframework/boot/configurationprocessor/ConfigurationMetadataAnnotationProcessor.java",
+                    "startLine": 297,
+                    "endLine": 297,
+                    "startColumn": 3,
+                    "endColumn": 91,
+                    "codeElementType": "METHOD_INVOCATION",
+                    "description": "extracted method invocation",
+                    "codeElement": "this.metadataCollector.addIfAbsent(ItemMetadata.newGroup(endpointKey,type,type,null))"
+                },
+                {
+                    "filePath": "spring-boot-project/spring-boot-tools/spring-boot-configuration-processor/src/main/java/org/springframework/boot/configurationprocessor/ConfigurationMetadataAnnotationProcessor.java",
+                    "startLine": 303,
+                    "endLine": 304,
+                    "startColumn": 4,
+                    "endColumn": 104,
+                    "codeElementType": "METHOD_INVOCATION",
+                    "description": "extracted method invocation",
+                    "codeElement": "this.metadataCollector.addIfAbsent(ItemMetadata.newProperty(endpointKey,\"cache.time-to-live\",Duration.class.getName(),type,null,\"Maximum time that a response can be cached.\",\"0ms\",null))"
+                },
+                {
+                    "filePath": "spring-boot-project/spring-boot-tools/spring-boot-configuration-processor/src/main/java/org/springframework/boot/configurationprocessor/MetadataCollector.java",
+                    "startLine": 91,
+                    "endLine": 91,
+                    "startColumn": 3,
+                    "endColumn": 52,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "added statement in extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "spring-boot-project/spring-boot-tools/spring-boot-configuration-processor/src/main/java/org/springframework/boot/configurationprocessor/MetadataCollector.java",
+                    "startLine": 93,
+                    "endLine": 93,
+                    "startColumn": 4,
+                    "endColumn": 17,
+                    "codeElementType": "RETURN_STATEMENT",
+                    "description": "added statement in extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "spring-boot-project/spring-boot-tools/spring-boot-configuration-processor/src/main/java/org/springframework/boot/configurationprocessor/MetadataCollector.java",
+                    "startLine": 96,
+                    "endLine": 96,
+                    "startColumn": 3,
+                    "endColumn": 15,
+                    "codeElementType": "RETURN_STATEMENT",
+                    "description": "added statement in extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "spring-boot-project/spring-boot-tools/spring-boot-configuration-processor/src/main/java/org/springframework/boot/configurationprocessor/MetadataCollector.java",
+                    "startLine": 92,
+                    "endLine": 94,
+                    "startColumn": 25,
+                    "endColumn": 4,
+                    "codeElementType": "BLOCK",
+                    "description": "added statement in extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "spring-boot-project/spring-boot-tools/spring-boot-configuration-processor/src/main/java/org/springframework/boot/configurationprocessor/MetadataCollector.java",
+                    "startLine": 92,
+                    "endLine": 94,
+                    "startColumn": 3,
+                    "endColumn": 4,
+                    "codeElementType": "IF_STATEMENT",
+                    "description": "added statement in extracted method declaration",
+                    "codeElement": null
+                }
+            ],
+            "isStatic": false
+        },
+        "ref_id": 783
+    },
+    {
+        "repository": "https://github.com/spring-projects/spring-boot.git",
+        "sha1": "224b06982e37eceb1a1954f63146456091037dc8",
+        "url": "https://github.com/spring-projects/spring-boot/commit/224b06982e37eceb1a1954f63146456091037dc8",
+        "move_method_refactoring": {
+            "type": "Extract And Move Method",
+            "description": "Extract And Move Method package withBuildCache(path String, binding Binding) : void extracted from private createPhase() : Phase in class org.springframework.boot.buildpack.platform.build.Lifecycle & moved to class org.springframework.boot.buildpack.platform.build.Phase",
+            "leftSideLocations": [
+                {
+                    "filePath": "spring-boot-project/spring-boot-tools/spring-boot-buildpack-platform/src/main/java/org/springframework/boot/buildpack/platform/build/Lifecycle.java",
+                    "startLine": 168,
+                    "endLine": 202,
+                    "startColumn": 2,
+                    "endColumn": 3,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration before extraction",
+                    "codeElement": "private createPhase() : Phase"
+                },
+                {
+                    "filePath": "spring-boot-project/spring-boot-tools/spring-boot-buildpack-platform/src/main/java/org/springframework/boot/buildpack/platform/build/Lifecycle.java",
+                    "startLine": 177,
+                    "endLine": 177,
+                    "startColumn": 3,
+                    "endColumn": 49,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "spring-boot-project/spring-boot-tools/spring-boot-buildpack-platform/src/main/java/org/springframework/boot/buildpack/platform/build/Phase.java",
+                    "startLine": 71,
+                    "endLine": 74,
+                    "startColumn": 2,
+                    "endColumn": 3,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "extracted method declaration",
+                    "codeElement": "package withBuildCache(path String, binding Binding) : void"
+                },
+                {
+                    "filePath": "spring-boot-project/spring-boot-tools/spring-boot-buildpack-platform/src/main/java/org/springframework/boot/buildpack/platform/build/Phase.java",
+                    "startLine": 72,
+                    "endLine": 72,
+                    "startColumn": 3,
+                    "endColumn": 32,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "spring-boot-project/spring-boot-tools/spring-boot-buildpack-platform/src/main/java/org/springframework/boot/buildpack/platform/build/Lifecycle.java",
+                    "startLine": 182,
+                    "endLine": 204,
+                    "startColumn": 2,
+                    "endColumn": 3,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration after extraction",
+                    "codeElement": "private createPhase() : Phase"
+                },
+                {
+                    "filePath": "spring-boot-project/spring-boot-tools/spring-boot-buildpack-platform/src/main/java/org/springframework/boot/buildpack/platform/build/Lifecycle.java",
+                    "startLine": 189,
+                    "endLine": 189,
+                    "startColumn": 3,
+                    "endColumn": 111,
+                    "codeElementType": "METHOD_INVOCATION",
+                    "description": "extracted method invocation",
+                    "codeElement": "phase.withBuildCache(Directory.CACHE,Binding.from(getCacheBindingSource(this.buildCache),Directory.CACHE))"
+                },
+                {
+                    "filePath": "spring-boot-project/spring-boot-tools/spring-boot-buildpack-platform/src/main/java/org/springframework/boot/buildpack/platform/build/Phase.java",
+                    "startLine": 73,
+                    "endLine": 73,
+                    "startColumn": 3,
+                    "endColumn": 24,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "added statement in extracted method declaration",
+                    "codeElement": null
+                }
+            ],
+            "isStatic": false
+        },
+        "ref_id": 784
+    },
+    {
+        "repository": "https://github.com/spring-projects/spring-boot.git",
+        "sha1": "224b06982e37eceb1a1954f63146456091037dc8",
+        "url": "https://github.com/spring-projects/spring-boot/commit/224b06982e37eceb1a1954f63146456091037dc8",
+        "move_method_refactoring": {
+            "type": "Extract And Move Method",
+            "description": "Extract And Move Method package withImageName(imageName ImageReference) : void extracted from private createPhase() : Phase in class org.springframework.boot.buildpack.platform.build.Lifecycle & moved to class org.springframework.boot.buildpack.platform.build.Phase",
+            "leftSideLocations": [
+                {
+                    "filePath": "spring-boot-project/spring-boot-tools/spring-boot-buildpack-platform/src/main/java/org/springframework/boot/buildpack/platform/build/Lifecycle.java",
+                    "startLine": 168,
+                    "endLine": 202,
+                    "startColumn": 2,
+                    "endColumn": 3,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration before extraction",
+                    "codeElement": "private createPhase() : Phase"
+                },
+                {
+                    "filePath": "spring-boot-project/spring-boot-tools/spring-boot-buildpack-platform/src/main/java/org/springframework/boot/buildpack/platform/build/Lifecycle.java",
+                    "startLine": 186,
+                    "endLine": 186,
+                    "startColumn": 3,
+                    "endColumn": 42,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "spring-boot-project/spring-boot-tools/spring-boot-buildpack-platform/src/main/java/org/springframework/boot/buildpack/platform/build/Phase.java",
+                    "startLine": 84,
+                    "endLine": 86,
+                    "startColumn": 2,
+                    "endColumn": 3,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "extracted method declaration",
+                    "codeElement": "package withImageName(imageName ImageReference) : void"
+                },
+                {
+                    "filePath": "spring-boot-project/spring-boot-tools/spring-boot-buildpack-platform/src/main/java/org/springframework/boot/buildpack/platform/build/Phase.java",
+                    "startLine": 85,
+                    "endLine": 85,
+                    "startColumn": 3,
+                    "endColumn": 23,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "spring-boot-project/spring-boot-tools/spring-boot-buildpack-platform/src/main/java/org/springframework/boot/buildpack/platform/build/Lifecycle.java",
+                    "startLine": 182,
+                    "endLine": 204,
+                    "startColumn": 2,
+                    "endColumn": 3,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration after extraction",
+                    "codeElement": "private createPhase() : Phase"
+                },
+                {
+                    "filePath": "spring-boot-project/spring-boot-tools/spring-boot-buildpack-platform/src/main/java/org/springframework/boot/buildpack/platform/build/Lifecycle.java",
+                    "startLine": 199,
+                    "endLine": 199,
+                    "startColumn": 3,
+                    "endColumn": 46,
+                    "codeElementType": "METHOD_INVOCATION",
+                    "description": "extracted method invocation",
+                    "codeElement": "phase.withImageName(this.request.getName())"
+                }
+            ],
+            "isStatic": false
+        },
+        "ref_id": 785
+    },
+    {
+        "repository": "https://github.com/spring-projects/spring-boot.git",
+        "sha1": "224b06982e37eceb1a1954f63146456091037dc8",
+        "url": "https://github.com/spring-projects/spring-boot/commit/224b06982e37eceb1a1954f63146456091037dc8",
+        "move_method_refactoring": {
+            "type": "Extract And Move Method",
+            "description": "Extract And Move Method package withLaunchCache(path String, binding Binding) : void extracted from private createPhase() : Phase in class org.springframework.boot.buildpack.platform.build.Lifecycle & moved to class org.springframework.boot.buildpack.platform.build.Phase",
+            "leftSideLocations": [
+                {
+                    "filePath": "spring-boot-project/spring-boot-tools/spring-boot-buildpack-platform/src/main/java/org/springframework/boot/buildpack/platform/build/Lifecycle.java",
+                    "startLine": 168,
+                    "endLine": 202,
+                    "startColumn": 2,
+                    "endColumn": 3,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration before extraction",
+                    "codeElement": "private createPhase() : Phase"
+                },
+                {
+                    "filePath": "spring-boot-project/spring-boot-tools/spring-boot-buildpack-platform/src/main/java/org/springframework/boot/buildpack/platform/build/Lifecycle.java",
+                    "startLine": 178,
+                    "endLine": 178,
+                    "startColumn": 3,
+                    "endColumn": 59,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "spring-boot-project/spring-boot-tools/spring-boot-buildpack-platform/src/main/java/org/springframework/boot/buildpack/platform/build/Phase.java",
+                    "startLine": 88,
+                    "endLine": 91,
+                    "startColumn": 2,
+                    "endColumn": 3,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "extracted method declaration",
+                    "codeElement": "package withLaunchCache(path String, binding Binding) : void"
+                },
+                {
+                    "filePath": "spring-boot-project/spring-boot-tools/spring-boot-buildpack-platform/src/main/java/org/springframework/boot/buildpack/platform/build/Phase.java",
+                    "startLine": 89,
+                    "endLine": 89,
+                    "startColumn": 3,
+                    "endColumn": 35,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "spring-boot-project/spring-boot-tools/spring-boot-buildpack-platform/src/main/java/org/springframework/boot/buildpack/platform/build/Lifecycle.java",
+                    "startLine": 182,
+                    "endLine": 204,
+                    "startColumn": 2,
+                    "endColumn": 3,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration after extraction",
+                    "codeElement": "private createPhase() : Phase"
+                },
+                {
+                    "filePath": "spring-boot-project/spring-boot-tools/spring-boot-buildpack-platform/src/main/java/org/springframework/boot/buildpack/platform/build/Lifecycle.java",
+                    "startLine": 190,
+                    "endLine": 191,
+                    "startColumn": 3,
+                    "endColumn": 83,
+                    "codeElementType": "METHOD_INVOCATION",
+                    "description": "extracted method invocation",
+                    "codeElement": "phase.withLaunchCache(Directory.LAUNCH_CACHE,Binding.from(getCacheBindingSource(this.launchCache),Directory.LAUNCH_CACHE))"
+                },
+                {
+                    "filePath": "spring-boot-project/spring-boot-tools/spring-boot-buildpack-platform/src/main/java/org/springframework/boot/buildpack/platform/build/Phase.java",
+                    "startLine": 90,
+                    "endLine": 90,
+                    "startColumn": 3,
+                    "endColumn": 24,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "added statement in extracted method declaration",
+                    "codeElement": null
+                }
+            ],
+            "isStatic": false
+        },
+        "ref_id": 786
+    },
+    {
+        "repository": "https://github.com/spring-projects/spring-boot.git",
+        "sha1": "224b06982e37eceb1a1954f63146456091037dc8",
+        "url": "https://github.com/spring-projects/spring-boot/commit/224b06982e37eceb1a1954f63146456091037dc8",
+        "move_method_refactoring": {
+            "type": "Extract And Move Method",
+            "description": "Extract And Move Method package withLayers(path String, binding Binding) : void extracted from private createPhase() : Phase in class org.springframework.boot.buildpack.platform.build.Lifecycle & moved to class org.springframework.boot.buildpack.platform.build.Phase",
+            "leftSideLocations": [
+                {
+                    "filePath": "spring-boot-project/spring-boot-tools/spring-boot-buildpack-platform/src/main/java/org/springframework/boot/buildpack/platform/build/Lifecycle.java",
+                    "startLine": 168,
+                    "endLine": 202,
+                    "startColumn": 2,
+                    "endColumn": 3,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration before extraction",
+                    "codeElement": "private createPhase() : Phase"
+                },
+                {
+                    "filePath": "spring-boot-project/spring-boot-tools/spring-boot-buildpack-platform/src/main/java/org/springframework/boot/buildpack/platform/build/Lifecycle.java",
+                    "startLine": 176,
+                    "endLine": 176,
+                    "startColumn": 3,
+                    "endColumn": 47,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "spring-boot-project/spring-boot-tools/spring-boot-buildpack-platform/src/main/java/org/springframework/boot/buildpack/platform/build/Phase.java",
+                    "startLine": 93,
+                    "endLine": 96,
+                    "startColumn": 2,
+                    "endColumn": 3,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "extracted method declaration",
+                    "codeElement": "package withLayers(path String, binding Binding) : void"
+                },
+                {
+                    "filePath": "spring-boot-project/spring-boot-tools/spring-boot-buildpack-platform/src/main/java/org/springframework/boot/buildpack/platform/build/Phase.java",
+                    "startLine": 94,
+                    "endLine": 94,
+                    "startColumn": 3,
+                    "endColumn": 29,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "spring-boot-project/spring-boot-tools/spring-boot-buildpack-platform/src/main/java/org/springframework/boot/buildpack/platform/build/Lifecycle.java",
+                    "startLine": 182,
+                    "endLine": 204,
+                    "startColumn": 2,
+                    "endColumn": 3,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration after extraction",
+                    "codeElement": "private createPhase() : Phase"
+                },
+                {
+                    "filePath": "spring-boot-project/spring-boot-tools/spring-boot-buildpack-platform/src/main/java/org/springframework/boot/buildpack/platform/build/Lifecycle.java",
+                    "startLine": 188,
+                    "endLine": 188,
+                    "startColumn": 3,
+                    "endColumn": 105,
+                    "codeElementType": "METHOD_INVOCATION",
+                    "description": "extracted method invocation",
+                    "codeElement": "phase.withLayers(Directory.LAYERS,Binding.from(getCacheBindingSource(this.layers),Directory.LAYERS))"
+                },
+                {
+                    "filePath": "spring-boot-project/spring-boot-tools/spring-boot-buildpack-platform/src/main/java/org/springframework/boot/buildpack/platform/build/Phase.java",
+                    "startLine": 95,
+                    "endLine": 95,
+                    "startColumn": 3,
+                    "endColumn": 24,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "added statement in extracted method declaration",
+                    "codeElement": null
+                }
+            ],
+            "isStatic": false
+        },
+        "ref_id": 787
+    },
+    {
+        "repository": "https://github.com/spring-projects/spring-boot.git",
+        "sha1": "224b06982e37eceb1a1954f63146456091037dc8",
+        "url": "https://github.com/spring-projects/spring-boot/commit/224b06982e37eceb1a1954f63146456091037dc8",
+        "move_method_refactoring": {
+            "type": "Extract And Move Method",
+            "description": "Extract And Move Method package withPlatform(path String) : void extracted from private createPhase() : Phase in class org.springframework.boot.buildpack.platform.build.Lifecycle & moved to class org.springframework.boot.buildpack.platform.build.Phase",
+            "leftSideLocations": [
+                {
+                    "filePath": "spring-boot-project/spring-boot-tools/spring-boot-buildpack-platform/src/main/java/org/springframework/boot/buildpack/platform/build/Lifecycle.java",
+                    "startLine": 168,
+                    "endLine": 202,
+                    "startColumn": 2,
+                    "endColumn": 3,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration before extraction",
+                    "codeElement": "private createPhase() : Phase"
+                },
+                {
+                    "filePath": "spring-boot-project/spring-boot-tools/spring-boot-buildpack-platform/src/main/java/org/springframework/boot/buildpack/platform/build/Lifecycle.java",
+                    "startLine": 174,
+                    "endLine": 174,
+                    "startColumn": 3,
+                    "endColumn": 51,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "spring-boot-project/spring-boot-tools/spring-boot-buildpack-platform/src/main/java/org/springframework/boot/buildpack/platform/build/Phase.java",
+                    "startLine": 98,
+                    "endLine": 100,
+                    "startColumn": 2,
+                    "endColumn": 3,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "extracted method declaration",
+                    "codeElement": "package withPlatform(path String) : void"
+                },
+                {
+                    "filePath": "spring-boot-project/spring-boot-tools/spring-boot-buildpack-platform/src/main/java/org/springframework/boot/buildpack/platform/build/Phase.java",
+                    "startLine": 99,
+                    "endLine": 99,
+                    "startColumn": 3,
+                    "endColumn": 31,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "spring-boot-project/spring-boot-tools/spring-boot-buildpack-platform/src/main/java/org/springframework/boot/buildpack/platform/build/Lifecycle.java",
+                    "startLine": 182,
+                    "endLine": 204,
+                    "startColumn": 2,
+                    "endColumn": 3,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration after extraction",
+                    "codeElement": "private createPhase() : Phase"
+                },
+                {
+                    "filePath": "spring-boot-project/spring-boot-tools/spring-boot-buildpack-platform/src/main/java/org/springframework/boot/buildpack/platform/build/Lifecycle.java",
+                    "startLine": 186,
+                    "endLine": 186,
+                    "startColumn": 3,
+                    "endColumn": 41,
+                    "codeElementType": "METHOD_INVOCATION",
+                    "description": "extracted method invocation",
+                    "codeElement": "phase.withPlatform(Directory.PLATFORM)"
+                }
+            ],
+            "isStatic": false
+        },
+        "ref_id": 788
+    },
+    {
+        "repository": "https://github.com/spring-projects/spring-boot.git",
+        "sha1": "224b06982e37eceb1a1954f63146456091037dc8",
+        "url": "https://github.com/spring-projects/spring-boot/commit/224b06982e37eceb1a1954f63146456091037dc8",
+        "move_method_refactoring": {
+            "type": "Extract And Move Method",
+            "description": "Extract And Move Method package withRunImage(runImage ImageReference) : void extracted from private createPhase() : Phase in class org.springframework.boot.buildpack.platform.build.Lifecycle & moved to class org.springframework.boot.buildpack.platform.build.Phase",
+            "leftSideLocations": [
+                {
+                    "filePath": "spring-boot-project/spring-boot-tools/spring-boot-buildpack-platform/src/main/java/org/springframework/boot/buildpack/platform/build/Lifecycle.java",
+                    "startLine": 168,
+                    "endLine": 202,
+                    "startColumn": 2,
+                    "endColumn": 3,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration before extraction",
+                    "codeElement": "private createPhase() : Phase"
+                },
+                {
+                    "filePath": "spring-boot-project/spring-boot-tools/spring-boot-buildpack-platform/src/main/java/org/springframework/boot/buildpack/platform/build/Lifecycle.java",
+                    "startLine": 175,
+                    "endLine": 175,
+                    "startColumn": 3,
+                    "endColumn": 60,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "spring-boot-project/spring-boot-tools/spring-boot-buildpack-platform/src/main/java/org/springframework/boot/buildpack/platform/build/Phase.java",
+                    "startLine": 106,
+                    "endLine": 108,
+                    "startColumn": 2,
+                    "endColumn": 3,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "extracted method declaration",
+                    "codeElement": "package withRunImage(runImage ImageReference) : void"
+                },
+                {
+                    "filePath": "spring-boot-project/spring-boot-tools/spring-boot-buildpack-platform/src/main/java/org/springframework/boot/buildpack/platform/build/Phase.java",
+                    "startLine": 107,
+                    "endLine": 107,
+                    "startColumn": 3,
+                    "endColumn": 36,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "spring-boot-project/spring-boot-tools/spring-boot-buildpack-platform/src/main/java/org/springframework/boot/buildpack/platform/build/Lifecycle.java",
+                    "startLine": 182,
+                    "endLine": 204,
+                    "startColumn": 2,
+                    "endColumn": 3,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration after extraction",
+                    "codeElement": "private createPhase() : Phase"
+                },
+                {
+                    "filePath": "spring-boot-project/spring-boot-tools/spring-boot-buildpack-platform/src/main/java/org/springframework/boot/buildpack/platform/build/Lifecycle.java",
+                    "startLine": 187,
+                    "endLine": 187,
+                    "startColumn": 3,
+                    "endColumn": 49,
+                    "codeElementType": "METHOD_INVOCATION",
+                    "description": "extracted method invocation",
+                    "codeElement": "phase.withRunImage(this.request.getRunImage())"
+                }
+            ],
+            "isStatic": false
+        },
+        "ref_id": 789
+    },
+    {
+        "repository": "https://github.com/spring-projects/spring-boot.git",
+        "sha1": "224b06982e37eceb1a1954f63146456091037dc8",
+        "url": "https://github.com/spring-projects/spring-boot/commit/224b06982e37eceb1a1954f63146456091037dc8",
+        "move_method_refactoring": {
+            "type": "Extract And Move Method",
+            "description": "Extract And Move Method package withSkipRestore() : void extracted from private createPhase() : Phase in class org.springframework.boot.buildpack.platform.build.Lifecycle & moved to class org.springframework.boot.buildpack.platform.build.Phase",
+            "leftSideLocations": [
+                {
+                    "filePath": "spring-boot-project/spring-boot-tools/spring-boot-buildpack-platform/src/main/java/org/springframework/boot/buildpack/platform/build/Lifecycle.java",
+                    "startLine": 168,
+                    "endLine": 202,
+                    "startColumn": 2,
+                    "endColumn": 3,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration before extraction",
+                    "codeElement": "private createPhase() : Phase"
+                },
+                {
+                    "filePath": "spring-boot-project/spring-boot-tools/spring-boot-buildpack-platform/src/main/java/org/springframework/boot/buildpack/platform/build/Lifecycle.java",
+                    "startLine": 181,
+                    "endLine": 181,
+                    "startColumn": 4,
+                    "endColumn": 36,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "spring-boot-project/spring-boot-tools/spring-boot-buildpack-platform/src/main/java/org/springframework/boot/buildpack/platform/build/Phase.java",
+                    "startLine": 110,
+                    "endLine": 112,
+                    "startColumn": 2,
+                    "endColumn": 3,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "extracted method declaration",
+                    "codeElement": "package withSkipRestore() : void"
+                },
+                {
+                    "filePath": "spring-boot-project/spring-boot-tools/spring-boot-buildpack-platform/src/main/java/org/springframework/boot/buildpack/platform/build/Phase.java",
+                    "startLine": 111,
+                    "endLine": 111,
+                    "startColumn": 3,
+                    "endColumn": 29,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "spring-boot-project/spring-boot-tools/spring-boot-buildpack-platform/src/main/java/org/springframework/boot/buildpack/platform/build/Lifecycle.java",
+                    "startLine": 182,
+                    "endLine": 204,
+                    "startColumn": 2,
+                    "endColumn": 3,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration after extraction",
+                    "codeElement": "private createPhase() : Phase"
+                },
+                {
+                    "filePath": "spring-boot-project/spring-boot-tools/spring-boot-buildpack-platform/src/main/java/org/springframework/boot/buildpack/platform/build/Lifecycle.java",
+                    "startLine": 194,
+                    "endLine": 194,
+                    "startColumn": 4,
+                    "endColumn": 27,
+                    "codeElementType": "METHOD_INVOCATION",
+                    "description": "extracted method invocation",
+                    "codeElement": "phase.withSkipRestore()"
+                }
+            ],
+            "isStatic": false
+        },
+        "ref_id": 790
+    },
+    {
+        "repository": "https://github.com/spring-projects/spring-boot.git",
+        "sha1": "e8391f121e2d3512c1b8461655d28d25ce13c605",
+        "url": "https://github.com/spring-projects/spring-boot/commit/e8391f121e2d3512c1b8461655d28d25ce13c605",
+        "move_method_refactoring": {
+            "type": "Extract And Move Method",
+            "description": "Extract And Move Method package forTask(scheduledTask ScheduledTask) : TaskType extracted from public scheduledTasks() : ScheduledTasksDescriptor in class org.springframework.boot.actuate.scheduling.ScheduledTasksEndpoint & moved to class org.springframework.boot.actuate.scheduling.ScheduledTasksEndpoint.TaskType",
+            "leftSideLocations": [
+                {
+                    "filePath": "spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/scheduling/ScheduledTasksEndpoint.java",
+                    "startLine": 66,
+                    "endLine": 75,
+                    "startColumn": 2,
+                    "endColumn": 3,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration before extraction",
+                    "codeElement": "public scheduledTasks() : ScheduledTasksDescriptor"
+                },
+                {
+                    "filePath": "spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/scheduling/ScheduledTasksEndpoint.java",
+                    "startLine": 70,
+                    "endLine": 70,
+                    "startColumn": 9,
+                    "endColumn": 31,
+                    "codeElementType": "LAMBDA_EXPRESSION_BODY",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/scheduling/ScheduledTasksEndpoint.java",
+                    "startLine": 70,
+                    "endLine": 70,
+                    "startColumn": 9,
+                    "endColumn": 31,
+                    "codeElementType": "METHOD_REFERENCE",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/scheduling/ScheduledTasksEndpoint.java",
+                    "startLine": 68,
+                    "endLine": 73,
+                    "startColumn": 3,
+                    "endColumn": 61,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/scheduling/ScheduledTasksEndpoint.java",
+                    "startLine": 243,
+                    "endLine": 250,
+                    "startColumn": 3,
+                    "endColumn": 4,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "extracted method declaration",
+                    "codeElement": "package forTask(scheduledTask ScheduledTask) : TaskType"
+                },
+                {
+                    "filePath": "spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/scheduling/ScheduledTasksEndpoint.java",
+                    "startLine": 245,
+                    "endLine": 245,
+                    "startColumn": 9,
+                    "endColumn": 63,
+                    "codeElementType": "IF_STATEMENT_CONDITION",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/scheduling/ScheduledTasksEndpoint.java",
+                    "startLine": 245,
+                    "endLine": 245,
+                    "startColumn": 39,
+                    "endColumn": 62,
+                    "codeElementType": "METHOD_INVOCATION",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/scheduling/ScheduledTasksEndpoint.java",
+                    "startLine": 245,
+                    "endLine": 247,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "IF_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/scheduling/ScheduledTasksEndpoint.java",
+                    "startLine": 69,
+                    "endLine": 82,
+                    "startColumn": 2,
+                    "endColumn": 3,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration after extraction",
+                    "codeElement": "public scheduledTasks() : ScheduledTasksDescriptor"
+                },
+                {
+                    "filePath": "spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/scheduling/ScheduledTasksEndpoint.java",
+                    "startLine": 74,
+                    "endLine": 74,
+                    "startColumn": 25,
+                    "endColumn": 56,
+                    "codeElementType": "METHOD_INVOCATION",
+                    "description": "extracted method invocation",
+                    "codeElement": "TaskType.forTask(scheduledTask)"
+                },
+                {
+                    "filePath": "spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/scheduling/ScheduledTasksEndpoint.java",
+                    "startLine": 246,
+                    "endLine": 246,
+                    "startColumn": 6,
+                    "endColumn": 22,
+                    "codeElementType": "RETURN_STATEMENT",
+                    "description": "added statement in extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/scheduling/ScheduledTasksEndpoint.java",
+                    "startLine": 249,
+                    "endLine": 249,
+                    "startColumn": 4,
+                    "endColumn": 16,
+                    "codeElementType": "RETURN_STATEMENT",
+                    "description": "added statement in extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/scheduling/ScheduledTasksEndpoint.java",
+                    "startLine": 245,
+                    "endLine": 247,
+                    "startColumn": 65,
+                    "endColumn": 6,
+                    "codeElementType": "BLOCK",
+                    "description": "added statement in extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/scheduling/ScheduledTasksEndpoint.java",
+                    "startLine": 244,
+                    "endLine": 248,
+                    "startColumn": 48,
+                    "endColumn": 5,
+                    "codeElementType": "BLOCK",
+                    "description": "added statement in extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/scheduling/ScheduledTasksEndpoint.java",
+                    "startLine": 244,
+                    "endLine": 248,
+                    "startColumn": 4,
+                    "endColumn": 5,
+                    "codeElementType": "ENHANCED_FOR_STATEMENT",
+                    "description": "added statement in extracted method declaration",
+                    "codeElement": null
+                }
+            ],
+            "isStatic": true
+        },
+        "ref_id": 791
+    }
+]

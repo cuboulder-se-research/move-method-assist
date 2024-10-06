@@ -1,0 +1,21 @@
+Refactoring Type	Source Method	Target Class	Similarity Indice
+Move Method	org.jhotdraw.app.MDIApplication::updateViewTitle(View, JInternalFrame):void	org.jhotdraw.util.ResourceBundleUtil	0.5297385620915032
+Move Method	org.jhotdraw.draw.AbstractAttributedCompositeFigure::setAttributeOnChildren(AttributeKey<T>, T):void	org.jhotdraw.draw.AttributeKey	0.7778958174178762
+Move Method	org.jhotdraw.samples.draw.DrawApplet::setDrawing(Drawing):void	org.jhotdraw.samples.draw.DrawingPanel	0.8449835878407308
+Move Method	org.jhotdraw.draw.QuadTreeCompositeFigure::findFiguresWithin(Rectangle2D.Double):java.util.List<Figure>	org.jhotdraw.geom.QuadTree	0.5328293289146644
+Move Method	org.jhotdraw.samples.svg.gui.CanvasToolBar::setDrawing(SVGDrawingPanel, Drawing):void	org.jhotdraw.samples.svg.SVGDrawingPanel	0.9929221483989392
+Move Method	org.jhotdraw.draw.DefaultDrawingView::fireSelectionChanged(Set<Figure>, Set<Figure>):void	org.jhotdraw.draw.Drawing	0.33333333333333337
+Move Method	org.jhotdraw.samples.svg.figures.SVGBezierFigure::createHandles(SVGPathFigure, int):Collection<Handle>	org.jhotdraw.samples.svg.figures.SVGPathFigure	0.6468774547808577
+Move Method	org.jhotdraw.gui.JFileURIChooser::initActions(ODGView):void	org.jhotdraw.samples.odg.ODGView	0.7428256361833269
+Move Method	org.jhotdraw.samples.odg.figures.ODGBezierFigure::createHandles(ODGPathFigure, int):Collection<Handle>	org.jhotdraw.samples.odg.figures.ODGPathFigure	0.6232490020294252
+Move Method	org.jhotdraw.app.OSXApplication::initScreenMenuBar():void	org.jhotdraw.app.osx.OSXPaletteHandler	1.0
+Move Method	org.jhotdraw.samples.svg.figures.SVGPathFigure::writePolylineElement(IXMLElement, ImageMapOutputFormat):void	org.jhotdraw.samples.svg.io.ImageMapOutputFormat	1.0
+Move Method	org.jhotdraw.geom.DoubleStroke::traceStroke(BezierPath, Path2D.Double, Path2D.Double):void	org.jhotdraw.geom.BezierPath	0.920911330049261
+Move Method	org.jhotdraw.draw.tool.AbstractTool::updateCursor(DrawingView, Point):void	org.jhotdraw.draw.DrawingView	0.18547453703703703
+Move Method	org.jhotdraw.geom.Dimension2DDouble::findFigureInside2(QuadTreeCompositeFigure, Double):Figure	org.jhotdraw.draw.QuadTreeCompositeFigure	0.7224137931034481
+Move Method	org.jhotdraw.draw.handle.AbstractConnectionHandle::findConnector(Point2D.Double, Figure, ConnectionFigure):Connector	org.jhotdraw.draw.connector.Connector	0.4
+Move Method	org.jhotdraw.util.ResourceBundleUtil::canUngroup(CombineAction):boolean	org.jhotdraw.samples.svg.action.CombineAction	0.5132653061224491
+Move Method	org.jhotdraw.draw.AbstractCompositeFigure::findChild(Point2D.Double):Figure	org.jhotdraw.draw.layouter.Layouter	0.8333333333333333
+Move Method	org.jhotdraw.color.JHarmonicColorWheel::mixerDisclosurePerformed(JMixer, ActionEvent):void	org.jhotdraw.samples.color.JMixer	1.0
+Move Method	net.n3.nanoxml.XMLElement::save2(NanoXMLDOMOutput, OutputStream):void	org.jhotdraw.xml.NanoXMLDOMOutput	1.0
+Move Method	org.jhotdraw.draw.DrawingEditorProxy::fireAreaInvalidated2(AbstractTool, Double):void	org.jhotdraw.draw.tool.AbstractTool	0.580098389982111

@@ -1,0 +1,307 @@
+[
+    {
+        "repository": "https://github.com/Stirling-Tools/Stirling-PDF.git",
+        "sha1": "ec537c6fde17bc7328afc6dba59d2d8686f4b00b",
+        "url": "https://github.com/Stirling-Tools/Stirling-PDF/commit/ec537c6fde17bc7328afc6dba59d2d8686f4b00b",
+        "move_method_refactoring": {
+            "type": "Extract And Move Method",
+            "description": "Extract And Move Method public convertPdfToPdfImage(document PDDocument) : PDDocument extracted from public redactPdf(request RedactPdfRequest) : ResponseEntity<byte[]> in class stirling.software.SPDF.controller.api.security.RedactController & moved to class stirling.software.SPDF.utils.PdfUtils",
+            "leftSideLocations": [
+                {
+                    "filePath": "src/main/java/stirling/software/SPDF/controller/api/security/RedactController.java",
+                    "startLine": 44,
+                    "endLine": 111,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration before extraction",
+                    "codeElement": "public redactPdf(request RedactPdfRequest) : ResponseEntity<byte[]>"
+                },
+                {
+                    "filePath": "src/main/java/stirling/software/SPDF/controller/api/security/RedactController.java",
+                    "startLine": 84,
+                    "endLine": 84,
+                    "startColumn": 13,
+                    "endColumn": 57,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "src/main/java/stirling/software/SPDF/controller/api/security/RedactController.java",
+                    "startLine": 85,
+                    "endLine": 85,
+                    "startColumn": 13,
+                    "endColumn": 65,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "src/main/java/stirling/software/SPDF/controller/api/security/RedactController.java",
+                    "startLine": 86,
+                    "endLine": 86,
+                    "startColumn": 13,
+                    "endColumn": 53,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "src/main/java/stirling/software/SPDF/controller/api/security/RedactController.java",
+                    "startLine": 88,
+                    "endLine": 88,
+                    "startColumn": 17,
+                    "endColumn": 94,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "src/main/java/stirling/software/SPDF/controller/api/security/RedactController.java",
+                    "startLine": 89,
+                    "endLine": 89,
+                    "startColumn": 17,
+                    "endColumn": 95,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "src/main/java/stirling/software/SPDF/controller/api/security/RedactController.java",
+                    "startLine": 90,
+                    "endLine": 90,
+                    "startColumn": 17,
+                    "endColumn": 48,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "src/main/java/stirling/software/SPDF/controller/api/security/RedactController.java",
+                    "startLine": 91,
+                    "endLine": 91,
+                    "startColumn": 17,
+                    "endColumn": 94,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "src/main/java/stirling/software/SPDF/controller/api/security/RedactController.java",
+                    "startLine": 92,
+                    "endLine": 94,
+                    "startColumn": 17,
+                    "endColumn": 88,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "src/main/java/stirling/software/SPDF/controller/api/security/RedactController.java",
+                    "startLine": 95,
+                    "endLine": 95,
+                    "startColumn": 17,
+                    "endColumn": 56,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "src/main/java/stirling/software/SPDF/controller/api/security/RedactController.java",
+                    "startLine": 96,
+                    "endLine": 96,
+                    "startColumn": 17,
+                    "endColumn": 39,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "src/main/java/stirling/software/SPDF/controller/api/security/RedactController.java",
+                    "startLine": 87,
+                    "endLine": 97,
+                    "startColumn": 13,
+                    "endColumn": 14,
+                    "codeElementType": "FOR_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "src/main/java/stirling/software/SPDF/controller/api/security/RedactController.java",
+                    "startLine": 87,
+                    "endLine": 97,
+                    "startColumn": 76,
+                    "endColumn": 14,
+                    "codeElementType": "BLOCK",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "src/main/java/stirling/software/SPDF/utils/PdfUtils.java",
+                    "startLine": 344,
+                    "endLine": 366,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "extracted method declaration",
+                    "codeElement": "public convertPdfToPdfImage(document PDDocument) : PDDocument"
+                },
+                {
+                    "filePath": "src/main/java/stirling/software/SPDF/utils/PdfUtils.java",
+                    "startLine": 352,
+                    "endLine": 352,
+                    "startColumn": 9,
+                    "endColumn": 53,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "src/main/java/stirling/software/SPDF/utils/PdfUtils.java",
+                    "startLine": 353,
+                    "endLine": 353,
+                    "startColumn": 9,
+                    "endColumn": 61,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "src/main/java/stirling/software/SPDF/utils/PdfUtils.java",
+                    "startLine": 354,
+                    "endLine": 354,
+                    "startColumn": 9,
+                    "endColumn": 49,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "src/main/java/stirling/software/SPDF/utils/PdfUtils.java",
+                    "startLine": 356,
+                    "endLine": 356,
+                    "startColumn": 13,
+                    "endColumn": 90,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "src/main/java/stirling/software/SPDF/utils/PdfUtils.java",
+                    "startLine": 357,
+                    "endLine": 357,
+                    "startColumn": 13,
+                    "endColumn": 91,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "src/main/java/stirling/software/SPDF/utils/PdfUtils.java",
+                    "startLine": 358,
+                    "endLine": 358,
+                    "startColumn": 13,
+                    "endColumn": 44,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "src/main/java/stirling/software/SPDF/utils/PdfUtils.java",
+                    "startLine": 359,
+                    "endLine": 359,
+                    "startColumn": 13,
+                    "endColumn": 90,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "src/main/java/stirling/software/SPDF/utils/PdfUtils.java",
+                    "startLine": 360,
+                    "endLine": 361,
+                    "startColumn": 13,
+                    "endColumn": 100,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "src/main/java/stirling/software/SPDF/utils/PdfUtils.java",
+                    "startLine": 362,
+                    "endLine": 362,
+                    "startColumn": 13,
+                    "endColumn": 52,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "src/main/java/stirling/software/SPDF/utils/PdfUtils.java",
+                    "startLine": 363,
+                    "endLine": 363,
+                    "startColumn": 13,
+                    "endColumn": 35,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "src/main/java/stirling/software/SPDF/utils/PdfUtils.java",
+                    "startLine": 355,
+                    "endLine": 364,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "FOR_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "src/main/java/stirling/software/SPDF/utils/PdfUtils.java",
+                    "startLine": 355,
+                    "endLine": 364,
+                    "startColumn": 72,
+                    "endColumn": 10,
+                    "codeElementType": "BLOCK",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "src/main/java/stirling/software/SPDF/controller/api/security/RedactController.java",
+                    "startLine": 38,
+                    "endLine": 92,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration after extraction",
+                    "codeElement": "public redactPdf(request RedactPdfRequest) : ResponseEntity<byte[]>"
+                },
+                {
+                    "filePath": "src/main/java/stirling/software/SPDF/controller/api/security/RedactController.java",
+                    "startLine": 78,
+                    "endLine": 78,
+                    "startColumn": 39,
+                    "endColumn": 78,
+                    "codeElementType": "METHOD_INVOCATION",
+                    "description": "extracted method invocation",
+                    "codeElement": "PdfUtils.convertPdfToPdfImage(document)"
+                },
+                {
+                    "filePath": "src/main/java/stirling/software/SPDF/utils/PdfUtils.java",
+                    "startLine": 365,
+                    "endLine": 365,
+                    "startColumn": 9,
+                    "endColumn": 30,
+                    "codeElementType": "RETURN_STATEMENT",
+                    "description": "added statement in extracted method declaration",
+                    "codeElement": null
+                }
+            ],
+            "isStatic": true
+        },
+        "ref_id": 792
+    }
+]

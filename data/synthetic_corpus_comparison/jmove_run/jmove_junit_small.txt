@@ -1,0 +1,13 @@
+Refactoring Type	Source Method	Target Class	Similarity Indice
+Move Method	junit.framework.JUnit4TestAdapterCache::getNotifier(TestResult, JUnit4TestAdapter):RunNotifier	junit.framework.TestResult	1.0
+Move Method	org.junit.experimental.theories.internal.Assignments::getAnnotatedSupplier(ParameterSignature):ParameterSupplier	org.junit.experimental.theories.ParameterSignature	1.0
+Move Method	org.junit.internal.runners.JUnit4ClassRunner::testAborted(RunNotifier, Description, Throwable):void	org.junit.runner.notification.RunNotifier	0.4441860465116279
+Move Method	org.junit.experimental.theories.Theories.TheoryAnchor::runWithIncompleteAssignment(Assignments):void	org.junit.experimental.theories.internal.Assignments	1.0
+Move Method	org.junit.runner.notification.RunNotifier::addFailure(ClassRoadie, Throwable):void	org.junit.internal.runners.ClassRoadie	0.6759493670886076
+Move Method	org.junit.runners.ParentRunner::validatePublicVoidNoArgMethods(Class<? extends Annotation>, boolean, List<Throwable>):void	org.junit.runners.model.TestClass	0.6712301587301587
+Move Method	org.junit.internal.runners.JUnit4ClassRunner::classAnnotations():Annotation[]	org.junit.internal.runners.TestClass	1.0
+Move Method	org.junit.runners.model.RunnerBuilder::runnerForClass2(AnnotatedBuilder, Class<?>):Runner	org.junit.internal.builders.AnnotatedBuilder	1.0
+Move Method	org.junit.runners.ParentRunner::runLeaf(Statement, Description, RunNotifier):void	org.junit.runner.Description	0.45357142857142857
+Move Method	org.junit.runner.Computer::getSuite(RunnerBuilder, Class<?>[]):Runner	org.junit.runners.model.RunnerBuilder	0.873710183938986
+Move Method	org.junit.runner.Runner::run2(JUnit4TestAdapter, TestResult):void	junit.framework.JUnit4TestAdapter	1.0
+Move Method	org.junit.runner.Computer::getRunner(RunnerBuilder, Class<?>):Runner	org.junit.runners.model.RunnerBuilder	0.6115079365079364

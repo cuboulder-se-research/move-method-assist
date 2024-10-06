@@ -1,0 +1,410 @@
+[
+    {
+        "repository": "https://github.com/elastic/elasticsearch.git",
+        "sha1": "1d525752af4f4c768d3a13604f13e5d3005d284a",
+        "url": "https://github.com/elastic/elasticsearch/commit/1d525752af4f4c768d3a13604f13e5d3005d284a",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method private assertNotSuccess(shardState ShardState) : ShardState from class org.elasticsearch.cluster.SnapshotsInProgress.ShardSnapshotStatus to private assertNotSuccess(shardState ShardState) : ShardState from class org.elasticsearch.cluster.SnapshotsInProgress",
+            "leftSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/cluster/SnapshotsInProgress.java",
+                    "startLine": 514,
+                    "endLine": 517,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "private assertNotSuccess(shardState ShardState) : ShardState"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/cluster/SnapshotsInProgress.java",
+                    "startLine": 634,
+                    "endLine": 637,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "private assertNotSuccess(shardState ShardState) : ShardState"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/elastic/elasticsearch.git",
+        "sha1": "1d525752af4f4c768d3a13604f13e5d3005d284a",
+        "url": "https://github.com/elastic/elasticsearch/commit/1d525752af4f4c768d3a13604f13e5d3005d284a",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public success(nodeId String, shardSnapshotResult ShardSnapshotResult) : ShardSnapshotStatus from class org.elasticsearch.cluster.SnapshotsInProgress.ShardSnapshotStatus to public success(nodeId String, shardSnapshotResult ShardSnapshotResult) : ShardSnapshotStatus from class org.elasticsearch.cluster.SnapshotsInProgress",
+            "leftSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/cluster/SnapshotsInProgress.java",
+                    "startLine": 519,
+                    "endLine": 522,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public success(nodeId String, shardSnapshotResult ShardSnapshotResult) : ShardSnapshotStatus"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/cluster/SnapshotsInProgress.java",
+                    "startLine": 639,
+                    "endLine": 642,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public success(nodeId String, shardSnapshotResult ShardSnapshotResult) : ShardSnapshotStatus"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/elastic/elasticsearch.git",
+        "sha1": "1d525752af4f4c768d3a13604f13e5d3005d284a",
+        "url": "https://github.com/elastic/elasticsearch/commit/1d525752af4f4c768d3a13604f13e5d3005d284a",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public readFrom(in StreamInput) : ShardSnapshotStatus from class org.elasticsearch.cluster.SnapshotsInProgress.ShardSnapshotStatus to public readFrom(in StreamInput) : ShardSnapshotStatus from class org.elasticsearch.cluster.SnapshotsInProgress",
+            "leftSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/cluster/SnapshotsInProgress.java",
+                    "startLine": 551,
+                    "endLine": 562,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public readFrom(in StreamInput) : ShardSnapshotStatus"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/cluster/SnapshotsInProgress.java",
+                    "startLine": 672,
+                    "endLine": 683,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public readFrom(in StreamInput) : ShardSnapshotStatus"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/elastic/elasticsearch.git",
+        "sha1": "1d525752af4f4c768d3a13604f13e5d3005d284a",
+        "url": "https://github.com/elastic/elasticsearch/commit/1d525752af4f4c768d3a13604f13e5d3005d284a",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public diff(previousState ByRepo) : Diff<ByRepo> from class org.elasticsearch.cluster.SnapshotsInProgress.ByRepo to public diff(previousState ByRepo) : Diff<ByRepo> from class org.elasticsearch.cluster.SnapshotInProgressDiff",
+            "leftSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/cluster/SnapshotsInProgress.java",
+                    "startLine": 1614,
+                    "endLine": 1625,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public diff(previousState ByRepo) : Diff<ByRepo>"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/cluster/SnapshotsInProgress.java",
+                    "startLine": 1751,
+                    "endLine": 1762,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public diff(previousState ByRepo) : Diff<ByRepo>"
+                }
+            ],
+            "isStatic": false
+        }
+    },
+    {
+        "repository": "https://github.com/elastic/elasticsearch.git",
+        "sha1": "1d525752af4f4c768d3a13604f13e5d3005d284a",
+        "url": "https://github.com/elastic/elasticsearch/commit/1d525752af4f4c768d3a13604f13e5d3005d284a",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public toPositionMap(part ByRepo) : Map<String,Integer> from class org.elasticsearch.cluster.SnapshotsInProgress.ByRepo to public toPositionMap(part ByRepo) : Map<String,Integer> from class org.elasticsearch.cluster.SnapshotInProgressDiff",
+            "leftSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/cluster/SnapshotsInProgress.java",
+                    "startLine": 1627,
+                    "endLine": 1635,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public toPositionMap(part ByRepo) : Map<String,Integer>"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/cluster/SnapshotsInProgress.java",
+                    "startLine": 1764,
+                    "endLine": 1772,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public toPositionMap(part ByRepo) : Map<String,Integer>"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/elastic/elasticsearch.git",
+        "sha1": "1d525752af4f4c768d3a13604f13e5d3005d284a",
+        "url": "https://github.com/elastic/elasticsearch/commit/1d525752af4f4c768d3a13604f13e5d3005d284a",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public toMapByUUID(part ByRepo) : Map<String,Entry> from class org.elasticsearch.cluster.SnapshotsInProgress.ByRepo to public toMapByUUID(part ByRepo) : Map<String,Entry> from class org.elasticsearch.cluster.SnapshotInProgressDiff",
+            "leftSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/cluster/SnapshotsInProgress.java",
+                    "startLine": 1637,
+                    "endLine": 1645,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public toMapByUUID(part ByRepo) : Map<String,Entry>"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/cluster/SnapshotsInProgress.java",
+                    "startLine": 1774,
+                    "endLine": 1782,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public toMapByUUID(part ByRepo) : Map<String,Entry>"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/elastic/elasticsearch.git",
+        "sha1": "eb8c73f4fbf340f58144bd5d60460d9f02f7ca3f",
+        "url": "https://github.com/elastic/elasticsearch/commit/eb8c73f4fbf340f58144bd5d60460d9f02f7ca3f",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method private buildUri(accountUri URI) : URI from class org.elasticsearch.xpack.inference.external.request.openai.OpenAiEmbeddingsRequest to public buildUri(accountUri URI, service String, uriBuilder CheckedSupplier<URI,URISyntaxException>) : URI from class org.elasticsearch.xpack.inference.external.request.RequestUtils",
+            "leftSideLocations": [
+                {
+                    "filePath": "x-pack/plugin/inference/src/main/java/org/elasticsearch/xpack/inference/external/request/openai/OpenAiEmbeddingsRequest.java",
+                    "startLine": 53,
+                    "endLine": 59,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "private buildUri(accountUri URI) : URI"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "x-pack/plugin/inference/src/main/java/org/elasticsearch/xpack/inference/external/request/RequestUtils.java",
+                    "startLine": 28,
+                    "endLine": 35,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public buildUri(accountUri URI, service String, uriBuilder CheckedSupplier<URI,URISyntaxException>) : URI"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/elastic/elasticsearch.git",
+        "sha1": "eb8c73f4fbf340f58144bd5d60460d9f02f7ca3f",
+        "url": "https://github.com/elastic/elasticsearch/commit/eb8c73f4fbf340f58144bd5d60460d9f02f7ca3f",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method private createOptionalUri(url String) : URI from class org.elasticsearch.xpack.inference.services.openai.OpenAiServiceSettings to public createOptionalUri(url String) : URI from class org.elasticsearch.xpack.inference.services.ServiceUtils",
+            "leftSideLocations": [
+                {
+                    "filePath": "x-pack/plugin/inference/src/main/java/org/elasticsearch/xpack/inference/services/openai/OpenAiServiceSettings.java",
+                    "startLine": 103,
+                    "endLine": 109,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "private createOptionalUri(url String) : URI"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "x-pack/plugin/inference/src/main/java/org/elasticsearch/xpack/inference/services/ServiceUtils.java",
+                    "startLine": 147,
+                    "endLine": 153,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public createOptionalUri(url String) : URI"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/elastic/elasticsearch.git",
+        "sha1": "1395edf8050584a0784e7d012005a26477b30ae4",
+        "url": "https://github.com/elastic/elasticsearch/commit/1395edf8050584a0784e7d012005a26477b30ae4",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public toReleaseVersion(version TransportVersion) : String from class org.elasticsearch.TransportVersions to public toReleaseVersion() : String from class org.elasticsearch.index.IndexVersion",
+            "leftSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/TransportVersions.java",
+                    "startLine": 291,
+                    "endLine": 293,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public toReleaseVersion(version TransportVersion) : String"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/index/IndexVersion.java",
+                    "startLine": 146,
+                    "endLine": 152,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public toReleaseVersion() : String"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/elastic/elasticsearch.git",
+        "sha1": "1395edf8050584a0784e7d012005a26477b30ae4",
+        "url": "https://github.com/elastic/elasticsearch/commit/1395edf8050584a0784e7d012005a26477b30ae4",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public toReleaseVersion(version IndexVersion) : String from class org.elasticsearch.index.IndexVersions to public toReleaseVersion() : String from class org.elasticsearch.index.IndexVersion",
+            "leftSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/index/IndexVersions.java",
+                    "startLine": 212,
+                    "endLine": 214,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public toReleaseVersion(version IndexVersion) : String"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/index/IndexVersion.java",
+                    "startLine": 146,
+                    "endLine": 152,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public toReleaseVersion() : String"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/elastic/elasticsearch.git",
+        "sha1": "47ca7aeb70935b2104053d605bb5aa5d1a55b0ba",
+        "url": "https://github.com/elastic/elasticsearch/commit/47ca7aeb70935b2104053d605bb5aa5d1a55b0ba",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public toReleaseVersion(version TransportVersion) : String from class org.elasticsearch.TransportVersions to public toReleaseVersion() : String from class org.elasticsearch.index.IndexVersion",
+            "leftSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/TransportVersions.java",
+                    "startLine": 294,
+                    "endLine": 296,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public toReleaseVersion(version TransportVersion) : String"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/index/IndexVersion.java",
+                    "startLine": 146,
+                    "endLine": 152,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public toReleaseVersion() : String"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/elastic/elasticsearch.git",
+        "sha1": "47ca7aeb70935b2104053d605bb5aa5d1a55b0ba",
+        "url": "https://github.com/elastic/elasticsearch/commit/47ca7aeb70935b2104053d605bb5aa5d1a55b0ba",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public toReleaseVersion(version IndexVersion) : String from class org.elasticsearch.index.IndexVersions to public toReleaseVersion() : String from class org.elasticsearch.index.IndexVersion",
+            "leftSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/index/IndexVersions.java",
+                    "startLine": 214,
+                    "endLine": 216,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public toReleaseVersion(version IndexVersion) : String"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "server/src/main/java/org/elasticsearch/index/IndexVersion.java",
+                    "startLine": 146,
+                    "endLine": 152,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public toReleaseVersion() : String"
+                }
+            ],
+            "isStatic": true
+        }
+    }
+]

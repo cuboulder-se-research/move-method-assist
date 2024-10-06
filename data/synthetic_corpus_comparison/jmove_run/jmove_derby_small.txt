@@ -1,0 +1,301 @@
+Refactoring Type	Source Method	Target Class	Similarity Indice
+Move Method	org.apache.derby.impl.jdbc.EmbedConnection::compareDatabaseNames(String, String):boolean	org.apache.derby.jdbc.InternalDriver	0.25397621334376225
+Move Method	org.apache.derbyTesting.unitTests.store.T_StreamFile::SF002(int):void	org.apache.derbyTesting.unitTests.store.T_Util	0.7140045393924463
+Move Method	org.apache.derby.impl.sql.compile.SetRoleNode::generateParameterValueSet(ActivationClassBuilder):void	org.apache.derby.impl.sql.compile.ActivationClassBuilder	0.5025366999412801
+Move Method	org.apache.derby.impl.sql.compile.FromList::returnsAtMostSingleRow(ResultColumnList, ValueNode, PredicateList, DataDictionary):boolean	org.apache.derby.impl.sql.compile.ResultColumnList	0.7866909844789935
+Move Method	org.apache.derby.impl.sql.compile.QueryTreeNode::generateAuthorizeCheck(ActivationClassBuilder, MethodBuilder, int):void	org.apache.derby.impl.sql.compile.ActivationClassBuilder	1.0
+Move Method	org.apache.derby.impl.sql.compile.ConditionalNode::recastNullNode(ValueNode, DataTypeDescriptor):QueryTreeNode	org.apache.derby.impl.sql.compile.ValueNodeList	0.5970369441738911
+Move Method	org.apache.derby.iapi.sql.dictionary.TableDescriptor::statisticsExist(ConglomerateDescriptor):boolean	org.apache.derby.iapi.sql.dictionary.ConglomerateDescriptorList	1.0
+Move Method	org.apache.derby.client.net.NetStatementRequest::setFDODTALob(int, Lob, int[][], int):void	org.apache.derby.client.am.Lob	0.800807823129252
+Move Method	org.apache.derby.impl.sql.compile.NextSequenceNode::generateConstant(ExpressionClassBuilder, MethodBuilder):void	org.apache.derby.impl.sql.compile.ExpressionClassBuilder	0.5172845806944926
+Move Method	org.apache.derby.impl.sql.compile.ResultColumnList::generateNulls(ActivationClassBuilder, MethodBuilder):void	org.apache.derby.impl.sql.compile.ActivationClassBuilder	0.8372405372405372
+Move Method	org.apache.derby.iapi.sql.dictionary.CatalogRowFactory::makeRow(TupleDescriptor, TupleDescriptor):ExecRow	org.apache.derby.iapi.sql.dictionary.TupleDescriptor	0.3425925925925926
+Move Method	org.apache.derby.impl.sql.compile.SQLParser::makeParameterNode():ParameterNode	org.apache.derby.iapi.sql.compile.NodeFactory	0.7612500000000003
+Move Method	org.apache.derby.impl.store.raw.data.BaseContainer::getNextPage(BaseContainerHandle, long):Page	org.apache.derby.impl.store.raw.data.BaseContainerHandle	1.0
+Move Method	org.apache.derby.impl.sql.compile.InsertNode::getIndexedCols():boolean[]	org.apache.derby.iapi.sql.dictionary.TableDescriptor	0.556913971989349
+Move Method	org.apache.derbyDemo.scores.data.Data::initializeQuestions(Database):void	org.apache.derbyDemo.scores.data.Database	1.0
+Move Method	org.apache.derby.impl.sql.compile.SQLParser::getSubstringNode(ValueNode, ValueNode, ValueNode, Boolean):ValueNode	org.apache.derby.iapi.sql.compile.NodeFactory	0.7120559805390998
+Move Method	org.apache.derby.impl.store.access.PC_XenaVersion::upgradeIfNeeded(TransactionController, PropertyConglomerate, Properties):void	org.apache.derby.impl.store.access.PropertyConglomerate	0.9763978039840109
+Move Method	org.apache.derby.impl.sql.compile.InListOperatorNode::selfReference(ColumnReference):boolean	org.apache.derby.impl.sql.compile.ValueNodeList	0.8205585264408797
+Move Method	org.apache.derby.impl.sql.compile.ConditionalNode::isCastToChar(ValueNode):boolean	org.apache.derby.impl.sql.compile.ValueNodeList	0.7861008039579467
+Move Method	org.apache.derby.impl.sql.compile.DMLModStatementNode::normalizeSynonymColumns(ResultColumnList, TableName):void	org.apache.derby.impl.sql.compile.ResultColumnList	0.8739348886407707
+Move Method	org.apache.derby.client.am.DatabaseMetaData::checkForClosedConnectionX():void	org.apache.derby.client.am.Connection	0.6133495410839159
+Move Method	org.apache.derby.impl.tools.ij.ij::findSession(String):Session	org.apache.derby.impl.tools.ij.ConnectionEnv	1.0
+Move Method	org.apache.derby.impl.sql.compile.UpdateNode::normalizeCorrelatedColumns(ResultColumnList, FromTable):void	org.apache.derby.impl.sql.compile.ResultColumnList	0.8619565998072052
+Move Method	org.apache.derby.iapi.sql.dictionary.ConstraintDescriptor::drop(LanguageConnectionContext, boolean):ConglomerateDescriptor	org.apache.derby.iapi.sql.dictionary.TableDescriptor	0.5278160443203194
+Move Method	org.apache.derby.impl.sql.compile.SetOperatorNode::getParamColumnTypes(DataTypeDescriptor[], RowResultSetNode):int	org.apache.derby.impl.sql.compile.ValueNode	0.7163196315473872
+Move Method	org.apache.derby.impl.store.raw.data.AllocPage::addPage(FileContainer, long, RawTransaction, BaseContainerHandle):void	org.apache.derby.impl.store.raw.data.BaseContainerHandle	0.741850853548967
+Move Method	org.apache.derby.impl.services.monitor.BaseMonitor::bootService(PersistentService, String, String, Properties, boolean):Object	org.apache.derby.iapi.services.context.ContextService	0.9030509482971284
+Move Method	org.apache.derby.impl.sql.execute.DependentResultSet::printPosition(int, ExecIndexRow):String	org.apache.derby.impl.sql.execute.IndexRow	0.09999999999999999
+Move Method	org.apache.derby.impl.sql.catalog.DataDictionaryImpl::getConstraintDescriptorViaIndex(int, ExecIndexRow, TabInfoImpl, TableDescriptor, ConstraintDescriptorList, boolean):ConstraintDescriptor	org.apache.derby.impl.sql.catalog.TabInfoImpl	0.7918405198336645
+Move Method	org.apache.derby.iapi.sql.dictionary.TableDescriptor::referencedColumnMapPut(FormatableBitSet):void	org.apache.derby.iapi.services.io.FormatableBitSet	0.8691666666666668
+Move Method	org.apache.derby.client.net.NetResultSet40::getObject(int, Class<T>):T	org.apache.derby.client.am.Agent	0.49164021164021166
+Move Method	org.apache.derby.impl.sql.compile.FromTable::getSchemaDescriptor(TableName):SchemaDescriptor	org.apache.derby.impl.sql.compile.TableName	1.0
+Move Method	org.apache.derby.impl.sql.compile.ExpressionClassBuilder::addColumnToOrdering(FormatableArrayHolder, int):FormatableArrayHolder	org.apache.derby.iapi.services.io.FormatableArrayHolder	0.23214285714285712
+Move Method	org.apache.derby.impl.sql.catalog.TDCacheable::checkConsistency(TableDescriptor, Object, HeaderPrintWriter):boolean	org.apache.derby.iapi.sql.dictionary.TableDescriptor	0.7998819984114101
+Move Method	org.apache.derby.impl.jdbc.EmbedConnection::getReplicationOperation(Properties):String	org.apache.derby.iapi.error.StandardException	0.5241529304029303
+Move Method	org.apache.derby.impl.sql.compile.ResultColumn::generateHolder(ExpressionClassBuilder, MethodBuilder):void	org.apache.derby.impl.sql.compile.ExpressionClassBuilder	0.6255176219259079
+Move Method	org.apache.derby.impl.sql.execute.GenericConstantActionFactory::getCreateConstraintConstantAction(String, int, boolean, String, UUID, String, String[], IndexConstantAction, String, boolean, ConstraintInfo, ProviderInfo[]):CreateConstraintConstantAction	org.apache.derby.impl.sql.execute.ConstraintInfo	0.43230016313213704
+Move Method	org.apache.derby.impl.drda.DRDAConnThread::traceEXTDTARead(int, int, EXTDTAReaderInputStream, boolean, String):void	org.apache.derby.impl.drda.NetworkServerControlImpl	1.0
+Move Method	org.apache.derby.impl.store.access.btree.BTreePostCommit::getShrinkKey(OpenBTree, ControlRow, int):DataValueDescriptor[]	org.apache.derby.impl.store.access.btree.ControlRow	1.0
+Move Method	org.apache.derby.impl.sql.compile.FromVTI::makeLeafRestriction(BinaryRelationalOperatorNode, HashMap):Restriction	org.apache.derby.impl.sql.compile.BinaryRelationalOperatorNode	0.87716401245813
+Move Method	org.apache.derbyDemo.scores.data.Data::finishTest(Database, TestTaking):void	org.apache.derbyDemo.scores.data.Database	1.0
+Move Method	org.apache.derby.impl.drda.DDMWriter::writeUDT(Object, int):void	org.apache.derby.impl.drda.DRDAConnThread	0.9019503955385852
+Move Method	org.apache.derby.impl.sql.compile.SQLParser::wrapAlterColumnDefaultValue(ValueNode, String, long[]):TableElementNode	org.apache.derby.iapi.sql.compile.NodeFactory	0.8771386173184359
+Move Method	org.apache.derby.impl.sql.execute.GenericConstantActionFactory::getUpdateConstantAction(long, int, StaticCompiledOpenConglomInfo, IndexRowGenerator[], long[], StaticCompiledOpenConglomInfo[], String[], ExecRow, boolean, UUID, int, boolean, int[], int[], Object, FKInfo[], TriggerInfo, FormatableBitSet, int[], int[], int, boolean, boolean):UpdateConstantAction	org.apache.derby.iapi.services.io.FormatableBitSet	0.36665976392627886
+Move Method	org.apache.derby.impl.sql.compile.JavaValueNode::mapToTypeID(JSQLType):TypeId	org.apache.derby.iapi.types.JSQLType	0.9427684117125111
+Move Method	org.apache.derby.impl.sql.compile.IndexToBaseRowNode::getIndexColMapping():int[]	org.apache.derby.impl.sql.compile.ResultColumnList	0.6071460394658414
+Move Method	org.apache.derby.impl.store.access.btree.ControlRow::getRowTemplate(OpenBTree):DataValueDescriptor[]	org.apache.derby.impl.store.access.btree.OpenBTree	0.6638454669453524
+Move Method	org.apache.derby.impl.sql.execute.UpdateResultSet::runChecker(boolean):void	org.apache.derby.impl.sql.execute.RISetChecker	1.0
+Move Method	org.apache.derby.impl.store.raw.data.BaseContainer::getFirstPage(BaseContainerHandle):Page	org.apache.derby.impl.store.raw.data.BaseContainerHandle	1.0
+Move Method	org.apache.derby.impl.sql.execute.DMLWriteResultSet::makeDeferredSparseRow(ExecRow, FormatableBitSet, LanguageConnectionContext):ExecRow	org.apache.derby.iapi.services.io.FormatableBitSet	0.4053571428571431
+Move Method	org.apache.derby.iapi.sql.dictionary.ViewDescriptor::drop(LanguageConnectionContext, SchemaDescriptor, TableDescriptor):void	org.apache.derby.iapi.sql.dictionary.TableDescriptor	0.5877695457695454
+Move Method	org.apache.derby.impl.sql.compile.SubqueryNode::flattenToExistsJoin(int, FromList, SubqueryList, PredicateList, boolean):ValueNode	org.apache.derby.impl.sql.compile.SubqueryList	0.6580086580086582
+Move Method	org.apache.derby.impl.store.raw.data.AllocPage::updateAllocPageHeader():void	org.apache.derby.iapi.services.io.ArrayOutputStream	1.0
+Move Method	org.apache.derby.impl.sql.execute.UpdateResultSet::saveLastCusorKey(TableScanResultSet, ExecRow):void	org.apache.derby.impl.sql.execute.TableScanResultSet	0.5599724233576568
+Move Method	org.apache.derby.impl.sql.compile.HashTableNode::modifyAccessPath(JBitSet, Optimizer):Optimizable	org.apache.derby.iapi.util.JBitSet	0.7543859649122807
+Move Method	org.apache.derby.impl.sql.compile.FromVTI::getNewInstance():Object	org.apache.derby.impl.sql.compile.MethodCallNode	0.8979791886774383
+Move Method	org.apache.derby.impl.store.raw.data.StoredPage::updateChecksum():void	org.apache.derby.iapi.services.io.ArrayOutputStream	1.0
+Move Method	org.apache.derby.impl.sql.execute.InsertResultSet::getCompactRow(ExecRow, int[]):ExecRow	org.apache.derby.impl.sql.execute.RISetChecker	0.5482069370958259
+Move Method	org.apache.derby.impl.sql.compile.FromBaseTable::isOneRowResultSet(ConglomerateDescriptor, OptimizablePredicateList):boolean	org.apache.derby.iapi.sql.dictionary.ConglomerateDescriptor	0.7926073926073928
+Move Method	org.apache.derby.iapi.sql.dictionary.ConglomerateDescriptor::drop(LanguageConnectionContext, TableDescriptor):ConglomerateDescriptor	org.apache.derby.iapi.sql.dictionary.TableDescriptor	0.5647922824670973
+Move Method	org.apache.derbyTesting.functionTests.tests.replicationTests.ReplicationRun_Local_3_p3::testReplication_Local_3_p3_StateNegativeTests():void	org.apache.derbyTesting.functionTests.tests.replicationTests.Utils	0.1793939393939394
+Move Method	org.apache.derbyTesting.unitTests.store.T_RecoverFullLog::checkRecovery():void	org.apache.derbyTesting.unitTests.store.T_Util	0.5841152161525959
+Move Method	org.apache.derby.impl.services.monitor.BaseMonitor::readApplicationProperties():Properties	org.apache.derby.iapi.services.io.AccessibleByteArrayOutputStream	0.5011600928074246
+Move Method	org.apache.derby.impl.tools.ij.ij::showRoles():ijResult	org.apache.derby.impl.tools.ij.ConnectionEnv	0.5570658508158508
+Move Method	org.apache.derby.impl.store.access.heap.HeapPostCommit::purgeCommittedDeletes(HeapController, long):void	org.apache.derby.impl.store.access.heap.Heap	0.21306646755725472
+Move Method	org.apache.derby.impl.store.raw.data.BaseContainer::removePage(BaseContainerHandle, BasePage):void	org.apache.derby.impl.store.raw.data.BaseContainerHandle	1.0
+Move Method	org.apache.derbyTesting.junit.NetworkServerTestSetup::startWithCommand():void	org.apache.derby.drda.NetworkServerControl	0.5929855585027999
+Move Method	org.apache.derby.impl.store.access.conglomerate.GenericController::getRowPositionFromRowLocation(RowLocation, RowPosition):void	org.apache.derby.impl.store.access.conglomerate.RowPosition	0.48948374760994257
+Move Method	org.apache.derby.client.am.LogWriter::getProperties(ClientBaseDataSource):Properties	org.apache.derby.jdbc.ClientBaseDataSource	0.6026153589871732
+Move Method	org.apache.derby.impl.sql.compile.GroupByNode::genScalarAggregateResultSet(ActivationClassBuilder, MethodBuilder):void	org.apache.derby.impl.sql.compile.ActivationClassBuilder	0.992063492063492
+Move Method	org.apache.derby.impl.services.bytecode.CodeChunk::getVariableStackDelta(ClassHolder, int, int):int	org.apache.derby.iapi.services.classfile.ClassHolder	0.46096445824706717
+Move Method	org.apache.derby.impl.sql.compile.FromBaseTable::qualifiesForStatisticsUpdateCheck(TableDescriptor):boolean	org.apache.derby.iapi.sql.dictionary.TableDescriptor	0.7764946764946765
+Move Method	org.apache.derby.impl.store.raw.data.BaseDataFileFactory::privReleaseJBMSLockOnDB():void	org.apache.derby.impl.store.raw.data.EncryptData	0.5224650018898641
+Move Method	org.apache.derby.iapi.sql.dictionary.TableDescriptor::selectivityForConglomerate(ConglomerateDescriptor, int):double	org.apache.derby.iapi.sql.dictionary.ConglomerateDescriptorList	1.0
+Move Method	org.apache.derby.impl.sql.execute.DeleteResultSet::runFkChecker(boolean):void	org.apache.derby.impl.sql.execute.RISetChecker	1.0
+Move Method	org.apache.derby.client.net.NetConnectionReply::readAccessSecurity(Connection, int):void	org.apache.derby.client.am.Agent	0.6288854003139718
+Move Method	org.apache.derby.impl.services.cache.ConcurrentCache::cleanAndUnkeepEntry(CacheEntry, Cacheable):void	org.apache.derby.impl.services.cache.CacheEntry	0.9923076923076924
+Move Method	org.apache.derby.impl.sql.compile.FromVTI::getSpecialTriggerVTITableName(LanguageConnectionContext, String):UUID	org.apache.derby.impl.sql.compile.MethodCallNode	0.25138241890959284
+Move Method	org.apache.derby.impl.services.bytecode.BCMethod::writeExceptions():void	org.apache.derby.iapi.services.classfile.ClassMember	1.0
+Move Method	org.apache.derbyTesting.system.nstest.init.Initializer::startInserts():void	org.apache.derbyTesting.system.nstest.utils.DbUtil	0.8028628117913831
+Move Method	org.apache.derbyTesting.system.nstest.tester.TesterObject::doIUDOperation():void	org.apache.derbyTesting.system.nstest.utils.DbUtil	0.9213471713471714
+Move Method	org.apache.derby.impl.sql.compile.QueryTreeNode::getTypeCompiler(TypeId):TypeCompiler	org.apache.derby.iapi.types.TypeId	0.44338023088023093
+Move Method	org.apache.derby.impl.sql.compile.AggregateNode::instantiateAggDef():void	org.apache.derby.iapi.services.loader.ClassInspector	0.8003864647463264
+Move Method	org.apache.derby.impl.sql.compile.HashJoinStrategy::findHashKeyColumns(Optimizable, ConglomerateDescriptor, OptimizablePredicateList):int[]	org.apache.derby.iapi.sql.dictionary.ConglomerateDescriptor	0.5666942148760331
+Move Method	org.apache.derby.impl.sql.execute.GenericConstantActionFactory::getRenameConstantAction(String, String, String, String, SchemaDescriptor, UUID, boolean, int):ConstantAction	org.apache.derby.iapi.sql.dictionary.SchemaDescriptor	1.0
+Move Method	org.apache.derby.impl.store.raw.xact.XactFactory::setNewTransactionId(TransactionId, Xact):void	org.apache.derby.impl.store.raw.xact.Xact	0.3656908369408367
+Move Method	org.apache.derby.impl.sql.compile.UnaryComparisonOperatorNode::selfComparison(ColumnReference):boolean	org.apache.derby.impl.sql.compile.ColumnReference	0.7992159355795719
+Move Method	org.apache.derbyTesting.functionTests.tests.replicationTests.ShutdownSlave::shutdown(String, boolean, boolean):void	org.apache.derbyTesting.functionTests.tests.replicationTests.ReplicationRun	0.2597431885370615
+Move Method	org.apache.derby.impl.sql.compile.SQLParser::getJdbcIntervalNode(int):ValueNode	org.apache.derby.iapi.sql.compile.NodeFactory	0.79296875
+Move Method	org.apache.derbyTesting.functionTests.tests.replicationTests.ReplicationRun_Distributed::testReplication():void	org.apache.derbyTesting.functionTests.tests.replicationTests.Utils	0.3030946032800395
+Move Method	org.apache.derby.client.net.NetConnectionReply::readSecurityCheck(Connection):void	org.apache.derby.client.am.Agent	0.6288854003139718
+Move Method	org.apache.derby.impl.sql.compile.ExpressionClassBuilder::getColumnOrdering(ResultColumnList):FormatableArrayHolder	org.apache.derby.impl.sql.compile.ResultColumnList	0.9654718143170458
+Move Method	org.apache.derby.impl.sql.compile.BinaryLogicalOperatorNode::resolveLogicalBinaryOperator(DataTypeDescriptor, DataTypeDescriptor):DataTypeDescriptor	org.apache.derby.iapi.types.DataTypeDescriptor	0.729123027510124
+Move Method	org.apache.derby.impl.sql.compile.ResultColumnList::generateHolder(ExpressionClassBuilder, MethodBuilder):void	org.apache.derby.impl.sql.compile.ExpressionClassBuilder	0.7948334059233452
+Move Method	org.apache.derby.impl.sql.compile.UpdateNode::addGeneratedColumns(TableDescriptor, ResultSetNode, ColumnDescriptorList, ColumnDescriptorList):void	org.apache.derby.impl.sql.compile.ResultSetNode	0.8069065980846152
+Move Method	org.apache.derby.impl.store.raw.data.AllocExtent::compress(BaseContainerHandle, RawTransaction, AllocPage):int	org.apache.derby.impl.store.raw.data.AllocPage	0.8389630571448752
+Move Method	org.apache.derby.impl.sql.compile.ColumnDefinitionNode::defaultTypeIsValid(TypeId, DataTypeDescriptor, TypeId, ValueNode, String):boolean	org.apache.derby.impl.sql.compile.ValueNode	0.6326152080538046
+Move Method	org.apache.derby.iapi.types.SQLInteger::isUpdated(ScrollInsensitiveResultSet):boolean	org.apache.derby.impl.sql.execute.ScrollInsensitiveResultSet	1.0
+Move Method	org.apache.derby.jdbc.ClientConnectionPoolDataSource::getPooledConnectionX(LogWriter, ClientBaseDataSource, String, String):PooledConnection	org.apache.derby.client.am.LogWriter	0.40469738643697684
+Move Method	org.apache.derby.client.am.Connection::createStatementX(int, int, int):Statement	org.apache.derby.client.am.CallableLocatorProcedures	1.0
+Move Method	org.apache.derby.impl.sql.compile.ResultSetNode::bindResultColumns(TableDescriptor, FromVTI, ResultColumnList, DMLStatementNode, FromList):void	org.apache.derby.impl.sql.compile.DMLStatementNode	0.7947313378760414
+Move Method	org.apache.derby.jdbc.ClientConnectionPoolDataSource40::getParentLogger(Wrapper41DataSource):Logger	org.apache.derbyTesting.functionTests.tests.jdbc4.Wrapper41DataSource	1.0
+Move Method	org.apache.derby.impl.sql.compile.ValueNode::generateExpression(ExpressionClassBuilder, MethodBuilder):void	org.apache.derby.impl.sql.compile.ExpressionClassBuilder	0.6676914668306347
+Move Method	org.apache.derby.client.am.DatabaseMetaData::prepareMetaDataQuery(String):PreparedStatement	org.apache.derby.client.am.Connection	0.9256734119539002
+Move Method	org.apache.derby.client.net.NetConnectionReply::readExchangeServerAttributes(Connection):void	org.apache.derby.client.am.Agent	0.6288854003139718
+Move Method	org.apache.derby.client.am.Lob::checkForClosedConnection():void	org.apache.derby.client.am.Agent	0.5877551020408165
+Move Method	org.apache.derby.iapi.sql.dictionary.TableDescriptor::removeConglomerateDescriptor(ConglomerateDescriptor):void	org.apache.derby.iapi.sql.dictionary.ConglomerateDescriptorList	0.6946778711484595
+Move Method	org.apache.derbyTesting.unitTests.store.T_RecoverFullLog::testBasic(int):void	org.apache.derbyTesting.unitTests.store.T_Util	0.6794816031318142
+Move Method	org.apache.derby.impl.store.access.sort.MergeSort::doneInserting(MergeInserter, SortBuffer, Vector):void	org.apache.derby.impl.store.access.sort.MergeInserter	1.0
+Move Method	org.apache.derby.impl.sql.compile.ResultColumnList::buildEmptyIndexRow(TableDescriptor, ConglomerateDescriptor, StoreCostController, DataDictionary):ExecRow	org.apache.derby.iapi.sql.dictionary.TableDescriptor	0.3079180802671515
+Move Method	org.apache.derby.impl.sql.compile.CreateAliasNode::bindParameterTypes(RoutineAliasInfo):void	org.apache.derby.catalog.types.RoutineAliasInfo	1.0
+Move Method	org.apache.derby.impl.sql.compile.DMLModStatementNode::hasCheckConstraints(DataDictionary, TableDescriptor):boolean	org.apache.derby.iapi.sql.dictionary.TableDescriptor	0.8612059311912602
+Move Method	org.apache.derby.impl.store.raw.data.RAFContainer::privGetFileName(ContainerKey, boolean, boolean, boolean):StorageFile	org.apache.derby.impl.store.raw.data.BaseDataFileFactory	0.6007292658608447
+Move Method	org.apache.derby.impl.sql.compile.DMLModStatementNode::generateCheckConstraints(ValueNode, ExpressionClassBuilder, MethodBuilder):void	org.apache.derby.impl.sql.compile.ExpressionClassBuilder	0.8353187128509939
+Move Method	org.apache.derbyTesting.unitTests.store.T_Util::t_close(T_TWC):void	org.apache.derbyTesting.unitTests.store.T_TWC	1.0
+Move Method	org.apache.derby.impl.store.raw.data.BaseContainer::latchPage(BaseContainerHandle, BasePage, boolean):BasePage	org.apache.derby.impl.store.raw.data.BasePage	0.8014376406421858
+Move Method	org.apache.derby.impl.sql.compile.UpdateNode::checkTableNameAndScrubResultColumns(ResultColumnList):void	org.apache.derby.impl.sql.compile.ResultColumnList	0.8076842300494856
+Move Method	org.apache.derby.impl.sql.compile.SQLParser::getNumericNode(String, boolean):NumericConstantNode	org.apache.derby.iapi.sql.compile.NodeFactory	1.0
+Move Method	org.apache.derby.client.am.Connection::resetPrepareCall(CallableStatement):void	org.apache.derby.client.am.CallableLocatorProcedures	1.0
+Move Method	org.apache.derby.impl.sql.compile.TableElementList::setCollationTypeOnCharacterStringColumn(SchemaDescriptor, ColumnDefinitionNode):void	org.apache.derby.impl.sql.compile.ColumnDefinitionNode	0.7636316872427982
+Move Method	org.apache.derbyTesting.functionTests.tests.replicationTests.ReplicationRun_Local_StateTest_part1_3::_testPostStartedMasterAndSlave_Failover():void	org.apache.derbyTesting.functionTests.tests.replicationTests.Utils	0.15813117699910148
+Move Method	org.apache.derby.impl.sql.compile.DMLModStatementNode::generateGenerationClauses(ResultColumnList, int, boolean, ExpressionClassBuilder, MethodBuilder):void	org.apache.derby.impl.sql.compile.ExpressionClassBuilder	0.961845250093587
+Move Method	org.apache.derby.impl.store.raw.data.BaseContainer::getAllocPage(BaseContainerHandle, long, boolean):Page	org.apache.derby.impl.store.raw.data.BaseContainerHandle	1.0
+Move Method	org.apache.derby.impl.services.bytecode.CodeChunk::getTypeDescriptor(ClassHolder, int):String	org.apache.derby.iapi.services.classfile.ClassHolder	0.9619482496194824
+Move Method	org.apache.derby.impl.store.raw.log.LogToFile::syncFile(StorageRandomAccessFile):void	org.apache.derby.iapi.error.StandardException	0.5140567765567768
+Move Method	org.apache.derby.impl.store.raw.data.FileContainer::pageValid(BaseContainerHandle, long):boolean	org.apache.derby.impl.store.raw.data.AllocationCache	1.0
+Move Method	org.apache.derby.impl.sql.compile.FromVTI::generateConstructor(ActivationClassBuilder, MethodBuilder, boolean):void	org.apache.derby.impl.sql.compile.ActivationClassBuilder	0.5971736596736597
+Move Method	org.apache.derby.impl.sql.compile.ResultSetNode::getMatchingColumn(ColumnReference):ResultColumn	org.apache.derby.impl.sql.compile.ColumnReference	1.0
+Move Method	org.apache.derbyDemo.scores.data.Data::reportWhoNeedsImprovement(Database, School, String):void	org.apache.derbyDemo.scores.data.Database	0.8852258852258851
+Move Method	org.apache.derby.impl.sql.catalog.DD_Version::fillIndex(TransactionController, long, TabInfoImpl, int):void	org.apache.derby.impl.sql.catalog.TabInfoImpl	1.0
+Move Method	org.apache.derby.iapi.sql.dictionary.ViewDescriptor::drop(LanguageConnectionContext, SchemaDescriptor, TableDescriptor, int):void	org.apache.derby.iapi.sql.dictionary.TableDescriptor	0.602666617576643
+Move Method	org.apache.derby.impl.jdbc.LOBStreamControl::deleteFile(StorageFile):void	org.apache.derby.impl.jdbc.LOBFile	0.40377877877877877
+Move Method	org.apache.derby.impl.drda.DRDAConnThread::sessionInitialState():void	org.apache.derby.impl.drda.NetworkServerControlImpl	1.0
+Move Method	org.apache.derby.impl.sql.compile.LikeEscapeOperatorNode::finishBindExpr():void	org.apache.derby.impl.sql.compile.ValueNode	0.7768742913832201
+Move Method	org.apache.derby.jdbc.ClientBaseDataSource::handleConnectionException(LogWriter, SqlException):void	org.apache.derby.client.am.SqlException	0.7257959714100065
+Move Method	org.apache.derby.impl.sql.compile.InsertNode::enhanceAndCheckForAutoincrement(ResultSetNode, boolean, int[]):ResultSetNode	org.apache.derby.impl.sql.compile.ResultSetNode	0.7748272095127511
+Move Method	org.apache.derby.iapi.services.classfile.ClassEnumeration::findClassReferences(HashSet):void	org.apache.derby.iapi.services.classfile.ClassHolder	1.0
+Move Method	org.apache.derby.client.am.Agent::resetAgent(Connection, LogWriter, int, String, int):void	org.apache.derby.client.am.Connection	0.7490053050397879
+Move Method	org.apache.derbyTesting.functionTests.tests.store.TestDiskHashtable::testElements(boolean, DiskHashtable, int[], int, DataValueDescriptor[][], HashMap, boolean[], boolean[]):void	org.apache.derby.iapi.store.access.DiskHashtable	0.7418917061774204
+Move Method	org.apache.derby.impl.sql.execute.CreateIndexConstantAction::addStatistics(DataDictionary, IndexRowGenerator, long):boolean	org.apache.derby.iapi.sql.dictionary.IndexRowGenerator	0.7072562358276648
+Move Method	org.apache.derby.impl.store.raw.data.BaseDataFileFactory::privRestoreDataDirectory():void	org.apache.derby.impl.store.raw.data.EncryptData	0.694017094017094
+Move Method	org.apache.derby.impl.sql.compile.OrderByColumn::columnMatchFound(ResultSetNode, ColumnReference):boolean	org.apache.derby.impl.sql.compile.ResultColumn	0.8447991754934757
+Move Method	org.apache.derby.impl.sql.compile.SelectNode::isOrderedResult(ResultColumnList, ResultSetNode, boolean):boolean	org.apache.derby.impl.sql.compile.ResultColumnList	0.9295432520887155
+Move Method	org.apache.derby.impl.sql.compile.ResultColumn::verifyOrderable():void	org.apache.derby.impl.sql.compile.ValueNode	0.5897386564053233
+Move Method	org.apache.derby.impl.sql.compile.BaseTypeCompiler::numberStorable(TypeId, TypeId, ClassFactory):boolean	org.apache.derby.iapi.types.TypeId	1.0
+Move Method	org.apache.derby.impl.tools.ij.ij::showSettableRoles():ijResult	org.apache.derby.impl.tools.ij.ConnectionEnv	0.5570658508158508
+Move Method	org.apache.derby.impl.sql.compile.JoinNode::oneRowRightSide(ActivationClassBuilder, MethodBuilder):void	org.apache.derby.impl.sql.compile.ResultSetNode	0.7281175350637621
+Move Method	org.apache.derbyTesting.functionTests.tests.store.TestDiskHashtable::testLargeTable(DiskHashtable, int[], DataValueDescriptor[]):void	org.apache.derby.iapi.store.access.DiskHashtable	0.8680272108843539
+Move Method	org.apache.derby.impl.sql.compile.SQLParser::checkTypeLimits(int, int):void	org.apache.derby.iapi.sql.compile.NodeFactory	0.3385416666666666
+Move Method	org.apache.derby.impl.sql.compile.ResultSetNode::generateResultSet(ExpressionClassBuilder, MethodBuilder):void	org.apache.derby.impl.sql.compile.ExpressionClassBuilder	0.6535476718403547
+Move Method	org.apache.derby.impl.sql.compile.ValueNode::generateFilter(ExpressionClassBuilder, MethodBuilder):void	org.apache.derby.impl.sql.compile.ExpressionClassBuilder	0.7850337543554008
+Move Method	org.apache.derbyDemo.scores.data.Data::takeTests(Database):void	org.apache.derbyDemo.scores.data.Database	1.0
+Move Method	org.apache.derby.impl.sql.compile.ResultColumnList::unionCompatible(ValueNode, ValueNode):boolean	org.apache.derby.impl.sql.compile.ValueNode	0.5865927444874813
+Move Method	org.apache.derbyTesting.functionTests.tests.memorydb.BasicInMemoryDbTest::testBootSameDbDifferentSubSubProtocol():void	org.apache.derbyTesting.functionTests.tests.memorydb.MemoryDbManager	0.930722475480039
+Move Method	org.apache.derby.impl.store.raw.data.AllocPage::chainNewAllocPage(BaseContainerHandle, long, long):void	org.apache.derby.impl.store.raw.data.BaseContainerHandle	0.7937916904898038
+Move Method	org.apache.derbyTesting.functionTests.tests.replicationTests.ShutdownMaster::shutdown(String, boolean, boolean):void	org.apache.derbyTesting.functionTests.tests.replicationTests.ReplicationRun	0.2597431885370615
+Move Method	org.apache.derby.client.am.Connection::setSavepointX(Savepoint):Savepoint	org.apache.derby.client.am.CallableLocatorProcedures	1.0
+Move Method	org.apache.derby.impl.sql.execute.InsertResultSet::makeIndexTemplate(FKInfo, ExecRow, ContextManager):ExecRow	org.apache.derby.impl.sql.execute.RISetChecker	0.5041077441077442
+Move Method	org.apache.derby.impl.drda.DRDAConnThread::isAuthenticationException(SQLException):boolean	org.apache.derby.impl.drda.Database	0.15461942754330563
+Move Method	org.apache.derby.impl.sql.catalog.DataDictionaryImpl::genColumnReferenceSQL(TableDescriptor, String, String, boolean, int):String	org.apache.derby.iapi.sql.dictionary.TableDescriptor	0.5167136615102716
+Move Method	org.apache.derby.impl.sql.compile.DB2LengthOperatorNode::getConstantLength():int	org.apache.derby.impl.sql.compile.ValueNode	0.7768742913832201
+Move Method	org.apache.derby.impl.sql.compile.BinaryRelationalOperatorNode::newBool(boolean):ValueNode	org.apache.derby.impl.sql.compile.InListOperatorNode	0.445956033649475
+Move Method	org.apache.derby.jdbc.InternalDriver::newEmbedDatabaseMetaData(EmbedConnection, String):DatabaseMetaData	org.apache.derby.impl.jdbc.EmbedConnection	0.826571516412827
+Move Method	org.apache.derby.impl.sql.compile.DDLStatementNode::checkTableDescriptor(TableDescriptor, boolean):TableDescriptor	org.apache.derby.iapi.sql.dictionary.TableDescriptor	0.5281677781677783
+Move Method	org.apache.derby.impl.sql.compile.DMLModStatementNode::generateCheckConstraints(ValueNode, ExpressionClassBuilder):MethodBuilder	org.apache.derby.impl.sql.compile.ExpressionClassBuilder	0.7850337543554008
+Move Method	org.apache.derby.impl.sql.execute.GenericConstantActionFactory::getCreateSequenceConstantAction(TableName, DataTypeDescriptor, long, long, long, long, boolean):ConstantAction	org.apache.derby.impl.sql.compile.TableName	0.8124018838304553
+Move Method	org.apache.derby.impl.sql.compile.HalfOuterJoinNode::isNullRejecting(ValueNode, JBitSet, JBitSet):boolean	org.apache.derby.iapi.util.JBitSet	0.6115288220551377
+Move Method	org.apache.derby.iapi.sql.dictionary.DataDescriptorGenerator::newRoutinePermsDescriptor(AliasDescriptor, String):RoutinePermsDescriptor	org.apache.derby.iapi.sql.dictionary.AliasDescriptor	0.6517656280619244
+Move Method	org.apache.derby.impl.sql.compile.QueryTreeNode::getNullNode(DataTypeDescriptor):ConstantNode	org.apache.derby.iapi.types.DataTypeDescriptor	0.5207497350912845
+Move Method	org.apache.derby.impl.sql.compile.DMLModStatementNode::parseGenerationClause(String, TableDescriptor):ValueNode	org.apache.derby.impl.sql.compile.ResultColumnList	0.7955831231541065
+Move Method	org.apache.derby.impl.store.raw.data.BaseContainer::getAnyPage(BaseContainerHandle, long, boolean):Page	org.apache.derby.impl.store.raw.data.BaseContainerHandle	1.0
+Move Method	org.apache.derby.impl.sql.compile.GroupByNode::genGroupedAggregateResultSet(ActivationClassBuilder, MethodBuilder):void	org.apache.derby.impl.sql.compile.ActivationClassBuilder	0.8296296296296297
+Move Method	org.apache.derbyTesting.functionTests.tests.replicationTests.ReplicationRun_Local_StateTest_part1_2::_testPostStartedMasterAndSlave_StopMaster():void	org.apache.derbyTesting.functionTests.tests.replicationTests.Utils	0.20184923993104525
+Move Method	org.apache.derby.impl.store.access.btree.BTreeRowPosition::saveMeAndReleasePage():void	org.apache.derby.impl.store.access.btree.BTreeScan	0.725408379351904
+Move Method	org.apache.derby.impl.sql.compile.StaticMethodCallNode::generateSetupNestedSessionContext(ActivationClassBuilder, MethodBuilder, boolean, String):void	org.apache.derby.impl.sql.compile.ActivationClassBuilder	0.9780219780219779
+Move Method	org.apache.derby.iapi.sql.dictionary.TableDescriptor::removeConstraintDescriptor(ConstraintDescriptor):void	org.apache.derby.iapi.sql.dictionary.ConstraintDescriptorList	1.0
+Move Method	org.apache.derby.impl.sql.compile.ResultColumn::convertConstant(TypeId, int, DataValueDescriptor):DataValueDescriptor	org.apache.derby.iapi.types.TypeId	0.4788950107131924
+Move Method	org.apache.derby.impl.sql.execute.VTIResultSet::castDecimal(DataTypeDescriptor, DataValueDescriptor):void	org.apache.derby.iapi.types.DataTypeDescriptor	0.44635027031340363
+Move Method	org.apache.derby.impl.sql.compile.ResultSetNode::renameGeneratedResultNames():void	org.apache.derby.impl.sql.compile.ResultColumnList	0.8530491781359988
+Move Method	org.apache.derby.impl.sql.compile.ResultColumnList::generateHolder(ExpressionClassBuilder, MethodBuilder, FormatableBitSet, FormatableBitSet):void	org.apache.derby.impl.sql.compile.ExpressionClassBuilder	0.7062137049941929
+Move Method	org.apache.derby.impl.sql.compile.RowCountNode::generateExprFun(ExpressionClassBuilder, MethodBuilder, ValueNode):void	org.apache.derby.impl.sql.compile.ExpressionClassBuilder	0.7850337543554008
+Move Method	org.apache.derby.impl.sql.compile.CreateTableNode::tempTableSchemaNameCheck(Object):Object	org.apache.derby.impl.sql.compile.TableElementList	0.36940529708386854
+Move Method	org.apache.derby.client.net.NetAgent::writeDeferredResetConnection():void	org.apache.derby.client.net.NetPackageReply	0.6517857142857144
+Move Method	org.apache.derby.impl.store.raw.log.LogToFile::printErrorStack(Throwable):void	org.apache.derby.iapi.error.StandardException	0.20326923076923084
+Move Method	org.apache.derby.impl.sql.execute.GenericConstantActionFactory::getDropTableConstantAction(String, String, SchemaDescriptor, long, UUID, int):ConstantAction	org.apache.derby.iapi.sql.dictionary.SchemaDescriptor	1.0
+Move Method	org.apache.derby.impl.sql.catalog.DataDictionaryImpl::makeColumnDescriptor(SystemColumn, int, TableDescriptor):ColumnDescriptor	org.apache.derby.iapi.sql.dictionary.TableDescriptor	0.8455297598154742
+Move Method	org.apache.derby.impl.sql.compile.FromTable::flatten(ResultColumnList, PredicateList, SubqueryList, GroupByList, ValueNode):FromList	org.apache.derby.impl.sql.compile.GroupByList	0.5604617604617604
+Move Method	org.apache.derby.impl.sql.compile.PredicateList::generateSingleQualifierCode(MethodBuilder, Optimizable, boolean, ExpressionClassBuilder, RelationalOperator, LocalField, int, int):void	org.apache.derby.impl.sql.compile.ExpressionClassBuilder	0.6021445695226182
+Move Method	org.apache.derby.impl.sql.catalog.SPSNameCacheable::checkConsistency(SPSDescriptor, Object, HeaderPrintWriter):boolean	org.apache.derby.iapi.sql.dictionary.SPSDescriptor	0.893015873015873
+Move Method	org.apache.derby.impl.sql.compile.DMLModStatementNode::setTarget(QueryTreeNode):void	org.apache.derby.impl.sql.compile.QueryTreeNode	0.7801078141268014
+Move Method	org.apache.derby.impl.sql.catalog.SequenceUpdater::tooMuchContentionException():StandardException	org.apache.derby.impl.sql.catalog.SequenceGenerator	0.7857142857142858
+Move Method	org.apache.derby.impl.sql.compile.InListOperatorNode::generateListAsArray(ExpressionClassBuilder, MethodBuilder):LocalField	org.apache.derby.impl.sql.compile.ExpressionClassBuilder	0.4633975780317242
+Move Method	org.apache.derby.impl.store.raw.data.StoredPage::setRecordOffset(int, int):void	org.apache.derby.iapi.services.io.ArrayOutputStream	1.0
+Move Method	org.apache.derby.iapi.types.DataTypeDescriptor::isUserCreatableType():boolean	org.apache.derby.iapi.types.TypeId	0.9727514721303538
+Move Method	org.apache.derby.impl.sql.compile.SetOperatorNode::setParamColumnTypes(DataTypeDescriptor[], RowResultSetNode):void	org.apache.derby.impl.sql.compile.ValueNode	0.7163196315473872
+Move Method	org.apache.derby.impl.sql.compile.FromVTI::canBePushedDown(Predicate):boolean	org.apache.derby.impl.sql.compile.Predicate	0.8537151373216945
+Move Method	org.apache.derby.client.am.Connection::prepareCallX(String, int, int, int):CallableStatement	org.apache.derby.client.am.CallableLocatorProcedures	1.0
+Move Method	org.apache.derby.impl.sql.compile.PredicateList::generateSetColumn(ExpressionClassBuilder, MethodBuilder, int, Predicate, Optimizable, LocalField, boolean):void	org.apache.derby.impl.sql.compile.Predicate	0.6407962018297664
+Move Method	org.apache.derby.impl.sql.compile.FromBaseTable::getStoreCostController(ConglomerateDescriptor):StoreCostController	org.apache.derby.iapi.sql.dictionary.ConglomerateDescriptor	0.629716383894657
+Move Method	org.apache.derby.impl.sql.compile.FromBaseTable::generateRefActionDependentTableScan(ExpressionClassBuilder, MethodBuilder):void	org.apache.derby.impl.sql.compile.ExpressionClassBuilder	0.8070234869015355
+Move Method	org.apache.derbyDemo.scores.data.Data::takeTest(Database, Student, Test, double):void	org.apache.derbyDemo.scores.data.Database	1.0
+Move Method	org.apache.derbyDemo.scores.data.Data::takeTestingMinion(Database, Student, Test, double):TestTaking	org.apache.derbyDemo.scores.data.Database	0.8370667793744716
+Move Method	org.apache.derby.client.net.NetAgent::throwCommunicationsFailure(Throwable):void	org.apache.derby.client.net.NetConnectionReply	0.3376854917735419
+Move Method	org.apache.derby.impl.sql.compile.StatementNode::lockTableForCompilation(TableDescriptor):TableDescriptor	org.apache.derby.iapi.sql.dictionary.TableDescriptor	0.3845665033165032
+Move Method	org.apache.derby.impl.store.raw.log.LogToFile::flushBuffer(long, long):void	org.apache.derby.impl.store.raw.log.LogAccessFile	0.6056935817805382
+Move Method	org.apache.derby.impl.sql.execute.SetConstraintsConstantAction::getRowLocation(DataDictionary, TableDescriptor, TransactionController):RowLocation	org.apache.derby.iapi.sql.dictionary.TableDescriptor	0.6832902494192813
+Move Method	org.apache.derby.iapi.services.classfile.MemberTable::put(ClassFormatOutput):void	org.apache.derby.iapi.services.classfile.ClassFormatOutput	0.7701243679103458
+Move Method	org.apache.derby.impl.sql.execute.GenericExecutionFactory::getTriggerExecutionContext(LanguageConnectionContext, ConnectionContext, String, int, int[], String[], UUID, String, Vector):InternalTriggerExecutionContext	org.apache.derby.impl.sql.execute.GenericConstantActionFactory	0.21780549780549774
+Move Method	org.apache.derby.impl.sql.compile.LikeEscapeOperatorNode::bindComparisonOperator():void	org.apache.derby.impl.sql.compile.ValueNode	0.5260501025807147
+Move Method	org.apache.derby.impl.store.access.conglomerate.GenericScanController::positionAtNextPage(RowPosition):void	org.apache.derby.impl.store.access.conglomerate.RowPosition	0.7224080267558528
+Move Method	org.apache.derbyTesting.functionTests.tests.replicationTests.ReplicationRun_Local_Encrypted_1::_connectToSlave(String, int, String):SQLException	org.apache.derbyTesting.functionTests.tests.replicationTests.Utils	0.13403880070546736
+Move Method	org.apache.derbyTesting.functionTests.tests.jdbcapi.BlobClob4BlobTest::insertLoopingAlphabetStreamData(PreparedStatement, CharAlphabet, int):void	org.apache.derbyTesting.functionTests.util.streams.CharAlphabet	0.7924528301886793
+Move Method	org.apache.derby.impl.sql.compile.DMLModStatementNode::generateGenerationClauses(ResultColumnList, int, boolean, ExpressionClassBuilder):MethodBuilder	org.apache.derby.impl.sql.compile.ExpressionClassBuilder	0.8489511843170378
+Move Method	org.apache.derby.impl.store.access.btree.OpenBTree::lockScanRow(B2IRowLocking1, BTree, BTreeRowPosition, FetchDescriptor, DataValueDescriptor[], RowLocation, boolean, boolean, int):boolean	org.apache.derby.impl.store.access.btree.BTreeRowPosition	0.3357627447179685
+Move Method	org.apache.derby.iapi.services.classfile.ClassInvestigator::processCodeAttribute(ClassMember, AttributeEntry):void	org.apache.derby.iapi.services.classfile.ClassMember	0.907608839486569
+Move Method	org.apache.derby.impl.store.raw.data.StreamFileContainer::writeColumn(Object):void	org.apache.derby.impl.store.raw.data.DecryptInputStream	0.8035714285714284
+Move Method	org.apache.derby.impl.sql.conn.GenericLanguageConnectionContext::resetSavepoints():void	org.apache.derby.iapi.error.StandardException	0.5485992402659067
+Move Method	org.apache.derby.impl.sql.compile.TableElementList::verifyUniqueColumnList(DDLStatementNode, ConstraintDefinitionNode):void	org.apache.derby.impl.sql.compile.DDLStatementNode	0.6886762360446572
+Move Method	org.apache.derby.impl.sql.compile.UpdateNode::forbidGenerationOverrides(ResultColumnList, ColumnDescriptorList):void	org.apache.derby.impl.sql.compile.ResultSetNode	0.8001960522277861
+Move Method	org.apache.derby.client.net.NetConnectionReply::readAccessDatabase(Connection):void	org.apache.derby.client.am.Agent	0.6288854003139718
+Move Method	org.apache.derby.client.net.NetStatementReply::descriptorErrorDetected():void	org.apache.derby.client.am.Agent	0.7025127394131084
+Move Method	org.apache.derby.impl.sql.compile.TableElementList::getColumnDataTypeDescriptor(String, TableDescriptor):DataTypeDescriptor	org.apache.derby.iapi.sql.dictionary.TableDescriptor	0.7680687180687179
+Move Method	org.apache.derby.impl.sql.compile.SQLParser::valueSpecification():ValueNode	org.apache.derby.iapi.sql.compile.NodeFactory	0.8495049504950491
+Move Method	org.apache.derby.impl.sql.compile.JavaValueNode::checkReliability(ValueNode):void	org.apache.derby.impl.sql.compile.ValueNode	0.5508343067866877
+Move Method	org.apache.derby.impl.sql.execute.CreateConstraintConstantAction::genColumnPositions(TableDescriptor, boolean):int[]	org.apache.derby.iapi.sql.dictionary.TableDescriptor	0.5096681813279827
+Move Method	org.apache.derby.impl.sql.compile.JoinNode::buildRCL():void	org.apache.derby.impl.sql.compile.ResultSetNode	0.8208720130453182
+Move Method	org.apache.derbyDemo.scores.data.Data.KeyedObject::create(Database):void	org.apache.derbyDemo.scores.data.Database	1.0
+Move Method	org.apache.derby.impl.sql.compile.SQLParser::getCreateAliasNode(Object, Object, Object, char, Boolean):StatementNode	org.apache.derby.iapi.sql.compile.NodeFactory	0.8055555555555558
+Move Method	org.apache.derby.impl.sql.compile.InListOperatorNode::generateStartStopKey(boolean, boolean, ExpressionClassBuilder, MethodBuilder):void	org.apache.derby.impl.sql.compile.ExpressionClassBuilder	0.6922203060414439
+Move Method	org.apache.derby.impl.sql.conn.GenericLanguageConnectionContext::lookupStatement(GenericStatement):PreparedStatement	org.apache.derby.impl.sql.GenericStatement	0.7986056953798889
+Move Method	org.apache.derby.client.net.Request::writeScalarStream(boolean, boolean, int, long, java.io.InputStream, boolean, int):void	org.apache.derby.client.net.NetAgent	0.8257239057239057
+Move Method	org.apache.derbyDemo.scores.data.Data::takeTest(Database, Test, int):int	org.apache.derbyDemo.scores.data.Database	1.0
+Move Method	org.apache.derby.impl.sql.compile.JoinNode::getAllResultColumnsNoUsing(TableName):ResultColumnList	org.apache.derby.impl.sql.compile.ResultSetNode	0.8401212357296864
+Move Method	org.apache.derby.impl.store.access.conglomerate.OpenConglomerate::latchPage(RowPosition):boolean	org.apache.derby.impl.store.access.conglomerate.RowPosition	0.6740370898716118
+Move Method	org.apache.derby.client.net.NetAgent::readDeferredResetConnection():void	org.apache.derby.client.net.NetPackageReply	0.7559523809523808
+Move Method	org.apache.derby.impl.sql.compile.SQLParser::getTrimOperatorNode(Integer, ValueNode, ValueNode, ContextManager):ValueNode	org.apache.derby.iapi.sql.compile.NodeFactory	1.0
+Move Method	org.apache.derby.impl.store.access.RAMAccessManager::addPropertySetNotification(PropertySetCallback, TransactionController):void	org.apache.derby.impl.store.access.PropertyConglomerate	1.0
+Move Method	org.apache.derby.client.ClientXAConnection::getDataSource():ClientXADataSource	org.apache.derby.client.am.LogWriter	0.9312340782851922
+Move Method	org.apache.derby.impl.sql.compile.SQLParser::whenThenExpression():ValueNode	org.apache.derby.iapi.sql.compile.NodeFactory	0.8495049504950491
+Move Method	org.apache.derby.impl.sql.compile.ResultColumnList::genCreateRow(ExpressionClassBuilder, LocalField, String, String, int):void	org.apache.derby.impl.sql.compile.ExpressionClassBuilder	0.5492039295392954
+Move Method	org.apache.derby.impl.store.raw.data.BasePage::copyInto(BasePage, int, int, int):void	org.apache.derby.impl.store.raw.data.BaseContainerHandle	0.6165519490991188
+Move Method	org.apache.derby.impl.sql.execute.VTIResultSet::castLongvarchar(DataTypeDescriptor, DataValueDescriptor):void	org.apache.derby.iapi.types.DataTypeDescriptor	0.5874039938556066
+Move Method	org.apache.derby.impl.sql.compile.SelectNode::addInlinedWindowDefinition(WindowList, WindowFunctionNode):WindowList	org.apache.derby.impl.sql.compile.WindowFunctionNode	0.8454545454545456
+Move Method	org.apache.derby.impl.store.raw.data.BaseContainer::getDeallocLock(BaseContainerHandle, RecordHandle, boolean, boolean):boolean	org.apache.derby.impl.store.raw.data.BaseContainerHandle	1.0
+Move Method	org.apache.derby.impl.jdbc.EmbedBlob::checkMatch(Blob, long):boolean	org.apache.derby.impl.jdbc.PositionedStoreStream	0.6375909529236434
+Move Method	org.apache.derby.impl.sql.compile.SQLParser::tableAction(TablePrivilegesNode):void	org.apache.derby.impl.sql.compile.TablePrivilegesNode	1.0
+Move Method	org.apache.derbyTesting.unitTests.junit.SystemPrivilegesPermissionTest::execute(SystemPrincipal, PrivilegedAction, boolean):void	org.apache.derby.authentication.SystemPrincipal	0.7666666666666667
+Move Method	org.apache.derby.impl.sql.compile.ResultColumn::checkStorableExpression(ValueNode):void	org.apache.derby.impl.sql.compile.ValueNode	0.5977317029948608
+Move Method	org.apache.derby.impl.store.access.conglomerate.OpenConglomerate::latchPageAndRepositionScan(RowPosition):boolean	org.apache.derby.impl.store.access.conglomerate.RowPosition	0.6740370898716118
+Move Method	org.apache.derby.impl.sql.catalog.DataDictionaryImpl::getUncachedSPSDescriptor(TableKey):SPSDescriptor	org.apache.derby.impl.sql.catalog.TableKey	1.0
+Move Method	org.apache.derby.impl.sql.compile.SQLParser::getJavaClassDataTypeDescriptor(TableName):DataTypeDescriptor	org.apache.derby.impl.sql.compile.TableName	0.7832229881919324
+Move Method	org.apache.derby.client.net.NetConnectionReply::readDummyExchangeServerAttributes(Connection):void	org.apache.derby.client.am.Agent	0.6288854003139718
+Move Method	org.apache.derby.impl.sql.compile.FromBaseTable::getExposedTableName():TableName	org.apache.derby.impl.sql.compile.TableName	1.0
+Move Method	org.apache.derbyTesting.functionTests.tests.replicationTests.ReplicationRun_Full::testReplication():void	org.apache.derbyTesting.functionTests.tests.replicationTests.Utils	0.2724387413639739
+Move Method	org.apache.derby.impl.sql.compile.CursorNode::getSessionSchemaTableNamesForCursor():ArrayList	org.apache.derby.impl.sql.compile.ResultSetNode	0.8603479138793062
+Move Method	org.apache.derby.impl.sql.compile.DeleteNode::correlateAddedColumns(ResultColumnList, FromTable):void	org.apache.derby.impl.sql.compile.ResultColumnList	0.8269261861737158
+Move Method	org.apache.derbyDemo.scores.data.Data.KeyedObject::getPrimaryKey(Database):int	org.apache.derbyDemo.scores.data.Database	1.0
+Move Method	org.apache.derby.impl.sql.compile.StatementNode::generate(ByteArray):GeneratedClass	org.apache.derby.iapi.util.ByteArray	0.2368986983588002
+Move Method	org.apache.derby.impl.sql.compile.SQLParser::newJoinNode(ResultSetNode, ResultSetNode, ValueNode, ResultColumnList, int):JoinNode	org.apache.derby.impl.sql.compile.ResultSetNode	0.8322239514903889
+Move Method	org.apache.derby.impl.sql.compile.ResultColumnList::createListFromResultSetMetaData(ResultSetMetaData, TableName, String):void	org.apache.derby.impl.sql.compile.TableName	0.4477495797970575
+Move Method	org.apache.derby.impl.store.raw.log.LogToFile::findCheckpoint(long, FileLogger):CheckpointOperation	org.apache.derby.impl.store.raw.log.FileLogger	1.0
+Move Method	org.apache.derby.impl.sql.compile.PredicateList::generateIndexableRow(ExpressionClassBuilder, int):LocalField	org.apache.derby.impl.sql.compile.ExpressionClassBuilder	0.4507317073170732
+Move Method	org.apache.derby.diag.LockTable::dumpLock(Latch):Hashtable	org.apache.derby.impl.services.locks.TableNameInfo	0.7590909090909093
+Move Method	org.apache.derby.impl.sql.compile.MethodCallNode::getCorrelationTables(JBitSet):void	org.apache.derby.iapi.util.JBitSet	0.9122807017543861
+Move Method	org.apache.derby.impl.sql.compile.ResultSetNode::setTableConstructorTypes(ResultColumnList):void	org.apache.derby.impl.sql.compile.ResultColumnList	0.8518181663686352
+Move Method	org.apache.derby.impl.sql.compile.ExpressionClassBuilder::getTypeCompiler(TypeId):TypeCompiler	org.apache.derby.iapi.types.TypeId	0.44338023088023093
+Move Method	org.apache.derby.impl.sql.compile.DMLModStatementNode::fkSetupArrays(DataDictionary, ForeignKeyConstraintDescriptor, int, UUID[], long[], String[], boolean[], int[]):void	org.apache.derby.iapi.sql.dictionary.ForeignKeyConstraintDescriptor	0.7112367301969748
+Move Method	org.apache.derby.impl.sql.compile.SQLParser::multOp(ValueNode, ValueNode, int):ValueNode	org.apache.derby.iapi.sql.compile.NodeFactory	0.7610371224832214
+Move Method	org.apache.derby.impl.sql.catalog.TabInfoImpl::getIndexRowFromHeapRow(IndexRowGenerator, RowLocation, ExecRow):ExecIndexRow	org.apache.derby.iapi.sql.dictionary.IndexRowGenerator	0.3619331065759637
+Move Method	org.apache.derby.impl.sql.compile.DMLModStatementNode::generateCodeForTemporaryTable(ActivationClassBuilder, MethodBuilder):void	org.apache.derby.impl.sql.compile.ActivationClassBuilder	1.0
+Move Method	org.apache.derby.impl.jdbc.EmbedBlob::read(long):int	org.apache.derby.impl.jdbc.PositionedStoreStream	1.0
+Move Method	org.apache.derby.impl.sql.compile.SetSchemaNode::generateParameterValueSet(ActivationClassBuilder):void	org.apache.derby.impl.sql.compile.ActivationClassBuilder	0.5343531468531469
+Move Method	org.apache.derbyTesting.junit.TestConfiguration::defaultSecurityManagerSetup():boolean	org.apache.derbyTesting.junit.JDBCClient	1.0
+Move Method	org.apache.derby.impl.sql.execute.VTIResultSet::castLongvarbinary(DataTypeDescriptor, DataValueDescriptor):void	org.apache.derby.iapi.types.DataTypeDescriptor	0.5721081785597911
+Move Method	org.apache.derby.impl.tools.ij.ij::executeImmediate(String):ijResult	org.apache.derby.impl.tools.ij.ConnectionEnv	0.7989624669312172
+Move Method	org.apache.derby.impl.tools.ij.ij::showEnabledRoles():ijResult	org.apache.derby.impl.tools.ij.ConnectionEnv	0.5570658508158508
+Move Method	org.apache.derbyTesting.unitTests.harness.BasicUnitTestManager::runATest(UnitTest):boolean	org.apache.derby.iapi.services.context.ContextService	0.829066187494993
+Move Method	org.apache.derby.impl.tools.ij.mtTestCase::runMe(LocalizedOutput, LocalizedOutput, BufferedInputStream):void	org.apache.derby.iapi.tools.i18n.LocalizedOutput	0.6720430107526881
+Move Method	org.apache.derby.impl.services.cache.ClockPolicy::rotateClock(CacheEntry, boolean):Holder	org.apache.derby.impl.services.cache.ConcurrentCache	1.0
+Move Method	org.apache.derby.client.am.Sqlca::chainDeferredExceptionsToAgentOrAsConnectionWarnings(SqlException):void	org.apache.derby.client.am.Connection	0.6491199772449773
+Move Method	org.apache.derby.impl.sql.compile.QueryTreeNode::generate(ActivationClassBuilder, MethodBuilder):void	org.apache.derby.impl.sql.compile.ActivationClassBuilder	0.5434065934065934
+Move Method	org.apache.derby.impl.drda.DRDAConnThread::markCommunicationsFailure(Exception, String, String, String, String):void	org.apache.derby.impl.drda.Session	0.8847256549678695
+Move Method	org.apache.derby.impl.drda.NetworkServerControlImpl::getCLSSysInfo():String	org.apache.derby.impl.drda.Session	1.0
+Move Method	org.apache.derby.impl.store.raw.data.BaseContainer::use(BaseContainerHandle, boolean, boolean):boolean	org.apache.derby.impl.store.raw.data.BaseContainerHandle	1.0
+Move Method	org.apache.derby.impl.sql.execute.GenericConstantActionFactory::getDropTriggerConstantAction(SchemaDescriptor, String, UUID):ConstantAction	org.apache.derby.iapi.sql.dictionary.SchemaDescriptor	0.8912663755458514
+Move Method	org.apache.derby.impl.sql.compile.SubqueryNode::singleFromBaseTable(FromList):FromBaseTable	org.apache.derby.impl.sql.compile.FromList	1.0
+Move Method	org.apache.derby.impl.services.monitor.BaseMonitor::getDefaultModuleProperties():Properties	org.apache.derby.iapi.services.io.AccessibleByteArrayOutputStream	0.5011600928074246
+Move Method	org.apache.derbyTesting.junit.TestConfiguration::getFailureFolder(TestCase):File	org.apache.derbyTesting.junit.JDBCClient	0.6637934210041624
+Move Method	org.apache.derby.impl.sql.compile.PredicateList::xorReferencedSet(JBitSet):void	org.apache.derby.iapi.util.JBitSet	1.0
+Move Method	org.apache.derby.client.net.NetResultSet40::getObject(String, Class<T>):T	org.apache.derby.client.am.Agent	0.49164021164021166
+Move Method	org.apache.derby.impl.sql.compile.ResultSetNode::createGeneratedColumn(TableDescriptor, ColumnDescriptor):ResultColumn	org.apache.derby.impl.sql.compile.ResultColumnList	0.6839717741935478
+Move Method	org.apache.derby.impl.sql.compile.FromVTI::lookupClass(String):Class	org.apache.derby.impl.sql.compile.MethodCallNode	0.45188685067686546
+Move Method	org.apache.derby.impl.sql.compile.ResultSetNode::generateNormalizationResultSet(ActivationClassBuilder, MethodBuilder, int, ResultDescription):void	org.apache.derby.impl.sql.compile.ActivationClassBuilder	0.6464646464646465
+Move Method	org.apache.derbyDemo.scores.data.Data::makeTargetScore(Database, Student, Test, double):double	org.apache.derbyDemo.scores.data.Database	1.0
+Move Method	org.apache.derby.iapi.sql.dictionary.TriggerDescriptor::needsToFire(int, int[]):boolean	org.apache.derby.iapi.sql.dictionary.TableDescriptor	0.532407391322363
+Move Method	org.apache.derby.impl.sql.compile.SubqueryNode::generateMaterialization(ActivationClassBuilder, MethodBuilder, String):LocalField	org.apache.derby.impl.sql.compile.ActivationClassBuilder	0.5350961538461538
+Move Method	org.apache.derby.impl.sql.compile.TableElementList::appendNewColumnsToRCL(FromBaseTable):void	org.apache.derby.impl.sql.compile.FromBaseTable	0.648090602207208
+Move Method	org.apache.derby.impl.sql.compile.CreateViewNode::bindViewDefinition(DataDictionary, CompilerContext, LanguageConnectionContext, NodeFactory, ResultSetNode, ContextManager):ProviderInfo[]	org.apache.derby.iapi.sql.compile.NodeFactory	0.7734375
+Move Method	org.apache.derby.impl.store.access.btree.BTreePostCommit::doShrink(OpenBTree, DataValueDescriptor[]):void	org.apache.derby.impl.store.access.btree.OpenBTree	0.7113253012048191
+Move Method	org.apache.derby.impl.sql.execute.GenericConstantActionFactory::getDropConstraintConstantAction(String, String, String, UUID, String, IndexConstantAction, int, int):ConstraintConstantAction	org.apache.derby.impl.sql.execute.IndexConstantAction	0.4682080924855491

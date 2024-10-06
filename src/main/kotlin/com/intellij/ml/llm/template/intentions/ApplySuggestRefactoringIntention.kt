@@ -24,11 +24,11 @@ import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiClass
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
+import com.intellij.psi.impl.source.PsiJavaFileImpl
 import dev.langchain4j.data.message.ChatMessage
 import dev.langchain4j.model.chat.ChatLanguageModel
 import org.jetbrains.kotlin.util.capitalizeDecapitalize.toLowerCaseAsciiOnly
 import java.util.concurrent.TimeUnit
-
 
 @Suppress("UnstableApiUsage")
 abstract class ApplySuggestRefactoringIntention(
@@ -43,6 +43,8 @@ abstract class ApplySuggestRefactoringIntention(
     var llmResponseCache = mutableMapOf<String, LLMBaseResponse>()
     var apiResponseCache = mutableMapOf<String, MutableMap<String, LLMBaseResponse>>()
     val MAX_REFACTORINGS = 10
+    var finishedBackgroundTask: Boolean? = null
+    protected val llmContextLimit = 128000
 
     open var prompter: MethodPromptBase = SuggestRefactoringPrompt();
 
@@ -58,13 +60,22 @@ abstract class ApplySuggestRefactoringIntention(
     }
 
     override fun invoke(project: Project, editor: Editor?, file: PsiFile?) {
-        llmChatModel= RefAgentSettingsManager.getInstance().createAndGetAiModel()!!
+        invokePlugin(project, editor, file)
+    }
+
+    protected fun invokePlugin(
+        project: Project,
+        editor: Editor?,
+        file: PsiFile?
+    ) {
+        llmChatModel = RefAgentSettingsManager.getInstance().createAndGetAiModel()!!
 
         if (editor == null || file == null) return
         val selectionModel = editor.selectionModel
-        val namedElement =
-            PsiUtils.getParentFunctionOrNull(editor, file.language)
-                ?: PsiUtils.getParentClassOrNull(editor, file.language)
+        //        val namedElement =
+        //            PsiUtils.getParentFunctionOrNull(editor, file.language)
+        //                ?: PsiUtils.getParentClassOrNull(editor, file.language)
+        val namedElement = (file as PsiJavaFileImpl).classes[0]
         if (namedElement != null) {
 
             telemetryDataManager.newSession()
@@ -77,7 +88,7 @@ abstract class ApplySuggestRefactoringIntention(
             functionSrc = withLineNumbers
             functionPsiElement = namedElement
 
-            val bodyLineStart = when(namedElement){
+            val bodyLineStart = when (namedElement) {
                 is PsiClass -> PsiUtils.getClassBodyStartLine(namedElement)
                 else -> PsiUtils.getFunctionBodyStartLine(namedElement)
             }
@@ -86,7 +97,9 @@ abstract class ApplySuggestRefactoringIntention(
                     codeSnippet = codeSnippet,
                     lineStart = startLineNumber,
                     bodyLineStart = bodyLineStart,
-                    language = file.language.id.toLowerCaseAsciiOnly()
+                    language = file.language.id.toLowerCaseAsciiOnly(),
+                    filePath = file.virtualFile.path,
+                    hostClassPsi = functionPsiElement as? PsiClass
                 )
             )
 
@@ -94,30 +107,69 @@ abstract class ApplySuggestRefactoringIntention(
         }
     }
 
-//    abstract fun invokeLlm(text: String, project: Project, editor: Editor, file: PsiFile)
+    private fun isInputSizeWithinLimit(text: String): Boolean {
+        logger.warn("Input size is ${text.length / 4} characters.")
+        val inputTextSize = text.length / 4
+        return inputTextSize <= llmContextLimit
+    }
+
+    //    abstract fun invokeLlm(text: String, project: Project, editor: Editor, file: PsiFile)
 fun getPromptAndRunBackgroundable(text: String, project: Project, editor: Editor, file: PsiFile) {
         logger.info("Invoking LLM with text: $text")
-        val messageList = prompter.getPrompt(text)
-
+        val promptIterator = createPromptIterator(project, text)
+//        val promptText = prompter.getPrompt(text)
         val task = object : Task.Backgroundable(
             project, LLMBundle.message("intentions.request.extract.function.background.process.title")
         ) {
             override fun run(indicator: ProgressIndicator) {
-                invokeLLM(project, messageList, editor, file)
+                finishedBackgroundTask = false
+                invokeLLM(project, promptIterator, editor, file)
+            }
+
+            override fun onFinished() {
+                finishedBackgroundTask = true
+                super.onFinished()
             }
         }
+        finishedBackgroundTask = false
         ProgressManager.getInstance().runProcessWithProgressAsynchronously(task, BackgroundableProcessIndicator(task))
+    }
+
+    private fun createPromptIterator(
+        project: Project,
+        text: String,
+    ): Iterator<MutableList<ChatMessage>> {
+        val promptIterator: Iterator<MutableList<ChatMessage>>
+
+        if (!isInputSizeWithinLimit(text)) {
+            // Notify the user that the input exceeds the context limit
+            invokeLater{
+                showEFNotification(
+                    project,
+                    LLMBundle.message("notification.extract.function.with.llm.exceeds.context.limit.message"),
+                    NotificationType.WARNING
+                )
+            }
+            logger.warn("Input size exceeds the LLM context limit of $llmContextLimit characters.")
+        }
+
+        promptIterator = sequence {
+            while (true)
+                yield(prompter.getPrompt(text))
+        }.iterator()
+
+        return promptIterator
     }
 
     open fun invokeLLM(
         project: Project,
-        messageList: MutableList<ChatMessage>,
+        promptIterator: Iterator<MutableList<ChatMessage>>,
         editor: Editor,
         file: PsiFile
     ) {
         val now = System.nanoTime()
         val response = llmResponseCache.get(functionSrc) ?: sendChatRequest(
-            project, messageList, llmChatModel
+            project, promptIterator.next(), llmChatModel
         )
         if (response != null) {
             llmResponseCache.get(functionSrc) ?: llmResponseCache.put(functionSrc, response)

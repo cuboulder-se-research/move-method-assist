@@ -1,5 +1,6 @@
 package com.intellij.ml.llm.template.models.openai
 
+import ai.grazie.model.llm.profile.LLMProfileID
 import com.google.gson.annotations.SerializedName
 
 @Suppress("unused")
@@ -91,7 +92,7 @@ class OpenAiEditRequestBody(
  */
 class OpenAiChatRequestBody(
     @SerializedName("model")
-    val model: String,
+    val model: LLMProfileID,
 
     @SerializedName("messages")
     val messages: List<OpenAiChatMessage>,

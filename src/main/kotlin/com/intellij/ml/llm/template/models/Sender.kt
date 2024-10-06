@@ -3,6 +3,7 @@
 package com.intellij.ml.llm.template.models
 
 import ai.grazie.model.cloud.exceptions.HTTPStatusException
+import ai.grazie.model.llm.profile.LLMProfileID
 import com.intellij.ml.llm.template.LLMBundle
 import com.intellij.ml.llm.template.models.grazie.GrazieResponse
 import com.intellij.ml.llm.template.models.openai.AuthorizationException
@@ -129,13 +130,13 @@ fun sendChatRequest(
 
 fun sendChatRequest(
     messages: List<OpenAiChatMessage>,
-    model: String? = null,
+    model: LLMProfileID,
     llmRequestProvider: LLMRequestProvider = GPTRequestProvider,
     temperature: Double = 0.5
 ): LLMBaseResponse? {
     val request = llmRequestProvider.createChatGPTRequest(
         OpenAiChatRequestBody(
-            model = model ?: llmRequestProvider.chatModel,
+            model = model,
             messages = messages,
             temperature = temperature
         )

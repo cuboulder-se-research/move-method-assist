@@ -1,0 +1,750 @@
+[
+    {
+        "repository": "https://github.com/dbeaver/dbeaver.git",
+        "sha1": "c51a8ef253d2de8abc30060133b3ff87db06e2a9",
+        "url": "https://github.com/dbeaver/dbeaver/commit/c51a8ef253d2de8abc30060133b3ff87db06e2a9",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public getJumpServerSettingsPrefix(index int) : String from class org.jkiss.dbeaver.model.net.ssh.SSHImplementationAbstract to public getJumpServerSettingsPrefix(index int) : String from class org.jkiss.dbeaver.registry.DataSourceUtils",
+            "leftSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.net.ssh/src/org/jkiss/dbeaver/model/net/ssh/SSHImplementationAbstract.java",
+                    "startLine": 210,
+                    "endLine": 213,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public getJumpServerSettingsPrefix(index int) : String"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.registry/src/org/jkiss/dbeaver/registry/DataSourceUtils.java",
+                    "startLine": 417,
+                    "endLine": 420,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public getJumpServerSettingsPrefix(index int) : String"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/dbeaver/dbeaver.git",
+        "sha1": "c51a8ef253d2de8abc30060133b3ff87db06e2a9",
+        "url": "https://github.com/dbeaver/dbeaver/commit/c51a8ef253d2de8abc30060133b3ff87db06e2a9",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public getJumpServerSettingsPrefix(index int) : String from class org.jkiss.dbeaver.registry.DataSourceDescriptor to public getJumpServerSettingsPrefix(index int) : String from class org.jkiss.dbeaver.registry.DataSourceUtils",
+            "leftSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.registry/src/org/jkiss/dbeaver/registry/DataSourceDescriptor.java",
+                    "startLine": 2013,
+                    "endLine": 2015,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public getJumpServerSettingsPrefix(index int) : String"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.registry/src/org/jkiss/dbeaver/registry/DataSourceUtils.java",
+                    "startLine": 417,
+                    "endLine": 420,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public getJumpServerSettingsPrefix(index int) : String"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/dbeaver/dbeaver.git",
+        "sha1": "0e633b14fbc59e66c49a85a71154d32166303f4c",
+        "url": "https://github.com/dbeaver/dbeaver/commit/0e633b14fbc59e66c49a85a71154d32166303f4c",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public invalidateTransaction(monitor DBRProgressMonitor, dataSource DBPDataSource, executionContext DBCExecutionContext) : void from class org.jkiss.dbeaver.runtime.jobs.InvalidateJob to public invalidateTransaction(monitor DBRProgressMonitor, dataSource DBPDataSource, executionContext DBCExecutionContext) : void from class org.jkiss.dbeaver.runtime.jobs.InvalidateJob.ContextInvalidateResult",
+            "leftSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model/src/org/jkiss/dbeaver/runtime/jobs/InvalidateJob.java",
+                    "startLine": 215,
+                    "endLine": 228,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public invalidateTransaction(monitor DBRProgressMonitor, dataSource DBPDataSource, executionContext DBCExecutionContext) : void"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model/src/org/jkiss/dbeaver/runtime/jobs/InvalidateJob.java",
+                    "startLine": 302,
+                    "endLine": 315,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public invalidateTransaction(monitor DBRProgressMonitor, dataSource DBPDataSource, executionContext DBCExecutionContext) : void"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/dbeaver/dbeaver.git",
+        "sha1": "0e633b14fbc59e66c49a85a71154d32166303f4c",
+        "url": "https://github.com/dbeaver/dbeaver/commit/0e633b14fbc59e66c49a85a71154d32166303f4c",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public invalidateTransaction(monitor DBRProgressMonitor, context DBCExecutionContext) : void from class org.jkiss.dbeaver.runtime.jobs.InvalidateJob to public invalidateTransaction(monitor DBRProgressMonitor, context DBCExecutionContext) : void from class org.jkiss.dbeaver.runtime.jobs.InvalidateJob.ContextInvalidateResult",
+            "leftSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model/src/org/jkiss/dbeaver/runtime/jobs/InvalidateJob.java",
+                    "startLine": 230,
+                    "endLine": 246,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public invalidateTransaction(monitor DBRProgressMonitor, context DBCExecutionContext) : void"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model/src/org/jkiss/dbeaver/runtime/jobs/InvalidateJob.java",
+                    "startLine": 317,
+                    "endLine": 333,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public invalidateTransaction(monitor DBRProgressMonitor, context DBCExecutionContext) : void"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/dbeaver/dbeaver.git",
+        "sha1": "e00b312cf6ba8653c45cb5c36757b0975e71450c",
+        "url": "https://github.com/dbeaver/dbeaver/commit/e00b312cf6ba8653c45cb5c36757b0975e71450c",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public getTargetTunnelHostName(cfg DBPConnectionConfiguration) : String from class org.jkiss.dbeaver.registry.DataSourceUtils to public getTargetTunnelHostName(cfg DBPConnectionConfiguration) : String from class org.jkiss.dbeaver.model.net.DBWUtils",
+            "leftSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.registry/src/org/jkiss/dbeaver/registry/DataSourceUtils.java",
+                    "startLine": 394,
+                    "endLine": 410,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public getTargetTunnelHostName(cfg DBPConnectionConfiguration) : String"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model/src/org/jkiss/dbeaver/model/net/DBWUtils.java",
+                    "startLine": 48,
+                    "endLine": 64,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public getTargetTunnelHostName(cfg DBPConnectionConfiguration) : String"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/dbeaver/dbeaver.git",
+        "sha1": "c67fea71d8117221bbbf82610e0b4a1278896e40",
+        "url": "https://github.com/dbeaver/dbeaver/commit/c67fea71d8117221bbbf82610e0b4a1278896e40",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method private isExecutionInProgress(dataSource DBPDataSource) : boolean from class org.jkiss.dbeaver.runtime.jobs.DataSourceMonitorJob to public isExecutionInProgress(dataSource DBPDataSource) : boolean from class org.jkiss.dbeaver.model.exec.DBExecUtils",
+            "leftSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model/src/org/jkiss/dbeaver/runtime/jobs/DataSourceMonitorJob.java",
+                    "startLine": 251,
+                    "endLine": 265,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "private isExecutionInProgress(dataSource DBPDataSource) : boolean"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model/src/org/jkiss/dbeaver/model/exec/DBExecUtils.java",
+                    "startLine": 1004,
+                    "endLine": 1021,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public isExecutionInProgress(dataSource DBPDataSource) : boolean"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/dbeaver/dbeaver.git",
+        "sha1": "c4ef7b166ae7e7262c38d4e11f74d1bc341f676d",
+        "url": "https://github.com/dbeaver/dbeaver/commit/c4ef7b166ae7e7262c38d4e11f74d1bc341f676d",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method private loadHostConfiguration(configuration DBWHandlerConfiguration, prefix String) : SSHHostConfiguration from class org.jkiss.dbeaver.model.net.ssh.SSHTunnelImpl to private loadHostConfiguration(configuration DBWHandlerConfiguration, prefix String, forceSavePassword boolean, validate boolean) : SSHHostConfiguration from class org.jkiss.dbeaver.model.net.ssh.SSHUtils",
+            "leftSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.net.ssh/src/org/jkiss/dbeaver/model/net/ssh/SSHTunnelImpl.java",
+                    "startLine": 282,
+                    "endLine": 340,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "private loadHostConfiguration(configuration DBWHandlerConfiguration, prefix String) : SSHHostConfiguration"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.net.ssh/src/org/jkiss/dbeaver/model/net/ssh/SSHUtils.java",
+                    "startLine": 231,
+                    "endLine": 295,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "private loadHostConfiguration(configuration DBWHandlerConfiguration, prefix String, forceSavePassword boolean, validate boolean) : SSHHostConfiguration"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/dbeaver/dbeaver.git",
+        "sha1": "11ba002119e6b06168dc0beea38bb9c0f66f1a7f",
+        "url": "https://github.com/dbeaver/dbeaver/commit/11ba002119e6b06168dc0beea38bb9c0f66f1a7f",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method private addLeafBindings(result List<DBDAttributeBinding>, binding DBDAttributeBinding) : void from class org.jkiss.dbeaver.model.DBUtils to private addLeafBindings(result List<DBDAttributeBinding>, binding DBDAttributeBinding) : void from class org.jkiss.dbeaver.tools.transfer.DTUtils",
+            "leftSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model/src/org/jkiss/dbeaver/model/DBUtils.java",
+                    "startLine": 787,
+                    "endLine": 796,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "private addLeafBindings(result List<DBDAttributeBinding>, binding DBDAttributeBinding) : void"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.data.transfer/src/org/jkiss/dbeaver/tools/transfer/DTUtils.java",
+                    "startLine": 372,
+                    "endLine": 381,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "private addLeafBindings(result List<DBDAttributeBinding>, binding DBDAttributeBinding) : void"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/dbeaver/dbeaver.git",
+        "sha1": "9b79a0ff8934416d7fb5cab64034998037497a3f",
+        "url": "https://github.com/dbeaver/dbeaver/commit/9b79a0ff8934416d7fb5cab64034998037497a3f",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public invalidateDataSource(monitor DBRProgressMonitor, dataSource DBPDataSource, disconnectOnFailure boolean, showErrors boolean, feedbackHandler InvalidationFeedbackHandler) : List<ContextInvalidateResult> from class org.jkiss.dbeaver.runtime.jobs.InvalidateJob.ContextInvalidateResult to public invalidateDataSource(monitor DBRProgressMonitor, dataSource DBPDataSource, disconnectOnFailure boolean, showErrors boolean, feedbackHandler InvalidationFeedbackHandler) : List<ContextInvalidateResult> from class org.jkiss.dbeaver.runtime.jobs.InvalidateJob",
+            "leftSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model/src/org/jkiss/dbeaver/runtime/jobs/InvalidateJob.java",
+                    "startLine": 92,
+                    "endLine": 138,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public invalidateDataSource(monitor DBRProgressMonitor, dataSource DBPDataSource, disconnectOnFailure boolean, showErrors boolean, feedbackHandler InvalidationFeedbackHandler) : List<ContextInvalidateResult>"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model/src/org/jkiss/dbeaver/runtime/jobs/InvalidateJob.java",
+                    "startLine": 124,
+                    "endLine": 170,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public invalidateDataSource(monitor DBRProgressMonitor, dataSource DBPDataSource, disconnectOnFailure boolean, showErrors boolean, feedbackHandler InvalidationFeedbackHandler) : List<ContextInvalidateResult>"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/dbeaver/dbeaver.git",
+        "sha1": "9b79a0ff8934416d7fb5cab64034998037497a3f",
+        "url": "https://github.com/dbeaver/dbeaver/commit/9b79a0ff8934416d7fb5cab64034998037497a3f",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method private invalidateDataSources0(monitor DBRProgressMonitor, containers Set<DBPDataSourceContainer>, disconnectOnFailure boolean, showErrors boolean, feedbackHandler InvalidationFeedbackHandler) : List<ContextInvalidateResult> from class org.jkiss.dbeaver.runtime.jobs.InvalidateJob.ContextInvalidateResult to private invalidateDataSources0(monitor DBRProgressMonitor, containers Set<DBPDataSourceContainer>, disconnectOnFailure boolean, showErrors boolean, feedbackHandler InvalidationFeedbackHandler) : List<ContextInvalidateResult> from class org.jkiss.dbeaver.runtime.jobs.InvalidateJob",
+            "leftSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model/src/org/jkiss/dbeaver/runtime/jobs/InvalidateJob.java",
+                    "startLine": 140,
+                    "endLine": 223,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "private invalidateDataSources0(monitor DBRProgressMonitor, containers Set<DBPDataSourceContainer>, disconnectOnFailure boolean, showErrors boolean, feedbackHandler InvalidationFeedbackHandler) : List<ContextInvalidateResult>"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model/src/org/jkiss/dbeaver/runtime/jobs/InvalidateJob.java",
+                    "startLine": 172,
+                    "endLine": 260,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "private invalidateDataSources0(monitor DBRProgressMonitor, containers Set<DBPDataSourceContainer>, disconnectOnFailure boolean, showErrors boolean, feedbackHandler InvalidationFeedbackHandler) : List<ContextInvalidateResult>"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/dbeaver/dbeaver.git",
+        "sha1": "9b79a0ff8934416d7fb5cab64034998037497a3f",
+        "url": "https://github.com/dbeaver/dbeaver/commit/9b79a0ff8934416d7fb5cab64034998037497a3f",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method private collectDependentDataSources(dataSource DBPDataSource, result Set<DBPDataSourceContainer>) : void from class org.jkiss.dbeaver.runtime.jobs.InvalidateJob.ContextInvalidateResult to private collectDependentDataSources(dataSource DBPDataSource, result Set<DBPDataSourceContainer>) : void from class org.jkiss.dbeaver.runtime.jobs.InvalidateJob",
+            "leftSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model/src/org/jkiss/dbeaver/runtime/jobs/InvalidateJob.java",
+                    "startLine": 225,
+                    "endLine": 244,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "private collectDependentDataSources(dataSource DBPDataSource, result Set<DBPDataSourceContainer>) : void"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model/src/org/jkiss/dbeaver/runtime/jobs/InvalidateJob.java",
+                    "startLine": 262,
+                    "endLine": 281,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "private collectDependentDataSources(dataSource DBPDataSource, result Set<DBPDataSourceContainer>) : void"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/dbeaver/dbeaver.git",
+        "sha1": "9b79a0ff8934416d7fb5cab64034998037497a3f",
+        "url": "https://github.com/dbeaver/dbeaver/commit/9b79a0ff8934416d7fb5cab64034998037497a3f",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method private invalidateNetworkHandlers(monitor DBRProgressMonitor, dataSource DBPDataSource, phase DBCInvalidatePhase) : Collection<ContextInvalidateResult> from class org.jkiss.dbeaver.runtime.jobs.InvalidateJob.ContextInvalidateResult to private invalidateNetworkHandlers(monitor DBRProgressMonitor, dataSource DBPDataSource, phase DBCInvalidatePhase) : Collection<ContextInvalidateResult> from class org.jkiss.dbeaver.runtime.jobs.InvalidateJob",
+            "leftSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model/src/org/jkiss/dbeaver/runtime/jobs/InvalidateJob.java",
+                    "startLine": 246,
+                    "endLine": 269,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "private invalidateNetworkHandlers(monitor DBRProgressMonitor, dataSource DBPDataSource, phase DBCInvalidatePhase) : Collection<ContextInvalidateResult>"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model/src/org/jkiss/dbeaver/runtime/jobs/InvalidateJob.java",
+                    "startLine": 283,
+                    "endLine": 306,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "private invalidateNetworkHandlers(monitor DBRProgressMonitor, dataSource DBPDataSource, phase DBCInvalidatePhase) : Collection<ContextInvalidateResult>"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/dbeaver/dbeaver.git",
+        "sha1": "9b79a0ff8934416d7fb5cab64034998037497a3f",
+        "url": "https://github.com/dbeaver/dbeaver/commit/9b79a0ff8934416d7fb5cab64034998037497a3f",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method private invalidateInstances(monitor DBRProgressMonitor, dataSource DBPDataSource, phase DBCInvalidatePhase) : Collection<ContextInvalidateResult> from class org.jkiss.dbeaver.runtime.jobs.InvalidateJob.ContextInvalidateResult to private invalidateInstances(monitor DBRProgressMonitor, dataSource DBPDataSource, phase DBCInvalidatePhase) : Collection<ContextInvalidateResult> from class org.jkiss.dbeaver.runtime.jobs.InvalidateJob",
+            "leftSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model/src/org/jkiss/dbeaver/runtime/jobs/InvalidateJob.java",
+                    "startLine": 271,
+                    "endLine": 300,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "private invalidateInstances(monitor DBRProgressMonitor, dataSource DBPDataSource, phase DBCInvalidatePhase) : Collection<ContextInvalidateResult>"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model/src/org/jkiss/dbeaver/runtime/jobs/InvalidateJob.java",
+                    "startLine": 308,
+                    "endLine": 337,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "private invalidateInstances(monitor DBRProgressMonitor, dataSource DBPDataSource, phase DBCInvalidatePhase) : Collection<ContextInvalidateResult>"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/dbeaver/dbeaver.git",
+        "sha1": "9b79a0ff8934416d7fb5cab64034998037497a3f",
+        "url": "https://github.com/dbeaver/dbeaver/commit/9b79a0ff8934416d7fb5cab64034998037497a3f",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public invalidateTransaction(monitor DBRProgressMonitor, dataSource DBPDataSource, executionContext DBCExecutionContext) : void from class org.jkiss.dbeaver.runtime.jobs.InvalidateJob.ContextInvalidateResult to public invalidateTransaction(monitor DBRProgressMonitor, dataSource DBPDataSource, executionContext DBCExecutionContext) : void from class org.jkiss.dbeaver.runtime.jobs.InvalidateJob",
+            "leftSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model/src/org/jkiss/dbeaver/runtime/jobs/InvalidateJob.java",
+                    "startLine": 302,
+                    "endLine": 315,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public invalidateTransaction(monitor DBRProgressMonitor, dataSource DBPDataSource, executionContext DBCExecutionContext) : void"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model/src/org/jkiss/dbeaver/runtime/jobs/InvalidateJob.java",
+                    "startLine": 339,
+                    "endLine": 352,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public invalidateTransaction(monitor DBRProgressMonitor, dataSource DBPDataSource, executionContext DBCExecutionContext) : void"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/dbeaver/dbeaver.git",
+        "sha1": "9b79a0ff8934416d7fb5cab64034998037497a3f",
+        "url": "https://github.com/dbeaver/dbeaver/commit/9b79a0ff8934416d7fb5cab64034998037497a3f",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public invalidateTransaction(monitor DBRProgressMonitor, context DBCExecutionContext) : void from class org.jkiss.dbeaver.runtime.jobs.InvalidateJob.ContextInvalidateResult to public invalidateTransaction(monitor DBRProgressMonitor, context DBCExecutionContext) : void from class org.jkiss.dbeaver.runtime.jobs.InvalidateJob",
+            "leftSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model/src/org/jkiss/dbeaver/runtime/jobs/InvalidateJob.java",
+                    "startLine": 317,
+                    "endLine": 333,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public invalidateTransaction(monitor DBRProgressMonitor, context DBCExecutionContext) : void"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model/src/org/jkiss/dbeaver/runtime/jobs/InvalidateJob.java",
+                    "startLine": 354,
+                    "endLine": 370,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public invalidateTransaction(monitor DBRProgressMonitor, context DBCExecutionContext) : void"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/dbeaver/dbeaver.git",
+        "sha1": "9b79a0ff8934416d7fb5cab64034998037497a3f",
+        "url": "https://github.com/dbeaver/dbeaver/commit/9b79a0ff8934416d7fb5cab64034998037497a3f",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public allSucceeded(results Collection<ContextInvalidateResult>) : boolean from class org.jkiss.dbeaver.runtime.jobs.InvalidateJob.ContextInvalidateResult to public allSucceeded(results Collection<ContextInvalidateResult>) : boolean from class org.jkiss.dbeaver.runtime.jobs.InvalidateJob",
+            "leftSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model/src/org/jkiss/dbeaver/runtime/jobs/InvalidateJob.java",
+                    "startLine": 335,
+                    "endLine": 337,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public allSucceeded(results Collection<ContextInvalidateResult>) : boolean"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model/src/org/jkiss/dbeaver/runtime/jobs/InvalidateJob.java",
+                    "startLine": 372,
+                    "endLine": 374,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public allSucceeded(results Collection<ContextInvalidateResult>) : boolean"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/dbeaver/dbeaver.git",
+        "sha1": "9b79a0ff8934416d7fb5cab64034998037497a3f",
+        "url": "https://github.com/dbeaver/dbeaver/commit/9b79a0ff8934416d7fb5cab64034998037497a3f",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public anySucceeded(results Collection<ContextInvalidateResult>) : boolean from class org.jkiss.dbeaver.runtime.jobs.InvalidateJob.ContextInvalidateResult to public anySucceeded(results Collection<ContextInvalidateResult>) : boolean from class org.jkiss.dbeaver.runtime.jobs.InvalidateJob",
+            "leftSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model/src/org/jkiss/dbeaver/runtime/jobs/InvalidateJob.java",
+                    "startLine": 339,
+                    "endLine": 341,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public anySucceeded(results Collection<ContextInvalidateResult>) : boolean"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model/src/org/jkiss/dbeaver/runtime/jobs/InvalidateJob.java",
+                    "startLine": 376,
+                    "endLine": 378,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public anySucceeded(results Collection<ContextInvalidateResult>) : boolean"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/dbeaver/dbeaver.git",
+        "sha1": "9b79a0ff8934416d7fb5cab64034998037497a3f",
+        "url": "https://github.com/dbeaver/dbeaver/commit/9b79a0ff8934416d7fb5cab64034998037497a3f",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public allFailed(results Collection<ContextInvalidateResult>) : boolean from class org.jkiss.dbeaver.runtime.jobs.InvalidateJob.ContextInvalidateResult to public allFailed(results Collection<ContextInvalidateResult>) : boolean from class org.jkiss.dbeaver.runtime.jobs.InvalidateJob",
+            "leftSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model/src/org/jkiss/dbeaver/runtime/jobs/InvalidateJob.java",
+                    "startLine": 343,
+                    "endLine": 345,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public allFailed(results Collection<ContextInvalidateResult>) : boolean"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model/src/org/jkiss/dbeaver/runtime/jobs/InvalidateJob.java",
+                    "startLine": 380,
+                    "endLine": 382,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public allFailed(results Collection<ContextInvalidateResult>) : boolean"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/dbeaver/dbeaver.git",
+        "sha1": "9b79a0ff8934416d7fb5cab64034998037497a3f",
+        "url": "https://github.com/dbeaver/dbeaver/commit/9b79a0ff8934416d7fb5cab64034998037497a3f",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public anyFailed(results Collection<ContextInvalidateResult>) : boolean from class org.jkiss.dbeaver.runtime.jobs.InvalidateJob.ContextInvalidateResult to public anyFailed(results Collection<ContextInvalidateResult>) : boolean from class org.jkiss.dbeaver.runtime.jobs.InvalidateJob",
+            "leftSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model/src/org/jkiss/dbeaver/runtime/jobs/InvalidateJob.java",
+                    "startLine": 347,
+                    "endLine": 349,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public anyFailed(results Collection<ContextInvalidateResult>) : boolean"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model/src/org/jkiss/dbeaver/runtime/jobs/InvalidateJob.java",
+                    "startLine": 384,
+                    "endLine": 386,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public anyFailed(results Collection<ContextInvalidateResult>) : boolean"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/dbeaver/dbeaver.git",
+        "sha1": "9b79a0ff8934416d7fb5cab64034998037497a3f",
+        "url": "https://github.com/dbeaver/dbeaver/commit/9b79a0ff8934416d7fb5cab64034998037497a3f",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public getSucceededCount(results Collection<ContextInvalidateResult>) : int from class org.jkiss.dbeaver.runtime.jobs.InvalidateJob.ContextInvalidateResult to public getSucceededCount(results Collection<ContextInvalidateResult>) : int from class org.jkiss.dbeaver.runtime.jobs.InvalidateJob",
+            "leftSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model/src/org/jkiss/dbeaver/runtime/jobs/InvalidateJob.java",
+                    "startLine": 351,
+                    "endLine": 353,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public getSucceededCount(results Collection<ContextInvalidateResult>) : int"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model/src/org/jkiss/dbeaver/runtime/jobs/InvalidateJob.java",
+                    "startLine": 388,
+                    "endLine": 390,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public getSucceededCount(results Collection<ContextInvalidateResult>) : int"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/dbeaver/dbeaver.git",
+        "sha1": "2bcadf86276db15ece74dc8b4c6b43a17d1b92df",
+        "url": "https://github.com/dbeaver/dbeaver/commit/2bcadf86276db15ece74dc8b4c6b43a17d1b92df",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public makeError(syntaxNode STMTreeNode, symbol SQLQuerySymbolEntry, message String, exception DBException) : SQLQueryRecognitionProblemInfo from class org.jkiss.dbeaver.model.sql.semantics.SQLQueryRecognitionProblemInfo to private makeError(syntaxNode STMTreeNode, symbol SQLQuerySymbolEntry, message String, exception DBException) : SQLQueryRecognitionProblemInfo from class org.jkiss.dbeaver.model.sql.semantics.SQLQueryRecognitionContext",
+            "leftSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model.sql/src/org/jkiss/dbeaver/model/sql/semantics/SQLQueryRecognitionProblemInfo.java",
+                    "startLine": 67,
+                    "endLine": 74,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public makeError(syntaxNode STMTreeNode, symbol SQLQuerySymbolEntry, message String, exception DBException) : SQLQueryRecognitionProblemInfo"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model.sql/src/org/jkiss/dbeaver/model/sql/semantics/SQLQueryRecognitionContext.java",
+                    "startLine": 96,
+                    "endLine": 106,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "private makeError(syntaxNode STMTreeNode, symbol SQLQuerySymbolEntry, message String, exception DBException) : SQLQueryRecognitionProblemInfo"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/dbeaver/dbeaver.git",
+        "sha1": "2bcadf86276db15ece74dc8b4c6b43a17d1b92df",
+        "url": "https://github.com/dbeaver/dbeaver/commit/2bcadf86276db15ece74dc8b4c6b43a17d1b92df",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public makeWarning(syntaxNode STMTreeNode, symbol SQLQuerySymbolEntry, message String, exception DBException) : SQLQueryRecognitionProblemInfo from class org.jkiss.dbeaver.model.sql.semantics.SQLQueryRecognitionProblemInfo to private makeWarning(syntaxNode STMTreeNode, symbol SQLQuerySymbolEntry, message String, exception DBException) : SQLQueryRecognitionProblemInfo from class org.jkiss.dbeaver.model.sql.semantics.SQLQueryRecognitionContext",
+            "leftSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model.sql/src/org/jkiss/dbeaver/model/sql/semantics/SQLQueryRecognitionProblemInfo.java",
+                    "startLine": 76,
+                    "endLine": 83,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public makeWarning(syntaxNode STMTreeNode, symbol SQLQuerySymbolEntry, message String, exception DBException) : SQLQueryRecognitionProblemInfo"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model.sql/src/org/jkiss/dbeaver/model/sql/semantics/SQLQueryRecognitionContext.java",
+                    "startLine": 108,
+                    "endLine": 115,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "private makeWarning(syntaxNode STMTreeNode, symbol SQLQuerySymbolEntry, message String, exception DBException) : SQLQueryRecognitionProblemInfo"
+                }
+            ],
+            "isStatic": true
+        }
+    }
+]

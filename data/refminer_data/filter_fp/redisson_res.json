@@ -1,0 +1,70 @@
+[
+    {
+        "repository": "https://github.com/redisson/redisson.git",
+        "sha1": "ddb69303a1d2d891a2b71128a750b7a574601a89",
+        "url": "https://github.com/redisson/redisson/commit/ddb69303a1d2d891a2b71128a750b7a574601a89",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method private reattachBlockingQueue(commandData CommandData<?,?>) : void from class org.redisson.connection.MasterSlaveEntry to private reattachBlockingQueue(commandData CommandData<?,?>) : void from class org.redisson.connection.ClientConnectionsEntry",
+            "leftSideLocations": [
+                {
+                    "filePath": "redisson/src/main/java/org/redisson/connection/MasterSlaveEntry.java",
+                    "startLine": 346,
+                    "endLine": 398,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "private reattachBlockingQueue(commandData CommandData<?,?>) : void"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "redisson/src/main/java/org/redisson/connection/ClientConnectionsEntry.java",
+                    "startLine": 279,
+                    "endLine": 327,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "private reattachBlockingQueue(commandData CommandData<?,?>) : void"
+                }
+            ],
+            "isStatic": false
+        }
+    },
+    {
+        "repository": "https://github.com/redisson/redisson.git",
+        "sha1": "91f6db8be476a5555f7161b5549d6cd58298bdef",
+        "url": "https://github.com/redisson/redisson/commit/91f6db8be476a5555f7161b5549d6cd58298bdef",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public createConfig() : Config from class org.redisson.RedissonLockExpirationRenewalTest to protected createConfig(container GenericContainer<?>) : Config from class org.redisson.RedisDockerTest",
+            "leftSideLocations": [
+                {
+                    "filePath": "redisson/src/test/java/org/redisson/RedissonLockExpirationRenewalTest.java",
+                    "startLine": 66,
+                    "endLine": 72,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public createConfig() : Config"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "redisson/src/test/java/org/redisson/RedisDockerTest.java",
+                    "startLine": 87,
+                    "endLine": 93,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "protected createConfig(container GenericContainer<?>) : Config"
+                }
+            ],
+            "isStatic": true
+        }
+    }
+]

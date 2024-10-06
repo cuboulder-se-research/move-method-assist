@@ -7,6 +7,7 @@ import ai.grazie.client.ktor.GrazieKtorHTTPClient.Client
 import ai.grazie.model.auth.GrazieAgent
 import ai.grazie.model.auth.v5.AuthData
 import ai.grazie.model.cloud.AuthType
+import ai.grazie.model.llm.annotation.ExperimentalLLM
 import ai.grazie.model.llm.chat.v5.*
 import ai.grazie.model.llm.parameters.OpenAILLMParameters
 import ai.grazie.model.llm.profile.LLMProfileID
@@ -23,7 +24,7 @@ import kotlinx.coroutines.runBlocking
 class GrazieBaseRequest(body: OpenAiChatRequestBody) : LLMBaseRequest<OpenAiChatRequestBody>(body)  {
 
     private val logger = Logger.getInstance(javaClass)
-    private val url = "https://api.app.prod.grazie.aws.intellij.net"
+    private val url = "https://api.app.stgn.grazie.aws.intellij.net"
     private val grazieToken = RefAgentSettingsManager.getInstance().getOpenAiKey()
     private val authData = AuthData(
         token = grazieToken,
@@ -55,11 +56,7 @@ class GrazieBaseRequest(body: OpenAiChatRequestBody) : LLMBaseRequest<OpenAiChat
     }
 
     private fun getOpenAIProfileId(): LLMProfileID{
-        return when(body.model.uppercase()){
-            "GPT-4"-> OpenAIProfileIDs.Chat.GPT4
-            "GPT-3.5-TURBO"-> OpenAIProfileIDs.Chat.ChatGPT
-            else -> OpenAIProfileIDs.Chat.GPT4
-        }
+        return body.model
     }
 
     private fun getAttributes(): Attributes{

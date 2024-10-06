@@ -1,0 +1,502 @@
+[
+    {
+        "repository": "https://github.com/SeleniumHQ/selenium.git",
+        "sha1": "6cda69299366dd9e0976bede2fdbcfe42eb90cfa",
+        "url": "https://github.com/SeleniumHQ/selenium/commit/6cda69299366dd9e0976bede2fdbcfe42eb90cfa",
+        "move_method_refactoring": {
+            "type": "Extract And Move Method",
+            "description": "Extract And Move Method public getResult() : Either<SessionNotCreatedException,CreateSessionResponse> extracted from public addToQueue(request SessionRequest) : HttpResponse in class org.openqa.selenium.grid.sessionqueue.local.LocalNewSessionQueue & moved to class org.openqa.selenium.grid.sessionqueue.local.LocalNewSessionQueue.Data",
+            "leftSideLocations": [
+                {
+                    "filePath": "java/src/org/openqa/selenium/grid/sessionqueue/local/LocalNewSessionQueue.java",
+                    "startLine": 199,
+                    "endLine": 259,
+                    "startColumn": 3,
+                    "endColumn": 4,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration before extraction",
+                    "codeElement": "public addToQueue(request SessionRequest) : HttpResponse"
+                },
+                {
+                    "filePath": "java/src/org/openqa/selenium/grid/sessionqueue/local/LocalNewSessionQueue.java",
+                    "startLine": 219,
+                    "endLine": 219,
+                    "startColumn": 11,
+                    "endColumn": 32,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "java/src/org/openqa/selenium/grid/sessionqueue/local/LocalNewSessionQueue.java",
+                    "startLine": 476,
+                    "endLine": 478,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "extracted method declaration",
+                    "codeElement": "public getResult() : Either<SessionNotCreatedException,CreateSessionResponse>"
+                },
+                {
+                    "filePath": "java/src/org/openqa/selenium/grid/sessionqueue/local/LocalNewSessionQueue.java",
+                    "startLine": 477,
+                    "endLine": 477,
+                    "startColumn": 7,
+                    "endColumn": 21,
+                    "codeElementType": "RETURN_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "java/src/org/openqa/selenium/grid/sessionqueue/local/LocalNewSessionQueue.java",
+                    "startLine": 199,
+                    "endLine": 259,
+                    "startColumn": 3,
+                    "endColumn": 4,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration after extraction",
+                    "codeElement": "public addToQueue(request SessionRequest) : HttpResponse"
+                },
+                {
+                    "filePath": "java/src/org/openqa/selenium/grid/sessionqueue/local/LocalNewSessionQueue.java",
+                    "startLine": 219,
+                    "endLine": 219,
+                    "startColumn": 20,
+                    "endColumn": 36,
+                    "codeElementType": "METHOD_INVOCATION",
+                    "description": "extracted method invocation",
+                    "codeElement": "data.getResult()"
+                }
+            ],
+            "isStatic": false
+        },
+        "ref_id": 793
+    },
+    {
+        "repository": "https://github.com/SeleniumHQ/selenium.git",
+        "sha1": "4ecc1033caa9995427c25d36befb70b8faae96d7",
+        "url": "https://github.com/SeleniumHQ/selenium/commit/4ecc1033caa9995427c25d36befb70b8faae96d7",
+        "move_method_refactoring": {
+            "type": "Extract And Move Method",
+            "description": "Extract And Move Method public hasBrowserPath() : boolean extracted from private generateExecutor(service ChromeDriverService, options ChromeOptions, clientConfig ClientConfig) : ChromeDriverCommandExecutor in class org.openqa.selenium.chrome.ChromeDriver & moved to class org.openqa.selenium.remote.service.DriverFinder",
+            "leftSideLocations": [
+                {
+                    "filePath": "java/src/org/openqa/selenium/chrome/ChromeDriver.java",
+                    "startLine": 94,
+                    "endLine": 105,
+                    "startColumn": 3,
+                    "endColumn": 4,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration before extraction",
+                    "codeElement": "private generateExecutor(service ChromeDriverService, options ChromeOptions, clientConfig ClientConfig) : ChromeDriverCommandExecutor"
+                },
+                {
+                    "filePath": "java/src/org/openqa/selenium/chrome/ChromeDriver.java",
+                    "startLine": 101,
+                    "endLine": 101,
+                    "startColumn": 9,
+                    "endColumn": 78,
+                    "codeElementType": "IF_STATEMENT_CONDITION",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "java/src/org/openqa/selenium/remote/service/DriverFinder.java",
+                    "startLine": 88,
+                    "endLine": 91,
+                    "startColumn": 3,
+                    "endColumn": 4,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "extracted method declaration",
+                    "codeElement": "public hasBrowserPath() : boolean"
+                },
+                {
+                    "filePath": "java/src/org/openqa/selenium/remote/service/DriverFinder.java",
+                    "startLine": 90,
+                    "endLine": 90,
+                    "startColumn": 5,
+                    "endColumn": 58,
+                    "codeElementType": "RETURN_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "java/src/org/openqa/selenium/chrome/ChromeDriver.java",
+                    "startLine": 93,
+                    "endLine": 105,
+                    "startColumn": 3,
+                    "endColumn": 4,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration after extraction",
+                    "codeElement": "private generateExecutor(service ChromeDriverService, options ChromeOptions, clientConfig ClientConfig) : ChromeDriverCommandExecutor"
+                },
+                {
+                    "filePath": "java/src/org/openqa/selenium/chrome/ChromeDriver.java",
+                    "startLine": 100,
+                    "endLine": 100,
+                    "startColumn": 9,
+                    "endColumn": 32,
+                    "codeElementType": "METHOD_INVOCATION",
+                    "description": "extracted method invocation",
+                    "codeElement": "finder.hasBrowserPath()"
+                },
+                {
+                    "filePath": "java/src/org/openqa/selenium/remote/service/DriverFinder.java",
+                    "startLine": 89,
+                    "endLine": 89,
+                    "startColumn": 5,
+                    "endColumn": 50,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "added statement in extracted method declaration",
+                    "codeElement": null
+                }
+            ],
+            "isStatic": false
+        },
+        "ref_id": 794
+    },
+    {
+        "repository": "https://github.com/SeleniumHQ/selenium.git",
+        "sha1": "4ecc1033caa9995427c25d36befb70b8faae96d7",
+        "url": "https://github.com/SeleniumHQ/selenium/commit/4ecc1033caa9995427c25d36befb70b8faae96d7",
+        "move_method_refactoring": {
+            "type": "Extract And Move Method",
+            "description": "Extract And Move Method public hasBrowserPath() : boolean extracted from private generateExecutor(service EdgeDriverService, options EdgeOptions, clientConfig ClientConfig) : EdgeDriverCommandExecutor in class org.openqa.selenium.edge.EdgeDriver & moved to class org.openqa.selenium.remote.service.DriverFinder",
+            "leftSideLocations": [
+                {
+                    "filePath": "java/src/org/openqa/selenium/edge/EdgeDriver.java",
+                    "startLine": 66,
+                    "endLine": 77,
+                    "startColumn": 3,
+                    "endColumn": 4,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration before extraction",
+                    "codeElement": "private generateExecutor(service EdgeDriverService, options EdgeOptions, clientConfig ClientConfig) : EdgeDriverCommandExecutor"
+                },
+                {
+                    "filePath": "java/src/org/openqa/selenium/edge/EdgeDriver.java",
+                    "startLine": 73,
+                    "endLine": 73,
+                    "startColumn": 9,
+                    "endColumn": 78,
+                    "codeElementType": "IF_STATEMENT_CONDITION",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "java/src/org/openqa/selenium/remote/service/DriverFinder.java",
+                    "startLine": 88,
+                    "endLine": 91,
+                    "startColumn": 3,
+                    "endColumn": 4,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "extracted method declaration",
+                    "codeElement": "public hasBrowserPath() : boolean"
+                },
+                {
+                    "filePath": "java/src/org/openqa/selenium/remote/service/DriverFinder.java",
+                    "startLine": 90,
+                    "endLine": 90,
+                    "startColumn": 5,
+                    "endColumn": 58,
+                    "codeElementType": "RETURN_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "java/src/org/openqa/selenium/edge/EdgeDriver.java",
+                    "startLine": 65,
+                    "endLine": 77,
+                    "startColumn": 3,
+                    "endColumn": 4,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration after extraction",
+                    "codeElement": "private generateExecutor(service EdgeDriverService, options EdgeOptions, clientConfig ClientConfig) : EdgeDriverCommandExecutor"
+                },
+                {
+                    "filePath": "java/src/org/openqa/selenium/edge/EdgeDriver.java",
+                    "startLine": 72,
+                    "endLine": 72,
+                    "startColumn": 9,
+                    "endColumn": 32,
+                    "codeElementType": "METHOD_INVOCATION",
+                    "description": "extracted method invocation",
+                    "codeElement": "finder.hasBrowserPath()"
+                },
+                {
+                    "filePath": "java/src/org/openqa/selenium/remote/service/DriverFinder.java",
+                    "startLine": 89,
+                    "endLine": 89,
+                    "startColumn": 5,
+                    "endColumn": 50,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "added statement in extracted method declaration",
+                    "codeElement": null
+                }
+            ],
+            "isStatic": false
+        },
+        "ref_id": 795
+    },
+    {
+        "repository": "https://github.com/SeleniumHQ/selenium.git",
+        "sha1": "4ecc1033caa9995427c25d36befb70b8faae96d7",
+        "url": "https://github.com/SeleniumHQ/selenium/commit/4ecc1033caa9995427c25d36befb70b8faae96d7",
+        "move_method_refactoring": {
+            "type": "Extract And Move Method",
+            "description": "Extract And Move Method public hasBrowserPath() : boolean extracted from private generateExecutor(service FirefoxDriverService, options FirefoxOptions, clientConfig ClientConfig) : FirefoxDriverCommandExecutor in class org.openqa.selenium.firefox.FirefoxDriver & moved to class org.openqa.selenium.remote.service.DriverFinder",
+            "leftSideLocations": [
+                {
+                    "filePath": "java/src/org/openqa/selenium/firefox/FirefoxDriver.java",
+                    "startLine": 136,
+                    "endLine": 147,
+                    "startColumn": 3,
+                    "endColumn": 4,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration before extraction",
+                    "codeElement": "private generateExecutor(service FirefoxDriverService, options FirefoxOptions, clientConfig ClientConfig) : FirefoxDriverCommandExecutor"
+                },
+                {
+                    "filePath": "java/src/org/openqa/selenium/firefox/FirefoxDriver.java",
+                    "startLine": 143,
+                    "endLine": 143,
+                    "startColumn": 9,
+                    "endColumn": 78,
+                    "codeElementType": "IF_STATEMENT_CONDITION",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "java/src/org/openqa/selenium/remote/service/DriverFinder.java",
+                    "startLine": 88,
+                    "endLine": 91,
+                    "startColumn": 3,
+                    "endColumn": 4,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "extracted method declaration",
+                    "codeElement": "public hasBrowserPath() : boolean"
+                },
+                {
+                    "filePath": "java/src/org/openqa/selenium/remote/service/DriverFinder.java",
+                    "startLine": 90,
+                    "endLine": 90,
+                    "startColumn": 5,
+                    "endColumn": 58,
+                    "codeElementType": "RETURN_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "java/src/org/openqa/selenium/firefox/FirefoxDriver.java",
+                    "startLine": 135,
+                    "endLine": 147,
+                    "startColumn": 3,
+                    "endColumn": 4,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration after extraction",
+                    "codeElement": "private generateExecutor(service FirefoxDriverService, options FirefoxOptions, clientConfig ClientConfig) : FirefoxDriverCommandExecutor"
+                },
+                {
+                    "filePath": "java/src/org/openqa/selenium/firefox/FirefoxDriver.java",
+                    "startLine": 142,
+                    "endLine": 142,
+                    "startColumn": 9,
+                    "endColumn": 32,
+                    "codeElementType": "METHOD_INVOCATION",
+                    "description": "extracted method invocation",
+                    "codeElement": "finder.hasBrowserPath()"
+                },
+                {
+                    "filePath": "java/src/org/openqa/selenium/remote/service/DriverFinder.java",
+                    "startLine": 89,
+                    "endLine": 89,
+                    "startColumn": 5,
+                    "endColumn": 50,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "added statement in extracted method declaration",
+                    "codeElement": null
+                }
+            ],
+            "isStatic": false
+        },
+        "ref_id": 796
+    },
+    {
+        "repository": "https://github.com/SeleniumHQ/selenium.git",
+        "sha1": "98c6eb062092c03d1f1079f09e2ec22cf1b24b78",
+        "url": "https://github.com/SeleniumHQ/selenium/commit/98c6eb062092c03d1f1079f09e2ec22cf1b24b78",
+        "move_method_refactoring": {
+            "type": "Extract And Move Method",
+            "description": "Extract And Move Method public enableBiDi() : FirefoxOptions extracted from package shouldNotCloseBiDiSessionIfOneWindowIsClosed() : void in class org.openqa.selenium.bidi.BiDiSessionCleanUpTest & moved to class org.openqa.selenium.firefox.FirefoxOptions",
+            "leftSideLocations": [
+                {
+                    "filePath": "java/test/org/openqa/selenium/bidi/BiDiSessionCleanUpTest.java",
+                    "startLine": 35,
+                    "endLine": 61,
+                    "startColumn": 3,
+                    "endColumn": 4,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration before extraction",
+                    "codeElement": "package shouldNotCloseBiDiSessionIfOneWindowIsClosed() : void"
+                },
+                {
+                    "filePath": "java/test/org/openqa/selenium/bidi/BiDiSessionCleanUpTest.java",
+                    "startLine": 39,
+                    "endLine": 39,
+                    "startColumn": 5,
+                    "endColumn": 49,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "java/src/org/openqa/selenium/firefox/FirefoxOptions.java",
+                    "startLine": 297,
+                    "endLine": 300,
+                    "startColumn": 3,
+                    "endColumn": 4,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "extracted method declaration",
+                    "codeElement": "public enableBiDi() : FirefoxOptions"
+                },
+                {
+                    "filePath": "java/src/org/openqa/selenium/firefox/FirefoxOptions.java",
+                    "startLine": 298,
+                    "endLine": 298,
+                    "startColumn": 5,
+                    "endColumn": 41,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "java/test/org/openqa/selenium/bidi/BiDiSessionCleanUpTest.java",
+                    "startLine": 35,
+                    "endLine": 61,
+                    "startColumn": 3,
+                    "endColumn": 4,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration after extraction",
+                    "codeElement": "package shouldNotCloseBiDiSessionIfOneWindowIsClosed() : void"
+                },
+                {
+                    "filePath": "java/test/org/openqa/selenium/bidi/BiDiSessionCleanUpTest.java",
+                    "startLine": 39,
+                    "endLine": 39,
+                    "startColumn": 5,
+                    "endColumn": 25,
+                    "codeElementType": "METHOD_INVOCATION",
+                    "description": "extracted method invocation",
+                    "codeElement": "options.enableBiDi()"
+                },
+                {
+                    "filePath": "java/src/org/openqa/selenium/firefox/FirefoxOptions.java",
+                    "startLine": 299,
+                    "endLine": 299,
+                    "startColumn": 5,
+                    "endColumn": 17,
+                    "codeElementType": "RETURN_STATEMENT",
+                    "description": "added statement in extracted method declaration",
+                    "codeElement": null
+                }
+            ],
+            "isStatic": false
+        },
+        "ref_id": 797
+    },
+    {
+        "repository": "https://github.com/SeleniumHQ/selenium.git",
+        "sha1": "98c6eb062092c03d1f1079f09e2ec22cf1b24b78",
+        "url": "https://github.com/SeleniumHQ/selenium/commit/98c6eb062092c03d1f1079f09e2ec22cf1b24b78",
+        "move_method_refactoring": {
+            "type": "Extract And Move Method",
+            "description": "Extract And Move Method public enableBiDi() : FirefoxOptions extracted from package shouldCloseBiDiSessionIfLastWindowIsClosed() : void in class org.openqa.selenium.bidi.BiDiSessionCleanUpTest & moved to class org.openqa.selenium.firefox.FirefoxOptions",
+            "leftSideLocations": [
+                {
+                    "filePath": "java/test/org/openqa/selenium/bidi/BiDiSessionCleanUpTest.java",
+                    "startLine": 63,
+                    "endLine": 87,
+                    "startColumn": 3,
+                    "endColumn": 4,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration before extraction",
+                    "codeElement": "package shouldCloseBiDiSessionIfLastWindowIsClosed() : void"
+                },
+                {
+                    "filePath": "java/test/org/openqa/selenium/bidi/BiDiSessionCleanUpTest.java",
+                    "startLine": 67,
+                    "endLine": 67,
+                    "startColumn": 5,
+                    "endColumn": 49,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "java/src/org/openqa/selenium/firefox/FirefoxOptions.java",
+                    "startLine": 297,
+                    "endLine": 300,
+                    "startColumn": 3,
+                    "endColumn": 4,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "extracted method declaration",
+                    "codeElement": "public enableBiDi() : FirefoxOptions"
+                },
+                {
+                    "filePath": "java/src/org/openqa/selenium/firefox/FirefoxOptions.java",
+                    "startLine": 298,
+                    "endLine": 298,
+                    "startColumn": 5,
+                    "endColumn": 41,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "java/test/org/openqa/selenium/bidi/BiDiSessionCleanUpTest.java",
+                    "startLine": 63,
+                    "endLine": 87,
+                    "startColumn": 3,
+                    "endColumn": 4,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration after extraction",
+                    "codeElement": "package shouldCloseBiDiSessionIfLastWindowIsClosed() : void"
+                },
+                {
+                    "filePath": "java/test/org/openqa/selenium/bidi/BiDiSessionCleanUpTest.java",
+                    "startLine": 67,
+                    "endLine": 67,
+                    "startColumn": 5,
+                    "endColumn": 25,
+                    "codeElementType": "METHOD_INVOCATION",
+                    "description": "extracted method invocation",
+                    "codeElement": "options.enableBiDi()"
+                },
+                {
+                    "filePath": "java/src/org/openqa/selenium/firefox/FirefoxOptions.java",
+                    "startLine": 299,
+                    "endLine": 299,
+                    "startColumn": 5,
+                    "endColumn": 17,
+                    "codeElementType": "RETURN_STATEMENT",
+                    "description": "added statement in extracted method declaration",
+                    "codeElement": null
+                }
+            ],
+            "isStatic": false
+        },
+        "ref_id": 798
+    }
+]

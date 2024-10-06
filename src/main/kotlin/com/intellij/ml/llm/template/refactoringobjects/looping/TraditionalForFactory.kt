@@ -12,7 +12,7 @@ import com.intellij.psi.PsiForeachStatement
 import com.intellij.psi.util.PsiTreeUtil
 import com.intellij.psi.util.PsiUtilBase
 import com.siyeh.ipp.forloop.ReplaceForEachLoopWithIndexedForLoopIntention
-import org.jetbrains.kotlin.idea.editor.fixers.endLine
+import org.jetbrains.kotlin.idea.base.codeInsight.handlers.fixers.endLine
 import org.jetbrains.kotlin.psi.psiUtil.endOffset
 import org.jetbrains.kotlin.psi.psiUtil.startOffset
 

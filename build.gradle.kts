@@ -1,5 +1,6 @@
 import org.jetbrains.changelog.Changelog
 import org.jetbrains.changelog.markdownToHTML
+import org.jetbrains.kotlin.cli.jvm.main
 
 fun properties(key: String) = project.findProperty(key).toString()
 
@@ -20,10 +21,12 @@ dependencies {
     implementation("dev.langchain4j:langchain4j:0.33.0")
     implementation("dev.langchain4j:langchain4j-ollama:0.33.0")
     implementation("dev.langchain4j:langchain4j-open-ai:0.33.0")
-    implementation("org.testcontainers:testcontainers:1.19.1")
+//    implementation("org.testcontainers:testcontainers:1.19.1")
 
     implementation("org.eclipse.jgit:org.eclipse.jgit:6.4.0.202211300538-r")
+    implementation("com.github.javaparser:javaparser-symbol-solver-core:3.26.2")
 
+    implementation("org.jetbrains.kotlinx:kotlinx-cli:0.3.6")
 
     testImplementation(kotlin("test"))
 }
@@ -33,6 +36,10 @@ plugins {
     id("org.jetbrains.changelog") version "2.0.0"
     id("org.jetbrains.intellij") version "1.12.0"
     kotlin("jvm") version "1.8.21"
+    application
+}
+configure<ApplicationPluginConvention> {
+    mainClassName = "com.intellij.ml.llm.template.cli.CLIKt"
 }
 
 group = properties("pluginGroup")

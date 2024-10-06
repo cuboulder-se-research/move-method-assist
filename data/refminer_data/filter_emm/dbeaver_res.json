@@ -1,0 +1,3367 @@
+[
+    {
+        "repository": "https://github.com/dbeaver/dbeaver.git",
+        "sha1": "7f9f2bf23aaa237f5d9c741026bcf8bb3dc920dd",
+        "url": "https://github.com/dbeaver/dbeaver/commit/7f9f2bf23aaa237f5d9c741026bcf8bb3dc920dd",
+        "move_method_refactoring": {
+            "type": "Extract And Move Method",
+            "description": "Extract And Move Method public getFirstOrNull(iterable Iterable<T>) : T extracted from public getDefaultLocalClientLocation() : DBPNativeClientLocation in class org.jkiss.dbeaver.ext.mysql.MySQLDataSourceProvider & moved to class org.jkiss.utils.CommonUtils",
+            "leftSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.mysql/src/org/jkiss/dbeaver/ext/mysql/MySQLDataSourceProvider.java",
+                    "startLine": 164,
+                    "endLine": 169,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration before extraction",
+                    "codeElement": "public getDefaultLocalClientLocation() : DBPNativeClientLocation"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.mysql/src/org/jkiss/dbeaver/ext/mysql/MySQLDataSourceProvider.java",
+                    "startLine": 168,
+                    "endLine": 168,
+                    "startColumn": 9,
+                    "endColumn": 88,
+                    "codeElementType": "RETURN_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "bundles/org.jkiss.utils/src/org/jkiss/utils/CommonUtils.java",
+                    "startLine": 183,
+                    "endLine": 190,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "extracted method declaration",
+                    "codeElement": "public getFirstOrNull(iterable Iterable<T>) : T"
+                },
+                {
+                    "filePath": "bundles/org.jkiss.utils/src/org/jkiss/utils/CommonUtils.java",
+                    "startLine": 187,
+                    "endLine": 187,
+                    "startColumn": 13,
+                    "endColumn": 36,
+                    "codeElementType": "RETURN_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.mysql/src/org/jkiss/dbeaver/ext/mysql/MySQLDataSourceProvider.java",
+                    "startLine": 164,
+                    "endLine": 167,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration after extraction",
+                    "codeElement": "public getDefaultLocalClientLocation() : DBPNativeClientLocation"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.mysql/src/org/jkiss/dbeaver/ext/mysql/MySQLDataSourceProvider.java",
+                    "startLine": 166,
+                    "endLine": 166,
+                    "startColumn": 16,
+                    "endColumn": 71,
+                    "codeElementType": "METHOD_INVOCATION",
+                    "description": "extracted method invocation",
+                    "codeElement": "CommonUtils.getFirstOrNull(findLocalClients().values())"
+                },
+                {
+                    "filePath": "bundles/org.jkiss.utils/src/org/jkiss/utils/CommonUtils.java",
+                    "startLine": 185,
+                    "endLine": 185,
+                    "startColumn": 9,
+                    "endColumn": 52,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "added statement in extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "bundles/org.jkiss.utils/src/org/jkiss/utils/CommonUtils.java",
+                    "startLine": 189,
+                    "endLine": 189,
+                    "startColumn": 9,
+                    "endColumn": 21,
+                    "codeElementType": "RETURN_STATEMENT",
+                    "description": "added statement in extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "bundles/org.jkiss.utils/src/org/jkiss/utils/CommonUtils.java",
+                    "startLine": 186,
+                    "endLine": 188,
+                    "startColumn": 33,
+                    "endColumn": 10,
+                    "codeElementType": "BLOCK",
+                    "description": "added statement in extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "bundles/org.jkiss.utils/src/org/jkiss/utils/CommonUtils.java",
+                    "startLine": 186,
+                    "endLine": 188,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "IF_STATEMENT",
+                    "description": "added statement in extracted method declaration",
+                    "codeElement": null
+                }
+            ],
+            "isStatic": true
+        },
+        "ref_id": 884
+    },
+    {
+        "repository": "https://github.com/dbeaver/dbeaver.git",
+        "sha1": "7f9f2bf23aaa237f5d9c741026bcf8bb3dc920dd",
+        "url": "https://github.com/dbeaver/dbeaver/commit/7f9f2bf23aaa237f5d9c741026bcf8bb3dc920dd",
+        "move_method_refactoring": {
+            "type": "Extract And Move Method",
+            "description": "Extract And Move Method public getFirstOrNull(iterable Iterable<T>) : T extracted from public getDefaultLocalClientLocation() : DBPNativeClientLocation in class org.jkiss.dbeaver.ext.postgresql.PostgreDataSourceProvider & moved to class org.jkiss.utils.CommonUtils",
+            "leftSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.postgresql/src/org/jkiss/dbeaver/ext/postgresql/PostgreDataSourceProvider.java",
+                    "startLine": 139,
+                    "endLine": 143,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration before extraction",
+                    "codeElement": "public getDefaultLocalClientLocation() : DBPNativeClientLocation"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.postgresql/src/org/jkiss/dbeaver/ext/postgresql/PostgreDataSourceProvider.java",
+                    "startLine": 142,
+                    "endLine": 142,
+                    "startColumn": 9,
+                    "endColumn": 88,
+                    "codeElementType": "RETURN_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "bundles/org.jkiss.utils/src/org/jkiss/utils/CommonUtils.java",
+                    "startLine": 183,
+                    "endLine": 190,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "extracted method declaration",
+                    "codeElement": "public getFirstOrNull(iterable Iterable<T>) : T"
+                },
+                {
+                    "filePath": "bundles/org.jkiss.utils/src/org/jkiss/utils/CommonUtils.java",
+                    "startLine": 187,
+                    "endLine": 187,
+                    "startColumn": 13,
+                    "endColumn": 36,
+                    "codeElementType": "RETURN_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.postgresql/src/org/jkiss/dbeaver/ext/postgresql/PostgreDataSourceProvider.java",
+                    "startLine": 138,
+                    "endLine": 141,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration after extraction",
+                    "codeElement": "public getDefaultLocalClientLocation() : DBPNativeClientLocation"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.postgresql/src/org/jkiss/dbeaver/ext/postgresql/PostgreDataSourceProvider.java",
+                    "startLine": 140,
+                    "endLine": 140,
+                    "startColumn": 16,
+                    "endColumn": 70,
+                    "codeElementType": "METHOD_INVOCATION",
+                    "description": "extracted method invocation",
+                    "codeElement": "CommonUtils.getFirstOrNull(findLocalClientLocations())"
+                },
+                {
+                    "filePath": "bundles/org.jkiss.utils/src/org/jkiss/utils/CommonUtils.java",
+                    "startLine": 185,
+                    "endLine": 185,
+                    "startColumn": 9,
+                    "endColumn": 52,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "added statement in extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "bundles/org.jkiss.utils/src/org/jkiss/utils/CommonUtils.java",
+                    "startLine": 189,
+                    "endLine": 189,
+                    "startColumn": 9,
+                    "endColumn": 21,
+                    "codeElementType": "RETURN_STATEMENT",
+                    "description": "added statement in extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "bundles/org.jkiss.utils/src/org/jkiss/utils/CommonUtils.java",
+                    "startLine": 186,
+                    "endLine": 188,
+                    "startColumn": 33,
+                    "endColumn": 10,
+                    "codeElementType": "BLOCK",
+                    "description": "added statement in extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "bundles/org.jkiss.utils/src/org/jkiss/utils/CommonUtils.java",
+                    "startLine": 186,
+                    "endLine": 188,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "IF_STATEMENT",
+                    "description": "added statement in extracted method declaration",
+                    "codeElement": null
+                }
+            ],
+            "isStatic": true
+        },
+        "ref_id": 885
+    },
+    {
+        "repository": "https://github.com/dbeaver/dbeaver.git",
+        "sha1": "2b661437d903d01a632286cdb07a732df2079ca1",
+        "url": "https://github.com/dbeaver/dbeaver/commit/2b661437d903d01a632286cdb07a732df2079ca1",
+        "move_method_refactoring": {
+            "type": "Extract And Move Method",
+            "description": "Extract And Move Method public identifierToCanonicalForm(dialect SQLDialect, rawIdentifierString String, forceUnquotted boolean, prepared boolean) : String extracted from private collectIdentifier(node STMTreeNode, forceUnquotted boolean) : SQLQuerySymbolEntry in class org.jkiss.dbeaver.ui.editors.sql.semantics.SQLQueryModelRecognizer & moved to class org.jkiss.dbeaver.model.sql.SQLUtils",
+            "leftSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ui.editors.sql/src/org/jkiss/dbeaver/ui/editors/sql/semantics/SQLQueryModelRecognizer.java",
+                    "startLine": 680,
+                    "endLine": 709,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration before extraction",
+                    "codeElement": "private collectIdentifier(node STMTreeNode, forceUnquotted boolean) : SQLQuerySymbolEntry"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ui.editors.sql/src/org/jkiss/dbeaver/ui/editors/sql/semantics/SQLQueryModelRecognizer.java",
+                    "startLine": 700,
+                    "endLine": 700,
+                    "startColumn": 13,
+                    "endColumn": 81,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ui.editors.sql/src/org/jkiss/dbeaver/ui/editors/sql/semantics/SQLQueryModelRecognizer.java",
+                    "startLine": 701,
+                    "endLine": 701,
+                    "startColumn": 13,
+                    "endColumn": 127,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model/src/org/jkiss/dbeaver/model/sql/SQLUtils.java",
+                    "startLine": 1163,
+                    "endLine": 1183,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "extracted method declaration",
+                    "codeElement": "public identifierToCanonicalForm(dialect SQLDialect, rawIdentifierString String, forceUnquotted boolean, prepared boolean) : String"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model/src/org/jkiss/dbeaver/model/sql/SQLUtils.java",
+                    "startLine": 1177,
+                    "endLine": 1177,
+                    "startColumn": 13,
+                    "endColumn": 80,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model/src/org/jkiss/dbeaver/model/sql/SQLUtils.java",
+                    "startLine": 1179,
+                    "endLine": 1179,
+                    "startColumn": 13,
+                    "endColumn": 118,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model/src/org/jkiss/dbeaver/model/sql/SQLUtils.java",
+                    "startLine": 1173,
+                    "endLine": 1173,
+                    "startColumn": 9,
+                    "endColumn": 36,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ui.editors.sql/src/org/jkiss/dbeaver/ui/editors/sql/semantics/SQLQueryModelRecognizer.java",
+                    "startLine": 681,
+                    "endLine": 706,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration after extraction",
+                    "codeElement": "private collectIdentifier(node STMTreeNode, forceUnquotted boolean) : SQLQuerySymbolEntry"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ui.editors.sql/src/org/jkiss/dbeaver/ui/editors/sql/semantics/SQLQueryModelRecognizer.java",
+                    "startLine": 701,
+                    "endLine": 701,
+                    "startColumn": 45,
+                    "endColumn": 132,
+                    "codeElementType": "METHOD_INVOCATION",
+                    "description": "extracted method invocation",
+                    "codeElement": "SQLUtils.identifierToCanonicalForm(dialect,rawIdentifierString,forceUnquotted,false)"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model/src/org/jkiss/dbeaver/model/sql/SQLUtils.java",
+                    "startLine": 1172,
+                    "endLine": 1172,
+                    "startColumn": 9,
+                    "endColumn": 39,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "added statement in extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model/src/org/jkiss/dbeaver/model/sql/SQLUtils.java",
+                    "startLine": 1175,
+                    "endLine": 1175,
+                    "startColumn": 13,
+                    "endColumn": 55,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "added statement in extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model/src/org/jkiss/dbeaver/model/sql/SQLUtils.java",
+                    "startLine": 1178,
+                    "endLine": 1178,
+                    "startColumn": 13,
+                    "endColumn": 117,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "added statement in extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model/src/org/jkiss/dbeaver/model/sql/SQLUtils.java",
+                    "startLine": 1181,
+                    "endLine": 1181,
+                    "startColumn": 9,
+                    "endColumn": 135,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "added statement in extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model/src/org/jkiss/dbeaver/model/sql/SQLUtils.java",
+                    "startLine": 1182,
+                    "endLine": 1182,
+                    "startColumn": 9,
+                    "endColumn": 39,
+                    "codeElementType": "RETURN_STATEMENT",
+                    "description": "added statement in extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model/src/org/jkiss/dbeaver/model/sql/SQLUtils.java",
+                    "startLine": 1174,
+                    "endLine": 1176,
+                    "startColumn": 23,
+                    "endColumn": 10,
+                    "codeElementType": "BLOCK",
+                    "description": "added statement in extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model/src/org/jkiss/dbeaver/model/sql/SQLUtils.java",
+                    "startLine": 1176,
+                    "endLine": 1180,
+                    "startColumn": 16,
+                    "endColumn": 10,
+                    "codeElementType": "BLOCK",
+                    "description": "added statement in extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model/src/org/jkiss/dbeaver/model/sql/SQLUtils.java",
+                    "startLine": 1174,
+                    "endLine": 1180,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "IF_STATEMENT",
+                    "description": "added statement in extracted method declaration",
+                    "codeElement": null
+                }
+            ],
+            "isStatic": true
+        },
+        "ref_id": 886
+    },
+    {
+        "repository": "https://github.com/dbeaver/dbeaver.git",
+        "sha1": "8c8725f15d05ab6b90de7294ab4a114d8a36e5cb",
+        "url": "https://github.com/dbeaver/dbeaver/commit/8c8725f15d05ab6b90de7294ab4a114d8a36e5cb",
+        "move_method_refactoring": {
+            "type": "Extract And Move Method",
+            "description": "Extract And Move Method public createSchemaImpl(owner OracleDataSource, resultSet JDBCResultSet) : OracleSchema extracted from protected fetchObject(session JDBCSession, owner OracleDataSource, resultSet JDBCResultSet) : OracleSchema in class org.jkiss.dbeaver.ext.oracle.model.OracleDataSource.SchemaCache & moved to class org.jkiss.dbeaver.ext.oracle.model.OracleDataSource",
+            "leftSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.oracle/src/org/jkiss/dbeaver/ext/oracle/model/OracleDataSource.java",
+                    "startLine": 967,
+                    "endLine": 970,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration before extraction",
+                    "codeElement": "protected fetchObject(session JDBCSession, owner OracleDataSource, resultSet JDBCResultSet) : OracleSchema"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.oracle/src/org/jkiss/dbeaver/ext/oracle/model/OracleDataSource.java",
+                    "startLine": 969,
+                    "endLine": 969,
+                    "startColumn": 13,
+                    "endColumn": 55,
+                    "codeElementType": "RETURN_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.oracle/src/org/jkiss/dbeaver/ext/oracle/model/OracleDataSource.java",
+                    "startLine": 428,
+                    "endLine": 433,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "extracted method declaration",
+                    "codeElement": "public createSchemaImpl(owner OracleDataSource, resultSet JDBCResultSet) : OracleSchema"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.oracle/src/org/jkiss/dbeaver/ext/oracle/model/OracleDataSource.java",
+                    "startLine": 432,
+                    "endLine": 432,
+                    "startColumn": 9,
+                    "endColumn": 51,
+                    "codeElementType": "RETURN_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.oracle/src/org/jkiss/dbeaver/ext/oracle/model/OracleDataSource.java",
+                    "startLine": 981,
+                    "endLine": 984,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration after extraction",
+                    "codeElement": "protected fetchObject(session JDBCSession, owner OracleDataSource, resultSet JDBCResultSet) : OracleSchema"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.oracle/src/org/jkiss/dbeaver/ext/oracle/model/OracleDataSource.java",
+                    "startLine": 983,
+                    "endLine": 983,
+                    "startColumn": 20,
+                    "endColumn": 60,
+                    "codeElementType": "METHOD_INVOCATION",
+                    "description": "extracted method invocation",
+                    "codeElement": "owner.createSchemaImpl(owner,resultSet)"
+                }
+            ],
+            "isStatic": false
+        },
+        "ref_id": 887
+    },
+    {
+        "repository": "https://github.com/dbeaver/dbeaver.git",
+        "sha1": "8c8725f15d05ab6b90de7294ab4a114d8a36e5cb",
+        "url": "https://github.com/dbeaver/dbeaver/commit/8c8725f15d05ab6b90de7294ab4a114d8a36e5cb",
+        "move_method_refactoring": {
+            "type": "Extract And Move Method",
+            "description": "Extract And Move Method public createTableImpl(monitor DBRProgressMonitor, owner OracleSchema, dbResult JDBCResultSet) : OracleTable extracted from protected fetchObject(session JDBCSession, owner OracleSchema, dbResult JDBCResultSet) : OracleTableBase in class org.jkiss.dbeaver.ext.oracle.model.OracleSchema.TableCache & moved to class org.jkiss.dbeaver.ext.oracle.model.OracleSchema",
+            "leftSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.oracle/src/org/jkiss/dbeaver/ext/oracle/model/OracleSchema.java",
+                    "startLine": 658,
+                    "endLine": 670,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration before extraction",
+                    "codeElement": "protected fetchObject(session JDBCSession, owner OracleSchema, dbResult JDBCResultSet) : OracleTableBase"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.oracle/src/org/jkiss/dbeaver/ext/oracle/model/OracleSchema.java",
+                    "startLine": 664,
+                    "endLine": 664,
+                    "startColumn": 17,
+                    "endColumn": 87,
+                    "codeElementType": "RETURN_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.oracle/src/org/jkiss/dbeaver/ext/oracle/model/OracleSchema.java",
+                    "startLine": 222,
+                    "endLine": 227,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "extracted method declaration",
+                    "codeElement": "public createTableImpl(monitor DBRProgressMonitor, owner OracleSchema, dbResult JDBCResultSet) : OracleTable"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.oracle/src/org/jkiss/dbeaver/ext/oracle/model/OracleSchema.java",
+                    "startLine": 226,
+                    "endLine": 226,
+                    "startColumn": 9,
+                    "endColumn": 58,
+                    "codeElementType": "RETURN_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.oracle/src/org/jkiss/dbeaver/ext/oracle/model/OracleSchema.java",
+                    "startLine": 665,
+                    "endLine": 677,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration after extraction",
+                    "codeElement": "protected fetchObject(session JDBCSession, owner OracleSchema, dbResult JDBCResultSet) : OracleTableBase"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.oracle/src/org/jkiss/dbeaver/ext/oracle/model/OracleSchema.java",
+                    "startLine": 671,
+                    "endLine": 671,
+                    "startColumn": 24,
+                    "endColumn": 92,
+                    "codeElementType": "METHOD_INVOCATION",
+                    "description": "extracted method invocation",
+                    "codeElement": "owner.createTableImpl(session.getProgressMonitor(),owner,dbResult)"
+                }
+            ],
+            "isStatic": false
+        },
+        "ref_id": 888
+    },
+    {
+        "repository": "https://github.com/dbeaver/dbeaver.git",
+        "sha1": "9a16c5f7bcbc1ca2da15b88b807d841c0d542f94",
+        "url": "https://github.com/dbeaver/dbeaver/commit/9a16c5f7bcbc1ca2da15b88b807d841c0d542f94",
+        "move_method_refactoring": {
+            "type": "Extract And Move Method",
+            "description": "Extract And Move Method public setPrivateSecretValue(secretObject DBSSecretObject, secretValue DBSSecretValue) : void extracted from package persistSecrets(secretController DBSSecretController, isNewDataSource boolean) : void in class org.jkiss.dbeaver.registry.DataSourceDescriptor & moved to class org.jkiss.dbeaver.model.secret.DBSSecretController",
+            "leftSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.registry/src/org/jkiss/dbeaver/registry/DataSourceDescriptor.java",
+                    "startLine": 880,
+                    "endLine": 899,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration before extraction",
+                    "codeElement": "package persistSecrets(secretController DBSSecretController, isNewDataSource boolean) : void"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.registry/src/org/jkiss/dbeaver/registry/DataSourceDescriptor.java",
+                    "startLine": 886,
+                    "endLine": 886,
+                    "startColumn": 17,
+                    "endColumn": 85,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model/src/org/jkiss/dbeaver/model/secret/DBSSecretController.java",
+                    "startLine": 43,
+                    "endLine": 46,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "extracted method declaration",
+                    "codeElement": "public setPrivateSecretValue(secretObject DBSSecretObject, secretValue DBSSecretValue) : void"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model/src/org/jkiss/dbeaver/model/secret/DBSSecretController.java",
+                    "startLine": 45,
+                    "endLine": 45,
+                    "startColumn": 9,
+                    "endColumn": 76,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.registry/src/org/jkiss/dbeaver/registry/DataSourceDescriptor.java",
+                    "startLine": 894,
+                    "endLine": 913,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration after extraction",
+                    "codeElement": "package persistSecrets(secretController DBSSecretController, isNewDataSource boolean) : void"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.registry/src/org/jkiss/dbeaver/registry/DataSourceDescriptor.java",
+                    "startLine": 900,
+                    "endLine": 900,
+                    "startColumn": 17,
+                    "endColumn": 113,
+                    "codeElementType": "METHOD_INVOCATION",
+                    "description": "extracted method invocation",
+                    "codeElement": "secretController.setPrivateSecretValue(this,new DBSSecretValue(getSecretValueId(),\"\",secret))"
+                }
+            ],
+            "isStatic": false
+        },
+        "ref_id": 889
+    },
+    {
+        "repository": "https://github.com/dbeaver/dbeaver.git",
+        "sha1": "cf8600ceff89d1e9b3f9b2d084f0cc566a168829",
+        "url": "https://github.com/dbeaver/dbeaver/commit/cf8600ceff89d1e9b3f9b2d084f0cc566a168829",
+        "move_method_refactoring": {
+            "type": "Extract And Move Method",
+            "description": "Extract And Move Method public tryFallbackSymbolForStringLiteral(dialect SQLDialect, symbolEntry SQLQuerySymbolEntry, isColumnResolved boolean) : SQLQuerySymbolClass extracted from package propagateContext(context SQLQueryDataContext, statistics SQLQueryRecognitionContext) : void in class org.jkiss.dbeaver.ui.editors.sql.semantics.model.SQLQueryValueColumnReferenceExpression & moved to class org.jkiss.dbeaver.ui.editors.sql.semantics.SQLQueryModelRecognizer",
+            "leftSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ui.editors.sql/src/org/jkiss/dbeaver/ui/editors/sql/semantics/model/SQLQueryValueColumnReferenceExpression.java",
+                    "startLine": 77,
+                    "endLine": 126,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration before extraction",
+                    "codeElement": "package propagateContext(context SQLQueryDataContext, statistics SQLQueryRecognitionContext) : void"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ui.editors.sql/src/org/jkiss/dbeaver/ui/editors/sql/semantics/model/SQLQueryValueColumnReferenceExpression.java",
+                    "startLine": 106,
+                    "endLine": 110,
+                    "startColumn": 25,
+                    "endColumn": 27,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ui.editors.sql/src/org/jkiss/dbeaver/ui/editors/sql/semantics/model/SQLQueryValueColumnReferenceExpression.java",
+                    "startLine": 102,
+                    "endLine": 102,
+                    "startColumn": 21,
+                    "endColumn": 107,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ui.editors.sql/src/org/jkiss/dbeaver/ui/editors/sql/semantics/model/SQLQueryValueColumnReferenceExpression.java",
+                    "startLine": 103,
+                    "endLine": 103,
+                    "startColumn": 21,
+                    "endColumn": 77,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ui.editors.sql/src/org/jkiss/dbeaver/ui/editors/sql/semantics/model/SQLQueryValueColumnReferenceExpression.java",
+                    "startLine": 104,
+                    "endLine": 111,
+                    "startColumn": 21,
+                    "endColumn": 22,
+                    "codeElementType": "IF_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ui.editors.sql/src/org/jkiss/dbeaver/ui/editors/sql/semantics/model/SQLQueryValueColumnReferenceExpression.java",
+                    "startLine": 105,
+                    "endLine": 111,
+                    "startColumn": 74,
+                    "endColumn": 22,
+                    "codeElementType": "BLOCK",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ui.editors.sql/src/org/jkiss/dbeaver/ui/editors/sql/semantics/SQLQueryModelRecognizer.java",
+                    "startLine": 980,
+                    "endLine": 998,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "extracted method declaration",
+                    "codeElement": "public tryFallbackSymbolForStringLiteral(dialect SQLDialect, symbolEntry SQLQuerySymbolEntry, isColumnResolved boolean) : SQLQuerySymbolClass"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ui.editors.sql/src/org/jkiss/dbeaver/ui/editors/sql/semantics/SQLQueryModelRecognizer.java",
+                    "startLine": 991,
+                    "endLine": 995,
+                    "startColumn": 13,
+                    "endColumn": 15,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ui.editors.sql/src/org/jkiss/dbeaver/ui/editors/sql/semantics/SQLQueryModelRecognizer.java",
+                    "startLine": 987,
+                    "endLine": 987,
+                    "startColumn": 9,
+                    "endColumn": 91,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ui.editors.sql/src/org/jkiss/dbeaver/ui/editors/sql/semantics/SQLQueryModelRecognizer.java",
+                    "startLine": 988,
+                    "endLine": 988,
+                    "startColumn": 9,
+                    "endColumn": 61,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ui.editors.sql/src/org/jkiss/dbeaver/ui/editors/sql/semantics/SQLQueryModelRecognizer.java",
+                    "startLine": 989,
+                    "endLine": 996,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "IF_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ui.editors.sql/src/org/jkiss/dbeaver/ui/editors/sql/semantics/SQLQueryModelRecognizer.java",
+                    "startLine": 990,
+                    "endLine": 996,
+                    "startColumn": 59,
+                    "endColumn": 10,
+                    "codeElementType": "BLOCK",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ui.editors.sql/src/org/jkiss/dbeaver/ui/editors/sql/semantics/model/SQLQueryValueColumnReferenceExpression.java",
+                    "startLine": 77,
+                    "endLine": 117,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration after extraction",
+                    "codeElement": "package propagateContext(context SQLQueryDataContext, statistics SQLQueryRecognitionContext) : void"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ui.editors.sql/src/org/jkiss/dbeaver/ui/editors/sql/semantics/model/SQLQueryValueColumnReferenceExpression.java",
+                    "startLine": 102,
+                    "endLine": 102,
+                    "startColumn": 35,
+                    "endColumn": 140,
+                    "codeElementType": "METHOD_INVOCATION",
+                    "description": "extracted method invocation",
+                    "codeElement": "SQLQueryModelRecognizer.tryFallbackSymbolForStringLiteral(dialect,this.columnName,resultColumn != null)"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ui.editors.sql/src/org/jkiss/dbeaver/ui/editors/sql/semantics/SQLQueryModelRecognizer.java",
+                    "startLine": 986,
+                    "endLine": 986,
+                    "startColumn": 9,
+                    "endColumn": 48,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "added statement in extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ui.editors.sql/src/org/jkiss/dbeaver/ui/editors/sql/semantics/SQLQueryModelRecognizer.java",
+                    "startLine": 997,
+                    "endLine": 997,
+                    "startColumn": 9,
+                    "endColumn": 28,
+                    "codeElementType": "RETURN_STATEMENT",
+                    "description": "added statement in extracted method declaration",
+                    "codeElement": null
+                }
+            ],
+            "isStatic": true
+        },
+        "ref_id": 890
+    },
+    {
+        "repository": "https://github.com/dbeaver/dbeaver.git",
+        "sha1": "8f3b7cb28e01308a07b34d2b7e33783dc02127f6",
+        "url": "https://github.com/dbeaver/dbeaver/commit/8f3b7cb28e01308a07b34d2b7e33783dc02127f6",
+        "move_method_refactoring": {
+            "type": "Extract And Move Method",
+            "description": "Extract And Move Method public setVariables(task DBTTask, variables Map<String,Object>) : void extracted from private confirmTaskVariables(task DBTTask) : boolean in class org.jkiss.dbeaver.tasks.ui.view.TaskHandlerRun & moved to class org.jkiss.dbeaver.model.task.DBTaskUtils",
+            "leftSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.tasks.ui.view/src/org/jkiss/dbeaver/tasks/ui/view/TaskHandlerRun.java",
+                    "startLine": 97,
+                    "endLine": 114,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration before extraction",
+                    "codeElement": "private confirmTaskVariables(task DBTTask) : boolean"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.tasks.ui.view/src/org/jkiss/dbeaver/tasks/ui/view/TaskHandlerRun.java",
+                    "startLine": 109,
+                    "endLine": 109,
+                    "startColumn": 17,
+                    "endColumn": 77,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model/src/org/jkiss/dbeaver/model/task/DBTaskUtils.java",
+                    "startLine": 66,
+                    "endLine": 68,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "extracted method declaration",
+                    "codeElement": "public setVariables(task DBTTask, variables Map<String,Object>) : void"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model/src/org/jkiss/dbeaver/model/task/DBTaskUtils.java",
+                    "startLine": 67,
+                    "endLine": 67,
+                    "startColumn": 9,
+                    "endColumn": 55,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.tasks.ui.view/src/org/jkiss/dbeaver/tasks/ui/view/TaskHandlerRun.java",
+                    "startLine": 99,
+                    "endLine": 126,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration after extraction",
+                    "codeElement": "private confirmTaskVariables(task DBTTask) : boolean"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.tasks.ui.view/src/org/jkiss/dbeaver/tasks/ui/view/TaskHandlerRun.java",
+                    "startLine": 121,
+                    "endLine": 121,
+                    "startColumn": 17,
+                    "endColumn": 76,
+                    "codeElementType": "METHOD_INVOCATION",
+                    "description": "extracted method invocation",
+                    "codeElement": "DBTaskUtils.setVariables(other,dialog.getVariables(other))"
+                }
+            ],
+            "isStatic": true
+        },
+        "ref_id": 891
+    },
+    {
+        "repository": "https://github.com/dbeaver/dbeaver.git",
+        "sha1": "7cc575a95041bcf602fc884f4e4f264bbf2b1b12",
+        "url": "https://github.com/dbeaver/dbeaver/commit/7cc575a95041bcf602fc884f4e4f264bbf2b1b12",
+        "move_method_refactoring": {
+            "type": "Extract And Move Method",
+            "description": "Extract And Move Method public getDashboardRenderer() : String extracted from public getViewType() : DashboardViewType in class org.jkiss.dbeaver.ui.dashboard.model.DashboardItemViewConfiguration & moved to class org.jkiss.dbeaver.model.dashboard.registry.DashboardDescriptor",
+            "leftSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ui.dashboard/src/org/jkiss/dbeaver/ui/dashboard/model/DashboardItemViewConfiguration.java",
+                    "startLine": 46,
+                    "endLine": 48,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration before extraction",
+                    "codeElement": "public getViewType() : DashboardViewType"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ui.dashboard/src/org/jkiss/dbeaver/ui/dashboard/model/DashboardItemViewConfiguration.java",
+                    "startLine": 47,
+                    "endLine": 47,
+                    "startColumn": 9,
+                    "endColumn": 25,
+                    "codeElementType": "RETURN_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model.dashboard/src/org/jkiss/dbeaver/model/dashboard/registry/DashboardDescriptor.java",
+                    "startLine": 377,
+                    "endLine": 381,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "extracted method declaration",
+                    "codeElement": "public getDashboardRenderer() : String"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model.dashboard/src/org/jkiss/dbeaver/model/dashboard/registry/DashboardDescriptor.java",
+                    "startLine": 380,
+                    "endLine": 380,
+                    "startColumn": 9,
+                    "endColumn": 25,
+                    "codeElementType": "RETURN_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ui.dashboard/src/org/jkiss/dbeaver/ui/dashboard/model/DashboardItemViewConfiguration.java",
+                    "startLine": 86,
+                    "endLine": 93,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration after extraction",
+                    "codeElement": "public getViewType() : DBDashboardRendererType"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ui.dashboard/src/org/jkiss/dbeaver/ui/dashboard/model/DashboardItemViewConfiguration.java",
+                    "startLine": 90,
+                    "endLine": 90,
+                    "startColumn": 85,
+                    "endColumn": 117,
+                    "codeElementType": "METHOD_INVOCATION",
+                    "description": "extracted method invocation",
+                    "codeElement": "dashboard.getDashboardRenderer()"
+                }
+            ],
+            "isStatic": false
+        },
+        "ref_id": 892
+    },
+    {
+        "repository": "https://github.com/dbeaver/dbeaver.git",
+        "sha1": "7cc575a95041bcf602fc884f4e4f264bbf2b1b12",
+        "url": "https://github.com/dbeaver/dbeaver/commit/7cc575a95041bcf602fc884f4e4f264bbf2b1b12",
+        "move_method_refactoring": {
+            "type": "Extract And Move Method",
+            "description": "Extract And Move Method public getDashboardId() : String extracted from private createChartRenderer() : void in class org.jkiss.dbeaver.ui.dashboard.control.DashboardItem & moved to class org.jkiss.dbeaver.ui.dashboard.model.DashboardItemViewConfiguration",
+            "leftSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ui.dashboard/src/org/jkiss/dbeaver/ui/dashboard/control/DashboardItem.java",
+                    "startLine": 103,
+                    "endLine": 150,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration before extraction",
+                    "codeElement": "private createChartRenderer() : void"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ui.dashboard/src/org/jkiss/dbeaver/ui/dashboard/control/DashboardItem.java",
+                    "startLine": 116,
+                    "endLine": 116,
+                    "startColumn": 13,
+                    "endColumn": 37,
+                    "codeElementType": "IF_STATEMENT_CONDITION",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ui.dashboard/src/org/jkiss/dbeaver/ui/dashboard/model/DashboardItemViewConfiguration.java",
+                    "startLine": 53,
+                    "endLine": 55,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "extracted method declaration",
+                    "codeElement": "public getDashboardId() : String"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ui.dashboard/src/org/jkiss/dbeaver/ui/dashboard/model/DashboardItemViewConfiguration.java",
+                    "startLine": 54,
+                    "endLine": 54,
+                    "startColumn": 9,
+                    "endColumn": 68,
+                    "codeElementType": "RETURN_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ui.dashboard/src/org/jkiss/dbeaver/ui/dashboard/control/DBDashboardItem.java",
+                    "startLine": 129,
+                    "endLine": 144,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration after extraction",
+                    "codeElement": "private createDashboardRenderer() : void"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ui.dashboard/src/org/jkiss/dbeaver/ui/dashboard/control/DBDashboardItem.java",
+                    "startLine": 139,
+                    "endLine": 139,
+                    "startColumn": 93,
+                    "endColumn": 125,
+                    "codeElementType": "METHOD_INVOCATION",
+                    "description": "extracted method invocation",
+                    "codeElement": "dashboardConfig.getDashboardId()"
+                }
+            ],
+            "isStatic": false
+        },
+        "ref_id": 893
+    },
+    {
+        "repository": "https://github.com/dbeaver/dbeaver.git",
+        "sha1": "05341995c16461abb0ff4b9f06ad9b978cc39728",
+        "url": "https://github.com/dbeaver/dbeaver/commit/05341995c16461abb0ff4b9f06ad9b978cc39728",
+        "move_method_refactoring": {
+            "type": "Extract And Move Method",
+            "description": "Extract And Move Method public setup(client SSHClient, config SSHPortForwardConfiguration) : LocalPortListener extracted from public setupPortForward(cfg SSHPortForwardConfiguration) : SSHPortForwardConfiguration in class org.jkiss.dbeaver.model.net.ssh.SSHJSession & moved to class org.jkiss.dbeaver.model.net.ssh.SSHJSession.LocalPortListener",
+            "leftSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.net.ssh.sshj/src/org/jkiss/dbeaver/model/net/ssh/SSHJSession.java",
+                    "startLine": 83,
+                    "endLine": 106,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration before extraction",
+                    "codeElement": "public setupPortForward(cfg SSHPortForwardConfiguration) : SSHPortForwardConfiguration"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.net.ssh.sshj/src/org/jkiss/dbeaver/model/net/ssh/SSHJSession.java",
+                    "startLine": 99,
+                    "endLine": 99,
+                    "startColumn": 13,
+                    "endColumn": 30,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.net.ssh.sshj/src/org/jkiss/dbeaver/model/net/ssh/SSHJSession.java",
+                    "startLine": 90,
+                    "endLine": 90,
+                    "startColumn": 13,
+                    "endColumn": 93,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.net.ssh.sshj/src/org/jkiss/dbeaver/model/net/ssh/SSHJSession.java",
+                    "startLine": 189,
+                    "endLine": 200,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "extracted method declaration",
+                    "codeElement": "public setup(client SSHClient, config SSHPortForwardConfiguration) : LocalPortListener"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.net.ssh.sshj/src/org/jkiss/dbeaver/model/net/ssh/SSHJSession.java",
+                    "startLine": 196,
+                    "endLine": 196,
+                    "startColumn": 13,
+                    "endColumn": 30,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.net.ssh.sshj/src/org/jkiss/dbeaver/model/net/ssh/SSHJSession.java",
+                    "startLine": 194,
+                    "endLine": 194,
+                    "startColumn": 13,
+                    "endColumn": 86,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.net.ssh.sshj/src/org/jkiss/dbeaver/model/net/ssh/SSHJSession.java",
+                    "startLine": 81,
+                    "endLine": 94,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration after extraction",
+                    "codeElement": "public setupPortForward(config SSHPortForwardConfiguration) : SSHPortForwardConfiguration"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.net.ssh.sshj/src/org/jkiss/dbeaver/model/net/ssh/SSHJSession.java",
+                    "startLine": 85,
+                    "endLine": 85,
+                    "startColumn": 48,
+                    "endColumn": 87,
+                    "codeElementType": "METHOD_INVOCATION",
+                    "description": "extracted method invocation",
+                    "codeElement": "LocalPortListener.setup(client,config)"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.net.ssh.sshj/src/org/jkiss/dbeaver/model/net/ssh/SSHJSession.java",
+                    "startLine": 197,
+                    "endLine": 197,
+                    "startColumn": 13,
+                    "endColumn": 30,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "added statement in extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.net.ssh.sshj/src/org/jkiss/dbeaver/model/net/ssh/SSHJSession.java",
+                    "startLine": 199,
+                    "endLine": 199,
+                    "startColumn": 13,
+                    "endColumn": 29,
+                    "codeElementType": "RETURN_STATEMENT",
+                    "description": "added statement in extracted method declaration",
+                    "codeElement": null
+                }
+            ],
+            "isStatic": true
+        },
+        "ref_id": 894
+    },
+    {
+        "repository": "https://github.com/dbeaver/dbeaver.git",
+        "sha1": "e00b312cf6ba8653c45cb5c36757b0975e71450c",
+        "url": "https://github.com/dbeaver/dbeaver/commit/e00b312cf6ba8653c45cb5c36757b0975e71450c",
+        "move_method_refactoring": {
+            "type": "Extract And Move Method",
+            "description": "Extract And Move Method public isDatabaseRequired() : boolean extracted from protected createDialogArea(parent Composite) : Composite in class org.jkiss.dbeaver.ui.dashboard.view.DashboardManagerDialog & moved to class org.jkiss.dbeaver.model.dashboard.registry.DashboardProviderDescriptor",
+            "leftSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ui.dashboard/src/org/jkiss/dbeaver/ui/dashboard/view/DashboardManagerDialog.java",
+                    "startLine": 76,
+                    "endLine": 231,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration before extraction",
+                    "codeElement": "protected createDialogArea(parent Composite) : Composite"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ui.dashboard/src/org/jkiss/dbeaver/ui/dashboard/view/DashboardManagerDialog.java",
+                    "startLine": 120,
+                    "endLine": 120,
+                    "startColumn": 21,
+                    "endColumn": 70,
+                    "codeElementType": "RETURN_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model.dashboard/src/org/jkiss/dbeaver/model/dashboard/registry/DashboardProviderDescriptor.java",
+                    "startLine": 91,
+                    "endLine": 93,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "extracted method declaration",
+                    "codeElement": "public isDatabaseRequired() : boolean"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model.dashboard/src/org/jkiss/dbeaver/model/dashboard/registry/DashboardProviderDescriptor.java",
+                    "startLine": 92,
+                    "endLine": 92,
+                    "startColumn": 9,
+                    "endColumn": 33,
+                    "codeElementType": "RETURN_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ui.dashboard/src/org/jkiss/dbeaver/ui/dashboard/view/DashboardManagerDialog.java",
+                    "startLine": 78,
+                    "endLine": 238,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration after extraction",
+                    "codeElement": "protected createDialogArea(parent Composite) : Composite"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ui.dashboard/src/org/jkiss/dbeaver/ui/dashboard/view/DashboardManagerDialog.java",
+                    "startLine": 105,
+                    "endLine": 105,
+                    "startColumn": 29,
+                    "endColumn": 53,
+                    "codeElementType": "METHOD_INVOCATION",
+                    "description": "extracted method invocation",
+                    "codeElement": "dpd.isDatabaseRequired()"
+                }
+            ],
+            "isStatic": false
+        },
+        "ref_id": 895
+    },
+    {
+        "repository": "https://github.com/dbeaver/dbeaver.git",
+        "sha1": "8e628f3f5288f7da3391f21f83a05e52a572b9c3",
+        "url": "https://github.com/dbeaver/dbeaver/commit/8e628f3f5288f7da3391f21f83a05e52a572b9c3",
+        "move_method_refactoring": {
+            "type": "Extract And Move Method",
+            "description": "Extract And Move Method public join(nodes ListNode<T>, joinList ListNode<T>) : ListNode<T> extracted from public highlightAttributeAssociations(attributePart AttributePart, color Color) : ERDHighlightingHandle in class org.jkiss.dbeaver.erd.ui.editor.ERDHighlightingManager & moved to class org.jkiss.dbeaver.utils.ListNode",
+            "leftSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.erd.ui/src/org/jkiss/dbeaver/erd/ui/editor/ERDHighlightingManager.java",
+                    "startLine": 129,
+                    "endLine": 168,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration before extraction",
+                    "codeElement": "public highlightAttributeAssociations(attributePart AttributePart, color Color) : ERDHighlightingHandle"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.erd.ui/src/org/jkiss/dbeaver/erd/ui/editor/ERDHighlightingManager.java",
+                    "startLine": 137,
+                    "endLine": 137,
+                    "startColumn": 17,
+                    "endColumn": 122,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.erd.ui/src/org/jkiss/dbeaver/erd/ui/editor/ERDHighlightingManager.java",
+                    "startLine": 136,
+                    "endLine": 141,
+                    "startColumn": 72,
+                    "endColumn": 14,
+                    "codeElementType": "BLOCK",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model/src/org/jkiss/dbeaver/utils/ListNode.java",
+                    "startLine": 66,
+                    "endLine": 78,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "extracted method declaration",
+                    "codeElement": "public join(nodes ListNode<T>, joinList ListNode<T>) : ListNode<T>"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model/src/org/jkiss/dbeaver/utils/ListNode.java",
+                    "startLine": 75,
+                    "endLine": 75,
+                    "startColumn": 13,
+                    "endColumn": 54,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model/src/org/jkiss/dbeaver/utils/ListNode.java",
+                    "startLine": 74,
+                    "endLine": 76,
+                    "startColumn": 31,
+                    "endColumn": 10,
+                    "codeElementType": "BLOCK",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.erd.ui/src/org/jkiss/dbeaver/erd/ui/editor/ERDHighlightingManager.java",
+                    "startLine": 129,
+                    "endLine": 169,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration after extraction",
+                    "codeElement": "public highlightRelatedAttributes(attributePart AttributePart, color Color) : ListNode<ERDHighlightingHandle>"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.erd.ui/src/org/jkiss/dbeaver/erd/ui/editor/ERDHighlightingManager.java",
+                    "startLine": 141,
+                    "endLine": 141,
+                    "startColumn": 33,
+                    "endColumn": 113,
+                    "codeElementType": "METHOD_INVOCATION",
+                    "description": "extracted method invocation",
+                    "codeElement": "ListNode.join(highlightings,highlightRelatedAttributes(associationPart,color))"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.erd.ui/src/org/jkiss/dbeaver/erd/ui/editor/ERDHighlightingManager.java",
+                    "startLine": 147,
+                    "endLine": 147,
+                    "startColumn": 33,
+                    "endColumn": 113,
+                    "codeElementType": "METHOD_INVOCATION",
+                    "description": "extracted method invocation",
+                    "codeElement": "ListNode.join(highlightings,highlightRelatedAttributes(associationPart,color))"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.erd.ui/src/org/jkiss/dbeaver/erd/ui/editor/ERDHighlightingManager.java",
+                    "startLine": 155,
+                    "endLine": 155,
+                    "startColumn": 37,
+                    "endColumn": 117,
+                    "codeElementType": "METHOD_INVOCATION",
+                    "description": "extracted method invocation",
+                    "codeElement": "ListNode.join(highlightings,highlightRelatedAttributes(associationPart,color))"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.erd.ui/src/org/jkiss/dbeaver/erd/ui/editor/ERDHighlightingManager.java",
+                    "startLine": 164,
+                    "endLine": 164,
+                    "startColumn": 37,
+                    "endColumn": 117,
+                    "codeElementType": "METHOD_INVOCATION",
+                    "description": "extracted method invocation",
+                    "codeElement": "ListNode.join(highlightings,highlightRelatedAttributes(associationPart,color))"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model/src/org/jkiss/dbeaver/utils/ListNode.java",
+                    "startLine": 73,
+                    "endLine": 73,
+                    "startColumn": 9,
+                    "endColumn": 47,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "added statement in extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model/src/org/jkiss/dbeaver/utils/ListNode.java",
+                    "startLine": 77,
+                    "endLine": 77,
+                    "startColumn": 9,
+                    "endColumn": 22,
+                    "codeElementType": "RETURN_STATEMENT",
+                    "description": "added statement in extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model/src/org/jkiss/dbeaver/utils/ListNode.java",
+                    "startLine": 74,
+                    "endLine": 76,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "WHILE_STATEMENT",
+                    "description": "added statement in extracted method declaration",
+                    "codeElement": null
+                }
+            ],
+            "isStatic": true
+        },
+        "ref_id": 896
+    },
+    {
+        "repository": "https://github.com/dbeaver/dbeaver.git",
+        "sha1": "0021ff647d425a39f24da1ba3c30b84c7283c449",
+        "url": "https://github.com/dbeaver/dbeaver/commit/0021ff647d425a39f24da1ba3c30b84c7283c449",
+        "move_method_refactoring": {
+            "type": "Extract And Move Method",
+            "description": "Extract And Move Method public setEndsWithDelimiter(value boolean) : void extracted from private parseQueryImpl(context SQLParserContext, startPos int, endPos int, currentPos int, scriptMode boolean, keepDelimiters boolean) : SQLScriptElement in class org.jkiss.dbeaver.model.sql.parser.SQLScriptParser & moved to class org.jkiss.dbeaver.model.sql.SQLQuery",
+            "leftSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model.sql/src/org/jkiss/dbeaver/model/sql/parser/SQLScriptParser.java",
+                    "startLine": 87,
+                    "endLine": 374,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration before extraction",
+                    "codeElement": "private parseQueryImpl(context SQLParserContext, startPos int, endPos int, currentPos int, scriptMode boolean, keepDelimiters boolean) : SQLScriptElement"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model.sql/src/org/jkiss/dbeaver/model/sql/parser/SQLScriptParser.java",
+                    "startLine": 330,
+                    "endLine": 330,
+                    "startColumn": 25,
+                    "endColumn": 110,
+                    "codeElementType": "IF_STATEMENT_CONDITION",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model/src/org/jkiss/dbeaver/model/sql/SQLQuery.java",
+                    "startLine": 431,
+                    "endLine": 433,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "extracted method declaration",
+                    "codeElement": "public setEndsWithDelimiter(value boolean) : void"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model/src/org/jkiss/dbeaver/model/sql/SQLQuery.java",
+                    "startLine": 432,
+                    "endLine": 432,
+                    "startColumn": 9,
+                    "endColumn": 42,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model.sql/src/org/jkiss/dbeaver/model/sql/parser/SQLScriptParser.java",
+                    "startLine": 87,
+                    "endLine": 375,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration after extraction",
+                    "codeElement": "private parseQueryImpl(context SQLParserContext, startPos int, endPos int, currentPos int, scriptMode boolean, keepDelimiters boolean) : SQLScriptElement"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model.sql/src/org/jkiss/dbeaver/model/sql/parser/SQLScriptParser.java",
+                    "startLine": 341,
+                    "endLine": 341,
+                    "startColumn": 21,
+                    "endColumn": 86,
+                    "codeElementType": "METHOD_INVOCATION",
+                    "description": "extracted method invocation",
+                    "codeElement": "query.setEndsWithDelimiter(tokenType == SQLTokenType.T_DELIMITER)"
+                }
+            ],
+            "isStatic": false
+        },
+        "ref_id": 897
+    },
+    {
+        "repository": "https://github.com/dbeaver/dbeaver.git",
+        "sha1": "283862c01037ac926055826e447e965bb6814a50",
+        "url": "https://github.com/dbeaver/dbeaver/commit/283862c01037ac926055826e447e965bb6814a50",
+        "move_method_refactoring": {
+            "type": "Extract And Move Method",
+            "description": "Extract And Move Method public isCellExpanded(row IGridRow, column IGridColumn) : boolean extracted from private formatValue(attr DBDAttributeBinding, row ResultSetRow, value Object) : Object in class org.jkiss.dbeaver.ui.controls.resultset.spreadsheet.SpreadsheetPresentation.ContentProvider & moved to class org.jkiss.dbeaver.ui.controls.lightgrid.LightGrid",
+            "leftSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ui.editors.data/src/org/jkiss/dbeaver/ui/controls/resultset/spreadsheet/SpreadsheetPresentation.java",
+                    "startLine": 2296,
+                    "endLine": 2353,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration before extraction",
+                    "codeElement": "private formatValue(attr DBDAttributeBinding, row ResultSetRow, value Object) : Object"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ui.editors.data/src/org/jkiss/dbeaver/ui/controls/resultset/spreadsheet/SpreadsheetPresentation.java",
+                    "startLine": 2326,
+                    "endLine": 2326,
+                    "startColumn": 17,
+                    "endColumn": 68,
+                    "codeElementType": "IF_STATEMENT_CONDITION",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ui.editors.data/src/org/jkiss/dbeaver/ui/controls/resultset/spreadsheet/SpreadsheetPresentation.java",
+                    "startLine": 2337,
+                    "endLine": 2337,
+                    "startColumn": 25,
+                    "endColumn": 75,
+                    "codeElementType": "IF_STATEMENT_CONDITION",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ui.editors.data/src/org/jkiss/dbeaver/ui/controls/lightgrid/LightGrid.java",
+                    "startLine": 3376,
+                    "endLine": 3380,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "extracted method declaration",
+                    "codeElement": "public isCellExpanded(row IGridRow, column IGridColumn) : boolean"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ui.editors.data/src/org/jkiss/dbeaver/ui/controls/lightgrid/LightGrid.java",
+                    "startLine": 3379,
+                    "endLine": 3379,
+                    "startColumn": 9,
+                    "endColumn": 70,
+                    "codeElementType": "RETURN_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ui.editors.data/src/org/jkiss/dbeaver/ui/controls/resultset/spreadsheet/SpreadsheetPresentation.java",
+                    "startLine": 2300,
+                    "endLine": 2357,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration after extraction",
+                    "codeElement": "private formatValue(gridColumn IGridColumn, gridRow IGridRow, value Object) : Object"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ui.editors.data/src/org/jkiss/dbeaver/ui/controls/resultset/spreadsheet/SpreadsheetPresentation.java",
+                    "startLine": 2336,
+                    "endLine": 2336,
+                    "startColumn": 21,
+                    "endColumn": 68,
+                    "codeElementType": "METHOD_INVOCATION",
+                    "description": "extracted method invocation",
+                    "codeElement": "spreadsheet.isCellExpanded(gridRow,gridColumn)"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ui.editors.data/src/org/jkiss/dbeaver/ui/controls/lightgrid/LightGrid.java",
+                    "startLine": 3377,
+                    "endLine": 3377,
+                    "startColumn": 9,
+                    "endColumn": 58,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "added statement in extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ui.editors.data/src/org/jkiss/dbeaver/ui/controls/lightgrid/LightGrid.java",
+                    "startLine": 3378,
+                    "endLine": 3378,
+                    "startColumn": 9,
+                    "endColumn": 67,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "added statement in extracted method declaration",
+                    "codeElement": null
+                }
+            ],
+            "isStatic": false
+        },
+        "ref_id": 898
+    },
+    {
+        "repository": "https://github.com/dbeaver/dbeaver.git",
+        "sha1": "1b9e9b6055181df4e19c4daf4bf898b3b746dddd",
+        "url": "https://github.com/dbeaver/dbeaver/commit/1b9e9b6055181df4e19c4daf4bf898b3b746dddd",
+        "move_method_refactoring": {
+            "type": "Extract And Move Method",
+            "description": "Extract And Move Method public getDialect() : SQLDialect extracted from public getDialect() : SQLDialect in class org.jkiss.dbeaver.model.sql.semantics.context.SQLQueryDataSourceContext & moved to class org.jkiss.dbeaver.model.sql.semantics.SQLQueryModelContext",
+            "leftSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model.sql/src/org/jkiss/dbeaver/model/sql/semantics/context/SQLQueryDataSourceContext.java",
+                    "startLine": 97,
+                    "endLine": 101,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration before extraction",
+                    "codeElement": "public getDialect() : SQLDialect"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model.sql/src/org/jkiss/dbeaver/model/sql/semantics/context/SQLQueryDataSourceContext.java",
+                    "startLine": 100,
+                    "endLine": 100,
+                    "startColumn": 9,
+                    "endColumn": 29,
+                    "codeElementType": "RETURN_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model.sql/src/org/jkiss/dbeaver/model/sql/semantics/SQLQueryModelContext.java",
+                    "startLine": 97,
+                    "endLine": 99,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "extracted method declaration",
+                    "codeElement": "public getDialect() : SQLDialect"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model.sql/src/org/jkiss/dbeaver/model/sql/semantics/SQLQueryModelContext.java",
+                    "startLine": 98,
+                    "endLine": 98,
+                    "startColumn": 9,
+                    "endColumn": 24,
+                    "codeElementType": "RETURN_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model.sql/src/org/jkiss/dbeaver/model/sql/semantics/context/SQLQueryDataSourceContext.java",
+                    "startLine": 93,
+                    "endLine": 97,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration after extraction",
+                    "codeElement": "public getDialect() : SQLDialect"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model.sql/src/org/jkiss/dbeaver/model/sql/semantics/context/SQLQueryDataSourceContext.java",
+                    "startLine": 96,
+                    "endLine": 96,
+                    "startColumn": 16,
+                    "endColumn": 41,
+                    "codeElementType": "METHOD_INVOCATION",
+                    "description": "extracted method invocation",
+                    "codeElement": "this.context.getDialect()"
+                }
+            ],
+            "isStatic": false
+        },
+        "ref_id": 899
+    },
+    {
+        "repository": "https://github.com/dbeaver/dbeaver.git",
+        "sha1": "1b9e9b6055181df4e19c4daf4bf898b3b746dddd",
+        "url": "https://github.com/dbeaver/dbeaver/commit/1b9e9b6055181df4e19c4daf4bf898b3b746dddd",
+        "move_method_refactoring": {
+            "type": "Extract And Move Method",
+            "description": "Extract And Move Method public getDialect() : SQLDialect extracted from public SQLQueryDataSourceContext(executionContext DBCExecutionContext, dialect SQLDialect) in class org.jkiss.dbeaver.model.sql.semantics.context.SQLQueryDataSourceContext & moved to class org.jkiss.dbeaver.model.sql.semantics.SQLQueryModelContext",
+            "leftSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model.sql/src/org/jkiss/dbeaver/model/sql/semantics/context/SQLQueryDataSourceContext.java",
+                    "startLine": 51,
+                    "endLine": 55,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration before extraction",
+                    "codeElement": "public SQLQueryDataSourceContext(executionContext DBCExecutionContext, dialect SQLDialect)"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model.sql/src/org/jkiss/dbeaver/model/sql/semantics/context/SQLQueryDataSourceContext.java",
+                    "startLine": 53,
+                    "endLine": 53,
+                    "startColumn": 9,
+                    "endColumn": 32,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model.sql/src/org/jkiss/dbeaver/model/sql/semantics/SQLQueryModelContext.java",
+                    "startLine": 97,
+                    "endLine": 99,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "extracted method declaration",
+                    "codeElement": "public getDialect() : SQLDialect"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model.sql/src/org/jkiss/dbeaver/model/sql/semantics/SQLQueryModelContext.java",
+                    "startLine": 98,
+                    "endLine": 98,
+                    "startColumn": 9,
+                    "endColumn": 24,
+                    "codeElementType": "RETURN_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model.sql/src/org/jkiss/dbeaver/model/sql/semantics/context/SQLQueryDataSourceContext.java",
+                    "startLine": 48,
+                    "endLine": 51,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration after extraction",
+                    "codeElement": "public SQLQueryDataSourceContext(context SQLQueryModelContext)"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model.sql/src/org/jkiss/dbeaver/model/sql/semantics/context/SQLQueryDataSourceContext.java",
+                    "startLine": 50,
+                    "endLine": 50,
+                    "startColumn": 61,
+                    "endColumn": 81,
+                    "codeElementType": "METHOD_INVOCATION",
+                    "description": "extracted method invocation",
+                    "codeElement": "context.getDialect()"
+                }
+            ],
+            "isStatic": false
+        },
+        "ref_id": 900
+    },
+    {
+        "repository": "https://github.com/dbeaver/dbeaver.git",
+        "sha1": "1b9e9b6055181df4e19c4daf4bf898b3b746dddd",
+        "url": "https://github.com/dbeaver/dbeaver/commit/1b9e9b6055181df4e19c4daf4bf898b3b746dddd",
+        "move_method_refactoring": {
+            "type": "Extract And Move Method",
+            "description": "Extract And Move Method public getDialect() : SQLDialect extracted from public getSQLDialect() : SQLDialect in class org.jkiss.dbeaver.model.sql.semantics.context.SQLQueryDummyDataSourceContext.DummyDbObject & moved to class org.jkiss.dbeaver.model.sql.semantics.SQLQueryModelContext",
+            "leftSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model.sql/src/org/jkiss/dbeaver/model/sql/semantics/context/SQLQueryDummyDataSourceContext.java",
+                    "startLine": 311,
+                    "endLine": 314,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration before extraction",
+                    "codeElement": "public getSQLDialect() : SQLDialect"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model.sql/src/org/jkiss/dbeaver/model/sql/semantics/context/SQLQueryDummyDataSourceContext.java",
+                    "startLine": 313,
+                    "endLine": 313,
+                    "startColumn": 13,
+                    "endColumn": 28,
+                    "codeElementType": "RETURN_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model.sql/src/org/jkiss/dbeaver/model/sql/semantics/SQLQueryModelContext.java",
+                    "startLine": 97,
+                    "endLine": 99,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "extracted method declaration",
+                    "codeElement": "public getDialect() : SQLDialect"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model.sql/src/org/jkiss/dbeaver/model/sql/semantics/SQLQueryModelContext.java",
+                    "startLine": 98,
+                    "endLine": 98,
+                    "startColumn": 9,
+                    "endColumn": 24,
+                    "codeElementType": "RETURN_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model.sql/src/org/jkiss/dbeaver/model/sql/semantics/context/SQLQueryDummyDataSourceContext.java",
+                    "startLine": 308,
+                    "endLine": 311,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration after extraction",
+                    "codeElement": "public getSQLDialect() : SQLDialect"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model.sql/src/org/jkiss/dbeaver/model/sql/semantics/context/SQLQueryDummyDataSourceContext.java",
+                    "startLine": 310,
+                    "endLine": 310,
+                    "startColumn": 20,
+                    "endColumn": 40,
+                    "codeElementType": "METHOD_INVOCATION",
+                    "description": "extracted method invocation",
+                    "codeElement": "context.getDialect()"
+                }
+            ],
+            "isStatic": false
+        },
+        "ref_id": 901
+    },
+    {
+        "repository": "https://github.com/dbeaver/dbeaver.git",
+        "sha1": "1b9e9b6055181df4e19c4daf4bf898b3b746dddd",
+        "url": "https://github.com/dbeaver/dbeaver/commit/1b9e9b6055181df4e19c4daf4bf898b3b746dddd",
+        "move_method_refactoring": {
+            "type": "Extract And Move Method",
+            "description": "Extract And Move Method public getDialect() : SQLDialect extracted from public getDialect() : SQLDialect in class org.jkiss.dbeaver.model.sql.semantics.context.SQLQueryDummyDataSourceContext & moved to class org.jkiss.dbeaver.model.sql.semantics.SQLQueryModelContext",
+            "leftSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model.sql/src/org/jkiss/dbeaver/model/sql/semantics/context/SQLQueryDummyDataSourceContext.java",
+                    "startLine": 461,
+                    "endLine": 465,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration before extraction",
+                    "codeElement": "public getDialect() : SQLDialect"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model.sql/src/org/jkiss/dbeaver/model/sql/semantics/context/SQLQueryDummyDataSourceContext.java",
+                    "startLine": 464,
+                    "endLine": 464,
+                    "startColumn": 9,
+                    "endColumn": 29,
+                    "codeElementType": "RETURN_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model.sql/src/org/jkiss/dbeaver/model/sql/semantics/SQLQueryModelContext.java",
+                    "startLine": 97,
+                    "endLine": 99,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "extracted method declaration",
+                    "codeElement": "public getDialect() : SQLDialect"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model.sql/src/org/jkiss/dbeaver/model/sql/semantics/SQLQueryModelContext.java",
+                    "startLine": 98,
+                    "endLine": 98,
+                    "startColumn": 9,
+                    "endColumn": 24,
+                    "codeElementType": "RETURN_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model.sql/src/org/jkiss/dbeaver/model/sql/semantics/context/SQLQueryDummyDataSourceContext.java",
+                    "startLine": 458,
+                    "endLine": 462,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration after extraction",
+                    "codeElement": "public getDialect() : SQLDialect"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model.sql/src/org/jkiss/dbeaver/model/sql/semantics/context/SQLQueryDummyDataSourceContext.java",
+                    "startLine": 461,
+                    "endLine": 461,
+                    "startColumn": 16,
+                    "endColumn": 41,
+                    "codeElementType": "METHOD_INVOCATION",
+                    "description": "extracted method invocation",
+                    "codeElement": "this.context.getDialect()"
+                }
+            ],
+            "isStatic": false
+        },
+        "ref_id": 902
+    },
+    {
+        "repository": "https://github.com/dbeaver/dbeaver.git",
+        "sha1": "1b9e9b6055181df4e19c4daf4bf898b3b746dddd",
+        "url": "https://github.com/dbeaver/dbeaver/commit/1b9e9b6055181df4e19c4daf4bf898b3b746dddd",
+        "move_method_refactoring": {
+            "type": "Extract And Move Method",
+            "description": "Extract And Move Method public getFirstStmChild() : STMTreeNode extracted from private collectValueExpression(node STMTreeNode) : SQLQueryValueExpression in class org.jkiss.dbeaver.model.sql.semantics.SQLQueryModelRecognizer & moved to class org.jkiss.dbeaver.model.stm.STMTreeNode",
+            "leftSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model.sql/src/org/jkiss/dbeaver/model/sql/semantics/SQLQueryModelRecognizer.java",
+                    "startLine": 567,
+                    "endLine": 626,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration before extraction",
+                    "codeElement": "private collectValueExpression(node STMTreeNode) : SQLQueryValueExpression"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model.sql/src/org/jkiss/dbeaver/model/sql/semantics/SQLQueryModelRecognizer.java",
+                    "startLine": 590,
+                    "endLine": 590,
+                    "startColumn": 29,
+                    "endColumn": 52,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model.lsm/src/org/jkiss/dbeaver/model/stm/STMTreeNode.java",
+                    "startLine": 96,
+                    "endLine": 98,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "extracted method declaration",
+                    "codeElement": "public getFirstStmChild() : STMTreeNode"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model.lsm/src/org/jkiss/dbeaver/model/stm/STMTreeNode.java",
+                    "startLine": 97,
+                    "endLine": 97,
+                    "startColumn": 9,
+                    "endColumn": 31,
+                    "codeElementType": "RETURN_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model.sql/src/org/jkiss/dbeaver/model/sql/semantics/SQLQueryModelContext.java",
+                    "startLine": 517,
+                    "endLine": 576,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration after extraction",
+                    "codeElement": "public collectValueExpression(node STMTreeNode) : SQLQueryValueExpression"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model.sql/src/org/jkiss/dbeaver/model/sql/semantics/SQLQueryModelContext.java",
+                    "startLine": 540,
+                    "endLine": 540,
+                    "startColumn": 34,
+                    "endColumn": 55,
+                    "codeElementType": "METHOD_INVOCATION",
+                    "description": "extracted method invocation",
+                    "codeElement": "rn.getFirstStmChild()"
+                }
+            ],
+            "isStatic": false
+        },
+        "ref_id": 903
+    },
+    {
+        "repository": "https://github.com/dbeaver/dbeaver.git",
+        "sha1": "1b9e9b6055181df4e19c4daf4bf898b3b746dddd",
+        "url": "https://github.com/dbeaver/dbeaver/commit/1b9e9b6055181df4e19c4daf4bf898b3b746dddd",
+        "move_method_refactoring": {
+            "type": "Extract And Move Method",
+            "description": "Extract And Move Method public getFirstStmChild() : STMTreeNode extracted from private collectValueReferenceExpression(node STMTreeNode) : SQLQueryValueExpression in class org.jkiss.dbeaver.model.sql.semantics.SQLQueryModelRecognizer & moved to class org.jkiss.dbeaver.model.stm.STMTreeNode",
+            "leftSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model.sql/src/org/jkiss/dbeaver/model/sql/semantics/SQLQueryModelRecognizer.java",
+                    "startLine": 701,
+                    "endLine": 748,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration before extraction",
+                    "codeElement": "private collectValueReferenceExpression(node STMTreeNode) : SQLQueryValueExpression"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model.sql/src/org/jkiss/dbeaver/model/sql/semantics/SQLQueryModelRecognizer.java",
+                    "startLine": 703,
+                    "endLine": 703,
+                    "startColumn": 9,
+                    "endColumn": 48,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model.lsm/src/org/jkiss/dbeaver/model/stm/STMTreeNode.java",
+                    "startLine": 96,
+                    "endLine": 98,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "extracted method declaration",
+                    "codeElement": "public getFirstStmChild() : STMTreeNode"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model.lsm/src/org/jkiss/dbeaver/model/stm/STMTreeNode.java",
+                    "startLine": 97,
+                    "endLine": 97,
+                    "startColumn": 9,
+                    "endColumn": 31,
+                    "codeElementType": "RETURN_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model.sql/src/org/jkiss/dbeaver/model/sql/semantics/SQLQueryModelContext.java",
+                    "startLine": 651,
+                    "endLine": 698,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration after extraction",
+                    "codeElement": "private collectValueReferenceExpression(node STMTreeNode) : SQLQueryValueExpression"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model.sql/src/org/jkiss/dbeaver/model/sql/semantics/SQLQueryModelContext.java",
+                    "startLine": 653,
+                    "endLine": 653,
+                    "startColumn": 28,
+                    "endColumn": 51,
+                    "codeElementType": "METHOD_INVOCATION",
+                    "description": "extracted method invocation",
+                    "codeElement": "node.getFirstStmChild()"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model.sql/src/org/jkiss/dbeaver/model/sql/semantics/SQLQueryModelContext.java",
+                    "startLine": 656,
+                    "endLine": 656,
+                    "startColumn": 68,
+                    "endColumn": 91,
+                    "codeElementType": "METHOD_INVOCATION",
+                    "description": "extracted method invocation",
+                    "codeElement": "head.getFirstStmChild()"
+                }
+            ],
+            "isStatic": false
+        },
+        "ref_id": 904
+    },
+    {
+        "repository": "https://github.com/dbeaver/dbeaver.git",
+        "sha1": "281f79dea1fcffcfaef3caa53d787ae7a3d9b34b",
+        "url": "https://github.com/dbeaver/dbeaver/commit/281f79dea1fcffcfaef3caa53d787ae7a3d9b34b",
+        "move_method_refactoring": {
+            "type": "Extract And Move Method",
+            "description": "Extract And Move Method public getValueEncryptor() : DBSValueEncryptor extracted from private loadConfigFile(stream InputStream, decrypt boolean) : String in class org.jkiss.dbeaver.registry.DataSourceSerializerModern & moved to class org.jkiss.dbeaver.registry.BaseProjectImpl",
+            "leftSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.registry/src/org/jkiss/dbeaver/registry/DataSourceSerializerModern.java",
+                    "startLine": 322,
+                    "endLine": 343,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration before extraction",
+                    "codeElement": "private loadConfigFile(stream InputStream, decrypt boolean) : String"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.registry/src/org/jkiss/dbeaver/registry/DataSourceSerializerModern.java",
+                    "startLine": 332,
+                    "endLine": 332,
+                    "startColumn": 13,
+                    "endColumn": 82,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.registry/src/org/jkiss/dbeaver/registry/DataSourceSerializerModern.java",
+                    "startLine": 334,
+                    "endLine": 334,
+                    "startColumn": 17,
+                    "endColumn": 112,
+                    "codeElementType": "THROW_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.registry/src/org/jkiss/dbeaver/registry/DataSourceSerializerModern.java",
+                    "startLine": 336,
+                    "endLine": 336,
+                    "startColumn": 13,
+                    "endColumn": 85,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.registry/src/org/jkiss/dbeaver/registry/DataSourceSerializerModern.java",
+                    "startLine": 333,
+                    "endLine": 335,
+                    "startColumn": 13,
+                    "endColumn": 14,
+                    "codeElementType": "IF_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.registry/src/org/jkiss/dbeaver/registry/DataSourceSerializerModern.java",
+                    "startLine": 333,
+                    "endLine": 335,
+                    "startColumn": 41,
+                    "endColumn": 14,
+                    "codeElementType": "BLOCK",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.registry/src/org/jkiss/dbeaver/registry/BaseProjectImpl.java",
+                    "startLine": 240,
+                    "endLine": 248,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "extracted method declaration",
+                    "codeElement": "public getValueEncryptor() : DBSValueEncryptor"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.registry/src/org/jkiss/dbeaver/registry/BaseProjectImpl.java",
+                    "startLine": 243,
+                    "endLine": 243,
+                    "startColumn": 9,
+                    "endColumn": 45,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.registry/src/org/jkiss/dbeaver/registry/BaseProjectImpl.java",
+                    "startLine": 245,
+                    "endLine": 245,
+                    "startColumn": 13,
+                    "endColumn": 72,
+                    "codeElementType": "THROW_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.registry/src/org/jkiss/dbeaver/registry/BaseProjectImpl.java",
+                    "startLine": 247,
+                    "endLine": 247,
+                    "startColumn": 9,
+                    "endColumn": 47,
+                    "codeElementType": "RETURN_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.registry/src/org/jkiss/dbeaver/registry/BaseProjectImpl.java",
+                    "startLine": 244,
+                    "endLine": 246,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "IF_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.registry/src/org/jkiss/dbeaver/registry/BaseProjectImpl.java",
+                    "startLine": 244,
+                    "endLine": 246,
+                    "startColumn": 26,
+                    "endColumn": 10,
+                    "codeElementType": "BLOCK",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.registry/src/org/jkiss/dbeaver/registry/DataSourceSerializerModern.java",
+                    "startLine": 320,
+                    "endLine": 337,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration after extraction",
+                    "codeElement": "private loadConfigFile(stream InputStream, decrypt boolean) : String"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.registry/src/org/jkiss/dbeaver/registry/DataSourceSerializerModern.java",
+                    "startLine": 330,
+                    "endLine": 330,
+                    "startColumn": 43,
+                    "endColumn": 84,
+                    "codeElementType": "METHOD_INVOCATION",
+                    "description": "extracted method invocation",
+                    "codeElement": "registry.getProject().getValueEncryptor()"
+                }
+            ],
+            "isStatic": false
+        },
+        "ref_id": 905
+    },
+    {
+        "repository": "https://github.com/dbeaver/dbeaver.git",
+        "sha1": "9b1c16ecfe3447a17e83989505a80c3c41be5fcf",
+        "url": "https://github.com/dbeaver/dbeaver/commit/9b1c16ecfe3447a17e83989505a80c3c41be5fcf",
+        "move_method_refactoring": {
+            "type": "Extract And Move Method",
+            "description": "Extract And Move Method public getProductEarlyAccessURL() : String extracted from public VersionUpdateDialog(parentShell Shell, currentVersion Version, newVersion VersionDescriptor, showConfig boolean) in class org.jkiss.dbeaver.ui.app.standalone.update.VersionUpdateDialog & moved to class org.jkiss.dbeaver.utils.GeneralUtils",
+            "leftSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ui.app.standalone/src/org/jkiss/dbeaver/ui/app/standalone/update/VersionUpdateDialog.java",
+                    "startLine": 78,
+                    "endLine": 86,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration before extraction",
+                    "codeElement": "public VersionUpdateDialog(parentShell Shell, currentVersion Version, newVersion VersionDescriptor, showConfig boolean)"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ui.app.standalone/src/org/jkiss/dbeaver/ui/app/standalone/update/VersionUpdateDialog.java",
+                    "startLine": 85,
+                    "endLine": 85,
+                    "startColumn": 9,
+                    "endColumn": 78,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model/src/org/jkiss/dbeaver/utils/GeneralUtils.java",
+                    "startLine": 421,
+                    "endLine": 424,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "extracted method declaration",
+                    "codeElement": "public getProductEarlyAccessURL() : String"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model/src/org/jkiss/dbeaver/utils/GeneralUtils.java",
+                    "startLine": 423,
+                    "endLine": 423,
+                    "startColumn": 9,
+                    "endColumn": 68,
+                    "codeElementType": "RETURN_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ui.app.standalone/src/org/jkiss/dbeaver/ui/app/standalone/update/VersionUpdateDialog.java",
+                    "startLine": 78,
+                    "endLine": 86,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration after extraction",
+                    "codeElement": "public VersionUpdateDialog(parentShell Shell, currentVersion Version, newVersion VersionDescriptor, showConfig boolean)"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ui.app.standalone/src/org/jkiss/dbeaver/ui/app/standalone/update/VersionUpdateDialog.java",
+                    "startLine": 85,
+                    "endLine": 85,
+                    "startColumn": 26,
+                    "endColumn": 65,
+                    "codeElementType": "METHOD_INVOCATION",
+                    "description": "extracted method invocation",
+                    "codeElement": "GeneralUtils.getProductEarlyAccessURL()"
+                }
+            ],
+            "isStatic": true
+        },
+        "ref_id": 906
+    },
+    {
+        "repository": "https://github.com/dbeaver/dbeaver.git",
+        "sha1": "88ee46931b539df9f90a7d49ce7fe1b9ba6b7c02",
+        "url": "https://github.com/dbeaver/dbeaver/commit/88ee46931b539df9f90a7d49ce7fe1b9ba6b7c02",
+        "move_method_refactoring": {
+            "type": "Extract And Move Method",
+            "description": "Extract And Move Method public fetchTableColumn(session JDBCSession, owner GenericStructContainer, table GenericTableBase, dbResult JDBCResultSet) : GenericTableColumn extracted from protected fetchChild(session JDBCSession, owner GenericStructContainer, table GenericTableBase, dbResult JDBCResultSet) : GenericTableColumn in class org.jkiss.dbeaver.ext.generic.model.TableCache & moved to class org.jkiss.dbeaver.ext.generic.model.meta.GenericMetaModel",
+            "leftSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.generic/src/org/jkiss/dbeaver/ext/generic/model/TableCache.java",
+                    "startLine": 84,
+                    "endLine": 148,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration before extraction",
+                    "codeElement": "protected fetchChild(session JDBCSession, owner GenericStructContainer, table GenericTableBase, dbResult JDBCResultSet) : GenericTableColumn"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.generic/src/org/jkiss/dbeaver/ext/generic/model/TableCache.java",
+                    "startLine": 89,
+                    "endLine": 91,
+                    "startColumn": 9,
+                    "endColumn": 93,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.generic/src/org/jkiss/dbeaver/ext/generic/model/TableCache.java",
+                    "startLine": 92,
+                    "endLine": 92,
+                    "startColumn": 9,
+                    "endColumn": 98,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.generic/src/org/jkiss/dbeaver/ext/generic/model/TableCache.java",
+                    "startLine": 93,
+                    "endLine": 93,
+                    "startColumn": 9,
+                    "endColumn": 106,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.generic/src/org/jkiss/dbeaver/ext/generic/model/TableCache.java",
+                    "startLine": 94,
+                    "endLine": 94,
+                    "startColumn": 9,
+                    "endColumn": 110,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.generic/src/org/jkiss/dbeaver/ext/generic/model/TableCache.java",
+                    "startLine": 95,
+                    "endLine": 95,
+                    "startColumn": 9,
+                    "endColumn": 103,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.generic/src/org/jkiss/dbeaver/ext/generic/model/TableCache.java",
+                    "startLine": 96,
+                    "endLine": 96,
+                    "startColumn": 9,
+                    "endColumn": 135,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.generic/src/org/jkiss/dbeaver/ext/generic/model/TableCache.java",
+                    "startLine": 97,
+                    "endLine": 97,
+                    "startColumn": 9,
+                    "endColumn": 30,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.generic/src/org/jkiss/dbeaver/ext/generic/model/TableCache.java",
+                    "startLine": 99,
+                    "endLine": 99,
+                    "startColumn": 13,
+                    "endColumn": 103,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.generic/src/org/jkiss/dbeaver/ext/generic/model/TableCache.java",
+                    "startLine": 101,
+                    "endLine": 101,
+                    "startColumn": 13,
+                    "endColumn": 55,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.generic/src/org/jkiss/dbeaver/ext/generic/model/TableCache.java",
+                    "startLine": 104,
+                    "endLine": 104,
+                    "startColumn": 9,
+                    "endColumn": 24,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.generic/src/org/jkiss/dbeaver/ext/generic/model/TableCache.java",
+                    "startLine": 106,
+                    "endLine": 106,
+                    "startColumn": 13,
+                    "endColumn": 99,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.generic/src/org/jkiss/dbeaver/ext/generic/model/TableCache.java",
+                    "startLine": 108,
+                    "endLine": 108,
+                    "startColumn": 13,
+                    "endColumn": 55,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.generic/src/org/jkiss/dbeaver/ext/generic/model/TableCache.java",
+                    "startLine": 110,
+                    "endLine": 110,
+                    "startColumn": 9,
+                    "endColumn": 108,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.generic/src/org/jkiss/dbeaver/ext/generic/model/TableCache.java",
+                    "startLine": 111,
+                    "endLine": 111,
+                    "startColumn": 9,
+                    "endColumn": 100,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.generic/src/org/jkiss/dbeaver/ext/generic/model/TableCache.java",
+                    "startLine": 112,
+                    "endLine": 112,
+                    "startColumn": 9,
+                    "endColumn": 109,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.generic/src/org/jkiss/dbeaver/ext/generic/model/TableCache.java",
+                    "startLine": 113,
+                    "endLine": 113,
+                    "startColumn": 9,
+                    "endColumn": 106,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.generic/src/org/jkiss/dbeaver/ext/generic/model/TableCache.java",
+                    "startLine": 114,
+                    "endLine": 114,
+                    "startColumn": 9,
+                    "endColumn": 137,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.generic/src/org/jkiss/dbeaver/ext/generic/model/TableCache.java",
+                    "startLine": 115,
+                    "endLine": 115,
+                    "startColumn": 9,
+                    "endColumn": 139,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.generic/src/org/jkiss/dbeaver/ext/generic/model/TableCache.java",
+                    "startLine": 119,
+                    "endLine": 119,
+                    "startColumn": 17,
+                    "endColumn": 38,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.generic/src/org/jkiss/dbeaver/ext/generic/model/TableCache.java",
+                    "startLine": 120,
+                    "endLine": 120,
+                    "startColumn": 17,
+                    "endColumn": 120,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.generic/src/org/jkiss/dbeaver/ext/generic/model/TableCache.java",
+                    "startLine": 124,
+                    "endLine": 124,
+                    "startColumn": 17,
+                    "endColumn": 73,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.generic/src/org/jkiss/dbeaver/ext/generic/model/TableCache.java",
+                    "startLine": 127,
+                    "endLine": 127,
+                    "startColumn": 13,
+                    "endColumn": 30,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.generic/src/org/jkiss/dbeaver/ext/generic/model/TableCache.java",
+                    "startLine": 134,
+                    "endLine": 134,
+                    "startColumn": 17,
+                    "endColumn": 50,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.generic/src/org/jkiss/dbeaver/ext/generic/model/TableCache.java",
+                    "startLine": 88,
+                    "endLine": 88,
+                    "startColumn": 9,
+                    "endColumn": 74,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.generic/src/org/jkiss/dbeaver/ext/generic/model/TableCache.java",
+                    "startLine": 103,
+                    "endLine": 103,
+                    "startColumn": 9,
+                    "endColumn": 115,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.generic/src/org/jkiss/dbeaver/ext/generic/model/TableCache.java",
+                    "startLine": 132,
+                    "endLine": 132,
+                    "startColumn": 13,
+                    "endColumn": 74,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.generic/src/org/jkiss/dbeaver/ext/generic/model/TableCache.java",
+                    "startLine": 138,
+                    "endLine": 147,
+                    "startColumn": 9,
+                    "endColumn": 11,
+                    "codeElementType": "RETURN_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.generic/src/org/jkiss/dbeaver/ext/generic/model/TableCache.java",
+                    "startLine": 98,
+                    "endLine": 102,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "TRY_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.generic/src/org/jkiss/dbeaver/ext/generic/model/TableCache.java",
+                    "startLine": 100,
+                    "endLine": 102,
+                    "startColumn": 11,
+                    "endColumn": 10,
+                    "codeElementType": "CATCH_CLAUSE",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.generic/src/org/jkiss/dbeaver/ext/generic/model/TableCache.java",
+                    "startLine": 105,
+                    "endLine": 109,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "TRY_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.generic/src/org/jkiss/dbeaver/ext/generic/model/TableCache.java",
+                    "startLine": 107,
+                    "endLine": 109,
+                    "startColumn": 11,
+                    "endColumn": 10,
+                    "codeElementType": "CATCH_CLAUSE",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.generic/src/org/jkiss/dbeaver/ext/generic/model/TableCache.java",
+                    "startLine": 118,
+                    "endLine": 121,
+                    "startColumn": 13,
+                    "endColumn": 14,
+                    "codeElementType": "IF_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.generic/src/org/jkiss/dbeaver/ext/generic/model/TableCache.java",
+                    "startLine": 123,
+                    "endLine": 125,
+                    "startColumn": 13,
+                    "endColumn": 14,
+                    "codeElementType": "IF_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.generic/src/org/jkiss/dbeaver/ext/generic/model/TableCache.java",
+                    "startLine": 116,
+                    "endLine": 128,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "IF_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.generic/src/org/jkiss/dbeaver/ext/generic/model/TableCache.java",
+                    "startLine": 133,
+                    "endLine": 135,
+                    "startColumn": 13,
+                    "endColumn": 14,
+                    "codeElementType": "IF_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.generic/src/org/jkiss/dbeaver/ext/generic/model/TableCache.java",
+                    "startLine": 118,
+                    "endLine": 121,
+                    "startColumn": 105,
+                    "endColumn": 14,
+                    "codeElementType": "BLOCK",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.generic/src/org/jkiss/dbeaver/ext/generic/model/TableCache.java",
+                    "startLine": 123,
+                    "endLine": 125,
+                    "startColumn": 42,
+                    "endColumn": 14,
+                    "codeElementType": "BLOCK",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.generic/src/org/jkiss/dbeaver/ext/generic/model/TableCache.java",
+                    "startLine": 116,
+                    "endLine": 126,
+                    "startColumn": 45,
+                    "endColumn": 10,
+                    "codeElementType": "BLOCK",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.generic/src/org/jkiss/dbeaver/ext/generic/model/TableCache.java",
+                    "startLine": 126,
+                    "endLine": 128,
+                    "startColumn": 16,
+                    "endColumn": 10,
+                    "codeElementType": "BLOCK",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.generic/src/org/jkiss/dbeaver/ext/generic/model/TableCache.java",
+                    "startLine": 133,
+                    "endLine": 135,
+                    "startColumn": 35,
+                    "endColumn": 14,
+                    "codeElementType": "BLOCK",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.generic/src/org/jkiss/dbeaver/ext/generic/model/TableCache.java",
+                    "startLine": 130,
+                    "endLine": 136,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "BLOCK",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.generic/src/org/jkiss/dbeaver/ext/generic/model/meta/GenericMetaModel.java",
+                    "startLine": 731,
+                    "endLine": 799,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "extracted method declaration",
+                    "codeElement": "public fetchTableColumn(session JDBCSession, owner GenericStructContainer, table GenericTableBase, dbResult JDBCResultSet) : GenericTableColumn"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.generic/src/org/jkiss/dbeaver/ext/generic/model/meta/GenericMetaModel.java",
+                    "startLine": 740,
+                    "endLine": 742,
+                    "startColumn": 9,
+                    "endColumn": 93,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.generic/src/org/jkiss/dbeaver/ext/generic/model/meta/GenericMetaModel.java",
+                    "startLine": 743,
+                    "endLine": 743,
+                    "startColumn": 9,
+                    "endColumn": 98,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.generic/src/org/jkiss/dbeaver/ext/generic/model/meta/GenericMetaModel.java",
+                    "startLine": 744,
+                    "endLine": 744,
+                    "startColumn": 9,
+                    "endColumn": 106,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.generic/src/org/jkiss/dbeaver/ext/generic/model/meta/GenericMetaModel.java",
+                    "startLine": 745,
+                    "endLine": 745,
+                    "startColumn": 9,
+                    "endColumn": 110,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.generic/src/org/jkiss/dbeaver/ext/generic/model/meta/GenericMetaModel.java",
+                    "startLine": 746,
+                    "endLine": 746,
+                    "startColumn": 9,
+                    "endColumn": 103,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.generic/src/org/jkiss/dbeaver/ext/generic/model/meta/GenericMetaModel.java",
+                    "startLine": 747,
+                    "endLine": 747,
+                    "startColumn": 9,
+                    "endColumn": 135,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.generic/src/org/jkiss/dbeaver/ext/generic/model/meta/GenericMetaModel.java",
+                    "startLine": 748,
+                    "endLine": 748,
+                    "startColumn": 9,
+                    "endColumn": 30,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.generic/src/org/jkiss/dbeaver/ext/generic/model/meta/GenericMetaModel.java",
+                    "startLine": 750,
+                    "endLine": 750,
+                    "startColumn": 13,
+                    "endColumn": 103,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.generic/src/org/jkiss/dbeaver/ext/generic/model/meta/GenericMetaModel.java",
+                    "startLine": 752,
+                    "endLine": 752,
+                    "startColumn": 13,
+                    "endColumn": 55,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.generic/src/org/jkiss/dbeaver/ext/generic/model/meta/GenericMetaModel.java",
+                    "startLine": 755,
+                    "endLine": 755,
+                    "startColumn": 9,
+                    "endColumn": 24,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.generic/src/org/jkiss/dbeaver/ext/generic/model/meta/GenericMetaModel.java",
+                    "startLine": 757,
+                    "endLine": 757,
+                    "startColumn": 13,
+                    "endColumn": 99,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.generic/src/org/jkiss/dbeaver/ext/generic/model/meta/GenericMetaModel.java",
+                    "startLine": 759,
+                    "endLine": 759,
+                    "startColumn": 13,
+                    "endColumn": 55,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.generic/src/org/jkiss/dbeaver/ext/generic/model/meta/GenericMetaModel.java",
+                    "startLine": 761,
+                    "endLine": 761,
+                    "startColumn": 9,
+                    "endColumn": 108,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.generic/src/org/jkiss/dbeaver/ext/generic/model/meta/GenericMetaModel.java",
+                    "startLine": 762,
+                    "endLine": 762,
+                    "startColumn": 9,
+                    "endColumn": 100,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.generic/src/org/jkiss/dbeaver/ext/generic/model/meta/GenericMetaModel.java",
+                    "startLine": 763,
+                    "endLine": 763,
+                    "startColumn": 9,
+                    "endColumn": 109,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.generic/src/org/jkiss/dbeaver/ext/generic/model/meta/GenericMetaModel.java",
+                    "startLine": 764,
+                    "endLine": 764,
+                    "startColumn": 9,
+                    "endColumn": 106,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.generic/src/org/jkiss/dbeaver/ext/generic/model/meta/GenericMetaModel.java",
+                    "startLine": 765,
+                    "endLine": 765,
+                    "startColumn": 9,
+                    "endColumn": 137,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.generic/src/org/jkiss/dbeaver/ext/generic/model/meta/GenericMetaModel.java",
+                    "startLine": 766,
+                    "endLine": 766,
+                    "startColumn": 9,
+                    "endColumn": 139,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.generic/src/org/jkiss/dbeaver/ext/generic/model/meta/GenericMetaModel.java",
+                    "startLine": 770,
+                    "endLine": 770,
+                    "startColumn": 17,
+                    "endColumn": 38,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.generic/src/org/jkiss/dbeaver/ext/generic/model/meta/GenericMetaModel.java",
+                    "startLine": 771,
+                    "endLine": 771,
+                    "startColumn": 17,
+                    "endColumn": 120,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.generic/src/org/jkiss/dbeaver/ext/generic/model/meta/GenericMetaModel.java",
+                    "startLine": 775,
+                    "endLine": 775,
+                    "startColumn": 17,
+                    "endColumn": 73,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.generic/src/org/jkiss/dbeaver/ext/generic/model/meta/GenericMetaModel.java",
+                    "startLine": 778,
+                    "endLine": 778,
+                    "startColumn": 13,
+                    "endColumn": 30,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.generic/src/org/jkiss/dbeaver/ext/generic/model/meta/GenericMetaModel.java",
+                    "startLine": 785,
+                    "endLine": 785,
+                    "startColumn": 17,
+                    "endColumn": 50,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.generic/src/org/jkiss/dbeaver/ext/generic/model/meta/GenericMetaModel.java",
+                    "startLine": 739,
+                    "endLine": 739,
+                    "startColumn": 9,
+                    "endColumn": 48,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.generic/src/org/jkiss/dbeaver/ext/generic/model/meta/GenericMetaModel.java",
+                    "startLine": 754,
+                    "endLine": 754,
+                    "startColumn": 9,
+                    "endColumn": 84,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.generic/src/org/jkiss/dbeaver/ext/generic/model/meta/GenericMetaModel.java",
+                    "startLine": 783,
+                    "endLine": 783,
+                    "startColumn": 13,
+                    "endColumn": 87,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.generic/src/org/jkiss/dbeaver/ext/generic/model/meta/GenericMetaModel.java",
+                    "startLine": 789,
+                    "endLine": 798,
+                    "startColumn": 9,
+                    "endColumn": 11,
+                    "codeElementType": "RETURN_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.generic/src/org/jkiss/dbeaver/ext/generic/model/meta/GenericMetaModel.java",
+                    "startLine": 749,
+                    "endLine": 753,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "TRY_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.generic/src/org/jkiss/dbeaver/ext/generic/model/meta/GenericMetaModel.java",
+                    "startLine": 751,
+                    "endLine": 753,
+                    "startColumn": 11,
+                    "endColumn": 10,
+                    "codeElementType": "CATCH_CLAUSE",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.generic/src/org/jkiss/dbeaver/ext/generic/model/meta/GenericMetaModel.java",
+                    "startLine": 756,
+                    "endLine": 760,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "TRY_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.generic/src/org/jkiss/dbeaver/ext/generic/model/meta/GenericMetaModel.java",
+                    "startLine": 758,
+                    "endLine": 760,
+                    "startColumn": 11,
+                    "endColumn": 10,
+                    "codeElementType": "CATCH_CLAUSE",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.generic/src/org/jkiss/dbeaver/ext/generic/model/meta/GenericMetaModel.java",
+                    "startLine": 769,
+                    "endLine": 772,
+                    "startColumn": 13,
+                    "endColumn": 14,
+                    "codeElementType": "IF_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.generic/src/org/jkiss/dbeaver/ext/generic/model/meta/GenericMetaModel.java",
+                    "startLine": 774,
+                    "endLine": 776,
+                    "startColumn": 13,
+                    "endColumn": 14,
+                    "codeElementType": "IF_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.generic/src/org/jkiss/dbeaver/ext/generic/model/meta/GenericMetaModel.java",
+                    "startLine": 767,
+                    "endLine": 779,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "IF_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.generic/src/org/jkiss/dbeaver/ext/generic/model/meta/GenericMetaModel.java",
+                    "startLine": 784,
+                    "endLine": 786,
+                    "startColumn": 13,
+                    "endColumn": 14,
+                    "codeElementType": "IF_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.generic/src/org/jkiss/dbeaver/ext/generic/model/meta/GenericMetaModel.java",
+                    "startLine": 769,
+                    "endLine": 772,
+                    "startColumn": 105,
+                    "endColumn": 14,
+                    "codeElementType": "BLOCK",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.generic/src/org/jkiss/dbeaver/ext/generic/model/meta/GenericMetaModel.java",
+                    "startLine": 774,
+                    "endLine": 776,
+                    "startColumn": 42,
+                    "endColumn": 14,
+                    "codeElementType": "BLOCK",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.generic/src/org/jkiss/dbeaver/ext/generic/model/meta/GenericMetaModel.java",
+                    "startLine": 767,
+                    "endLine": 777,
+                    "startColumn": 45,
+                    "endColumn": 10,
+                    "codeElementType": "BLOCK",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.generic/src/org/jkiss/dbeaver/ext/generic/model/meta/GenericMetaModel.java",
+                    "startLine": 777,
+                    "endLine": 779,
+                    "startColumn": 16,
+                    "endColumn": 10,
+                    "codeElementType": "BLOCK",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.generic/src/org/jkiss/dbeaver/ext/generic/model/meta/GenericMetaModel.java",
+                    "startLine": 784,
+                    "endLine": 786,
+                    "startColumn": 35,
+                    "endColumn": 14,
+                    "codeElementType": "BLOCK",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.generic/src/org/jkiss/dbeaver/ext/generic/model/meta/GenericMetaModel.java",
+                    "startLine": 781,
+                    "endLine": 787,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "BLOCK",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.generic/src/org/jkiss/dbeaver/ext/generic/model/TableCache.java",
+                    "startLine": 80,
+                    "endLine": 85,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration after extraction",
+                    "codeElement": "protected fetchChild(session JDBCSession, owner GenericStructContainer, table GenericTableBase, dbResult JDBCResultSet) : GenericTableColumn"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.generic/src/org/jkiss/dbeaver/ext/generic/model/TableCache.java",
+                    "startLine": 84,
+                    "endLine": 84,
+                    "startColumn": 16,
+                    "endColumn": 91,
+                    "codeElementType": "METHOD_INVOCATION",
+                    "description": "extracted method invocation",
+                    "codeElement": "dataSource.getMetaModel().fetchTableColumn(session,owner,table,dbResult)"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ext.generic/src/org/jkiss/dbeaver/ext/generic/model/meta/GenericMetaModel.java",
+                    "startLine": 737,
+                    "endLine": 737,
+                    "startColumn": 9,
+                    "endColumn": 116,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "added statement in extracted method declaration",
+                    "codeElement": null
+                }
+            ],
+            "isStatic": false
+        },
+        "ref_id": 907
+    },
+    {
+        "repository": "https://github.com/dbeaver/dbeaver.git",
+        "sha1": "7e0edea6baa979b02fa046457416fde4fafb5422",
+        "url": "https://github.com/dbeaver/dbeaver/commit/7e0edea6baa979b02fa046457416fde4fafb5422",
+        "move_method_refactoring": {
+            "type": "Extract And Move Method",
+            "description": "Extract And Move Method package getExecutionContext() : DBCExecutionContext extracted from public SQLQueryModelContext(executionContext DBCExecutionContext, isReadMetadataForSemanticAnalysis boolean, syntaxManager SQLSyntaxManager) in class org.jkiss.dbeaver.model.sql.semantics.SQLQueryModelContext & moved to class org.jkiss.dbeaver.model.sql.semantics.SQLQueryRecognitionContext",
+            "leftSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model.sql/src/org/jkiss/dbeaver/model/sql/semantics/SQLQueryModelContext.java",
+                    "startLine": 81,
+                    "endLine": 92,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration before extraction",
+                    "codeElement": "public SQLQueryModelContext(executionContext DBCExecutionContext, isReadMetadataForSemanticAnalysis boolean, syntaxManager SQLSyntaxManager)"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model.sql/src/org/jkiss/dbeaver/model/sql/semantics/SQLQueryModelContext.java",
+                    "startLine": 83,
+                    "endLine": 83,
+                    "startColumn": 9,
+                    "endColumn": 50,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model.sql/src/org/jkiss/dbeaver/model/sql/semantics/SQLQueryRecognitionContext.java",
+                    "startLine": 67,
+                    "endLine": 70,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "extracted method declaration",
+                    "codeElement": "package getExecutionContext() : DBCExecutionContext"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model.sql/src/org/jkiss/dbeaver/model/sql/semantics/SQLQueryRecognitionContext.java",
+                    "startLine": 69,
+                    "endLine": 69,
+                    "startColumn": 9,
+                    "endColumn": 38,
+                    "codeElementType": "RETURN_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model.sql/src/org/jkiss/dbeaver/model/sql/semantics/SQLQueryModelRecognizer.java",
+                    "startLine": 79,
+                    "endLine": 89,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration after extraction",
+                    "codeElement": "private SQLQueryModelRecognizer(recognitionContext SQLQueryRecognitionContext)"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model.sql/src/org/jkiss/dbeaver/model/sql/semantics/SQLQueryModelRecognizer.java",
+                    "startLine": 82,
+                    "endLine": 82,
+                    "startColumn": 33,
+                    "endColumn": 73,
+                    "codeElementType": "METHOD_INVOCATION",
+                    "description": "extracted method invocation",
+                    "codeElement": "recognitionContext.getExecutionContext()"
+                }
+            ],
+            "isStatic": false
+        },
+        "ref_id": 908
+    },
+    {
+        "repository": "https://github.com/dbeaver/dbeaver.git",
+        "sha1": "fdc170b372156c8033efc06f4ef61f9d2e5cdcad",
+        "url": "https://github.com/dbeaver/dbeaver/commit/fdc170b372156c8033efc06f4ef61f9d2e5cdcad",
+        "move_method_refactoring": {
+            "type": "Extract And Move Method",
+            "description": "Extract And Move Method public getTaskManager(create boolean) : DBTTaskManager extracted from public cancelRunningTasks(confirmCancel boolean) : boolean in class org.jkiss.dbeaver.ui.app.standalone.ApplicationWorkbenchAdvisor & moved to class org.jkiss.dbeaver.model.app.DBPProject",
+            "leftSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ui.app.standalone/src/org/jkiss/dbeaver/ui/app/standalone/ApplicationWorkbenchAdvisor.java",
+                    "startLine": 464,
+                    "endLine": 486,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration before extraction",
+                    "codeElement": "public cancelRunningTasks(confirmCancel boolean) : boolean"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ui.app.standalone/src/org/jkiss/dbeaver/ui/app/standalone/ApplicationWorkbenchAdvisor.java",
+                    "startLine": 470,
+                    "endLine": 470,
+                    "startColumn": 9,
+                    "endColumn": 71,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model/src/org/jkiss/dbeaver/model/app/DBPProject.java",
+                    "startLine": 121,
+                    "endLine": 124,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "extracted method declaration",
+                    "codeElement": "public getTaskManager(create boolean) : DBTTaskManager"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.model/src/org/jkiss/dbeaver/model/app/DBPProject.java",
+                    "startLine": 123,
+                    "endLine": 123,
+                    "startColumn": 9,
+                    "endColumn": 33,
+                    "codeElementType": "RETURN_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ui.app.standalone/src/org/jkiss/dbeaver/ui/app/standalone/ApplicationWorkbenchAdvisor.java",
+                    "startLine": 464,
+                    "endLine": 489,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration after extraction",
+                    "codeElement": "public cancelRunningTasks(confirmCancel boolean) : boolean"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.ui.app.standalone/src/org/jkiss/dbeaver/ui/app/standalone/ApplicationWorkbenchAdvisor.java",
+                    "startLine": 470,
+                    "endLine": 470,
+                    "startColumn": 40,
+                    "endColumn": 75,
+                    "codeElementType": "METHOD_INVOCATION",
+                    "description": "extracted method invocation",
+                    "codeElement": "activeProject.getTaskManager(false)"
+                }
+            ],
+            "isStatic": false
+        },
+        "ref_id": 909
+    },
+    {
+        "repository": "https://github.com/dbeaver/dbeaver.git",
+        "sha1": "1478ce7d8b0cad035990fcb828bc355b03523482",
+        "url": "https://github.com/dbeaver/dbeaver/commit/1478ce7d8b0cad035990fcb828bc355b03523482",
+        "move_method_refactoring": {
+            "type": "Extract And Move Method",
+            "description": "Extract And Move Method public isDefaultRouter() : boolean extracted from public getActiveDescriptor() : ERDConnectionRouterDescriptor in class org.jkiss.dbeaver.erd.ui.router.ERDConnectionRouterRegistry & moved to class org.jkiss.dbeaver.erd.ui.router.ERDConnectionRouterDescriptor",
+            "leftSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.erd.ui/src/org/jkiss/dbeaver/erd/ui/router/ERDConnectionRouterRegistry.java",
+                    "startLine": 105,
+                    "endLine": 120,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration before extraction",
+                    "codeElement": "public getActiveDescriptor() : ERDConnectionRouterDescriptor"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.erd.ui/src/org/jkiss/dbeaver/erd/ui/router/ERDConnectionRouterRegistry.java",
+                    "startLine": 116,
+                    "endLine": 116,
+                    "startColumn": 13,
+                    "endColumn": 43,
+                    "codeElementType": "RETURN_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.erd.ui/src/org/jkiss/dbeaver/erd/ui/router/ERDConnectionRouterDescriptor.java",
+                    "startLine": 93,
+                    "endLine": 95,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "extracted method declaration",
+                    "codeElement": "public isDefaultRouter() : boolean"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.erd.ui/src/org/jkiss/dbeaver/erd/ui/router/ERDConnectionRouterDescriptor.java",
+                    "startLine": 94,
+                    "endLine": 94,
+                    "startColumn": 9,
+                    "endColumn": 26,
+                    "codeElementType": "RETURN_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.erd.ui/src/org/jkiss/dbeaver/erd/ui/router/ERDConnectionRouterRegistry.java",
+                    "startLine": 109,
+                    "endLine": 128,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration after extraction",
+                    "codeElement": "public getActiveRouter() : ERDConnectionRouterDescriptor"
+                },
+                {
+                    "filePath": "plugins/org.jkiss.dbeaver.erd.ui/src/org/jkiss/dbeaver/erd/ui/router/ERDConnectionRouterRegistry.java",
+                    "startLine": 119,
+                    "endLine": 119,
+                    "startColumn": 17,
+                    "endColumn": 41,
+                    "codeElementType": "METHOD_INVOCATION",
+                    "description": "extracted method invocation",
+                    "codeElement": "router.isDefaultRouter()"
+                }
+            ],
+            "isStatic": false
+        },
+        "ref_id": 910
+    }
+]

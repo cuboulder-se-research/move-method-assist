@@ -1,0 +1,442 @@
+[
+    {
+        "repository": "https://github.com/dataease/dataease.git",
+        "sha1": "a4fcfc80059445f9f6760f389adac41ec32ac9e4",
+        "url": "https://github.com/dataease/dataease/commit/a4fcfc80059445f9f6760f389adac41ec32ac9e4",
+        "move_method_refactoring": {
+            "type": "Extract And Move Method",
+            "description": "Extract And Move Method public getDatasetGroupInfoDTO(id Long, type String) : DatasetGroupInfoDTO extracted from public calcData(view ChartViewDTO) : ChartViewDTO in class io.dataease.chart.manage.ChartDataManage & moved to class io.dataease.dataset.manage.DatasetGroupManage",
+            "leftSideLocations": [
+                {
+                    "filePath": "core/core-backend/src/main/java/io/dataease/chart/manage/ChartDataManage.java",
+                    "startLine": 79,
+                    "endLine": 810,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration before extraction",
+                    "codeElement": "public calcData(view ChartViewDTO) : ChartViewDTO"
+                },
+                {
+                    "filePath": "core/core-backend/src/main/java/io/dataease/chart/manage/ChartDataManage.java",
+                    "startLine": 178,
+                    "endLine": 178,
+                    "startColumn": 9,
+                    "endColumn": 85,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "core/core-backend/src/main/java/io/dataease/dataset/manage/DatasetGroupManage.java",
+                    "startLine": 374,
+                    "endLine": 376,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "extracted method declaration",
+                    "codeElement": "public getDatasetGroupInfoDTO(id Long, type String) : DatasetGroupInfoDTO"
+                },
+                {
+                    "filePath": "core/core-backend/src/main/java/io/dataease/dataset/manage/DatasetGroupManage.java",
+                    "startLine": 375,
+                    "endLine": 375,
+                    "startColumn": 9,
+                    "endColumn": 30,
+                    "codeElementType": "RETURN_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "core/core-backend/src/main/java/io/dataease/chart/manage/ChartDataManage.java",
+                    "startLine": 79,
+                    "endLine": 810,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration after extraction",
+                    "codeElement": "public calcData(view ChartViewDTO) : ChartViewDTO"
+                },
+                {
+                    "filePath": "core/core-backend/src/main/java/io/dataease/chart/manage/ChartDataManage.java",
+                    "startLine": 178,
+                    "endLine": 178,
+                    "startColumn": 37,
+                    "endColumn": 103,
+                    "codeElementType": "METHOD_INVOCATION",
+                    "description": "extracted method invocation",
+                    "codeElement": "datasetGroupManage.getDatasetGroupInfoDTO(view.getTableId(),null)"
+                }
+            ],
+            "isStatic": false
+        },
+        "ref_id": 911
+    },
+    {
+        "repository": "https://github.com/dataease/dataease.git",
+        "sha1": "dc6b32f93ea2e7fa63c584fb95fc2316de0a0055",
+        "url": "https://github.com/dataease/dataease/commit/dc6b32f93ea2e7fa63c584fb95fc2316de0a0055",
+        "move_method_refactoring": {
+            "type": "Extract And Move Method",
+            "description": "Extract And Move Method public buildChart(view ChartViewDTO, calcResult ChartCalcDataResult, formatResult AxisFormatResult, filterResult CustomFilterResult) : ChartViewDTO extracted from public calcData(view ChartViewDTO, chartExtRequest ChartExtRequest, allFields List<ChartViewFieldDTO>, viewFields List<ChartViewFieldDTO>) : ChartViewDTO in class io.dataease.chart.manage.ChartDataManage & moved to class io.dataease.chart.charts.impl.DefaultChartHandler",
+            "leftSideLocations": [
+                {
+                    "filePath": "core/core-backend/src/main/java/io/dataease/chart/manage/ChartDataManage.java",
+                    "startLine": 192,
+                    "endLine": 457,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration before extraction",
+                    "codeElement": "public calcData(view ChartViewDTO, chartExtRequest ChartExtRequest, allFields List<ChartViewFieldDTO>, viewFields List<ChartViewFieldDTO>) : ChartViewDTO"
+                },
+                {
+                    "filePath": "core/core-backend/src/main/java/io/dataease/chart/manage/ChartDataManage.java",
+                    "startLine": 441,
+                    "endLine": 441,
+                    "startColumn": 9,
+                    "endColumn": 74,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "core/core-backend/src/main/java/io/dataease/chart/manage/ChartDataManage.java",
+                    "startLine": 443,
+                    "endLine": 443,
+                    "startColumn": 13,
+                    "endColumn": 157,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "core/core-backend/src/main/java/io/dataease/chart/manage/ChartDataManage.java",
+                    "startLine": 445,
+                    "endLine": 445,
+                    "startColumn": 13,
+                    "endColumn": 38,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "core/core-backend/src/main/java/io/dataease/chart/manage/ChartDataManage.java",
+                    "startLine": 446,
+                    "endLine": 446,
+                    "startColumn": 13,
+                    "endColumn": 25,
+                    "codeElementType": "RETURN_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "core/core-backend/src/main/java/io/dataease/chart/manage/ChartDataManage.java",
+                    "startLine": 450,
+                    "endLine": 450,
+                    "startColumn": 9,
+                    "endColumn": 51,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "core/core-backend/src/main/java/io/dataease/chart/manage/ChartDataManage.java",
+                    "startLine": 452,
+                    "endLine": 452,
+                    "startColumn": 9,
+                    "endColumn": 157,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "core/core-backend/src/main/java/io/dataease/chart/manage/ChartDataManage.java",
+                    "startLine": 453,
+                    "endLine": 453,
+                    "startColumn": 9,
+                    "endColumn": 131,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "core/core-backend/src/main/java/io/dataease/chart/manage/ChartDataManage.java",
+                    "startLine": 453,
+                    "endLine": 453,
+                    "startColumn": 78,
+                    "endColumn": 100,
+                    "codeElementType": "LAMBDA_EXPRESSION_BODY",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "core/core-backend/src/main/java/io/dataease/chart/manage/ChartDataManage.java",
+                    "startLine": 454,
+                    "endLine": 454,
+                    "startColumn": 9,
+                    "endColumn": 64,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "core/core-backend/src/main/java/io/dataease/chart/manage/ChartDataManage.java",
+                    "startLine": 455,
+                    "endLine": 455,
+                    "startColumn": 9,
+                    "endColumn": 211,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "core/core-backend/src/main/java/io/dataease/chart/manage/ChartDataManage.java",
+                    "startLine": 456,
+                    "endLine": 456,
+                    "startColumn": 9,
+                    "endColumn": 29,
+                    "codeElementType": "RETURN_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "core/core-backend/src/main/java/io/dataease/chart/manage/ChartDataManage.java",
+                    "startLine": 444,
+                    "endLine": 444,
+                    "startColumn": 13,
+                    "endColumn": 70,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "core/core-backend/src/main/java/io/dataease/chart/manage/ChartDataManage.java",
+                    "startLine": 442,
+                    "endLine": 447,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "IF_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "core/core-backend/src/main/java/io/dataease/chart/manage/ChartDataManage.java",
+                    "startLine": 442,
+                    "endLine": 447,
+                    "startColumn": 38,
+                    "endColumn": 10,
+                    "codeElementType": "BLOCK",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "core/core-backend/src/main/java/io/dataease/chart/charts/impl/DefaultChartHandler.java",
+                    "startLine": 119,
+                    "endLine": 140,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "extracted method declaration",
+                    "codeElement": "public buildChart(view ChartViewDTO, calcResult ChartCalcDataResult, formatResult AxisFormatResult, filterResult CustomFilterResult) : ChartViewDTO"
+                },
+                {
+                    "filePath": "core/core-backend/src/main/java/io/dataease/chart/charts/impl/DefaultChartHandler.java",
+                    "startLine": 125,
+                    "endLine": 125,
+                    "startColumn": 9,
+                    "endColumn": 74,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "core/core-backend/src/main/java/io/dataease/chart/charts/impl/DefaultChartHandler.java",
+                    "startLine": 127,
+                    "endLine": 127,
+                    "startColumn": 13,
+                    "endColumn": 157,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "core/core-backend/src/main/java/io/dataease/chart/charts/impl/DefaultChartHandler.java",
+                    "startLine": 129,
+                    "endLine": 129,
+                    "startColumn": 13,
+                    "endColumn": 38,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "core/core-backend/src/main/java/io/dataease/chart/charts/impl/DefaultChartHandler.java",
+                    "startLine": 130,
+                    "endLine": 130,
+                    "startColumn": 13,
+                    "endColumn": 25,
+                    "codeElementType": "RETURN_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "core/core-backend/src/main/java/io/dataease/chart/charts/impl/DefaultChartHandler.java",
+                    "startLine": 133,
+                    "endLine": 133,
+                    "startColumn": 9,
+                    "endColumn": 51,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "core/core-backend/src/main/java/io/dataease/chart/charts/impl/DefaultChartHandler.java",
+                    "startLine": 135,
+                    "endLine": 135,
+                    "startColumn": 9,
+                    "endColumn": 157,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "core/core-backend/src/main/java/io/dataease/chart/charts/impl/DefaultChartHandler.java",
+                    "startLine": 136,
+                    "endLine": 136,
+                    "startColumn": 9,
+                    "endColumn": 131,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "core/core-backend/src/main/java/io/dataease/chart/charts/impl/DefaultChartHandler.java",
+                    "startLine": 136,
+                    "endLine": 136,
+                    "startColumn": 78,
+                    "endColumn": 100,
+                    "codeElementType": "LAMBDA_EXPRESSION_BODY",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "core/core-backend/src/main/java/io/dataease/chart/charts/impl/DefaultChartHandler.java",
+                    "startLine": 137,
+                    "endLine": 137,
+                    "startColumn": 9,
+                    "endColumn": 64,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "core/core-backend/src/main/java/io/dataease/chart/charts/impl/DefaultChartHandler.java",
+                    "startLine": 138,
+                    "endLine": 138,
+                    "startColumn": 9,
+                    "endColumn": 211,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "core/core-backend/src/main/java/io/dataease/chart/charts/impl/DefaultChartHandler.java",
+                    "startLine": 139,
+                    "endLine": 139,
+                    "startColumn": 9,
+                    "endColumn": 29,
+                    "codeElementType": "RETURN_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "core/core-backend/src/main/java/io/dataease/chart/charts/impl/DefaultChartHandler.java",
+                    "startLine": 128,
+                    "endLine": 128,
+                    "startColumn": 13,
+                    "endColumn": 70,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "core/core-backend/src/main/java/io/dataease/chart/charts/impl/DefaultChartHandler.java",
+                    "startLine": 126,
+                    "endLine": 131,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "IF_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "core/core-backend/src/main/java/io/dataease/chart/charts/impl/DefaultChartHandler.java",
+                    "startLine": 126,
+                    "endLine": 131,
+                    "startColumn": 38,
+                    "endColumn": 10,
+                    "codeElementType": "BLOCK",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "core/core-backend/src/main/java/io/dataease/chart/manage/ChartDataManage.java",
+                    "startLine": 133,
+                    "endLine": 383,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration after extraction",
+                    "codeElement": "public calcData(view ChartViewDTO, chartExtRequest ChartExtRequest, allFields List<ChartViewFieldDTO>, viewFields List<ChartViewFieldDTO>) : ChartViewDTO"
+                },
+                {
+                    "filePath": "core/core-backend/src/main/java/io/dataease/chart/manage/ChartDataManage.java",
+                    "startLine": 382,
+                    "endLine": 382,
+                    "startColumn": 16,
+                    "endColumn": 85,
+                    "codeElementType": "METHOD_INVOCATION",
+                    "description": "extracted method invocation",
+                    "codeElement": "chartHandler.buildChart(view,calcResult,formatResult,filterResult)"
+                },
+                {
+                    "filePath": "core/core-backend/src/main/java/io/dataease/chart/charts/impl/DefaultChartHandler.java",
+                    "startLine": 121,
+                    "endLine": 121,
+                    "startColumn": 9,
+                    "endColumn": 124,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "added statement in extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "core/core-backend/src/main/java/io/dataease/chart/charts/impl/DefaultChartHandler.java",
+                    "startLine": 122,
+                    "endLine": 122,
+                    "startColumn": 9,
+                    "endColumn": 68,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "added statement in extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "core/core-backend/src/main/java/io/dataease/chart/charts/impl/DefaultChartHandler.java",
+                    "startLine": 123,
+                    "endLine": 123,
+                    "startColumn": 9,
+                    "endColumn": 68,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "added statement in extracted method declaration",
+                    "codeElement": null
+                }
+            ],
+            "isStatic": false
+        },
+        "ref_id": 912
+    }
+]

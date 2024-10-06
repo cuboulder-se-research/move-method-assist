@@ -1,0 +1,87 @@
+Refactoring Type	Source Method	Target Class	Similarity Indice
+Move Method	org.springframework.web.service.invoker.HttpServiceMethodTests::typeAndMethodAnnotatedService():void	org.springframework.web.service.invoker.TestExchangeAdapter	0.4240358643457383
+Move Method	org.springframework.http.client.ReactorNettyClientRequest::send(HttpHeaders, Body, HttpClientRequest, NettyOutbound):Publisher<Void>	org.springframework.http.HttpHeaders	0.8724511300050857
+Move Method	org.springframework.http.client.reactive.ReactorClientHttpConnector::adaptRequest(HttpMethod, URI, HttpClientRequest, NettyOutbound):ReactorClientHttpRequest	org.springframework.http.HttpMethod	0.5111111111111112
+Move Method	org.springframework.web.client.RestTemplateTests::mockSentRequest(HttpMethod, String, HttpHeaders):void	org.springframework.http.client.ClientHttpRequestFactory	1.0
+Move Method	org.springframework.web.client.RestTemplate::handleResponse(URI, HttpMethod, ClientHttpResponse):void	org.springframework.web.client.ResponseExtractor	0.5925925925925926
+Move Method	org.springframework.web.method.ControllerAdviceBeanTests::assertEqualsHashCodeAndToString(ControllerAdviceBean, ControllerAdviceBean, String):void	org.springframework.web.method.ControllerAdviceBean	0.32648710766357825
+Move Method	org.springframework.http.converter.ResourceHttpMessageConverter::writeContent(Resource, HttpOutputMessage):void	org.springframework.http.HttpOutputMessage	1.0
+Move Method	org.springframework.web.testfixture.http.server.reactive.MockServerHttpRequest.DefaultBodyBuilder::getCharset():Charset	org.springframework.http.HttpHeaders	0.42142857142857104
+Move Method	org.springframework.web.bind.support.WebExchangeDataBinderTests::exchange(MultiValueMap<String,String>):ServerWebExchange	org.springframework.web.bind.support.WebExchangeDataBinder	0.5018939393939393
+Move Method	org.springframework.web.client.DefaultRestClient.DefaultResponseSpec::toEntityInternal(Type, Class<T>):ResponseEntity<T>	org.springframework.http.client.ClientHttpResponse	0.44553913519430766
+Move Method	org.springframework.http.client.JdkClientHttpRequestFactoryTests::contentLength0():void	org.springframework.http.client.ClientHttpRequestFactory	1.0
+Move Method	org.springframework.web.client.RestClientObservationTests::mockSentRequest(HttpMethod, String, HttpHeaders):void	org.springframework.http.client.ClientHttpRequestFactory	1.0
+Move Method	org.springframework.http.codec.multipart.PartHttpMessageWriterTests::decodeToString(Part):String	org.springframework.http.codec.multipart.PartHttpMessageWriter	0.4806467417932386
+Move Method	org.springframework.web.method.annotation.ModelFactory::findSessionAttributeArguments(HandlerMethod):List<String>	org.springframework.web.method.HandlerMethod	0.5695413781620678
+Move Method	org.springframework.http.converter.xml.Jaxb2RootElementHttpMessageConverter::setCharset(MediaType, Marshaller):void	org.springframework.http.MediaType	0.8458458458458459
+Move Method	org.springframework.http.client.BufferingClientHttpRequestFactoryTests::repeatableRead():void	org.springframework.http.client.ClientHttpRequestFactory	0.45913076164915656
+Move Method	org.springframework.web.client.RestTemplate.AcceptHeaderRequestCallback::canReadResponse(Type, HttpMessageConverter<?>):boolean	org.springframework.http.converter.HttpMessageConverter	0.5809018567639257
+Move Method	org.springframework.web.client.RestClientObservationTests::mockSentRequest(HttpMethod, String):void	org.springframework.http.HttpMethod	0.8444444444444444
+Move Method	org.springframework.web.method.support.InvocableHandlerMethod::invokeForRequest(NativeWebRequest, ModelAndViewContainer, Object[]):Object	org.springframework.web.bind.support.WebDataBinderFactory	0.6153846153846154
+Move Method	org.springframework.web.testfixture.http.server.reactive.MockServerHttpRequest.DefaultBodyBuilder::getUrlToUse():URI	org.springframework.web.util.UriComponentsBuilder	0.7647939382738864
+Move Method	org.springframework.web.service.invoker.RequestAttributeArgumentResolverTests::assertAttribute(String, String):void	org.springframework.web.service.invoker.TestExchangeAdapter	1.0
+Move Method	org.springframework.http.client.reactive.HttpComponentsClientHttpConnector::execute(HttpComponentsClientHttpRequest, HttpClientContext):Mono<ClientHttpResponse>	org.springframework.http.client.reactive.HttpComponentsClientHttpRequest	0.8663324979114454
+Move Method	org.springframework.web.client.DefaultRestClient.DefaultResponseSpec::onStatusInternal(StatusHandler):ResponseSpec	org.springframework.web.client.StatusHandler	0.9732758620689657
+Move Method	org.springframework.web.client.support.RestTemplateAdapter::newRequest(HttpRequestValues):RequestEntity<?>	org.springframework.web.service.invoker.HttpRequestValues	0.6509716810888804
+Move Method	org.springframework.web.service.invoker.HttpServiceMethodTests::verifyReactorClientInvocation(String, ParameterizedTypeReference<?>):void	org.springframework.web.service.invoker.TestExchangeAdapter	0.35745301952198505
+Move Method	org.springframework.web.service.invoker.CookieValueArgumentResolverTests::assertCookie(String, String[]):void	org.springframework.web.service.invoker.TestExchangeAdapter	0.9739536638744244
+Move Method	org.springframework.http.client.HttpComponentsClientHttpRequestFactory::createHttpContext(HttpMethod, URI):HttpContext	org.springframework.http.HttpMethod	0.5111111111111112
+Move Method	org.springframework.web.server.adapter.HttpWebHandlerAdapter.ObservationSignalListener::doOnTerminate(ServerRequestObservationContext):void	org.springframework.http.server.reactive.observation.ServerRequestObservationContext	0.9367346938775512
+Move Method	org.springframework.web.client.RestTemplateObservationTests::mockSentRequest(HttpMethod, String):void	org.springframework.http.HttpMethod	0.8444444444444444
+Move Method	org.springframework.http.client.reactive.ReactorNetty2ClientHttpResponse::mayHaveBody(HttpMethod):boolean	org.springframework.http.HttpHeaders	0.8528605686879057
+Move Method	org.springframework.web.testfixture.http.server.reactive.MockServerHttpRequest.DefaultBodyBuilder::applyCookiesIfNecessary():void	org.springframework.http.HttpHeaders	1.0
+Move Method	org.springframework.http.converter.xml.SourceHttpMessageConverter::readDOMSource(InputStream, HttpInputMessage):DOMSource	org.springframework.http.HttpInputMessage	1.0
+Move Method	org.springframework.http.client.HttpComponentsClientHttpRequestFactory::createHttpUriRequest(HttpMethod, URI):ClassicHttpRequest	org.springframework.http.HttpMethod	0.4722222222222222
+Move Method	org.springframework.http.codec.multipart.MultipartHttpMessageWriter::encodePart(byte[], String, T, DataBufferFactory):Flux<DataBuffer>	org.springframework.http.codec.HttpMessageWriter	0.5946214432697084
+Move Method	org.springframework.web.server.handler.DefaultWebFilterChain::invokeFilter(WebFilter, DefaultWebFilterChain, ServerWebExchange):Mono<Void>	org.springframework.web.server.WebHandler	1.0
+Move Method	org.springframework.web.client.RestTemplate::resolveUrl(RequestEntity<?>):URI	org.springframework.web.util.UriTemplateHandler	1.0
+Move Method	org.springframework.web.client.RestTemplate.HttpEntityRequestCallback::logBody(Object, MediaType, HttpMessageConverter<?>):void	org.springframework.http.converter.HttpMessageConverter	1.0
+Move Method	org.springframework.http.codec.xml.Jaxb2XmlDecoder::initUnmarshaller(Class<?>):Unmarshaller	org.springframework.http.codec.xml.JaxbContextContainer	1.0
+Move Method	org.springframework.web.method.annotation.InitBinderDataBinderFactory::isBinderMethodApplicable(HandlerMethod, WebDataBinder):boolean	org.springframework.web.method.HandlerMethod	0.6475114923390786
+Move Method	org.springframework.web.service.invoker.RequestParamArgumentResolverTests::requestParam():void	org.springframework.web.service.invoker.TestExchangeAdapter	0.6195906432748537
+Move Method	org.springframework.web.client.RestTemplateTests::mockHttpMessageConverter(MediaType, Class<?>):void	org.springframework.http.converter.HttpMessageConverter	1.0
+Move Method	org.springframework.http.codec.xml.Jaxb2XmlDecoder::unmarshal(List<XMLEvent>, Class<?>):Object	org.springframework.http.codec.xml.JaxbContextContainer	1.0
+Move Method	org.springframework.web.method.annotation.ModelFactory::updateBindingResult(NativeWebRequest, ModelMap):void	org.springframework.web.bind.support.WebDataBinderFactory	1.0
+Move Method	org.springframework.http.codec.multipart.MultipartWriterSupport::getMultipartMediaType(MediaType, byte[]):MediaType	org.springframework.http.MediaType	0.8253968253968256
+Move Method	org.springframework.web.server.adapter.ForwardedHeaderTransformerTests::getRequest(HttpHeaders):MockServerHttpRequest	org.springframework.http.HttpHeaders	0.8106543336759157
+Move Method	org.springframework.web.method.ControllerAdviceBeanTests::assertNotApplicable(String, ControllerAdviceBean, Class<?>):void	org.springframework.web.method.ControllerAdviceBean	0.37011396011396014
+Move Method	org.springframework.web.service.invoker.HttpServiceMethodTests::reactorService():void	org.springframework.web.service.invoker.TestReactorExchangeAdapter	0.24383873456790126
+Move Method	org.springframework.web.client.RestTemplateObservationTests::mockSentRequest(HttpMethod, String, HttpHeaders):void	org.springframework.http.client.ClientHttpRequestFactory	1.0
+Move Method	org.springframework.http.client.SimpleClientHttpRequestFactoryTests::testRequestBodyAllowed(URI, String, boolean):void	org.springframework.http.client.ClientHttpRequestFactory	1.0
+Move Method	org.springframework.http.codec.multipart.PartEventHttpMessageReader::createEventsextends PartEvent> (HttpHeaders, Flux<MultipartParser.BodyToken>):Publisher<?	org.springframework.http.HttpHeaders	0.6658550083010525
+Move Method	org.springframework.web.service.invoker.HttpMethodArgumentResolverTests::getActualMethod():HttpMethod	org.springframework.web.service.invoker.TestExchangeAdapter	1.0
+Move Method	org.springframework.web.service.invoker.RequestHeaderArgumentResolverTests::assertRequestHeaders(String, String[]):void	org.springframework.web.service.invoker.TestExchangeAdapter	1.0
+Move Method	org.springframework.web.client.DefaultRestClient.DefaultRequestBodyUriSpec::logBody(Object, MediaType, HttpMessageConverter<?>):void	org.springframework.http.converter.HttpMessageConverter	1.0
+Move Method	org.springframework.web.cors.DefaultCorsProcessor::rejectRequest(ServerHttpResponse):void	org.springframework.http.server.ServerHttpResponse	0.16666666666666666
+Move Method	org.springframework.web.method.annotation.ModelFactoryOrderingTests::runTest(Object):void	org.springframework.web.context.request.NativeWebRequest	0.23600853748370887
+Move Method	org.springframework.web.testfixture.http.client.MockClientHttpRequest::executeInternal():ClientHttpResponse	org.springframework.http.client.ClientHttpResponse	0.42500000000000004
+Move Method	org.springframework.http.codec.xml.Jaxb2XmlEncoder::initMarshaller(Class<?>):Marshaller	org.springframework.http.codec.xml.JaxbContextContainer	1.0
+Move Method	org.springframework.web.server.adapter.HttpWebHandlerAdapter::createExchange(ServerHttpRequest, ServerHttpResponse):ServerWebExchange	org.springframework.web.server.i18n.LocaleContextResolver	0.5
+Move Method	org.springframework.web.client.RestTemplateIntegrationTests::addSupportedMediaTypeToFormHttpMessageConverter(MediaType):void	org.springframework.http.MediaType	0.8009259259259262
+Move Method	org.springframework.http.client.reactive.ReactorClientHttpResponse::mayHaveBody(HttpMethod):boolean	org.springframework.http.HttpHeaders	0.8528605686879057
+Move Method	org.springframework.web.method.support.InvocableHandlerMethod::getMethodArgumentValues(NativeWebRequest, ModelAndViewContainer, Object[]):Object[]	org.springframework.web.bind.support.WebDataBinderFactory	0.6190476190476191
+Move Method	org.springframework.http.codec.multipart.PartEventHttpMessageWriter::encodePartData(byte[], DataBufferFactory, HttpHeaders, Flux<DataBuffer>):Flux<DataBuffer>	org.springframework.http.HttpHeaders	0.5283109361567351
+Move Method	org.springframework.web.context.ContextLoaderInitializerTests::register():void	org.springframework.web.context.AbstractContextLoaderInitializer	0.4791666666666667
+Move Method	org.springframework.http.client.JdkClientHttpRequestFactoryTests::customizeDisallowedHeaders():void	org.springframework.http.client.ClientHttpRequestFactory	1.0
+Move Method	org.springframework.http.codec.multipart.MultipartHttpMessageWriter::writeMultipart(MultiValueMap<String,?>, ReactiveHttpOutputMessage, MediaType, Map<String,Object>):Mono<Void>	org.springframework.http.codec.HttpMessageWriter	0.27400673400673403
+Move Method	org.springframework.http.codec.ResourceHttpMessageReaderTests::readResourceAsMono():void	org.springframework.http.codec.ResourceHttpMessageReader	0.2580916334469802
+Move Method	org.springframework.web.client.ExtractingResponseErrorHandler::extract(Class<? extends RestClientException>, ClientHttpResponse):void	org.springframework.http.client.ClientHttpResponse	0.44642857142857145
+Move Method	org.springframework.web.method.annotation.ModelFactory::isBindingCandidate(String, Object):boolean	org.springframework.web.method.annotation.SessionAttributesHandler	0.7497448979591836
+Move Method	org.springframework.http.codec.DecoderHttpMessageReader::getContentType(HttpMessage):MediaType	org.springframework.http.HttpMessage	0.625
+Move Method	org.springframework.web.testfixture.http.client.reactive.MockClientHttpResponse::getCharset():Charset	org.springframework.http.HttpHeaders	0.44248030147310685
+Move Method	org.springframework.web.method.annotation.ModelAttributeMethodProcessor::createAttribute(String, MethodParameter, WebDataBinderFactory, NativeWebRequest):Object	org.springframework.web.bind.support.WebDataBinderFactory	0.47619047619047616
+Move Method	org.springframework.web.server.adapter.HttpWebHandlerAdapter::handleUnresolvedError(ServerWebExchange, ServerRequestObservationContext, Throwable):Mono<Void>	org.springframework.web.server.session.WebSessionManager	0.6666666666666667
+Move Method	org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter::getJsonEncoding(MediaType):JsonEncoding	org.springframework.http.MediaType	0.8458458458458459
+Move Method	org.springframework.web.filter.OncePerRequestFilterTests::initErrorDispatch():void	org.springframework.web.testfixture.servlet.MockHttpServletRequest	0.7245432263814612
+Move Method	org.springframework.http.codec.ServerSentEventHttpMessageWriter::encodeText(CharSequence, MediaType, DataBufferFactory):DataBuffer	org.springframework.http.MediaType	1.0
+Move Method	org.springframework.web.bind.support.WebExchangeDataBinderTests::exchangeMultipart(MultiValueMap<String,?>):ServerWebExchange	org.springframework.web.bind.support.WebExchangeDataBinder	0.5068108974358974
+Move Method	org.springframework.web.service.invoker.HttpServiceMethodTests::service():void	org.springframework.web.service.invoker.TestExchangeAdapter	0.3089642857142857
+Move Method	org.springframework.web.client.RestTemplateTests::mockSentRequest(HttpMethod, String):void	org.springframework.http.HttpMethod	0.8444444444444444
+Move Method	org.springframework.web.service.invoker.PathVariableArgumentResolverTests::assertPathVariable(String, String):void	org.springframework.web.service.invoker.TestExchangeAdapter	1.0
+Move Method	org.springframework.http.client.reactive.ReactorNetty2ClientHttpConnector::adaptRequest(HttpMethod, URI, HttpClientRequest, NettyOutbound):ReactorNetty2ClientHttpRequest	org.springframework.http.HttpMethod	0.5111111111111112
+Move Method	org.springframework.web.method.ControllerAdviceBeanTests::assertApplicable(String, ControllerAdviceBean, Class<?>):void	org.springframework.web.method.ControllerAdviceBean	0.37011396011396014
+Move Method	org.springframework.http.codec.HttpMessageEncoder::getEncodeHints(ResolvableType, ResolvableType, MediaType, ServerHttpRequest, ServerHttpResponse):Map<String,Object>	org.springframework.http.MediaType	0.22055653537135012
+Move Method	org.springframework.web.method.annotation.ModelFactory::updateModel(NativeWebRequest, ModelAndViewContainer):void	org.springframework.web.bind.support.WebDataBinderFactory	0.94921875
+Move Method	org.springframework.http.converter.xml.SourceHttpMessageConverter::readSAXSource(InputStream, HttpInputMessage):SAXSource	org.springframework.http.HttpInputMessage	1.0
+Move Method	org.springframework.web.cors.reactive.DefaultCorsProcessorTests::corsRequest(HttpMethod):MockServerHttpRequest.BaseBuilder<?>	org.springframework.http.HttpMethod	0.6970427010230089
+Move Method	org.springframework.web.service.invoker.HttpServiceMethodTests::methodAnnotatedService():void	org.springframework.web.service.invoker.TestExchangeAdapter	0.4239010989010989

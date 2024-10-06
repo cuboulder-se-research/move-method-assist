@@ -1,0 +1,24 @@
+Refactoring Type	Source Method	Target Class	Similarity Indice
+Move Method	org.apache.tapestry5.internal.services.InternalModule::buildStringInterner(StringInternerImpl):StringInterner	org.apache.tapestry5.internal.services.StringInternerImpl	1.0
+Move Method	org.apache.tapestry5.internal.services.InternalClassTransformationImpl::match(CtMethod, TransformMethodSignature):boolean	org.apache.tapestry5.services.TransformMethodSignature	0.9066666666666667
+Move Method	org.apache.tapestry5.internal.pageload.PageLoaderImpl::comment(AssemblerContext):void	org.apache.tapestry5.internal.pageload.AssemblerContext	0.7433333333333333
+Move Method	org.apache.tapestry.mojo.ComponentReport::readPublishedParameters(ClassDescription, Element):void	org.apache.tapestry.mojo.ClassDescription	1.0
+Move Method	org.apache.tapestry5.corelib.components.Palette::beginRender(MarkupWriter):void	org.apache.tapestry5.internal.util.SelectModelRenderer	0.9278499278499278
+Move Method	org.apache.tapestry5.test.TapestryTestCase::train_addMethod(ClassTransformation, TransformMethodSignature, String[]):void	org.apache.tapestry5.services.TransformMethodSignature	0.7721776350989834
+Move Method	org.apache.tapestry5.corelib.components.Select::beginRender(MarkupWriter):void	org.apache.tapestry5.corelib.mixins.RenderDisabled	0.5892857142857143
+Move Method	org.apache.tapestry5.internal.pageload.ComponentAssemblerImpl::pushNewElement(PageAssembly, ComponentPageElement):void	org.apache.tapestry5.internal.pageload.PageAssembly	1.0
+Move Method	org.apache.tapestry.mojo.ComponentReport::readParameters(ClassDescription, Element):void	org.apache.tapestry.mojo.ClassDescription	0.9876543209876543
+Move Method	org.apache.tapestry5.services.TapestryModule::contributeApplicationInitializer(OrderedConfiguration<ApplicationInitializerFilter>, TypeCoercer, ComponentClassResolver, InvalidationEventHub, RestoreDirtySessionObjects):void	org.apache.tapestry5.internal.services.RestoreDirtySessionObjects	0.3888888888888889
+Move Method	org.apache.tapestry5.internal.pageload.PageLoaderImpl::element(AssemblerContext):void	org.apache.tapestry5.internal.pageload.AssemblerContext	0.7793650793650793
+Move Method	org.apache.tapestry5.corelib.components.FormFragment::afterRender(MarkupWriter):void	org.apache.tapestry5.corelib.internal.HiddenFieldPositioner	1.0
+Move Method	org.apache.tapestry5.internal.services.InternalModule::buildResourceCache(ResourceCacheImpl):ResourceCache	org.apache.tapestry5.internal.services.ResourceCacheImpl	1.0
+Move Method	org.apache.tapestry5.corelib.mixins.RenderDisabled::defaultModel(Select):SelectModel	org.apache.tapestry5.corelib.components.Select	0.585443722943723
+Move Method	org.apache.tapestry5.services.TapestryModule::buildMarkupRenderer(Logger, MarkupRendererTerminator, List<MarkupRendererFilter>):MarkupRenderer	org.apache.tapestry5.internal.services.MarkupRendererTerminator	0.40384615384615385
+Move Method	org.apache.tapestry5.corelib.components.Form::executeStoredActions():void	org.apache.tapestry5.corelib.internal.ComponentActionSink	0.6127450980392157
+Move Method	org.apache.tapestry5.services.TapestryModule::buildPropBindingFactory(List<BindingFactory>, PropBindingFactory):BindingFactory	org.apache.tapestry5.internal.bindings.PropBindingFactory	1.0
+Move Method	org.apache.tapestry5.internal.services.InternalClassTransformationImplTest::toClass(CtClass):Class	org.apache.tapestry5.ioc.internal.services.ClassFactoryClassPool	0.7421579743008315
+Move Method	org.apache.tapestry5.internal.pageload.PageLoaderImpl::attribute(AssemblerContext):void	org.apache.tapestry5.internal.pageload.AssemblerContext	0.6733333333333333
+Move Method	org.apache.tapestry5.internal.services.InternalModule::buildComponentClassCache(ComponentClassCacheImpl):ComponentClassCache	org.apache.tapestry5.internal.services.ComponentClassCacheImpl	0.935185185185185
+Move Method	org.apache.tapestry5.services.TapestryModule::buildPartialMarkupRenderer(Logger, List<PartialMarkupRendererFilter>, PartialMarkupRendererTerminator):PartialMarkupRenderer	org.apache.tapestry5.internal.services.PartialMarkupRendererTerminator	0.3589743589743589
+Move Method	org.apache.tapestry5.internal.services.ComponentRequestHandlerTerminator::buildComponentRequestHandler(List<ComponentRequestFilter>, TapestryModule, Logger):ComponentRequestHandler	org.apache.tapestry5.services.TapestryModule	0.3300890660814121
+Move Method	org.apache.tapestry5.test.TapestryTestCase::train_extendMethod(ClassTransformation, TransformMethodSignature, String[]):void	org.apache.tapestry5.services.TransformMethodSignature	0.7721776350989834

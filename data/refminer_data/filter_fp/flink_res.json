@@ -1,0 +1,70 @@
+[
+    {
+        "repository": "https://github.com/apache/flink.git",
+        "sha1": "752d3a79a918b9300dd2b89e96f3915ba6a2dfa6",
+        "url": "https://github.com/apache/flink/commit/752d3a79a918b9300dd2b89e96f3915ba6a2dfa6",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public getTaskManagerShellCommand(flinkConfig Configuration, tmParams ContaineredTaskManagerParameters, configDirectory String, logDirectory String, hasLogback boolean, hasLog4j boolean, hasKrb5 boolean, mainClass Class<?>, mainArgs String) : String from class org.apache.flink.runtime.clusterframework.BootstrapTools to public getTaskManagerShellCommand(flinkConfig Configuration, tmParams ContaineredTaskManagerParameters, configDirectory String, logDirectory String, hasLogback boolean, hasLog4j boolean, hasKrb5 boolean, mainClass Class<?>, mainArgs String) : String from class org.apache.flink.yarn.Utils",
+            "leftSideLocations": [
+                {
+                    "filePath": "flink-runtime/src/main/java/org/apache/flink/runtime/clusterframework/BootstrapTools.java",
+                    "startLine": 163,
+                    "endLine": 247,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public getTaskManagerShellCommand(flinkConfig Configuration, tmParams ContaineredTaskManagerParameters, configDirectory String, logDirectory String, hasLogback boolean, hasLog4j boolean, hasKrb5 boolean, mainClass Class<?>, mainArgs String) : String"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "flink-yarn/src/main/java/org/apache/flink/yarn/Utils.java",
+                    "startLine": 480,
+                    "endLine": 564,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public getTaskManagerShellCommand(flinkConfig Configuration, tmParams ContaineredTaskManagerParameters, configDirectory String, logDirectory String, hasLogback boolean, hasLog4j boolean, hasKrb5 boolean, mainClass Class<?>, mainArgs String) : String"
+                }
+            ],
+            "isStatic": true
+        }
+    },
+    {
+        "repository": "https://github.com/apache/flink.git",
+        "sha1": "752d3a79a918b9300dd2b89e96f3915ba6a2dfa6",
+        "url": "https://github.com/apache/flink/commit/752d3a79a918b9300dd2b89e96f3915ba6a2dfa6",
+        "move_method_refactoring": {
+            "type": "Move Method",
+            "description": "Move Method public getStartCommand(template String, startCommandValues Map<String,String>) : String from class org.apache.flink.runtime.clusterframework.BootstrapTools to public getStartCommand(template String, startCommandValues Map<String,String>) : String from class org.apache.flink.yarn.Utils",
+            "leftSideLocations": [
+                {
+                    "filePath": "flink-runtime/src/main/java/org/apache/flink/runtime/clusterframework/BootstrapTools.java",
+                    "startLine": 254,
+                    "endLine": 283,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public getStartCommand(template String, startCommandValues Map<String,String>) : String"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "flink-yarn/src/main/java/org/apache/flink/yarn/Utils.java",
+                    "startLine": 566,
+                    "endLine": 595,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public getStartCommand(template String, startCommandValues Map<String,String>) : String"
+                }
+            ],
+            "isStatic": true
+        }
+    }
+]

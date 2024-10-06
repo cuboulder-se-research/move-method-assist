@@ -1,12 +1,15 @@
 package com.intellij.ml.llm.template.telemetry
 
 import com.google.gson.annotations.SerializedName
+import com.intellij.ml.llm.template.intentions.ApplyMoveMethodInteractiveIntention
 import com.intellij.ml.llm.template.refactoringobjects.AbstractRefactoring
 import com.intellij.ml.llm.template.refactoringobjects.UncreatableRefactoring
 import com.intellij.ml.llm.template.refactoringobjects.extractfunction.EfCandidateType
 import com.intellij.ml.llm.template.settings.RefAgentSettingsManager
 import com.intellij.ml.llm.template.utils.EFCandidateApplicationPayload
+import com.intellij.ml.llm.template.utils.PsiUtils
 import com.intellij.openapi.util.TextRange
+import com.intellij.psi.PsiClass
 import com.intellij.psi.PsiFile
 import com.intellij.psi.PsiWhiteSpace
 import com.intellij.psi.util.elementType
@@ -35,6 +38,9 @@ data class RefTelemetryData(
     @SerializedName("iterationData")
     var iterationData: MutableList<MoveMethodIterationData> = mutableListOf()
 
+    @SerializedName("methodCompatibilityScores")
+    var methodCompatibility: MutableMap<String, Pair<ApplyMoveMethodInteractiveIntention.MoveMethodSuggestion, Double>> = mutableMapOf()
+
     @SerializedName("llmMethodPriority")
     lateinit var llmPriority: LlmMovePriority
 
@@ -61,8 +67,14 @@ data class HostFunctionTelemetryData(
     @SerializedName("language")
     var language: String,
 
+    @SerializedName("filePath")
+    var filePath: String,
+
     @SerializedName("sourceCode")
-    var sourceCode: String
+    var sourceCode: String,
+
+    @SerializedName("methodCount")
+    var methodCount: Int
 )
 
 data class RefCandidatesTelemetryData(
@@ -82,6 +94,9 @@ data class RefCandidateTelemetryData(
 
     @SerializedName("refactoringType")
     var refactoringType: String,
+
+    @SerializedName("refactoringInfo")
+    var refactoringInformation: String,
 
     @SerializedName("description")
     var description: String,
@@ -171,8 +186,8 @@ data class MoveMethodIterationData(
     @SerializedName("iteration_num")
     var iterationNum: Int,
 
-    @SerializedName("suggested_method_names")
-    var methodNames: List<String>,
+    @SerializedName("suggested_move_methods")
+    var suggestedMoveMethods: List<ApplyMoveMethodInteractiveIntention.MoveMethodSuggestion>,
 
     @SerializedName("llm_response_time")
     var llmResponseTime: Long
@@ -296,6 +311,7 @@ class EFTelemetryDataManager {
             RefCandidateTelemetryData(
                 it.startLoc, it.endLoc,
                 it::class.simpleName.toString(),
+                it.getRefactoringPreview(),
                 if(anonimizeTelemetry) "Anonymous" else it.description,
                 couldCreateRefObject = it !is UncreatableRefactoring,
                 valid = it.isValid,
@@ -325,13 +341,14 @@ class EFTelemetryDataManager {
         return anonClassName
     }
 
-    fun addMovesSuggestedInIteration(iter: Int, methodNames: List<String>, llmResponseTime: Long) {
+    fun addMovesSuggestedInIteration(iter: Int, moveSuggestions: List<ApplyMoveMethodInteractiveIntention.MoveMethodSuggestion>, llmResponseTime: Long) {
         val transformedMethodNames = if (anonimizeTelemetry) {
-            methodNames.map {
-                val anonMethodName = getAndSetAnonMethodName(it)
-                anonMethodName
+            moveSuggestions.map {
+                ApplyMoveMethodInteractiveIntention.MoveMethodSuggestion(
+                    getAndSetAnonMethodName(it.methodName), "", getAndSetAnonClassName(it.targetClass), "", it.psiMethod)
+
             }
-        }else{ methodNames}
+        }else{ moveSuggestions}
         currentTelemetryData.iterationData.add(MoveMethodIterationData(iter, transformedMethodNames, llmResponseTime))
     }
 
@@ -355,7 +372,6 @@ class EFTelemetryDataManager {
         similarityMetric: String,
         similarityComputationTime: Long
     ) {
-        // TODO: Anonymize.
         val anonIfTargetClassesWithSimilarity = if (anonimizeTelemetry){
             targetClassesWithSimilarityMetric.map{
                 if (it.first==null)
@@ -424,6 +440,12 @@ class EFTelemetryDataManager {
             targetClassData.llmResponseTime = llmResponseTime
         }
     }
+
+    fun addMethodCompatibility(methodCompatibilitySuggestions: List<Pair<ApplyMoveMethodInteractiveIntention.MoveMethodSuggestion, Double>>) {
+        currentTelemetryData.methodCompatibility.putAll(
+            methodCompatibilitySuggestions.map { it.first.methodSignature to Pair(it.first, it.second) }
+        )
+    }
 }
 
 class EFTelemetryDataUtils {
@@ -432,7 +454,9 @@ class EFTelemetryDataUtils {
             codeSnippet: String,
             lineStart: Int,
             bodyLineStart: Int,
-            language: String
+            language: String,
+            filePath: String,
+            hostClassPsi: PsiClass?
         ): HostFunctionTelemetryData {
             val functionSize = codeSnippet.lines().size
             return HostFunctionTelemetryData(
@@ -441,7 +465,9 @@ class EFTelemetryDataUtils {
                 hostFunctionSize = functionSize,
                 bodyLineStart = bodyLineStart,
                 language = language,
-                sourceCode = if (RefAgentSettingsManager.getInstance().getAnonymizeTelemetry()) "" else codeSnippet
+                sourceCode = if (RefAgentSettingsManager.getInstance().getAnonymizeTelemetry()) "" else codeSnippet,
+                filePath = filePath,
+                methodCount = PsiUtils.getAllMethodsInClass(hostClassPsi).size
             )
         }
 
@@ -458,6 +484,7 @@ class EFTelemetryDataUtils {
 //                reason = candidateApplicationPayload.reason,
                 description = if(anonymizeDescription) "Anonymized." else candidate.description,
                 refactoringType = candidate::class.java.toString(),
+                refactoringInformation = candidate.getRefactoringPreview()
 //
             )
         }

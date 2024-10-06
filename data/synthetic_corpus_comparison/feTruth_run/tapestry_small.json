@@ -1,0 +1,712 @@
+[
+  {
+    "source_class": "org.apache.tapestry5.internal.beaneditor.BeanEditorMessages",
+    "source_method": "unknownProperty",
+    "target_class": "java.lang.String, java.util.Collection<java.lang.String>):java.lang.String \t org.apache.tapestry5.ioc.internal.util.InternalUtils"
+  },
+  {
+    "source_class": "org.apache.tapestry5.internal.beaneditor.BeanEditorMessages",
+    "source_method": "unknownPropertyId",
+    "target_class": "java.lang.String, java.util.Collection<java.lang.String>):java.lang.String \t org.apache.tapestry5.ioc.internal.util.InternalUtils"
+  },
+  {
+    "source_class": "org.apache.tapestry5.internal.transform.RenderPhaseMethodWorker",
+    "source_method": "addMethodCallToBody",
+    "target_class": "org.apache.tapestry5.services.TransformMethodSignature, org.apache.tapestry5.services.ClassTransformation):void \t org.apache.tapestry5.internal.util.MethodInvocationBuilder"
+  },
+  {
+    "source_class": "org.apache.tapestry5.internal.transform.ParameterWorker",
+    "source_method": "addWriterMethod",
+    "target_class": "java.lang.String, java.lang.String, boolean, java.lang.String, java.lang.String, java.lang.String, org.apache.tapestry5.services.ClassTransformation):void \t org.apache.tapestry5.ioc.util.BodyBuilder"
+  },
+  {
+    "source_class": "org.apache.tapestry5.internal.transform.ParameterWorker",
+    "source_method": "addReaderMethod",
+    "target_class": "java.lang.String, java.lang.String, boolean, java.lang.String, java.lang.String, java.lang.String, org.apache.tapestry5.services.ClassTransformation):void \t org.apache.tapestry5.ioc.util.BodyBuilder"
+  },
+  {
+    "source_class": "org.apache.tapestry5.internal.transform.ParameterWorker",
+    "source_method": "bind",
+    "target_class": "org.apache.tapestry5.internal.InternalComponentResources, java.lang.Object):void \t org.apache.tapestry5.internal.InternalComponentResourcesCommon"
+  },
+  {
+    "source_class": "org.apache.tapestry5.internal.transform.OnEventWorker",
+    "source_method": "addCodeForMethod",
+    "target_class": "org.apache.tapestry5.services.TransformMethodSignature, org.apache.tapestry5.services.ClassTransformation, org.apache.tapestry5.model.MutableComponentModel):void \t org.apache.tapestry5.model.MutableComponentModel"
+  },
+  {
+    "source_class": "org.apache.tapestry5.internal.transform.OnEventWorker",
+    "source_method": "buildMethodParameters",
+    "target_class": "org.apache.tapestry5.services.TransformMethodSignature):void \t org.apache.tapestry5.services.TransformMethodSignature"
+  },
+  {
+    "source_class": "org.apache.tapestry5.internal.transform.InjectContainerWorker",
+    "source_method": "buildCastExceptionMessage",
+    "target_class": "java.lang.String, java.lang.String):java.lang.String \t org.apache.tapestry5.internal.transform.TransformMessages"
+  },
+  {
+    "source_class": "org.apache.tapestry5.internal.transform.ComponentWorker",
+    "source_method": "addMixinClasses",
+    "target_class": "org.apache.tapestry5.services.ClassTransformation, org.apache.tapestry5.model.MutableEmbeddedComponentModel):void \t org.apache.tapestry5.services.ClassTransformation"
+  },
+  {
+    "source_class": "org.apache.tapestry5.internal.transform.ComponentWorker",
+    "source_method": "addMixinTypes",
+    "target_class": "org.apache.tapestry5.services.ClassTransformation, org.apache.tapestry5.model.MutableEmbeddedComponentModel):void \t org.apache.tapestry5.services.ClassTransformation"
+  },
+  {
+    "source_class": "org.apache.tapestry5.internal.transform.TransformMessages",
+    "source_method": "illegalNumberOfPageActivationContextHandlers",
+    "target_class": "org.apache.tapestry5.ioc.internal.util.InternalUtils"
+  },
+  {
+    "source_class": "org.apache.tapestry5.internal.transform.InjectComponentWorker",
+    "source_method": "formatMessage",
+    "target_class": "java.lang.String, java.lang.String, java.lang.String):java.lang.String \t org.apache.tapestry5.ComponentResources"
+  },
+  {
+    "source_class": "org.apache.tapestry5.internal.renderers.RequestRenderer",
+    "source_method": "context",
+    "target_class": "org.apache.tapestry5.services.ObjectRenderer"
+  },
+  {
+    "source_class": "org.apache.tapestry5.internal.model.MutableComponentModelImpl",
+    "source_method": "getMixinClassNames",
+    "target_class": "org.apache.tapestry5.model.ComponentModel"
+  },
+  {
+    "source_class": "org.apache.tapestry5.internal.model.MutableComponentModelImpl",
+    "source_method": "getHandledRenderPhases",
+    "target_class": "org.apache.tapestry5.model.ComponentModel"
+  },
+  {
+    "source_class": "org.apache.tapestry5.internal.pageload.PageLoaderImpl",
+    "source_method": "createTokenStream",
+    "target_class": "org.apache.tapestry5.internal.parser.ComponentTemplate):org.apache.tapestry5.internal.pageload.TokenStream \t org.apache.tapestry5.internal.parser.ComponentTemplate"
+  },
+  {
+    "source_class": "org.apache.tapestry5.internal.pageload.PageLoaderImpl",
+    "source_method": "buildOverrideSearch",
+    "target_class": "org.apache.tapestry5.internal.parser.ComponentTemplate):java.util.List<org.apache.tapestry5.internal.parser.ComponentTemplate> \t org.apache.tapestry5.internal.pageload.ComponentAssembler"
+  },
+  {
+    "source_class": "org.apache.tapestry5.internal.pageload.PageLoaderImpl",
+    "source_method": "startComponent",
+    "target_class": "org.apache.tapestry5.internal.pageload.ComponentAssembler"
+  },
+  {
+    "source_class": "org.apache.tapestry5.internal.pageload.PageLoaderImpl",
+    "source_method": "copyInformalParameters",
+    "target_class": "org.apache.tapestry5.internal.structure.ComponentPageElement):void \t org.apache.tapestry5.model.ComponentModel"
+  },
+  {
+    "source_class": "org.apache.tapestry5.internal.pageload.PageLoaderImpl",
+    "source_method": "addActionForEmbeddedComponent",
+    "target_class": "org.apache.tapestry5.internal.pageload.EmbeddedComponentAssembler, java.lang.String, java.lang.String, java.lang.String):void \t org.apache.tapestry5.internal.pageload.ComponentAssembler"
+  },
+  {
+    "source_class": "org.apache.tapestry5.internal.pageload.ComponentAssemblerImpl",
+    "source_method": "pushNewElement",
+    "target_class": "org.apache.tapestry5.internal.structure.ComponentPageElement):void \t org.apache.tapestry5.internal.pageload.PageAssembly"
+  },
+  {
+    "source_class": "org.apache.tapestry5.internal.pageload.ComponentAssemblerImpl",
+    "source_method": "popNewElement",
+    "target_class": "org.apache.tapestry5.internal.pageload.PageAssembly"
+  },
+  {
+    "source_class": "org.apache.tapestry5.internal.test.PageTesterModule",
+    "source_method": "alias",
+    "target_class": "java.lang.Class<T>, T):void \t org.apache.tapestry5.services.AliasContribution"
+  },
+  {
+    "source_class": "org.apache.tapestry5.internal.services.FieldTranslatorImpl",
+    "source_method": "formatMessage",
+    "target_class": "org.apache.tapestry5.Field"
+  },
+  {
+    "source_class": "org.apache.tapestry5.internal.services.DocumentLinkerImpl",
+    "source_method": "findOrCreateElement",
+    "target_class": "java.lang.String, boolean):org.apache.tapestry5.dom.Element \t org.apache.tapestry5.dom.Element"
+  },
+  {
+    "source_class": "org.apache.tapestry5.internal.services.DocumentLinkerImpl",
+    "source_method": "addCombinedScriptLink",
+    "target_class": "java.util.List<java.lang.String>):void \t org.apache.tapestry5.dom.Element"
+  },
+  {
+    "source_class": "org.apache.tapestry5.internal.services.DocumentLinkerImpl",
+    "source_method": "findExistingElement",
+    "target_class": "java.lang.String):org.apache.tapestry5.dom.Element \t org.apache.tapestry5.dom.Element"
+  },
+  {
+    "source_class": "org.apache.tapestry5.internal.services.FieldTranslatorSourceImpl",
+    "source_method": "findFormatter",
+    "target_class": "org.apache.tapestry5.ioc.Messages, java.util.Locale, org.apache.tapestry5.Translator):org.apache.tapestry5.ioc.MessageFormatter \t org.apache.tapestry5.services.FormSupport"
+  },
+  {
+    "source_class": "org.apache.tapestry5.internal.services.InternalModule",
+    "source_method": "buildCtClassSource",
+    "target_class": "org.apache.tapestry5.internal.services.ComponentInstantiatorSource):org.apache.tapestry5.ioc.internal.services.CtClassSource \t org.apache.tapestry5.ioc.services.PropertyShadowBuilder"
+  },
+  {
+    "source_class": "org.apache.tapestry5.internal.services.BeanModelSourceImpl",
+    "source_method": "orderProperties",
+    "target_class": "java.util.List<java.lang.String>):void \t org.apache.tapestry5.ioc.services.ClassPropertyAdapter"
+  },
+  {
+    "source_class": "org.apache.tapestry5.internal.services.PropertyConduitSourceImpl.PropertyConduitBuilder",
+    "source_method": "addAccessForPropertyOrMethod",
+    "target_class": "java.lang.Class, org.apache.tapestry5.internal.services.Tree, java.lang.String, org.apache.tapestry5.internal.services.PropertyConduitSourceImpl.NullHandling):org.apache.tapestry5.internal.services.PropertyConduitSourceImpl.GeneratedTerm \t org.apache.tapestry5.ioc.util.BodyBuilder"
+  },
+  {
+    "source_class": "org.apache.tapestry5.internal.services.PersistentFieldManagerImpl",
+    "source_method": "findStrategy",
+    "target_class": "java.lang.String):java.lang.String \t org.apache.tapestry5.ComponentResources"
+  },
+  {
+    "source_class": "org.apache.tapestry5.internal.services.ComponentRequestHandlerTerminator",
+    "source_method": "buildComponentRequestHandler",
+    "target_class": "org.apache.tapestry5.services.TapestryModule, org.apache.tapestry5.internal.services.Logger):org.apache.tapestry5.services.ComponentRequestHandler \t org.apache.tapestry5.services.TapestryModule"
+  },
+  {
+    "source_class": "org.apache.tapestry5.internal.services.ComponentMethodInvocationBuilder",
+    "source_method": "copyAdvisedMethod",
+    "target_class": "org.apache.tapestry5.internal.services.InternalClassTransformation"
+  },
+  {
+    "source_class": "org.apache.tapestry5.internal.services.ComponentEventLinkEncoderMethodAdvice",
+    "source_method": "rewriteIfNeeded",
+    "target_class": "org.apache.tapestry5.urlrewriter.URLRewriteContext):org.apache.tapestry5.Link \t org.apache.tapestry5.services.URLRewriter"
+  },
+  {
+    "source_class": "org.apache.tapestry5.internal.services.ComponentClassResolverImpl",
+    "source_method": "fillNameToClassNameMap",
+    "target_class": "java.lang.String, java.lang.String, java.util.Map<java.lang.String,java.lang.String>):void \t org.apache.tapestry5.ioc.services.ClassNameLocator"
+  },
+  {
+    "source_class": "org.apache.tapestry5.internal.services.ServicesMessages",
+    "source_method": "nonPrivateFields",
+    "target_class": "java.util.List<java.lang.String>):java.lang.String \t org.apache.tapestry5.ioc.internal.util.InternalUtils"
+  },
+  {
+    "source_class": "org.apache.tapestry5.internal.services.ServicesMessages",
+    "source_method": "unknownPersistentFieldStrategy",
+    "target_class": "java.util.Collection<java.lang.String>):java.lang.String \t org.apache.tapestry5.ioc.internal.util.InternalUtils"
+  },
+  {
+    "source_class": "org.apache.tapestry5.internal.services.ServicesMessages",
+    "source_method": "couldNotResolvePageName",
+    "target_class": "java.util.Collection<java.lang.String>):java.lang.String \t org.apache.tapestry5.ioc.internal.util.InternalUtils"
+  },
+  {
+    "source_class": "org.apache.tapestry5.internal.services.ServicesMessages",
+    "source_method": "couldNotCanonicalizePageName",
+    "target_class": "java.util.Collection<java.lang.String>):java.lang.String \t org.apache.tapestry5.ioc.internal.util.InternalUtils"
+  },
+  {
+    "source_class": "org.apache.tapestry5.internal.services.ServicesMessages",
+    "source_method": "couldNotResolveComponentType",
+    "target_class": "java.util.Collection<java.lang.String>):java.lang.String \t org.apache.tapestry5.ioc.internal.util.InternalUtils"
+  },
+  {
+    "source_class": "org.apache.tapestry5.internal.services.ServicesMessages",
+    "source_method": "couldNotResolveMixinType",
+    "target_class": "java.util.Collection<java.lang.String>):java.lang.String \t org.apache.tapestry5.ioc.internal.util.InternalUtils"
+  },
+  {
+    "source_class": "org.apache.tapestry5.internal.services.ServicesMessages",
+    "source_method": "unknownValidatorType",
+    "target_class": "java.util.List<java.lang.String>):java.lang.String \t org.apache.tapestry5.ioc.internal.util.InternalUtils"
+  },
+  {
+    "source_class": "org.apache.tapestry5.internal.services.ServicesMessages",
+    "source_method": "unknownTranslatorType",
+    "target_class": "java.util.List<java.lang.String>):java.lang.String \t org.apache.tapestry5.ioc.internal.util.InternalUtils"
+  },
+  {
+    "source_class": "org.apache.tapestry5.internal.services.ServicesMessages",
+    "source_method": "missingFromEnvironment",
+    "target_class": "java.util.Collection<java.lang.Class>):java.lang.String \t org.apache.tapestry5.ioc.internal.util.InternalUtils"
+  },
+  {
+    "source_class": "org.apache.tapestry5.internal.services.ServicesMessages",
+    "source_method": "invalidComponentEventResult",
+    "target_class": "java.util.Collection<java.lang.Class>):java.lang.String \t org.apache.tapestry5.ioc.internal.util.InternalUtils"
+  },
+  {
+    "source_class": "org.apache.tapestry5.internal.services.ServicesMessages",
+    "source_method": "missingApplicationStatePersistenceStrategy",
+    "target_class": "java.util.Collection<java.lang.String>):java.lang.String \t org.apache.tapestry5.ioc.internal.util.InternalUtils"
+  },
+  {
+    "source_class": "org.apache.tapestry5.internal.services.ServicesMessages",
+    "source_method": "noSuchProperty",
+    "target_class": "java.lang.String, java.lang.String, java.util.Collection<java.lang.String>):java.lang.String \t org.apache.tapestry5.ioc.internal.util.InternalUtils"
+  },
+  {
+    "source_class": "org.apache.tapestry5.internal.services.ServicesMessages",
+    "source_method": "unknownNullFieldStrategyName",
+    "target_class": "java.util.Collection<java.lang.String>):java.lang.String \t org.apache.tapestry5.ioc.internal.util.InternalUtils"
+  },
+  {
+    "source_class": "org.apache.tapestry5.internal.services.ServicesMessages",
+    "source_method": "noTranslatorForType",
+    "target_class": "java.util.Collection<java.lang.String>):java.lang.String \t org.apache.tapestry5.ioc.services.ClassFabUtils"
+  },
+  {
+    "source_class": "org.apache.tapestry5.internal.services.ServicesMessages",
+    "source_method": "noSuchMethod",
+    "target_class": "java.lang.String):java.lang.String \t org.apache.tapestry5.ioc.services.ClassFabUtils"
+  },
+  {
+    "source_class": "org.apache.tapestry5.internal.services.InternalClassTransformationImpl",
+    "source_method": "advise",
+    "target_class": "org.apache.tapestry5.services.ComponentMethodAdvice):void \t org.apache.tapestry5.internal.services.ComponentMethodInvocationBuilder"
+  },
+  {
+    "source_class": "org.apache.tapestry5.internal.services.AssetResourceLocatorImpl",
+    "source_method": "findContextResource",
+    "target_class": "org.apache.tapestry5.services.AssetFactory"
+  },
+  {
+    "source_class": "org.apache.tapestry5.internal.services.RenderSupportImpl",
+    "source_method": "addScriptLinkFromClasspath",
+    "target_class": "org.apache.tapestry5.internal.services.DocumentLinker"
+  },
+  {
+    "source_class": "org.apache.tapestry5.internal.services.AbstractComponentMethodInvocation",
+    "source_method": "proceed",
+    "target_class": "org.apache.tapestry5.services.ComponentMethodAdvice"
+  },
+  {
+    "source_class": "org.apache.tapestry5.internal.services.MessagesSourceImpl",
+    "source_method": "readPropertiesFromStream",
+    "target_class": "org.apache.tapestry5.ioc.internal.util.InternalUtils"
+  },
+  {
+    "source_class": "org.apache.tapestry5.internal.services.ComponentClassCacheImpl",
+    "source_method": "lookupClassForType",
+    "target_class": "org.apache.tapestry5.ioc.services.ClassFactory"
+  },
+  {
+    "source_class": "org.apache.tapestry5.internal.structure.StructureMessages",
+    "source_method": "missingParameters",
+    "target_class": "org.apache.tapestry5.internal.structure.ComponentPageElement):java.lang.String \t org.apache.tapestry5.ioc.internal.util.InternalUtils"
+  },
+  {
+    "source_class": "org.apache.tapestry5.internal.structure.StructureMessages",
+    "source_method": "noSuchComponent",
+    "target_class": "java.lang.String, java.util.Set<java.lang.String>):java.lang.String \t org.apache.tapestry5.ioc.internal.util.InternalUtils"
+  },
+  {
+    "source_class": "org.apache.tapestry5.internal.structure.StructureMessages",
+    "source_method": "missingRenderVariable",
+    "target_class": "java.lang.String, java.util.Collection<java.lang.String>):java.lang.String \t org.apache.tapestry5.ioc.internal.util.InternalUtils"
+  },
+  {
+    "source_class": "org.apache.tapestry5.internal.structure.ComponentPageElementImpl",
+    "source_method": "createFormEventLink",
+    "target_class": "java.lang.Object[]):org.apache.tapestry5.Link \t org.apache.tapestry5.internal.structure.ComponentPageElementResources"
+  },
+  {
+    "source_class": "org.apache.tapestry5.internal.TapestryInternalUtils",
+    "source_method": "mapFromKeysAndValues",
+    "target_class": "org.apache.tapestry5.ioc.internal.util.CollectionFactory"
+  },
+  {
+    "source_class": "org.apache.tapestry5.internal.TapestryInternalUtils",
+    "source_method": "toOptionModel",
+    "target_class": "org.apache.tapestry5.ioc.internal.util.Defense"
+  },
+  {
+    "source_class": "org.apache.tapestry5.internal.TapestryInternalUtils",
+    "source_method": "toOptionModels",
+    "target_class": "org.apache.tapestry5.ioc.internal.util.CollectionFactory"
+  },
+  {
+    "source_class": "org.apache.tapestry5.internal.TapestryInternalUtils",
+    "source_method": "toOptionModel",
+    "target_class": "org.apache.tapestry5.ioc.internal.util.Defense"
+  },
+  {
+    "source_class": "org.apache.tapestry5.internal.TapestryInternalUtils",
+    "source_method": "toOptionModels",
+    "target_class": "org.apache.tapestry5.ioc.internal.util.CollectionFactory"
+  },
+  {
+    "source_class": "org.apache.tapestry5.internal.TapestryInternalUtils",
+    "source_method": "toOptionModels",
+    "target_class": "org.apache.tapestry5.ioc.internal.util.CollectionFactory"
+  },
+  {
+    "source_class": "org.apache.tapestry5.internal.TapestryInternalUtils",
+    "source_method": "parseKeyValue",
+    "target_class": "org.apache.tapestry5.internal.InternalMessages"
+  },
+  {
+    "source_class": "org.apache.tapestry5.internal.TapestryInternalUtils",
+    "source_method": "toClassAttributeValue",
+    "target_class": "org.apache.tapestry5.ioc.internal.util.InternalUtils"
+  },
+  {
+    "source_class": "org.apache.tapestry5.internal.TapestryInternalUtils",
+    "source_method": "splitAtCommas",
+    "target_class": "org.apache.tapestry5.ioc.internal.util.InternalUtils"
+  },
+  {
+    "source_class": "org.apache.tapestry5.corelib.components.Submit",
+    "source_method": "beginRender",
+    "target_class": "org.apache.tapestry5.ComponentResources"
+  },
+  {
+    "source_class": "org.apache.tapestry5.corelib.components.Loop",
+    "source_method": "defaultElement",
+    "target_class": "org.apache.tapestry5.ComponentResources"
+  },
+  {
+    "source_class": "org.apache.tapestry5.corelib.components.Loop",
+    "source_method": "begin",
+    "target_class": "org.apache.tapestry5.ComponentResources"
+  },
+  {
+    "source_class": "org.apache.tapestry5.corelib.components.GridColumns",
+    "source_method": "getSortForColumn",
+    "target_class": "org.apache.tapestry5.grid.GridModel"
+  },
+  {
+    "source_class": "org.apache.tapestry5.corelib.components.GridColumns",
+    "source_method": "onSort",
+    "target_class": "org.apache.tapestry5.grid.GridModel"
+  },
+  {
+    "source_class": "org.apache.tapestry5.corelib.components.GridColumns",
+    "source_method": "getColumnNames",
+    "target_class": "org.apache.tapestry5.grid.GridModel"
+  },
+  {
+    "source_class": "org.apache.tapestry5.corelib.components.GridRows",
+    "source_method": "getCellClass",
+    "target_class": "org.apache.tapestry5.grid.GridModel"
+  },
+  {
+    "source_class": "org.apache.tapestry5.corelib.components.GridRows",
+    "source_method": "setupForRow",
+    "target_class": "org.apache.tapestry5.grid.GridModel"
+  },
+  {
+    "source_class": "org.apache.tapestry5.corelib.components.GridRows",
+    "source_method": "getPropertyNames",
+    "target_class": "org.apache.tapestry5.grid.GridModel"
+  },
+  {
+    "source_class": "org.apache.tapestry5.corelib.base.AbstractField",
+    "source_method": "beforeDecorator",
+    "target_class": "org.apache.tapestry5.ValidationDecorator"
+  },
+  {
+    "source_class": "org.apache.tapestry5.corelib.base.AbstractField",
+    "source_method": "afterDecorator",
+    "target_class": "org.apache.tapestry5.ValidationDecorator"
+  },
+  {
+    "source_class": "org.apache.tapestry5.corelib.base.AbstractField",
+    "source_method": "decorateInsideField",
+    "target_class": "org.apache.tapestry5.ValidationDecorator"
+  },
+  {
+    "source_class": "org.apache.tapestry5.corelib.base.BaseMessages",
+    "source_method": "nullValueInPath",
+    "target_class": "org.apache.tapestry5.ioc.Messages"
+  },
+  {
+    "source_class": "org.apache.tapestry5.corelib.internal.InternalMessages",
+    "source_method": "failureInstantiatingObject",
+    "target_class": "java.lang.String, java.lang.Throwable):java.lang.String \t org.apache.tapestry5.ioc.services.ClassFabUtils"
+  },
+  {
+    "source_class": "org.apache.tapestry5.test.PageTester",
+    "source_method": "renderPage",
+    "target_class": "org.apache.tapestry5.services.RequestHandler"
+  },
+  {
+    "source_class": "org.apache.tapestry5.services.TapestryModule",
+    "source_method": "contributeBindingSource",
+    "target_class": "org.apache.tapestry5.services.BindingFactory, org.apache.tapestry5.services.BindingFactory, org.apache.tapestry5.services.BindingFactory, org.apache.tapestry5.services.BindingFactory, org.apache.tapestry5.services.BindingFactory, org.apache.tapestry5.services.BindingFactory, org.apache.tapestry5.services.BindingFactory):void \t org.apache.tapestry5.ioc.MappedConfiguration"
+  },
+  {
+    "source_class": "org.apache.tapestry5.services.TapestryModule",
+    "source_method": "contributeDefaultDataTypeAnalyzer",
+    "target_class": "org.apache.tapestry5.ioc.MappedConfiguration"
+  },
+  {
+    "source_class": "org.apache.tapestry5.services.TapestryModule",
+    "source_method": "contributeRequestHandler",
+    "target_class": "org.apache.tapestry5.services.Context, long, long, org.apache.tapestry5.services.UpdateListenerHub, org.apache.tapestry5.services.URLRewriter):void \t org.apache.tapestry5.services.RequestGlobals"
+  },
+  {
+    "source_class": "org.apache.tapestry5.services.TapestryModule",
+    "source_method": "contributeTranslatorSource",
+    "target_class": "org.apache.tapestry5.internal.translator.NumericTranslatorSupport):void \t org.apache.tapestry5.ioc.Configuration"
+  },
+  {
+    "source_class": "org.apache.tapestry5.services.TapestryModule",
+    "source_method": "contributeTypeCoercer",
+    "target_class": "org.apache.tapestry5.ioc.services.TypeCoercer, org.apache.tapestry5.ioc.services.ThreadLocale, org.apache.tapestry5.services.AssetSource):void \t org.apache.tapestry5.internal.TapestryInternalUtils"
+  },
+  {
+    "source_class": "org.apache.tapestry5.services.TapestryModule",
+    "source_method": "add",
+    "target_class": "java.lang.Class<? extends java.lang.annotation.Annotation>, org.apache.tapestry5.services.TransformMethodSignature, java.lang.String):void \t org.apache.tapestry5.internal.TapestryInternalUtils"
+  },
+  {
+    "source_class": "org.apache.tapestry5.services.TapestryModule",
+    "source_method": "buildValidationMessagesSource",
+    "target_class": "org.apache.tapestry5.services.UpdateListenerHub, org.apache.tapestry5.services.AssetFactory, org.apache.tapestry5.ioc.services.ClasspathURLConverter):org.apache.tapestry5.services.ValidationMessagesSource \t org.apache.tapestry5.services.UpdateListenerHub"
+  },
+  {
+    "source_class": "org.apache.tapestry5.services.TapestryModule",
+    "source_method": "buildHttpServletRequestHandler",
+    "target_class": "java.util.List<org.apache.tapestry5.services.HttpServletRequestFilter>, org.apache.tapestry5.services.RequestHandler, java.lang.String, org.apache.tapestry5.services.SessionPersistedObjectAnalyzer):org.apache.tapestry5.services.HttpServletRequestHandler \t org.apache.tapestry5.ioc.services.PipelineBuilder"
+  },
+  {
+    "source_class": "org.apache.tapestry5.services.TapestryModule",
+    "source_method": "buildRequestHandler",
+    "target_class": "java.util.List<org.apache.tapestry5.services.RequestFilter>, org.apache.tapestry5.services.Dispatcher):org.apache.tapestry5.services.RequestHandler \t org.apache.tapestry5.ioc.services.PipelineBuilder"
+  },
+  {
+    "source_class": "org.apache.tapestry5.services.TapestryModule",
+    "source_method": "buildComponentClassFactory",
+    "target_class": "org.apache.tapestry5.ioc.services.PropertyShadowBuilder"
+  },
+  {
+    "source_class": "org.apache.tapestry5.services.TapestryModule",
+    "source_method": "buildHttpServletRequest",
+    "target_class": "org.apache.tapestry5.ioc.services.PropertyShadowBuilder"
+  },
+  {
+    "source_class": "org.apache.tapestry5.services.TapestryModule",
+    "source_method": "buildHttpServletResponse",
+    "target_class": "org.apache.tapestry5.ioc.services.PropertyShadowBuilder"
+  },
+  {
+    "source_class": "org.apache.tapestry5.services.TapestryModule",
+    "source_method": "buildResponse",
+    "target_class": "org.apache.tapestry5.ioc.services.PropertyShadowBuilder"
+  },
+  {
+    "source_class": "org.apache.tapestry5.services.TapestryModule",
+    "source_method": "buildMarkupRenderer",
+    "target_class": "org.apache.tapestry5.internal.services.MarkupRendererTerminator, java.util.List<org.apache.tapestry5.services.MarkupRendererFilter>):org.apache.tapestry5.services.MarkupRenderer \t org.apache.tapestry5.ioc.services.PipelineBuilder"
+  },
+  {
+    "source_class": "org.apache.tapestry5.services.TapestryModule",
+    "source_method": "buildPartialMarkupRenderer",
+    "target_class": "java.util.List<org.apache.tapestry5.services.PartialMarkupRendererFilter>, org.apache.tapestry5.internal.services.PartialMarkupRendererTerminator):org.apache.tapestry5.services.PartialMarkupRenderer \t org.apache.tapestry5.ioc.services.PipelineBuilder"
+  },
+  {
+    "source_class": "org.apache.tapestry5.services.TapestryModule",
+    "source_method": "buildPageRenderRequestHandler",
+    "target_class": "org.apache.tapestry5.services.Logger, org.apache.tapestry5.internal.services.PageRenderRequestHandlerImpl):org.apache.tapestry5.services.PageRenderRequestHandler \t org.apache.tapestry5.ioc.services.PipelineBuilder"
+  },
+  {
+    "source_class": "org.apache.tapestry5.services.TapestryModule",
+    "source_method": "buildComponentEventRequestHandler",
+    "target_class": "org.apache.tapestry5.services.Logger, org.apache.tapestry5.internal.services.ComponentEventRequestHandlerImpl):org.apache.tapestry5.services.ComponentEventRequestHandler \t org.apache.tapestry5.ioc.services.PipelineBuilder"
+  },
+  {
+    "source_class": "org.apache.tapestry5.services.TapestryModule",
+    "source_method": "contributeObjectRenderer",
+    "target_class": "org.apache.tapestry5.services.ObjectRenderer, org.apache.tapestry5.ioc.services.TypeCoercer):void \t org.apache.tapestry5.ioc.MappedConfiguration"
+  },
+  {
+    "source_class": "org.apache.tapestry5.services.TapestryModule",
+    "source_method": "contributeMarkupRenderer",
+    "target_class": "boolean, org.apache.tapestry5.Asset, boolean, java.lang.String, boolean, org.apache.tapestry5.ioc.services.SymbolSource, org.apache.tapestry5.services.AssetSource, org.apache.tapestry5.services.ClientDataEncoder, org.apache.tapestry5.services.ClientInfrastructure):void \t org.apache.tapestry5.RenderSupport"
+  },
+  {
+    "source_class": "org.apache.tapestry5.services.TapestryModule",
+    "source_method": "contributePartialMarkupRenderer",
+    "target_class": "org.apache.tapestry5.Asset, org.apache.tapestry5.ioc.services.SymbolSource, org.apache.tapestry5.services.AssetSource):void \t org.apache.tapestry5.internal.services.PartialMarkupDocumentLinker"
+  },
+  {
+    "source_class": "org.apache.tapestry5.services.TapestryModule",
+    "source_method": "contributeFactoryDefaults",
+    "target_class": "org.apache.tapestry5.VersionUtils"
+  },
+  {
+    "source_class": "org.apache.tapestry5.services.TapestryModule",
+    "source_method": "contributeHiddenFieldLocationRules",
+    "target_class": "org.apache.tapestry5.services.RelativeElementPosition"
+  },
+  {
+    "source_class": "org.apache.tapestry5.services.TapestryModule",
+    "source_method": "buildLinkCreationHub",
+    "target_class": "org.apache.tapestry5.internal.services.LinkSource"
+  },
+  {
+    "source_class": "org.apache.tapestry5.services.TapestryModule",
+    "source_method": "buildSessionPersistedObjectAnalyzer",
+    "target_class": "org.apache.tapestry5.ioc.services.StrategyBuilder"
+  },
+  {
+    "source_class": "org.apache.tapestry5.util.PublicUtilMessages",
+    "source_method": "missingValue",
+    "target_class": "java.util.Collection<V>):java.lang.String \t org.apache.tapestry5.ioc.internal.util.InternalUtils"
+  },
+  {
+    "source_class": "org.apache.tapestry5.util.PublicUtilMessages",
+    "source_method": "missingEnumValue",
+    "target_class": "java.lang.Class, java.util.Collection<java.lang.String>):java.lang.String \t org.apache.tapestry5.ioc.internal.util.InternalUtils"
+  },
+  {
+    "source_class": "org.apache.tapestry5.internal.hibernate.HibernateCoreMessages",
+    "source_method": "entityCatalog",
+    "target_class": "org.apache.tapestry5.ioc.internal.util.InternalUtils"
+  },
+  {
+    "source_class": "org.apache.tapestry5.hibernate.HibernateModule",
+    "source_method": "contributeAlias",
+    "target_class": "org.apache.tapestry5.hibernate.Session):void \t org.apache.tapestry5.services.AliasContribution"
+  },
+  {
+    "source_class": "org.apache.tapestry5.ioc.internal.IOCMessages",
+    "source_method": "buildMethodWrongReturnType",
+    "target_class": "org.apache.tapestry5.ioc.internal.util.InternalUtils"
+  },
+  {
+    "source_class": "org.apache.tapestry5.ioc.internal.IOCMessages",
+    "source_method": "decoratorMethodWrongReturnType",
+    "target_class": "org.apache.tapestry5.ioc.internal.util.InternalUtils"
+  },
+  {
+    "source_class": "org.apache.tapestry5.ioc.internal.IOCMessages",
+    "source_method": "contributionWrongReturnType",
+    "target_class": "org.apache.tapestry5.ioc.internal.util.InternalUtils"
+  },
+  {
+    "source_class": "org.apache.tapestry5.ioc.internal.IOCMessages",
+    "source_method": "tooManyContributionParameters",
+    "target_class": "org.apache.tapestry5.ioc.internal.util.InternalUtils"
+  },
+  {
+    "source_class": "org.apache.tapestry5.ioc.internal.IOCMessages",
+    "source_method": "noContributionParameter",
+    "target_class": "org.apache.tapestry5.ioc.internal.util.InternalUtils"
+  },
+  {
+    "source_class": "org.apache.tapestry5.ioc.internal.IOCMessages",
+    "source_method": "noSuchService",
+    "target_class": "java.util.Collection<java.lang.String>):java.lang.String \t org.apache.tapestry5.ioc.internal.util.InternalUtils"
+  },
+  {
+    "source_class": "org.apache.tapestry5.ioc.internal.IOCMessages",
+    "source_method": "toJavaClassNames",
+    "target_class": "org.apache.tapestry5.ioc.internal.util.InternalUtils"
+  },
+  {
+    "source_class": "org.apache.tapestry5.ioc.internal.IOCMessages",
+    "source_method": "noServicesMatchMarker",
+    "target_class": "java.util.List<java.lang.Class>):java.lang.String \t org.apache.tapestry5.ioc.services.ClassFabUtils"
+  },
+  {
+    "source_class": "org.apache.tapestry5.ioc.internal.IOCMessages",
+    "source_method": "manyServicesMatchMarker",
+    "target_class": "java.util.List<java.lang.Class>, java.util.Collection<org.apache.tapestry5.ioc.def.ServiceDef2>):java.lang.String \t org.apache.tapestry5.ioc.services.ClassFabUtils"
+  },
+  {
+    "source_class": "org.apache.tapestry5.ioc.internal.AbstractServiceCreator",
+    "source_method": "getMappedConfiguration",
+    "target_class": "org.apache.tapestry5.ioc.ServiceBuilderResources"
+  },
+  {
+    "source_class": "org.apache.tapestry5.ioc.internal.services.ConstantInjectorImpl",
+    "source_method": "implementConstructor",
+    "target_class": "org.apache.tapestry5.ioc.util.BodyBuilder"
+  },
+  {
+    "source_class": "org.apache.tapestry5.ioc.internal.services.FilterMethodAnalyzer",
+    "source_method": "findServiceInterfacePosition",
+    "target_class": "org.apache.tapestry5.ioc.services.MethodSignature):int \t org.apache.tapestry5.ioc.services.MethodSignature"
+  },
+  {
+    "source_class": "org.apache.tapestry5.ioc.internal.services.ClassFactoryClassPool",
+    "source_method": "findMethod",
+    "target_class": "java.lang.Class[]):java.lang.reflect.Method \t org.apache.tapestry5.ioc.internal.util.InternalUtils"
+  },
+  {
+    "source_class": "org.apache.tapestry5.ioc.internal.services.StrategyBuilderImpl",
+    "source_method": "createImplClass",
+    "target_class": "org.apache.tapestry5.ioc.util.BodyBuilder"
+  },
+  {
+    "source_class": "org.apache.tapestry5.ioc.internal.services.ServiceMessages",
+    "source_method": "failedCoercion",
+    "target_class": "java.lang.Class, org.apache.tapestry5.ioc.services.Coercion, java.lang.Throwable):java.lang.String \t org.apache.tapestry5.ioc.services.ClassFabUtils"
+  },
+  {
+    "source_class": "org.apache.tapestry5.ioc.internal.util.InternalUtils",
+    "source_method": "toList",
+    "target_class": "org.apache.tapestry5.ioc.internal.util.CollectionFactory"
+  },
+  {
+    "source_class": "org.apache.tapestry5.ioc.internal.util.InternalUtils",
+    "source_method": "calculateParameters",
+    "target_class": "org.apache.tapestry5.ioc.internal.util.InjectionResources, java.lang.Class[], java.lang.reflect.Type[], java.lang.annotation.Annotation[][], org.apache.tapestry5.ioc.OperationTracker):java.lang.Object[] \t org.apache.tapestry5.ioc.services.ClassFabUtils"
+  },
+  {
+    "source_class": "org.apache.tapestry5.ioc.internal.util.InternalUtils",
+    "source_method": "injectIntoFields",
+    "target_class": "org.apache.tapestry5.ioc.ObjectLocator, org.apache.tapestry5.ioc.internal.util.InjectionResources, org.apache.tapestry5.ioc.OperationTracker):void \t org.apache.tapestry5.ioc.internal.util.InjectionResources"
+  },
+  {
+    "source_class": "org.apache.tapestry5.ioc.internal.util.InternalUtils",
+    "source_method": "locationOf",
+    "target_class": "org.apache.tapestry5.ioc.Locatable"
+  },
+  {
+    "source_class": "org.apache.tapestry5.ioc.internal.util.InternalUtils",
+    "source_method": "addToMapList",
+    "target_class": "K, V):void \t org.apache.tapestry5.ioc.internal.util.CollectionFactory"
+  },
+  {
+    "source_class": "org.apache.tapestry5.ioc.internal.util.InternalUtils",
+    "source_method": "validateMarkerAnnotation",
+    "target_class": "org.apache.tapestry5.ioc.internal.util.UtilMessages"
+  },
+  {
+    "source_class": "org.apache.tapestry5.ioc.internal.util.Defense",
+    "source_method": "notNull",
+    "target_class": "java.lang.String):T \t org.apache.tapestry5.ioc.internal.util.UtilMessages"
+  },
+  {
+    "source_class": "org.apache.tapestry5.ioc.internal.util.Defense",
+    "source_method": "notBlank",
+    "target_class": "java.lang.String):java.lang.String \t org.apache.tapestry5.ioc.internal.util.UtilMessages"
+  },
+  {
+    "source_class": "org.apache.tapestry5.ioc.test.TestBase",
+    "source_method": "create",
+    "target_class": "java.lang.Object[]):T \t org.apache.tapestry5.ioc.internal.util.InternalUtils"
+  },
+  {
+    "source_class": "org.apache.tapestry5.ioc.test.TestBase",
+    "source_method": "set",
+    "target_class": "java.lang.Object[]):T \t org.apache.tapestry5.ioc.internal.util.InternalUtils"
+  },
+  {
+    "source_class": "org.apache.tapestry5.ioc.services.TapestryIOCModule",
+    "source_method": "build",
+    "target_class": "org.apache.tapestry5.ioc.internal.util.InternalUtils"
+  },
+  {
+    "source_class": "org.apache.tapestry5.ioc.util.UtilMessages",
+    "source_method": "noStrategyAdapter",
+    "target_class": "java.lang.Class, java.util.Collection<java.lang.String>):java.lang.String \t org.apache.tapestry5.ioc.internal.util.InternalUtils"
+  },
+  {
+    "source_class": "org.apache.tapestry5.ioc.util.UtilMessages",
+    "source_method": "invalidTimeIntervalUnit",
+    "target_class": "java.lang.String, java.util.Collection<java.lang.String>):java.lang.String \t org.apache.tapestry5.ioc.internal.util.InternalUtils"
+  }
+]

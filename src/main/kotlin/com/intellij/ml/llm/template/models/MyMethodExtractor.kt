@@ -82,7 +82,7 @@ class MyMethodExtractor (private val functionNameProvider: FunctionNameProvider?
             val allOptionsToExtract: List<ExtractOptions> = computeWithAnalyzeProgress<List<ExtractOptions>, ExtractException>(file.project) {
                 findAllOptionsToExtract(elements)
             }
-            return selectOptionWithTargetClass(editor, allOptionsToExtract)
+            return selectOptionWithTargetClass(editor, file.project, allOptionsToExtract)
         }
         catch (e: ExtractException) {
             val message = JavaRefactoringBundle.message("extract.method.error.prefix") + " " + (e.message ?: "")
@@ -113,8 +113,6 @@ class MyMethodExtractor (private val functionNameProvider: FunctionNameProvider?
         }
     }
 
-    val ExtractOptions.targetClass: PsiClass
-        get() = anchor.containingClass ?: throw IllegalStateException()
 
     private fun suggestSafeMethodNames(options: ExtractOptions): List<String> {
         var unsafeNames = guessMethodName(options)
@@ -132,7 +130,7 @@ class MyMethodExtractor (private val functionNameProvider: FunctionNameProvider?
     private fun hasConflicts(options: ExtractOptions): Boolean {
         val (_, method) = prepareRefactoringElements(options)
         val conflicts = MultiMap<PsiElement, String>()
-        ConflictsUtil.checkMethodConflicts(options.anchor.containingClass, null, method, conflicts)
+        ConflictsUtil.checkMethodConflicts(options.targetClass, null, method, conflicts)
         return ! conflicts.isEmpty
     }
 
@@ -146,7 +144,7 @@ class MyMethodExtractor (private val functionNameProvider: FunctionNameProvider?
         val annotationAvailable = ExtractMethodHelper.isNullabilityAvailable(options)
         return ExtractMethodPopupProvider(
             annotateDefault = if (hasAnnotation && annotationAvailable) needsNullabilityAnnotations(options.project) else null,
-            makeStaticDefault = if (showStatic) !makeStaticAndPassFields else null,
+            makeStaticDefault = if (showStatic) false else null,
             staticPassFields = makeStaticAndPassFields
         )
     }
@@ -165,7 +163,7 @@ class MyMethodExtractor (private val functionNameProvider: FunctionNameProvider?
 
     fun extractMethod(extractOptions: ExtractOptions): ExtractedElements {
         val elementsToExtract = prepareRefactoringElements(extractOptions)
-        return replaceElements(extractOptions.elements, elementsToExtract.callElements, extractOptions.anchor, elementsToExtract.method)
+        return replaceElements(extractOptions.elements, elementsToExtract.callElements, extractOptions.elements[0] as PsiMember, elementsToExtract.method)
     }
 
     fun doTestExtract(
@@ -186,8 +184,8 @@ class MyMethodExtractor (private val functionNameProvider: FunctionNameProvider?
         if (elements.isEmpty()) throw ExtractException("Nothing to extract", file)
         val analyzer = CodeFragmentAnalyzer(elements)
         val allOptionsToExtract = findAllOptionsToExtract(elements)
-        var options = allOptionsToExtract.takeIf { targetClass != null }?.find { option -> option.anchor.containingClass == targetClass }
-            ?: allOptionsToExtract.find { option -> option.anchor.containingClass !is PsiAnonymousClass }
+        var options = allOptionsToExtract.takeIf { targetClass != null }?.find { option -> option.targetClass.containingClass == targetClass }
+            ?: allOptionsToExtract.find { option -> option.targetClass !is PsiAnonymousClass }
             ?: allOptionsToExtract.first()
         options = options.copy(methodName = "newMethod")
         if (isConstructor != options.isConstructor){
@@ -213,11 +211,11 @@ class MyMethodExtractor (private val functionNameProvider: FunctionNameProvider?
         if (visibility != null) {
             options = options.copy(visibility = visibility)
         }
-        if (options.anchor.containingClass?.isInterface == true) {
-            options = ExtractMethodPipeline.adjustModifiersForInterface(options.copy(visibility = PsiModifier.PRIVATE))
+        if (options.targetClass.containingClass?.isInterface == true) {
+//            options = ExtractMethodPipeline.adjustModifiersForInterface(options.copy(visibility = PsiModifier.PRIVATE))
         }
         if (doRefactor) {
-            extractMethod(options)
+//            extractMethod(options)
         }
         return true
     }
@@ -247,7 +245,7 @@ class MyMethodExtractor (private val functionNameProvider: FunctionNameProvider?
             )
         val method = SignatureBuilder(dependencies.project)
             .build(
-                dependencies.anchor.context,
+                dependencies.targetClass,
                 dependencies.elements,
                 dependencies.isStatic,
                 dependencies.visibility,
@@ -256,8 +254,7 @@ class MyMethodExtractor (private val functionNameProvider: FunctionNameProvider?
                 dependencies.methodName,
                 dependencies.inputParameters,
                 dependencies.dataOutput.annotations,
-                dependencies.thrownExceptions,
-                dependencies.anchor
+                dependencies.thrownExceptions
             )
         method.body?.replace(codeBlock)
 

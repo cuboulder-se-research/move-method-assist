@@ -2,17 +2,17 @@ package com.intellij.ml.llm.template.refactoringobjects.extractfunction
 
 import com.intellij.ml.llm.template.refactoringobjects.AbstractRefactoring
 import com.intellij.ml.llm.template.refactoringobjects.MyRefactoringFactory
+import com.intellij.ml.llm.template.utils.MethodSignature
 import com.intellij.ml.llm.template.utils.PsiUtils
 import com.intellij.openapi.application.runReadAction
-import com.intellij.openapi.application.runWriteAction
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiClass
 import com.intellij.psi.PsiFile
 import com.intellij.psi.PsiMethod
 import com.intellij.refactoring.inline.InlineMethodProcessor
-import org.jetbrains.kotlin.idea.editor.fixers.endLine
-import org.jetbrains.kotlin.idea.editor.fixers.startLine
+import org.jetbrains.kotlin.idea.base.codeInsight.handlers.fixers.endLine
+import org.jetbrains.kotlin.idea.base.codeInsight.handlers.fixers.startLine
 import org.jetbrains.kotlin.psi.psiUtil.endOffset
 import org.jetbrains.kotlin.psi.psiUtil.getChildOfType
 import org.jetbrains.kotlin.psi.psiUtil.startOffset
@@ -34,6 +34,27 @@ class InlineMethodFactory {
         fun fromMethodName(file: PsiFile, editor: Editor, methodName: String): List<AbstractRefactoring> {
             val classPsi = runReadAction{ file.getChildOfType<PsiClass>() }
             val methodPsi = runReadAction{ PsiUtils.getMethodNameFromClass(classPsi, methodName) }
+            if (methodPsi != null)
+                return runReadAction {
+                    return@runReadAction listOf(
+                        InlineMethodRefactoring(
+                            methodPsi.startLine(editor.document),
+                            methodPsi.endLine(editor.document),
+                            methodPsi
+                        )
+                    )
+                }
+            return emptyList()
+        }
+
+        fun fromMethodSignature(
+            file: PsiFile,
+            editor: Editor,
+            methodSignature: MethodSignature
+        ): List<AbstractRefactoring> {
+            val classPsi = runReadAction{ file.getChildOfType<PsiClass>() }
+            val methodPsi = runReadAction{
+                PsiUtils.getMethodWithSignatureFromClass(classPsi, methodSignature) }
             if (methodPsi != null)
                 return runReadAction {
                     return@runReadAction listOf(

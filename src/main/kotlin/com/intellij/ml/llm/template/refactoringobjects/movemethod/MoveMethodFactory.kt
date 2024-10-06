@@ -13,6 +13,7 @@ import com.intellij.ml.llm.template.refactoringobjects.MyRefactoringFactory
 import com.intellij.ml.llm.template.telemetry.EFTelemetryDataManager
 import com.intellij.ml.llm.template.utils.JsonUtils
 import com.intellij.ml.llm.template.utils.PsiUtils
+import com.intellij.openapi.application.invokeLater
 import com.intellij.openapi.application.runReadAction
 import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.editor.Editor
@@ -20,18 +21,24 @@ import com.intellij.openapi.project.Project
 import com.intellij.openapi.util.Ref
 import com.intellij.psi.*
 import com.intellij.psi.search.GlobalSearchScope
+import com.intellij.refactoring.move.MoveCallback
 import com.intellij.refactoring.move.MoveInstanceMembersUtil
+import com.intellij.refactoring.move.moveInstanceMethod.MoveInstanceMethodDialog
 import com.intellij.refactoring.move.moveInstanceMethod.MoveInstanceMethodProcessor
+import com.intellij.refactoring.move.moveMembers.MoveMembersDialog
 import com.intellij.refactoring.openapi.impl.JavaRefactoringFactoryImpl
 import com.intellij.refactoring.suggested.startOffset
 import com.intellij.usageView.UsageInfo
 import dev.langchain4j.model.chat.ChatLanguageModel
-import org.jetbrains.kotlin.idea.editor.fixers.endLine
-import org.jetbrains.kotlin.idea.editor.fixers.startLine
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.runBlocking
 import org.jetbrains.kotlin.psi.psiUtil.endOffset
 import org.jetbrains.kotlin.psi.psiUtil.getChildOfType
 import kotlin.math.min
 import kotlin.system.measureTimeMillis
+import org.jetbrains.kotlin.idea.base.codeInsight.handlers.fixers.endLine
+import org.jetbrains.kotlin.idea.base.codeInsight.handlers.fixers.startLine
+import org.jetbrains.kotlin.idea.refactoring.showWithTransaction
 
 
 class MoveMethodFactory {
@@ -48,7 +55,10 @@ class MoveMethodFactory {
 
         const val TOPN_SUGGESTIONS4USER = 1
         const val TOPN_SUGGESTIONS4LLM = 5
+        const val llmContextLimit = 128000
         val llmResponseCache = mutableMapOf<String, LLMBaseResponse>()
+        var myInvokeFinished: Boolean? = null
+        const val MAX_TARGET_CLASS4LLM = 3
 
         fun test(){
 
@@ -86,6 +96,17 @@ class MoveMethodFactory {
             return createMoveMethodRefactorings(project, methodToMove, editor, file, llmChatModel, telemetyDataManager)
         }
 
+        fun createMoveMethodFromPsiMethod(
+            editor: Editor,
+            file: PsiFile,
+            methodPsi: PsiMethod,
+            project: Project,
+            llmChatModel: ChatLanguageModel? = null,
+            telemetyDataManager: EFTelemetryDataManager? =null
+        ): List<AbstractRefactoring> {
+            return createMoveMethodRefactorings(project, methodPsi, editor, file, llmChatModel, telemetyDataManager)
+        }
+
         private fun createMoveMethodRefactorings(
             project: Project,
             methodToMove: PsiMethod,
@@ -95,25 +116,30 @@ class MoveMethodFactory {
             telemetryDataManager: EFTelemetryDataManager?
         ): List<AbstractRefactoring> {
 
-            val targetPivots = getPotentialMovePivots(project, editor, file, methodToMove)
-            val validMovePivots = getValidPivots(project, editor, file, methodToMove, targetPivots)
+            val validMovePivots = getPotentialMovePivots(project, editor, file, methodToMove) // these pivots are also valid.
             val targetPivotsWithSimilarity: List<Pair<MovePivot, Double>>
             val similarityComputationTime = measureTimeMillis {
-                targetPivotsWithSimilarity = validMovePivots
-                    .filter { methodToMove.containingClass?.qualifiedName != it.psiClass.qualifiedName }
-                    .map { pivot ->
-                        val similarity = PsiUtils.computeCosineSimilarity(methodToMove, pivot.psiClass)
-                        pivot to similarity
-                    }
+                targetPivotsWithSimilarity =
+                    validMovePivots
+                        .filter { runReadAction{ methodToMove.containingClass?.qualifiedName != it.psiClass.qualifiedName } }
+                        .map { pivot ->
+                            val similarity = runReadAction{ PsiUtils.computeCosineSimilarity(methodToMove, pivot.psiClass) }
+//                            val cbSimilarity = runReadAction{ CodeBertScore.computeCodeBertScore(methodToMove, pivot.psiClass) }
+                            pivot to similarity
+                        }
+
             }
-            val targetPivotsSorted = targetPivotsWithSimilarity
-                .sortedByDescending { it.second }
-                .distinctBy { it.first.psiClass.name + it.first.psiElement?.text }
-                .map { it.first }
+            val targetPivotsSorted = runReadAction{
+                targetPivotsWithSimilarity
+                    .sortedByDescending { it.second }
+                    .distinctBy { it.first.psiClass.name + it.first.psiElement?.text }
+                    .map { it.first }
+                    .subList(0, min(targetPivotsWithSimilarity.size, MAX_TARGET_CLASS4LLM))
+            }
             telemetryDataManager
                 ?.addPotentialTargetClassesOrdered(
                     methodToMove.name,
-                    targetPivotsWithSimilarity.map{it.first.psiClass.name to it.second},
+                    runReadAction{ targetPivotsWithSimilarity.map { it.first.psiClass.name to it.second } },
                     "cosine",
                     similarityComputationTime)
 
@@ -121,7 +147,7 @@ class MoveMethodFactory {
                 if (llmChatModel!=null)
                     rerankByLLM(targetPivotsSorted,
                         methodToMove,
-                        methodToMove.containingClass,
+                        runReadAction{ methodToMove.containingClass },
                         project,
                         llmChatModel,
                         telemetryDataManager)?: targetPivotsSorted
@@ -132,40 +158,49 @@ class MoveMethodFactory {
             logPotentialPivots(pivotsSortedByLLM.subList(0, min(3, pivotsSortedByLLM.size)), methodToMove)
 
             if (PsiUtils.isMethodStatic(methodToMove)){
-                val moveMethods = pivotsSortedByLLM.map {
-                    it.psiClass.qualifiedName?.let { it1 ->
-                        MyMoveStaticMethodRefactoring(
-                            methodToMove.startLine(editor.document),
-                            methodToMove.endLine(editor.document),
-                            methodToMove, it1,
-                            rationale = it.rationale
-                        )
-                    }
-                }.filterNotNull()
-                if (moveMethods.isEmpty())
-                    return emptyList()
-                return moveMethods.subList(0, min(TOPN_SUGGESTIONS4USER, moveMethods.size))
+                return runReadAction {
+                    val moveMethods = pivotsSortedByLLM.map {
+                        it.psiClass.qualifiedName?.let { it1 ->
+                            val classToMoveTo = JavaPsiFacade.getInstance(project).findClass(it1, GlobalSearchScope.projectScope(project))
+                            if (classToMoveTo != null) {
+                                MyMoveStaticMethodRefactoring(
+                                    methodToMove.startLine(editor.document),
+                                    methodToMove.endLine(editor.document),
+                                    methodToMove, classToMoveTo,
+                                    rationale = it.rationale
+                                )
+                            }
+                            else{
+                                null
+                            }
+                        }
+                    }.filterNotNull()
+
+                    if (moveMethods.isEmpty())
+                        return@runReadAction emptyList()
+                    return@runReadAction moveMethods.subList(0, min(TOPN_SUGGESTIONS4USER, moveMethods.size))
+                }
             }
 
             val moveMethods = pivotsSortedByLLM
                 .map {
                     if (it.psiElement!=null) {
-                        val processor = runReadAction {
-                            MoveInstanceMethodProcessor(
-                                project, methodToMove, it.psiElement as PsiVariable, "public",
-                                runReadAction {
-                                    getParamNamesIfNeeded(
-                                        MoveInstanceMembersUtil.getThisClassesToMembers(methodToMove),
-                                        it.psiElement as? PsiField
-                                    )
-                                }
-                            )
-                        }
-                        MyMoveMethodRefactoring(
+//                        val processor = runReadAction {
+//                            MoveInstanceMethodProcessor(
+//                                project, methodToMove, it.psiElement as PsiVariable, "public",
+//                                runReadAction {
+//                                    getParamNamesIfNeeded(
+//                                        MoveInstanceMembersUtil.getThisClassesToMembers(methodToMove),
+//                                        it.psiElement as? PsiField
+//                                    )
+//                                }
+//                            )
+//                        }
+                        MyMoveInstanceMethodRefactoring(
                             methodToMove.startLine(editor.document),
                             methodToMove.endLine(editor.document),
                             methodToMove,
-                            processor,
+                            it.psiElement as PsiVariable,
                             classToMoveTo = it.psiClass,
                             rationale = it.rationale
                         )
@@ -199,25 +234,19 @@ class MoveMethodFactory {
             methodToMove: PsiMethod,
             it: MovePivot
         ): Boolean {
-            val processor = MoveInstanceMethodProcessorAutoValidator(
-                project, methodToMove, it.psiElement as PsiVariable, "public",
-                runReadAction {
-                    getParamNamesIfNeeded(
-                        MoveInstanceMembersUtil.getThisClassesToMembers(methodToMove),
-                        it.psiElement as? PsiField
-                    )
-                }
-            )
-            // Reflection. This is a hacky way to call intellij API.
-            val method = processor.javaClass.getDeclaredMethod("findUsages")
-            method.setAccessible(true)
-            val usages = method.invoke(processor)
-            val refUsages = Ref<Array<UsageInfo>>(usages as Array<UsageInfo>)
-
-            val preprocessUsagesMethod =
-                processor.javaClass.getDeclaredMethod("preprocessUsages", refUsages::class.java)
-            preprocessUsagesMethod.setAccessible(true)
-            return preprocessUsagesMethod.invoke(processor, refUsages) as Boolean
+            return runReadAction {
+                val processor = MoveInstanceMethodProcessorAutoValidator(
+                    project, methodToMove, it.psiElement as PsiVariable, "public",
+                    runReadAction {
+                        getParamNamesIfNeeded(
+                            MoveInstanceMembersUtil.getThisClassesToMembers(methodToMove),
+                            it.psiElement as? PsiField
+                        )
+                    }
+                )
+                val refUsages = Ref<Array<UsageInfo>>(processor.delegateFindUsages())
+                return@runReadAction processor.delegatePreprocessUsages(refUsages)
+            }
         }
 
         private fun logPotentialPivots(
@@ -244,70 +273,102 @@ class MoveMethodFactory {
         ) : List<MovePivot>?{
 
             val response: LLMBaseResponse?
+            val methodText = runReadAction{ methodToMove.text }
+            val potentialClassBodies = runReadAction {
+                targetPivotsSorted.mapNotNull { pivot ->
+                    pivot.psiClass.text
+                }
+            }
+
             val llmResponseTime = measureTimeMillis {
-                response = llmResponseCache[methodToMove.text] ?: sendChatRequest(
+                response = llmResponseCache[methodText] ?: sendChatRequest(
                     project,
                     MoveMethodRefactoringPrompt().askForTargetClassPriorityPrompt(
-                        methodToMove.text,
+                        methodText,
+                        potentialClassBodies.joinToString("\n"),
                         targetPivotsSorted.distinctBy { it.psiClass.name }
                     ),
                     llmChatModel)
             }
             if (response!=null){
-                llmResponseCache[methodToMove.text]?: llmResponseCache.put(methodToMove.text, response)
+                llmResponseCache[methodText]?: llmResponseCache.put(runReadAction{ methodText }, response)
                 try {
                     val priorityOrder =
                         (JsonParser.parseString(JsonUtils.sanitizeJson(response.getSuggestions()[0].text)) as JsonArray)
                         .map { try{ Gson().fromJson(it, MoveSuggestion::class.java) } catch (e: Exception){null} }
                         .filterNotNull()
                     val targetClassesRanked = priorityOrder.map { it.targetClassName }
-                    priorityOrder.forEach {
-                        moveSuggestion -> targetPivotsSorted
-                            .filter { it.psiClass.name == moveSuggestion.targetClassName}
-                            .forEach { it.rationale=moveSuggestion.rationale }
-                    }
-                    val llmSortedPivots = targetPivotsSorted.sortedBy {
-                        val index = targetClassesRanked.indexOf(it.psiClass.name)
-                        if (index == -1){
-                            targetPivotsSorted.size+1
-                        }else {
-                            index
+                    return runReadAction {
+                        priorityOrder.forEach { moveSuggestion ->
+                            targetPivotsSorted
+                                .filter { it.psiClass.name == moveSuggestion.targetClassName }
+                                .forEach { it.rationale = moveSuggestion.rationale }
                         }
+
+                        val llmSortedPivots = targetPivotsSorted.sortedBy {
+                            val index = targetClassesRanked.indexOf(it.psiClass.name)
+                            if (index == -1) {
+                                targetPivotsSorted.size + 1
+                            } else {
+                                index
+                            }
+                        }
+                        telemetryDataManager?.addLlmTargetClassPriorityResponse(
+                            methodToMove.name,
+                            llmSortedPivots.map { it.psiClass.name }.filterNotNull(),
+                            llmResponseTime
+                        )
+
+                        return@runReadAction llmSortedPivots
                     }
-                    telemetryDataManager?.addLlmTargetClassPriorityResponse(
-                        methodToMove.name,
-                        llmSortedPivots.map{it.psiClass.name}.filterNotNull(),
-                        llmResponseTime
-                    )
-                    return llmSortedPivots
                 } catch (e: Exception) {
-                    telemetryDataManager?.addLlmTargetClassPriorityResponse(
-                        methodToMove.name,
-                        response.getSuggestions()[0].text,
-                        llmResponseTime
-                    )
-                    e.printStackTrace()
+                    runReadAction {
+                        telemetryDataManager?.addLlmTargetClassPriorityResponse(
+                            methodToMove.name,
+                            response.getSuggestions()[0].text,
+                            llmResponseTime
+                        )
+                        e.printStackTrace()
+                    }
                 }
             }
             return null
         }
 
         private fun getPotentialMovePivots(project: Project, editor: Editor, file: PsiFile, methodToMove: PsiMethod): List<MovePivot> {
-            if (methodToMove.containingClass==null) return emptyList()
+            if (runReadAction{ methodToMove.containingClass } ==null) return emptyList()
             if (PsiUtils.isMethodStatic(methodToMove)
-                && MoveMembersPreConditions.checkPreconditions(project, arrayOf(methodToMove), null, null)){
-                return (PsiUtils.fetchClassesInPackage(methodToMove.containingClass!!, project) + PsiUtils.fetchImportsInFile(file, project))
-                    .map { MovePivot(it, null) }
+                && runReadAction {
+                    MoveMembersPreConditions.checkPreconditions(project, arrayOf(methodToMove), null, null)
+                }){
+//                return runReadAction {
+//                    (PsiUtils.fetchClassesInProject(
+//                        methodToMove.containingClass!!,
+//                        project
+//                    ))
+//                        .map { MovePivot(it, null) }
+//                }
+
+                val potentialTargets = runReadAction {
+                    (PsiUtils.fetchImportsInFile(file, project) +
+                            PsiUtils.fetchPrioritizedClasses(methodToMove.containingClass!!, project))}
+                val dedupPotentialTargets = potentialTargets.distinctBy { it.name }
+                val potentialMovePivots = dedupPotentialTargets.map { MovePivot(it, null) }
+                val validMovePivots = getValidPivots(project, editor, file, methodToMove, potentialMovePivots)
+                return validMovePivots.subList(0, min(validMovePivots.size, 100)).map { MovePivot(it.psiClass, null) }
             }else{
                 val handler = MoveInstanceMethodHandlerForPlugin()
-                handler.invoke(project, arrayOf(methodToMove), null)
-                return handler.suitableVariablesToMove.map {
-                    val clazz = PsiUtils.findClassFromQualifier(it.type.canonicalText, project)
-                    if (clazz!=null)
-                        MovePivot(clazz, it)
-                    else
-                        null
-                }.filterNotNull()
+                val potentialPivots = runReadAction {
+                    handler.invoke(project, arrayOf(methodToMove), null)
+                    handler.suitableVariablesToMove.map {
+                        val clazz = PsiUtils.findClassFromQualifier(it.type.canonicalText, project)
+                        if (clazz != null)
+                            MovePivot(clazz, it)
+                        else
+                            null
+                    }.filterNotNull()
+                }
+                return getValidPivots(project, editor, file, methodToMove, potentialPivots)
             }
         }
 
@@ -324,12 +385,7 @@ class MoveMethodFactory {
                     methodToMove.containingFile, targetClassName
                 )
                 if (qualifiedClassName!=null){
-                    return listOf(
-                        MyMoveStaticMethodRefactoring(
-                            methodToMove.startLine(editor.document),
-                            methodToMove.endLine(editor.document),
-                            methodToMove, qualifiedClassName)
-                    )
+                    return createStaticMove(methodToMove, editor, qualifiedClassName)
                 }
             }else{
                 val variableOfType = PsiUtils.getVariableOfType(methodToMove, targetClassName)
@@ -339,6 +395,25 @@ class MoveMethodFactory {
             }
 
             return listOf()
+        }
+
+        fun createStaticMove(
+            methodToMove: PsiMethod,
+            editor: Editor,
+            qualifiedClassName: String
+        ): List<MyMoveStaticMethodRefactoring> {
+
+            val classToMoveTo = JavaPsiFacade.getInstance(methodToMove.project)
+                .findClass(qualifiedClassName, GlobalSearchScope.projectScope(methodToMove.project))
+            if (classToMoveTo==null) return emptyList()
+
+            return listOf(
+                MyMoveStaticMethodRefactoring(
+                    methodToMove.startLine(editor.document),
+                    methodToMove.endLine(editor.document),
+                    methodToMove, classToMoveTo
+                )
+            )
         }
 
         override val logicalName: String
@@ -361,22 +436,26 @@ class MoveMethodFactory {
 
 
 
-        class MyMoveMethodRefactoring(
+        class MyMoveInstanceMethodRefactoring(
             override val startLoc: Int,
             override val endLoc: Int,
             val methodToMove: PsiMethod,
-            val processor: MoveInstanceMethodProcessor,
+            val psiVariable: PsiVariable,
             val classToMoveTo: PsiClass,
             val rationale: String? = null
         ) : AbstractRefactoring(){
 
             init {
-                description = "Move method to ${classToMoveTo.qualifiedName}\n" +
-                        "Rationale: $rationale"
+                description = runReadAction{
+                    "Move method ${methodToMove.name} to ${classToMoveTo.qualifiedName}\n" +
+                            "Rationale: $rationale"
+                }
             }
             override fun performRefactoring(project: Project, editor: Editor, file: PsiFile) {
                 super.performRefactoring(project, editor, file)
-                processor.run()
+                val moveDialog = MyMoveInstanceMethodDialog(methodToMove, arrayOf(psiVariable))
+                moveDialog.showAndGet()
+                applied = moveDialog.triggeredRefactoring
                 reverseRefactoring = getReverseRefactoringObject(project, editor, file)
             }
 
@@ -416,18 +495,26 @@ class MoveMethodFactory {
         private fun checkStaticMoveValidity(project: Project,
                                             methodToMove: PsiMethod,
                                             movePivot: MovePivot) : Boolean {
-            if (methodToMove.containingClass!!.name==movePivot.psiClass.name)
-                return false
-            val processor = MoveStaticMethodValidator(project, methodToMove.containingClass!!, movePivot.psiClass, methodToMove)
-            val method = processor.javaClass.getDeclaredMethod("findUsages")
-            method.setAccessible(true)
-            val usages = method.invoke(processor)
-            val refUsages = Ref<Array<UsageInfo>>(usages as Array<UsageInfo>)
-
-            val preprocessUsagesMethod =
-                processor.javaClass.getDeclaredMethod("preprocessUsages", refUsages::class.java)
-            preprocessUsagesMethod.setAccessible(true)
-            return preprocessUsagesMethod.invoke(processor, refUsages) as Boolean
+            return runReadAction {
+                if (methodToMove.containingClass!!.name==movePivot.psiClass.name)
+                    return@runReadAction false
+//                return@runReadAction true
+                if (movePivot.psiClass.qualifiedName==null) return@runReadAction false
+                val processor = MoveStaticMethodValidator(
+                    project,
+                    methodToMove.containingClass!!,
+                    movePivot.psiClass,
+                    methodToMove
+                )
+                val refUsages = Ref<Array<UsageInfo>>(processor.delegateFindUsages())
+                return@runReadAction processor.delegatePreprocessUsages(refUsages)
+            }
+        }
+        tailrec suspend fun waitForBackgroundFinish(maxDelay: Long, checkPeriod: Long) : Boolean{
+            if(maxDelay < 0) return false
+            if(myInvokeFinished==true) return true
+            delay(checkPeriod)
+            return waitForBackgroundFinish(maxDelay - checkPeriod, checkPeriod)
         }
 
         private fun getParamNamesIfNeeded(
@@ -453,24 +540,35 @@ class MoveMethodFactory {
         override val startLoc: Int,
         override val endLoc: Int,
         val methodToMove: PsiMethod,
-        val classToMoveTo: String,
+        val classToMoveTo: PsiClass,
         val rationale: String?=null
     ) : AbstractRefactoring(){
         val sourceClass: PsiClass = methodToMove.containingClass!!
         val methodName = methodToMove.name
         init {
-            description = "move method to $classToMoveTo\n" +
+            description = "move method ${methodToMove.name} to $classToMoveTo\n" +
                     "Rationale: $rationale"
         }
 
+        class StaticMoveCallBack(val ref: MyMoveStaticMethodRefactoring): MoveCallback {
+            override fun refactoringCompleted() {
+                ref.applied = true
+            }
+        }
+
         override fun performRefactoring(project: Project, editor: Editor, file: PsiFile) {
-            val refFactory = JavaRefactoringFactoryImpl(project)
-            val moveRefactoring =
-                refFactory.createMoveMembers(
-                    arrayOf(methodToMove),
-                    classToMoveTo,
-                    "public")
-            moveRefactoring.run()
+            super.performRefactoring(project, editor, file)
+//            val refFactory = JavaRefactoringFactoryImpl(project)
+//            val moveRefactoring =
+//                refFactory.createMoveMembers(
+//                    arrayOf(methodToMove),
+//                    classToMoveTo,
+//                    "public")
+//            moveRefactoring.run()
+            applied = false
+            val dialog = MoveMembersDialog(
+                file.project, methodToMove.containingClass!!, classToMoveTo, setOf(methodToMove), StaticMoveCallBack(this))
+            dialog.show()
             reverseRefactoring = getReverseRefactoringObject(project, editor, file)
         }
 
@@ -480,7 +578,7 @@ class MoveMethodFactory {
         }
 
         override fun getRefactoringPreview(): String {
-            return "Move Static method ${methodToMove.name} to class ${classToMoveTo.split(".").last()}"
+            return "Move Static method ${methodToMove.name} to class ${classToMoveTo.name?.split(".")?.last()}"
         }
 
         override fun getStartOffset(): Int {
@@ -497,17 +595,12 @@ class MoveMethodFactory {
             file: PsiFile
         ): AbstractRefactoring? {
 
-            val destClass = JavaPsiFacade.getInstance(project).findClass(
-                classToMoveTo,
-                GlobalSearchScope.projectScope(project))
-            if (destClass!=null){
-                val foundMethod = PsiUtils.getMethodNameFromClass(destClass, methodName)
-                if (foundMethod!=null)
-                    return MyMoveStaticMethodRefactoring(
-                        foundMethod.startLine(editor.document),
-                        foundMethod.endLine(editor.document),
-                        foundMethod, sourceClass.qualifiedName!!)
-            }
+            val foundMethod = PsiUtils.getMethodNameFromClass(classToMoveTo, methodName)
+            if (foundMethod!=null)
+                return MyMoveStaticMethodRefactoring(
+                    foundMethod.startLine(editor.document),
+                    foundMethod.endLine(editor.document),
+                    foundMethod, sourceClass)
             return null
         }
 

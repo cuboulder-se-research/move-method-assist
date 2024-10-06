@@ -1,0 +1,1112 @@
+[
+  {
+    "source_class": "net.myvietnam.mvncore.configuration.ConfigurationUtils",
+    "source_method": "dump",
+    "target_class": "java.io.PrintStream):void \t net.myvietnam.mvncore.configuration.Configuration"
+  },
+  {
+    "source_class": "net.myvietnam.mvncore.configuration.ConfigurationUtils",
+    "source_method": "dump",
+    "target_class": "java.io.PrintWriter):void \t net.myvietnam.mvncore.configuration.Configuration"
+  },
+  {
+    "source_class": "net.myvietnam.mvncore.MVNCoreConfig",
+    "source_method": "setAllowHttpRefererPrefixList",
+    "target_class": "net.myvietnam.mvncore.util.StringUtil"
+  },
+  {
+    "source_class": "net.myvietnam.mvncore.security.SecurityUtil",
+    "source_method": "checkHttpReferer",
+    "target_class": "net.myvietnam.mvncore.util.StringUtil"
+  },
+  {
+    "source_class": "net.myvietnam.mvncore.util.ParamUtil",
+    "source_method": "getParameterSafe",
+    "target_class": "java.lang.String, boolean):java.lang.String \t net.myvietnam.mvncore.util.I18nUtil"
+  },
+  {
+    "source_class": "net.myvietnam.mvncore.util.ParamUtil",
+    "source_method": "getParameterLong",
+    "target_class": "java.lang.String):long \t net.myvietnam.mvncore.util.I18nUtil"
+  },
+  {
+    "source_class": "net.myvietnam.mvncore.util.ParamUtil",
+    "source_method": "getParameterLong",
+    "target_class": "java.lang.String, long):long \t net.myvietnam.mvncore.util.I18nUtil"
+  },
+  {
+    "source_class": "net.myvietnam.mvncore.util.ParamUtil",
+    "source_method": "getParameterDouble",
+    "target_class": "java.lang.String):double \t net.myvietnam.mvncore.util.I18nUtil"
+  },
+  {
+    "source_class": "net.myvietnam.mvncore.util.ParamUtil",
+    "source_method": "getParameterUrl",
+    "target_class": "java.lang.String):java.lang.String \t net.myvietnam.mvncore.util.I18nUtil"
+  },
+  {
+    "source_class": "net.myvietnam.mvncore.util.ParamUtil",
+    "source_method": "getParameterPassword",
+    "target_class": "java.lang.String, int, int):java.lang.String \t net.myvietnam.mvncore.util.I18nUtil"
+  },
+  {
+    "source_class": "net.myvietnam.mvncore.util.ParamUtil",
+    "source_method": "getParameterEmail",
+    "target_class": "java.lang.String):java.lang.String \t net.myvietnam.mvncore.util.MailUtil"
+  },
+  {
+    "source_class": "net.myvietnam.mvncore.util.GenericParamUtil",
+    "source_method": "getParameterURI",
+    "target_class": "java.lang.String):java.lang.String \t net.myvietnam.mvncore.util.I18nUtil"
+  },
+  {
+    "source_class": "net.myvietnam.mvncore.util.GenericParamUtil",
+    "source_method": "getParameterPassword",
+    "target_class": "java.lang.String, int, int):java.lang.String \t net.myvietnam.mvncore.web.GenericRequest"
+  },
+  {
+    "source_class": "net.myvietnam.mvncore.util.GenericParamUtil",
+    "source_method": "getParameterEmail",
+    "target_class": "java.lang.String):java.lang.String \t net.myvietnam.mvncore.util.MailUtil"
+  },
+  {
+    "source_class": "net.myvietnam.mvncore.util.GenericParamUtil",
+    "source_method": "getParameterDate",
+    "target_class": "java.lang.String):java.sql.Date \t net.myvietnam.mvncore.util.I18nUtil"
+  },
+  {
+    "source_class": "net.myvietnam.mvncore.util.ImageUtil",
+    "source_method": "createThumbnail",
+    "target_class": "java.io.OutputStream, int, int):void \t net.myvietnam.mvncore.util.AssertionUtil"
+  },
+  {
+    "source_class": "net.myvietnam.mvncore.util.ImageUtil",
+    "source_method": "writeJpegImage_nonSun",
+    "target_class": "java.io.OutputStream):void \t net.myvietnam.mvncore.thirdparty.JpegEncoder"
+  },
+  {
+    "source_class": "net.myvietnam.mvncore.util.StringUtil",
+    "source_method": "escapeQuote",
+    "target_class": "net.myvietnam.mvncore.filter.DisableHtmlTagFilter"
+  },
+  {
+    "source_class": "net.myvietnam.mvncore.db.DBUtils",
+    "source_method": "getConnection",
+    "target_class": "net.myvietnam.mvncore.util.DateUtil"
+  },
+  {
+    "source_class": "net.myvietnam.mvncore.db.DBUtils2",
+    "source_method": "load",
+    "target_class": "net.myvietnam.mvncore.db.DBUtils"
+  },
+  {
+    "source_class": "net.myvietnam.mvncore.thirdparty.JpegEncoder",
+    "source_method": "WriteHeaders",
+    "target_class": "net.myvietnam.mvncore.thirdparty.Huffman"
+  },
+  {
+    "source_class": "com.mvnforum.search.attachment.AttachmentIndexer",
+    "source_method": "scheduleAddAttachmentTask",
+    "target_class": "net.myvietnam.mvncore.util.TimerUtil"
+  },
+  {
+    "source_class": "com.mvnforum.search.attachment.AttachmentIndexer",
+    "source_method": "scheduleUpdateAttachmentTask",
+    "target_class": "net.myvietnam.mvncore.util.TimerUtil"
+  },
+  {
+    "source_class": "com.mvnforum.search.attachment.AttachmentIndexer",
+    "source_method": "scheduleDeleteAttachmentTask",
+    "target_class": "net.myvietnam.mvncore.util.TimerUtil"
+  },
+  {
+    "source_class": "com.mvnforum.search.attachment.AttachmentIndexer",
+    "source_method": "scheduleRebuildIndexTask",
+    "target_class": "net.myvietnam.mvncore.util.TimerUtil"
+  },
+  {
+    "source_class": "com.mvnforum.search.attachment.AttachmentIndexer",
+    "source_method": "addAttachmentToIndex",
+    "target_class": "net.myvietnam.mvncore.util.DateUtil"
+  },
+  {
+    "source_class": "com.mvnforum.search.post.PostIndexer",
+    "source_method": "scheduleUpdatePostTask",
+    "target_class": "net.myvietnam.mvncore.util.TimerUtil"
+  },
+  {
+    "source_class": "com.mvnforum.search.post.PostIndexer",
+    "source_method": "scheduleUpdateThreadTask",
+    "target_class": "net.myvietnam.mvncore.util.TimerUtil"
+  },
+  {
+    "source_class": "com.mvnforum.search.post.PostIndexer",
+    "source_method": "scheduleRebuildIndexTask",
+    "target_class": "net.myvietnam.mvncore.util.TimerUtil"
+  },
+  {
+    "source_class": "com.mvnforum.search.member.MemberIndexer",
+    "source_method": "scheduleAddMemberTask",
+    "target_class": "net.myvietnam.mvncore.util.TimerUtil"
+  },
+  {
+    "source_class": "com.mvnforum.search.member.MemberIndexer",
+    "source_method": "scheduleUpdateMemberTask",
+    "target_class": "net.myvietnam.mvncore.util.TimerUtil"
+  },
+  {
+    "source_class": "com.mvnforum.search.member.MemberIndexer",
+    "source_method": "scheduleDeleteMemberTask",
+    "target_class": "net.myvietnam.mvncore.util.TimerUtil"
+  },
+  {
+    "source_class": "com.mvnforum.search.member.MemberIndexer",
+    "source_method": "scheduleRebuildIndexTask",
+    "target_class": "net.myvietnam.mvncore.util.TimerUtil"
+  },
+  {
+    "source_class": "com.mvnforum.search.member.MemberIndexer",
+    "source_method": "addMemberToIndex",
+    "target_class": "net.myvietnam.mvncore.util.DateUtil"
+  },
+  {
+    "source_class": "com.mvnforum.search.member.MemberIndexer",
+    "source_method": "getNumDocs",
+    "target_class": "com.mvnforum.service.SearchService"
+  },
+  {
+    "source_class": "com.mvnforum.admin.MemberXML",
+    "source_method": "addGuestMemberPermission",
+    "target_class": "com.mvnforum.db.MemberPermissionDAO"
+  },
+  {
+    "source_class": "com.mvnforum.admin.MemberXML",
+    "source_method": "addMemberPermission",
+    "target_class": "java.lang.String):void \t com.mvnforum.admin.importexport.XMLUtil"
+  },
+  {
+    "source_class": "com.mvnforum.admin.MemberXML",
+    "source_method": "exportMessageFoldersForMember",
+    "target_class": "int):void \t com.mvnforum.db.MessageFolderDAO"
+  },
+  {
+    "source_class": "com.mvnforum.admin.MemberXML",
+    "source_method": "exportGlobalPermissionsForMember",
+    "target_class": "int):void \t com.mvnforum.db.MemberPermissionDAO"
+  },
+  {
+    "source_class": "com.mvnforum.admin.MemberXML",
+    "source_method": "exportGlobalWatchesForMember",
+    "target_class": "java.lang.String):void \t com.mvnforum.db.MemberDAO"
+  },
+  {
+    "source_class": "com.mvnforum.admin.ImportWebHelper",
+    "source_method": "execUpdateQuery",
+    "target_class": "net.myvietnam.mvncore.db.DBUtils"
+  },
+  {
+    "source_class": "com.mvnforum.admin.ImportWebHelper",
+    "source_method": "createDefaultAdminMember",
+    "target_class": "com.mvnforum.auth.MVNForumPermission"
+  },
+  {
+    "source_class": "com.mvnforum.admin.GeneralAdminTasksWebHandler",
+    "source_method": "prepareShowIndex",
+    "target_class": "com.mvnforum.auth.MVNForumPermission"
+  },
+  {
+    "source_class": "com.mvnforum.admin.GeneralAdminTasksWebHandler",
+    "source_method": "changeShowUserArea",
+    "target_class": "com.mvnforum.auth.MVNForumPermission"
+  },
+  {
+    "source_class": "com.mvnforum.admin.GeneralAdminTasksWebHandler",
+    "source_method": "processClearCache",
+    "target_class": "com.mvnforum.auth.MVNForumPermission"
+  },
+  {
+    "source_class": "com.mvnforum.admin.GeneralAdminTasksWebHandler",
+    "source_method": "deleteExportXmlZip",
+    "target_class": "net.myvietnam.mvncore.web.GenericRequest"
+  },
+  {
+    "source_class": "com.mvnforum.admin.GeneralAdminTasksWebHandler",
+    "source_method": "prepareSendMail",
+    "target_class": "com.mvnforum.db.GroupsBean"
+  },
+  {
+    "source_class": "com.mvnforum.admin.GeneralAdminTasksWebHandler",
+    "source_method": "prepareViewLogSystem",
+    "target_class": "net.myvietnam.mvncore.web.GenericRequest"
+  },
+  {
+    "source_class": "com.mvnforum.admin.GeneralAdminTasksWebHandler",
+    "source_method": "prepareLogFrame",
+    "target_class": "com.mvnforum.auth.OnlineUser"
+  },
+  {
+    "source_class": "com.mvnforum.admin.GeneralAdminTasksWebHandler",
+    "source_method": "backupSystemLog",
+    "target_class": "com.mvnforum.auth.OnlineUser"
+  },
+  {
+    "source_class": "com.mvnforum.admin.GeneralAdminTasksWebHandler",
+    "source_method": "prepareListLogFiles",
+    "target_class": "com.mvnforum.auth.MVNForumPermission"
+  },
+  {
+    "source_class": "com.mvnforum.admin.ImportWebHandler",
+    "source_method": "importXmlZip",
+    "target_class": "com.mvnforum.admin.HttpServletResponse):void \t net.myvietnam.mvncore.util.I18nUtil"
+  },
+  {
+    "source_class": "com.mvnforum.admin.GroupsWebHandler",
+    "source_method": "prepareDelete",
+    "target_class": "com.mvnforum.auth.MVNForumPermission"
+  },
+  {
+    "source_class": "com.mvnforum.admin.GroupsWebHandler",
+    "source_method": "processDelete",
+    "target_class": "com.mvnforum.auth.MVNForumPermission"
+  },
+  {
+    "source_class": "com.mvnforum.admin.GroupsWebHandler",
+    "source_method": "processUpdateGroupOwner",
+    "target_class": "com.mvnforum.auth.MVNForumPermission"
+  },
+  {
+    "source_class": "com.mvnforum.admin.CssTaskWebHandler",
+    "source_method": "processEditCSS",
+    "target_class": "com.mvnforum.auth.OnlineUserManager"
+  },
+  {
+    "source_class": "com.mvnforum.admin.CssTaskWebHandler",
+    "source_method": "processRestoreCSS",
+    "target_class": "com.mvnforum.auth.OnlineUserManager"
+  },
+  {
+    "source_class": "com.mvnforum.admin.GroupForumWebHandler",
+    "source_method": "prepareList",
+    "target_class": "com.mvnforum.auth.OnlineUserManager"
+  },
+  {
+    "source_class": "com.mvnforum.admin.GroupForumWebHandler",
+    "source_method": "prepareAssignForumToGroup",
+    "target_class": "net.myvietnam.mvncore.web.GenericResponse):void \t com.mvnforum.service.CategoryBuilderService"
+  },
+  {
+    "source_class": "com.mvnforum.admin.GroupForumWebHandler",
+    "source_method": "prepareAssignGroupToForum",
+    "target_class": "com.mvnforum.auth.OnlineUserManager"
+  },
+  {
+    "source_class": "com.mvnforum.admin.ConfigurationWebHandler",
+    "source_method": "commitConfig",
+    "target_class": "net.myvietnam.mvncore.web.GenericRequest"
+  },
+  {
+    "source_class": "com.mvnforum.admin.RankWebHandler",
+    "source_method": "processUpdate",
+    "target_class": "net.myvietnam.mvncore.web.GenericResponse):void \t com.mvnforum.auth.MVNForumPermission"
+  },
+  {
+    "source_class": "com.mvnforum.admin.RankWebHandler",
+    "source_method": "processDelete",
+    "target_class": "com.mvnforum.auth.MVNForumPermission"
+  },
+  {
+    "source_class": "com.mvnforum.admin.CategoryWebHandler",
+    "source_method": "prepareAdd",
+    "target_class": "net.myvietnam.mvncore.web.GenericResponse):void \t com.mvnforum.service.CategoryBuilderService"
+  },
+  {
+    "source_class": "com.mvnforum.admin.CategoryWebHandler",
+    "source_method": "processAdd",
+    "target_class": "net.myvietnam.mvncore.web.GenericResponse):void \t com.mvnforum.auth.MVNForumPermission"
+  },
+  {
+    "source_class": "com.mvnforum.admin.CategoryWebHandler",
+    "source_method": "prepareDelete",
+    "target_class": "com.mvnforum.auth.MVNForumPermission"
+  },
+  {
+    "source_class": "com.mvnforum.admin.CategoryWebHandler",
+    "source_method": "processDelete",
+    "target_class": "com.mvnforum.auth.MVNForumPermission"
+  },
+  {
+    "source_class": "com.mvnforum.admin.CategoryWebHandler",
+    "source_method": "processUpdate",
+    "target_class": "net.myvietnam.mvncore.web.GenericResponse):void \t com.mvnforum.auth.MVNForumPermission"
+  },
+  {
+    "source_class": "com.mvnforum.admin.CategoryWebHandler",
+    "source_method": "processUpdateCategoryOrder",
+    "target_class": "com.mvnforum.auth.MVNForumPermission"
+  },
+  {
+    "source_class": "com.mvnforum.admin.ExportWebHelper",
+    "source_method": "createBackupXml",
+    "target_class": "java.util.Calendar, java.lang.String):void \t com.mvnforum.admin.importexport.XMLUtil"
+  },
+  {
+    "source_class": "com.mvnforum.admin.ExportWebHelper",
+    "source_method": "execSqlQuery",
+    "target_class": "net.myvietnam.mvncore.db.DBUtils"
+  },
+  {
+    "source_class": "com.mvnforum.admin.GroupXML",
+    "source_method": "exportGlobalPermissionsForGroup",
+    "target_class": "int):void \t com.mvnforum.db.GroupPermissionDAO"
+  },
+  {
+    "source_class": "com.mvnforum.admin.GroupXML",
+    "source_method": "exportGroupMembersForGroup",
+    "target_class": "int):void \t com.mvnforum.db.MemberGroupDAO"
+  },
+  {
+    "source_class": "com.mvnforum.admin.ForumWebHandler",
+    "source_method": "prepareDelete",
+    "target_class": "com.mvnforum.auth.MVNForumPermission"
+  },
+  {
+    "source_class": "com.mvnforum.admin.ForumWebHandler",
+    "source_method": "processDelete",
+    "target_class": "com.mvnforum.auth.MVNForumPermission"
+  },
+  {
+    "source_class": "com.mvnforum.admin.ForumWebHandler",
+    "source_method": "processUpdate",
+    "target_class": "net.myvietnam.mvncore.web.GenericResponse):void \t com.mvnforum.auth.MVNForumPermission"
+  },
+  {
+    "source_class": "com.mvnforum.admin.ForumWebHandler",
+    "source_method": "processUpdateForumOrder",
+    "target_class": "com.mvnforum.auth.MVNForumPermission"
+  },
+  {
+    "source_class": "com.mvnforum.admin.MemberForumWebHandler",
+    "source_method": "prepareAssignForumToMember",
+    "target_class": "net.myvietnam.mvncore.web.GenericResponse):void \t com.mvnforum.service.CategoryBuilderService"
+  },
+  {
+    "source_class": "com.mvnforum.admin.MemberForumWebHandler",
+    "source_method": "prepareAssignMemberToForum",
+    "target_class": "com.mvnforum.auth.OnlineUserManager"
+  },
+  {
+    "source_class": "com.mvnforum.admin.MemberForumWebHandler",
+    "source_method": "prepareList",
+    "target_class": "com.mvnforum.auth.MVNForumPermission"
+  },
+  {
+    "source_class": "com.mvnforum.admin.AttachmentXML",
+    "source_method": "exportAttachmentList",
+    "target_class": "int):void \t com.mvnforum.db.MemberDAO"
+  },
+  {
+    "source_class": "com.mvnforum.admin.ExportWebHandler",
+    "source_method": "exportXmlZip",
+    "target_class": "com.mvnforum.admin.ExportWebHelper"
+  },
+  {
+    "source_class": "com.mvnforum.admin.ExportWebHandler",
+    "source_method": "getExportXmlZip",
+    "target_class": "com.mvnforum.admin.HttpServletResponse):void \t net.myvietnam.mvncore.util.I18nUtil"
+  },
+  {
+    "source_class": "com.mvnforum.admin.ExportWebHandler",
+    "source_method": "deleteExportXmlZip",
+    "target_class": "net.myvietnam.mvncore.util.FileUtil"
+  },
+  {
+    "source_class": "com.mvnforum.admin.PostXML",
+    "source_method": "exportPostList_Replies",
+    "target_class": "int):void \t com.mvnforum.admin.ExportWebHelper"
+  },
+  {
+    "source_class": "com.mvnforum.admin.importexport.mvnforum.MvnForumThreadXML",
+    "source_method": "updateAddedPost",
+    "target_class": "java.lang.String, java.lang.String):void \t com.mvnforum.admin.ThreadXML"
+  },
+  {
+    "source_class": "com.mvnforum.admin.importexport.mvnforum.MvnForumXML",
+    "source_method": "checkRegisteredMembersGroup",
+    "target_class": "com.mvnforum.admin.ImportWebHelper"
+  },
+  {
+    "source_class": "com.mvnforum.admin.importexport.XMLUtil",
+    "source_method": "stringToSqlDateDefNow",
+    "target_class": "net.myvietnam.mvncore.util.DateUtil"
+  },
+  {
+    "source_class": "com.mvnforum.admin.importexport.XMLUtil",
+    "source_method": "sqlDateToStringDefNow",
+    "target_class": "net.myvietnam.mvncore.util.DateUtil"
+  },
+  {
+    "source_class": "com.mvnforum.admin.importexport.jive.ImportJive",
+    "source_method": "createDefaultGuestMember",
+    "target_class": "com.mvnforum.MVNForumConfig"
+  },
+  {
+    "source_class": "com.mvnforum.admin.ThreadXML",
+    "source_method": "addJiveThreadWatch",
+    "target_class": "java.lang.String, java.lang.String, java.lang.String):void \t com.mvnforum.admin.importexport.jive.JiveThreadXML"
+  },
+  {
+    "source_class": "com.mvnforum.admin.ThreadXML",
+    "source_method": "exportFavoriteThreadsForThread",
+    "target_class": "int):void \t com.mvnforum.db.FavoriteThreadDAO"
+  },
+  {
+    "source_class": "com.mvnforum.admin.MemberWebHandler",
+    "source_method": "processUpdateMemberStatus",
+    "target_class": "com.mvnforum.auth.MVNForumPermission"
+  },
+  {
+    "source_class": "com.mvnforum.admin.MemberWebHandler",
+    "source_method": "processEdit",
+    "target_class": "net.myvietnam.mvncore.web.GenericResponse):void \t com.mvnforum.auth.OnlineUserManager"
+  },
+  {
+    "source_class": "com.mvnforum.admin.MemberWebHandler",
+    "source_method": "prepareView",
+    "target_class": "com.mvnforum.auth.MVNForumPermission"
+  },
+  {
+    "source_class": "com.mvnforum.admin.MemberWebHandler",
+    "source_method": "processUpdateMemberTitle",
+    "target_class": "net.myvietnam.mvncore.web.GenericResponse):void \t com.mvnforum.auth.MVNForumPermission"
+  },
+  {
+    "source_class": "com.mvnforum.admin.MemberWebHandler",
+    "source_method": "processResetMemberSignature",
+    "target_class": "com.mvnforum.auth.MVNForumPermission"
+  },
+  {
+    "source_class": "com.mvnforum.admin.MemberWebHandler",
+    "source_method": "processResetMemberAvatar",
+    "target_class": "com.mvnforum.auth.MVNForumPermission"
+  },
+  {
+    "source_class": "com.mvnforum.admin.MemberWebHandler",
+    "source_method": "processResetMemberActivation",
+    "target_class": "com.mvnforum.auth.MVNForumPermission"
+  },
+  {
+    "source_class": "com.mvnforum.admin.MemberWebHandler",
+    "source_method": "prepareDeleteMember",
+    "target_class": "com.mvnforum.auth.OnlineUserManager"
+  },
+  {
+    "source_class": "com.mvnforum.admin.MemberWebHandler",
+    "source_method": "processDeleteMember",
+    "target_class": "net.myvietnam.mvncore.service.EventLogService"
+  },
+  {
+    "source_class": "com.mvnforum.admin.MemberWebHandler",
+    "source_method": "prepareShowUserManagement",
+    "target_class": "com.mvnforum.auth.MVNForumPermission"
+  },
+  {
+    "source_class": "com.mvnforum.admin.MemberWebHandler",
+    "source_method": "prepareListUserExpire",
+    "target_class": "com.mvnforum.auth.OnlineUserManager"
+  },
+  {
+    "source_class": "com.mvnforum.admin.MemberWebHandler",
+    "source_method": "preparePermissionSummary",
+    "target_class": "com.mvnforum.auth.MVNForumPermission"
+  },
+  {
+    "source_class": "com.mvnforum.admin.MemberWebHandler",
+    "source_method": "prepareViewPermission",
+    "target_class": "com.mvnforum.service.CategoryBuilderService"
+  },
+  {
+    "source_class": "com.mvnforum.admin.MemberWebHandler",
+    "source_method": "prepareChangePassword",
+    "target_class": "com.mvnforum.auth.MVNForumPermission"
+  },
+  {
+    "source_class": "com.mvnforum.admin.MemberWebHandler",
+    "source_method": "processChangePassword",
+    "target_class": "com.mvnforum.auth.OnlineUserManager"
+  },
+  {
+    "source_class": "com.mvnforum.admin.MemberWebHandler",
+    "source_method": "prepareDeleteNonActivatedNoPostMembers",
+    "target_class": "com.mvnforum.auth.OnlineUserManager"
+  },
+  {
+    "source_class": "com.mvnforum.admin.MemberWebHandler",
+    "source_method": "deleteMember",
+    "target_class": "boolean, net.myvietnam.mvncore.web.GenericRequest, java.util.Locale):void \t com.mvnforum.search.member.MemberIndexer"
+  },
+  {
+    "source_class": "com.mvnforum.admin.MemberGroupWebHandler",
+    "source_method": "processAdd",
+    "target_class": "net.myvietnam.mvncore.service.EventLogService"
+  },
+  {
+    "source_class": "com.mvnforum.admin.MemberGroupWebHandler",
+    "source_method": "processDelete",
+    "target_class": "net.myvietnam.mvncore.service.EventLogService"
+  },
+  {
+    "source_class": "com.mvnforum.admin.MemberGroupWebHandler",
+    "source_method": "prepareList_inGroup_limit",
+    "target_class": "com.mvnforum.auth.MVNForumPermission"
+  },
+  {
+    "source_class": "com.mvnforum.common.StatisticsUtil",
+    "source_method": "updateThreadStatistics",
+    "target_class": "net.myvietnam.mvncore.util.AssertionUtil"
+  },
+  {
+    "source_class": "com.mvnforum.common.StatisticsUtil",
+    "source_method": "updateForumStatistics",
+    "target_class": "net.myvietnam.mvncore.util.AssertionUtil"
+  },
+  {
+    "source_class": "com.mvnforum.common.StatisticsUtil",
+    "source_method": "updateMemberStatistics",
+    "target_class": "com.mvnforum.db.MemberDAO"
+  },
+  {
+    "source_class": "com.mvnforum.common.PostChecker",
+    "source_method": "checkNoReplyForModeration",
+    "target_class": "com.mvnforum.db.PostBean, com.mvnforum.db.ForumBean):void \t com.mvnforum.auth.MVNForumPermission"
+  },
+  {
+    "source_class": "com.mvnforum.common.AttachmentUtil",
+    "source_method": "deleteAttachments_inForum",
+    "target_class": "com.mvnforum.db.AttachmentDAO"
+  },
+  {
+    "source_class": "com.mvnforum.common.kg.KGUtils",
+    "source_method": "addNewMember",
+    "target_class": "java.lang.String, java.lang.String, java.lang.String, java.sql.Date):void \t net.myvietnam.mvncore.util.StringUtil"
+  },
+  {
+    "source_class": "com.mvnforum.common.kg.KGUtils",
+    "source_method": "grantForumAdminPermission",
+    "target_class": "net.myvietnam.mvncore.util.DateUtil"
+  },
+  {
+    "source_class": "com.mvnforum.common.SendMailUtil",
+    "source_method": "getActivationCodeEmail",
+    "target_class": "java.lang.String):net.myvietnam.mvncore.util.MailMessageStruct \t com.mvnforum.db.MemberDAO"
+  },
+  {
+    "source_class": "com.mvnforum.common.OnlineUserUtil",
+    "source_method": "setRequestAttributeOfOnlineActions",
+    "target_class": "int, java.lang.Object):void \t net.myvietnam.mvncore.util.AssertionUtil"
+  },
+  {
+    "source_class": "com.mvnforum.MVNForumConfig",
+    "source_method": "setMVNForumHome",
+    "target_class": "net.myvietnam.mvncore.util.FileUtil"
+  },
+  {
+    "source_class": "com.mvnforum.user.PostWebHandler",
+    "source_method": "prepareEdit",
+    "target_class": "net.myvietnam.mvncore.web.GenericResponse):void \t com.mvnforum.auth.MVNForumPermission"
+  },
+  {
+    "source_class": "com.mvnforum.user.PostWebHandler",
+    "source_method": "processUpdate",
+    "target_class": "com.mvnforum.auth.MVNForumPermission"
+  },
+  {
+    "source_class": "com.mvnforum.user.PostWebHandler",
+    "source_method": "updatePostSuccessForRender",
+    "target_class": "net.myvietnam.mvncore.web.GenericResponse):void \t com.mvnforum.service.CategoryBuilderService"
+  },
+  {
+    "source_class": "com.mvnforum.user.PostWebHandler",
+    "source_method": "prepareDelete",
+    "target_class": "net.myvietnam.mvncore.web.GenericResponse):void \t com.mvnforum.auth.MVNForumPermission"
+  },
+  {
+    "source_class": "com.mvnforum.user.PostWebHandler",
+    "source_method": "processDelete",
+    "target_class": "com.mvnforum.auth.MVNForumPermission"
+  },
+  {
+    "source_class": "com.mvnforum.user.PostWebHandler",
+    "source_method": "deleteSuccessForRender",
+    "target_class": "net.myvietnam.mvncore.web.GenericResponse):void \t com.mvnforum.service.CategoryBuilderService"
+  },
+  {
+    "source_class": "com.mvnforum.user.PostWebHandler",
+    "source_method": "processModeratePendingPosts",
+    "target_class": "com.mvnforum.auth.MVNForumPermission"
+  },
+  {
+    "source_class": "com.mvnforum.user.PostWebHandler",
+    "source_method": "processSearch",
+    "target_class": "net.myvietnam.mvncore.web.GenericResponse):void \t com.mvnforum.service.CategoryBuilderService"
+  },
+  {
+    "source_class": "com.mvnforum.user.MessageFolderWebHandler",
+    "source_method": "prepareAdd",
+    "target_class": "com.mvnforum.auth.OnlineUserManager"
+  },
+  {
+    "source_class": "com.mvnforum.user.MessageFolderWebHandler",
+    "source_method": "prepareList",
+    "target_class": "com.mvnforum.auth.OnlineUserManager"
+  },
+  {
+    "source_class": "com.mvnforum.user.MessageFolderWebHandler",
+    "source_method": "prepareDelete",
+    "target_class": "com.mvnforum.auth.OnlineUserManager"
+  },
+  {
+    "source_class": "com.mvnforum.user.MessageFolderWebHandler",
+    "source_method": "processUpdateOrder",
+    "target_class": "com.mvnforum.auth.OnlineUserManager"
+  },
+  {
+    "source_class": "com.mvnforum.user.ThreadWebHandler",
+    "source_method": "prepareDelete",
+    "target_class": "net.myvietnam.mvncore.web.GenericResponse):void \t com.mvnforum.auth.MVNForumPermission"
+  },
+  {
+    "source_class": "com.mvnforum.user.ThreadWebHandler",
+    "source_method": "processDelete",
+    "target_class": "com.mvnforum.auth.MVNForumPermission"
+  },
+  {
+    "source_class": "com.mvnforum.user.ThreadWebHandler",
+    "source_method": "deleteSuccessForRender",
+    "target_class": "net.myvietnam.mvncore.web.GenericResponse):void \t com.mvnforum.service.CategoryBuilderService"
+  },
+  {
+    "source_class": "com.mvnforum.user.ThreadWebHandler",
+    "source_method": "processMoveThread",
+    "target_class": "net.myvietnam.mvncore.service.EventLogService"
+  },
+  {
+    "source_class": "com.mvnforum.user.ThreadWebHandler",
+    "source_method": "prepareEditThreadStatus",
+    "target_class": "net.myvietnam.mvncore.web.GenericResponse):void \t com.mvnforum.auth.MVNForumPermission"
+  },
+  {
+    "source_class": "com.mvnforum.user.ThreadWebHandler",
+    "source_method": "processEditThreadStatus",
+    "target_class": "com.mvnforum.auth.MVNForumPermission"
+  },
+  {
+    "source_class": "com.mvnforum.user.ThreadWebHandler",
+    "source_method": "prepareList_limit",
+    "target_class": "net.myvietnam.mvncore.web.GenericResponse, java.lang.String):void \t com.mvnforum.auth.MVNForumPermission"
+  },
+  {
+    "source_class": "com.mvnforum.user.ThreadWebHandler",
+    "source_method": "prepareListRecentThreads_limit",
+    "target_class": "net.myvietnam.mvncore.web.GenericResponse):void \t com.mvnforum.auth.MVNForumPermission"
+  },
+  {
+    "source_class": "com.mvnforum.user.ThreadWebHandler",
+    "source_method": "prepareListRecentDisabledThreads_limit",
+    "target_class": "com.mvnforum.auth.OnlineUserManager"
+  },
+  {
+    "source_class": "com.mvnforum.user.ThreadWebHandler",
+    "source_method": "prepareListDisabledThreads_limit_xml",
+    "target_class": "com.mvnforum.auth.OnlineUserManager"
+  },
+  {
+    "source_class": "com.mvnforum.user.ThreadWebHandler",
+    "source_method": "prepareListRecentEnableThreadsWithPendingPosts_limit",
+    "target_class": "com.mvnforum.auth.OnlineUserManager"
+  },
+  {
+    "source_class": "com.mvnforum.user.ThreadWebHandler",
+    "source_method": "prepareListEnableThreadsWithPendingPosts_inForum_limit",
+    "target_class": "com.mvnforum.auth.MVNForumPermission"
+  },
+  {
+    "source_class": "com.mvnforum.user.ThreadWebHandler",
+    "source_method": "prepareModerationControlPanel",
+    "target_class": "net.myvietnam.mvncore.web.GenericResponse):void \t com.mvnforum.categorytree.CategoryTree"
+  },
+  {
+    "source_class": "com.mvnforum.user.ThreadWebHandler",
+    "source_method": "prepareRSSSummary",
+    "target_class": "net.myvietnam.mvncore.web.GenericResponse):void \t com.mvnforum.service.CategoryBuilderService"
+  },
+  {
+    "source_class": "com.mvnforum.user.ThreadWebHandler",
+    "source_method": "prepareListRSS",
+    "target_class": "com.mvnforum.auth.OnlineUserManager"
+  },
+  {
+    "source_class": "com.mvnforum.user.ForumWebHandler",
+    "source_method": "prepareListIndex",
+    "target_class": "net.myvietnam.mvncore.web.GenericResponse, java.lang.String):void \t com.mvnforum.service.CategoryBuilderService"
+  },
+  {
+    "source_class": "com.mvnforum.user.WatchWebHandler",
+    "source_method": "processDelete",
+    "target_class": "com.mvnforum.auth.MVNForumPermission"
+  },
+  {
+    "source_class": "com.mvnforum.user.MemberWebHandler",
+    "source_method": "prepareAdd",
+    "target_class": "com.mvnforum.auth.OnlineUserManager"
+  },
+  {
+    "source_class": "com.mvnforum.user.MemberWebHandler",
+    "source_method": "processUpdate",
+    "target_class": "net.myvietnam.mvncore.web.GenericResponse):void \t com.mvnforum.common.MemberMapping"
+  },
+  {
+    "source_class": "com.mvnforum.user.MemberWebHandler",
+    "source_method": "prepareEditEmail",
+    "target_class": "com.mvnforum.auth.OnlineUserManager"
+  },
+  {
+    "source_class": "com.mvnforum.user.MemberWebHandler",
+    "source_method": "processUpdateEmail",
+    "target_class": "com.mvnforum.auth.OnlineUserManager"
+  },
+  {
+    "source_class": "com.mvnforum.user.MemberWebHandler",
+    "source_method": "processUpdatePassword",
+    "target_class": "com.mvnforum.auth.OnlineUserManager"
+  },
+  {
+    "source_class": "com.mvnforum.user.MemberWebHandler",
+    "source_method": "prepareView_forCurrentMember",
+    "target_class": "com.mvnforum.auth.OnlineUserManager"
+  },
+  {
+    "source_class": "com.mvnforum.user.MemberWebHandler",
+    "source_method": "prepareEdit_forCurrentMember",
+    "target_class": "com.mvnforum.auth.OnlineUserManager"
+  },
+  {
+    "source_class": "com.mvnforum.user.MemberWebHandler",
+    "source_method": "prepareEditSignature",
+    "target_class": "com.mvnforum.auth.OnlineUserManager"
+  },
+  {
+    "source_class": "com.mvnforum.user.MemberWebHandler",
+    "source_method": "processUpdateSignature",
+    "target_class": "net.myvietnam.mvncore.web.GenericResponse):void \t com.mvnforum.auth.OnlineUserManager"
+  },
+  {
+    "source_class": "com.mvnforum.user.MemberWebHandler",
+    "source_method": "prepareEditAvatar",
+    "target_class": "com.mvnforum.auth.OnlineUserManager"
+  },
+  {
+    "source_class": "com.mvnforum.user.MemberWebHandler",
+    "source_method": "activateMember",
+    "target_class": "com.mvnforum.auth.OnlineUserManager"
+  },
+  {
+    "source_class": "com.mvnforum.user.MemberWebHandler",
+    "source_method": "prepareListMembers_forPublic",
+    "target_class": "com.mvnforum.auth.OnlineUserManager"
+  },
+  {
+    "source_class": "com.mvnforum.user.PostUtil",
+    "source_method": "addPost",
+    "target_class": "int, int, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String):void \t com.mvnforum.common.StatisticsUtil"
+  },
+  {
+    "source_class": "com.mvnforum.user.MessageWebHandler",
+    "source_method": "processAdd",
+    "target_class": "net.myvietnam.mvncore.web.GenericResponse):void \t com.mvnforum.auth.OnlineUserManager"
+  },
+  {
+    "source_class": "com.mvnforum.user.MessageWebHandler",
+    "source_method": "prepareViewMessage",
+    "target_class": "com.mvnforum.auth.MVNForumPermission"
+  },
+  {
+    "source_class": "com.mvnforum.user.MessageWebHandler",
+    "source_method": "prepareList",
+    "target_class": "com.mvnforum.auth.MVNForumPermission"
+  },
+  {
+    "source_class": "com.mvnforum.user.MessageWebHandler",
+    "source_method": "processMessage",
+    "target_class": "com.mvnforum.auth.OnlineUserManager"
+  },
+  {
+    "source_class": "com.mvnforum.user.MessageWebHandler",
+    "source_method": "processSendMessage",
+    "target_class": "com.mvnforum.auth.OnlineUserManager"
+  },
+  {
+    "source_class": "com.mvnforum.user.MessageWebHandler",
+    "source_method": "processDelete",
+    "target_class": "com.mvnforum.auth.MVNForumPermission"
+  },
+  {
+    "source_class": "com.mvnforum.user.AttachmentWebHandler",
+    "source_method": "prepareAdd",
+    "target_class": "net.myvietnam.mvncore.web.GenericResponse):void \t com.mvnforum.service.CategoryBuilderService"
+  },
+  {
+    "source_class": "com.mvnforum.user.AttachmentWebHandler",
+    "source_method": "prepareEdit",
+    "target_class": "net.myvietnam.mvncore.web.GenericResponse):void \t com.mvnforum.service.CategoryBuilderService"
+  },
+  {
+    "source_class": "com.mvnforum.user.AttachmentWebHandler",
+    "source_method": "processEdit",
+    "target_class": "com.mvnforum.auth.MVNForumPermission"
+  },
+  {
+    "source_class": "com.mvnforum.user.AttachmentWebHandler",
+    "source_method": "editSuccessForRender",
+    "target_class": "net.myvietnam.mvncore.web.GenericResponse):void \t com.mvnforum.service.CategoryBuilderService"
+  },
+  {
+    "source_class": "com.mvnforum.user.AttachmentWebHandler",
+    "source_method": "prepareDelete",
+    "target_class": "net.myvietnam.mvncore.web.GenericResponse):void \t com.mvnforum.auth.MVNForumPermission"
+  },
+  {
+    "source_class": "com.mvnforum.user.AttachmentWebHandler",
+    "source_method": "processSearchAttachments",
+    "target_class": "net.myvietnam.mvncore.web.GenericResponse):void \t com.mvnforum.service.CategoryBuilderService"
+  },
+  {
+    "source_class": "com.mvnforum.user.PmAttachmentWebHandler",
+    "source_method": "prepareAdd",
+    "target_class": "com.mvnforum.auth.MVNForumPermission"
+  },
+  {
+    "source_class": "com.mvnforum.LocaleMessageUtil",
+    "source_method": "getThreadStatusDescFromInt",
+    "target_class": "int):java.lang.String \t com.mvnforum.db.ThreadBean"
+  },
+  {
+    "source_class": "com.mvnforum.LocaleMessageUtil",
+    "source_method": "getThreadTypeDescFromInt",
+    "target_class": "int):java.lang.String \t com.mvnforum.db.ThreadBean"
+  },
+  {
+    "source_class": "com.mvnforum.LocaleMessageUtil",
+    "source_method": "getThreadPriorityDescFromInt",
+    "target_class": "int):java.lang.String \t com.mvnforum.db.ThreadBean"
+  },
+  {
+    "source_class": "com.mvnforum.LocaleMessageUtil",
+    "source_method": "getMemberStatusDescFromInt",
+    "target_class": "int):java.lang.String \t com.mvnforum.db.MemberBean"
+  },
+  {
+    "source_class": "com.mvnforum.MyUtil",
+    "source_method": "filter",
+    "target_class": "boolean, boolean, boolean, boolean, boolean):java.lang.String \t net.myvietnam.mvncore.util.StringUtil"
+  },
+  {
+    "source_class": "com.mvnforum.MyUtil",
+    "source_method": "getMemberTitle",
+    "target_class": "com.mvnforum.db.RankCache"
+  },
+  {
+    "source_class": "com.mvnforum.MyUtil",
+    "source_method": "canViewAnyForumInCategory",
+    "target_class": "com.mvnforum.auth.MVNForumPermission):boolean \t net.myvietnam.mvncore.service.EnvironmentService"
+  },
+  {
+    "source_class": "com.mvnforum.MyUtil",
+    "source_method": "ensureCorrectCurrentPassword",
+    "target_class": "net.myvietnam.mvncore.util.GenericParamUtil"
+  },
+  {
+    "source_class": "com.mvnforum.MyUtil",
+    "source_method": "writeMvnForumImage",
+    "target_class": "com.mvnforum.service.MvnForumInfoService"
+  },
+  {
+    "source_class": "com.mvnforum.MyUtil",
+    "source_method": "writeMvnCoreImage",
+    "target_class": "net.myvietnam.mvncore.service.MvnCoreInfoService"
+  },
+  {
+    "source_class": "com.mvnforum.MyUtil",
+    "source_method": "saveVNTyperMode",
+    "target_class": "com.mvnforum.HttpServletResponse):void \t net.myvietnam.mvncore.util.ParamUtil"
+  },
+  {
+    "source_class": "com.mvnforum.MyUtil",
+    "source_method": "getNewMembersInRecentDays",
+    "target_class": "java.sql.Timestamp, java.lang.String, java.lang.String):java.util.Collection \t com.mvnforum.db.MemberDAO"
+  },
+  {
+    "source_class": "com.mvnforum.MyUtil",
+    "source_method": "getThreadPriorityIcon",
+    "target_class": "net.myvietnam.mvncore.util.AssertionUtil"
+  },
+  {
+    "source_class": "com.mvnforum.auth.AbstractPermission",
+    "source_method": "isCombinedPerm",
+    "target_class": "com.mvnforum.auth.MVNForumPermission"
+  },
+  {
+    "source_class": "com.mvnforum.auth.AbstractPermission",
+    "source_method": "isIndividualPerm",
+    "target_class": "com.mvnforum.auth.MVNForumPermission"
+  },
+  {
+    "source_class": "com.mvnforum.auth.MVNForumPermissionWebHelper",
+    "source_method": "getMemberPermissions",
+    "target_class": "net.myvietnam.mvncore.db.DBUtils"
+  },
+  {
+    "source_class": "com.mvnforum.auth.MVNForumPermissionWebHelper",
+    "source_method": "getGroupPermissions",
+    "target_class": "net.myvietnam.mvncore.db.DBUtils"
+  },
+  {
+    "source_class": "com.mvnforum.auth.MVNForumPermissionWebHelper",
+    "source_method": "getGroupMemberPermissions",
+    "target_class": "net.myvietnam.mvncore.db.DBUtils"
+  },
+  {
+    "source_class": "com.mvnforum.auth.MVNForumPermissionWebHelper",
+    "source_method": "getGroupPermissionsInForums",
+    "target_class": "net.myvietnam.mvncore.db.DBUtils"
+  },
+  {
+    "source_class": "com.mvnforum.auth.MVNForumPermissionWebHelper",
+    "source_method": "getPermissionsForGroupGuest",
+    "target_class": "net.myvietnam.mvncore.db.DBUtils"
+  },
+  {
+    "source_class": "com.mvnforum.auth.MVNForumPermissionWebHelper",
+    "source_method": "getPermissionsForGroupGuestInForums",
+    "target_class": "net.myvietnam.mvncore.db.DBUtils"
+  },
+  {
+    "source_class": "com.mvnforum.db.jdbc.ForumDAOImplJDBC",
+    "source_method": "getBean_byAlternateKey_ForumName_CategoryID",
+    "target_class": "int):com.mvnforum.db.ForumBean \t net.myvietnam.mvncore.db.DBUtils"
+  },
+  {
+    "source_class": "com.mvnforum.db.jdbc.PmAttachmentDAOImplJDBC",
+    "source_method": "findPmAttachID",
+    "target_class": "java.sql.Timestamp):int \t net.myvietnam.mvncore.db.DBUtils"
+  },
+  {
+    "source_class": "com.mvnforum.db.jdbc.AttachmentDAOImplJDBC",
+    "source_method": "findAttachID",
+    "target_class": "int, java.sql.Timestamp):int \t net.myvietnam.mvncore.db.DBUtils"
+  },
+  {
+    "source_class": "com.mvnforum.jaxb.ImportExportXML",
+    "source_method": "exportGroupList",
+    "target_class": "org.mvnforum.phpbb2mvnforum.db.PhpbbUserDAO"
+  },
+  {
+    "source_class": "com.mvnforum.jaxb.ImportExportXML",
+    "source_method": "exportRankList",
+    "target_class": "org.mvnforum.phpbb2mvnforum.db.PhpbbRanksDAO"
+  },
+  {
+    "source_class": "com.mvnforum.jaxb.ImportExportXML",
+    "source_method": "exportCategoryList",
+    "target_class": "org.mvnforum.phpbb2mvnforum.db.PhpbbGroupDAO"
+  },
+  {
+    "source_class": "com.mvnforum.jaxb.ImportExportXML",
+    "source_method": "exportMemberList",
+    "target_class": "org.mvnforum.phpbb2mvnforum.db.PhpbbUserDAO"
+  },
+  {
+    "source_class": "com.mvnforum.jaxb.ImportExportXML",
+    "source_method": "importMember",
+    "target_class": "org.mvnforum.phpbb2mvnforum.db.MemberDAO"
+  },
+  {
+    "source_class": "org.mvnforum.phpbb2mvnforum.Migrator",
+    "source_method": "migrateUsers",
+    "target_class": "int):void \t org.mvnforum.util.Utils"
+  },
+  {
+    "source_class": "org.mvnforum.phpbb2mvnforum.Migrator",
+    "source_method": "migrateForums",
+    "target_class": "org.mvnforum.phpbb2mvnforum.db.PhpbbForum"
+  },
+  {
+    "source_class": "org.mvnforum.phpbb2mvnforum.Migrator",
+    "source_method": "migratePosts",
+    "target_class": "org.mvnforum.util.Utils"
+  },
+  {
+    "source_class": "org.mvnforum.phpbb2mvnforum.Migrator",
+    "source_method": "migrateThreads",
+    "target_class": "org.mvnforum.util.Utils"
+  },
+  {
+    "source_class": "org.mvnforum.phpbb2mvnforum.Migrator",
+    "source_method": "migratePrivateMessages",
+    "target_class": "org.mvnforum.util.Utils"
+  },
+  {
+    "source_class": "com.mvnsoft.mvnad.admin.ZoneWebHandler",
+    "source_method": "prepareAddZone",
+    "target_class": "com.mvnforum.auth.MVNForumPermission"
+  },
+  {
+    "source_class": "com.mvnsoft.mvnad.admin.ZoneWebHandler",
+    "source_method": "processAddZone",
+    "target_class": "com.mvnforum.auth.OnlineUserManager"
+  },
+  {
+    "source_class": "com.mvnsoft.mvnad.admin.ZoneWebHandler",
+    "source_method": "prepareEditZone",
+    "target_class": "com.mvnforum.auth.MVNForumPermission"
+  },
+  {
+    "source_class": "com.mvnsoft.mvnad.admin.ZoneWebHandler",
+    "source_method": "listZones",
+    "target_class": "com.mvnforum.auth.MVNForumPermission"
+  },
+  {
+    "source_class": "com.mvnsoft.mvnad.admin.BannerWebHandler",
+    "source_method": "processDeleteBanner",
+    "target_class": "com.mvnforum.auth.OnlineUserManager"
+  },
+  {
+    "source_class": "com.mvnsoft.mvnad.admin.BannerWebHandler",
+    "source_method": "processDeleteMedia",
+    "target_class": "net.myvietnam.mvncore.service.EventLogService"
+  },
+  {
+    "source_class": "com.mvnsoft.mvnad.user.AdUserWebHandler",
+    "source_method": "listBanners",
+    "target_class": "com.mvnforum.auth.OnlineUserManager"
+  },
+  {
+    "source_class": "com.mvnsoft.mvnad.AdModuleUtils",
+    "source_method": "getBannerWebPath",
+    "target_class": "net.myvietnam.mvncore.util.ParamUtil"
+  },
+  {
+    "source_class": "com.mvnsoft.mvnad.AdModuleUtils",
+    "source_method": "writeMvnAdImage",
+    "target_class": "com.mvnsoft.mvnad.service.MvnAdService"
+  },
+  {
+    "source_class": "com.mvnsoft.mvnad.delivery.ZoneManager",
+    "source_method": "getBannerInZone",
+    "target_class": "com.mvnsoft.mvnad.db.BannerBean"
+  },
+  {
+    "source_class": "com.mvnsoft.mvnad.delivery.AdGenerator",
+    "source_method": "getZoneInObject",
+    "target_class": "java.lang.String, int):java.lang.String \t net.myvietnam.mvncore.util.ParamUtil"
+  }
+]
