@@ -110,6 +110,9 @@ data class RefCandidateTelemetryData(
     @SerializedName("applied")
     var applied: Boolean?=null,
 
+    @SerializedName("startedRefactoringFlow")
+    var startedRefactoringFlow: Boolean?=null,
+
     @SerializedName("undone")
     var undone: Boolean?=null,
 
@@ -317,7 +320,8 @@ class EFTelemetryDataManager {
                 valid = it.isValid,
                 applied = it.applied,
                 undone = it.undone,
-                rating = it.userRating
+                rating = it.userRating,
+                startedRefactoringFlow = it.startedRefactoringFlow
             )
         }
 

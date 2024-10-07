@@ -562,13 +562,6 @@ class MoveMethodFactory {
 
         override fun performRefactoring(project: Project, editor: Editor, file: PsiFile) {
             super.performRefactoring(project, editor, file)
-//            val refFactory = JavaRefactoringFactoryImpl(project)
-//            val moveRefactoring =
-//                refFactory.createMoveMembers(
-//                    arrayOf(methodToMove),
-//                    classToMoveTo,
-//                    "public")
-//            moveRefactoring.run()
             applied = false
             val dialog = MoveMembersDialog(
                 file.project, methodToMove.containingClass!!, classToMoveTo, setOf(methodToMove), MyMoveCallBack(this))
