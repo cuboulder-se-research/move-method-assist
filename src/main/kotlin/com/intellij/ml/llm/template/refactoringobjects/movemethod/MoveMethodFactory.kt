@@ -237,6 +237,7 @@ class MoveMethodFactory {
             return runReadAction {
                 val processor = MoveInstanceMethodProcessorAutoValidator(
                     project, methodToMove, it.psiElement as PsiVariable, "public",
+                    false,
                     runReadAction {
                         getParamNamesIfNeeded(
                             MoveInstanceMembersUtil.getThisClassesToMembers(methodToMove),
@@ -453,9 +454,10 @@ class MoveMethodFactory {
             }
             override fun performRefactoring(project: Project, editor: Editor, file: PsiFile) {
                 super.performRefactoring(project, editor, file)
-                val moveDialog = MyMoveInstanceMethodDialog(methodToMove, arrayOf(psiVariable))
+                applied = false
+                val moveDialog = MyMoveInstanceMethodDialog(methodToMove, arrayOf(psiVariable), MyMoveCallBack(this))
                 moveDialog.showAndGet()
-                applied = moveDialog.triggeredRefactoring
+//                applied = moveDialog.triggeredRefactoring
                 reverseRefactoring = getReverseRefactoringObject(project, editor, file)
             }
 
@@ -536,6 +538,12 @@ class MoveMethodFactory {
 
     }
 
+    class MyMoveCallBack(val ref: AbstractRefactoring): MoveCallback {
+        override fun refactoringCompleted() {
+            ref.applied = true
+        }
+    }
+
     class MyMoveStaticMethodRefactoring(
         override val startLoc: Int,
         override val endLoc: Int,
@@ -550,11 +558,7 @@ class MoveMethodFactory {
                     "Rationale: $rationale"
         }
 
-        class StaticMoveCallBack(val ref: MyMoveStaticMethodRefactoring): MoveCallback {
-            override fun refactoringCompleted() {
-                ref.applied = true
-            }
-        }
+
 
         override fun performRefactoring(project: Project, editor: Editor, file: PsiFile) {
             super.performRefactoring(project, editor, file)
@@ -567,7 +571,7 @@ class MoveMethodFactory {
 //            moveRefactoring.run()
             applied = false
             val dialog = MoveMembersDialog(
-                file.project, methodToMove.containingClass!!, classToMoveTo, setOf(methodToMove), StaticMoveCallBack(this))
+                file.project, methodToMove.containingClass!!, classToMoveTo, setOf(methodToMove), MyMoveCallBack(this))
             dialog.show()
             reverseRefactoring = getReverseRefactoringObject(project, editor, file)
         }
