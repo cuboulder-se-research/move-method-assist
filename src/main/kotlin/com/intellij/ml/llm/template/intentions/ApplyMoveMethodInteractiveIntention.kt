@@ -241,6 +241,8 @@ open class ApplyMoveMethodInteractiveIntention : ApplySuggestRefactoringIntentio
                 .setMovable(true)
                 .setCancelOnClickOutside(false)
                 .setCancelButton(IconButton("Close", AllIcons.Actions.Close))
+                .setCancelOnOtherWindowOpen(false)
+                .setCancelOnWindowDeactivation(false)
                 .createPopup()
 
         // Add onClosed listener
