@@ -99,7 +99,7 @@ open class ApplyMoveMethodInteractiveIntention : ApplySuggestRefactoringIntentio
 
         val bruteForceSuggestions = runReadAction {
             PsiUtils.getAllMethodsInClass(functionPsiElement as PsiClass)
-                .filter { !it.name.isCapitalized() } // filter constructors
+                .filter { !it.name[0].isUpperCase() } // filter constructors
                 .filter { !(it.name.startsWith("get") && it.parameterList.isEmpty)} // filter out getters and setters.
                 .filter { !(it.name.startsWith("set") && it.parameterList.parameters.size==1)} // filter out getters and setters.
                 .filter { !it.text.contains("@Override") }
