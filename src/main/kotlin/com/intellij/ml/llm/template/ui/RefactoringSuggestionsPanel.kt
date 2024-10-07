@@ -30,12 +30,12 @@ import com.intellij.psi.PsiFile
 import com.intellij.psi.PsiMethod
 import com.intellij.refactoring.extractMethod.newImpl.MethodExtractor
 import com.intellij.ui.components.JBScrollPane
+import com.intellij.ui.components.JBTextArea
 import com.intellij.ui.dsl.builder.AlignX
 import com.intellij.ui.dsl.builder.panel
 import com.intellij.ui.table.JBTable
 import com.intellij.util.ui.JBDimension
 import com.intellij.util.ui.JBUI
-import org.apache.commons.lang.WordUtils
 import org.jetbrains.annotations.Nls
 import org.jetbrains.kotlin.idea.KotlinLanguage
 import org.jetbrains.kotlin.idea.base.psi.unifier.toRange
@@ -66,7 +66,7 @@ open class RefactoringSuggestionsPanel(
     lateinit var myRefactoringCandidateTable: JBTable
     lateinit var myRefactoringScrollPane: JBScrollPane
     val myProject: Project = project
-    lateinit var refactoringDescriptionBox: JTextArea
+    lateinit var refactoringDescriptionBox: JBTextArea
     val myCandidates = candidates
     val myEditor = editor
     var myPopup: JBPopup? = null
@@ -88,11 +88,18 @@ open class RefactoringSuggestionsPanel(
     )
     val ratingsBox = ComboBox(ratingOptions)
     private var resetRating: Boolean = false
+    private lateinit var refactoringDescriptionPane: JBScrollPane
 
     fun initTable(){
         val tableModel = buildTableModel(myCandidates)
         val refactoringDescriptionMap = buildRefactoringDescriptionMap(myCandidates)
         refactoringDescriptionBox = buildRefactoringDescriptionBox()
+        refactoringDescriptionPane = JBScrollPane(refactoringDescriptionBox).apply {
+            verticalScrollBarPolicy = JBScrollPane.VERTICAL_SCROLLBAR_ALWAYS
+            horizontalScrollBarPolicy = JBScrollPane.HORIZONTAL_SCROLLBAR_NEVER
+//            this.maximumSize = Dimension(500, 500)
+//            this.minimumSize = Dimension(250, 250)
+        }
         myRefactoringCandidateTable = buildRefactoringCandidatesTable(tableModel, refactoringDescriptionMap)
         myRefactoringScrollPane = builScrollPane()
 
@@ -103,8 +110,7 @@ open class RefactoringSuggestionsPanel(
         val candidateSignatureMap: MutableMap<AbstractRefactoring, String> = mutableMapOf()
 
         candidates.forEach { candidate ->
-            val descriptionWrapped = WordUtils.wrap(candidate.description, 50)
-            candidateSignatureMap[candidate] = descriptionWrapped
+            candidateSignatureMap[candidate] = candidate.description
         }
 
         return candidateSignatureMap
@@ -187,13 +193,13 @@ open class RefactoringSuggestionsPanel(
         return model
     }
 
-    private fun buildRefactoringDescriptionBox(): JTextArea {
+    private fun buildRefactoringDescriptionBox(): JBTextArea {
         val refactoringDescription =
-            JTextArea()
+            JBTextArea()
         refactoringDescription.isFocusable = false
-        refactoringDescription.minimumSize = Dimension(500, 100)
         refactoringDescription.preferredSize = Dimension(500, 150)
-        refactoringDescription.maximumSize = Dimension(500, 200)
+        refactoringDescription.lineWrap = true
+        refactoringDescription.wrapStyleWord = true
 
         return refactoringDescription
     }
@@ -206,9 +212,9 @@ open class RefactoringSuggestionsPanel(
             }
 
             row {
-                cell(refactoringDescriptionBox)
+                cell(refactoringDescriptionPane)
                     .align(AlignX.FILL)
-                    .applyToComponent { minimumSize = JBDimension(100, 100) }
+//                    .applyToComponent { minimumSize = JBDimension(100, 500) }
             }
 
             row {
