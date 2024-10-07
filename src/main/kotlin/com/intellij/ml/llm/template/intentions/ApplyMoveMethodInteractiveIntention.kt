@@ -5,6 +5,7 @@ import com.google.gson.Gson
 import com.google.gson.annotations.SerializedName
 import com.intellij.codeInsight.unwrap.ScopeHighlighter
 import com.intellij.icons.AllIcons
+import com.intellij.lang.jvm.JvmModifier
 import com.intellij.ml.llm.template.LLMBundle
 import com.intellij.ml.llm.template.models.LLMBaseResponse
 import com.intellij.ml.llm.template.models.sendChatRequest
@@ -101,8 +102,8 @@ open class ApplyMoveMethodInteractiveIntention : ApplySuggestRefactoringIntentio
                 .filter { !it.name.isCapitalized() } // filter constructors
                 .filter { !(it.name.startsWith("get") && it.parameterList.isEmpty)} // filter out getters and setters.
                 .filter { !(it.name.startsWith("set") && it.parameterList.parameters.size==1)} // filter out getters and setters.
-                .filter{ !it.isOverridableElement() }
-                .filter { !it.text.startsWith("@Override") }
+                .filter { !it.text.contains("@Override") }
+                .filter { !it.hasModifier(JvmModifier.ABSTRACT) } // filter out abstract methods because they have no body.
                 .map { MoveMethodSuggestion(it.name, getSignatureString(it), "", "", it) }
         }
         val methodCompatibilitySuggestionsWithSore = getMethodCompatibility(bruteForceSuggestions, functionPsiElement as PsiClass)
