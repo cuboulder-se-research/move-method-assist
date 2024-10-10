@@ -152,7 +152,33 @@ def present_vanilla_lmm_recall(combined_output):
 def calculate_vanilla_llm_recalls(telemetry, method_name, target_class, evaluation_data):
     # Calculating recall for all iterations
     vanilla_llm_suggestions_ = [i for i in telemetry['iterationData']
-                                # if i['iteration_num'] == 3
+                                if i['iteration_num'] == -2
+                                ]
+    if (len(vanilla_llm_suggestions_) == 0):
+        evaluation_data['vanilla_recall'] = RecallPosition()
+        return evaluation_data['vanilla_recall']
+    method_order = [i['method_name'] for i in vanilla_llm_suggestions_[0]['suggested_move_methods']]
+    # method_order = telemetry['llmMethodPriority']['priority_method_names']
+    alias_method_name = method_name + '1'
+    vanilla_recall: int = myindex([1 if (method_name in i or alias_method_name in i) else 0 for i in method_order], 1)
+
+
+    if vanilla_recall == -1:
+        evaluation_data['vanilla_recall'] = RecallPosition()
+        return evaluation_data['vanilla_recall']
+    target_classes = [i.get('target_class', '') for i in vanilla_llm_suggestions_[0]['suggested_move_methods']]
+    if target_class in target_classes:
+        evaluation_data['vanilla_recall'] = RecallPosition(vanilla_recall, 0)
+    else:
+        evaluation_data['vanilla_recall'] = RecallPosition(vanilla_recall, -1)
+    
+    return evaluation_data['vanilla_recall']
+
+
+def calculate_priority_sort_recall(telemetry, method_name, target_class, evaluation_data):
+    # Calculating recall for all iterations
+    vanilla_llm_suggestions_ = [i for i in telemetry['iterationData']
+                                if i['iteration_num'] == -2
                                 ]
     if (len(vanilla_llm_suggestions_) == 0):
         evaluation_data['vanilla_recall'] = RecallPosition()
@@ -171,19 +197,19 @@ def calculate_vanilla_llm_recalls(telemetry, method_name, target_class, evaluati
         evaluation_data['vanilla_recall'] = RecallPosition(vanilla_recall, 0)
     else:
         evaluation_data['vanilla_recall'] = RecallPosition(vanilla_recall, -1)
-    
+
     return evaluation_data['vanilla_recall']
 
 
 plugin_outfiles = [
-    # 'vue_pro_res.json',
+    'vue_pro_res.json',
     # 'elastic_res.json',
     # 'dbeaver_res.json',
     'flink_res.json',
     # 'spring_framework_res.json',
     # 'halo_res.json',
     # 'redisson_res.json',
-    # 'kafka_res.json',
+    'kafka_res.json',
     # 'springboot_res.json'
 ]
 
@@ -290,6 +316,9 @@ METHOD_THRESHOLD = 15
 small_ids = list(df[df['method_count'] < METHOD_THRESHOLD]['ref_id'])
 small_refs = [i for i in combined_output if i['ref_id'] in small_ids]
 big_refs = [i for i in combined_output if not i['ref_id'] in small_ids]
+big_refs_ids = [i
+                for i in  list(df[df['method_count'] >= METHOD_THRESHOLD]['ref_id'])]
+print(f"{big_refs_ids=}")
 
 print()
 print()
@@ -302,4 +331,10 @@ print()
 print(f"Recall on Large classes (>= {METHOD_THRESHOLD} methods)")
 present_recall(big_refs)
 present_vanilla_lmm_recall(big_refs)
+missed_big_ref_ids = [i['ref_id'] for i in big_refs if i['vanilla_recall'].method_position==-1]
+print(f"{missed_big_ref_ids=}")
+
+missed_methods_because_infeasible = [i['ref_id'] for i in combined_output
+                                     if i['vanilla_recall'].method_position!=-1 and i['recall_position'].method_position == -1]
+print(f"{missed_methods_because_infeasible=}")
 

@@ -1,6 +1,5 @@
 package com.intellij.ml.llm.template.intentions
 
-import ai.grazie.utils.isCapitalized
 import com.google.gson.Gson
 import com.google.gson.annotations.SerializedName
 import com.intellij.codeInsight.unwrap.ScopeHighlighter
@@ -35,7 +34,6 @@ import com.intellij.openapi.ui.popup.LightweightWindowEvent
 import com.intellij.psi.*
 import com.intellij.ui.awt.RelativePoint
 import dev.langchain4j.data.message.ChatMessage
-import org.jetbrains.kotlin.idea.search.declarationsSearch.isOverridableElement
 import java.awt.Point
 import java.awt.Rectangle
 import java.util.concurrent.atomic.AtomicReference
@@ -100,19 +98,22 @@ open class ApplyMoveMethodInteractiveIntention : ApplySuggestRefactoringIntentio
         val bruteForceSuggestions = runReadAction {
             PsiUtils.getAllMethodsInClass(functionPsiElement as PsiClass)
                 .filter { !it.name[0].isUpperCase() } // filter constructors
-                .filter { !(it.name.startsWith("get") && it.parameterList.isEmpty)} // filter out getters and setters.
-                .filter { !(it.name.startsWith("set") && it.parameterList.parameters.size==1)} // filter out getters and setters.
-                .filter { !it.text.contains("@Override") }
+                .filter { !isGetter(it) } // filter out getters and setters.
+                .filter { !isSetter(it) } // filter out getters and setters.
+                .filter { !it.text.contains("@Override") } // remove methods in an inheritance chain
+                .filter { !it.text.contains("@Test") } // remove test methods.
                 .filter { !it.hasModifier(JvmModifier.ABSTRACT) } // filter out abstract methods because they have no body.
                 .map { MoveMethodSuggestion(it.name, getSignatureString(it), "", "", it) }
         }
         val methodCompatibilitySuggestionsWithSore = getMethodCompatibility(bruteForceSuggestions, functionPsiElement as PsiClass)
         val methodCompatibilitySuggestions = methodCompatibilitySuggestionsWithSore.map { it.first }
         addMethodCompatibilityData(methodCompatibilitySuggestionsWithSore)
-        logMethods(bruteForceSuggestions, -2, 0)
-
-//        log2fileAndViewer("*** Combining responses from iterations ***", logger)
-//        logMethods(methodCompatibilitySuggestions, -1, 0)
+        logMethods(bruteForceSuggestions, -1, 0)
+        logMethods(methodCompatibilitySuggestions, -2, 0)
+//        telemetryDataManager.setRefactoringObjects(emptyList())
+//        sendTelemetryData()
+        log2fileAndViewer("*** Combining responses from iterations ***", logger)
+        logMethods(methodCompatibilitySuggestions, -1, 0)
         if (methodCompatibilitySuggestions.isEmpty()) {
             telemetryDataManager.addCandidatesTelemetryData(buildCandidatesTelemetryData(0, emptyList()))
             telemetryDataManager.setRefactoringObjects(emptyList())
@@ -164,6 +165,32 @@ open class ApplyMoveMethodInteractiveIntention : ApplySuggestRefactoringIntentio
             }
         }
 
+    }
+
+    private fun isSetter(it: PsiMethod) : Boolean {
+        return ((it.name.startsWith("set") && it.parameterList.parameters.size == 1)) || setSingleVariable(it)
+    }
+
+    private fun setSingleVariable(it: PsiMethod): Boolean {
+        if (it.body==null)
+            return false
+        return it.body!!.statements.size==1
+                && it.body!!.statements[0] is PsiExpressionStatement
+                && (it.body!!.statements[0] as PsiExpressionStatement).children[0] is PsiAssignmentExpression
+    }
+
+    private fun isGetter(it: PsiMethod) : Boolean {
+        return ((it.name.startsWith("get") && it.parameterList.isEmpty))
+                || returnsSingleField(it)
+    }
+
+    private fun returnsSingleField(it: PsiMethod): Boolean {
+        if (it.body==null)
+            return false
+        return (
+                it.body!!.statements.size == 1
+                && it.body!!.statements.get(0) is PsiReturnStatement
+                && (it.body!!.statements.get(0) as PsiReturnStatement).returnValue is PsiReferenceExpression)
     }
 
     private fun getSignatureString(psiMethod: PsiMethod) = "${psiMethod.modifierList.text} ${psiMethod.name}${psiMethod.parameterList.text}"
