@@ -34,6 +34,7 @@ import com.intellij.openapi.ui.popup.LightweightWindowEvent
 import com.intellij.psi.*
 import com.intellij.ui.awt.RelativePoint
 import dev.langchain4j.data.message.ChatMessage
+import dev.langchain4j.model.voyageai.VoyageAiEmbeddingModelName
 import java.awt.Point
 import java.awt.Rectangle
 import java.util.concurrent.atomic.AtomicReference
@@ -372,7 +373,7 @@ open class ApplyMoveMethodInteractiveIntention : ApplySuggestRefactoringIntentio
                 }
                 val methodText = suggestion.psiMethod.text
 
-                val similarity = computeCosineSimilarity(methodText, classTextWithoutMethod)
+                val similarity = VoyageAiEmbeddingModelIT().computeVoyageAiCosineSimilarity(methodText, classTextWithoutMethod, VoyageAiEmbeddingModelName.VOYAGE_3)
                 Pair(suggestion, similarity)
             }.sortedBy { it.second }
     //                .map { it.first }
