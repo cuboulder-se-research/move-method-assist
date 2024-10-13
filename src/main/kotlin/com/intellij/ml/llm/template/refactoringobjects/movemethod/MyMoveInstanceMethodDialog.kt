@@ -1,20 +1,11 @@
 package com.intellij.ml.llm.template.refactoringobjects.movemethod
 
-import com.intellij.ide.highlighter.JavaFileType
 import com.intellij.java.refactoring.JavaRefactoringBundle
 import com.intellij.openapi.ui.Messages
-import com.intellij.openapi.ui.VerticalFlowLayout
 import com.intellij.psi.*
 import com.intellij.refactoring.move.MoveCallback
-import com.intellij.refactoring.move.MoveInstanceMembersUtil
 import com.intellij.refactoring.move.moveInstanceMethod.MoveInstanceMethodDialog
-import com.intellij.refactoring.move.moveInstanceMethod.MoveInstanceMethodHandler
-import com.intellij.refactoring.move.moveInstanceMethod.MoveInstanceMethodProcessor
 import com.intellij.ui.EditorTextField
-import com.intellij.ui.TitledSeparator
-import com.intellij.util.ObjectUtils
-import java.awt.Dimension
-import javax.swing.JPanel
 
 class MyMoveInstanceMethodDialog(method: PsiMethod,
                                  variables: Array<out PsiVariable>,
@@ -55,7 +46,7 @@ class MyMoveInstanceMethodDialog(method: PsiMethod,
         }
 
         val targetVariable = myList.selectedValue as PsiVariable ?: return
-        val processor = MoveInstanceMethodProcessorAutoValidator(
+        val processor = MoveInstanceMethodProcessWithCallBack(
             myMethod.project,
             myMethod, targetVariable,
             myVisibilityPanel.visibility!!,
@@ -66,5 +57,6 @@ class MyMoveInstanceMethodDialog(method: PsiMethod,
         if (!verifyTargetClass(processor.targetClass)) return
         invokeRefactoring(processor)
     }
+
 
 }

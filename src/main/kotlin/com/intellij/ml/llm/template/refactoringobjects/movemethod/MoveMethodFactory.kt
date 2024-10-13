@@ -456,7 +456,7 @@ class MoveMethodFactory {
                 super.performRefactoring(project, editor, file)
                 applied = false
                 val moveDialog = MyMoveInstanceMethodDialog(methodToMove, arrayOf(psiVariable), MyMoveCallBack(this))
-                moveDialog.showAndGet()
+                moveDialog.show()
 //                applied = moveDialog.triggeredRefactoring
                 reverseRefactoring = getReverseRefactoringObject(project, editor, file)
             }

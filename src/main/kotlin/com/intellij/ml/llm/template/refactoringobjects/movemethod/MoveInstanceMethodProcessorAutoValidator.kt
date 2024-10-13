@@ -16,9 +16,8 @@ class MoveInstanceMethodProcessorAutoValidator(project: Project,
                                                targetVariable: PsiVariable,
                                                newVisibility: String,
                                                isOpenInEditor: Boolean,
-                                               oldClassParameterNames: Map<PsiClass, String>,
-                                               val moveCallBack: MoveCallback? = null
-    ):
+                                               oldClassParameterNames: Map<PsiClass, String>
+):
     MoveInstanceMethodProcessor(project, method, targetVariable, newVisibility, isOpenInEditor, oldClassParameterNames) {
     override fun showConflicts(conflicts: MultiMap<PsiElement, String>, usages: Array<out UsageInfo>?): Boolean {
         if (conflicts.isEmpty) return true
@@ -45,8 +44,5 @@ class MoveInstanceMethodProcessorAutoValidator(project: Project,
         return preprocessUsages(refUsages)
     }
 
-    override fun performRefactoring(usages: Array<out UsageInfo>) {
-        super.performRefactoring(usages)
-        moveCallBack?.refactoringCompleted()
-    }
+
 }
