@@ -614,6 +614,21 @@ class PsiUtils {
             return visitedMethods.toList()
         }
 
+        fun getAllReferenceExpressions(methodPsi: PsiMethod): List<PsiReferenceExpression> {
+
+            val visitedReferences = mutableSetOf<PsiReferenceExpression>()
+            class ReferenceFinder: JavaRecursiveElementVisitor() {
+                override fun visitReferenceExpression(expression: PsiReferenceExpression) {
+                    super.visitReferenceExpression(expression)
+                    if (expression.text.contains("."))
+                        visitedReferences.add(expression)
+                }
+
+            }
+            methodPsi.accept(ReferenceFinder())
+            return visitedReferences.toList()
+        }
+
     }
 
 
