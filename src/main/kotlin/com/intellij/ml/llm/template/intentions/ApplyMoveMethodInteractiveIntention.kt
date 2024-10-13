@@ -301,9 +301,7 @@ open class ApplyMoveMethodInteractiveIntention : ApplySuggestRefactoringIntentio
 
         // Show the popup at the top right corner of the current editor
         val contentComponent = editor.contentComponent
-        val visibleRect: Rectangle = contentComponent.visibleRect
-        val point = Point(visibleRect.x + visibleRect.width - 500, visibleRect.y)
-        efPopup.show(RelativePoint(contentComponent, point))
+        efPopup.show(RelativePoint.getNorthEastOf(contentComponent))
     }
 
     private fun getSuggestionPriority(
