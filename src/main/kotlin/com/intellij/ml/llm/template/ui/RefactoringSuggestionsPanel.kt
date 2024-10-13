@@ -31,9 +31,11 @@ import com.intellij.psi.PsiMethod
 import com.intellij.refactoring.extractMethod.newImpl.MethodExtractor
 import com.intellij.ui.components.JBScrollPane
 import com.intellij.ui.components.JBTextArea
+import com.intellij.ui.dsl.builder.Align
 import com.intellij.ui.dsl.builder.AlignX
 import com.intellij.ui.dsl.builder.panel
 import com.intellij.ui.table.JBTable
+import com.intellij.ui.util.preferredWidth
 import com.intellij.util.ui.JBDimension
 import com.intellij.util.ui.JBUI
 import org.jetbrains.annotations.Nls
@@ -97,8 +99,7 @@ open class RefactoringSuggestionsPanel(
         refactoringDescriptionPane = JBScrollPane(refactoringDescriptionBox).apply {
             verticalScrollBarPolicy = JBScrollPane.VERTICAL_SCROLLBAR_ALWAYS
             horizontalScrollBarPolicy = JBScrollPane.HORIZONTAL_SCROLLBAR_NEVER
-//            this.maximumSize = Dimension(500, 500)
-//            this.minimumSize = Dimension(250, 250)
+            this.preferredSize = Dimension(500, 150)
         }
         myRefactoringCandidateTable = buildRefactoringCandidatesTable(tableModel, refactoringDescriptionMap)
         myRefactoringScrollPane = builScrollPane()
@@ -196,8 +197,9 @@ open class RefactoringSuggestionsPanel(
     private fun buildRefactoringDescriptionBox(): JBTextArea {
         val refactoringDescription =
             JBTextArea()
-        refactoringDescription.isFocusable = false
-        refactoringDescription.preferredSize = Dimension(500, 150)
+
+        refactoringDescription.isFocusable = true
+        refactoringDescription.isEditable = false
         refactoringDescription.lineWrap = true
         refactoringDescription.wrapStyleWord = true
 
@@ -225,13 +227,16 @@ open class RefactoringSuggestionsPanel(
                         "ef.candidates.popup.invoke.extract.function",
                         KeymapUtil.getFirstKeyboardShortcutText(ActionManager.getInstance().getAction("ExtractMethod"))
                     )
-                )
+                ).align(AlignX.LEFT)
             }
             row {
-                cell(ratingsBox).comment("Rate the suggestion!").onChanged { registerRating(myRefactoringCandidateTable.selectedRow, ratingsBox.selectedItem as String) }
+                cell(ratingsBox).comment("Rate the suggestion!")
+                    .onChanged { registerRating(myRefactoringCandidateTable.selectedRow, ratingsBox.selectedItem as String) }
+                    .align(AlignX.LEFT)
             }
         }
-        popupPanel.preferredFocusedComponent = myRefactoringCandidateTable
+
+//        popupPanel.preferredFocusedComponent = myRefactoringCandidateTable
         return popupPanel
     }
 
