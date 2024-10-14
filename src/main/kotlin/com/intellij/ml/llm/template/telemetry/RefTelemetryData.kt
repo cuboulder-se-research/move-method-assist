@@ -1,6 +1,7 @@
 package com.intellij.ml.llm.template.telemetry
 
 import com.google.gson.annotations.SerializedName
+import com.intellij.lang.jvm.JvmModifier
 import com.intellij.ml.llm.template.intentions.ApplyMoveMethodInteractiveIntention
 import com.intellij.ml.llm.template.refactoringobjects.AbstractRefactoring
 import com.intellij.ml.llm.template.refactoringobjects.UncreatableRefactoring
@@ -74,7 +75,19 @@ data class HostFunctionTelemetryData(
     var sourceCode: String,
 
     @SerializedName("methodCount")
-    var methodCount: Int
+    var methodCount: Int,
+
+    @SerializedName("staticMethodCount")
+    var staticMethodCount: Int,
+
+    @SerializedName("instanceMethodCount")
+    var instanceMethodCount: Int,
+
+    @SerializedName("classLoc")
+    val classLoc: Int,
+
+    @SerializedName("innerClassCount")
+    val innerClassCount: Int
 )
 
 data class RefCandidatesTelemetryData(
@@ -474,6 +487,7 @@ class EFTelemetryDataUtils {
             hostClassPsi: PsiClass?
         ): HostFunctionTelemetryData {
             val functionSize = codeSnippet.lines().size
+            val allMethodsInClass = PsiUtils.getAllMethodsInClass(hostClassPsi)
             return HostFunctionTelemetryData(
                 lineStart = lineStart,
                 lineEnd = lineStart + functionSize - 1,
@@ -482,7 +496,11 @@ class EFTelemetryDataUtils {
                 language = language,
                 sourceCode = if (RefAgentSettingsManager.getInstance().getAnonymizeTelemetry()) "" else codeSnippet,
                 filePath = if (RefAgentSettingsManager.getInstance().getAnonymizeTelemetry()) "" else filePath,
-                methodCount = PsiUtils.getAllMethodsInClass(hostClassPsi).size
+                methodCount = allMethodsInClass.size,
+                staticMethodCount = allMethodsInClass.filter { it.hasModifier(JvmModifier.STATIC) }.size,
+                instanceMethodCount = allMethodsInClass.filter { !it.hasModifier(JvmModifier.STATIC) }.size,
+                classLoc = codeSnippet.split("\n").size,
+                innerClassCount = hostClassPsi?.allInnerClasses?.size?: -1
             )
         }
 
