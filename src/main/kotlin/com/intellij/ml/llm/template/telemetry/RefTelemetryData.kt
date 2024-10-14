@@ -110,6 +110,9 @@ data class RefCandidateTelemetryData(
     @SerializedName("applied")
     var applied: Boolean?=null,
 
+    @SerializedName("startedRefactoringFlow")
+    var startedRefactoringFlow: Boolean?=null,
+
     @SerializedName("undone")
     var undone: Boolean?=null,
 
@@ -317,7 +320,8 @@ class EFTelemetryDataManager {
                 valid = it.isValid,
                 applied = it.applied,
                 undone = it.undone,
-                rating = it.userRating
+                rating = it.userRating,
+                startedRefactoringFlow = it.startedRefactoringFlow
             )
         }
 
@@ -442,8 +446,19 @@ class EFTelemetryDataManager {
     }
 
     fun addMethodCompatibility(methodCompatibilitySuggestions: List<Pair<ApplyMoveMethodInteractiveIntention.MoveMethodSuggestion, Double>>) {
-        currentTelemetryData.methodCompatibility.putAll(
+        val anonCompatibility = if(!anonimizeTelemetry){
             methodCompatibilitySuggestions.map { it.first.methodSignature to Pair(it.first, it.second) }
+        }else {
+            methodCompatibilitySuggestions.map{
+                getAndSetAnonMethodName(it.first.methodSignature) to
+                        Pair(
+                            ApplyMoveMethodInteractiveIntention.MoveMethodSuggestion(
+                                "", getAndSetAnonMethodName(it.first.methodSignature), "", "", it.first.psiMethod),
+                            it.second) 
+            }
+        }
+        currentTelemetryData.methodCompatibility.putAll(
+            anonCompatibility
         )
     }
 }
@@ -466,7 +481,7 @@ class EFTelemetryDataUtils {
                 bodyLineStart = bodyLineStart,
                 language = language,
                 sourceCode = if (RefAgentSettingsManager.getInstance().getAnonymizeTelemetry()) "" else codeSnippet,
-                filePath = filePath,
+                filePath = if (RefAgentSettingsManager.getInstance().getAnonymizeTelemetry()) "" else filePath,
                 methodCount = PsiUtils.getAllMethodsInClass(hostClassPsi).size
             )
         }
@@ -484,7 +499,7 @@ class EFTelemetryDataUtils {
 //                reason = candidateApplicationPayload.reason,
                 description = if(anonymizeDescription) "Anonymized." else candidate.description,
                 refactoringType = candidate::class.java.toString(),
-                refactoringInformation = candidate.getRefactoringPreview()
+                refactoringInformation = if (anonymizeDescription) "Anonymized." else candidate.getRefactoringPreview()
 //
             )
         }

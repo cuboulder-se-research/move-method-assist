@@ -5799,7 +5799,7 @@
         "ref_id": 606,
         "extraction_results": {
             "success": true,
-            "newCommitHash": "2fcf6a3cc81b951b12e3a2d1b90d4149720c9bce",
+            "newCommitHash": "43fa7a86608100f7e4de70d740725c4d4db8f008",
             "newBranchName": "extract-idempotentCreateSnapshot-replay-130af38"
         }
     },

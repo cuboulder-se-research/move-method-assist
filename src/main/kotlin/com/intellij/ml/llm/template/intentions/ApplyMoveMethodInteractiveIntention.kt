@@ -1,10 +1,10 @@
 package com.intellij.ml.llm.template.intentions
 
-import ai.grazie.utils.isCapitalized
 import com.google.gson.Gson
 import com.google.gson.annotations.SerializedName
 import com.intellij.codeInsight.unwrap.ScopeHighlighter
 import com.intellij.icons.AllIcons
+import com.intellij.lang.jvm.JvmModifier
 import com.intellij.ml.llm.template.LLMBundle
 import com.intellij.ml.llm.template.models.LLMBaseResponse
 import com.intellij.ml.llm.template.models.sendChatRequest
@@ -31,10 +31,12 @@ import com.intellij.openapi.ui.popup.IconButton
 import com.intellij.openapi.ui.popup.JBPopupFactory
 import com.intellij.openapi.ui.popup.JBPopupListener
 import com.intellij.openapi.ui.popup.LightweightWindowEvent
+import com.intellij.openapi.util.NlsSafe
 import com.intellij.psi.*
 import com.intellij.ui.awt.RelativePoint
 import dev.langchain4j.data.message.ChatMessage
-import org.jetbrains.kotlin.idea.search.declarationsSearch.isOverridableElement
+import dev.langchain4j.model.voyageai.VoyageAiEmbeddingModelName
+import dev.langchain4j.store.embedding.CosineSimilarity
 import java.awt.Point
 import java.awt.Rectangle
 import java.util.concurrent.atomic.AtomicReference
@@ -95,23 +97,29 @@ open class ApplyMoveMethodInteractiveIntention : ApplySuggestRefactoringIntentio
         MAX_ITERS = RefAgentSettingsManager.getInstance().getNumberOfIterations()
         llmChatModel = RefAgentSettingsManager.getInstance().createAndGetAiModel()!!
         logViewer.clear()
-
+        val allMethodsInClass: List<PsiMethod> = runReadAction { PsiUtils.getAllMethodsInClass(functionPsiElement as PsiClass) }
         val bruteForceSuggestions = runReadAction {
-            PsiUtils.getAllMethodsInClass(functionPsiElement as PsiClass)
+            allMethodsInClass
                 .filter { !it.name[0].isUpperCase() } // filter constructors
-                .filter { !(it.name.startsWith("get") && it.parameterList.isEmpty)} // filter out getters and setters.
-                .filter { !(it.name.startsWith("set") && it.parameterList.parameters.size==1)} // filter out getters and setters.
-//                .filter{ !it.isOverridableElement() }
-                .filter { !it.text.startsWith("@Override") }
+                .filter { !isGetter(it) } // filter out getters and setters.
+                .filter { !isSetter(it) } // filter out getters and setters.
+                .filter { !it.text.contains("@Override") } // remove methods in an inheritance chain
+                .filter { !it.text.contains("@Test") } // remove test methods.
+                .filter { !it.hasModifier(JvmModifier.ABSTRACT) } // filter out abstract methods because they have no body.
+                .filter { hasSomeEnvy(it) }
                 .map { MoveMethodSuggestion(it.name, getSignatureString(it), "", "", it) }
         }
-        val methodCompatibilitySuggestionsWithSore = getMethodCompatibility(bruteForceSuggestions, functionPsiElement as PsiClass)
+        val methodCompatibilitySuggestionsWithSore = getMethodCompatibility(
+            bruteForceSuggestions, functionPsiElement as PsiClass, allMethodsInClass)
         val methodCompatibilitySuggestions = methodCompatibilitySuggestionsWithSore.map { it.first }
         addMethodCompatibilityData(methodCompatibilitySuggestionsWithSore)
-        logMethods(bruteForceSuggestions, -2, 0)
-
-//        log2fileAndViewer("*** Combining responses from iterations ***", logger)
+        logMethods(bruteForceSuggestions, -1, 0)
+        logMethods(methodCompatibilitySuggestions, -2, 0)
+//        telemetryDataManager.setRefactoringObjects(emptyList())
+//        sendTelemetryData()
+        log2fileAndViewer("*** Combining responses from iterations ***", logger)
 //        logMethods(methodCompatibilitySuggestions, -1, 0)
+//        return
         if (methodCompatibilitySuggestions.isEmpty()) {
             telemetryDataManager.addCandidatesTelemetryData(buildCandidatesTelemetryData(0, emptyList()))
             telemetryDataManager.setRefactoringObjects(emptyList())
@@ -126,7 +134,8 @@ open class ApplyMoveMethodInteractiveIntention : ApplySuggestRefactoringIntentio
             sendTelemetryData()
         } else {
             log2fileAndViewer("Prioritising suggestions...", logger)
-            val priority = getSuggestionPriority(methodCompatibilitySuggestions, project)
+//            val priority = getSuggestionPriority(methodCompatibilitySuggestions, project)
+            val priority = methodCompatibilitySuggestions
             if (priority != null) {
                 logPriority(priority)
                 if (priority.size == 0) {
@@ -165,10 +174,56 @@ open class ApplyMoveMethodInteractiveIntention : ApplySuggestRefactoringIntentio
 
     }
 
+    private fun hasSomeEnvy(psiMethod: PsiMethod): Boolean{
+        val references = PsiUtils.getAllReferenceExpressions(psiMethod)
+        val envyReferences = mutableListOf<PsiReferenceExpression>()
+        for (reference in references){
+            if (reference.children.isEmpty() || reference.children[0] !is PsiReferenceExpression)
+                continue
+            val resolvedReference = (reference.children[0] as PsiReferenceExpression).reference?.resolve()
+            val filterCondition = if (resolvedReference is PsiField){
+                PsiUtils.isInProject(resolvedReference.type.canonicalText, psiMethod.project)
+            }else if (resolvedReference is PsiParameter){
+                PsiUtils.isInProject(resolvedReference.type.canonicalText, psiMethod.project)
+            } else {
+                false
+            }
+            if (filterCondition)
+                envyReferences.add(reference)
+        }
+        return envyReferences.isNotEmpty()
+    }
+
+    private fun isSetter(it: PsiMethod) : Boolean {
+        return ((it.name.startsWith("set") && it.parameterList.parameters.size == 1)) || setSingleVariable(it)
+    }
+
+    private fun setSingleVariable(it: PsiMethod): Boolean {
+        if (it.body==null)
+            return false
+        return it.body!!.statements.size==1
+                && it.body!!.statements[0] is PsiExpressionStatement
+                && (it.body!!.statements[0] as PsiExpressionStatement).children[0] is PsiAssignmentExpression
+    }
+
+    private fun isGetter(it: PsiMethod) : Boolean {
+        return ((it.name.startsWith("get") && it.parameterList.isEmpty))
+                || returnsSingleField(it)
+    }
+
+    private fun returnsSingleField(it: PsiMethod): Boolean {
+        if (it.body==null)
+            return false
+        return (
+                it.body!!.statements.size == 1
+                && it.body!!.statements.get(0) is PsiReturnStatement
+                && (it.body!!.statements.get(0) as PsiReturnStatement).returnValue is PsiReferenceExpression)
+    }
+
     private fun getSignatureString(psiMethod: PsiMethod) = "${psiMethod.modifierList.text} ${psiMethod.name}${psiMethod.parameterList.text}"
 
     private fun createRefactoringObjectsAndShowSuggestions(moveMethodSuggestions: List<MoveMethodSuggestion>) {
-            val refObjs = moveMethodSuggestions
+            val allRefObjs = moveMethodSuggestions
                 .map {
                     MoveMethodFactory.createMoveMethodFromPsiMethod(
                         currentEditor,
@@ -180,6 +235,7 @@ open class ApplyMoveMethodInteractiveIntention : ApplySuggestRefactoringIntentio
                     )
                 }
                 .reduce { acc, abstractRefactorings -> acc + abstractRefactorings }
+            val refObjs = allRefObjs.subList(0, min(allRefObjs.size, 3))
             telemetryDataManager.setRefactoringObjects(refObjs)
             if (refObjs.isEmpty()){
                 invokeLater {
@@ -230,7 +286,6 @@ open class ApplyMoveMethodInteractiveIntention : ApplySuggestRefactoringIntentio
         efPanel.addObserver(elapsedTimeTelemetryDataObserver)
         val panel = efPanel.createPanel()
 
-        // Create the popup
         val efPopup =
             JBPopupFactory.getInstance()
                 .createComponentPopupBuilder(panel, efPanel.myRefactoringCandidateTable)
@@ -240,7 +295,10 @@ open class ApplyMoveMethodInteractiveIntention : ApplySuggestRefactoringIntentio
                 .setMovable(true)
                 .setCancelOnClickOutside(false)
                 .setCancelButton(IconButton("Close", AllIcons.Actions.Close))
+                .setCancelOnOtherWindowOpen(false)
+                .setCancelOnWindowDeactivation(false)
                 .createPopup()
+        // Create the popup
 
         // Add onClosed listener
         efPopup.addListener(object : JBPopupListener {
@@ -270,9 +328,7 @@ open class ApplyMoveMethodInteractiveIntention : ApplySuggestRefactoringIntentio
 
         // Show the popup at the top right corner of the current editor
         val contentComponent = editor.contentComponent
-        val visibleRect: Rectangle = contentComponent.visibleRect
-        val point = Point(visibleRect.x + visibleRect.width - 500, visibleRect.y)
-        efPopup.show(RelativePoint(contentComponent, point))
+        efPopup.show(RelativePoint.getNorthEastOf(contentComponent))
     }
 
     private fun getSuggestionPriority(
@@ -322,7 +378,8 @@ open class ApplyMoveMethodInteractiveIntention : ApplySuggestRefactoringIntentio
 
     private fun getMethodCompatibility(
         uniqueSuggestions: List<MoveMethodSuggestion>,
-        psiClass: PsiClass
+        psiClass: PsiClass,
+        allMethodsInClass: List<PsiMethod>
     ): List<Pair<MoveMethodSuggestion, Double>> {
         val methodSimilarity = runReadAction {
             uniqueSuggestions.map { suggestion ->
@@ -330,19 +387,14 @@ open class ApplyMoveMethodInteractiveIntention : ApplySuggestRefactoringIntentio
                     log2fileAndViewer("Method ${suggestion.methodName} not found in class", logger)
                     return@map Pair(suggestion, -1.0)
                 }
-                val methodIndex = psiClass.text.indexOf(suggestion.psiMethod.text)
-                val classTextWithoutMethod = if (methodIndex==-1){
-                    psiClass.text
-                }else {
-
-                    psiClass.text.substring(
-                        0,
-                        methodIndex
-                    ) + psiClass.text.substring(methodIndex + suggestion.psiMethod.text.length, psiClass.text.length)
+                val otherMethods = allMethodsInClass.filter { it.name == suggestion.methodName && it != suggestion.psiMethod}
+                var classTextWithoutMethod = getClassWithoutMethod(psiClass.text, suggestion.psiMethod)
+                for (method in otherMethods){
+                    classTextWithoutMethod = getClassWithoutMethod(classTextWithoutMethod, method)
                 }
-                val methodText = suggestion.psiMethod.text
 
-                val similarity = computeCosineSimilarity(methodText, classTextWithoutMethod)
+//                val similarity = VoyageAiEmbeddingModelIT().computeVoyageAiCosineSimilarity(suggestion.psiMethod.text, classTextWithoutMethod, VoyageAiEmbeddingModelName.VOYAGE_3_LITE)
+                val similarity = computeCosineSimilarity(suggestion.psiMethod.text, classTextWithoutMethod)
                 Pair(suggestion, similarity)
             }.sortedBy { it.second }
     //                .map { it.first }
@@ -352,6 +404,23 @@ open class ApplyMoveMethodInteractiveIntention : ApplySuggestRefactoringIntentio
 //        val top15MM = top15Suggestions.map { it.first }
 //        logMethods(top15MM, -2, 0)
         return top15SuggestionsWithScore
+    }
+
+    private fun getClassWithoutMethod(
+        psiClassText: String,
+        psiMethod: PsiMethod
+    ): String {
+        val methodIndex = psiClassText.indexOf(psiMethod.text)
+        val classTextWithoutMethod = if (methodIndex == -1) {
+            psiClassText
+        } else {
+
+            psiClassText.substring(
+                0,
+                methodIndex
+            ) + psiClassText.substring(methodIndex + psiMethod.text.length, psiClassText.length)
+        }
+        return classTextWithoutMethod
     }
 
     private fun condenseMethodCode(

@@ -150,7 +150,7 @@ class MoveMethodFactory {
                         runReadAction{ methodToMove.containingClass },
                         project,
                         llmChatModel,
-                        telemetryDataManager)?: targetPivotsSorted
+                        telemetryDataManager)?.filter { it.rationale!=null } ?: targetPivotsSorted
                 else
                     targetPivotsSorted
             if (pivotsSortedByLLM.isEmpty())
@@ -237,6 +237,7 @@ class MoveMethodFactory {
             return runReadAction {
                 val processor = MoveInstanceMethodProcessorAutoValidator(
                     project, methodToMove, it.psiElement as PsiVariable, "public",
+                    false,
                     runReadAction {
                         getParamNamesIfNeeded(
                             MoveInstanceMembersUtil.getThisClassesToMembers(methodToMove),
@@ -453,9 +454,10 @@ class MoveMethodFactory {
             }
             override fun performRefactoring(project: Project, editor: Editor, file: PsiFile) {
                 super.performRefactoring(project, editor, file)
-                val moveDialog = MyMoveInstanceMethodDialog(methodToMove, arrayOf(psiVariable))
-                moveDialog.showAndGet()
-                applied = moveDialog.triggeredRefactoring
+                applied = false
+                val moveDialog = MyMoveInstanceMethodDialog(methodToMove, arrayOf(psiVariable), MyMoveCallBack(this))
+                moveDialog.show()
+//                applied = moveDialog.triggeredRefactoring
                 reverseRefactoring = getReverseRefactoringObject(project, editor, file)
             }
 
@@ -536,6 +538,12 @@ class MoveMethodFactory {
 
     }
 
+    class MyMoveCallBack(val ref: AbstractRefactoring): MoveCallback {
+        override fun refactoringCompleted() {
+            ref.applied = true
+        }
+    }
+
     class MyMoveStaticMethodRefactoring(
         override val startLoc: Int,
         override val endLoc: Int,
@@ -550,24 +558,13 @@ class MoveMethodFactory {
                     "Rationale: $rationale"
         }
 
-        class StaticMoveCallBack(val ref: MyMoveStaticMethodRefactoring): MoveCallback {
-            override fun refactoringCompleted() {
-                ref.applied = true
-            }
-        }
+
 
         override fun performRefactoring(project: Project, editor: Editor, file: PsiFile) {
             super.performRefactoring(project, editor, file)
-//            val refFactory = JavaRefactoringFactoryImpl(project)
-//            val moveRefactoring =
-//                refFactory.createMoveMembers(
-//                    arrayOf(methodToMove),
-//                    classToMoveTo,
-//                    "public")
-//            moveRefactoring.run()
             applied = false
             val dialog = MoveMembersDialog(
-                file.project, methodToMove.containingClass!!, classToMoveTo, setOf(methodToMove), StaticMoveCallBack(this))
+                file.project, methodToMove.containingClass!!, classToMoveTo, setOf(methodToMove), MyMoveCallBack(this))
             dialog.show()
             reverseRefactoring = getReverseRefactoringObject(project, editor, file)
         }

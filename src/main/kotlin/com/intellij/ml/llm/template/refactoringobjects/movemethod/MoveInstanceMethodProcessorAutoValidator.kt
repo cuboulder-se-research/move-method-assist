@@ -6,6 +6,7 @@ import com.intellij.psi.PsiClass
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiMethod
 import com.intellij.psi.PsiVariable
+import com.intellij.refactoring.move.MoveCallback
 import com.intellij.refactoring.move.moveInstanceMethod.MoveInstanceMethodProcessor
 import com.intellij.usageView.UsageInfo
 import com.intellij.util.containers.MultiMap
@@ -14,8 +15,10 @@ class MoveInstanceMethodProcessorAutoValidator(project: Project,
                                                method: PsiMethod,
                                                targetVariable: PsiVariable,
                                                newVisibility: String,
-                                               oldClassParameterNames: Map<PsiClass, String> ):
-    MoveInstanceMethodProcessor(project, method, targetVariable, newVisibility, oldClassParameterNames) {
+                                               isOpenInEditor: Boolean,
+                                               oldClassParameterNames: Map<PsiClass, String>
+):
+    MoveInstanceMethodProcessor(project, method, targetVariable, newVisibility, isOpenInEditor, oldClassParameterNames) {
     override fun showConflicts(conflicts: MultiMap<PsiElement, String>, usages: Array<out UsageInfo>?): Boolean {
         if (conflicts.isEmpty) return true
         return conflicts.toHashMap()
@@ -40,4 +43,6 @@ class MoveInstanceMethodProcessorAutoValidator(project: Project,
     fun delegatePreprocessUsages(refUsages: Ref<Array<UsageInfo>>): Boolean{
         return preprocessUsages(refUsages)
     }
+
+
 }

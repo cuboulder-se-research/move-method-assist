@@ -22,6 +22,7 @@ abstract class AbstractRefactoring{
     var undone: Boolean = false
     var reverseRefactoring: AbstractRefactoring? = null
     var userRating: String? = null
+    var startedRefactoringFlow = false
 
 //    companion object{
 //        internal fun f(): Int{
@@ -30,6 +31,7 @@ abstract class AbstractRefactoring{
 //    }
     open fun performRefactoring(project: Project, editor: Editor, file: PsiFile){
         applied = true
+        startedRefactoringFlow = true
     }
 
 
