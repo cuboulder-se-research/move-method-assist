@@ -223,7 +223,7 @@ open class ApplyMoveMethodInteractiveIntention : ApplySuggestRefactoringIntentio
     private fun getSignatureString(psiMethod: PsiMethod) = "${psiMethod.modifierList.text} ${psiMethod.name}${psiMethod.parameterList.text}"
 
     private fun createRefactoringObjectsAndShowSuggestions(moveMethodSuggestions: List<MoveMethodSuggestion>) {
-            val refObjs = moveMethodSuggestions
+            val allRefObjs = moveMethodSuggestions
                 .map {
                     MoveMethodFactory.createMoveMethodFromPsiMethod(
                         currentEditor,
@@ -235,6 +235,7 @@ open class ApplyMoveMethodInteractiveIntention : ApplySuggestRefactoringIntentio
                     )
                 }
                 .reduce { acc, abstractRefactorings -> acc + abstractRefactorings }
+            val refObjs = allRefObjs.subList(0, min(allRefObjs.size, 3))
             telemetryDataManager.setRefactoringObjects(refObjs)
             if (refObjs.isEmpty()){
                 invokeLater {
