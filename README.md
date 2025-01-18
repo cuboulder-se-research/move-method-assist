@@ -14,7 +14,7 @@ the reliability of IntelliJ IDE to carry out correctly the code transformations.
 
 ## Installation
 
-- Download Intellij IDEA 2023.1
+- Download Intellij IDEA 2024.1
 - Download the plugin from this repository: [refactoring-assistant-plugin.zip](dist%2Frefactoring-assistant-plugin.zip)
 - Then, follow the instructions [here](https://www.jetbrains.com/help/idea/managing-plugins.html#install_plugin_from_disk) to “install plugin from disk” in your IDE. Be sure to restart the IDE.
   
