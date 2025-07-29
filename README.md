@@ -1,7 +1,7 @@
 # Move-Method Assistant
 
 <!-- Plugin description -->
-Researching collaboration between LLMs and IDEs to suggest the move of misplaces method to the right class. 
+MM-Assist is an IntelliJ plugin that uses LLMs and IDEs to suggest the move of misplaces method to the right class. 
 This tool leverages the power of LLMs to provide suggestions about what method can be moved, but leverages
 the reliability of IntelliJ IDE to carry out correctly the code transformations.
 <!-- Plugin description end -->
