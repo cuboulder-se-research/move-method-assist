@@ -2,7 +2,7 @@
 layout: default
 ---
 
-*ICSME'25 Move-Method Professional!*
+*ICSME'25 Move-Method Assist!*
 
 # Replication Package Outline
 
@@ -101,7 +101,7 @@ layout: default
 ```
 
 ## Tool Download and Installation Instructions
-MMpro is an IntelliJ plugin. It requires Intellij 2024.1, and an OpenAI API key. 
+MM-Assist is an IntelliJ plugin. It requires Intellij 2024.1, and an OpenAI API key. 
 Check [this](/installation) page, for detailed download and installation instructions.
 
 ## Source Code
