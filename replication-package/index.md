@@ -15,7 +15,7 @@ layout: default
 ## Demo-video
 
 <video width="640" height="480" controls>
-  <source src="mm-pro-demo.mp4" type="video/mp4">
+  <source src="move-method-assist/mm-pro-demo.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
@@ -105,7 +105,7 @@ MM-Assist is an IntelliJ plugin. It requires Intellij 2024.1, and an OpenAI API 
 Check [this](installation) page, for detailed download and installation instructions.
 
 ## Source Code
-To be made available after the paper is reviewed.
+View it on [github](https://www.github.com/cuboulder-se-research/move-method-assist).
 
 ## Datasets
 Download [here](artifacts/datasets.zip) 
