@@ -15,7 +15,7 @@ layout: default
 ## Demo-video
 
 <video width="640" height="480" controls>
-  <source src="move-method-assist/mm-pro-demo.mp4" type="video/mp4">
+  <source src="mm-pro-demo.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
