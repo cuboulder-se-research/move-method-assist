@@ -1,0 +1,8 @@
+title: Replication package for ICSME'25 - MMpro!
+description: "Together We Are Better: LLM, IDE and Semantic Embedding to Assist Move Method Refactoring"
+show_downloads: true
+google_analytics:
+theme: jekyll-theme-cayman
+plugins_zip: artifacts/mm-pro.zip
+sources_zip: artifacts/sources.zip
+datasets_zip: artifacts/datasets.zip
