@@ -102,7 +102,7 @@ layout: default
 
 ## Tool Download and Installation Instructions
 MM-Assist is an IntelliJ plugin. It requires Intellij 2024.1, and an OpenAI API key. 
-Check [this](/installation) page, for detailed download and installation instructions.
+Check [this](installation) page, for detailed download and installation instructions.
 
 ## Source Code
 To be made available after the paper is reviewed.
